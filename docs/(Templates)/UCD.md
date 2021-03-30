@@ -18,7 +18,7 @@ However, be aware, this is a pedagogical simplification. On further projects and
 | US2 - Send the Sample to the Lab | [ShortNameOfUS2](US2.md)  |
 | US3 - Validate the Client's Identity| [ShortNameOfUS3](US3.md)|
 | US4 - Register a new Client| [ShortNameOfUS4](US4.md)|
-| US4 - Register the tests| [ShortNameOfUS4](US4.md)|
+| US5 - Register the tests| [ShortNameOfUS5](US5.md)|
 | US4 - Register a new Client| [ShortNameOfUS4](US4.md)|
 | US4 - Register a new Client| [ShortNameOfUS4](US4.md)|
 | US4 - Register a new Client| [ShortNameOfUS4](US4.md)|
