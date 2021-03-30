@@ -12,7 +12,7 @@
 | **OO** | **OO** | Acronym for Oriented Objects |
 | **JaCoCo** | **JaCoCo** | Acronym for Java Code Coverage. Its the ammount of code thats covered by tests.  |
 | **SVG** | **GVE** | Acronym for Scalable Vector Graphics. It's a type of a picture like png, but with the difference that over the zoom, the image always remains the same, without loss of quality |
-| **Hemogram** | **Hemograma** | A Hemogram is an exam that evaluates a patient's blood cells, that is, those of the white and red series, platelet count, reticulocytes and hematological indexes |
+| **Hemogram** | **Hemograma** | Systematic report of the findings from a blood examination |
 | **Client** | **Cliente** | Client of the laboratory |
 | **Receptionist** | **Recepcionista** | Recepcionist of the laboratory who analyses the clients information and prescriptions and validates clients |
 | **Medical Lab Technician** | **Técnico Médico** | Actor who will prepare the client for sample collection |
