@@ -14,9 +14,14 @@ However, be aware, this is a pedagogical simplification. On further projects and
 # Use Cases / User Stories
 | UC/US  | Description                                                               |                   
 |:----|:------------------------------------------------------------------------|
-| US1 | [ShortNameOfUS1](US1.md)   |
-| US2 | [ShortNameOfUS2](US2.md)  |
-| US3 | [ShortNameOfUS3](US3.md)|
-| US4 | [ShortNameOfUS4](US4.md)|
+| US1 - Collect Sample | [ShortNameOfUS1](US1.md)   |
+| US2 - Send the Sample to the Lab | [ShortNameOfUS2](US2.md)  |
+| US3 - Validate the Client's Identity| [ShortNameOfUS3](US3.md)|
+| US4 - Register a new Client| [ShortNameOfUS4](US4.md)|
+| US4 - Register the tests| [ShortNameOfUS4](US4.md)|
+| US4 - Register a new Client| [ShortNameOfUS4](US4.md)|
+| US4 - Register a new Client| [ShortNameOfUS4](US4.md)|
+| US4 - Register a new Client| [ShortNameOfUS4](US4.md)|
+| US4 - Register a new Client| [ShortNameOfUS4](US4.md)|
 | ... | ...|
 | US326 | [ShortNameOfUS4](US326.md)|
