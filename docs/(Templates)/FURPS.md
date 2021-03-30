@@ -19,7 +19,7 @@ _Evaluates the user interface. It has several subcategories,
 among them: error prevention; interface aesthetics and design; help and
 documentation; consistency and standards._
 
-.
+...
 
 
 ## Reliability
