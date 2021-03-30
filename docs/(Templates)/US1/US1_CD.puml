@@ -2,5 +2,5 @@
 'https://plantuml.com/use-case-diagram
 
 
-User -> (US1 - Collect Sample)
+Doctor -> (US1 - Collect Sample)
 @enduml
