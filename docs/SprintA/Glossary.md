@@ -28,7 +28,7 @@
 | **Lab order** | **Pedido de laboratório** | It's a prescription to do some test/service on a laboratory |
 | **Linear Regression Algorithm** | **Algoritmo de Regressão Linear** | Linear Regression Algorithm is a machine learning algorithm based on supervised learning |
 | **Medical Lab Technician** | **Técnico Médico** | Actor who will prepare the client for sample collection |
-| **Network of laboratories** | **Rede de laboratórios** | FALTA AQUI SIGNIFICADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO |
+| **Network of laboratories** | **Rede de laboratórios** | Group of laboratories located across one or more countries that belongs to the same company |
 | **NHS** | **SNS** | Acronym for National Health Service |
 | **OO** | **OO** | Acronym for Oriented Objects |
 | **Receptionist** | **Recepcionista** | Recepcionist of the laboratory who analyses the clients information and prescriptions and validates clients |
