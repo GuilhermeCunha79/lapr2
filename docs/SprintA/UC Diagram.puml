@@ -1,22 +1,23 @@
 @startuml
 'https://plantuml.com/use-case-diagram
 
-
+left to right direction
 :Receptionist: as Recep
-Recep -up-> (UC1 - Register new Client)
-Recep -down-> (UC2 - Register Test to perform to a client)
+Recep --> (UC1 - Register new Client)
+Recep --> (UC2 - Register Test to perform to a client)
 :Clinical Chemistry Technologist: -down-> (UC3 - Record Sample Test Results)
 :Specialist Doctor: -down-> (UC4 - Save diagnosis and report for each sample)
 :Laboratory Coordinator: as lc
-(UC6 - Confirm diagnosis and Reports) as UC5
-(UC7 - Send SMS and e-mail to Client) as UC6
+(UC6 - Confirm diagnosis and Reports) as UC6
+(UC7 - Send SMS and e-mail to Client) as UC7
 :Lab Technician: as lt
-(UC7 - Record Sample) as UC7
-(UC8 - Generate Barcode to Identify samples) as UC8
+(UC8 - Record Sample) as UC8
+(UC9 - Generate Barcode to Identify samples) as UC9
 
-lc --> UC5
-UC5 --> UC6
+:Company: --> (UC9 - Generate Daily Reports)
+lc --> UC6
+UC6 --> UC7
 
-lt --> UC7
-UC7 --> UC8
+lt --> UC8
+UC8 --> UC9
 @enduml
