@@ -12,7 +12,7 @@ Recep -down-> (UC2 - Register Test to perform to a client)
 (UC7 - Send SMS and e-mail to Client) as UC6
 :Lab Technician: as lt
 (UC7 - Record Sample) as UC7
-(UC8 - Generate Barcode to Identify samples) as UC8
+(UC8 - Generate barcode to identify samples) as UC8
 
 lc --> UC5
 UC5 --> UC6
