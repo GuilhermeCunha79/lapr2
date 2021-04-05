@@ -1,6 +1,6 @@
 # Glossary
 
-| **_TEA_** (EN)  | **_TEA_** (PT) | **_Description_** (EN)                                           |                                       
+| **_TEA_** (EN)  | **_TEA_** (PT) | **_Description_** (EN)                                          |                                       
 |:------------------------|:-----------------|:--------------------------------------------|
 | **Algorithm** | **Algoritmo** | Is a finite sequence of well-defined, computer-implementable instructions |
 | **API** | **API** | Acronym for Application Program Interface |
