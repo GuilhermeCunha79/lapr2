@@ -30,7 +30,7 @@
 | **Laboratory Coordinator** | **Coordenador do Laboratório** | It's the person responsible for verify all the tests and confirm the truth of it |
 | **Lab order** | **Pedido de laboratório** | It's a prescription to do some test/service on a laboratory |
 | **Linear Regression Algorithm** | **Algoritmo de Regressão Linear** | Linear Regression Algorithm is a machine learning algorithm based on supervised learning |
-| **Many Labs** | **Many Labs** | SIGNIFICADOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO |
+| **Many Labs** | **Many Labs** | Is an English company that has a network of clinical analysis laboratories and that wants an application to manage the clinical analyses performed in its laboratories |
 | **Medical Lab Technician** | **Técnico de Laboratório Médico** | Actor who will prepare the client for sample collection |
 | **Network of laboratories** | **Rede de laboratórios** | A number of Laboratories that are connected together so that they can share information |
 | **NHS** | **SNS** | Acronym for National Health Service |
