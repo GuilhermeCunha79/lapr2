@@ -1,6 +1,0 @@
-@startuml
-'https://plantuml.com/use-case-diagram
-
-
-Doctor -> (US1 - Collect Sample)
-@enduml

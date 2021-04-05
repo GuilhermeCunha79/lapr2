@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+
+:Receptionist: as Recep
+Recep -up-> (UC1 - Register new Client)
+Recep -down-> (UC2 - Register Test to perform to a client)
+:Clinical Chemistry Technologist: -down-> (UC3 - Record Sample Test Results)
+:Specialist Doctor: -down-> (UC4 - Save diagnosis and report for each sample)
+:Laboratory Coordinator: as lc
+(UC6 - Confirm diagnosis and Reports) as UC5
+(UC7 - Send SMS and e-mail to Client) as UC6
+:Lab Technician: as lt
+(UC7 - Record Sample) as UC7
+(UC8 - Generate barcode to identify samples) as UC8
+
+lc --> UC5
+UC5 --> UC6
+
+lt --> UC7
+UC7 --> UC8
+@enduml
