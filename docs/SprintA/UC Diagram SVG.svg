@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1236.6px" preserveAspectRatio="none" style="width:574px;height:1236px;" version="1.1" viewBox="0 0 574 1236" width="574.2px" zoomAndPan="magnify"><defs><filter height="300%" id="f1tgr84hs7gr61" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="1.8"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="3.6" dy="3.6" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[13d33e681bb8b80feb56fac81b77103f]
+entity Recep--><ellipse cx="94.05" cy="1116" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="7.2" ry="7.2" style="stroke:#A80036;stroke-width:1.35;"/><path d="M94.05,1123.2 L94.05,1147.5 M82.35,1130.4 L105.75,1130.4 M94.05,1147.5 L82.35,1161 M94.05,1147.5 L105.75,1161 " fill="none" filter="url(#f1tgr84hs7gr61)" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="70.2" x="58.95" y="1179.0299">Receptionist</text><ellipse cx="400.0538" cy="1117.8008" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="90.4538" ry="20.2508" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="145.8" x="327.1538" y="1121.1564">UC1 - Register new Client</text><ellipse cx="400.0249" cy="1197.895" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="130.9249" ry="28.345" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="233.1" x="283.4749" y="1201.2507">UC2 - Register Test to perform to a client</text><!--MD5=[b6d71c7b5a3b5919d10eb67fbf297455]
+entity Clinical Chemistry Technologist--><ellipse cx="94.05" cy="984.6" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="7.2" ry="7.2" style="stroke:#A80036;stroke-width:1.35;"/><path d="M94.05,991.8 L94.05,1016.1 M82.35,999 L105.75,999 M94.05,1016.1 L82.35,1029.6 M94.05,1016.1 L105.75,1029.6 " fill="none" filter="url(#f1tgr84hs7gr61)" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="177.3" x="5.4" y="1047.6299">Clinical Chemistry Technologist</text><ellipse cx="400.1155" cy="1013.2331" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="114.3655" ry="25.0331" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="198" x="301.1155" y="1016.5888">UC3 - Record Sample Test Results</text><!--MD5=[5c107df4c3a6612dd5cfe4282a9cf4f8]
+entity Specialist Doctor--><ellipse cx="94.05" cy="798.3" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="7.2" ry="7.2" style="stroke:#A80036;stroke-width:1.35;"/><path d="M94.05,805.5 L94.05,829.8 M82.35,812.7 L105.75,812.7 M94.05,829.8 L82.35,843.3 M94.05,829.8 L105.75,843.3 " fill="none" filter="url(#f1tgr84hs7gr61)" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="95.4" x="46.35" y="861.3299">Specialist Doctor</text><ellipse cx="399.9534" cy="728.0807" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="153.3534" ry="32.8307" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="279.9" x="260.0034" y="731.4363">UC4 - Save diagnosis and report for each sample</text><ellipse cx="400.0621" cy="827.2824" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="163.3621" ry="34.8324" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="300.6" x="249.7621" y="830.6381">UC10 - Uses External Module to help Validation Work</text><ellipse cx="399.9783" cy="925.1857" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="146.6283" ry="31.4857" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="166.5" x="314.9283" y="920.6171">UC11 - After Validation Work,</text><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="225.9" x="288.8283" y="936.4655">Reports become available in the system</text><!--MD5=[cade383c679c4100475c230cbe0e5423]
+entity Employee--><ellipse cx="94.05" cy="603.9" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="7.2" ry="7.2" style="stroke:#A80036;stroke-width:1.35;"/><path d="M94.05,611.1 L94.05,635.4 M82.35,618.3 L105.75,618.3 M94.05,635.4 L82.35,648.9 M94.05,635.4 L105.75,648.9 " fill="none" filter="url(#f1tgr84hs7gr61)" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="55.8" x="66.15" y="666.9299">Employee</text><ellipse cx="399.8941" cy="632.4888" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="143.3941" ry="30.8388" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="259.2" x="270.2941" y="635.8445">UC12 - Option to order clients by TIF or name</text><!--MD5=[9b765648a409d02f5ba0bbb9cb84ff33]
+entity lc--><ellipse cx="94.05" cy="455.4" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="7.2" ry="7.2" style="stroke:#A80036;stroke-width:1.35;"/><path d="M94.05,462.6 L94.05,486.9 M82.35,469.8 L105.75,469.8 M94.05,486.9 L82.35,500.4 M94.05,486.9 L105.75,500.4 " fill="none" filter="url(#f1tgr84hs7gr61)" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="133.2" x="27.45" y="518.4299">Laboratory Coordinator</text><ellipse cx="400.1507" cy="460.1001" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="120.7007" ry="26.3001" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="211.5" x="294.4007" y="463.4558">UC6 - Confirm diagnosis and Reports</text><ellipse cx="400.2299" cy="543.546" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="119.4299" ry="26.046" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="208.8" x="295.8299" y="546.9016">UC7 - Send SMS and e-mail to Client</text><!--MD5=[866f61fb5c01560ccec2366ae0cc6d7f]
+entity lt--><ellipse cx="94.05" cy="331.2" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="7.2" ry="7.2" style="stroke:#A80036;stroke-width:1.35;"/><path d="M94.05,338.4 L94.05,362.7 M82.35,345.6 L105.75,345.6 M94.05,362.7 L82.35,376.2 M94.05,362.7 L105.75,376.2 " fill="none" filter="url(#f1tgr84hs7gr61)" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="87.3" x="50.4" y="394.2299">Lab Technician</text><ellipse cx="400.0815" cy="359.8263" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="80.5815" ry="18.2763" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="123.3" x="338.4315" y="363.182">UC8 - Record Sample</text><!--MD5=[dea5a8cbafd5e61885afb998ca4da34c]
+entity External API--><ellipse cx="94.05" cy="225" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="7.2" ry="7.2" style="stroke:#A80036;stroke-width:1.35;"/><path d="M94.05,232.2 L94.05,256.5 M82.35,239.4 L105.75,239.4 M94.05,256.5 L82.35,270 M94.05,256.5 L105.75,270 " fill="none" filter="url(#f1tgr84hs7gr61)" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="68.4" x="59.85" y="288.0299">External API</text><ellipse cx="400.0821" cy="253.6264" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="139.0821" ry="29.9764" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="250.2" x="274.9821" y="256.9821">UC9 - Generate Barcode to Identify samples</text><!--MD5=[d9d97fb087edb23fa2cf69ae7cf5153c]
+entity Company--><ellipse cx="94.05" cy="118.8" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="7.2" ry="7.2" style="stroke:#A80036;stroke-width:1.35;"/><path d="M94.05,126 L94.05,150.3 M82.35,133.2 L105.75,133.2 M94.05,150.3 L82.35,163.8 M94.05,150.3 L105.75,163.8 " fill="none" filter="url(#f1tgr84hs7gr61)" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="54" x="67.05" y="181.8299">Company</text><ellipse cx="400.2473" cy="147.5495" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="101.4473" ry="22.4495" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="170.1" x="315.1973" y="150.9051">UC9 - Generate Daily Reports</text><!--MD5=[0ba5ee7700168656dc1b457c6fe9fdac]
+entity Client--><ellipse cx="94.05" cy="12.6" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="7.2" ry="7.2" style="stroke:#A80036;stroke-width:1.35;"/><path d="M94.05,19.8 L94.05,44.1 M82.35,27 L105.75,27 M94.05,44.1 L82.35,57.6 M94.05,44.1 L105.75,57.6 " fill="none" filter="url(#f1tgr84hs7gr61)" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="32.4" x="77.85" y="75.6299">Client</text><ellipse cx="399.9973" cy="41.2095" fill="#FEFECE" filter="url(#f1tgr84hs7gr61)" rx="123.2473" ry="26.8095" style="stroke:#A80036;stroke-width:1.35;"/><text fill="#000000" font-family="sans-serif" font-size="12.6" lengthAdjust="spacing" textLength="216.9" x="291.5473" y="44.5651">US11 - Check his medical tests results</text><!--MD5=[55fa4dcef30c7523370c5a17f2120ea3]
+link Recep to UC1 - Register new Client--><path d="M129.258,1141.758 C173.016,1137.87 250.308,1131.012 310.995,1125.621 " fill="none" id="Recep-to-UC1 - Register new Client" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="315.711,1125.207,307.3235,1122.3399,311.2287,1125.6063,307.9624,1129.5115,315.711,1125.207" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[3741b7652932554d3935429dc54314d8]
+link Recep to UC2 - Register Test to perform to a client--><path d="M129.258,1150.785 C168.858,1157.697 235.908,1169.406 293.265,1179.414 " fill="none" id="Recep-to-UC2 - Register Test to perform to a client" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="297.729,1180.197,290.382,1175.238,293.2981,1179.4113,289.1249,1182.3274,297.729,1180.197" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[8509941273645556317546d080ba21d2]
+link Clinical Chemistry Technologist to UC3 - Record Sample Test Results--><path d="M182.934,1013.4 C213.462,1013.4 248.202,1013.4 280.764,1013.4 " fill="none" id="Clinical Chemistry Technologist-to-UC3 - Record Sample Test Results" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="285.552,1013.4,277.452,1009.8,281.052,1013.4,277.452,1017,285.552,1013.4" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[965bb53a9bd14cca17c860b67b0d75de]
+link Specialist Doctor to UC4 - Save diagnosis and report for each sample--><path d="M141.993,809.694 C169.488,799.695 204.921,787.095 236.7,776.7 C258.21,769.662 281.448,762.471 303.444,755.847 " fill="none" id="Specialist Doctor-to-UC4 - Save diagnosis and report for each sample" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="307.818,754.533,299.0245,753.4171,303.5085,755.8284,301.0972,760.3124,307.818,754.533" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[c0479cbe45047cc1e8d64a74ab75483d]
+link Specialist Doctor to UC10 - Uses External Module to help Validation Work--><path d="M141.813,827.1 C166.599,827.1 198.684,827.1 231.75,827.1 " fill="none" id="Specialist Doctor-to-UC10 - Uses External Module to help Validation Work" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="236.637,827.1,228.537,823.5,232.137,827.1,228.537,830.7,236.637,827.1" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[386042fd8fe9ead6873927e745481309]
+link Specialist Doctor to UC11 - After Validation Work, \n Reports become available in the system--><path d="M141.975,844.569 C169.461,854.586 204.903,867.186 236.7,877.5 C258.984,884.727 283.131,892.071 305.829,898.767 " fill="none" id="Specialist Doctor-to-UC11 - After Validation Work, \n Reports become available in the system" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="310.347,900.099,303.5947,894.3565,306.0305,898.8272,301.5598,901.2629,310.347,900.099" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[6d1a1786f167370f83860c9b495fee31]
+link Employee to UC12 - Option to order clients by TIF or name--><path d="M122.211,632.7 C152.019,632.7 202.167,632.7 251.667,632.7 " fill="none" id="Employee-to-UC12 - Option to order clients by TIF or name" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="256.455,632.7,248.355,629.1,251.955,632.7,248.355,636.3,256.455,632.7" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[2404435509fbcc8d750732e478d9c52e]
+link External API to UC9 - Generate Barcode to Identify samples--><path d="M128.376,253.8 C159.624,253.8 208.503,253.8 256.176,253.8 " fill="none" id="External API-to-UC9 - Generate Barcode to Identify samples" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="260.793,253.8,252.693,250.2,256.293,253.8,252.693,257.4,260.793,253.8" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[87cf8e2e8ad05b0427e9b0048b143314]
+link Company to UC9 - Generate Daily Reports--><path d="M121.149,147.6 C159.282,147.6 232.254,147.6 293.868,147.6 " fill="none" id="Company-to-UC9 - Generate Daily Reports" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="298.656,147.6,290.556,144,294.156,147.6,290.556,151.2,298.656,147.6" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[4628f1c95e1bef842de73935bdf499e6]
+link lc to UC6--><path d="M160.956,478.926 C196.29,476.109 240.867,472.545 281.871,469.269 " fill="none" id="lc-to-UC6" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="286.596,468.891,278.234,465.9503,282.1104,469.2509,278.8098,473.1272,286.596,468.891" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[0f0ba1e72312abc4231e31cc38343f71]
+link lc to UC7--><path d="M160.956,497.088 C203.364,505.368 259.083,516.249 305.964,525.402 " fill="none" id="lc-to-UC7" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="310.473,526.284,303.2106,521.2019,306.056,525.4237,301.8342,528.2691,310.473,526.284" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[d46cf3cb5be73576e70bdd9170d1a5fd]
+link lt to UC8--><path d="M137.889,360 C183.609,360 257.139,360 314.559,360 " fill="none" id="lt-to-UC8" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="319.365,360,311.265,356.4,314.865,360,311.265,363.6,319.365,360" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[55df863ae497334b93a9777569c81ac5]
+link Client to US11 - Check his medical tests results--><path d="M110.457,41.4 C140.49,41.4 209.178,41.4 272.025,41.4 " fill="none" id="Client-to-US11 - Check his medical tests results" style="stroke:#A80036;stroke-width:0.9;"/><polygon fill="#A80036" points="276.534,41.4,268.434,37.8,272.034,41.4,268.434,45,276.534,41.4" style="stroke:#A80036;stroke-width:0.9;"/><!--MD5=[598afecea46a25a87197723b45541271]
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+:Receptionist: as Recep
+Recep - -> (UC1 - Register new Client)
+Recep - -> (UC2 - Register Test to perform to a client)
+:Clinical Chemistry Technologist: -down-> (UC3 - Record Sample Test Results)
+:Specialist Doctor: - -> (UC4 - Save diagnosis and report for each sample)
+:Specialist Doctor: - -> (UC10 - Uses External Module to help Validation Work)
+:Specialist Doctor: - -> (UC11 - After Validation Work, \n Reports become available in the system)
+
+:Employee: - -> (UC12 - Option to order clients by TIF or name)
+
+:Laboratory Coordinator: as lc
+(UC6 - Confirm diagnosis and Reports) as UC6
+(UC7 - Send SMS and e-mail to Client) as UC7
+:Lab Technician: as lt
+(UC8 - Record Sample) as UC8
+:External API: - -> (UC9 - Generate Barcode to Identify samples)
+
+:Company: - -> (UC9 - Generate Daily Reports)
+lc - -> UC6
+lc - -> UC7
+
+lt - -> UC8
+
+
+:Client: - -> (US11 - Check his medical tests results)
+@enduml
+
+@startuml
+
+left to right direction
+:Receptionist: as Recep
+Recep - -> (UC1 - Register new Client)
+Recep - -> (UC2 - Register Test to perform to a client)
+:Clinical Chemistry Technologist: -down-> (UC3 - Record Sample Test Results)
+:Specialist Doctor: - -> (UC4 - Save diagnosis and report for each sample)
+:Specialist Doctor: - -> (UC10 - Uses External Module to help Validation Work)
+:Specialist Doctor: - -> (UC11 - After Validation Work, \n Reports become available in the system)
+
+:Employee: - -> (UC12 - Option to order clients by TIF or name)
+
+:Laboratory Coordinator: as lc
+(UC6 - Confirm diagnosis and Reports) as UC6
+(UC7 - Send SMS and e-mail to Client) as UC7
+:Lab Technician: as lt
+(UC8 - Record Sample) as UC8
+:External API: - -> (UC9 - Generate Barcode to Identify samples)
+
+:Company: - -> (UC9 - Generate Daily Reports)
+lc - -> UC6
+lc - -> UC7
+
+lt - -> UC8
+
+
+:Client: - -> (US11 - Check his medical tests results)
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 10:25:05 GMT 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>
