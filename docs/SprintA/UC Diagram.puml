@@ -12,14 +12,15 @@ Recep --> (UC2 - Register Test to perform to a client)
 
 :Employee: --> (UC12 - Option to order clients by TIF or name)
 
-:Laboratory Coordinator: as lc
+:Lab Coordinator: as lc
 (UC6 - Confirm diagnosis and Reports) as UC6
 (UC7 - Send SMS and e-mail to Client) as UC7
 :Lab Technician: as lt
 (UC8 - Record Sample) as UC8
 :External API: --> (UC9 - Generate Barcode to Identify samples)
 
-:Company: --> (UC9 - Generate Daily Reports)
+:Scheduler: --> (UC13 - Generate Daily Reports)
+:Scheduler: --> (UC5 - Company Performance Evaluation)
 lc --> UC6
 lc --> UC7
 

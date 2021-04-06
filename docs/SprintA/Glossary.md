@@ -32,7 +32,7 @@
 | **Headquarters** | **Sede** | The premises serving as the managerial and administrative centre of an organization |
 | **Hemogram** | **Hemograma** | Systematic report of the findings from a blood examination |
 | **JaCoCo** | **JaCoCo** | Acronym for Java Code Coverage. Its the amount of code that's covered by tests |
-| **Lab** | **Lab** | Acronym for Laboratories |
+| **Lab** | **Lab** | Short-form for Laboratories |
 | **Laboratory** | **Laboratório** | It's a room or building with equipment for doing scientific tests or for teaching science, or a place where chemicals or medicines are produced |
 | **Laboratory Coordinator** | **Coordenador do Laboratório** | It's the person responsible for verify all the tests and confirm the truth of it |
 | **Lab order** | **Pedido de laboratório** | It's a prescription to do some test/service on a laboratory |
@@ -44,12 +44,13 @@
 | **NHS** | **SNS** | Acronym for National Health Service |
 | **Notification** | **Notificação** | It's a message that is automatically sent to you on your mobile phone or computer |
 | **Object serialization** | **Seriação de objectos** | Is the conversion of an object to a series of bytes, so that the object can be easily saved to persistent storage or streamed across a communication link |
-| **OO** | **OO** | Acronym for Oriented Objects |
+| **OO** | **OO** | Acronym for Object Oriented |
 | **Ordering  Algorithm** | **Algoritmo de ordenação** | It's a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance |
 | **Parameter** | **Parametro** | A set of facts that establishes how something can or must happen or be done |
 | **Prediction Model** | **Modelo de Previsão** | Mathematical process that seeks to predict future events or outcomes by analysing patterns that are likely to forecast future results. |
 | **PLT** | **PLT** | Acronym for Plaquetes |
 | **RBC** | **GV** | Acronym for Red Blood Cell |
+
 | **Receptionist** | **Recepcionista** | Receptionist of the laboratory who analyses the clients information and prescriptions and validates clients |
 | **Report** | **Relatório** | Gives a description or information about something to someone else |
 | **Result** | **Resultado** | An item of information obtained by experiment or some other scientific method |
