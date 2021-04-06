@@ -44,7 +44,7 @@
 | Ordering  Algorithm | Algoritmo de ordenação | It's a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance |
 | Parameter | Parametro | A set of facts that establishes how something can or must happen or be done |
 | PLT | PLT | Acronym for Plaquetes |
-| Plaquetes | Plaquetas | Parameter tested on blood analises |
+| Plaquetes | Plaquetas | Parameter tested on blood analyses |
 | Prediction Model | Modelo de Previsão | Mathematical process that seeks to predict future events or outcomes by analysing patterns that are likely to forecast future results. |
 | RBC | GV | Acronym for Red Blood Cell |
 | Receptionist | Recepcionista | Receptionist of the laboratory who analyses the clients information and prescriptions and validates clients |

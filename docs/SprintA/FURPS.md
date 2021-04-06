@@ -8,9 +8,9 @@ _Specifies functionalities that:_
 - _are not related to US/UC, namely: Audit, Reporting and Security._
 
 -Reports generation
--All users should be authenticated with a password holding 7 alphanumeric characters,
+-All users should be authenticated with a password holding 7 alphanumeric characters.
 -including 3 capital letters & 2 digits, in order to use the app.
--Only Specialist Doctor can access clent data
+-Only Specialist Doctor can access client data
 
 ## Usability 
 
@@ -25,9 +25,7 @@ documentation; consistency and standards._
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
 
-
 -Need to ensure data persistence between two runs of the application
-
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
@@ -78,4 +76,4 @@ system being developed with other external systems._
 
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
 
-(fill in here )
+-Not specified.
