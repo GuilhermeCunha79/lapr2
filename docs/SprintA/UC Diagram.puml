@@ -5,27 +5,25 @@ left to right direction
 :Receptionist: as Recep
 Recep --> (UC1 - Register new Client)
 Recep --> (UC2 - Register Test to perform to a client)
-:Clinical Chemistry Technologist: -down-> (UC3 - Record Sample Test Results)
+:Clinical Chemistry Technologist: --> (UC3 - Record Sample Test Results)
 :Specialist Doctor: --> (UC4 - Save diagnosis and report for each sample)
-:Specialist Doctor: --> (UC10 - Uses External Module to help Validation Work)
-:Specialist Doctor: --> (UC11 - After Validation Work, \n Reports become available in the system)
-
-:Employee: --> (UC12 - Option to order clients by TIF or name)
+:Specialist Doctor: --> (UC5 - Uses External Module to help Validation Work)
+:Specialist Doctor: --> (UC6 - After Validation Work, \n Reports become available in the system)
 
 :Lab Coordinator: as lc
-(UC6 - Confirm diagnosis and Reports) as UC6
-(UC7 - Send SMS and e-mail to Client) as UC7
+(UC7 - Confirm diagnosis and Reports) as UC7
+(UC8 - Send SMS and e-mail to Client) as UC8
 :Lab Technician: as lt
-(UC8 - Record Sample) as UC8
-:External API: --> (UC9 - Generate Barcode to Identify samples)
+(UC9 - Record Sample) as UC9
 
-:Scheduler: --> (UC13 - Generate Daily Reports)
-:Scheduler: --> (UC5 - Company Performance Evaluation)
-lc --> UC6
+:Scheduler: --> (UC10 - Generate Daily Reports)
+:Scheduler: --> (UC11 - Company Performance Evaluation)
 lc --> UC7
+lc --> UC8
 
-lt --> UC8
+lt --> UC9
 
-
-:Client: --> (US11 - Check his medical tests results)
+:Admin: --> (UC12 - Add new types of tests to the system)
+:Employee: --> (UC14 - Option to order clients by TIF or name)
+:Client: --> (US13 - Check his medical tests results)
 @enduml
