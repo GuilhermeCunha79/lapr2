@@ -142,7 +142,16 @@ An association is a relationship between instances of objects that indicates a r
 
 | Concept (A) 		|  Association   	|  Concept (B) |
 |----------	   		|:-------------:		|------:       |
-| C1  	| verb1    		 	| C2  |
+| Many Labs  	| has    		 	| Employees |
+| Employees  	| has    		 	| Admin  |
+| Employees  	| has    		 	| Doctor |
+| Employees  	| has    		 	| Recepcionist |
+| Employees  	| has    		 	| Medical Lab Techinician |
+| Doctor  	| performs    		 	| Tests |
+| Tests  	| has    		 	| Type of test |
+| Tests  	| requested    		 	| Client |
+
+
 | ...  	| ...    		 	| ...  |
 
 
