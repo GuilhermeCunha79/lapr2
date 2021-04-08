@@ -14,9 +14,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 ---
 
-**Transaction Line Items**
+**Transaction Line Itemss**
 
-* Blood Samples
+*
 
 ---
 
@@ -36,30 +36,30 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Roles of People or Organizations**
 
-*  ManyLabs
-*  NHS
-*  Client
-*  Receptionist
-*  Lab Coordinator
-*  Medical Lab Technician
-*  Specialist Doctor
-*  Clinical Chemistry Technologist
-*  Admin
-*  Employee
+* 
+
+
+---
+
 
 **Places**
 
-*  Labs
-*  Headquarters
+*Laboratory  
 
-**Noteworthy Events**
+---
+
+** Noteworthy Events**
 
 * 
 
+---
+
+
 **Physical Objects**
 
-*  Samples
+*Samples
 
+---
 
 
 **Descriptions of Things**
@@ -93,12 +93,13 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Organizations**
 
-*  ManyLabs
-*  NHS
+*  
+
+---
 
 **Other External/Collaborating Systems**
 
-*  External Barcode Generator
+*  
 
 
 ---
@@ -120,8 +121,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Documents mentioned/used to perform some work/**
 
-*   Lab Order
-*   Citizen Card
+* 
+---
 
 
 
@@ -140,19 +141,15 @@ An association is a relationship between instances of objects that indicates a r
 
 
 | Concept (A) 		|  Association   	|  Concept (B) |
-|----------	   		|:-------------:    |------:       |
-| Many Labs  	    | has    		 	| Employees |
-| Employees  	    | has    		 	| Admin  |
-| Employees  	    | has    		 	| Doctor |
-| Employees  	    | has    		 	| Recepcionist |
-| Employees  	    | has    		 	| Medical Lab Techinician |
-| Doctor  	        | performs    		| Tests |
-| Tests  	        | has    		 	| Type of test |
-| Receptionist  	| add 		 	    | Client |
-| Client  	        | request 		 	| Test |
-| Medical Lab Technician | collect      | Sample |
-| Medical Lab Technician | register     | Test |
-| Chemical Laboratory    | perform      | chemical analyses |
+|----------	   		|:-------------:		|------:       |
+| Many Labs  	| has    		 	| Employees |
+| Employees  	| has    		 	| Admin  |
+| Employees  	| has    		 	| Doctor |
+| Employees  	| has    		 	| Recepcionist |
+| Employees  	| has    		 	| Medical Lab Techinician |
+| Doctor  	| performs    		 	| Tests |
+| Tests  	| has    		 	| Type of test |
+| Tests  	| requested    		 	| Client |
 
 
 | ...  	| ...    		 	| ...  |

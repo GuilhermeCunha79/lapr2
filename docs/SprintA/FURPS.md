@@ -11,6 +11,8 @@ _Specifies functionalities that:_
 -All users should be authenticated with a password holding 7 alphanumeric characters.
 -including 3 capital letters & 2 digits, in order to use the app.
 -Only Specialist Doctor can access client data
+-It has a funcionality that notificate the client with the test results, by email and SMS; (page 2)
+-Support for generating reports. (page 2)
 
 ## Usability 
 
