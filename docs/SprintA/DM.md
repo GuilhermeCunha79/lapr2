@@ -10,7 +10,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Business Transactions**
 
-* Test
+*  Test 
 
 ---
 
@@ -18,6 +18,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 *  Blood Samples
 *  General Samples
+
 ---
 
 **Product/Service related to a Transaction or Transaction Line Item**
@@ -26,13 +27,11 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 ---
 
-
 **Transaction Records**
 
 *  
 
----  
-
+--- 
 
 **Roles of People or Organizations**
 
@@ -47,33 +46,36 @@ To identify domain conceptual classes, start by making a list of candidate conce
 *  Admin
 *  Employee
 
+---
+
 **Places**
 
 *  Labs
 *  Chemical Labs
 *  Headquarters
 
+---
+
 **Noteworthy Events**
 
-* Chemical Analyses
-* Test request
-* Write reports and diagnosis
+*  Chemical Analysis
+*  Test Request
+*  Write Reports & diagnosis
 
+---
 
 **Physical Objects**
 
 *  Samples
 
-
+---
 
 **Descriptions of Things**
 
 *  Type of Test
 *  Category
 
-
 ---
-
 
 **Catalogs**
 
@@ -81,13 +83,11 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 ---
 
-
 **Containers**
 
 *  
 
 ---
-
 
 **Elements of Containers**
 
@@ -95,34 +95,30 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 ---
 
-
 **Organizations**
 
-*  ManyLabs (Company)
+*  ManyLabs (company)
 *  NHS
 
+---
 
 **Other External/Collaborating Systems**
 
 *  External Barcode Generator
 
-
 ---
-
 
 **Records of finance, work, contracts, legal matters**
 
-* HNS reports
+*  NHS Reports 
 
 ---
-
 
 **Financial Instruments**
 
 *  
 
 ---
-
 
 **Documents mentioned/used to perform some work/**
 
@@ -131,7 +127,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 *  Reports
 *  Diagnosis
 
-
+---
 
 ###**Rationale to identify associations between conceptual classes**
 
