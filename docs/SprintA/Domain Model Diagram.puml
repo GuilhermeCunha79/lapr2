@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+company -- employee : > has
+company -- client : > has
+company -- "Lab Network" : > has
+"lab technician" -- "Lab Network" : > works at
+receptionist -- test : > register new
+employee -- "lab technician" : > has
+employee -- receptionist : > has
+headquarters -- "Chemical lab" : > has
+company -- headquarters : > has
+receptionist -- client : > add
+employee -- "lab coordinator" : > has
+employee -- admin : > has
+employee -- "specialist doctor" : > has
+admin -- test : > add new type
+test -- report : > has
+test -- diagnosis : > has
+"lab technician" -- sample : > collect
+sample -- test : < has
+"specialist doctor" -- diagnosis : > makes
+"specialist doctor" -- report : > write
+"specialist doctor" -- headquarters : > works at
+report -- client : > delivered to
+sample -- "Chemical lab" : < receive
+"lab coordinator" -- report : > validate
+client -- test : > request
+
+class client{
+NHS number
+Name
+TIN
+Birth Date
+
+}
+
+@enduml

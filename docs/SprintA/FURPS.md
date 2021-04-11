@@ -8,10 +8,15 @@ _Specifies functionalities that:_
 - _are not related to US/UC, namely: Audit, Reporting and Security._
 
 -Reports generation
+
 -All users should be authenticated with a password holding 7 alphanumeric characters.
+
 -including 3 capital letters & 2 digits, in order to use the app.
+
 -Only Specialist Doctor can access client data
+
 -It has a funcionality that notificate the client with the test results, by email and SMS; (page 2)
+
 -Support for generating reports. (page 2)
 
 ## Usability 
@@ -21,7 +26,9 @@ among them: error prevention; interface aesthetics and design; help and
 documentation; consistency and standards._
 
 -All images/figures should be exported in SVG format
+
 -English language is the only one supported
+
 -Application User manual???
 
 ## Reliability
@@ -52,9 +59,13 @@ configurability, installability, scalability and more._
 _Specifies or constraints the system design process. Examples may include: programming languages, software process, mandatory standards/patterns, use of development tools, class library, etc._
   
 -Developed in Java
+
 -Use of recognized coding standards
+
 -JavaDoc to generate documentation
+
 -Implementation of Object Oriented programming practices
+
 -Unit Test should be implemented using JUnit 4
 
 ### Implementation Constraints
@@ -64,7 +75,9 @@ such as: mandatory standards/patterns, implementation languages,
 database integrity, resource limits, operating system._
 
 -Developed in Java
+
 -IDE IntelliJ or Netbeans
+
 -UI developed in JavaFX 11
 
 ### Interface Constraints
