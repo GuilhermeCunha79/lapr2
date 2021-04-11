@@ -19,7 +19,7 @@ _Specifies functionalities that:_
 
 -Support for generating reports. (page 2)
 
-## Usability 
+## Usability
 
 _Evaluates the user interface. It has several subcategories,
 among them: error prevention; interface aesthetics and design; help and

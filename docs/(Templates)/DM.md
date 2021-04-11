@@ -10,7 +10,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Business Transactions**
 
-*
+* Test
 
 ---
 
@@ -22,7 +22,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Product/Service related to a Transaction or Transaction Line Item**
 
-*  
+*  Parameter
 
 ---
 
@@ -55,7 +55,10 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Noteworthy Events**
 
-* 
+* Chemical Analyses
+* Test request
+* Write reports and diagnosis
+
 
 **Physical Objects**
 
@@ -65,7 +68,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Descriptions of Things**
 
-*  
+*  Type of Test
+*  Category
 
 
 ---
@@ -94,8 +98,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Organizations**
 
-*  ManyLabs
+*  ManyLabs (Company)
 *  NHS
+
 
 **Other External/Collaborating Systems**
 
@@ -107,7 +112,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Records of finance, work, contracts, legal matters**
 
-* 
+* HNS reports
 
 ---
 
