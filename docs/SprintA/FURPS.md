@@ -14,7 +14,7 @@ _Specifies functionalities that:_
 *  It has a funcionality that notificate the client with the test results, by email and SMS; (page 2)
 *  Support for generating reports. (page 2)
 
-## Usability 
+## Usability
 
 _Evaluates the user interface. It has several subcategories,
 among them: error prevention; interface aesthetics and design; help and
