@@ -9,7 +9,7 @@
 | Analysis | Análises | The process of studying or examining something in an organized way to learn more about it, or a particular study of something |
 | Asymptotic behaviour | Comportamento Assintótico | Asymptotic analysis, also known as asymptotics, is a method of describing limiting behavior |
 | Barcode | Código de barras | It's an image consisting of a series of parallel black lines and white spaces that can be read by a scanner |
-| Benchmark Algorithm | Algoritmo de Ponto de referência | Is the act of running the algorithms of the program with some specifiend parameters to check the effectiveness of the algorithm |
+| Benchmark Algorithm | Algoritmo de Ponto de referência | Is the act of running the algorithms of the program with some specified parameters to check the effectiveness of the algorithm |
 | Blood test | Teste ao Sangue | Laboratory examination of a blood sample used to check for a variety of things, in the human body |
 | Brute-force Algorithm | Algoritmo de força bruta | It's a algorithm also known by generate and test, that consists in checking all positions of the list and find all the solutions that validates the given condition |
 | Citizen Card Number | Número do Cartão de Cidadão | It's used by the governments of many countries as a means of tracking their citizens |
@@ -44,11 +44,11 @@
 | Ordering  Algorithm | Algoritmo de ordenação | It's a method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance |
 | Parameter | Parametro | A set of facts that establishes how something can or must happen or be done |
 | PLT | PLT | Acronym for Plaquetes |
-| Plaquetes | Plaquetas | Parameter tested on blood analyses |
+| Plaquetes | Plaquetas | Parameter tested on blood analysis |
 | Prediction Model | Modelo de Previsão | Mathematical process that seeks to predict future events or outcomes by analysing patterns that are likely to forecast future results. |
 | RBC | GV | Acronym for Red Blood Cell |
 | Receptionist | Recepcionista | Receptionist of the laboratory who analyses the clients information and prescriptions and validates clients |
-| Red Blood Cell | Glóbulo Vermelho | Parameter to be tested on blood analises |
+| Red Blood Cell | Glóbulo Vermelho | Parameter to be tested on blood analysis |
 | Report | Relatório | Gives a description or information about something to someone else |
 | Result | Resultado | An item of information obtained by experiment or some other scientific method |
 | Samples | Amostras | A small amount of a substance that a doctor or scientist collects to examine it |
@@ -65,4 +65,4 @@
 | Validation work | Trabalho de validação | Process used to check if some procedure or activities is done without errors and maintains desired level of quality at all stages |
 | WBC | GB | Acronym for White Blood Cell | 
 | White Blood Cell | Glóbulo Branco | Parameter to be tested on blood analises |
-| Worst-Case Time Complexity | Complexidade Temporal no Pior Caso | It's specified when the given algorithm in terms of efficience is the worst possible, meaning that comparing to other possibilities, the chosen one is the slowest one |
+| Worst-Case Time Complexity | Complexidade Temporal no Pior Caso | It's specified when the given algorithm in terms of efficiency is the worst possible, meaning that comparing to other possibilities, the chosen one is the slowest one |

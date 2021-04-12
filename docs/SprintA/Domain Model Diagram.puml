@@ -17,6 +17,7 @@ employee -- "specialist doctor" : > has
 admin -- test : > add new type
 test -- report : > has
 test -- diagnosis : > has
+test -- testType : > has
 "lab technician" -- sample : > collect
 sample -- test : < has
 "specialist doctor" -- diagnosis : > makes
@@ -24,15 +25,18 @@ sample -- test : < has
 "specialist doctor" -- headquarters : > works at
 report -- client : > delivered to
 sample -- "Chemical lab" : < receive
-"lab coordinator" -- report : > validate
+"lab coordinator""1" -- report : > validate
 client -- test : > request
 
 class client{
-NHS number
-Name
-TIN
-Birth Date
+-NHS number
+-Name
+-TIN
+-Birth Date
+}
 
+class testType{
+-designation
 }
 
 @enduml

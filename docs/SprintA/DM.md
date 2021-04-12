@@ -53,6 +53,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 *  Labs
 *  Chemical Labs
 *  Headquarters
+*  Application
 
 ---
 
@@ -120,7 +121,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 ---
 
-**Documents mentioned/used to perform some work/**
+**Documents mentioned/used to perform some work**
 
 *  Lab Order
 *  Citizen Card
@@ -154,15 +155,16 @@ An association is a relationship between instances of objects that indicates a r
 | Doctor  	        | performs    		| Tests |
 | Test   	        | has    		 	| Report |
 | Test   	        | has    		 	| Diagnosis |
+| Test              | has               | Type of test |
 | Test   	        | has    		 	| Sample |
 | Receptionist  	| add 		 	    | Client |
 | Receptionist  	| register 		    | Test |
 | Admin             | add new type      | Test |
 | Client  	        | request 		 	| Test |
 | Medical Lab Technician | collect      | Sample |
-| Medical Lab Technician | works at     | lab |
-| Chemical Lab    | perform      | chemical analyses |
-| Chemical Lab    | receive      | samples |
+| Medical Lab Technician | works at     | Lab |
+| Chemical Lab    | perform      | Chemical analyses |
+| Chemical Lab    | receive      | Samples |
 | Headquarters    | has      | Chemical lab |
 | Lab Coordinator | validates 		 	| Report |
 

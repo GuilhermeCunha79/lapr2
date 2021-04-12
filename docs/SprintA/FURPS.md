@@ -7,11 +7,10 @@ _Specifies functionalities that:_
 - _are common across several US/UC;_
 - _are not related to US/UC, namely: Audit, Reporting and Security._
 
-*  Reports generation
 *  All users should be authenticated with a password holding 7 alphanumeric characters.
 *  including 3 capital letters & 2 digits, in order to use the app.
 *  Only Specialist Doctor can access client data
-*  It has a funcionality that notificate the client with the test results, by email and SMS; (page 2)
+*  It has a functionality that notify the client that the result of the test is ready, by email and SMS; (page 2)
 *  Support for generating reports. (page 2)
 
 ## Usability
@@ -54,13 +53,12 @@ _Specifies or constraints the system design process. Examples may include: progr
 *  Developed in Java
 *  Use of recognized coding standards
 *  JavaDoc to generate documentation
-*  Implementation of Object Oriented programming practices
+*  Implementation of Object-Oriented programming practices
 *  Unit Test should be implemented using JUnit 4
 
 ### Implementation Constraints
 
-_Specifies or constraints the code or construction of a system such
-such as: mandatory standards/patterns, implementation languages,
+_Specifies or constraints the code or construction of a system such as: mandatory standards/patterns, implementation languages,
 database integrity, resource limits, operating system._
 
 *  Developed in Java
