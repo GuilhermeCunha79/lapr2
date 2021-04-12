@@ -1,42 +1,47 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-company -- employee : > has
-company -- client : > has
-company -- "Lab Network" : > has
-"lab technician" -- "Lab Network" : > works at
-receptionist -- test : > register new
-employee -- "lab technician" : > has
-employee -- receptionist : > has
-headquarters -- "Chemical lab" : > has
-company -- headquarters : > has
-receptionist -- client : > add
-employee -- "lab coordinator" : > has
-employee -- admin : > has
-employee -- "specialist doctor" : > has
-admin -- test : > add new type
-test -- report : > has
-test -- diagnosis : > has
-test -- testType : > has
-"lab technician" -- sample : > collect
-sample -- test : < has
-"specialist doctor" -- diagnosis : > makes
-"specialist doctor" -- report : > write
-"specialist doctor" -- headquarters : > works at
-report -- client : > delivered to
-sample -- "Chemical lab" : < receive
-"lab coordinator""1" -- report : > validate
-client -- test : > request
+Company -- Employee : > has
+Company -- Client : > has
+Company -- "Lab Network" : > has
+"Lab Technician" -- "Lab Network" : > works at
+Receptionist -- Test : > register new
+Employee -- "Lab Technician" : > has
+Employee -- Receptionist : > has
+Headquarters -- "Chemical Lab" : > has
+Company -- Headquarters : > has
+Receptionist -- Client : > add
+Employee -- "Lab Coordinator" : > has
+Employee -- Admin : > has
+Employee -- "Specialist Doctor" : > has
+Admin -- Test : > add new type
+Test -- Report : > has
+Test -- Diagnosis : > has
+Test -- TestType : > has
+"Lab Technician" -- Sample : > collect
+Sample -- Test : < has
+"Specialist Doctor" -- Diagnosis : > makes
+"Specialist Doctor" -- Report : > write
+"Specialist Doctor" -- Headquarters : > works at
+Report -- Client : > delivered to
+Sample -- "Chemical Lab" : < receive
+"Lab Coordinator""1" -- Report : > validate
+Client -- Test : > request
 
-class client{
+class Client{
 -NHS number
--Name
+-name
 -TIN
--Birth Date
+-birth date
 }
 
-class testType{
+class TestType{
 -designation
 }
+
+class Sample{
+-barcode
+}
+
 
 @enduml

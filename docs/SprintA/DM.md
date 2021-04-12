@@ -150,8 +150,8 @@ An association is a relationship between instances of objects that indicates a r
 | Employees  	    | has    		 	| Admin  |
 | Employees  	    | has    		 	| Specialist Doctor |
 | Employees  	    | has    		 	| Lab Coordinator |
-| Employees  	    | has    		 	| Recepcionist |
-| Employees  	    | has    		 	| Medical Lab Techinician |
+| Employees  	    | has    		 	| Receptionist |
+| Employees  	    | has    		 	| Medical Lab Technician |
 | Doctor  	        | performs    		| Tests |
 | Test   	        | has    		 	| Report |
 | Test   	        | has    		 	| Diagnosis |
