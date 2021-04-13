@@ -1,38 +1,43 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-company -- employee : > has
-company -- client : > has
-company -- "Lab Network" : > has
-"lab technician" -- "Lab Network" : > works at
-receptionist -- test : > register new
-employee -- "lab technician" : > has
-employee -- receptionist : > has
-headquarters -- "Chemical lab" : > has
-company -- headquarters : > has
-receptionist -- client : > add
-employee -- "lab coordinator" : > has
-employee -- admin : > has
-employee -- "specialist doctor" : > has
-admin -- test : > add new type
-test -- report : > has
-test -- diagnosis : > has
-"lab technician" -- sample : > collect
-sample -- test : < has
-"specialist doctor" -- diagnosis : > makes
-"specialist doctor" -- report : > write
-"specialist doctor" -- headquarters : > works at
-report -- client : > delivered to
-sample -- "Chemical lab" : < receive
-"lab coordinator" -- report : > validate
-client -- test : > request
+Company"1" -right- "1..*"Employee : > has
+Company"1" -left- "*"Client : > has
+Company"1" -- "1""Lab Network" : > has
+"Lab Technician""*" -up- "1""Lab Network" : > works at
+Receptionist -- Test : > register new
+Employee -- "Lab Technician" : < is an
+Employee -- Receptionist : < is an
+Headquarters"1" -left- "1""Chemical lab" : > has
+Company"1" -left- "1"Headquarters : > has
+Receptionist"1..*" -- "*"Client : > add
+Employee -- "Lab Coordinator" : < is an
+Employee -- Admin : < is an
+Employee -- "Specialist Doctor" : < is an
+Admin"1..*" -- "*"Test : > add new type
+Test"1" -- "1"Report : > has
+"Lab Technician""1" -- "*"Sample : > collect
+Sample"1" -- "1"Test : < has
 
-class client{
-NHS number
-Name
-TIN
-Birth Date
+"Specialist Doctor""1" -- "*"Report : > write
+"Specialist Doctor""1..*" -- "1"Headquarters : > works at
+Report"1" -- "1"Client : > delivered to
+Sample"*" -- "1""Chemical lab" : < receive
+"Lab Coordinator""1" -- "*"Report : > validate
+Client"1" -- "1..*"Test : > request
 
+"Type of Test""1" -- "1""Test" : < has
+
+class Client{
+-nhs number
+-name
+-tin
+-birth date
+-sex
+}
+
+class Sample{
+-barcode
 }
 
 @enduml

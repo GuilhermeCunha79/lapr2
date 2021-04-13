@@ -24,6 +24,6 @@ lc --> UC8
 lt --> UC9
 
 :Admin: --> (UC12 - Add new types of tests to the system)
-:Employee: --> (UC14 - Option to order clients by TIF or name)
+:Employee: --> (UC14 - Option to order clients by TIN or name)
 :Client: --> (US13 - Check his medical tests results)
 @enduml
