@@ -1,32 +1,43 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-Company"1" -right- "1..*"Employee : > has
-Company"1" -left- "*"Client : > has
+top to bottom direction
+
+Company"1" --- "1..*"Employee : > has
+Company"1" -- "*"Client : > has
 Company"1" -- "1""Lab Network" : > has
-"Lab Technician""*" -up- "1""Lab Network" : > works at
-Receptionist -- Test : > register new
-Employee -- "Lab Technician" : < is an
-Employee -- Receptionist : < is an
-Headquarters"1" -left- "1""Chemical lab" : > has
-Company"1" -left- "1"Headquarters : > has
+"Lab Technician""*" -- "1""Lab Network" : > works at
+Receptionist"1" -- "*"Test : > register new
+Employee <|-- "Lab Technician" : < is an
+Employee <|-- Receptionist : < is an
+Headquarters"1" -- "1""Chemical lab" : > has
+Company"1" -- "1"Headquarters : > owns
 Receptionist"1..*" -- "*"Client : > add
-Employee -- "Lab Coordinator" : < is an
-Employee -- Admin : < is an
-Employee -- "Specialist Doctor" : < is an
-Admin"1..*" -- "*"Test : > add new type
+Employee <|-- "Lab Coordinator" : < is an
+Employee <|---- Admin : < is an
+Employee <|-- "Specialist Doctor" : < is an
+Admin"1..*" ---- "*"Test : > add new type
 Test"1" -- "1"Report : > has
 "Lab Technician""1" -- "*"Sample : > collect
 Sample"1" -- "1"Test : < has
-
+Company -- "Type of Test" : > conduct
+Company -- Test : > perform
+"Test Request""1..*" -- "1""Client" : < does
 "Specialist Doctor""1" -- "*"Report : > write
 "Specialist Doctor""1..*" -- "1"Headquarters : > works at
 Report"1" -- "1"Client : > delivered to
-Sample"*" -- "1""Chemical lab" : < receive
+Sample"*" -- "1""Chemical lab" : < owns
 "Lab Coordinator""1" -- "*"Report : > validate
-Client"1" -- "1..*"Test : > request
+
+"Test Request""1" -- "1"Test : > originates
 
 "Type of Test""1" -- "1""Test" : < has
+
+Admin"1..*" -- "*"Category : > create new
+
+Category"1" -- "*"Parameter : < presented under
+
+Test"1" -- "1..*"Parameter : > need to analyse
 
 class Client{
 -nhs number
@@ -34,10 +45,53 @@ class Client{
 -tin
 -birth date
 -sex
+-phone number
+-e-mail
 }
 
 class Sample{
 -barcode
+}
+
+class Report{
+-diagnosis
+-results
+}
+
+class Employee{
+-name
+-tin
+-birth date
+-sex
+-phone number
+-e-mail
+}
+
+class "Test Request"{
+-request date
+-test type
+}
+
+class Company{
+-name
+-location
+}
+
+class Headquarters{
+-location
+}
+
+class Test{
+-date/time of sample collected
+-date/time of diagnosis
+-date/time of chemical analysis
+-date/time of validation
+}
+
+class Category{
+-nhs id
+-internal code
+-description
 }
 
 @enduml

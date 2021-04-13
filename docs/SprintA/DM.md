@@ -86,13 +86,13 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Containers**
 
-*  
+*  Company
 
 ---
 
 **Elements of Containers**
 
-*  
+*  Employee
 
 ---
 
@@ -154,7 +154,6 @@ An association is a relationship between instances of objects that indicates a r
 | Employees  	    | has    		 	| Medical Lab Technician |
 | Doctor  	        | performs    		| Tests |
 | Test   	        | has    		 	| Report |
-| Test   	        | has    		 	| Diagnosis |
 | Test              | has               | Type of test |
 | Test   	        | has    		 	| Sample |
 | Receptionist  	| add 		 	    | Client |
