@@ -63,7 +63,7 @@ class Employee{
 -employee ID
 -name
 -address
--SOC code
+-soc code
 -phone number
 -e-mail
 }
@@ -73,13 +73,13 @@ class ClinicalAnalysisLab{
 -name
 -address
 -phone number
--tin number
+-tin
 }
 class ChemicalLab{
 -name
 -address
 -phone number
--tin number
+-tin
 }
 
 class TestRequest{

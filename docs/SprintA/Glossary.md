@@ -55,8 +55,10 @@
 | Result | Resultado | An item of information obtained by experiment or some other scientific method |
 | Samples | Amostras | A small amount of a substance that a doctor or scientist collects to examine it |
 | SMS | SMC | Acronym for Short Message Service |
+| SOC | COP | Acronym for Standard Occupational Classification |
 | Software Application | Aplicação de Software | A computer program that is designed for a particular purpose |
 | Specialist doctor | Médico Especialista | A specialist on a certain area of medicine |
+| Standard Occupational Classification | Classificação Ocupacional Padrão | A federal statistical standard used by federal agencies to classify workers into occupational categories for collecting, calculating, or disseminating data |
 | Swab | Esfregaço | A small piece of soft material used for cleaning a cut or for taking a small amount of substance from a body, or the substance itself that can then be tested |
 | Tax Identification Number | Número de Contribuinte | A Tax Identification Number is a nine-digit number used as a tracking number by the Internal Revenue Service |
 | Test | Teste | A medical examination of part of your body in order to find out how healthy it is or what is happening with it |
