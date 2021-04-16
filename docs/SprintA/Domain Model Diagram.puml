@@ -5,33 +5,34 @@ top to bottom direction
 
 Company"1" --- "1..*"Employee : > has
 Company"1" -- "*"Client : > has
-Company"1" -- "1""Lab Network" : > has
-"Lab Technician""*" -- "1""Lab Network" : > works at
-Receptionist"1" -- "*"Test : > register new
-Employee <|-- "Lab Technician" : < is an
-Employee <|-- Receptionist : < is an
-Headquarters"1" -- "1""Chemical lab" : > has
-Company"1" -- "1"Headquarters : > owns
+Company"1" -- "1..*"ClinicalAnalysisLab : > has
+LabTechnician"*" -- "1"ClinicalAnalysisLab : > works at
+Receptionist"1" -- "*"TestRequest : > register new
+
+Headquarters"1" -- "1"ChemicalLab : > has
+Company"1" -left- "1"Headquarters : > owns
 Receptionist"1..*" -- "*"Client : > add
-Employee <|-- "Lab Coordinator" : < is an
-Employee <|---- Admin : < is an
-Employee <|-- "Specialist Doctor" : < is an
-Admin"1..*" ---- "*"Test : > add new type
+Employee <|-- LabTechnician : < is an
+Employee <|-- Receptionist : < is an
+Employee <|-- LabCoordinator : < is an
+Employee <|-- Admin : < is an
+Employee <|-- SpecialistDoctor : < is an
+
 Test"1" -- "1"Report : > has
-"Lab Technician""1" -- "*"Sample : > collect
+LabTechnician"1" -- "*"Sample : > collect
 Sample"1" -- "1"Test : < has
-Company -- "Type of Test" : > conduct
-Company -- Test : > perform
-"Test Request""1..*" -- "1""Client" : < does
-"Specialist Doctor""1" -- "*"Report : > write
-"Specialist Doctor""1..*" -- "1"Headquarters : > works at
+Company"1" -- "1..*"TypeOfTest : > conduct
+Company"1" -- "*"Test : > perform
+TestRequest"1..*" -- "1""Client" : < does
+SpecialistDoctor"1" -- "*"Report : > write
+SpecialistDoctor"1..*" -- "1"Headquarters : > works at
 Report"1" -- "1"Client : > delivered to
-Sample"*" -- "1""Chemical lab" : < owns
-"Lab Coordinator""1" -- "*"Report : > validate
+Sample"*" -- "1"ChemicalLab : < owns
+LabCoordinator"1" -- "*"Report : > validate
 
-"Test Request""1" -- "1"Test : > originates
+TestRequest"1" -- "1"Test : > originates
 
-"Type of Test""1" -- "1""Test" : < has
+TypeOfTest"1" -- "1""Test" : < has
 
 Admin"1..*" -- "*"Category : > create new
 
@@ -67,21 +68,21 @@ class Employee{
 -e-mail
 }
 
-class "Clinical Analysis Lab"{
+class ClinicalAnalysisLab{
 -lab id
 -name
 -address
 -phone number
 -tin number
 }
-class "Chemical lab"{
+class ChemicalLab{
 -name
 -address
 -phone number
 -tin number
 }
 
-class "Test Request"{
+class TestRequest{
 -request date
 -test type
 }
@@ -108,7 +109,7 @@ class Category{
 -description
 }
 
-class "Specialist Doctor"{
+class SpecialistDoctor{
 -doctor index number
 }
 
