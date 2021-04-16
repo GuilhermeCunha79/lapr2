@@ -59,12 +59,26 @@ class Report{
 }
 
 class Employee{
+-employee ID
 -name
--tin
--birth date
--sex
+-address
+-SOC code
 -phone number
 -e-mail
+}
+
+class "Clinical Analysis Lab"{
+-lab id
+-name
+-address
+-phone number
+-tin number
+}
+class "Chemical lab"{
+-name
+-address
+-phone number
+-tin number
 }
 
 class "Test Request"{
@@ -92,6 +106,10 @@ class Category{
 -nhs id
 -internal code
 -description
+}
+
+class "Specialist Doctor"{
+-doctor index number
 }
 
 @enduml

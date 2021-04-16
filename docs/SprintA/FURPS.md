@@ -7,7 +7,7 @@ _Specifies functionalities that:_
 - _are common across several US/UC;_
 - _are not related to US/UC, namely: Audit, Reporting and Security._
 
-*  All users should be authenticated with a password holding 7 alphanumeric characters,
+*  All users, including clients, should be authenticated with a password holding 7 alphanumeric characters,
 including 3 capital letters & 2 digits, in order to use the app.
 *  Only Specialist Doctor can access client data
 *  Support for generating reports. (page 2)
@@ -21,17 +21,22 @@ documentation; consistency and standards._
 *  All images/figures should be exported in SVG format
 *  English language is the only one supported
 *  Application User manual
+*  The UI must be simple, intuitive and consistent
 
 ## Reliability
 _Refers to the integrity, compliance and interoperability of the software. The requirements to be considered are: frequency and severity of failure, possibility of recovery, possibility of prediction, accuracy, average time between failures._
 
 *  Need to ensure data persistence between two runs of the application
+*  The system should not fail more than 5 days in one year
+*  Whenever the system fail, there should be no data loss
 
 ## Performance
 _Evaluates the performance requirements of the software, namely: response time, start-up time, recovery time, memory consumption, CPU usage, load capacity and application availability._
 
 
-(fill in here )
+*  The system should startup in less than 10 seconds
+*  System should have a maximum response time of 3 seconds when interacting with the user
+*  
 
 ## Supportability
 _The supportability requirements gathers several characteristics, such as:
@@ -40,7 +45,7 @@ configurability, installability, scalability and more._
 
 
 
-(fill in here )
+*  The system need to work on all operating systems who support the Java Virtual Machine
 
 
 ## +
@@ -77,4 +82,4 @@ system being developed with other external systems._
 
 _Specifies a limitation or physical requirement regarding the hardware used to house the system, as for example: material, shape, size or weight._
 
-*  Not specified.
+*  The system will run on a machine with 8GB of RAM.
