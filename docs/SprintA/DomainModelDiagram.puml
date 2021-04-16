@@ -17,10 +17,10 @@ Employee <|-- Receptionist
 Employee <|-- LabCoordinator
 Employee <|-- Admin
 Employee <|-- SpecialistDoctor
-ClinicalChemistryTechnologist -- ChemicalLab : > works at
+ClinicalChemistryTechnologist"*" -- "1"ChemicalLab : > works at
 Test"1" -- "1"Report : > has
 MedicalLabTechnician"1" -- "*"Sample : > collect
-Sample"1" -- "1"Test : < has
+Sample"1" -right- "1"Test : < has
 Company"1" -- "1..*"TypeOfTest : > conduct
 Company"1" -- "*"Test : > perform
 TestRequest"1..*" -- "1""Client" : < does
