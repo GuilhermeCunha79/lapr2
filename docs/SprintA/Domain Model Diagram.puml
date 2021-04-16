@@ -41,13 +41,13 @@ Category"1" -- "*"Parameter : < presented under
 Test"1" -- "1..*"Parameter : > need to analyse
 
 class Client{
--nhs number
+-nhsNumber
 -name
 -tin
--birth date
+-birthDate
 -sex
--phone number
--e-mail
+-phoneNumber
+-email
 }
 
 class Sample{
@@ -60,31 +60,31 @@ class Report{
 }
 
 class Employee{
--employee ID
+-employeeID
 -name
 -address
--soc code
--phone number
--e-mail
+-socCode
+-phoneNumber
+-email
 }
 
 class ClinicalAnalysisLab{
--lab id
+-labId
 -name
 -address
--phone number
--tin
+-phoneNumber
+-tinNumber
 }
 class ChemicalLab{
 -name
 -address
--phone number
--tin
+-phoneNumber
+-tinNumber
 }
 
 class TestRequest{
--request date
--test type
+-requestDate
+-testType
 }
 
 class Company{
@@ -97,20 +97,20 @@ class Headquarters{
 }
 
 class Test{
--date/time of sample collected
--date/time of diagnosis
--date/time of chemical analysis
--date/time of validation
+-timestampOfSampleCollected
+-timestampOfDiagnosis
+-timestampOfChemicalAnalysis
+-timestampOfValidation
 }
 
 class Category{
--nhs id
--internal code
+-nhsId
+-internalCode
 -description
 }
 
 class SpecialistDoctor{
--doctor index number
+-doctorIndexNumber
 }
 
 @enduml
