@@ -6,38 +6,33 @@ top to bottom direction
 Company"1" --- "1..*"Employee : > has
 Company"1" -- "*"Client : > has
 Company"1" -- "1..*"ClinicalAnalysisLab : > has
-LabTechnician"*" -- "1"ClinicalAnalysisLab : > works at
+MedicalLabTechnician"*" -- "1"ClinicalAnalysisLab : > works at
 Receptionist"1" -- "*"TestRequest : > register new
-
-Headquarters"1" -- "1"ChemicalLab : > has
-Company"1" -left- "1"Headquarters : > owns
+Headquarter"1" -- "1"ChemicalLab : > has
+Company"1" -left- "1"Headquarter : > owns
 Receptionist"1..*" -- "*"Client : > add
-Employee <|-- LabTechnician : < is an
-Employee <|-- Receptionist : < is an
-Employee <|-- LabCoordinator : < is an
-Employee <|-- Admin : < is an
-Employee <|-- SpecialistDoctor : < is an
-
+Employee <|-- MedicalLabTechnician
+Employee <|-- ClinicalChemistryTechnologist
+Employee <|-- Receptionist
+Employee <|-- LabCoordinator
+Employee <|-- Admin
+Employee <|-- SpecialistDoctor
+ClinicalChemistryTechnologist -- ChemicalLab : > works at
 Test"1" -- "1"Report : > has
-LabTechnician"1" -- "*"Sample : > collect
+MedicalLabTechnician"1" -- "*"Sample : > collect
 Sample"1" -- "1"Test : < has
 Company"1" -- "1..*"TypeOfTest : > conduct
 Company"1" -- "*"Test : > perform
 TestRequest"1..*" -- "1""Client" : < does
 SpecialistDoctor"1" -- "*"Report : > write
-SpecialistDoctor"1..*" -- "1"Headquarters : > works at
+SpecialistDoctor"1..*" -- "1"Headquarter : > works at
 Report"1" -- "1"Client : > delivered to
 Sample"*" -- "1"ChemicalLab : < owns
 LabCoordinator"1" -- "*"Report : > validate
-
 TestRequest"1" -- "1"Test : > originates
-
 TypeOfTest"1" -- "1""Test" : < has
-
 Admin"1..*" -- "*"Category : > create new
-
 Category"1" -- "*"Parameter : < presented under
-
 Test"1" -- "1..*"Parameter : > need to analyse
 
 class Client{
@@ -92,7 +87,7 @@ class Company{
 -location
 }
 
-class Headquarters{
+class Headquarter{
 -location
 }
 
