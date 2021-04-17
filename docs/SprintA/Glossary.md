@@ -6,7 +6,7 @@
 | API | API | Acronym for Application Program Interface |
 | Application Program Interface | Interface de Programação de Aplicações | Set of protocols, tools, and routines for building software applications, that specifies how software components should interact |
 | Application User Manual | Manual de Aplicação do Utilizador | Application User Manual is intended to give assistance to people using a particular system |
-| Analysis | Análises | The process of studying or examining something in an organized way to learn more about it, or a particular study of something |
+| Analysis | Análises | A study or examination in an organized way to know more about it, or a particular study of something |
 | Asymptotic behaviour | Comportamento Assintótico | Asymptotic analysis, also known as asymptotics, is a method of describing limiting behavior |
 | Barcode | Código de barras | It's an image consisting of a series of parallel black lines and white spaces that can be read by a scanner |
 | Benchmark Algorithm | Algoritmo de Ponto de referência | Is the act of running the algorithms of the program with some specified parameters to check the effectiveness of the algorithm |
@@ -33,7 +33,7 @@
 | Interval of Time | Intervalo de Tempo | A period between two events or times |
 | Hemogram | Hemograma | Systematic report of the findings from a blood examination |
 | Lab | Lab | Short-form for Laboratories |
-| Laboratory | Laboratório | A room or building with equipment for doing scientific tests or for teaching science, or a place where chemicals or medicines are produced |
+| Laboratory | Laboratório | A room or building with scientific equipment for doing scientific tests, or a place where chemicals or medicines are produced |
 | Laboratory Coordinator | Coordenador do Laboratório | The person responsible for verify all the tests and confirm the truth of it |
 | Lab order | Pedido de laboratório | A prescription to do some test/service on a laboratory |
 | Linear Regression Algorithm | Algoritmo de Regressão Linear | Linear Regression Algorithm is a machine learning algorithm based on supervised learning |
@@ -44,15 +44,15 @@
 | NHS | SNS | Acronym for National Healthcare Service |
 | Notification | Notificação | A message that is automatically sent to you on your mobile phone or computer |
 | Ordering  Algorithm | Algoritmo de ordenação | A method for reorganizing a large number of items into a specific order, such as alphabetical, highest-to-lowest value or shortest-to-longest distance |
-| Parameter | Parametro | A set of facts that establishes how something can or must happen or be done |
+| Parameter | Parametro | A set of facts that establishes how something must or can happen or be done |
 | PLT | PLT | Acronym for Plaquetes |
 | Plaquetes | Plaquetas | Parameter tested on blood analysis |
-| Prediction Model | Modelo de Previsão | Mathematical process that seeks to predict future events or outcomes by analysing patterns that are likely to forecast future results. |
+| Prediction Model | Modelo de Previsão | Mathematical process that looks to predict events on the future or ã result by analysing patterns that are likely to forecast future results. |
 | RBC | GV | Acronym for Red Blood Cell |
 | Receptionist | Recepcionista | Receptionist of the laboratory who analyses the clients information and prescriptions and validates clients |
 | Red Blood Cell | Glóbulo Vermelho | Parameter to be tested on blood analysis |
 | Report | Relatório | Gives a description or information about something to someone else |
-| Result | Resultado | An item of information obtained by experiment or some other scientific method |
+| Result | Resultado | Item of information obtained by an experiment or some other scientific method |
 | Samples | Amostras | A small amount of a substance that a doctor or scientist collects to examine it |
 | SMS | SMC | Acronym for Short Message Service |
 | SOC | COP | Acronym for Standard Occupational Classification |
