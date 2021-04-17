@@ -16,7 +16,7 @@
 | Chemical analysis | Análises químicas | It determines the physical properties or chemical composition of samples of matter |
 | Chemical test | Teste Químico | A fast reaction performed in a test tube that gives a visual clue as evidence for a chemical reaction |
 | Chemical Laboratory | Laboratório Químico | Is a place equipped to conduct scientific experiments or tests. In this case, the lab will work on covid-19 tests |
-| Client | Cliente | Client of the laboratory |
+| Client | Cliente | Someone or a customer who receives services |
 | Clinical Analysis Laboratories | Laboratório de Análises Clínicas | Performs analysis of hematology, microbiology, coagulation, immunology, clinical chemistry and hormonal assays |
 | Clinical Chemistry Technologist | Especialista em Química Clínica | The person who prepare specimens and analyze the chemical and hormonal contents of body fluids |
 | Company | Empresa | An organization that sells goods or services in order to make money |
