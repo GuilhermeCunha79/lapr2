@@ -47,7 +47,7 @@
 | Parameter | Parametro | A set of facts that establishes how something must or can happen or be done |
 | PLT | PLT | Acronym for Plaquetes |
 | Plaquetes | Plaquetas | Parameter tested on blood analysis |
-| Prediction Model | Modelo de Previsão | Mathematical process that looks to predict events on the future or ã result by analysing patterns that are likely to forecast future results. |
+| Prediction Model | Modelo de Previsão | Mathematical process that looks to predict events on the future or a result by analysing patterns that are likely to forecast future results. |
 | RBC | GV | Acronym for Red Blood Cell |
 | Receptionist | Recepcionista | Receptionist of the laboratory who analyses the clients information and prescriptions and validates clients |
 | Red Blood Cell | Glóbulo Vermelho | Parameter to be tested on blood analysis |
