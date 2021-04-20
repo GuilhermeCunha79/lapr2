@@ -26,7 +26,6 @@ Company"1" -- "*"Test : > perform
 TestRequest"1..*" -- "1""Client" : < does
 SpecialistDoctor"1" -- "*"Report : > write
 SpecialistDoctor"1..*" -- "1"Headquarter : > works at
-Report"1" -- "1"Client : > delivered to
 Sample"*" -- "1"ChemicalLab : < owns
 LabCoordinator"1" -- "*"Report : > validate
 TestRequest"1" -- "1"Test : > originates
