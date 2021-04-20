@@ -4,7 +4,6 @@
 
 *  All users, including clients, should be authenticated with a password holding 7 alphanumeric characters, including 3 capital letters & 2 digits, in order to use the app 
 *  Only Specialist Doctor can access client data
-*  Support for generating reports 
 
 ## Usability
 
@@ -38,7 +37,6 @@
 *  Use of Bitbucket Repository
 *  Developed in Java
 *  Use of recognized coding standards
-*  JavaDoc to generate documentation
 *  Implementation of Object-Oriented programming practices
 *  Unit Test should be implemented using JUnit 4
 
