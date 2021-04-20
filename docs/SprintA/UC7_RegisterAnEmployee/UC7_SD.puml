@@ -1,0 +1,33 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADMIN
+
+participant ":RegisterEmployeeUI" as UI
+participant ":RegisterEmployeeController" as CTRL
+participant ":Employee" as E
+
+
+ADMIN -> UI : Register a employee
+activate UI
+    UI --> ADMIN : Requests necessary credentials (nif, name, email,\npassword)
+deactivate UI
+
+ADMIN -> UI : Inserts the data
+activate UI
+    UI -> CTRL : employee = newEmployee(nif, name, email, password)
+    activate CTRL
+
+        CTRL -> E: newEmployee(nif, name, email, password)
+        activate E
+        deactivate E
+    deactivate CTRL
+    UI --> ADMIN : Validates the data and asks for confirmation
+deactivate UI
+
+ADMIN -> UI : Confirms the data
+activate UI
+    UI --> ADMIN : Saves data and informs success of operation
+deactivate UI
+
+@enduml
