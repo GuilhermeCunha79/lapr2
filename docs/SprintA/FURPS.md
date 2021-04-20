@@ -2,9 +2,9 @@
 
 ## Functionality
 
-*  Login  All users, including clients, should be authenticated with a password holding 7 alphanumeric characters, including 3 capital letters & 2 digits, in order to use the app 
-*  Access Restriction  Only Specialist Doctor can access client data
-*  Reporting  Support for generating reports 
+*  All users, including clients, should be authenticated with a password holding 7 alphanumeric characters, including 3 capital letters & 2 digits, in order to use the app 
+*  Only Specialist Doctor can access client data
+*  Support for generating reports 
 
 ## Usability
 

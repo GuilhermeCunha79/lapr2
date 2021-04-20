@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Company -- Employee :> has
+Employee <|-- Receptionist
+Receptionist -- Client :> add new
+
+class Client{
+-nhsNumber
+-name
+-tin
+-birthDate
+-sex
+-phoneNumber
+-email
+}
+
+class Employee{
+-employeeID
+-name
+-address
+-socCode
+-phoneNumber
+-email
+}
+
+class Company{
+-designation
+}
+@enduml
