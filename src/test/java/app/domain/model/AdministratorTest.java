@@ -14,6 +14,14 @@ public class AdministratorTest {
     }
 
     @Test
+    public void getAdminID1() {
+        Employee employee = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        Administrator oAdministrator = new Administrator(2,employee);
+        int expected = 2;
+        assertEquals(expected,oAdministrator.getAdminID());
+    }
+
+    @Test
     public void setAdminID() {
         Administrator administrator = new Administrator( 2, 1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
         administrator.setAdminID(3);
@@ -21,9 +29,9 @@ public class AdministratorTest {
         assertEquals(expected, administrator.getAdminID());
     }
 
-    /*@Test
+    @Test
     public void registerAnEmployee() {
-        Administrator.registerAnEmployee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
-
-    }*/
+        boolean registered = Administrator.registerAnEmployee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        assertTrue(registered);
+    }
 }
