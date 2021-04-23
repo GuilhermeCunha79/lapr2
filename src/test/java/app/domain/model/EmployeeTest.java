@@ -2,6 +2,9 @@ package app.domain.model;
 
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import static org.junit.Assert.*;
 
 public class EmployeeTest {
@@ -111,11 +114,83 @@ public class EmployeeTest {
         assertEquals(expected,employee.getSoc());
     }
 
-    /*@Test
+    /**
+     * Test of Equals, of class Employee.
+     */
+    @Test
     public void testEquals() {
+        Employee e1 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        Employee e2 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        assertEquals(e2, e1);
     }
 
+    /**
+     * Test of Hash code method, of class Employee.
+     */
     @Test
     public void testHashCode() {
-    }*/
+        Employee e1 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        Employee e2 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        assertEquals(e2.hashCode(), e1.hashCode());
+    }
+
+    /**
+     * Test of Equals, of class Employee.
+     */
+    @Test
+    public void testEqualsFalseID() throws ParseException {
+        Employee e1 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        Employee e2 = new Employee(2,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        assertNotEquals(e2, e1);
+    }
+
+    /**
+     * Test of Equals, of class Employee.
+     */
+    @Test
+    public void testEqualsFalseName() throws ParseException {
+        Employee e1 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        Employee e2 = new Employee(2,OrganizationRole.Doctor,"Miguel","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        assertNotEquals(e2, e1);
+    }
+
+    /**
+     * Test of Equals, of class Employee.
+     */
+    @Test
+    public void testEqualsFalseEmail() throws ParseException {
+        Employee e1 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        Employee e2 = new Employee(2,OrganizationRole.Doctor,"Pedro","Porto",911111111,"aaaaaagsfdg@gmail.com",2);
+        assertNotEquals(e2, e1);
+    }
+
+    /**
+     * Test of Equals, of class Employee.
+     */
+    @Test
+    public void testEqualsFalsePhoneNumber() throws ParseException {
+        Employee e1 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        Employee e2 = new Employee(2,OrganizationRole.Doctor,"Pedro","Porto",911122211,"sfgsdfgsfdg@gmail.com",2);
+        assertNotEquals(e2, e1);
+    }
+
+    /**
+     * Test of Equals, of class Employee.
+     */
+    @Test
+    public void testEqualsFalseAddress() throws ParseException {
+        Employee e1 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        Employee e2 = new Employee(2,OrganizationRole.Doctor,"Pedro","Lisboa",911111111,"sfgsdfgsfdg@gmail.com",2);
+        assertNotEquals(e2, e1);
+    }
+
+    /**
+     * Test of Equals, of class Employee.
+     */
+    @Test
+    public void testEqualsFalseSOC() throws ParseException {
+        Employee e1 = new Employee(1,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
+        Employee e2 = new Employee(2,OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",3);
+        assertNotEquals(e2, e1);
+    }
 }

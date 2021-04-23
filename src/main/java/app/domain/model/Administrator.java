@@ -3,6 +3,7 @@ package app.domain.model;
 public class Administrator extends Employee {
 
     private int adminID;
+    static Employee newEmployee;
 
     public Administrator(int adminID, int employeeID, OrganizationRole role, String name, String address, int phoneNumber, String email, int soc) {
         super(employeeID, role, name, address, phoneNumber, email, soc);
@@ -18,6 +19,6 @@ public class Administrator extends Employee {
     }
 
     static void registerAnEmployee(int employeeID, OrganizationRole role, String name, String address, int phoneNumber, String email, int soc) {
-        Employee newEmployee = new Employee(employeeID, role, name, address, phoneNumber, email, soc);
+        newEmployee = new Employee(employeeID, role, name, address, phoneNumber, email, soc);
     }
 }
