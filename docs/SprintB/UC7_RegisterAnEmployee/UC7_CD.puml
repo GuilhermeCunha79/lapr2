@@ -13,10 +13,12 @@ class RegisterEmployeeController
 
 class Employee
 {
-    Integer nif;
-    String name;
-    String email;
-    String password;
+	Employee ID;
+	Name;
+	Address;
+	Phone Number;
+	E-Mail;
+	Standard Occupational Classification (SOC) code.
     +validateEmployee(Employee employee)
 }
 
