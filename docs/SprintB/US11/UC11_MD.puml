@@ -17,16 +17,11 @@ class Employee {
 	-Standard Occupational Classification (SOC) code.
 }
 
-enum Category {
+interface Category {
   -Organization Role
 }
 
-class Administrator {
-  -name
-  -function
-  -phone
-  -email
-}
+
 
 Platform "1" -- "*" Employee : has >
 Employee "*" -- "1" Category: classified as >

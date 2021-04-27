@@ -5,9 +5,9 @@ actor "Administrador" as ADMIN
 
 participant ":System" as SYSTEM
 
-ADMIN -> SYSTEM : Register a Employee
+ADMIN -> SYSTEM : Create New Parameter
 activate SYSTEM
-SYSTEM --> ADMIN : Requests necessary credentials (name, email,password,)
+SYSTEM --> ADMIN : Requests necessary data (shortName, description, code, category)
 deactivate SYSTEM
 
 ADMIN -> SYSTEM : Inserts the data
@@ -17,7 +17,7 @@ deactivate SYSTEM
 
 ADMIN -> SYSTEM : Confirms the data
 activate SYSTEM
-SYSTEM --> ADMIN : Tell the user that the Employee has been created
+SYSTEM --> ADMIN : Tell the user that the Parameter has been created
 deactivate SYSTEM
 
 

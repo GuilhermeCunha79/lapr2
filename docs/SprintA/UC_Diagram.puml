@@ -4,7 +4,7 @@
 left to right direction
 :Receptionist: as Recep
 Recep --> (UC3 - Register new Client)
-Recep --> (UC2 - Register Test to perform to a client)
+Recep --> (UC4 - Register a test to be performed to a registered client)
 :Clinical Chemistry Technologist: --> (UC1 - Record Sample Test Results)
 :Specialist Doctor: --> (UC4 - Save diagnosis and report for each sample)
 :Specialist Doctor: --> (UC6 - After Validation Work, \n Reports become available in the system)
@@ -18,14 +18,14 @@ Recep --> (UC2 - Register Test to perform to a client)
 :Lab Coordinator: as lc
 (UC13 - Confirm diagnosis and Reports) as UC15
 :Lab Technician: as lt
-(UC14 - Record Sample) as UC14
+(UC5 -  Record samples collected in\nthe scope of a given test) as UC5
 
 :Scheduler: --> (UC10 - Generate Daily Reports)
 :Scheduler: --> (UC15 - Company Performance Evaluation)
 lc --> UC15
 
 
-lt --> UC14
+lt --> UC5
 
 
 :Employee: --> (UC12 - Order clients by TIN or name)

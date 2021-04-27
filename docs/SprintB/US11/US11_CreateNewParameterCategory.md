@@ -32,13 +32,12 @@ As an administrator, I want to specify a new parameter category.
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** All required fields must be filled in.
-* **AC2:** Each category must have a name, and a unique code
+* **AC1:** All required fields must be filled (except NHS ID)
+* **AC2:** Each category must have a name, a unique code and a description
 * **AC3:** When creating a new category with the same name and code as one previously registered in the system, 
 the application should deny the operation and inform the user to change the parameters or discard the operation.
 * **AC4:** Code must be unique having 4 to 8 chars
 * **AC5:** Description cannot be empty and has, at maximum, 40 chars
-* **AC6:** NHS identifier is not mandatory
 
 ### 1.4. Found out Dependencies
 * No dependencies were found.
