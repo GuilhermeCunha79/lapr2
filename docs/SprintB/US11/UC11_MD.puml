@@ -1,0 +1,39 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+class Platform {
+  -designation
+}
+
+class Employee {
+	-Employee ID;
+	-Name;
+	-Address;
+	-Phone Number;
+	-E-Mail;
+	-Standard Occupational Classification (SOC) code.
+}
+
+enum Category {
+  -Organization Role
+}
+
+class Administrator {
+  -name
+  -function
+  -phone
+  -email
+}
+
+
+
+Platform "1" -- "*" Employee : has >
+Employee "*" -- "1" Category: classified as >
+Employee "1..*" -- "1..*" Administrator: can be >
+
+
+
+@enduml

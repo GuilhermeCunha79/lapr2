@@ -1,0 +1,27 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class RegisterEmployeeUI
+{
+}
+
+class RegisterEmployeeController
+{
+    +Employee newEmployee(nif, name, email, password)
+    +validateEmployee(Employee employee)
+}
+
+class Employee
+{
+	Employee ID;
+	Name;
+	Address;
+	Phone Number;
+	E-Mail;
+	Standard Occupational Classification (SOC) code.
+    +validateEmployee(Employee employee)
+}
+
+RegisterEmployeeUI ..> RegisterEmployeeController
+RegisterEmployeeController ..> Employee
+@enduml

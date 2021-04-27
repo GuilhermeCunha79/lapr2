@@ -1,0 +1,24 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrador" as ADMIN
+
+participant ":System" as SYSTEM
+
+ADMIN -> SYSTEM : Register a Employee
+activate SYSTEM
+SYSTEM --> ADMIN : Requests necessary credentials (name, email,password,)
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : Inserts the data
+activate SYSTEM
+SYSTEM --> ADMIN : Validates the data and asks for confirmation
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : Confirms the data
+activate SYSTEM
+SYSTEM --> ADMIN : Tell the user that the Employee has been created
+deactivate SYSTEM
+
+
+@enduml

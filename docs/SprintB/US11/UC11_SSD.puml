@@ -1,0 +1,24 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrador" as ADMIN
+
+participant ":System" as SYSTEM
+
+ADMIN -> SYSTEM : Create New Parameter Category
+activate SYSTEM
+SYSTEM --> ADMIN : Requests necessary data (name, code, NHS identifier, description)
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : Inserts the data
+activate SYSTEM
+SYSTEM --> ADMIN : Validates the data and asks for confirmation
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : Confirms the data
+activate SYSTEM
+SYSTEM --> ADMIN : Tell the user that the Nnw parameter category was created
+deactivate SYSTEM
+
+
+@enduml
