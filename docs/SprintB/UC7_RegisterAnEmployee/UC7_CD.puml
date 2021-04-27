@@ -18,7 +18,7 @@ class Employee
 	Address;
 	Phone Number;
 	E-Mail;
-	Standard Occupational Classification (SOC) code
+	Standard Occupational Classification (SOC) code.
     +validateEmployee(Employee employee)
 }
 

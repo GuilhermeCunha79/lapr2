@@ -27,7 +27,7 @@ class Client
 class Company{
 -name
 -location
-+newClient((name, citizen card number, TIN number, birth date, sex))
++newClient(name, citizen card number, TIN number, birth date, sex)
 +validateClient(ct)
 +saveClient(ct)
 -addClient(ct)
