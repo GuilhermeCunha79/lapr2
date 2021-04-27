@@ -55,13 +55,10 @@ must have at least one category, so the admin can categorize the new parameter.
 * Typed data:
     *   Parameter's Short Name (8 chars max)
     *   Parameter's Description (20 chars max)
-
-* Auto-Generated Data:
     *   Parameter's Code (5 alphanumeric chars)    
 	
 * Selected data:
     *   Category
-
 
 **Output Data:**
 
@@ -70,7 +67,7 @@ must have at least one category, so the admin can categorize the new parameter.
 ### 1.6. System Sequence Diagram (SSD)
 
 
-![UC7_SSD](UC7_SSD.svg)
+![UC11_SSD](UC11_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -82,7 +79,7 @@ must have at least one category, so the admin can categorize the new parameter.
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![UC7_MD](UC7_MD.svg)
+![UC11_MD](UC11_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -114,13 +111,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 ## 3.2. Sequence Diagram (SD)
 
 
-![UC7_SD](UC7_SD.svg)
+![UC11_SD](UC11_SD.svg)
 
 
 ## 3.3. Class Diagram (CD)
 
 
-![UC7_CD](UC7_CD.svg)
+![UC11_CD](UC11_CD.svg)
 
 # 4. Tests 
 
