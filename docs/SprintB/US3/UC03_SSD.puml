@@ -9,7 +9,7 @@ participant ":System" as SYSTEM
 
 RECEP -> SYSTEM : register a new client
 activate SYSTEM
-SYSTEM --> RECEP : request mandatory data (Citizen Card number, NHS number,\n TIN number, Birth day, sex) and optional data (Phone number)
+SYSTEM --> RECEP : request mandatory data (citizen Card number, NHS number,\n TIN number, birth day, sex) and optional data (phone number)
 deactivate SYSTEM
 
 RECEP -> SYSTEM : insert the data

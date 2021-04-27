@@ -107,4 +107,9 @@ class SpecialistDoctor{
 -doctorIndexNumber
 }
 
+class Result{
+-
+}
+
+
 @enduml

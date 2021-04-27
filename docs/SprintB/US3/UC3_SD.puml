@@ -1,0 +1,47 @@
+@startuml
+autonumber
+'hide footbox
+actor "Receptionist" as RECEP
+
+participant ":RegisterClientUI" as UI
+participant ":RegisterClientController" as CTRL
+participant ":Client" as C
+
+
+RECEP -> UI : register a new client
+activate UI
+    UI --> RECEP : request mandatory data (name, citizen card number, NHS number,\n TIN number, birth day, sex) and optional data (phone number)
+deactivate UI
+
+RECEP -> UI : inserts the required data
+activate UI
+    UI -> CTRL : client = newClient(name, citizen card number,\n TIN number, birth date, sex)
+    activate CTRL
+
+        CTRL -> C: newClient(name, citizen card number,TIN number, birth date, sex)
+        activate C
+        deactivate C
+        CTRL --> UI : result
+    deactivate CTRL
+    UI --> RECEP : validates the data and asks for confirmation
+deactivate UI
+
+RECEP -> UI : confirms the data
+activate UI
+activate CTRL
+
+    UI -> CTRL : saveClient()
+    CTRL -> C : saveClient(client)
+
+activate C
+    C -> C : validateClient(client)
+    C -> C : addClient(client)
+
+    CTRL --> UI : result
+
+UI --> RECEP : saves data and informs success of operation
+deactivate C
+deactivate UI
+deactivate CTRL
+
+@enduml
