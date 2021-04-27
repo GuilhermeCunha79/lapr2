@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam classAttributeIconSize 0
+
+class RegisterClientUI
+{
+}
+
+class RegisterClientController
+{
+    +Client newClient(name, citizen card number,TIN number, birth date, sex)
+    +validateClient(Client client)
+}
+
+class Client
+{
+	-nhsNumber
+    -name
+    -tin
+    -birthDate
+    -sex
+    -phoneNumber
+    -email
+    +validateClient(Client client)
+}
+
+class Company{
+-name
+-location
++newClient((name, citizen card number, TIN number, birth date, sex))
++validateClient(ct)
++saveClient(ct)
+-addClient(ct)
+}
+
+RegisterClientUI .down.> RegisterClientController
+RegisterClientController .up.> Company
+Company"1" -up> "*"Client : adopts
+RegisterClientController .right.> Client
+@enduml

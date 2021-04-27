@@ -23,7 +23,7 @@ activate UI
         CTRL -> C: client = newClient(name, citizen card number,\n TIN number, birth date, sex)
 
         activate C
-        C --> CL** : create(name, citizen card number,TIN number, birth date, sex)
+        C --> CL** : create(newClient)
         deactivate C
 
         CTRL -> C : validateClient(ct)
