@@ -28,8 +28,6 @@ class Administrator {
   -email
 }
 
-
-
 Platform "1" -- "*" Employee : has >
 Employee "*" -- "1" Category: classified as >
 Employee "1..*" -- "1..*" Administrator: can be >
