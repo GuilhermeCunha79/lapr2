@@ -59,12 +59,9 @@ the application should deny the operation and inform the user to change the para
 	* (none)
 
 **Output Data:**
-
 * Success or insuccess of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
-
-**Alternative 1**
 
 ![UC11_SSD](UC11_SSD.svg)
 
@@ -93,14 +90,8 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | CreateNewParameterCategoryUI    |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			  		 |	... coordinating the US? | CreateNewParameterCategoryController | Controller                             |
-| 			  		 |	... instantiating a new parameter category? | Administrator   | Creator (Rule 1): in the DM, Administrator is an Employee, but is the first one that creates new ones.   |
-| 			  		 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
-| 			  		 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
-| 			  		 |							 | Administrator   | IE: knows/has its own Employees|
-| 			  		 |							 | Employee  | IE: knows its own data (e.g. email) |
-| Step 2  		 |							 |             |                              |
+| Step 1  		 |	... interacting with the actor? | CreateNewParameterCategoryUI    |          
+| Step 2  		 |	...requesting data needed? | CreateNewParameterCategoryUI |                              |
 | Step 3  		 |	...saving the inputted data? | Employee  | IE: object created in step 1 has its own data.  |
 | Step 4  		 |	...knowing the employee roles to show? | Platform  | IE: Employee roles are defined by the Platform. |
 | Step 5  		 |	... saving the selected category? | Employee  | IE: object created in step 1 is classified in one Employee.  |

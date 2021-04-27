@@ -44,7 +44,6 @@ activate UI
             PCS -> PCS : addParameterCategory(pc)
             activate PCS
             deactivate PCS
-
         deactivate PCS
     deactivate CTRL
     UI --> ADMIN : informs operation success
