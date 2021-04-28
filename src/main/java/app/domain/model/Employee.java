@@ -8,18 +8,18 @@ import java.util.Objects;
  *Employee class
  */
 public class Employee {
-    private int employeeID;
+    private String employeeID;
     private OrganizationRole role;
     private String name;
     private String address;
-    private int phoneNumber;
+    private long phoneNumber;
     private String email;
     private int soc;
     List<Employee> employeeList = new ArrayList<>();
 
+    private static int employeeCount = 0;
     /**
      * Constructor for class Employee.
-     * @param employeeID
      * @param role
      * @param name
      * @param address
@@ -27,8 +27,9 @@ public class Employee {
      * @param email
      * @param soc
      */
-    public Employee(int employeeID, OrganizationRole role, String name, String address, int phoneNumber, String email, int soc) {
-        this.employeeID = employeeID;
+    public Employee(OrganizationRole role, String name, String address, long phoneNumber, String email, int soc) {
+        employeeCount++;
+        this.employeeID = employeeIdCreator();
         this.role = role;
         this.name = name;
         this.address = address;
@@ -37,22 +38,24 @@ public class Employee {
         this.soc = soc;
     }
 
+    private String employeeIdCreator() {
+        String nameInitials = "";
+        for (int i = 0; i < this.name.length(); i++) {
+            char letter = name.charAt(i);
+            if (Character.isUpperCase(letter)){
+                nameInitials = nameInitials + letter;
+            }
+        }
+        return String.format("%s%05d", nameInitials, employeeCount);
+    }
+
     /**
      * Method that returns the id of the employee
      *
      * @return the employee's id
      */
-    public int getEmployeeID() {
+    public String getEmployeeID() {
         return employeeID;
-    }
-
-    /**
-     * Method that sets the id of the employee
-     *
-     * @param employeeID
-     */
-    public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
     }
 
     /**
@@ -114,7 +117,7 @@ public class Employee {
      *
      * @return the employee's phone number
      */
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -169,12 +172,11 @@ public class Employee {
      * @return true or false
      */
     public static boolean validateEmployee(Employee employee) {
-        return (employee.employeeID > 0
-                && employee.role != null
+        return (employee.role != null
                 && employee.name != null
                 && employee.address != null
-                && employee.phoneNumber > 000000000
-                && employee.phoneNumber <= 999999999
+                && employee.phoneNumber > 00000000000
+                && employee.phoneNumber <= 99999999999L
                 && employee.email != null
                 && employee.soc > 0);
     }

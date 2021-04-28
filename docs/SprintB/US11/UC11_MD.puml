@@ -1,31 +1,38 @@
 @startuml
+
 hide methods
-left to right direction
+
 skinparam classAttributeIconSize 0
 
 
-class Platform {
+class Company {
   -designation
 }
 
-class Employee {
-	-Employee ID;
-	-Name;
-	-Address;
-	-Phone Number;
-	-E-Mail;
-	-Standard Occupational Classification (SOC) code.
+class Admin{
 }
 
-interface Category {
-  -Organization Role
+class Parameter{
+    -nhsId
+    -code
+    -shortName
+    -description
 }
 
+class ParameterCategory{
+    -code
+    -nhsId
+    -name
+    -description
+}
 
+Company"1" -- "*"Admin :> employs
+Company"1" -- "*"Parameter :> capable of \nanalysing
+Company"1" -- "*"ParameterCategory :> adopts
+Admin"1" -- "*"Parameter :< created by
+Parameter"*" -- "1"ParameterCategory :> shown under
+Admin"1" -- "*"ParameterCategory :< created by
 
-Platform "1" -- "*" Employee : has >
-Employee "*" -- "1" Category: classified as >
-Employee "1..*" -- "1..*" Administrator: can be >
 
 
 

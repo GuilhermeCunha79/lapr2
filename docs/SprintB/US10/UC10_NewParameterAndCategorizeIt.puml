@@ -1,6 +1,6 @@
 @startuml
-usecase "UC7 - Register an Employee" as UC7
+usecase "UC10 - Create new parameter\n and categorize it" as UC10
 actor admin as "Administrator"
 
-admin --> (UC7)
+admin --> (UC10)
 @enduml

@@ -26,7 +26,7 @@ As an administrator, I want to specify a new parameter and categorize it.
 >  
 > **Answer:** Each parameter is associated with one category. Each parameter has a Code, a Short Name and a Description.
 >
-> **Question:** What rules does the parameter's data need to follow in order to be accepted? 
+> **Question:** What rules do the parameter's data need to follow in order to be accepted? 
 >
 > **Answer:** The Code are five alphanumeric characters. The Short Name is a String with no more than 8 characters. 
 >The Description is a String with no more than 20 characters.
@@ -93,13 +93,13 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-|
+|Step/Msg1: Start a new Parameter | ...instantiating a new parameter | 
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Employee
+ * Company
  * Parameter
 
 Other software classes (i.e. Pure Fabrication) identified: 

@@ -1,7 +1,7 @@
 @startuml
 autonumber
 'hide footbox
-actor "Administrador" as ADMIN
+actor "Administrator" as ADMIN
 
 participant ":System" as SYSTEM
 
@@ -17,7 +17,7 @@ deactivate SYSTEM
 
 ADMIN -> SYSTEM : Confirms the data
 activate SYSTEM
-SYSTEM --> ADMIN : Tell the user that the Nnw parameter category was created
+SYSTEM --> ADMIN : Tell the user that the New parameter category was created
 deactivate SYSTEM
 
 

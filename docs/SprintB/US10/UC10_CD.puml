@@ -1,27 +1,23 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class RegisterEmployeeUI
-{
+class CreateNewParameterUI{
 }
 
-class RegisterEmployeeController
-{
-    +Employee newEmployee(nif, name, email, password)
-    +validateEmployee(Employee employee)
+class CreateNewParameterController{
+    +CreateNewParameter(shortName, code, nhsId, description, category)
+    +saveParameter()
 }
 
-class Employee
-{
-	Employee ID;
-	Name;
-	Address;
-	Phone Number;
-	E-Mail;
-	Standard Occupational Classification (SOC) code.
-    +validateEmployee(Employee employee)
+class Company{
+	-designation
+	+getParameterStore()
 }
 
-RegisterEmployeeUI ..> RegisterEmployeeController
-RegisterEmployeeController ..> Employee
+class Parameter{
+
+}
+
+CreateNewParameterController <.up. CreateNewParameterUI
+CreateNewParameterController .right.> Company
 @enduml
