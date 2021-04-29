@@ -3,9 +3,9 @@
 
 left to right direction
 :Receptionist: as Recep
-Recep --> (UC1 - Register new Client)
+Recep --> (UC3 - Register new Client)
 Recep --> (UC2 - Register Test to perform to a client)
-:Clinical Chemistry Technologist: --> (UC3 - Record Sample Test Results)
+:Clinical Chemistry Technologist: --> (UC1 - Record Sample Test Results)
 :Specialist Doctor: --> (UC4 - Save diagnosis and report for each sample)
 :Specialist Doctor: --> (UC5 - Uses External Module to help Validation Work)
 :Specialist Doctor: --> (UC6 - After Validation Work, \n Reports become available in the system)
