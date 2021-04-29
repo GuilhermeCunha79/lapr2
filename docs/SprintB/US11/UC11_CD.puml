@@ -1,27 +1,38 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class RegisterEmployeeUI
-{
+class CreateParameterCategoryUI{
 }
 
-class RegisterEmployeeController
+class CreateParameterCategoryController
 {
-    +Employee newEmployee(nif, name, email, password)
-    +validateEmployee(Employee employee)
+    +createNewParameterCategory(code, nhsId, name, description)
+    +saveParameterCategory()
 }
 
-class Employee
-{
-	Employee ID;
-	Name;
-	Address;
-	Phone Number;
-	E-Mail;
-	Standard Occupational Classification (SOC) code.
-    +validateEmployee(Employee employee)
+class ParameterCategory{
+    -code
+    -nhsId
+    -name
+    -description
+    +ParameterCategory(code, nhsId, name, description)
 }
 
-RegisterEmployeeUI ..> RegisterEmployeeController
-RegisterEmployeeController ..> Employee
+class Company{
+	-designation
+	+getParameterCategoryStore()
+}
+
+class ParameterCategoryStore{
+    +createParameterCategory(code, nhsId, name, description)
+    +validateParameterCategory(pc)
+    +saveParameterCategory(pc)
+    +addParameterCategory()
+}
+
+CreateParameterCategoryUI ..> CreateParameterCategoryController
+CreateParameterCategoryController .right.> Company
+Company --> ParameterCategoryStore : uses
+ParameterCategoryStore -left-> ParameterCategory : store
+
 @enduml
