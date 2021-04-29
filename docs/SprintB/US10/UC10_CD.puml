@@ -15,9 +15,30 @@ class Company{
 }
 
 class Parameter{
+    -code
+    -shortName
+    -description
+    +Parameter(code, shortName, description, category)
 
 }
 
-CreateNewParameterController <.up. CreateNewParameterUI
+class ParameterStore{
+    +createParameter(code, shortName, description, category)
+    +validateParameter(p)
+    +saveParameter(p)
+}
+
+class ParameterCategory{
+    -code
+    -nhsId
+    -name
+    -description
+    +ParameterCategory(code, nhsId, name, description)
+}
+
+CreateNewParameterController <.down. CreateNewParameterUI
 CreateNewParameterController .right.> Company
+Company"1" --> "1"ParameterStore : uses
+ParameterStore"1" --> "*"Parameter : store
+Parameter"*" -left-> "1"ParameterCategory : presented under
 @enduml
