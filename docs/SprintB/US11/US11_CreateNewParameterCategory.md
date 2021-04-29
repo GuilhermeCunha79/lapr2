@@ -1,4 +1,4 @@
-# US 006 - To create a new parameter category
+# US 011 - To create a new parameter category
 
 ## 1. Requirements Engineering
 
@@ -33,13 +33,14 @@ As an administrator, I want to specify a new parameter category.
 
 
 * **AC1:** All required fields must be filled (except NHS ID)
-* **AC2:** Each category must have a name, a unique code and a description
+* **AC2:** Each category must have a name, a unique code, description and NHS ID(optional) 
 * **AC3:** When creating a new category with the same name and code as one previously registered in the system, 
 the application should deny the operation and inform the user to change the parameters or discard the operation.
-* **AC4:** Code must be unique having 4 to 8 chars
-* **AC5:** Description cannot be empty and has, at maximum, 40 chars
+* **AC4:** Code must be unique having 4 to 8 chars (TP ESOFT)
+* **AC5:** Description cannot be empty and has, at maximum, 40 chars (TP ESOFT)
 
 ### 1.4. Found out Dependencies
+
 * No dependencies were found.
 
 
@@ -85,28 +86,29 @@ n/a
 
 ### 3.1. Rationale
 
-**SSD - Alternative 1 is adopted.**
-
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | CreateNewParameterCategoryUI    |          
-| Step 2  		 |	...requesting data needed? | CreateNewParameterCategoryUI |                              |
-| Step 3  		 |	...saving the inputted data? | Employee  | IE: object created in step 1 has its own data.  |
-| Step 4  		 |	...knowing the employee roles to show? | Platform  | IE: Employee roles are defined by the Platform. |
-| Step 5  		 |	... saving the selected category? | Employee  | IE: object created in step 1 is classified in one Employee.  |
-| Step 6  		 |							 |             |                              |              
-| Step 7  		 |	... validating all data (local validation)? | Employee | IE: owns its data.| 
-| 			  		 |	... validating all data (global validation)? | Administrator | IE: knows all its employees.| 
-| 			  		 |	... saving the created employee? | Employee | IE: owns all its employee.| 
-| Step 8  		 |	... informing operation success?| RegisterEmployeeUI  | IE: is responsible for user interactions.  | 
+| Step 1: Start new parameter category |... interacting with the actor? | CreateNewParameterCategoryUI    | UI Layer is always responsible for user interactions |         
+| Step 2: Ask for the data |... requesting data needed? | CreateNewParameterCategoryUI | UI Layer is responsible for user interaction |
+| Step 4: Create new parameter category |... send command to create new parameter category? | CreateNewParameterCategoryUI | Controller makes the bridge between UI layer and Domain Layer| 
+| Step 5: Initiate store process|... start the store process for the parameter category being created? | Company | HC+LC: Company delegates some of its responsibilities to other classes |      
+| Step 6: Create new parameter category |... instantiating new parameter category? | ParameterCategoryStore | Creator: R1/2 |      
+| Step 7: Save Data |... saving the introduced data? | ParameterCategory  | IE: instance of object created has its own data.  |
+| Step 8: Validate parameter category |... validating all data (local validation)? | ParameterCategoryStore | IE: knows its own data.| 
+| Step 9: Present data to user |...requesting confirmation for data introduced? | CreateNewParameterCategoryUI | UI Layer is responsible for user interaction |
+| Step 11: Save parameter category |... send command to save the created parameter category? | CreateNewParameterCategoryUI | Controller makes the bridge between UI layer and Domain Layer| 
+| Step 12: Save parameter category |... saving the created parameter category? | ParameterCategoryStore | IE: stores all parameter category created| 
+| Step 13: Validate parameter category globally |... validating all data at global level? | ParameterCategoryStore | IE: Company Knows all existing Parameter Category| 
+| Step 14: Add parameter category |... add created parameter category to the list? | ParameterCategoryStore | IE: Responsible to add new Parameter Categories to the list| 
+| Step 15: Operation success |... informing operation success?| CreateNewParameterCategoryUI | UI Layer is responsible for user interactions.  | 
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Administrator
- * Platform
- * Employee
+ * Company
+ * ParameterCategory
+ * ParameterCategoryStore
 
 Other software classes (i.e. Pure Fabrication) identified: 
 

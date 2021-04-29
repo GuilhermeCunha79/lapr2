@@ -19,7 +19,6 @@ class Parameter{
     -shortName
     -description
     +Parameter(code, shortName, description, category)
-
 }
 
 class ParameterStore{
