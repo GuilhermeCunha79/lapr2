@@ -49,14 +49,14 @@ the application should deny the operation and inform the user to change the para
 **Input Data:**
 
 * Typed data:
-	* Name;
-	* Unique code.
+	* Parameter category name.
+	* Parameter category code.
 	
 * Selected data:
 	* (none)
 
 **Output Data:**
-* Success or insuccess of the operation
+* Success or failure in the operation.
 
 ### 1.6. System Sequence Diagram (SSD)
 

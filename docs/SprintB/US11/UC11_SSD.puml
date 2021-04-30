@@ -7,7 +7,7 @@ participant ":System" as SYSTEM
 
 ADMIN -> SYSTEM : Create New Parameter Category
 activate SYSTEM
-SYSTEM --> ADMIN : Requests necessary data (name, code, NHS identifier, description)
+SYSTEM --> ADMIN : Requests necessary data (name, code)
 deactivate SYSTEM
 
 ADMIN -> SYSTEM : Inserts the data

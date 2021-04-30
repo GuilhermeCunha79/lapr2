@@ -5,7 +5,7 @@ class CreateNewParameterUI{
 }
 
 class CreateNewParameterController{
-    +CreateNewParameter(shortName, code, nhsId, description, category)
+    +CreateNewParameter(shortName, code, description, category)
     +saveParameter()
 }
 
@@ -29,10 +29,8 @@ class ParameterStore{
 
 class ParameterCategory{
     -code
-    -nhsId
     -name
-    -description
-    +ParameterCategory(code, nhsId, name, description)
+    +ParameterCategory(code, name)
 }
 
 CreateNewParameterController <.down. CreateNewParameterUI

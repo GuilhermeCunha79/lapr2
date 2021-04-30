@@ -1,6 +1,6 @@
 @startuml
 autonumber
-'hide footbox
+
 actor "Administrator" as ADMIN
 
 participant ":CreateNewParameterUI" as UI
@@ -13,18 +13,18 @@ participant ":Parameter" as P
 
 ADMIN -> UI : Start a new parameter
 activate UI
-UI --> ADMIN : ask data (shortName, code, nhsId, description, category)
+UI --> ADMIN : ask data (shortName, code, description, category)
 deactivate UI
 ADMIN -> UI : insert requested data
 activate UI
-    UI -> CTRL : CreateNewParameter(shortName, code, nhsId, description, category)
+    UI -> CTRL : CreateNewParameter(shortName, code, description, category)
     activate CTRL
         CTRL -> COMP : store = getParameterStore()
         activate COMP
         deactivate COMP
-        CTRL -> PS : p = createParameter(shortName, code, nhsId, description, category)
+        CTRL -> PS : p = createParameter(shortName, code, description, category)
         activate PS
-            PS --> P** : create(shortName, code, nhsId, description, category)
+            PS --> P** : create(shortName, code, description, category)
         deactivate PS
         CTRL -> PS : validateParameter(p)
         activate PS

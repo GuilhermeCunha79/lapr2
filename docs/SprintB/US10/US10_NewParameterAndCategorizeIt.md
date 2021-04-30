@@ -96,7 +96,7 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: Start new parameter |... interacting with the actor? | CreateNewParameterUI    | UI Layer is always responsible for user interactions |         
+| Step 1: Start new parameter |... interacting with the actor? | CreateNewParameterUI | UI Layer is always responsible for user interactions |         
 | Step 2: Ask for the data |... requesting data needed? | CreateNewParameterUI | UI Layer is responsible for user interaction |
 | Step 4: Create new parameter |... send command to create new parameter? | CreateNewParameterController | Controller makes the bridge between UI layer and Domain Layer| 
 | Step 5: Initiate store process|... start the store process for the parameter being created? | Company | HC+LC: Company delegates some of its responsibilities to other classes |      
@@ -117,11 +117,12 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Company
  * Parameter
+ * ParameterStore
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * ParameterCreationAndCategorizationUI  
- * ParameterCreationAndCategorizationController
+ * CreateNewParameterUI  
+ * CreateNewParameterController
 
 
 ## 3.2. Sequence Diagram (SD)

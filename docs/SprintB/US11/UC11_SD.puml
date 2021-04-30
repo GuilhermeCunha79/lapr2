@@ -13,18 +13,18 @@ participant ":ParameterCategory" as PC
 
 ADMIN -> UI : Start new parameter category
 activate UI
-UI --> ADMIN : ask data (name, code, NHS identifier, description)
+UI --> ADMIN : ask data (name, code)
 deactivate UI
 ADMIN -> UI : insert requested data
 activate UI
-    UI -> CTRL : CreateNewParameterCategory(name, code, NHS identifier, description)
+    UI -> CTRL : CreateNewParameterCategory(name, code)
     activate CTRL
         CTRL -> COMP : store = getParameterCategoryStore()
         activate COMP
         deactivate COMP
-        CTRL -> PCS : pc = createParameterCategory(name, code, NHS identifier, description)
+        CTRL -> PCS : pc = createParameterCategory(name, code)
         activate PCS
-            PCS --> PC** : create(name, code, NHS identifier, description)
+            PCS --> PC** : create(name, code)
         deactivate PCS
         CTRL -> PCS : validateParameterCategory(pc)
         activate PCS

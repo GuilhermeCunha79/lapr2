@@ -6,7 +6,7 @@ class CreateParameterCategoryUI{
 
 class CreateParameterCategoryController
 {
-    +createNewParameterCategory(code, nhsId, name, description)
+    +createNewParameterCategory(code, name)
     +saveParameterCategory()
 }
 
@@ -15,7 +15,7 @@ class ParameterCategory{
     -nhsId
     -name
     -description
-    +ParameterCategory(code, nhsId, name, description)
+    +ParameterCategory(code, name)
 }
 
 class Company{
@@ -24,7 +24,7 @@ class Company{
 }
 
 class ParameterCategoryStore{
-    +createParameterCategory(code, nhsId, name, description)
+    +createParameterCategory(code, name)
     +validateParameterCategory(pc)
     +saveParameterCategory(pc)
     +addParameterCategory()
@@ -32,7 +32,7 @@ class ParameterCategoryStore{
 
 CreateParameterCategoryUI ..> CreateParameterCategoryController
 CreateParameterCategoryController .right.> Company
-Company --> ParameterCategoryStore : uses
-ParameterCategoryStore -left-> ParameterCategory : store
+Company"1" --> "1"ParameterCategoryStore : uses
+ParameterCategoryStore"1" -left-> "*"ParameterCategory : store
 
 @enduml

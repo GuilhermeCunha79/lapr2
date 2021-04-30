@@ -12,7 +12,6 @@ class Admin{
 }
 
 class Parameter{
-    -nhsId
     -code
     -shortName
     -description
@@ -20,9 +19,7 @@ class Parameter{
 
 class ParameterCategory{
     -code
-    -nhsId
     -name
-    -description
 }
 
 Company"1" -- "*"Admin :> employs
