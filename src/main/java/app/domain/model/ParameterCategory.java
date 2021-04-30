@@ -75,7 +75,7 @@ public class ParameterCategory {
      */
     @Override
     public String toString() {
-        return String.format("Parameter Category:\nName: %s\nCode: %d", this.name, this.code);
+        return String.format("Parameter Category:\nName: %s\nCode: %s", this.name, this.code);
     }
 
     /**
@@ -87,7 +87,7 @@ public class ParameterCategory {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        ParameterCategory newObj = (ParameterCategory) obj;
-        return code == newObj.code && Objects.equals(name, newObj.name);
+        ParameterCategory newPC = (ParameterCategory) obj;
+        return code == newPC.code || Objects.equals(name, newPC.name);
     }
 }

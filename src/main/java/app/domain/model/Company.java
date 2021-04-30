@@ -2,6 +2,7 @@ package app.domain.model;
 
 import auth.AuthFacade;
 import auth.domain.store.ParameterCategoryStore;
+import auth.domain.store.ParameterStore;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -14,7 +15,9 @@ public class Company {
 
     private String designation;
     private AuthFacade authFacade;
+
     private ParameterCategoryStore pcStore;
+    private ParameterStore pStore;
 
     public Company(String designation)
     {
@@ -35,6 +38,10 @@ public class Company {
 
     public List<ParameterCategory> getParameterCategoryStore(){
         return this.pcStore.getParameterCategoryList();
+    }
+
+    public List<Parameter> getParameterStore(){
+        return this.pStore.getParameterList();
     }
 
 }

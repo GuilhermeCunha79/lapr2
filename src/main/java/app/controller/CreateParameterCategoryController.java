@@ -15,7 +15,7 @@ public class CreateParameterCategoryController {
     }
 
     public boolean createNewParameterCategory(String code, String name){
-        this.pcStore.createParameterCategory(code, name);
+        this.pc = this.pcStore.createParameterCategory(code, name);
         return this.pcStore.validateParameterCategory(pc);
     }
 

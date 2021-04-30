@@ -21,6 +21,7 @@ public class ParameterCategoryStore {
         }
         return false;
     }
+
     public boolean addParameterCategory(ParameterCategory pc)
     {
         if (pc != null) {
