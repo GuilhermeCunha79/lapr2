@@ -12,9 +12,7 @@ class CreateParameterCategoryController
 
 class ParameterCategory{
     -code
-    -nhsId
     -name
-    -description
     +ParameterCategory(code, name)
 }
 
