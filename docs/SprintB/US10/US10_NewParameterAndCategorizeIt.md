@@ -1,4 +1,4 @@
-# US 006 - To specify a new parameter and categorize it
+# US 010 - To specify a new parameter and categorize it
 
 ## 1. Requirements Engineering
 
@@ -19,7 +19,6 @@ As an administrator, I want to specify a new parameter and categorize it.
 >   "...such tests rely on measuring one or more parameters that can be grouped/organized by categories..."
 
 
-
 **From the client clarifications:**
 
 > **Question:** Which data is needed to create a new parameter?
@@ -30,6 +29,10 @@ As an administrator, I want to specify a new parameter and categorize it.
 >
 > **Answer:** The Code are five alphanumeric characters. The Short Name is a String with no more than 8 characters. 
 >The Description is a String with no more than 20 characters.
+>
+>> **Question:** Can a parameter be classified in more than one parameter category?
+ >
+ > **Answer:** No. Each parameter has only one category. There are no subcategories.
 
 
 ### 1.3. Acceptance Criteria
@@ -93,7 +96,20 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-|Step/Msg1: Start a new Parameter | ...instantiating a new parameter | 
+| Step 1: Start new parameter |... interacting with the actor? | CreateNewParameterUI    | UI Layer is always responsible for user interactions |         
+| Step 2: Ask for the data |... requesting data needed? | CreateNewParameterUI | UI Layer is responsible for user interaction |
+| Step 4: Create new parameter |... send command to create new parameter? | CreateNewParameterController | Controller makes the bridge between UI layer and Domain Layer| 
+| Step 5: Initiate store process|... start the store process for the parameter being created? | Company | HC+LC: Company delegates some of its responsibilities to other classes |      
+| Step 6: Create new parameter |... instantiating new parameter? | ParameterStore | Creator: R1/2 |      
+| Step 7: Save Data |... saving the introduced data? | Parameter | IE: instance of object created has its own data.  |
+| Step 8: Validate parameter |... validating all data (local validation)? | ParameterStore | IE: knows its own data.| 
+| Step 9: Present data to user |...requesting confirmation for data introduced? | CreateNewParameterUI | UI Layer is responsible for user interaction |
+| Step 11: Save parameter |... send command to save the created parameter? | CreateNewParameterController | Controller makes the bridge between UI layer and Domain Layer| 
+| Step 12: Save parameter |... saving the created parameter? | ParameterStore | IE: stores all parameters created| 
+| Step 13: Validate parameter globally |... validating all data at global level? | ParameterStore | IE: Company Knows all existing Parameters| 
+| Step 14: Add parameter |... add created parameter to the list? | ParameterStore | IE: Responsible to add new Parameters to the list| 
+| Step 15: Operation success |... informing operation success?| CreateNewParameterUI | UI Layer is responsible for user interactions.  | 
+
 
 ### Systematization ##
 
