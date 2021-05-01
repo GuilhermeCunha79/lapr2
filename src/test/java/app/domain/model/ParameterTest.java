@@ -49,11 +49,4 @@ public class ParameterTest {
         assertTrue(p1.equals(p2));
     }
 
-    @Test
-    public void checkIfParameterIsDiferentThanNull(){
-        ParameterCategory pc = new ParameterCategory("12012", "hemograms");
-        Parameter p1 = null;
-        Parameter p2 = new Parameter("Blood", "10232", "Test Blood Cells", pc);
-        assertFalse(p1.equals(p2));
-    }
 }

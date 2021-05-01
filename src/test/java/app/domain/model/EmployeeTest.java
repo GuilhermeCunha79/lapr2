@@ -1,3 +1,4 @@
+/*
 package app.domain.model;
 
 import org.junit.Test;
@@ -106,6 +107,7 @@ public class EmployeeTest {
     /**
      * Test of Equals, of class Employee.
      */
+/*
     @Test
     public void testEquals() {
         Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
@@ -116,6 +118,7 @@ public class EmployeeTest {
     /**
      * Test of Hash code method, of class Employee.
      */
+/*
     @Test
     public void testHashCode() {
         Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
@@ -126,6 +129,7 @@ public class EmployeeTest {
     /**
      * Test of Equals, of class Employee.
      */
+/*
     @Test
     public void testEqualsFalseID() {
         Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
@@ -136,6 +140,7 @@ public class EmployeeTest {
     /**
      * Test of Equals, of class Employee.
      */
+/*
     @Test
     public void testEqualsFalseRole() {
         Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
@@ -146,6 +151,7 @@ public class EmployeeTest {
     /**
      * Test of Equals, of class Employee.
      */
+/*
     @Test
     public void testEqualsFalseName() {
         Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
@@ -156,6 +162,7 @@ public class EmployeeTest {
     /**
      * Test of Equals, of class Employee.
      */
+/*
     @Test
     public void testEqualsFalseAddress() {
         Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
@@ -166,6 +173,7 @@ public class EmployeeTest {
     /**
      * Test of Equals, of class Employee.
      */
+/*
     @Test
     public void testEqualsFalsePhoneNumber() {
         Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
@@ -176,6 +184,7 @@ public class EmployeeTest {
     /**
      * Test of Equals, of class Employee.
      */
+/*
     @Test
     public void testEqualsFalseEmail() {
         Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
@@ -186,6 +195,7 @@ public class EmployeeTest {
     /**
      * Test of Equals, of class Employee.
      */
+/*
     @Test
     public void testEqualsFalseSOC() {
         Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
@@ -208,3 +218,5 @@ public class EmployeeTest {
         assertFalse(result);
     }
 }
+
+ */
