@@ -25,18 +25,28 @@ public class Parameter {
     private void checkDescriptionRules(String description) {
         if(description.length()>DESCRIPTION_LENGTH)
             throw new IllegalArgumentException("Description has more than 20 chars");
+        if(description == null)
+            throw new NullPointerException("Object cannot be null");
     }
 
     private void checkShortNameRules(String shortName) {
         if(shortName.length()>SHORT_NAME_LENGTH)
             throw new IllegalArgumentException("Short name has more than 8 chars");
+        if(shortName == null)
+            throw new NullPointerException("Object cannot be null");
     }
 
     private void checkCodeRules(String code) {
-        if(!code.matches("[A-Za-z0-9]"))
-            throw new IllegalArgumentException("Code has non alphanumeric chars.");
+        for (int i = 0; i < code.length(); i++) {
+            String c = String.valueOf(code.charAt(i));
+            if(!c.matches("[A-Za-z0-9]"))
+                throw new IllegalArgumentException("Code has non alphanumeric chars.");
+        }
+
         if(code.length()!=CODE_LENGTH)
             throw new IllegalArgumentException("Code needs to have exactly 5 chars");
+        if(code == null)
+            throw new NullPointerException("Object cannot be null");
     }
 
     public String getCode() {
