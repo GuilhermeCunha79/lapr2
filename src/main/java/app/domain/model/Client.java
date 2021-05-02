@@ -17,8 +17,6 @@ public class Client {
     private String email;
     List<Client> clientList = new ArrayList<>();
 
-    private final int PHONENUMBER_PER_OMISSION= 0;
-
     private static int clientCount = 0;
 
     /***
@@ -32,6 +30,7 @@ public class Client {
      * @param email
      */
     public Client(int nhsNumber, String name, int tinNumber, String birthDate, String sex, long phoneNumber, String email){
+        clientCount++;
         this.nhsNumber=nhsNumber;
         this.name=name;
         this.tinNumber=tinNumber;
@@ -51,12 +50,12 @@ public class Client {
      * @param email
      */
     public Client(int nhsNumber, String name, int tinNumber, String birthDate, String sex, String email){
+        clientCount++;
         this.nhsNumber=nhsNumber;
         this.name=name;
         this.tinNumber=tinNumber;
         this.birthDate=birthDate;
         this.sex=sex;
-        this.phoneNumber=PHONENUMBER_PER_OMISSION;
         this.email=email;
     }
 
@@ -177,7 +176,7 @@ public class Client {
      *
      * @return true or false
      */
-    public static boolean validateClient(Client client) {
+    public boolean validateClient(Client client) {
         return ( client.name != null
                 && client.birthDate != null
                 && client.tinNumber > 0000000000
