@@ -13,7 +13,7 @@ participant "ct: Client" as CL
 
 RECEP -> UI : register a new client
 activate UI
-    UI --> RECEP : request mandatory data (name, citizen card number, NHS number,\n TIN number, birth day, sex) and optional data (phone number)
+    UI --> RECEP : request mandatory data (name, citizen card number, NHS number,\n TIN number, birth day) and optional data (phone number and sex)
 deactivate UI
 
 RECEP -> UI : inserts the required data

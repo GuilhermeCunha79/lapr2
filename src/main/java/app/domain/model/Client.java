@@ -29,7 +29,7 @@ public class Client {
      * @param phoneNumber
      * @param email
      */
-    public Client(int nhsNumber, String name, int tinNumber, String birthDate, String sex, long phoneNumber, String email){
+    public Client(long nhsNumber, String name, long tinNumber, String birthDate, String sex, long phoneNumber, String email){
         clientCount++;
         this.nhsNumber=nhsNumber;
         this.name=name;
@@ -49,13 +49,32 @@ public class Client {
      * @param sex
      * @param email
      */
-    public Client(int nhsNumber, String name, int tinNumber, String birthDate, String sex, String email){
+    public Client(long nhsNumber, String name, long tinNumber, String birthDate, String sex, String email){
         clientCount++;
         this.nhsNumber=nhsNumber;
         this.name=name;
         this.tinNumber=tinNumber;
         this.birthDate=birthDate;
         this.sex=sex;
+        this.email=email;
+    }
+
+    public Client(long nhsNumber, String name, long tinNumber, String birthDate, long phoneNumber, String email){
+        clientCount++;
+        this.nhsNumber=nhsNumber;
+        this.name=name;
+        this.tinNumber=tinNumber;
+        this.birthDate=birthDate;
+        this.phoneNumber=phoneNumber;
+        this.email=email;
+    }
+
+    public Client(long nhsNumber, String name, long tinNumber, String birthDate, String email){
+        clientCount++;
+        this.nhsNumber=nhsNumber;
+        this.name=name;
+        this.tinNumber=tinNumber;
+        this.birthDate=birthDate;
         this.email=email;
     }
 
@@ -188,6 +207,8 @@ public class Client {
                 && client.email != null
                 && client.sex != null);
     }
+
+
 
     @Override
     public boolean equals(Object o) {
