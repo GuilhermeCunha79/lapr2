@@ -5,15 +5,16 @@ import java.util.Objects;
 
 public class Parameter {
 
+    static final int DESCRIPTION_LENGTH = 20;
+    static final int CODE_LENGTH = 5;
+    static final int SHORT_NAME_LENGTH = 8;
+    static final String STRING_BLANK_EXEPT = "Strings cannot be empty";
+
     private String code;
     private String shortName;
     private String description;
 
-    static final int DESCRIPTION_LENGTH = 20;
-    static final int CODE_LENGTH = 5;
-    static final int SHORT_NAME_LENGTH = 8;
-
-    public Parameter(String shortName, String code, String description, ParameterCategory category){
+    public Parameter(String shortName, String code, String description, ParameterCategory category) {
         checkCodeRules(code);
         checkShortNameRules(shortName);
         checkDescriptionRules(description);
@@ -23,30 +24,30 @@ public class Parameter {
     }
 
     private void checkDescriptionRules(String description) {
-        if(description.length()>DESCRIPTION_LENGTH)
+        if (description.length() > DESCRIPTION_LENGTH)
             throw new IllegalArgumentException("Description has more than 20 chars");
-        if(description == null)
-            throw new NullPointerException("Object cannot be null");
+        if (description.isBlank())
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
     }
 
     private void checkShortNameRules(String shortName) {
-        if(shortName.length()>SHORT_NAME_LENGTH)
+        if (shortName.length() > SHORT_NAME_LENGTH)
             throw new IllegalArgumentException("Short name has more than 8 chars");
-        if(shortName == null)
-            throw new NullPointerException("Object cannot be null");
+        if (shortName.isBlank())
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
     }
 
     private void checkCodeRules(String code) {
         for (int i = 0; i < code.length(); i++) {
             String c = String.valueOf(code.charAt(i));
-            if(!c.matches("[A-Za-z0-9]"))
+            if (!c.matches("[A-Za-z0-9]"))
                 throw new IllegalArgumentException("Code has non alphanumeric chars.");
         }
 
-        if(code.length()!=CODE_LENGTH)
+        if (code.length() != CODE_LENGTH)
             throw new IllegalArgumentException("Code needs to have exactly 5 chars");
-        if(code == null)
-            throw new NullPointerException("Object cannot be null");
+        if (code.isBlank())
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
     }
 
     public String getCode() {

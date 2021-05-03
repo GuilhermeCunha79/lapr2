@@ -24,15 +24,21 @@ As an administrator, I want to specify a new parameter and categorize it.
 > **Question:** Which data is needed to create a new parameter?
 >  
 > **Answer:** Each parameter is associated with one category. Each parameter has a Code, a Short Name and a Description.
->
+
 > **Question:** What rules do the parameter's data need to follow in order to be accepted? 
 >
 > **Answer:** The Code are five alphanumeric characters. The Short Name is a String with no more than 8 characters. 
 >The Description is a String with no more than 20 characters.
+
+> **Question:** Can a parameter be classified in more than one parameter category?
 >
->> **Question:** Can a parameter be classified in more than one parameter category?
- >
- > **Answer:** No. Each parameter has only one category. There are no subcategories.
+> **Answer:** No. Each parameter has only one category. There are no subcategories.
+
+> **Question:** When specifying more than one parameter at the same time, all that parameters will be categorized to one single category 
+>or should I ask the category to each parameter?
+>
+> **Answer:** You should always ask the category of each parameter.
+
 
 
 ### 1.3. Acceptance Criteria
