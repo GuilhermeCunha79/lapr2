@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /***
  * Client Class
@@ -21,11 +22,11 @@ public class Client {
 
     private static int clientCount = 0;
 
-    private static final int NHSTIN_NUMBER_DIGITS =10;
-    private static final int PHONE_NUMBER_DIGITS=11;
-    private static final int BIRTH_DATE_DIGITS=8;
-    private static final String SEX_MALE="Male";
-    private static final String SEX_FEMALE="Female";
+    private static final int NHSTIN_NUMBER_DIGITS = 10;
+    private static final int PHONE_NUMBER_DIGITS = 11;
+    private static final int BIRTH_DATE_DIGITS = 8;
+    private static final String SEX_MALE = "Male";
+    private static final String SEX_FEMALE = "Female";
 
     /***
      * Constructor for class Client, complete
@@ -37,20 +38,20 @@ public class Client {
      * @param phoneNumber
      * @param email
      */
-    public Client(long nhsNumber, String name, long tinNumber, String birthDate, String sex, long phoneNumber, String email){
+    public Client(String name, long nhsNumber, long tinNumber, String birthDate, String sex, long phoneNumber, String email) {
         clientCount++;
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
         checkSexRules(sex);
         checkPhoneNumberRules(phoneNumber);
-        this.nhsNumber=nhsNumber;
-        this.name=name;
-        this.tinNumber=tinNumber;
-        this.birthDate=birthDate;
-        this.sex=sex;
-        this.phoneNumber=phoneNumber;
-        this.email=email;
+        this.nhsNumber = nhsNumber;
+        this.name = name;
+        this.tinNumber = tinNumber;
+        this.birthDate = birthDate;
+        this.sex = sex;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
     /***
@@ -62,18 +63,18 @@ public class Client {
      * @param sex
      * @param email
      */
-    public Client(long nhsNumber, String name, long tinNumber, String birthDate, String sex, String email){
+    public Client(String name, long nhsNumber, long tinNumber, String birthDate, String sex, String email) {
         clientCount++;
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
         checkSexRules(sex);
-        this.nhsNumber=nhsNumber;
-        this.name=name;
-        this.tinNumber=tinNumber;
-        this.birthDate=birthDate;
-        this.sex=sex;
-        this.email=email;
+        this.nhsNumber = nhsNumber;
+        this.name = name;
+        this.tinNumber = tinNumber;
+        this.birthDate = birthDate;
+        this.sex = sex;
+        this.email = email;
     }
 
     /***
@@ -85,18 +86,18 @@ public class Client {
      * @param phoneNumber
      * @param email
      */
-    public Client(long nhsNumber, String name, long tinNumber, String birthDate, long phoneNumber, String email){
+    public Client(String name, long nhsNumber, long tinNumber, String birthDate, long phoneNumber, String email) {
         clientCount++;
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
         checkPhoneNumberRules(phoneNumber);
-        this.nhsNumber=nhsNumber;
-        this.name=name;
-        this.tinNumber=tinNumber;
-        this.birthDate=birthDate;
-        this.phoneNumber=phoneNumber;
-        this.email=email;
+        this.nhsNumber = nhsNumber;
+        this.name = name;
+        this.tinNumber = tinNumber;
+        this.birthDate = birthDate;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
     /***
@@ -107,17 +108,17 @@ public class Client {
      * @param birthDate
      * @param email
      */
-    public Client(long nhsNumber, String name, long tinNumber, String birthDate, String email){
+    public Client(String name, long nhsNumber, long tinNumber, String birthDate, String email) {
         clientCount++;
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
         checkSexRules(sex);
-        this.nhsNumber=nhsNumber;
-        this.name=name;
-        this.tinNumber=tinNumber;
-        this.birthDate=birthDate;
-        this.email=email;
+        this.nhsNumber = nhsNumber;
+        this.name = name;
+        this.tinNumber = tinNumber;
+        this.birthDate = birthDate;
+        this.email = email;
     }
 
     /***
@@ -125,21 +126,20 @@ public class Client {
      * @param nhsTinNumber
      */
     private void checkNhsTinNumberRules(long nhsTinNumber) { //10 digit numbers
-        if (nhsTinNumber==0)
+        if (nhsTinNumber == 0)
             throw new IllegalArgumentException("NHS number cannot be blank.");
-        if ( (Math.floor(Math.log10(nhsTinNumber) + 1) < NHSTIN_NUMBER_DIGITS) || (Math.floor(Math.log10(nhsTinNumber) + 1) > NHSTIN_NUMBER_DIGITS))
+        if (((int) Math.floor(Math.log10(nhsTinNumber) + 1) < NHSTIN_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(nhsTinNumber) + 1) > NHSTIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
     }
-
 
     /***
      * Verify if the phoneNumber respect the imposed rules
      * @param phoneNumber
      */
     private void checkPhoneNumberRules(long phoneNumber) { //11 digit numbers
-        if (phoneNumber==0)
+        if (phoneNumber == 0)
             throw new IllegalArgumentException("Phone number cannot be blank.");
-        if ( ((int)Math.floor(Math.log10(phoneNumber) + 1) < PHONE_NUMBER_DIGITS) || ((int)Math.floor(Math.log10(phoneNumber) + 1) > PHONE_NUMBER_DIGITS))
+        if (((int) Math.floor(Math.log10(phoneNumber) + 1) < PHONE_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(phoneNumber) + 1) > PHONE_NUMBER_DIGITS))
             throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
     }
 
@@ -150,7 +150,7 @@ public class Client {
     private void checkBirthDateRules(String birthDate) { // DD/MM/YY format
         if (StringUtils.isBlank(birthDate))
             throw new IllegalArgumentException("Birth date cannot be blank.");
-        if ( (birthDate.length() < BIRTH_DATE_DIGITS) || (birthDate.length() > BIRTH_DATE_DIGITS))
+        if ((birthDate.length() < BIRTH_DATE_DIGITS) || (birthDate.length() > BIRTH_DATE_DIGITS))
             throw new IllegalArgumentException("Birth date must have 4 to 8 chars.");
     }
 
@@ -161,7 +161,7 @@ public class Client {
     private void checkSexRules(String sex) { //Male or Female
         if (StringUtils.isBlank(sex))
             throw new IllegalArgumentException("Sex cannot be blank.");
-        if (!sex.equalsIgnoreCase(SEX_FEMALE) && !sex.equalsIgnoreCase(SEX_MALE))
+        if (sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE))
             throw new IllegalArgumentException("Sex must be Male or Female.");
     }
 
@@ -283,7 +283,7 @@ public class Client {
      * @return true or false
      */
     public boolean validateClient(Client client) {
-        return ( client.name != null
+        return (client.name != null
                 && client.birthDate != null
                 && client.tinNumber > 0000000000
                 && client.tinNumber <= 9999999999L
@@ -303,9 +303,15 @@ public class Client {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        else if (!(o instanceof Client)) return false;
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+
         Client client = (Client) o;
-        return getPhoneNumber() == client.getPhoneNumber() || getNhsNumber() == client.getNhsNumber() || getTinNumber() == client.getTinNumber() || getEmail().equals(client.getEmail());
+        return Objects.equals(phoneNumber, client.phoneNumber)
+                && Objects.equals(nhsNumber, client.nhsNumber)
+                && Objects.equals(tinNumber, client.tinNumber)
+                && Objects.equals(email, client.email);
     }
 
 }

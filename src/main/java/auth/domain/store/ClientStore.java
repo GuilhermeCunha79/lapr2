@@ -10,8 +10,8 @@ public class ClientStore {
         private List<Client> clientList = new ArrayList();
 
 
-        public Client newClient(int nhsNumber, String name, int tinNumber, String birthDate, String sex, long phoneNumber, String email){
-            return new Client(nhsNumber, name, tinNumber, birthDate, sex, phoneNumber, email);
+        public Client newClient(String name, int nhsNumber, int tinNumber, String birthDate, String sex, long phoneNumber, String email){
+            return new Client(name, nhsNumber, tinNumber, birthDate, sex, phoneNumber, email);
         }
 
         public boolean saveClient(Client ct){
