@@ -13,6 +13,7 @@ public class ClientTest {
         Client ct = new Client(null, 0, 0, null, null, 0, null);
     }
 
+
     @Test(expected = IllegalArgumentException.class)
     public void garanteeNullClientIsntCreatedWithSex() {
         Client ct = new Client(null, 0, 0, null, null, null);
