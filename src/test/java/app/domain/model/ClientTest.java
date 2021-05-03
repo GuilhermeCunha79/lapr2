@@ -35,14 +35,14 @@ public class ClientTest {
     public void ensureThatSexOnlyAcceptMaleFemale(){
         Client ct = new Client("Tomás", 1234567890,1234567890, "23/12/98","male","tomas@isep.ipp.pt");
     }
-
+/*
     @Test
     public void checkIfTwoClientsAreEqual() {
         Client ct01 = new Client("Tomás", 1234567890, 1234567890, "23/12/88", "male", 12345678901L, "tomas@isep.ipp.pt");
         Client ct02 = new Client("Miguel", 1234567890, 1234567890, "23/12/98", "female", 12345678901L, "tomas@isep.ipp.pt");
         assertTrue(ct01.equals(ct02));
     }
-
+*/
     @Test
     public void getNhsNumber() {
     }
