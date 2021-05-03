@@ -20,13 +20,13 @@ public class Client {
     private String email;
     List<Client> clientList = new ArrayList<>();
 
-    private static int clientCount = 0;
 
-    private static final int NHSTIN_NUMBER_DIGITS = 10;
-    private static final int PHONE_NUMBER_DIGITS = 11;
-    private static final int BIRTH_DATE_DIGITS = 8;
-    private static final String SEX_MALE = "Male";
-    private static final String SEX_FEMALE = "Female";
+    static final int MAX_CHAR_NAME = 35;
+    static final int NHSTIN_NUMBER_DIGITS = 10;
+    static final int PHONE_NUMBER_DIGITS = 11;
+    static final int BIRTH_DATE_DIGITS = 8;
+    static final String SEX_MALE = "male";
+    static final String SEX_FEMALE = "female";
 
     /***
      * Constructor for class Client, complete
@@ -39,7 +39,7 @@ public class Client {
      * @param email
      */
     public Client(String name, long nhsNumber, long tinNumber, String birthDate, String sex, long phoneNumber, String email) {
-        clientCount++;
+        checkNameRules(name);
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
@@ -64,7 +64,7 @@ public class Client {
      * @param email
      */
     public Client(String name, long nhsNumber, long tinNumber, String birthDate, String sex, String email) {
-        clientCount++;
+        checkNameRules(name);
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
@@ -87,7 +87,7 @@ public class Client {
      * @param email
      */
     public Client(String name, long nhsNumber, long tinNumber, String birthDate, long phoneNumber, String email) {
-        clientCount++;
+        checkNameRules(name);
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
@@ -109,7 +109,7 @@ public class Client {
      * @param email
      */
     public Client(String name, long nhsNumber, long tinNumber, String birthDate, String email) {
-        clientCount++;
+        checkNameRules(name);
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
@@ -119,6 +119,15 @@ public class Client {
         this.tinNumber = tinNumber;
         this.birthDate = birthDate;
         this.email = email;
+    }
+
+
+    private void checkNameRules(String name){
+        if(name == null )
+            throw new IllegalArgumentException("Name cannot be blank.");
+        if (name.length()>35)
+            throw new IllegalArgumentException("Name cannot have more than 35 characters");
+
     }
 
     /***
@@ -161,7 +170,7 @@ public class Client {
     private void checkSexRules(String sex) { //Male or Female
         if (StringUtils.isBlank(sex))
             throw new IllegalArgumentException("Sex cannot be blank.");
-        if (sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE))
+        if (!((sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE))))
             throw new IllegalArgumentException("Sex must be Male or Female.");
     }
 

@@ -31,7 +31,7 @@ public class ClientTest {
         Client ct = new Client("Tomás", 1234567890, 1234567890, "23/12/98", "male", 1234567890, "tomas@isep.ipp.pt");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void ensureThatSexOnlyAcceptMaleFemale(){
         Client ct = new Client("Tomás", 1234567890,1234567890, "23/12/98","male","tomas@isep.ipp.pt");
     }
@@ -39,13 +39,21 @@ public class ClientTest {
     @Test
     public void checkIfTwoClientsAreEqual() {
         Client ct01 = new Client("Tomás", 1234567890, 1234567890, "23/12/88", "male", 12345678901L, "tomas@isep.ipp.pt");
-        Client ct02 = new Client("Miguel", 1234567890, 1234567890, "23/12/98", "female", 12345678901L, "tomas@isep.ipp.pt");
-        assertTrue(ct01.equals(ct02));
+        Client ct02 = new Client("Tomás", 1234567890, 1234567890, "23/12/98", "male", 12345678901L, "tomas@isep.ipp.pt");
+        assertEquals(ct01, ct02);
     }
 */
     @Test
     public void getNhsNumber() {
     }
+
+    @Test
+    public void checkIfTwoClientsAreDifferents() {
+        Client ct01 = new Client("Tomás", 9876543213L, 9876543213L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
+        Client ct02 = new Client("Tomás", 1234567890, 1234567890, "23/12/98", "Female", 12345678901L, "tomas@isep.ipp.pt");
+        assertNotEquals(ct01, ct02);
+    }
+
 
     @Test
     public void setNhsNumber() {
