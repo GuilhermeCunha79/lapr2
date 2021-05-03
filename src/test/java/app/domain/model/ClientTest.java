@@ -2,6 +2,8 @@ package app.domain.model;
 
 import org.junit.Test;
 
+import java.util.UnknownFormatConversionException;
+
 import static org.junit.Assert.*;
 
 public class ClientTest {
@@ -35,14 +37,14 @@ public class ClientTest {
     public void ensureThatSexOnlyAcceptMaleFemale(){
         Client ct = new Client("Tomás", 1234567890,1234567890, "23/12/98","male","tomas@isep.ipp.pt");
     }
-/*
+
     @Test
     public void checkIfTwoClientsAreEqual() {
         Client ct01 = new Client("Tomás", 1234567890, 1234567890, "23/12/88", "male", 12345678901L, "tomas@isep.ipp.pt");
         Client ct02 = new Client("Tomás", 1234567890, 1234567890, "23/12/98", "male", 12345678901L, "tomas@isep.ipp.pt");
         assertEquals(ct01, ct02);
     }
-*/
+
     @Test
     public void getNhsNumber() {
     }
@@ -56,55 +58,59 @@ public class ClientTest {
 
 
     @Test
-    public void setNhsNumber() {
+    public void checkGetName(){
+        Client ct01 = new Client("Tomás", 1234567890,1234567891, "23/12/98","male",12345678901L,"tomas@isep.ipp.pt");
+        String expected = "Tomás";
+        assertEquals(expected,ct01.getName());
     }
 
     @Test
-    public void getName() {
+    public void checkGetNhsNumber(){
+        Client ct01 = new Client("Tomás", 1234567890,1234567891, "23/12/98","male",12345678901L,"tomas@isep.ipp.pt");
+        long expected = 1234567890;
+        assertEquals(expected,ct01.getNhsNumber());
     }
 
     @Test
-    public void setName() {
+    public void checkGetTinNumber(){
+        Client ct01 = new Client("Tomás", 1234567890,1234567891, "23/12/98","male",12345678901L,"tomas@isep.ipp.pt");
+        long expected = 1234567891;
+        assertEquals(expected,ct01.getTinNumber());
     }
 
     @Test
-    public void getTinNumber() {
+    public void checkGetBirthDate(){
+        Client ct01 = new Client("Tomás", 1234567890,1234567891, "23/12/98","male",12345678901L,"tomas@isep.ipp.pt");
+        String expected = "23/12/98";
+        assertEquals(expected,ct01.getBirthDate());
     }
 
     @Test
-    public void setTinNumber() {
+    public void checkGetSex(){
+        Client ct01 = new Client("Tomás", 1234567890,1234567891, "23/12/98","male",12345678901L,"tomas@isep.ipp.pt");
+        String expected = "male";
+        assertEquals(expected,ct01.getSex());
     }
 
     @Test
-    public void getBirthDate() {
+    public void checkPhoneNumber(){
+        Client ct01 = new Client("Tomás", 1234567890,1234567891, "23/12/98","male",12345678901L,"tomas@isep.ipp.pt");
+        long expected = 12345678901L;
+        assertEquals(expected,ct01.getPhoneNumber());
     }
 
     @Test
-    public void setBirthDate() {
+    public void checkEmail(){
+        Client ct01 = new Client("Tomás", 1234567890,1234567891, "23/12/98","male",12345678901L,"tomas@isep.ipp.pt");
+        String expected = "tomas@isep.ipp.pt";
+        assertEquals(expected,ct01.getEmail());
     }
 
-    @Test
-    public void getSex() {
-    }
-
-    @Test
-    public void setSex() {
-    }
-
-    @Test
-    public void getPhoneNumber() {
-    }
-
-    @Test
-    public void setPhoneNumber() {
-    }
-
-    @Test
-    public void getEmail() {
-    }
-
-    @Test
-    public void setEmail() {
+    @Test (expected = UnknownFormatConversionException.class)
+    public void checkToStringMethod(){
+        Client ct01 = new Client("Tomás", 1234567890,1234567890, "23/12/98","male",12345678901L,"tomas@isep.ipp.pt");
+        String expected = "Client:\nName: Tomás\nNHS number: 1234567890\nTIN number: 1234567890\nBirth date: 23/12/98\nSex: male\nPhone number: 12345678901\nEmail: tomas@isep.ipp.pt";
+        assertEquals(expected, ct01.toString());
     }
 
     @Test
@@ -114,4 +120,6 @@ public class ClientTest {
     @Test
     public void testEquals() {
     }
+
+
 }

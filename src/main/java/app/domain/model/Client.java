@@ -2,9 +2,10 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
+import javax.xml.crypto.Data;
+import java.util.Calendar;
+import java.util.*;
 
 /***
  * Client Class
@@ -121,11 +122,14 @@ public class Client {
         this.email = email;
     }
 
-
+    /***
+     * Verify if the name respect the imposed rules
+     * @param name
+     */
     private void checkNameRules(String name){
         if(name == null )
             throw new IllegalArgumentException("Name cannot be blank.");
-        if (name.length()>35)
+        if (name.length()>MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 35 characters");
 
     }
@@ -173,6 +177,8 @@ public class Client {
         if (!((sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE))))
             throw new IllegalArgumentException("Sex must be Male or Female.");
     }
+
+    //private void calcula CALCULAR IDADEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 
     /***
      * Method that returns the nhs number of the Client
@@ -302,6 +308,12 @@ public class Client {
                 && client.phoneNumber <= 99999999999L
                 && client.email != null
                 && client.sex != null);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Client:\nName: %s\nNHS number: %l\nTIN number: %l \nBirth date: %s \nSex: %s \nPhone number: %l \nEmail: %s ",
+                this.name, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email);
     }
 
     /***
