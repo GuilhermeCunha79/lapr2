@@ -1,6 +1,8 @@
 package app.domain.model;
 
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
 public class Parameter {
@@ -26,14 +28,14 @@ public class Parameter {
     private void checkDescriptionRules(String description) {
         if (description.length() > DESCRIPTION_LENGTH)
             throw new IllegalArgumentException("Description has more than 20 chars");
-        if (description.isBlank())
+        if (StringUtils.isBlank(description))
             throw new IllegalArgumentException(STRING_BLANK_EXEPT);
     }
 
     private void checkShortNameRules(String shortName) {
         if (shortName.length() > SHORT_NAME_LENGTH)
             throw new IllegalArgumentException("Short name has more than 8 chars");
-        if (shortName.isBlank())
+        if (StringUtils.isBlank(shortName))
             throw new IllegalArgumentException(STRING_BLANK_EXEPT);
     }
 
@@ -46,7 +48,7 @@ public class Parameter {
 
         if (code.length() != CODE_LENGTH)
             throw new IllegalArgumentException("Code needs to have exactly 5 chars");
-        if (code.isBlank())
+        if (StringUtils.isBlank(code))
             throw new IllegalArgumentException(STRING_BLANK_EXEPT);
     }
 
