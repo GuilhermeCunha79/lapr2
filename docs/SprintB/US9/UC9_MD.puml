@@ -6,7 +6,10 @@ Employee <|-- Administrador
 Administrador --  TypeOfTest:> specify new
 
 class TypeOfTest{
-
+-code
+-description
+-collecting method
+-Cathegory
 }
 
 class Administrador{

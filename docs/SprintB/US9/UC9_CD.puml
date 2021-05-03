@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam classAttributeIconSize 0
+
+class SpecifieANewTypeOfTestUI{
+}
+
+class SpecifieANewTypeOfTestController{
+    +CreateNewTypeOfTest()
+    +saveTypeOfTest()
+}
+
+class Company{
+	-designation
+	+getParameterStore()
+}
+
+class TypeOfTest{
+    -code
+    -shortName
+    -description
+    +Parameter(code, shortName, description, category)
+}
+
+class TypeOfTestStore{
+    +createTypeOfTest(code, shortName, description, category)
+    +validateTypeOfTest(p)
+    +saveTypeOfTest(p)
+}
+
+
+
+ SpecifieANewTypeOfTestController  <.down. SpecifieANewTypeOfTestUI
+SpecifieANewTypeOfTestController .right.> Company
+Company"1" --> "1"TypeOfTestStore : uses
+TypeOfTestStore"1" --> "*"TypeOfTest : store
+
+@enduml
+
+@enduml

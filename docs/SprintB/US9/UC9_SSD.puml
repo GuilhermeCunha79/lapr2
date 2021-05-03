@@ -8,7 +8,7 @@ participant ":System" as SYSTEM
 
 ADMIN -> SYSTEM : Create New Parameter Category
 activate SYSTEM
-SYSTEM --> ADMIN : Requests necessary data (NHS,Colecting method, description)
+SYSTEM --> ADMIN : Requests necessary data (code, description, collecting method, Cathegory)
 deactivate SYSTEM
 
 ADMIN -> SYSTEM : Inserts the data
@@ -18,7 +18,7 @@ deactivate SYSTEM
 
 ADMIN -> SYSTEM : Confirms the data
 activate SYSTEM
-SYSTEM --> ADMIN : Tell the user that the Nnw parameter category was created
+SYSTEM --> ADMIN : Tell the user that the new test as been sepecified
 deactivate SYSTEM
 
 
