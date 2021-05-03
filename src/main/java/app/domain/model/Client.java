@@ -21,8 +21,17 @@ public class Client {
 
     private static int clientCount = 0;
 
+    private static final int NHS_NUMBER_DIGITS=10;
+    private static final int TIN_NUMBER_DIGITS=10;
+    private static final int PHONE_NUMBER_DIGITS=11;
+    private static final int BIRTH_DATE_DIGITS=8;
+    private static final String UPPER_FIRST_LETTERSEX_MALE="Male";
+    private static final String LOWER_SEX_MALE="male";
+    private static final String UPPER_FIRST_LETTER_SEX_FEMALE="Female";
+    private static final String LOWER_SEX_FEMALE="female";
+
     /***
-     * Constructor for class Client
+     * Constructor for class Client, complete
      * @param nhsNumber
      * @param name
      * @param tinNumber
@@ -48,7 +57,7 @@ public class Client {
     }
 
     /***
-     * Constructor for class Client
+     * Constructor for class Client, without phoneNumber
      * @param nhsNumber
      * @param name
      * @param tinNumber
@@ -70,6 +79,15 @@ public class Client {
         this.email=email;
     }
 
+    /***
+     * Constructor for class Client, without sex and with phoneNumber
+     * @param nhsNumber
+     * @param name
+     * @param tinNumber
+     * @param birthDate
+     * @param phoneNumber
+     * @param email
+     */
     public Client(long nhsNumber, String name, long tinNumber, String birthDate, long phoneNumber, String email){
         clientCount++;
         checkNhsNumberRules(nhsNumber);
@@ -84,6 +102,14 @@ public class Client {
         this.email=email;
     }
 
+    /***
+     * Constructor for Client, without sex and phoneNumber
+     * @param nhsNumber
+     * @param name
+     * @param tinNumber
+     * @param birthDate
+     * @param email
+     */
     public Client(long nhsNumber, String name, long tinNumber, String birthDate, String email){
         clientCount++;
         checkNhsNumberRules(nhsNumber);
@@ -97,39 +123,58 @@ public class Client {
         this.email=email;
     }
 
-
+    /***
+     * Verify if the nhsNumber respect the imposed rules
+     * @param nhsNumber
+     */
     private void checkNhsNumberRules(long nhsNumber) { //10 digit numbers
         if (nhsNumber==0)
             throw new IllegalArgumentException("NHS number cannot be blank.");
-        if ( (nhsNumber < 10 ) || (nhsNumber > 10))
+        if ( (nhsNumber < NHS_NUMBER_DIGITS ) || (nhsNumber > NHS_NUMBER_DIGITS))
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
     }
 
+    /***
+     * Verify if the tinNumber respect the imposed rules
+     * @param tinNumber
+     */
     private void checkTinNumberRules(long tinNumber) { //10 digit numbers
         if (tinNumber==0)
             throw new IllegalArgumentException("TIN number cannot be blank.");
-        if ( (tinNumber < 10) || (tinNumber > 10))
+        if ( (tinNumber < TIN_NUMBER_DIGITS) || (tinNumber > TIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
     }
 
+    /***
+     * Verify if the phoneNumber respect the imposed rules
+     * @param phoneNumber
+     */
     private void checkPhoneNumberRules(long phoneNumber) { //11 digit numbers
         if (phoneNumber==0)
             throw new IllegalArgumentException("Phone number cannot be blank.");
-        if ( (phoneNumber < 11) || (phoneNumber > 11))
+        if ( (phoneNumber < PHONE_NUMBER_DIGITS) || (phoneNumber > PHONE_NUMBER_DIGITS))
             throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
     }
 
+    /***
+     * Verify if the birthDate respect the imposed rules
+     * @param birthDate
+     */
     private void checkBirthDateRules(String birthDate) { // DD/MM/YY format
         if (StringUtils.isBlank(birthDate))
             throw new IllegalArgumentException("Birth date cannot be blank.");
-        if ( (birthDate.length() < 8) || (birthDate.length() > 8))
+        if ( (birthDate.length() < BIRTH_DATE_DIGITS) || (birthDate.length() > BIRTH_DATE_DIGITS))
             throw new IllegalArgumentException("Birth date must have 4 to 8 chars.");
     }
 
+    /***
+     * Verify if the sex respect the imposed rules
+     * @param sex
+     */
     private void checkSexRules(String sex) { //Male or Female
         if (StringUtils.isBlank(sex))
             throw new IllegalArgumentException("Sex cannot be blank.");
-        if ( (sex != "male") || (sex != "female") || (sex != "Male") || (sex != "Female"))
+        if ( (sex != LOWER_SEX_MALE) || (sex != LOWER_SEX_FEMALE) || (sex != UPPER_FIRST_LETTERSEX_MALE) || (sex != UPPER_FIRST_LETTER_SEX_FEMALE))
             throw new IllegalArgumentException("Sex must be Male or Female.");
     }
 
@@ -263,8 +308,11 @@ public class Client {
                 && client.sex != null);
     }
 
-
-
+    /***
+     * Verify if the data of two Client's are equal
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
