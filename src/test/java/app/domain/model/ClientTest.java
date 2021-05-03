@@ -1,7 +1,6 @@
 package app.domain.model;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class ClientTest {
@@ -23,23 +22,87 @@ public class ClientTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameBirthDateSexEmailCannotBeBlank() {
-        Client ct = new Client(1234567890,"", 123456789, "", "", 12345678901,"");
+        Client ct = new Client(1234567890,"", 123456789, "", "", 1234567890,"");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatNhsAndTinCannotHaveMoreAndLessThan10Characters(){
-        Client ct = new Client(1234567890,"Tomás",1234567890,"23/12/98","male",12345678901,"tomas@isep.ipp.pt");
+        Client ct = new Client(1234567890,"Tomás",1234567890,"23/12/98","male",1234567890,"tomas@isep.ipp.pt");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    /*@Test(expected = IllegalArgumentException.class)
     public void ensureThatSexOnlyAcceptMaleFemale(){
         Client
-    }
+    }*/
 
     @Test
     public void checkIfDifferentClientsAreEqual(){
-        Client ct01 = new Client(1234567890,"Tomás", 123456789,"23/12/98","male",12345678901,"tomas@isep.ipp.pt");
-        Client ct02 = new Client(1234567890,"Tomás", 123456789,"23/12/98","male",12345678901,"tomas@isep.ipp.pt");
+        Client ct01 = new Client(1234567890,"Tomás", 123456789,"23/12/98","male",1234567890,"tomas@isep.ipp.pt");
+        Client ct02 = new Client(1234567890,"Tomás", 123456789,"23/12/98","male",1234567890,"tomas@isep.ipp.pt");
         assertTrue(ct01.equals(ct02));
+    }
+
+    @Test
+    public void getNhsNumber() {
+    }
+
+    @Test
+    public void setNhsNumber() {
+    }
+
+    @Test
+    public void getName() {
+    }
+
+    @Test
+    public void setName() {
+    }
+
+    @Test
+    public void getTinNumber() {
+    }
+
+    @Test
+    public void setTinNumber() {
+    }
+
+    @Test
+    public void getBirthDate() {
+    }
+
+    @Test
+    public void setBirthDate() {
+    }
+
+    @Test
+    public void getSex() {
+    }
+
+    @Test
+    public void setSex() {
+    }
+
+    @Test
+    public void getPhoneNumber() {
+    }
+
+    @Test
+    public void setPhoneNumber() {
+    }
+
+    @Test
+    public void getEmail() {
+    }
+
+    @Test
+    public void setEmail() {
+    }
+
+    @Test
+    public void validateClient() {
+    }
+
+    @Test
+    public void testEquals() {
     }
 }

@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,11 @@ public class Client {
      */
     public Client(long nhsNumber, String name, long tinNumber, String birthDate, String sex, long phoneNumber, String email){
         clientCount++;
+        checkNhsNumberRules(nhsNumber);
+        checkTinNumberRules(tinNumber);
+        checkBirthDateRules(birthDate);
+        checkSexRules(sex);
+        checkPhoneNumberRules(phoneNumber);
         this.nhsNumber=nhsNumber;
         this.name=name;
         this.tinNumber=tinNumber;
@@ -51,6 +58,10 @@ public class Client {
      */
     public Client(long nhsNumber, String name, long tinNumber, String birthDate, String sex, String email){
         clientCount++;
+        checkNhsNumberRules(nhsNumber);
+        checkTinNumberRules(tinNumber);
+        checkBirthDateRules(birthDate);
+        checkSexRules(sex);
         this.nhsNumber=nhsNumber;
         this.name=name;
         this.tinNumber=tinNumber;
@@ -61,6 +72,10 @@ public class Client {
 
     public Client(long nhsNumber, String name, long tinNumber, String birthDate, long phoneNumber, String email){
         clientCount++;
+        checkNhsNumberRules(nhsNumber);
+        checkTinNumberRules(tinNumber);
+        checkBirthDateRules(birthDate);
+        checkPhoneNumberRules(phoneNumber);
         this.nhsNumber=nhsNumber;
         this.name=name;
         this.tinNumber=tinNumber;
@@ -71,11 +86,51 @@ public class Client {
 
     public Client(long nhsNumber, String name, long tinNumber, String birthDate, String email){
         clientCount++;
+        checkNhsNumberRules(nhsNumber);
+        checkTinNumberRules(tinNumber);
+        checkBirthDateRules(birthDate);
+        checkSexRules(sex);
         this.nhsNumber=nhsNumber;
         this.name=name;
         this.tinNumber=tinNumber;
         this.birthDate=birthDate;
         this.email=email;
+    }
+
+
+    private void checkNhsNumberRules(long nhsNumber) { //10 digit numbers
+        if (nhsNumber==0)
+            throw new IllegalArgumentException("NHS number cannot be blank.");
+        if ( (nhsNumber < 10 ) || (nhsNumber > 10))
+            throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
+    }
+
+    private void checkTinNumberRules(long tinNumber) { //10 digit numbers
+        if (tinNumber==0)
+            throw new IllegalArgumentException("TIN number cannot be blank.");
+        if ( (tinNumber < 10) || (tinNumber > 10))
+            throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
+    }
+
+    private void checkPhoneNumberRules(long phoneNumber) { //11 digit numbers
+        if (phoneNumber==0)
+            throw new IllegalArgumentException("Phone number cannot be blank.");
+        if ( (phoneNumber < 11) || (phoneNumber > 11))
+            throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
+    }
+
+    private void checkBirthDateRules(String birthDate) { // DD/MM/YY format
+        if (StringUtils.isBlank(birthDate))
+            throw new IllegalArgumentException("Birth date cannot be blank.");
+        if ( (birthDate.length() < 8) || (birthDate.length() > 8))
+            throw new IllegalArgumentException("Birth date must have 4 to 8 chars.");
+    }
+
+    private void checkSexRules(String sex) { //Male or Female
+        if (StringUtils.isBlank(sex))
+            throw new IllegalArgumentException("Sex cannot be blank.");
+        if ( (sex != "male") || (sex != "female") || (sex != "Male") || (sex != "Female"))
+            throw new IllegalArgumentException("Sex must be Male or Female.");
     }
 
     /***
