@@ -134,14 +134,14 @@ n/a
 | Step 4 |Register New Clinical Analysis Laboratory|	send command to create new clinical analysis laboratory? | NewClinicalAnalysisController | Controller makes the bridge between UI layer and Domain Layer |
 | Step 5 |Initiate store process|... start the store process for the clinical analysis laboratory being created? | Company | HC+LC: Company delegates some of its responsibilities to other classes |
 | Step 6 |Register New Clinical Analysis Laboratory|... instantiating new parameter category? | ParameterCategoryStore | Creator: R1/2 | 			  		 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
-| Step 7: Save Data |... saving the introduced data? | ParameterCategory  | IE: instance of object created has its own data.  |
-| Step 8: Validate Clinical Analysis Laboratory |... validating all data (local validation)? | ClinicalAnalysisLaboratoryStore | IE: knows its own data.| 
-| Step 9: Present data to user |...requesting confirmation for data introduced? | RegisterNewClinicalAnalysisUI | UI Layer is responsible for user interaction |
-| Step 11: Save Clinical Analysis Laboratory |... send command to save the created Clinical Analysis Laboratory? | NewClinicalAnalysisController | Controller makes the bridge between UI layer and Domain Layer| 
-| Step 12: Save Clinical Analysis Laboratory |... saving the created Clinical Analysis Laboratory? | ClinicalAnalysisLaboratoryStore | IE: stores all Clinical Analysis Laboratories created| 
-| Step 13: Validate Clinical Analysis Laboratory |... validating all data at global level? | ClinicalAnalysisLaboratoryStore | IE: Company Knows all existing Clinical Analysis Laboratories| 
-| Step 14: Add Clinical Analysis Laboratory |... add created clinical analysis laboratory to the list? | ClinicalAnalysisLaboratoryStore | IE: Responsible to add Clinical Analysis Laboratories to the list| 
-| Step 15: Operation success |... informing operation success?| RegisterNewClinicalAnalysisUI | UI Layer is responsible for user interactions.  |   | 
+| Step 7 |Save Data |... saving the introduced data? | ParameterCategory  | IE: instance of object created has its own data.  |
+| Step 8 |Validate Clinical Analysis Laboratory |... validating all data (local validation)? | ClinicalAnalysisLaboratoryStore | IE: knows its own data.| 
+| Step 9 |Present data to user |...requesting confirmation for data introduced? | RegisterNewClinicalAnalysisUI | UI Layer is responsible for user interaction |
+| Step 11| Save Clinical Analysis Laboratory |... send command to save the created Clinical Analysis Laboratory? | NewClinicalAnalysisController | Controller makes the bridge between UI layer and Domain Layer| 
+| Step 12| Save Clinical Analysis Laboratory |... saving the created Clinical Analysis Laboratory? | ClinicalAnalysisLaboratoryStore | IE: stores all Clinical Analysis Laboratories created| 
+| Step 13| Validate Clinical Analysis Laboratory |... validating all data at global level? | ClinicalAnalysisLaboratoryStore | IE: Company Knows all existing Clinical Analysis Laboratories| 
+| Step 14| Add Clinical Analysis Laboratory |... add created clinical analysis laboratory to the list? | ClinicalAnalysisLaboratoryStore | IE: Responsible to add Clinical Analysis Laboratories to the list| 
+| Step 15| Operation success |... informing operation success?| RegisterNewClinicalAnalysisUI | UI Layer is responsible for user interactions.  |   | 
 
 ### Systematization ##
 
