@@ -336,6 +336,7 @@ public class Client {
     public String toString() {
         return String.format("Client:%nName: %s%nCitizen Card Number: %l%nNHS number: %l%nTIN number: %l%nBirth date: %s%nSex: %s%nPhone number: %l%nEmail: %s ",
                 this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email);
+
     }
 
     /***
