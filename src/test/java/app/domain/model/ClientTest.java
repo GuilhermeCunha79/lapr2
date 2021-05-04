@@ -18,7 +18,7 @@ public class ClientTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatNameHasLessThan35Char(){
-        Client ct = new Client("Maria Josefina Amaro Silva Costa Lópes",1234567890123456L,1234567890L,1234567890L,"23/12/03","male",12345678901L,"mariajosefina69@yalol.com");
+        Client ct = new Client("Mariana Josefina Amaro Silva Costa Lópes",1234567890123456L,1234567890L,1234567890L,"23/12/03","male",12345678901L,"mariajosefina69@yalol.com");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -330,17 +330,6 @@ public class ClientTest {
         Client ct01= new Client ("Tomás", 1234567890123458L,1234567890,1234567890,"23/12/20","male",12345678901L,"tomas@isep.ipp.pt");
         Client ct02= new Client ("Miguel", 1234567890123456L,1234567891,1234567891,"21/12/22","female",12345678902L,"tomas@isep.ipp.pt");
         assertEquals(ct01,ct02);
-    }
-
-
-
-
-
-
-
-
-    @Test
-    public void validateClient() {
     }
 
 
