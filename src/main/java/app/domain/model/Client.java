@@ -1,8 +1,9 @@
 package app.domain.model;
 
+import auth.domain.model.Email;
 import org.apache.commons.lang3.StringUtils;
-
 import java.util.*;
+import java.util.regex.Pattern;
 
 /***
  * Client Class
@@ -43,6 +44,7 @@ public class Client {
         checkBirthDateRules(birthDate);
         checkSexRules(sex);
         checkPhoneNumberRules(phoneNumber);
+        isValidEmail(email);
         this.nhsNumber = nhsNumber;
         this.name = name;
         this.tinNumber = tinNumber;
@@ -67,6 +69,7 @@ public class Client {
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
         checkPhoneNumberRules(phoneNumber);
+        checkEmailRules(email);
         this.nhsNumber = nhsNumber;
         this.name = name;
         this.tinNumber = tinNumber;
@@ -82,8 +85,14 @@ public class Client {
     private void checkNameRules(String name){
         if(name == null )
             throw new IllegalArgumentException("Name cannot be blank.");
-        if (name.length()>MAX_CHAR_NAME)
+        if (name.length()>=MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 35 characters");
+
+        for (int i = 0; i < name.length(); i++) {
+            String c = String.valueOf(name.charAt(i));
+            if (!c.matches("[A-Za-zÁ-Úá-ú]"))
+                throw new IllegalArgumentException("Name has non alphanumeric chars.");
+        }
 
     }
 
@@ -129,6 +138,30 @@ public class Client {
             throw new IllegalArgumentException("Sex cannot be blank.");
         if (!(sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE)))
             throw new IllegalArgumentException("Sex must be Male or Female.");
+    }
+
+    private void checkEmailRules (String email){
+        if (StringUtils.isBlank(email))
+            throw new IllegalArgumentException("Email cannot be blank.");
+        if(!(isValidEmail(email)))
+            throw new IllegalArgumentException("The introduced email is not valid.");
+    }
+
+    /***
+     * Verify if the email given is a valid one
+     * @param email
+     * @return
+     */
+    public boolean isValidEmail(String email) {
+            String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
+                    "[a-zA-Z0-9_+&*-]+)*@" +
+                    "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                    "A-Z]{2,7}$";
+
+            Pattern pat = Pattern.compile(emailRegex);
+            if (email == null)
+                return false;
+            return pat.matcher(email).matches();
     }
 
     //private void calcula CALCULAR IDADEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE

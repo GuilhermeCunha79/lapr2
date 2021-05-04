@@ -67,7 +67,7 @@ public class ClientTest {
 
     @Test (expected = IllegalArgumentException.class)
     public void checkNameWrong(){
-        Client ct01 = new Client("Tom@s", 9876543213L, 9876543213L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
+        Client ct01 = new Client("Tom1s", 9876543213L, 9876543213L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
     }
 
     @Test (expected = IllegalArgumentException.class)
