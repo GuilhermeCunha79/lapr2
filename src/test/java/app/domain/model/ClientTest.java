@@ -1,9 +1,8 @@
 package app.domain.model;
 
+import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.UnknownFormatConversionException;
-
 import static org.junit.Assert.*;
 
 public class ClientTest {
@@ -12,7 +11,6 @@ public class ClientTest {
     public void garanteeNullClientIsntCreatedWithAllDataAndSex() {
         Client ct = new Client(null, 0, 0, null, null, 0, null);
     }
-
 
     @Test(expected = IllegalArgumentException.class)
     public void garanteeNullClientIsntCreatedWithoutSex() {
@@ -56,6 +54,15 @@ public class ClientTest {
         Client ct01 = new Client("Tomás", 9876543213L, 9876543213L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
         Client ct02 = new Client("Tomás", 1234567890, 1234567890, "23/12/98", "Female", 12345678901L, "tomas@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
+    }
+
+    @Test
+    public void checkIfTwoClientsAreEqualWithOneNull(){
+        Client ct01 = new Client("Tomás", 9876543213L, 9876543213L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
+        Client ct02 = null;
+        boolean expected = false;
+        assertEquals(expected, ct01.equals(ct02));
+
     }
 
 
@@ -173,6 +180,42 @@ public class ClientTest {
         String expected = "Client:%nName: Tomás%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/98%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt";
         assertEquals(expected, ct01.toString());
     }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void checkEqualsJustPhoneNumberEqual(){
+        Client ct01= new Client ("Tomás", 1234567890,1234567890,"23/12/20","male",12345678901L,"tomas@isep.ipp.pt");
+        Client ct02= new Client ("Miguel", 1234567891,1234567891,"23/12/22","female",12345678901L,"tomas11@isep.ipp.pt");
+        assertEquals(ct01,ct02);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void checkEqualsJustNhsNumberEqual(){
+        Client ct01= new Client ("Tomás", 1234567890,1234567890,"23/12/20","male",12345678901L,"tomas@isep.ipp.pt");
+        Client ct02= new Client ("Miguel", 1234567890,1234567891,"23/12/22","female",12345678902L,"tomas11@isep.ipp.pt");
+        assertEquals(ct01,ct02);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void checkEqualsJustTinNumberEqual(){
+        Client ct01= new Client ("Tomás", 1234567890,1234567890,"23/12/20","male",12345678901L,"tomas@isep.ipp.pt");
+        Client ct02= new Client ("Miguel", 1234567891,1234567890,"21/12/22","female",12345678902L,"tomas11@isep.ipp.pt");
+        assertEquals(ct01,ct02);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void checkEqualsJustEmailEqual(){
+        Client ct01= new Client ("Tomás", 1234567890,1234567890,"23/12/20","male",12345678901L,"tomas@isep.ipp.pt");
+        Client ct02= new Client ("Miguel", 1234567891,1234567891,"21/12/22","female",12345678902L,"tomas@isep.ipp.pt");
+        assertEquals(ct01,ct02);
+    }
+
+
+
+
+
+
+
+
     @Test
     public void validateClient() {
     }
