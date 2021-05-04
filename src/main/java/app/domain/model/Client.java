@@ -130,7 +130,7 @@ public class Client {
     private void checkSexRules(String sex) { //Male or Female
         if (StringUtils.isBlank(sex))
             throw new IllegalArgumentException("Sex cannot be blank.");
-        if (!((sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE))))
+        if (!(sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE)))
             throw new IllegalArgumentException("Sex must be Male or Female.");
     }
 

@@ -37,7 +37,7 @@ public class ClientTest {
 
     @Test
     public void checkIfTwoClientsAreEqual() {
-        Client ct01 = new Client("Tomás", 1234567890, 1234567890, "23/12/88", "male", 12345678901L, "tomas@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", 1234567890, 1234567890, "23/12/98", "male", 12345678901L, "tomas@isep.ipp.pt");
         Client ct02 = new Client("Tomás", 1234567890, 1234567890, "23/12/98", "male", 12345678901L, "tomas@isep.ipp.pt");
         assertEquals(ct01, ct02);
     }
@@ -103,16 +103,12 @@ public class ClientTest {
     @Test (expected = UnknownFormatConversionException.class)
     public void checkToStringMethod(){
         Client ct01 = new Client("Tomás", 1234567890,1234567890, "23/12/98","male",12345678901L,"tomas@isep.ipp.pt");
-        String expected = "Client:\nName: Tomás\nNHS number: 1234567890\nTIN number: 1234567890\nBirth date: 23/12/98\nSex: male\nPhone number: 12345678901\nEmail: tomas@isep.ipp.pt";
+        String expected = "Client:%nName: Tomás%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/98%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt";
         assertEquals(expected, ct01.toString());
     }
 
     @Test
     public void validateClient() {
-    }
-
-    @Test
-    public void testEquals() {
     }
 
 
