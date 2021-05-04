@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TypeOfTestStore {
-    private List<TypeOfTest> typeOfTestList = new ArrayList();
+    private List<TypeOfTest> TypeOfTestList = new ArrayList();
 
-    public TypeOfTest createTypeOfTest(String code, String description, String colectingmethod, String SelectedCategory){
+    public TypeOfTest createTypeOfTest(String code, String description, String colectingmethod, ParameterCategory SelectedCategory){
         return new TypeOfTest(code,description,colectingmethod,SelectedCategory);
     }
 
@@ -26,13 +26,13 @@ public class TypeOfTestStore {
     {
         if (tot != null) {
             if (!validateTypeOfTest(tot))
-                return this.typeOfTestList.add(tot);
+                return this.TypeOfTestList.add(tot);
         }
         return false;
     }
 
     public boolean validateTypeOfTest(TypeOfTest tot) {
-        for (TypeOfTest typeTe : typeOfTestList){
+        for (TypeOfTest typeTe : TypeOfTestList){
             if(typeTe.equals(tot)){
                 return true;
             }
@@ -41,6 +41,6 @@ public class TypeOfTestStore {
     }
 
     public List<TypeOfTest> getTypeOfTestList() {
-        return typeOfTestList;
+        return TypeOfTestList;
     }
 }

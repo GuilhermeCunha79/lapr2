@@ -1,0 +1,51 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrador" as ADMIN
+
+participant ":RegisterNewClinicalAnalysisUI" as UI
+participant ":RegisterNewClinicalAnalysisController" as CTRL
+participant ":Company" as COMP
+participant ": ClinicalAnalysisLaboratoryStore " as CALS
+participant ":ClinicalAnalysisLaboratory" as CAL
+
+activate ADMIN
+ADMIN -> UI : Register a New Clinical Analysis Laboratory
+activate UI
+UI --> ADMIN : Necessary credentials(laboratoryID, Name, Address, Phone Number,TIN Number)
+deactivate UI
+ADMIN -> UI : types requested data
+activate UI
+    UI -> CTRL : RegisterNewClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number,TIN Number, testType)
+    activate CTRL
+        CTRL -> COMP : store = getClinicalAnalysisLaboratoryStore()
+        activate COMP
+        deactivate COMP
+        CTRL -> CALS : RegisterClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number, TIN Number, testType)
+        activate CALS
+            CALS --> CAL** : LaboratoryRegister(laboratoryID, Name, Address, Phone Number,TIN Number, testType)
+        deactivate CALS
+        CTRL -> CALS : validateClinicalAnalysisLaboratory()
+        activate CALS
+        deactivate CALS
+    deactivate CTRL
+    UI --> ADMIN : Validates the data and shows type of test list and ask to select one
+deactivate UI
+ADMIN -> UI : select requested data(type of test)
+activate UI
+    UI -> CTRL : saveClinicalAnalysisLaboratory()
+    activate CTRL
+        CTRL -> CALS : saveClinicalAnalysisLaboratory()
+        activate CALS
+            CALS -> CALS : validateClinicalAnalysisLaboratory()
+            activate CALS
+            deactivate CALS
+            CALS -> CALS : addClinicalAnalysisLaboratory()
+            activate CALS
+            deactivate CALS
+        deactivate CALS
+    deactivate CTRL
+    UI --> ADMIN : informs operation success
+deactivate UI
+
+@enduml

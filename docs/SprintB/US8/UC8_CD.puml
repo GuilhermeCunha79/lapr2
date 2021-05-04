@@ -1,0 +1,41 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class NewClinicalAnalysisUI{
+}
+
+class NewClinicalAnalysisController
+{
+    +RegisterNewClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number,TIN Number, testType)
+    +saveClinicalAnalysisLaboratory()
+}
+
+class ClinicalAnalysisLaboratory{
+    -designation
+    -laboratoryID
+    -Name
+    -Address
+    -Phone Number
+    -TIN Number
+    -testType
+    +LaboratoryRegister(laboratoryID, Name, Address, Phone Number,TIN Number, testType)
+}
+
+class Company{
+	-designation
+	+getClinicalAnalysisLaboratoryStore()
+}
+
+class ClinicalAnalysisLaboratoryStore{
+    + validateClinicalAnalysisLaboratory()
+    +  addClinicalAnalysisLaboratory()
+    + RegisterClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number, TIN Number, testType)
+    + saveClinicalAnalysisLaboratory()
+}
+
+NewClinicalAnalysisUI ..> NewClinicalAnalysisController
+NewClinicalAnalysisController .right.> Company
+Company"1" --> "1"ClinicalAnalysisLaboratoryStore : uses
+ClinicalAnalysisLaboratoryStore"1" -left-> "*"ClinicalAnalysisLaboratory : store
+
+@enduml
