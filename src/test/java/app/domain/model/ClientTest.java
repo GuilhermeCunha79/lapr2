@@ -93,8 +93,13 @@ public class ClientTest {
     }
 
     @Test (expected = IllegalArgumentException.class)
-    public void checkNameWrong(){
+    public void checkNameWrongFirstConstructor(){
         Client ct01 = new Client("Tom1s", 9876543213L, 9876543213L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void checkNameWrongSecondConstructor(){
+        Client ct01 = new Client("Tom1s", 9876543213L, 9876543213L, "23/12/88", 98765432132L, "tomas1@isep.ipp.pt");
     }
 
     @Test (expected = IllegalArgumentException.class)

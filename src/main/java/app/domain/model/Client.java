@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import auth.domain.model.Email;
 import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 import java.util.regex.Pattern;
