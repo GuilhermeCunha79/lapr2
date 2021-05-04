@@ -9,20 +9,20 @@ public class EmployeeTest {
     /**
      * Test of getEmployeeID method, of class Employee.
      */
-    /*
+    Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
+
     @Test
     public void getEmployeeID() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        String expected = "P00016";
+        String expected = "P00022";
         assertEquals(expected, employee.getEmployeeID());
     }
-*/
+
     /**
      * Test of getRole method, of class Employee.
      */
     @Test
     public void getRole() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
+
         OrganizationRole expected = OrganizationRole.Doctor;
         assertEquals(expected, employee.getRole());
     }
@@ -32,7 +32,6 @@ public class EmployeeTest {
      */
     @Test
     public void setRole() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         employee.setRole(OrganizationRole.SpecialistDoctor);
         OrganizationRole expected = OrganizationRole.SpecialistDoctor;
         assertEquals(expected, employee.getRole());
@@ -43,7 +42,6 @@ public class EmployeeTest {
      */
     @Test
     public void getName() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         String expected = "Pedro";
         assertEquals(expected, employee.getName());
     }
@@ -53,7 +51,6 @@ public class EmployeeTest {
      */
     @Test
     public void setName() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         employee.setName("Miguel");
         String expected = "Miguel";
         assertEquals(expected, employee.getName());
@@ -64,7 +61,6 @@ public class EmployeeTest {
      */
     @Test
     public void getAddress() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         String expected = "Porto";
         assertEquals(expected, employee.getAddress());
     }
@@ -74,7 +70,6 @@ public class EmployeeTest {
      */
     @Test
     public void setAddress() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         employee.setAddress("Lisboa");
         String expected = "Lisboa";
         assertEquals(expected, employee.getAddress());
@@ -85,7 +80,6 @@ public class EmployeeTest {
      */
     @Test
     public void getPhoneNumber() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         int expected = 911111111;
         assertEquals(expected, employee.getPhoneNumber());
     }
@@ -95,7 +89,6 @@ public class EmployeeTest {
      */
     @Test
     public void setPhoneNumber() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         employee.setPhoneNumber(921111111);
         int expected = 921111111;
         assertEquals(expected, employee.getPhoneNumber());
@@ -106,7 +99,6 @@ public class EmployeeTest {
      */
     @Test
     public void getEmail() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         String expected = "sfgsdfgsfdg@gmail.com";
         assertEquals(expected, employee.getEmail());
     }
@@ -116,7 +108,6 @@ public class EmployeeTest {
      */
     @Test
     public void setEmail() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         employee.setEmail("antigoeraoriginal@gmail.com");
         String expected = "antigoeraoriginal@gmail.com";
         assertEquals(expected, employee.getEmail());
@@ -127,7 +118,6 @@ public class EmployeeTest {
      */
     @Test
     public void getSoc() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         int expected = 2;
         assertEquals(expected, employee.getSoc());
     }
@@ -137,7 +127,6 @@ public class EmployeeTest {
      */
     @Test
     public void setSoc() {
-        Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
         employee.setSoc(3);
         int expected = 3;
         assertEquals(expected, employee.getSoc());
