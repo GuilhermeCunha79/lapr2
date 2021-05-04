@@ -43,7 +43,8 @@ As an administrator, I want to specify a new parameter category.
 * **AC2:** Each category must have a name, a unique code.
 * **AC3:** When creating a new category with the same name and code as one previously registered in the system, 
 the application should deny the operation and inform the user to change the parameters or discard the operation.
-* **AC4:** Code must be unique having 4 to 8 chars (TP ESOFT) ???
+* **AC4:** Code must be unique having 5 chars
+* **AC4:** Name cannot have more than 5 characters
 
 ### 1.4. Found out Dependencies
 
