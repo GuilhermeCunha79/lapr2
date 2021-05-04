@@ -56,29 +56,6 @@ public class Client {
     }
 
     /***
-     * Constructor for class Client, without phoneNumber
-     * @param nhsNumber
-     * @param name
-     * @param tinNumber
-     * @param birthDate
-     * @param sex
-     * @param email
-     */
-    public Client(String name, long nhsNumber, long tinNumber, String birthDate, String sex, String email) {
-        checkNameRules(name);
-        checkNhsTinNumberRules(nhsNumber);
-        checkNhsTinNumberRules(tinNumber);
-        checkBirthDateRules(birthDate);
-        checkSexRules(sex);
-        this.nhsNumber = nhsNumber;
-        this.name = name;
-        this.tinNumber = tinNumber;
-        this.birthDate = birthDate;
-        this.sex = sex;
-        this.email = email;
-    }
-
-    /***
      * Constructor for class Client, without sex and with phoneNumber
      * @param nhsNumber
      * @param name
@@ -98,27 +75,6 @@ public class Client {
         this.tinNumber = tinNumber;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
-
-    /***
-     * Constructor for Client, without sex and phoneNumber
-     * @param nhsNumber
-     * @param name
-     * @param tinNumber
-     * @param birthDate
-     * @param email
-     */
-    public Client(String name, long nhsNumber, long tinNumber, String birthDate, String email) {
-        checkNameRules(name);
-        checkNhsTinNumberRules(nhsNumber);
-        checkNhsTinNumberRules(tinNumber);
-        checkBirthDateRules(birthDate);
-        checkSexRules(sex);
-        this.nhsNumber = nhsNumber;
-        this.name = name;
-        this.tinNumber = tinNumber;
-        this.birthDate = birthDate;
         this.email = email;
     }
 

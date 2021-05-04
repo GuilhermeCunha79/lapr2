@@ -9,20 +9,16 @@ import static org.junit.Assert.*;
 public class ClientTest {
 
     @Test(expected = IllegalArgumentException.class)
-    public void garanteeNullClientIsntCreatedWithPhoneNumberAndSex() {
+    public void garanteeNullClientIsntCreatedWithAllDataAndSex() {
         Client ct = new Client(null, 0, 0, null, null, 0, null);
     }
 
 
     @Test(expected = IllegalArgumentException.class)
-    public void garanteeNullClientIsntCreatedWithSex() {
-        Client ct = new Client(null, 0, 0, null, null, null);
+    public void garanteeNullClientIsntCreatedWithoutSex() {
+        Client ct = new Client(null, 0, 0, null, 12345678901L, null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void garanteeNullClientIsntCreatedWithPhoneNumber() {
-        Client ct = new Client(null, 0, 0, null, 0, null);
-    }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameBirthDateSexEmailCannotBeBlank() {
@@ -36,7 +32,7 @@ public class ClientTest {
 
     @Test
     public void ensureThatSexOnlyAcceptMaleFemale(){
-        Client ct = new Client("Tomás", 1234567890,1234567890, "23/12/98","male","tomas@isep.ipp.pt");
+        Client ct = new Client("Tomás", 1234567890,1234567890, "23/12/98","Male",12345678901L,"tomas@isep.ipp.pt");
     }
 
     @Test
@@ -46,9 +42,6 @@ public class ClientTest {
         assertEquals(ct01, ct02);
     }
 
-    @Test
-    public void getNhsNumber() {
-    }
 
     @Test
     public void checkIfTwoClientsAreDifferents() {
