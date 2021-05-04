@@ -40,16 +40,18 @@ public class Parameter {
     }
 
     private void checkCodeRules(String code) {
+        if (code.length() != CODE_LENGTH)
+            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
+        if (StringUtils.isBlank(code))
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
+
         for (int i = 0; i < code.length(); i++) {
             String c = String.valueOf(code.charAt(i));
             if (!c.matches("[A-Za-z0-9]"))
                 throw new IllegalArgumentException("Code has non alphanumeric chars.");
         }
 
-        if (code.length() != CODE_LENGTH)
-            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
-        if (StringUtils.isBlank(code))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
+
     }
 
     public String getCode() {
