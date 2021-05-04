@@ -48,5 +48,6 @@ activate UI
     deactivate CTRL
     UI --> ADMIN : informs operation success
 deactivate UI
+deactivate ADMIN
 
 @enduml

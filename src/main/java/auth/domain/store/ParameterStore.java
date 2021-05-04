@@ -10,8 +10,8 @@ public class ParameterStore {
 
     private List<Parameter> parameterList = new ArrayList();
 
-    public Parameter createParameter(String code, String shortName, String description, ParameterCategory pc){
-        return new Parameter(code,shortName,description,pc);
+    public Parameter createParameter(String code, String shortName, String description, String category){
+        return new Parameter(code,shortName,description,category);
     }
 
     public boolean saveParameterCategory(Parameter p){
