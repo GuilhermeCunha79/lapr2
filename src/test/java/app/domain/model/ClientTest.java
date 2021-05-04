@@ -16,13 +16,21 @@ public class ClientTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void garanteeNullClientIsntCreatedWithoutSex() {
-        Client ct = new Client(null, 0, 0, null, 12345678901L, null);
+        Client ct = new Client(null, 0, 0, null,"male", 12345678901L, null);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureThatNameHasLessThan35Char(){
+        Client ct = new Client("Maria Josefina Amaro Silva Costa Miguel",1234567890L,1234567890L,"23/12/03","male",12345678901L,"mariajosefina69@yalol.com");
+    }
+    @Test (expected = IllegalArgumentException.class)
+    public void ensureThatNameNotHaveAlphanumericarChar(){
+        Client ct = new Client("To<más",1234567890,1234567890,"23/12/2010","male",12345678901L, "tomas@isep.ipp.pt");
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameBirthDateSexEmailCannotBeBlank() {
-        Client ct = new Client(" ", 0, 1234567890, "", "", 1234567890, "");
+        Client ct = new Client(" ", 0, 1234567890, "", "", 12345678901L, "");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -106,7 +114,6 @@ public class ClientTest {
         String expected = "Client:%nName: Tomás%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/98%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt";
         assertEquals(expected, ct01.toString());
     }
-
     @Test
     public void validateClient() {
     }
