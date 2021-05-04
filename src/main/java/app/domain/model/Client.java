@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 public class Client {
 
     private String name;
+    private long citizenCardNumber;
     private long nhsNumber;
     private long tinNumber;
     private String birthDate;
@@ -18,7 +19,7 @@ public class Client {
     private String email;
     List<Client> clientList = new ArrayList<>();
 
-
+    static final long CITIZEN_CARD_DIGITS = 16;
     static final int MAX_CHAR_NAME = 35;
     static final int NHSTIN_NUMBER_DIGITS = 10;
     static final int PHONE_NUMBER_DIGITS = 11;
@@ -36,16 +37,18 @@ public class Client {
      * @param phoneNumber
      * @param email
      */
-    public Client(String name, long nhsNumber, long tinNumber, String birthDate, String sex, long phoneNumber, String email) {
+    public Client(String name, long citizenCardNumber, long nhsNumber, long tinNumber, String birthDate, String sex, long phoneNumber, String email) {
         checkNameRules(name);
+        checkCitizenCardNumberRules(citizenCardNumber);
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
         checkSexRules(sex);
         checkPhoneNumberRules(phoneNumber);
         isValidEmail(email);
-        this.nhsNumber = nhsNumber;
         this.name = name;
+        this.citizenCardNumber=citizenCardNumber;
+        this.nhsNumber = nhsNumber;
         this.tinNumber = tinNumber;
         this.birthDate = birthDate;
         this.sex = sex;
@@ -62,20 +65,23 @@ public class Client {
      * @param phoneNumber
      * @param email
      */
-    public Client(String name, long nhsNumber, long tinNumber, String birthDate, long phoneNumber, String email) {
+    public Client(String name, long citizenCardNumber, long nhsNumber, long tinNumber, String birthDate, long phoneNumber, String email) {
         checkNameRules(name);
+        checkCitizenCardNumberRules(citizenCardNumber);
         checkNhsTinNumberRules(nhsNumber);
         checkNhsTinNumberRules(tinNumber);
         checkBirthDateRules(birthDate);
         checkPhoneNumberRules(phoneNumber);
         checkEmailRules(email);
-        this.nhsNumber = nhsNumber;
         this.name = name;
+        this.citizenCardNumber=citizenCardNumber;
+        this.nhsNumber = nhsNumber;
         this.tinNumber = tinNumber;
         this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+
 
     /***
      * Verify if the name respect the imposed rules
@@ -96,14 +102,25 @@ public class Client {
     }
 
     /***
+     * Verify if the citizen card number respect the imposed rules
+      * @param citizenCardNumber
+     */
+    private void checkCitizenCardNumberRules(long citizenCardNumber){
+        if (citizenCardNumber == 0)
+            throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
+        if (((int) Math.floor(Math.log10(citizenCardNumber) + 1) < CITIZEN_CARD_DIGITS) || ((int) Math.floor(Math.log10(citizenCardNumber) + 1) > CITIZEN_CARD_DIGITS))
+            throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
+    }
+
+    /***
      * Verify if the nhsNumber respect the imposed rules
      * @param nhsTinNumber
      */
     private void checkNhsTinNumberRules(long nhsTinNumber) { //10 digit numbers
         if (nhsTinNumber == 0)
-            throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
+            throw new IllegalArgumentException("NHS and TIN number must have 10 digit numbers.");
         if (((int) Math.floor(Math.log10(nhsTinNumber) + 1) < NHSTIN_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(nhsTinNumber) + 1) > NHSTIN_NUMBER_DIGITS))
-            throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
+            throw new IllegalArgumentException("NHS and TIN number must have 10 digit numbers.");
     }
 
     /***
@@ -165,21 +182,6 @@ public class Client {
 
     //private void calcula CALCULAR IDADEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 
-    /***
-     * Method that returns the nhs number of the Client
-     * @return
-     */
-    public long getNhsNumber() {
-        return nhsNumber;
-    }
-
-    /***
-     * Method that sets the nhs number of the Client
-     * @param nhsNumber
-     */
-    public void setNhsNumber(int nhsNumber) {
-        this.nhsNumber = nhsNumber;
-    }
 
     /***
      * Method that returns the name of the Client
@@ -195,6 +197,39 @@ public class Client {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /***
+     * Method that returns the citizen card number of the Client
+     * @return
+     */
+    public long getCitizenCardNumber() {
+        return citizenCardNumber;
+    }
+
+    /***
+     * Method that sets the name of the Client
+     * @param citizenCardNumber
+     */
+    public void setCitizenCardNumber(long citizenCardNumber) {
+        this.citizenCardNumber = citizenCardNumber;
+    }
+
+    /***
+     * Method that returns the nhs number of the Client
+     * @return
+     */
+    public long getNhsNumber() {
+        return nhsNumber;
+    }
+
+    /***
+     * Method that sets the nhs number of the Client
+     * @param nhsNumber
+     */
+
+    public void setNhsNumber(int nhsNumber) {
+        this.nhsNumber = nhsNumber;
     }
 
     /***
@@ -284,6 +319,8 @@ public class Client {
      */
     public boolean validateClient(Client client) {
         return (client.name != null
+                && client.tinNumber > 0000000000000000
+                && client.tinNumber <= 9999999999999999L
                 && client.birthDate != null
                 && client.tinNumber > 0000000000
                 && client.tinNumber <= 9999999999L
@@ -297,8 +334,8 @@ public class Client {
 
     @Override
     public String toString() {
-        return String.format("Client:\nName: %s\nNHS number: %l\nTIN number: %l \nBirth date: %s \nSex: %s \nPhone number: %l \nEmail: %s ",
-                this.name, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email);
+        return String.format("Client:%nName: %s%nCitizen Card Number: %l%nNHS number: %l%nTIN number: %l%nBirth date: %s%nSex: %s%nPhone number: %l%nEmail: %s ",
+                this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email);
     }
 
     /***

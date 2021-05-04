@@ -12,8 +12,8 @@ public class RegisterClientController {
         this.ct = null;
     }
 
-   public boolean newClient(String name, long nhsNumber, long tinNumber, String birthDate, String sex, long phoneNumber, String email){
-        this.ct=this.ctStore.newClient(name, nhsNumber,tinNumber,birthDate, sex, phoneNumber,email);
+   public boolean newClient(String name, long citizenCardNumber,long nhsNumber, long tinNumber, String birthDate, String sex, long phoneNumber, String email){
+        this.ct=this.ctStore.newClient(name, citizenCardNumber, nhsNumber,tinNumber,birthDate, sex, phoneNumber,email);
         return this.ctStore.validateClient(ct);
     }
     public boolean saveClient(){
