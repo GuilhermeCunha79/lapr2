@@ -32,8 +32,8 @@ public class ClientStore {
         }
 
         public boolean validateClient(Client ct) {
-            for (Client parClt : clientList){
-                if(parClt.equals(ct)){
+            for (Client parCt : clientList){
+                if(parCt.equals(ct)){
                     return true;
                 }
             }
