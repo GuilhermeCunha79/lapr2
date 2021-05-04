@@ -10,7 +10,7 @@ participant ":ParameterCategoryStore" as PCS
 participant ":ParameterCategory" as PC
 
 
-
+activate ADMIN
 ADMIN -> UI : Start new parameter category
 activate UI
 UI --> ADMIN : ask data (name, code)

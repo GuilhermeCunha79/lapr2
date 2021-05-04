@@ -1,0 +1,26 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrador" as ADMIN
+
+participant ":System" as SYSTEM
+
+ADMIN -> SYSTEM : Register a New Clinical Analaysis Laboratory
+activate SYSTEM
+SYSTEM --> ADMIN : Requests necessary credentials (Name, Laboratory ID, Adress, Phone Number, TIN Number)
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : Types requested data
+activate SYSTEM
+SYSTEM --> ADMIN : Validates the data and shows type of test list and ask to select one
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : Selects a type of test
+activate SYSTEM
+SYSTEM --> ADMIN : Shows all data and requests confirmation
+deactivate SYSTEM
+ADMIN -> SYSTEM : Confirms the Data
+activate SYSTEM
+SYSTEM --> ADMIN : Informs operation sucess
+
+@enduml

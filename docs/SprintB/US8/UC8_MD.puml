@@ -1,0 +1,33 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+class Company {
+  -Designation
+}
+
+class Administrator {
+
+}
+
+class ClinicalAnalysisLaboratory {
+  -LaboratoryID
+  -Name
+  -Address
+  -Phone Number
+  -TIN Number
+}
+
+class TestType {
+  -Designation
+}
+
+
+Company "1" -- "*" Administrator : owns >
+Administrator"1..*" -- "*" ClinicalAnalysisLaboratory : Create >
+ClinicalAnalysisLaboratory"*" -- "*" TestType : Has
+
+
+@enduml
