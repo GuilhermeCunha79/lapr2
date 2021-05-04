@@ -21,14 +21,41 @@ public class ClientTest {
     public void ensureThatNameHasLessThan35Char(){
         Client ct = new Client("Maria Josefina Amaro Silva Costa Miguel",1234567890L,1234567890L,"23/12/03","male",12345678901L,"mariajosefina69@yalol.com");
     }
+
     @Test (expected = IllegalArgumentException.class)
     public void ensureThatNameNotHaveAlphanumericarChar(){
         Client ct = new Client("To<más",1234567890,1234567890,"23/12/2010","male",12345678901L, "tomas@isep.ipp.pt");
     }
 
+    @Test
+    public void ensureNameCannotBeBlank() {
+        Client ct = new Client("Tomas", 1234567890, 1234567890, "23/02/02", "male", 12345678901L, "tomas@isep.ipp.pt");
+    }
+
+    @Test
+    public void ensureThatEmailIsNotBlank(){
+        Client ct = new Client("Miguel", 1234567890, 1234567890, "23/02/02", "male", 12345678901L, "tomas@isep.ipp.pt");
+    }
+
+
     @Test(expected = IllegalArgumentException.class)
-    public void ensureNameBirthDateSexEmailCannotBeBlank() {
-        Client ct = new Client(" ", 0, 1234567890, "", "", 12345678901L, "");
+    public void ensureThatNhsIsNotBlank() {
+        Client ct = new Client("Miguel", 0, 1234567890, "23/02/02", "male", 12345678901L, "tomas@isep.ipp.pt");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureThatTinIsNotBlank() {
+        Client ct = new Client("Miguel", 1234567890, 0, "23/02/02", "male", 12345678901L, "tomas@isep.ipp.pt");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureThatBirthDateIsNotBlank() {
+        Client ct = new Client("Miguel", 1234567890, 1234567890, "", "male", 12345678901L, "tomas@isep.ipp.pt");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureThatSexIsNotBlank() {
+        Client ct = new Client("Miguel", 1234567890, 1234567890, "23/02/02", "", 12345678901L, "");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -57,7 +84,7 @@ public class ClientTest {
     }
 
     @Test
-    public void checkIfTwoClientsAreEqualWithOneNull(){
+    public void checkIfClientIsNull(){
         Client ct01 = new Client("Tomás", 9876543213L, 9876543213L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
         Client ct02 = null;
         boolean expected = false;
@@ -87,7 +114,7 @@ public class ClientTest {
 
     @Test (expected = IllegalArgumentException.class)
     public void checkSexWrong(){
-        Client ct01 = new Client("Tomás", 9876543213L, 9876543213L, "23/12/8888", "lololol", 98765432132L, "tomas1@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", 9876543213L, 9876543213L, "23/12/88", "madeira", 98765432132L, "tomas1@isep.ipp.pt");
     }
 
 

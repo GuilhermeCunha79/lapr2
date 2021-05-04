@@ -102,7 +102,7 @@ public class Client {
      */
     private void checkNhsTinNumberRules(long nhsTinNumber) { //10 digit numbers
         if (nhsTinNumber == 0)
-            throw new IllegalArgumentException("NHS number cannot be blank.");
+            throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
         if (((int) Math.floor(Math.log10(nhsTinNumber) + 1) < NHSTIN_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(nhsTinNumber) + 1) > NHSTIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
     }
@@ -143,7 +143,7 @@ public class Client {
     private void checkEmailRules (String email){
         if (StringUtils.isBlank(email))
             throw new IllegalArgumentException("Email cannot be blank.");
-        if(!(isValidEmail(email)))
+        if(isValidEmail(email))
             throw new IllegalArgumentException("The introduced email is not valid.");
     }
 
