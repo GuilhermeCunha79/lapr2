@@ -1,80 +1,84 @@
 package app.domain.model;
 
+import auth.domain.store.ParameterCategoryStore;
 import org.apache.commons.lang3.StringUtils;
 
 public class TypeOfTest {
 
-    private String Code;
-    private String Description;
-    private String ColectingMethod;
-    private String SelectedCategory;
+    private String code;
+    private String description;
+    private String colectingMethod;
 
-    public TypeOfTest (String code, String description, String colectingmethod, String SelectedCategory ){
+    static final String STRING_BLANK_EXEPT = "Strings cannot be empty";
+
+    public TypeOfTest(String code, String description, String colectingmethod, ParameterCategory category){
         checkCodeRules(code);
         checkDescriptionRules(description);
         checkColectingMethod(colectingmethod);
-        this.SelectedCategory= SelectedCategory;
-        this.Code = code;
-        this.Description = description;
-        this.ColectingMethod = colectingmethod;
+        this.code = code;
+        this.description = description;
+        this.colectingMethod = colectingmethod;
     }
 
-    private void checkCodeRules(String Code) {
-        if (StringUtils.isBlank(Code))
-            throw new IllegalArgumentException("Code cannot be blank.");
-        if ( (Code.length() == 5))
-            throw new IllegalArgumentException("Code must have 5 alphanumeric characters written.");
+
+    private void checkCodeRules(String code) {
+        for (int i = 0; i < code.length(); i++) {
+            String c = String.valueOf(code.charAt(i));
+            if (!c.matches("[A-Za-z0-9]"))
+                throw new IllegalArgumentException("Code has non alphanumeric chars.");
+        }
+
+        if (code.length() != 5)
+            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
+        if (StringUtils.isBlank(code))
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
     }
 
-    private void checkDescriptionRules(String Description){
-        if (StringUtils.isBlank(Description))
-            throw new IllegalArgumentException("Description cannot be blank.");
-        if ( (Description.length() < 6) || (Description.length() > 15))
-            throw new IllegalArgumentException("Description must have 6 to 15 chars.");
+    private void checkDescriptionRules(String description){
+        if (StringUtils.isBlank(description))
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
+        if ( description.length() > 15)
+            throw new IllegalArgumentException("Description cannot pass 15 chars in length.");
     }
 
-    private void checkColectingMethod(String ColectingMethod){
-        if (StringUtils.isBlank(ColectingMethod))
-            throw new IllegalArgumentException("C cannot be blank.");
-        if ( (ColectingMethod.length() < 6) || (ColectingMethod.length() > 20))
-            throw new IllegalArgumentException("Code must have 6 to 20 chars.");
+    private void checkColectingMethod(String colectingMethod){
+        if (StringUtils.isBlank(colectingMethod))
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
+        if (colectingMethod.length() > 20)
+            throw new IllegalArgumentException("Colecting method cannot pass 20 chars in length.");
     }
 
     public String getCode() {
-        return Code;
+        return code;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public String getColectingmethod() {
-        return ColectingMethod;
+        return colectingMethod;
     }
 
-    public String getSelectedCategory() {
-        return SelectedCategory;
-    }
+
 
     public void setCode(String code) {
-        this.Code = code;
+        this.code = code;
     }
 
     public void setDescription(String description) {
-        this.Description = description;
+        this.description = description;
     }
 
     public void setColectingmethod(String colectingmethod) {
-        this.ColectingMethod = colectingmethod;
+        this.colectingMethod = colectingmethod;
     }
 
-    public void setSelectedCategory(String selectedCategory) {
-        this.SelectedCategory = selectedCategory;
-    }
+
 
     @Override
     public String toString() {
-        return String.format("Type of Test: \nCode: %s \nDescription: %s \nColectingMethod: %s \nSelectedCategory: %s", this.Code, this.Description, this.ColectingMethod, this.SelectedCategory );
+        return String.format("Type of Test: \nCode: %s \nDescription: %s \nColectingMethod: %s ", this.code, this.description, this.colectingMethod  );
 
     }
 
@@ -82,9 +86,9 @@ public class TypeOfTest {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        TypeOfTest newToT = (TypeOfTest) obj;
-        return Code == newToT.Code && Description.equals(newToT.Description) &&
-                ColectingMethod.equals(newToT.ColectingMethod) && SelectedCategory.equals(newToT.SelectedCategory);
+        TypeOfTest newtot = (TypeOfTest) obj;
+        return code == newtot.code || description.equals(newtot.description) &&
+                colectingMethod.equals(newtot.colectingMethod);
     }
 }
 
