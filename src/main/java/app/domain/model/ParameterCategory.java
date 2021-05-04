@@ -6,6 +6,8 @@ import java.util.Objects;
 
 public class ParameterCategory {
 
+    private static final int NAME_LENGTH = 10;
+    private static final int CODE_LENGTH = 5;
     private String code;
 
     private String name;
@@ -26,13 +28,21 @@ public class ParameterCategory {
     private void checkNameRules(String name) {
         if(StringUtils.isBlank(name))
             throw new IllegalArgumentException("Name cannot be blank");
-        //Missing Other Rules!!!!
+        if (name.length() > NAME_LENGTH)
+            throw new IllegalArgumentException("Short name has more than 10 chars");
     }
 
     private void checkCodeRules(String code) {
-        if(StringUtils.isBlank(code))
+        if (code.length() != CODE_LENGTH)
+            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
+        if (StringUtils.isBlank(code))
             throw new IllegalArgumentException("Code cannot be blank");
-        //Missing Other Rules!!!!
+
+        for (int i = 0; i < code.length(); i++) {
+            String c = String.valueOf(code.charAt(i));
+            if (!c.matches("[A-Za-z0-9]"))
+                throw new IllegalArgumentException("Code has non alphanumeric chars.");
+        }
     }
 
     /**
@@ -75,7 +85,7 @@ public class ParameterCategory {
      */
     @Override
     public String toString() {
-        return String.format("Parameter Category:\nName: %s\nCode: %s", this.name, this.code);
+        return String.format("Parameter Category:%nName: %s%nCode: %s", this.name, this.code);
     }
 
     /**
