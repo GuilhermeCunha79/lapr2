@@ -46,10 +46,10 @@ these laboratories also performs Covid-19 tests.
  
 
 > **Question**  Are two Clinical Analysis Laboratories with the same:
-Laboratory ID 
-name 
-address 
-phone Number 
+Laboratory ID, 
+name, 
+address, 
+phone Number, and
 TIN number
 allowed to exist?
 
