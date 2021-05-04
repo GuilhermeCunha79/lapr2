@@ -65,6 +65,31 @@ public class ClientTest {
 
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void checkNameWrong(){
+        Client ct01 = new Client("Tom@s", 9876543213L, 9876543213L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void checkNhsWrong(){
+        Client ct01 = new Client("Tomás", 987654321311L, 9876543213L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void checkTinWrong(){
+        Client ct01 = new Client("Tomás", 9876543213L, 987654321311L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void checkBirthDateWrong(){
+        Client ct01 = new Client("Tomás", 9876543213L, 9876543213L, "23/12/8888", "Male", 98765432132L, "tomas1@isep.ipp.pt");
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void checkSexWrong(){
+        Client ct01 = new Client("Tomás", 9876543213L, 9876543213L, "23/12/8888", "lololol", 98765432132L, "tomas1@isep.ipp.pt");
+    }
+
 
     @Test
     public void checkGetName(){
@@ -171,8 +196,6 @@ public class ClientTest {
         String expected= "tomasmiguel@isep.ipp.pt";
         assertEquals(expected,ct01.getEmail());
     }
-
-
 
     @Test (expected = UnknownFormatConversionException.class)
     public void checkToStringMethod(){
