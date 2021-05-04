@@ -46,11 +46,11 @@ these laboratories also performs Covid-19 tests.
  
 
 > **Question**  Are two Clinical Analysis Laboratories with the same:
-a) Laboratory ID OR
-b) name OR
-c) address OR
-d) phone Number OR
-e) TIN number
+Laboratory ID 
+name 
+address 
+phone Number 
+TIN number
 allowed to exist?
 
 > **Answer** Only the name of two CAL can be same.
