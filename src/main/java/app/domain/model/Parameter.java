@@ -1,4 +1,4 @@
-package app.domain.model;
+/*package app.domain.model;
 
 
 import app.ui.console.utils.Utils;
@@ -109,3 +109,4 @@ public class Parameter {
                 Objects.equals(description, newParam.description);
     }
 }
+*/
