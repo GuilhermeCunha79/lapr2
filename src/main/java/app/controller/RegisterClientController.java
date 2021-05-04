@@ -1,22 +1,22 @@
 package app.controller;
 
 import app.domain.model.Client;
-import app.domain.model.Company;
+import auth.domain.store.ClientStore;
 
 public class RegisterClientController {
-    private Company company;
+    private ClientStore ctStore;
     private Client ct;
 
-    public RegisterClientController(){
-        this(App.getInstance().getCompany());
-    }
-
-    public RegisterClientController(Company company) {
-        this.company=company;
+    public RegisterClientController(ClientStore clientStore) {
+        this.ctStore=ctStore;
         this.ct = null;
     }
 
-   // public boolean newClient(long nhsNumber, String name, long tinNumber, String birthDate, String sex, String email){
-        //this.ct=this.company.newClient;
-    //}
+   public boolean newClient(String name, long nhsNumber, long tinNumber, String birthDate, String sex, long phoneNumber, String email){
+        this.ct=this.ctStore.newClient(name, nhsNumber,tinNumber,birthDate, sex, phoneNumber,email);
+        return this.ctStore.validateClient(ct);
+    }
+    public boolean saveClient(){
+        return this.ctStore.saveClient(ct);
+    }
 }

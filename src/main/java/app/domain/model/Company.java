@@ -1,10 +1,12 @@
 package app.domain.model;
 
 import auth.AuthFacade;
+import auth.domain.store.ClientStore;
 import auth.domain.store.ParameterCategoryStore;
 import auth.domain.store.ParameterStore;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +20,8 @@ public class Company {
 
     private ParameterCategoryStore pcStore;
     private ParameterStore pStore;
+
+    private ClientStore ctStore;
 
     public Company(String designation)
     {
@@ -44,4 +48,7 @@ public class Company {
         return this.pStore.getParameterList();
     }
 
+    public List<Client> getClientStore() {
+        return this.ctStore.getClientList();
+    }
 }
