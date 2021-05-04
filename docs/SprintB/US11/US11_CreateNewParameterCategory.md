@@ -28,6 +28,13 @@ As an administrator, I want to specify a new parameter category.
 >  
 > **Answer:** Each category has a name, unique code. There are no subcategories.
 
+> **Question:** What are the formats of the attributes of one category?
+>
+> **Answer:** Name: is a string with no more than 10 characters;
+>
+>Code: are five alphanumeric characters. The code is unique and is not automatically generated.
+
+
 
 ### 1.3. Acceptance Criteria
 
