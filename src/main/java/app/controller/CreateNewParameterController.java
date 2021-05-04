@@ -15,12 +15,14 @@ public class CreateNewParameterController {
         this.param = null;
     }
 
-    public boolean createNewParameter(String shortName, String code, String description, ParameterCategory pc){
-        this.param = this.ps.createParameter(shortName,code,description,pc);
+    public boolean createNewParameter(String shortName, String code, String description, String category){
+        this.param = this.ps.createParameter(shortName,code,description,category);
         return this.ps.validateParameterCategory(param);
     }
 
     public boolean saveParameter(){
         return this.ps.saveParameterCategory(param);
     }
+
+
 }

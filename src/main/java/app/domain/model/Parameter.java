@@ -1,6 +1,7 @@
 package app.domain.model;
 
 
+import app.ui.console.utils.Utils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
@@ -15,21 +16,31 @@ public class Parameter {
     private String code;
     private String shortName;
     private String description;
+    private String category;
 
-    public Parameter(String shortName, String code, String description, ParameterCategory category) {
+    public Parameter(String shortName, String code, String description, String category) {
         checkCodeRules(code);
         checkShortNameRules(shortName);
         checkDescriptionRules(description);
         this.code = code;
         this.shortName = shortName;
         this.description = description;
+        this.category = category;
     }
 
     private void checkDescriptionRules(String description) {
-        if (description.length() > DESCRIPTION_LENGTH)
-            throw new IllegalArgumentException("Description has more than 20 chars");
-        if (StringUtils.isBlank(description))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
+        boolean done = false;
+        do {
+            try {
+                if (description.length() > DESCRIPTION_LENGTH)
+                    throw new IllegalArgumentException("Description has more than 20 chars");
+                if (StringUtils.isBlank(description))
+                    throw new IllegalArgumentException(STRING_BLANK_EXEPT);
+                done = true;
+            } catch (IllegalArgumentException ile) {
+                description = Utils.readLineFromConsole("Try another description: (must not be empty and have less than 20 characters ");
+            }
+        }while(!done);
     }
 
     private void checkShortNameRules(String shortName) {

@@ -1,5 +1,5 @@
 package app.ui.console;
-
+import java.util.Scanner;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
@@ -18,9 +18,9 @@ public class AdminUI implements Runnable{
     public void run()
     {
         List<MenuItem> options = new ArrayList<MenuItem>();
-        options.add(new MenuItem("Option A ", new ShowTextUI("You have chosen Option A.")));
-        options.add(new MenuItem("Option B ", new ShowTextUI("You have chosen Option B.")));
-        options.add(new MenuItem("Option C ", new ShowTextUI("You have chosen Option C.")));
+        options.add(new MenuItem("Add new parameter category", new CreateParameterCategoryUI()));
+        options.add(new MenuItem("Add new parameter and categorize it", new CreateNewParameterUI()));
+        options.add(new MenuItem("Add new Employee", new ShowTextUI("You have chosen Option C.")));
 
         int option = 0;
         do

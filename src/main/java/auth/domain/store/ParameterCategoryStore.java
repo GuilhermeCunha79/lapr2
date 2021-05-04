@@ -25,7 +25,7 @@ public class ParameterCategoryStore {
     public boolean addParameterCategory(ParameterCategory pc)
     {
         if (pc != null) {
-            if (!validateParameterCategory(pc))
+            if (validateParameterCategory(pc))
                 return this.parameterCategoryList.add(pc);
         }
         return false;
@@ -34,10 +34,10 @@ public class ParameterCategoryStore {
     public boolean validateParameterCategory(ParameterCategory pc) {
         for (ParameterCategory parCat : parameterCategoryList){
             if(parCat.equals(pc)){
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public List<ParameterCategory> getParameterCategoryList() {
