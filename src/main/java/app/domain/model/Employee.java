@@ -29,21 +29,24 @@ public class Employee {
      */
     public Employee(OrganizationRole role, String name, String address, long phoneNumber, String email, int soc) {
         employeeCount++;
-        this.employeeID = employeeIdCreator();
         this.role = role;
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.soc = soc;
+        this.employeeID = employeeIdCreator();
+
     }
 
     private String employeeIdCreator() {
         String nameInitials = "";
-        for (int i = 0; i < this.name.length(); i++) {
-            char letter = name.charAt(i);
-            if (Character.isUpperCase(letter)){
-                nameInitials = nameInitials + letter;
+        if(this.name!=null){
+            for (int i = 0; i < this.name.length(); i++) {
+                char letter = this.name.charAt(i);
+                if (Character.isUpperCase(letter)){
+                    nameInitials = nameInitials + letter;
+                }
             }
         }
         return String.format("%s%05d", nameInitials, employeeCount);

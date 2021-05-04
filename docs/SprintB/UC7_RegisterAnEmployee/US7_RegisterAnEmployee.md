@@ -6,7 +6,7 @@
 ### 1.1. User Story Description
 
 
-As an laboratory admin, I want to register a new emplyee in order to get access to the application.
+As an administrator, I want to register a new employee in order to get access to the application.
 
 
 
@@ -33,24 +33,9 @@ Address;
 Phone Number;
 E-Mail;
 Standard Occupational Classification (SOC) code.
-> 
+>
 > The Specialist Doctor has an additional attribute:
 Doctor Index Number.
-
-
->Each Clinical Analysis Laboratory is characterized by the following attributes:
-Laboratory ID;
-Name;
-Address;
-Phone Number;
-TIN number.
-
-
->The Chemical Laboratory is characterized by the following attributes:
-Name;
-Address;
-Phone Number;
-TIN number.
 
 
 
@@ -60,6 +45,7 @@ TIN number.
 * **AC1:** All required fields must be filled in.
 * **AC2:** Employee reference must have at least 5 alphanumeric chars.
 * **AC3:** When creating a employee with an already existing reference, the system must reject such operation and the user must have the change to modify the typed reference.
+* **AC4:** When creating a employee, the id of the employee should be generated automatically with the format of employee's name initials and five digits.
 
 
 ### 1.4. Found out Dependencies
@@ -73,7 +59,6 @@ TIN number.
 **Input Data:**
 
 * Typed data:
-	* Employee ID;
 	* Name;
 	* Address;
 	* Phone Number;
@@ -82,6 +67,9 @@ TIN number.
 	
 * Selected data:
 	* Organization Role;
+	
+* Generated data:
+	* Employee ID;
 
 
 **Output Data:**
@@ -97,8 +85,6 @@ TIN number.
 
 
 ### 1.7 Other Relevant Remarks
-
-* The created task stays in a "not published" state in order to distinguish from "published" tasks.
 
 
 ## 2. OO Analysis
@@ -123,13 +109,13 @@ n/a
 | Step 1  		 |	... interacting with the actor? | RegisterEmployeeUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
 | 			  		 |	... coordinating the US? | RegisterEmployeeController | Controller                             |
 | 			  		 |	... instantiating a new Employee? | Administrator   | Creator (Rule 1): in the DM Employee is a administrator, but is the last one that creates new ones.   |
-| 			  		 | ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
+| 			  		 |  ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
 | 			  		 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
 | 			  		 |							 | Administrator   | IE: knows/has its own Employees|
 | 			  		 |							 | Employee  | IE: knows its own data (e.g. email) |
 | Step 2  		 |							 |             |                              |
-| Step 3  		 |	...saving the inputted data? | Employee  | IE: object created in step 1 has its own data.  |
-| Step 4  		 |	...knowing the employee roles to show? | Platform  | IE: Employee roles are defined by the Platform. |
+| Step 3  		 |	... saving the inputted data? | Employee  | IE: object created in step 1 has its own data.  |
+| Step 4  		 |	... knowing the employee roles to show? | Platform  | IE: Employee roles are defined by the Platform. |
 | Step 5  		 |	... saving the selected category? | Employee  | IE: object created in step 1 is classified in one Employee.  |
 | Step 6  		 |							 |             |                              |              
 | Step 7  		 |	... validating all data (local validation)? | Employee | IE: owns its data.| 
@@ -187,7 +173,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 5. Construction (Implementation)
 
 
-## Class CreateTaskController 
+## Class CreateEmployeeController 
 
 		public boolean createTask(String ref, String designation, String informalDesc, 
 			String technicalDesc, Integer duration, Double cost, Integer catId)() {
