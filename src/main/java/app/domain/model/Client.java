@@ -353,6 +353,7 @@ public class Client {
 
         Client client = (Client) o;
         return Objects.equals(phoneNumber, client.phoneNumber)
+                && Objects.equals(citizenCardNumber, client.citizenCardNumber)
                 && Objects.equals(nhsNumber, client.nhsNumber)
                 && Objects.equals(tinNumber, client.tinNumber)
                 && Objects.equals(email, client.email);
