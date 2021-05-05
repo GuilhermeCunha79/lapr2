@@ -1,6 +1,9 @@
 package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -23,7 +26,6 @@ public class Client {
     static final int MAX_CHAR_NAME = 35;
     static final int NHSTIN_NUMBER_DIGITS = 10;
     static final int PHONE_NUMBER_DIGITS = 11;
-    static final int BIRTH_DATE_DIGITS = 8;
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
 
@@ -38,22 +40,14 @@ public class Client {
      * @param email
      */
     public Client(String name, long citizenCardNumber, long nhsNumber, long tinNumber, String birthDate, String sex, long phoneNumber, String email) {
-        checkNameRules(name);
-        checkCitizenCardNumberRules(citizenCardNumber);
-        checkNhsTinNumberRules(nhsNumber);
-        checkNhsTinNumberRules(tinNumber);
-        checkBirthDateRules(birthDate);
-        checkSexRules(sex);
-        checkPhoneNumberRules(phoneNumber);
-        isValidEmail(email);
-        this.name = name;
-        this.citizenCardNumber=citizenCardNumber;
-        this.nhsNumber = nhsNumber;
-        this.tinNumber = tinNumber;
-        this.birthDate = birthDate;
-        this.sex = sex;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+        setName(name);
+        setCitizenCardNumber(citizenCardNumber);
+        setNhsNumber(nhsNumber);
+        setTinNumber(tinNumber);
+        setBirthDate(birthDate);
+        setSex(sex);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
     }
 
     /***
@@ -66,20 +60,13 @@ public class Client {
      * @param email
      */
     public Client(String name, long citizenCardNumber, long nhsNumber, long tinNumber, String birthDate, long phoneNumber, String email) {
-        checkNameRules(name);
-        checkCitizenCardNumberRules(citizenCardNumber);
-        checkNhsTinNumberRules(nhsNumber);
-        checkNhsTinNumberRules(tinNumber);
-        checkBirthDateRules(birthDate);
-        checkPhoneNumberRules(phoneNumber);
-        checkEmailRules(email);
-        this.name = name;
-        this.citizenCardNumber=citizenCardNumber;
-        this.nhsNumber = nhsNumber;
-        this.tinNumber = tinNumber;
-        this.birthDate = birthDate;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+        setName(name);
+        setCitizenCardNumber(citizenCardNumber);
+        setNhsNumber(nhsNumber);
+        setTinNumber(tinNumber);
+        setBirthDate(birthDate);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
     }
 
 
@@ -87,10 +74,10 @@ public class Client {
      * Verify if the name respect the imposed rules
      * @param name
      */
-    private void checkNameRules(String name){
-        if(name == null )
+    private void checkNameRules(String name) {
+        if (name == null)
             throw new IllegalArgumentException("Name cannot be blank.");
-        if (name.length()>=MAX_CHAR_NAME)
+        if (name.length() > MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 35 characters");
 
         for (int i = 0; i < name.length(); i++) {
@@ -102,84 +89,34 @@ public class Client {
     }
 
     /***
-     * Verify if the citizen card number respect the imposed rules
-      * @param citizenCardNumber
-     */
-    private void checkCitizenCardNumberRules(long citizenCardNumber){
-        if (citizenCardNumber == 0)
-            throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
-        if (((int) Math.floor(Math.log10(citizenCardNumber) + 1) < CITIZEN_CARD_DIGITS) || ((int) Math.floor(Math.log10(citizenCardNumber) + 1) > CITIZEN_CARD_DIGITS))
-            throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
-    }
-
-    /***
-     * Verify if the nhsNumber respect the imposed rules
-     * @param nhsTinNumber
-     */
-    private void checkNhsTinNumberRules(long nhsTinNumber) { //10 digit numbers
-        if (nhsTinNumber == 0)
-            throw new IllegalArgumentException("NHS and TIN number must have 10 digit numbers.");
-        if (((int) Math.floor(Math.log10(nhsTinNumber) + 1) < NHSTIN_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(nhsTinNumber) + 1) > NHSTIN_NUMBER_DIGITS))
-            throw new IllegalArgumentException("NHS and TIN number must have 10 digit numbers.");
-    }
-
-    /***
-     * Verify if the phoneNumber respect the imposed rules
-     * @param phoneNumber
-     */
-    private void checkPhoneNumberRules(long phoneNumber) { //11 digit numbers
-        if (phoneNumber == 0)
-            throw new IllegalArgumentException("Phone number cannot be blank.");
-        if (((int) Math.floor(Math.log10(phoneNumber) + 1) < PHONE_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(phoneNumber) + 1) > PHONE_NUMBER_DIGITS))
-            throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
-    }
-
-    /***
-     * Verify if the birthDate respect the imposed rules
-     * @param birthDate
-     */
-    private void checkBirthDateRules(String birthDate) { // DD/MM/YY format
-        if (StringUtils.isBlank(birthDate))
-            throw new IllegalArgumentException("Birth date cannot be blank.");
-        if ((birthDate.length() < BIRTH_DATE_DIGITS) || (birthDate.length() > BIRTH_DATE_DIGITS))
-            throw new IllegalArgumentException("Birth date must have 4 to 8 chars.");
-    }
-
-    /***
-     * Verify if the sex respect the imposed rules
-     * @param sex
-     */
-    private void checkSexRules(String sex) { //Male or Female
-        if (StringUtils.isBlank(sex))
-            throw new IllegalArgumentException("Sex cannot be blank.");
-        if (!(sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE)))
-            throw new IllegalArgumentException("Sex must be Male or Female.");
-    }
-
-    private void checkEmailRules (String email){
-        if (StringUtils.isBlank(email))
-            throw new IllegalArgumentException("Email cannot be blank.");
-        if(isValidEmail(email))
-            throw new IllegalArgumentException("The introduced email is not valid.");
-    }
-
-    /***
      * Verify if the email given is a valid one
      * @param email
      * @return
      */
     public boolean isValidEmail(String email) {
-            String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
-                    "[a-zA-Z0-9_+&*-]+)*@" +
-                    "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                    "A-Z]{2,7}$";
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
 
-            Pattern pat = Pattern.compile(emailRegex);
-            if (email == null)
-                return false;
-            return pat.matcher(email).matches();
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
     }
 
+    public static boolean checkBirthDateRules(String birthDate) {
+        SimpleDateFormat sdf = new SimpleDateFormat("DD/MM/YY");
+        sdf.setLenient(false);
+        try {
+            Date javaDate = sdf.parse(birthDate);
+            System.out.println(birthDate);
+        } catch (ParseException e) {
+            System.out.println("the date of birth provided is in an incorrect format");
+            return false;
+        }
+        return true;
+    }
     //private void calcula CALCULAR IDADEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 
 
@@ -196,7 +133,17 @@ public class Client {
      * @param name
      */
     public void setName(String name) {
-        this.name = name;
+        if (name == null)
+            throw new IllegalArgumentException("Name cannot be blank.");
+        if (name.length() > MAX_CHAR_NAME)
+            throw new IllegalArgumentException("Name cannot have more than 35 characters");
+
+        for (int i = 0; i < name.length(); i++) {
+            String c = String.valueOf(name.charAt(i));
+            if (!c.matches("[A-Za-zÁ-Úá-ú]"))
+                throw new IllegalArgumentException("Name has non alphanumeric chars.");
+        }
+            this.name = name;
     }
 
     /***
@@ -212,6 +159,10 @@ public class Client {
      * @param citizenCardNumber
      */
     public void setCitizenCardNumber(long citizenCardNumber) {
+        if (citizenCardNumber == 0)
+            throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
+        if (((int) Math.floor(Math.log10(citizenCardNumber) + 1) < CITIZEN_CARD_DIGITS) || ((int) Math.floor(Math.log10(citizenCardNumber) + 1) > CITIZEN_CARD_DIGITS))
+            throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
         this.citizenCardNumber = citizenCardNumber;
     }
 
@@ -228,7 +179,11 @@ public class Client {
      * @param nhsNumber
      */
 
-    public void setNhsNumber(int nhsNumber) {
+    public void setNhsNumber(long nhsNumber) {
+        if (nhsNumber == 0)
+            throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
+        if (((int) Math.floor(Math.log10(nhsNumber) + 1) < NHSTIN_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(nhsNumber) + 1) > NHSTIN_NUMBER_DIGITS))
+            throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
         this.nhsNumber = nhsNumber;
     }
 
@@ -244,7 +199,11 @@ public class Client {
      * Method that sets the tin number of the Client
      * @param tinNumber
      */
-    public void setTinNumber(int tinNumber) {
+    public void setTinNumber(long tinNumber) {
+        if (tinNumber == 0)
+            throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
+        if (((int) Math.floor(Math.log10(tinNumber) + 1) < NHSTIN_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(tinNumber) + 1) > NHSTIN_NUMBER_DIGITS))
+            throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
         this.tinNumber = tinNumber;
     }
 
@@ -261,8 +220,14 @@ public class Client {
      * @param birthDate
      */
     public void setBirthDate(String birthDate) {
+        if (birthDate.trim().equals(""))
+            throw new IllegalArgumentException("Data cannot be blank");
+
+       if(checkBirthDateRules(birthDate))
+           throw new IllegalArgumentException("The date of birth provided is in an incorrect format");
         this.birthDate = birthDate;
     }
+
 
     /***
      * Method that returns the sex of the Client
@@ -277,6 +242,10 @@ public class Client {
      * @param sex
      */
     public void setSex(String sex) {
+        if (StringUtils.isBlank(sex))
+            throw new IllegalArgumentException("Sex cannot be blank.");
+        if (!(sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE)))
+            throw new IllegalArgumentException("Sex must be Male or Female.");
         this.sex = sex;
     }
 
@@ -293,7 +262,11 @@ public class Client {
      * @param phoneNumber
      */
     public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        if (phoneNumber == 0)
+            throw new IllegalArgumentException("Phone number cannot be blank.");
+        if (((int) Math.floor(Math.log10(phoneNumber) + 1) < PHONE_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(phoneNumber) + 1) > PHONE_NUMBER_DIGITS))
+            throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
+        this.phoneNumber=phoneNumber;
     }
 
     /***
@@ -309,6 +282,10 @@ public class Client {
      * @param email
      */
     public void setEmail(String email) {
+        if (StringUtils.isBlank(email))
+            throw new IllegalArgumentException("Email cannot be blank.");
+        if (isValidEmail(email))
+            throw new IllegalArgumentException("The introduced email is not valid.");
         this.email = email;
     }
 

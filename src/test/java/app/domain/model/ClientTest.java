@@ -354,11 +354,4 @@ public class ClientTest {
         assertEquals(ct01, ct02);
 
     }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void checkMethodEquals() {
-
-    }
-
-
 }
