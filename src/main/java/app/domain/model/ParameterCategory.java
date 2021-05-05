@@ -8,26 +8,27 @@ public class ParameterCategory {
 
     private static final int NAME_LENGTH = 10;
     private static final int CODE_LENGTH = 5;
-    private String code;
 
+    private String code;
     private String name;
 
     /**
      * Constructor for ParameterCategory Class
+     *
      * @param code receives the Parameter category code
      * @param name recives the Parameter category name
      */
 
-    public ParameterCategory(String code, String name){
+    public ParameterCategory(String code, String name) {
         setCode(code);
         setName(name);
         this.code = code;
         this.name = name;
     }
 
-
     /**
      * Method to get the Parameter category code
+     *
      * @return return he Parameter category code
      */
     public String getCode() {
@@ -36,6 +37,7 @@ public class ParameterCategory {
 
     /**
      * Method to change the Parameter category code
+     *
      * @param code receives the new Parameter category code
      */
     public void setCode(String code) {
@@ -54,6 +56,7 @@ public class ParameterCategory {
 
     /**
      * Method to get the Parameter category name
+     *
      * @return return he Parameter category name
      */
 
@@ -63,11 +66,12 @@ public class ParameterCategory {
 
     /**
      * Method to change the Parameter category name
+     *
      * @param name receives the new Parameter category name
      */
 
     public void setName(String name) {
-        if(StringUtils.isBlank(name))
+        if (StringUtils.isBlank(name))
             throw new IllegalArgumentException("Name cannot be blank");
         if (name.length() > NAME_LENGTH)
             throw new IllegalArgumentException("Short name has more than 10 chars");
@@ -76,6 +80,7 @@ public class ParameterCategory {
 
     /**
      * To string method
+     *
      * @return a description of the object
      */
     @Override
@@ -85,6 +90,7 @@ public class ParameterCategory {
 
     /**
      * Method to check if one object equals the object that called this method
+     *
      * @param obj receives another object
      * @return true or false
      */
@@ -93,6 +99,6 @@ public class ParameterCategory {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         ParameterCategory newPC = (ParameterCategory) obj;
-        return code == newPC.code || Objects.equals(name, newPC.name);
+        return code.equals(newPC.code) || Objects.equals(name, newPC.name);
     }
 }

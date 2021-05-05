@@ -24,9 +24,8 @@ public class ParameterCategoryStore {
 
     public boolean addParameterCategory(ParameterCategory pc)
     {
-        if (pc != null) {
-            if (validateParameterCategory(pc))
-                return this.parameterCategoryList.add(pc);
+        if (pc != null && validateParameterCategory(pc)) {
+            return this.parameterCategoryList.add(pc);
         }
         return false;
     }
@@ -41,7 +40,7 @@ public class ParameterCategoryStore {
     }
 
     public List<ParameterCategory> getParameterCategoryList() {
-        return parameterCategoryList;
+        return new ArrayList<>(parameterCategoryList);
     }
 
 }
