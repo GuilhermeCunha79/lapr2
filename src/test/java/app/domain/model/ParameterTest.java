@@ -1,4 +1,4 @@
-/*package app.domain.model;
+package app.domain.model;
 
 import org.junit.Test;
 
@@ -189,4 +189,4 @@ public class ParameterTest {
     }
 
 }
-*/
+

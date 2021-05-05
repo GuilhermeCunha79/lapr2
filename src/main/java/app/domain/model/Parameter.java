@@ -1,7 +1,6 @@
-/*package app.domain.model;
+package app.domain.model;
 
 
-import app.ui.console.utils.Utils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
@@ -29,18 +28,10 @@ public class Parameter {
     }
 
     private void checkDescriptionRules(String description) {
-        boolean done = false;
-        do {
-            try {
-                if (description.length() > DESCRIPTION_LENGTH)
-                    throw new IllegalArgumentException("Description has more than 20 chars");
-                if (StringUtils.isBlank(description))
-                    throw new IllegalArgumentException(STRING_BLANK_EXEPT);
-                done = true;
-            } catch (IllegalArgumentException ile) {
-                description = Utils.readLineFromConsole("Try another description: (must not be empty and have less than 20 characters ");
-            }
-        }while(!done);
+        if (description.length() > DESCRIPTION_LENGTH)
+            throw new IllegalArgumentException("Description has more than 20 chars");
+        if (StringUtils.isBlank(description))
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
     }
 
     private void checkShortNameRules(String shortName) {
@@ -109,4 +100,3 @@ public class Parameter {
                 Objects.equals(description, newParam.description);
     }
 }
-*/
