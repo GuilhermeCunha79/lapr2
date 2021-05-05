@@ -324,7 +324,6 @@ public class ClientTest {
         Client ct02= new Client ("Miguel", 1234567890123458L,1234567891,1234567890,"21/12/22","female",12345678902L,"tomas11@isep.ipp.pt");
         assertEquals(ct01,ct02);
     }
-
     @Test (expected = IllegalArgumentException.class)
     public void checkEqualsJustEmailEqual(){
         Client ct01= new Client ("Tomás", 1234567890123458L,1234567890,1234567890,"23/12/20","male",12345678901L,"tomas@isep.ipp.pt");
