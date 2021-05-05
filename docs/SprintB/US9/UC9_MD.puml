@@ -1,34 +1,35 @@
 @startuml
 'https://plantuml.com/sequence-diagram
+hide methods
+skinparam classAttributeIconSize 0
 
-Company -- Employee :> has
-Employee <|-- Administrador
-Administrador --  TypeOfTest:> specify new
+
+Company"1" -- "*"Admin :> employs
+Company"1" -- "*"TypeOfTest:> conducts
+Company"1" -- "*"Category :> adopts
+Admin"1" -- "*"TypeOfTest :< created by
+TypeOfTest"*" -- "1"Category :> has a
+Admin"1" -- "*"Category :< created by
 
 class TypeOfTest{
 -code
 -description
 -collecting method
--Cathegory
 }
 
-class Administrador{
+class Admin{
   -name
   -function
   -phone
   -email
 }
 
-class Employee{
--employeeID
--name
--address
--socCode
--phoneNumber
--email
-}
-
 class Company{
 -designation
+}
+
+class Category{
+    -code
+    -name
 }
 @enduml
