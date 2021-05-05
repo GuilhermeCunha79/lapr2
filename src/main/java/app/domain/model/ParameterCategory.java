@@ -2,8 +2,6 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Objects;
-
 public class ParameterCategory {
 
     private static final int NAME_LENGTH = 10;
@@ -99,6 +97,6 @@ public class ParameterCategory {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         ParameterCategory newPC = (ParameterCategory) obj;
-        return code.equals(newPC.code) || Objects.equals(name, newPC.name);
+        return code.equals(newPC.code) || name.equals(newPC.name);
     }
 }
