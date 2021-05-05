@@ -138,7 +138,7 @@ public class ParameterCategoryTest {
     @Test
     public void checkIfDifferentObjectsAreDifferent(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
-        Parameter p1 = new Parameter("Blood1", "10131", "Test lood Cells", "hemograms");
+        Parameter p1 = new Parameter("12012", "Blood1", "Test lood Cells", "hemograms");
         assertNotEquals(p1, pc);
     }
 
