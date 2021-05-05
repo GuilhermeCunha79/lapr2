@@ -353,5 +353,7 @@ public class ClientTest {
         Client ct02 = new Client("Miguel", 1234567890123456L, 1234567891, 1234567891, "21/12/22", "female", 12345678902L, "tomas@isep.ipp.pt");
         assertEquals(ct01, ct02);
 
+
+
     }
 }
