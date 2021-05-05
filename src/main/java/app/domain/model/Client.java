@@ -13,16 +13,16 @@ import java.util.regex.Pattern;
 public class Client {
 
     private String name;
-    private long citizenCardNumber;
-    private long nhsNumber;
-    private long tinNumber;
+    private String citizenCardNumber;
+    private String nhsNumber;
+    private String tinNumber;
     private String birthDate;
     private String sex;
-    private long phoneNumber;
+    private String phoneNumber;
     private String email;
     List<Client> clientList = new ArrayList<>();
 
-    static final long CITIZEN_CARD_DIGITS = 16;
+    static final int CITIZEN_CARD_DIGITS = 16;
     static final int MAX_CHAR_NAME = 35;
     static final int NHSTIN_NUMBER_DIGITS = 10;
     static final int PHONE_NUMBER_DIGITS = 11;
@@ -39,7 +39,7 @@ public class Client {
      * @param phoneNumber
      * @param email
      */
-    public Client(String name, long citizenCardNumber, long nhsNumber, long tinNumber, String birthDate, String sex, long phoneNumber, String email) {
+    public Client(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String sex, String phoneNumber, String email) {
         setName(name);
         setCitizenCardNumber(citizenCardNumber);
         setNhsNumber(nhsNumber);
@@ -59,7 +59,7 @@ public class Client {
      * @param phoneNumber
      * @param email
      */
-    public Client(String name, long citizenCardNumber, long nhsNumber, long tinNumber, String birthDate, long phoneNumber, String email) {
+    public Client(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String phoneNumber, String email) {
         setName(name);
         setCitizenCardNumber(citizenCardNumber);
         setNhsNumber(nhsNumber);
@@ -70,22 +70,17 @@ public class Client {
     }
 
 
-    /***
-     * Verify if the name respect the imposed rules
-     * @param name
-     */
-    private void checkNameRules(String name) {
-        if (name == null)
-            throw new IllegalArgumentException("Name cannot be blank.");
-        if (name.length() > MAX_CHAR_NAME)
-            throw new IllegalArgumentException("Name cannot have more than 35 characters");
+    private boolean checkIfStringJustHaveJustNumbers(String number, int n) {
 
-        for (int i = 0; i < name.length(); i++) {
-            String c = String.valueOf(name.charAt(i));
-            if (!c.matches("[A-Za-zÁ-Úá-ú]"))
-                throw new IllegalArgumentException("Name has non alphanumeric chars.");
+        for (int i = 0; i < n; i++) {
+            if (Character.isDigit(number.charAt(i))) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
-
+        return false;
     }
 
     /***
@@ -106,7 +101,7 @@ public class Client {
     }
 
     public boolean checkBirthDateRules(String birthDate) {
-        SimpleDateFormat sdf = new SimpleDateFormat("DD/MM/YY");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
         sdf.setLenient(false);
         try {
             Date javaDate = sdf.parse(birthDate);
@@ -132,7 +127,7 @@ public class Client {
      * @param name
      */
     public void setName(String name) {
-        if (name == null)
+        if (StringUtils.isBlank(name))
             throw new IllegalArgumentException("Name cannot be blank.");
         if (name.length() > MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 35 characters");
@@ -142,14 +137,14 @@ public class Client {
             if (!c.matches("[A-Za-zÁ-Úá-ú]"))
                 throw new IllegalArgumentException("Name has non alphanumeric chars.");
         }
-            this.name = name;
+        this.name = name;
     }
 
     /***
      * Method that returns the citizen card number of the Client
      * @return
      */
-    public long getCitizenCardNumber() {
+    public String getCitizenCardNumber() {
         return citizenCardNumber;
     }
 
@@ -157,10 +152,10 @@ public class Client {
      * Method that sets the name of the Client
      * @param citizenCardNumber
      */
-    public void setCitizenCardNumber(long citizenCardNumber) {
-        if (citizenCardNumber == 0)
+    public void setCitizenCardNumber(String citizenCardNumber) {
+        if (StringUtils.isBlank(citizenCardNumber))
             throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
-        if (((int) Math.floor(Math.log10(citizenCardNumber) + 1) < CITIZEN_CARD_DIGITS) || ((int) Math.floor(Math.log10(citizenCardNumber) + 1) > CITIZEN_CARD_DIGITS))
+        if (!(checkIfStringJustHaveJustNumbers(citizenCardNumber,citizenCardNumber.length())) || citizenCardNumber.length() > CITIZEN_CARD_DIGITS || citizenCardNumber.length() < CITIZEN_CARD_DIGITS)
             throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
         this.citizenCardNumber = citizenCardNumber;
     }
@@ -169,7 +164,7 @@ public class Client {
      * Method that returns the nhs number of the Client
      * @return
      */
-    public long getNhsNumber() {
+    public String getNhsNumber() {
         return nhsNumber;
     }
 
@@ -178,10 +173,10 @@ public class Client {
      * @param nhsNumber
      */
 
-    public void setNhsNumber(long nhsNumber) {
-        if (nhsNumber == 0)
-            throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
-        if (((int) Math.floor(Math.log10(nhsNumber) + 1) < NHSTIN_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(nhsNumber) + 1) > NHSTIN_NUMBER_DIGITS))
+    public void setNhsNumber(String nhsNumber) {
+        if (StringUtils.isBlank(nhsNumber))
+            throw new IllegalArgumentException("NHS number cannot be blank.");
+        if (!(checkIfStringJustHaveJustNumbers(nhsNumber,nhsNumber.length())) || nhsNumber.length()>NHSTIN_NUMBER_DIGITS || nhsNumber.length()<NHSTIN_NUMBER_DIGITS)
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
         this.nhsNumber = nhsNumber;
     }
@@ -190,7 +185,7 @@ public class Client {
      * Method that returns the tin number of the Client
      * @return
      */
-    public long getTinNumber() {
+    public String getTinNumber() {
         return tinNumber;
     }
 
@@ -198,10 +193,10 @@ public class Client {
      * Method that sets the tin number of the Client
      * @param tinNumber
      */
-    public void setTinNumber(long tinNumber) {
-        if (tinNumber == 0)
+    public void setTinNumber(String tinNumber) {
+        if (StringUtils.isBlank(tinNumber))
             throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
-        if (((int) Math.floor(Math.log10(tinNumber) + 1) < NHSTIN_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(tinNumber) + 1) > NHSTIN_NUMBER_DIGITS))
+        if (!(checkIfStringJustHaveJustNumbers(tinNumber, tinNumber.length())) || tinNumber.length()>NHSTIN_NUMBER_DIGITS || tinNumber.length()<NHSTIN_NUMBER_DIGITS)
             throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
         this.tinNumber = tinNumber;
     }
@@ -219,11 +214,11 @@ public class Client {
      * @param birthDate
      */
     public void setBirthDate(String birthDate) {
-        if (birthDate.trim().equals(""))
+        if (StringUtils.isBlank(birthDate))
             throw new IllegalArgumentException("Data cannot be blank");
 
-       if(checkBirthDateRules(birthDate))
-           throw new IllegalArgumentException("The date of birth provided is in an incorrect format");
+        if(!(checkBirthDateRules(birthDate)))
+            throw new IllegalArgumentException("The date of birth provided is in an incorrect format");
         this.birthDate = birthDate;
     }
 
@@ -252,7 +247,7 @@ public class Client {
      * Method that returns the phone number of the Client
      * @return
      */
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -260,10 +255,10 @@ public class Client {
      * Method that sets the phone number of the Client
      * @param phoneNumber
      */
-    public void setPhoneNumber(long phoneNumber) {
-        if (phoneNumber == 0)
+    public void setPhoneNumber(String phoneNumber) {
+        if (StringUtils.isBlank(phoneNumber))
             throw new IllegalArgumentException("Phone number cannot be blank.");
-        if (((int) Math.floor(Math.log10(phoneNumber) + 1) < PHONE_NUMBER_DIGITS) || ((int) Math.floor(Math.log10(phoneNumber) + 1) > PHONE_NUMBER_DIGITS))
+        if (!(checkIfStringJustHaveJustNumbers(phoneNumber,phoneNumber.length())) || phoneNumber.length()>PHONE_NUMBER_DIGITS || phoneNumber.length()< PHONE_NUMBER_DIGITS)
             throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
         this.phoneNumber=phoneNumber;
     }
@@ -295,22 +290,17 @@ public class Client {
      */
     public boolean validateClient(Client client) {
         return (client.name != null
-                && client.tinNumber > 0000000000000000
-                && client.tinNumber <= 9999999999999999L
+                && client.tinNumber != null
                 && client.birthDate != null
-                && client.tinNumber > 0000000000
-                && client.tinNumber <= 9999999999L
-                && client.nhsNumber > 0000000000
-                && client.nhsNumber <= 9999999999L
-                && client.phoneNumber > 00000000000
-                && client.phoneNumber <= 99999999999L
+                && client.nhsNumber != null
+                && client.phoneNumber != null
                 && client.email != null
                 && client.sex != null);
     }
 
     @Override
     public String toString() {
-        return String.format("Client:%nName: %s%nCitizen Card Number: %l%nNHS number: %l%nTIN number: %l%nBirth date: %s%nSex: %s%nPhone number: %l%nEmail: %s ",
+        return String.format("Client:%nName: %s%nCitizen Card Number: %s%nNHS number: %s%nTIN number: %s%nBirth date: %s%nSex: %s%nPhone number: %s%nEmail: %s",
                 this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email);
     }
 
@@ -333,7 +323,4 @@ public class Client {
                 && Objects.equals(tinNumber, client.tinNumber)
                 && Objects.equals(email, client.email);
     }
-
-
-
 }
