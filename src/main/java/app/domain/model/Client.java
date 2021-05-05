@@ -105,14 +105,13 @@ public class Client {
         return pat.matcher(email).matches();
     }
 
-    public static boolean checkBirthDateRules(String birthDate) {
+    public boolean checkBirthDateRules(String birthDate) {
         SimpleDateFormat sdf = new SimpleDateFormat("DD/MM/YY");
         sdf.setLenient(false);
         try {
             Date javaDate = sdf.parse(birthDate);
             System.out.println(birthDate);
         } catch (ParseException e) {
-            System.out.println("the date of birth provided is in an incorrect format");
             return false;
         }
         return true;
@@ -284,7 +283,7 @@ public class Client {
     public void setEmail(String email) {
         if (StringUtils.isBlank(email))
             throw new IllegalArgumentException("Email cannot be blank.");
-        if (isValidEmail(email))
+        if (!isValidEmail(email))
             throw new IllegalArgumentException("The introduced email is not valid.");
         this.email = email;
     }

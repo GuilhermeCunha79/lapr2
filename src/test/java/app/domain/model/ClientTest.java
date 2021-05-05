@@ -33,7 +33,7 @@ public class ClientTest {
         Client ct = new Client("Maria Josefina", 1234567890123456L, 1234567890L, 1234567890L, "23/12/03", "male", 12345678901L, "mariajosefina69@yalol.com");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void ensureThatPhoneNumberHave11Char() {
         Client ct = new Client("Tomás", 1234567890123456L, 1234567890L, 1234567890L, "23/12/21", 12345678901L, "tomas@isep.ipp.pt");
     }
@@ -53,7 +53,7 @@ public class ClientTest {
         Client ct = new Client("Tomas", 0, 1234567890, 1234567890, "23/02/02", "male", 12345678901L, "tomas@isep.ipp.pt");
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void ensureThatEmailIsNotBlank() {
         Client ct = new Client("Miguel", 1234567890123456L, 1234567890, 1234567890, "23/02/02", "male", 12345678901L, "");
     }
@@ -166,12 +166,12 @@ public class ClientTest {
         Client ct01 = new Client("Tomás", 1234567890123456L, 9876543213L, 987654321311L, "23/12/88", "Male", 98765432132L, "tomas1@isep.ipp.pt");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void checkBirthDateWrongFirstConstructor() {
         Client ct01 = new Client("Tomás", 1234567890123456L, 9876543213L, 9876543213L, "23/12/8888", "Male", 98765432132L, "tomas1@isep.ipp.pt");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void checkBirthDateWrongSecondConstructor() {
         Client ct01 = new Client("Tomás", 1234567890123456L, 9876543213L, 9876543213L, "23/12/8888", 98765432132L, "tomas1@isep.ipp.pt");
     }
@@ -303,7 +303,7 @@ public class ClientTest {
         assertEquals(expected, ct01.getEmail());
     }
 
-    @Test(expected = UnknownFormatConversionException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void checkToStringMethod() {
         Client ct01 = new Client("Tomás", 1234567890123456L, 1234567890, 1234567890, "23/12/98", "male", 12345678901L, "tomas@isep.ipp.pt");
         String expected = String.format("Client:%nName: Tomás%nCitizen Card Number: 1234567890123456%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/98%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt");
