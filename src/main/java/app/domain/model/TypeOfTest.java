@@ -1,6 +1,5 @@
 package app.domain.model;
 
-import auth.domain.store.ParameterCategoryStore;
 import org.apache.commons.lang3.StringUtils;
 
 public class TypeOfTest {

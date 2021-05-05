@@ -2,7 +2,9 @@ package app.controller;
 
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
-import auth.domain.store.ParameterStore;
+import app.domain.store.ParameterStore;
+
+import java.util.List;
 
 public class CreateNewParameterController {
 
@@ -10,18 +12,22 @@ public class CreateNewParameterController {
 
     private Parameter param;
 
-    public CreateNewParameterController(ParameterStore ps){
-        this.ps = ps;
+    public CreateNewParameterController(){
+        this.ps = new ParameterStore();
         this.param = null;
     }
 
     public boolean createNewParameter(String shortName, String code, String description, String category){
         this.param = this.ps.createParameter(shortName,code,description,category);
-        return this.ps.validateParameterCategory(param);
+        return saveParameter();
     }
 
     public boolean saveParameter(){
-        return this.ps.saveParameterCategory(param);
+        return this.ps.saveParameter(param);
+    }
+
+    public List<ParameterCategory> getCategoryList(){
+        return CreateParameterCategoryController.pcStore.getParameterCategoryList();
     }
 
 

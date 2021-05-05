@@ -1,16 +1,16 @@
 package app.controller;
 
 import app.domain.model.ParameterCategory;
-import auth.domain.store.ParameterCategoryStore;
+import app.domain.store.ParameterCategoryStore;
 
 public class CreateParameterCategoryController {
 
-    private ParameterCategoryStore pcStore;
+    public static ParameterCategoryStore pcStore;
 
     private ParameterCategory pc;
 
-    public CreateParameterCategoryController(ParameterCategoryStore pcStore) {
-        this.pcStore = pcStore;
+    public CreateParameterCategoryController() {
+        this.pcStore = new ParameterCategoryStore();
         this.pc = null;
     }
 
@@ -21,5 +21,9 @@ public class CreateParameterCategoryController {
 
     public boolean saveParameterCategory(){
         return this.pcStore.saveParameterCategory(pc);
+    }
+
+    public ParameterCategoryStore getPcStore() {
+        return pcStore;
     }
 }
