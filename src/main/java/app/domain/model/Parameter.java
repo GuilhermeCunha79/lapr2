@@ -16,7 +16,7 @@ public class Parameter {
     private String description;
     private String category;
 
-    public Parameter(String shortName, String code, String description, String category) {
+    public Parameter(String code, String shortName, String description, String category) {
         setCode(code);
         setShortName(shortName);
         setDescription(description);
