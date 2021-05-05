@@ -1,8 +1,7 @@
-# US 09 - XXXX XXXX
+# US 09 - Specify a new type of test
 
 ## 1. Requirements Engineering
 
-*In this section, it is suggested to capture the requirement description and specifications as provided by the client as well as any further clarification on it. It is also suggested to capture the requirements acceptance criteria and existing dependencies to other requirements. At last, identfy the involved input and output data and depicted an Actor-System interaction in order to fulfill the requirement.*
 
 ### 1.1. User Story Description
 
@@ -70,7 +69,7 @@ or more parameters that can be grouped/organized by categories."
 
 ### 1.6. System Sequence Diagram (SSD)
 
-![UC9_SSD]
+![UC9_SSD](UC9_SSD.svg)
 
 ### 1.7 Other Relevant Remarks
 
@@ -80,7 +79,7 @@ or more parameters that can be grouped/organized by categories."
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![UC9_MD]
+![UC9_MD](UC9_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -124,13 +123,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 ## 3.2. Sequence Diagram (SD)
 
 
-![UC9_SD]
+![UC9_SD](UC9_SSD.svg)
 
 
 ## 3.3. Class Diagram (CD)
 
 
-![UC9_CD]
+![UC9_CD](UC9_CD.svg)
 
 # 4. Tests 
 

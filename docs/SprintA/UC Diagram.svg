@@ -48,7 +48,7 @@ lc - -> UC8
 lt - -> UC9
 
 :Admin: - -> (UC12 - Add new types of tests to the system)
-:Employee: - -> (UC14 - Order clients by TIN or name)
+:Employee: - -> (UC14 - Sort clients by TIN or name)
 :Client: - -> (UC13 - Check his medical tests results)
 @enduml
 
