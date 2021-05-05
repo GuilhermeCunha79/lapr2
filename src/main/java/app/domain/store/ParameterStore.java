@@ -9,28 +9,27 @@ public class ParameterStore {
 
     private List<Parameter> parameterList = new ArrayList();
 
-    public Parameter createParameter(String code, String shortName, String description, String category){
-        return new Parameter(code,shortName,description,category);
+    public Parameter createParameter(String code, String shortName, String description, String category) {
+        return new Parameter(code, shortName, description, category);
     }
 
-    public boolean saveParameter(Parameter p){
-        if(validateParameter(p)){
+    public boolean saveParameter(Parameter p) {
+        if (validateParameter(p)) {
             return addParameter(p);
         }
         return false;
     }
 
     public boolean addParameter(Parameter p) {
-        if (p != null) {
-            if (validateParameter(p))
-                return this.parameterList.add(p);
+        if (p != null && validateParameter(p)) {
+            return this.parameterList.add(p);
         }
         return false;
     }
 
     public boolean validateParameter(Parameter p) {
-        for (Parameter par : parameterList){
-            if(par.equals(p)){
+        for (Parameter par : parameterList) {
+            if (par.equals(p)) {
                 return false;
             }
         }
@@ -38,6 +37,6 @@ public class ParameterStore {
     }
 
     public List<Parameter> getParameterList() {
-        return parameterList;
+        return new ArrayList<>(parameterList);
     }
 }
