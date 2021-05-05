@@ -1,7 +1,6 @@
-package auth.domain.store;
+package app.domain.store;
 
 import app.domain.model.Parameter;
-import app.domain.model.ParameterCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,30 +13,28 @@ public class ParameterStore {
         return new Parameter(code,shortName,description,category);
     }
 
-    public boolean saveParameterCategory(Parameter p){
-        if(validateParameterCategory(p)){
-            addParameterCategory(p);
-            return true;
+    public boolean saveParameter(Parameter p){
+        if(validateParameter(p)){
+            return addParameter(p);
         }
         return false;
     }
 
-    public boolean addParameterCategory(Parameter p)
-    {
+    public boolean addParameter(Parameter p) {
         if (p != null) {
-            if (!validateParameterCategory(p))
+            if (validateParameter(p))
                 return this.parameterList.add(p);
         }
         return false;
     }
 
-    public boolean validateParameterCategory(Parameter p) {
+    public boolean validateParameter(Parameter p) {
         for (Parameter par : parameterList){
             if(par.equals(p)){
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public List<Parameter> getParameterList() {

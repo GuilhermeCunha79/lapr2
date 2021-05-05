@@ -1,4 +1,4 @@
-package auth.domain.store;
+package app.domain.store;
 
 import app.domain.model.Client;
 

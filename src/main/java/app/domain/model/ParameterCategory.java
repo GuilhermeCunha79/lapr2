@@ -19,31 +19,12 @@ public class ParameterCategory {
      */
 
     public ParameterCategory(String code, String name){
-        checkCodeRules(code);
-        checkNameRules(name);
+        setCode(code);
+        setName(name);
         this.code = code;
         this.name = name;
     }
 
-    private void checkNameRules(String name) {
-        if(StringUtils.isBlank(name))
-            throw new IllegalArgumentException("Name cannot be blank");
-        if (name.length() > NAME_LENGTH)
-            throw new IllegalArgumentException("Short name has more than 10 chars");
-    }
-
-    private void checkCodeRules(String code) {
-        if (code.length() != CODE_LENGTH)
-            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
-        if (StringUtils.isBlank(code))
-            throw new IllegalArgumentException("Code cannot be blank");
-
-        for (int i = 0; i < code.length(); i++) {
-            String c = String.valueOf(code.charAt(i));
-            if (!c.matches("[A-Za-z0-9]"))
-                throw new IllegalArgumentException("Code has non alphanumeric chars.");
-        }
-    }
 
     /**
      * Method to get the Parameter category code
@@ -58,6 +39,16 @@ public class ParameterCategory {
      * @param code receives the new Parameter category code
      */
     public void setCode(String code) {
+        if (code.length() != CODE_LENGTH)
+            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
+        if (StringUtils.isBlank(code))
+            throw new IllegalArgumentException("Code cannot be blank");
+
+        for (int i = 0; i < code.length(); i++) {
+            String c = String.valueOf(code.charAt(i));
+            if (!c.matches("[A-Za-z0-9]"))
+                throw new IllegalArgumentException("Code has non alphanumeric chars.");
+        }
         this.code = code;
     }
 
@@ -76,6 +67,10 @@ public class ParameterCategory {
      */
 
     public void setName(String name) {
+        if(StringUtils.isBlank(name))
+            throw new IllegalArgumentException("Name cannot be blank");
+        if (name.length() > NAME_LENGTH)
+            throw new IllegalArgumentException("Short name has more than 10 chars");
         this.name = name;
     }
 

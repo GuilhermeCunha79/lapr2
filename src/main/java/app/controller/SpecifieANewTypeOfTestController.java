@@ -2,8 +2,7 @@ package app.controller;
 
 import app.domain.model.ParameterCategory;
 import app.domain.model.TypeOfTest;
-import auth.domain.store.ParameterCategoryStore;
-import auth.domain.store.TypeOfTestStore;
+import app.domain.store.TypeOfTestStore;
 
 public class SpecifieANewTypeOfTestController {
 

@@ -1,12 +1,11 @@
 package app.domain.model;
 
 import auth.AuthFacade;
-import auth.domain.store.ClientStore;
-import auth.domain.store.ParameterCategoryStore;
-import auth.domain.store.ParameterStore;
+import app.domain.store.ClientStore;
+import app.domain.store.ParameterCategoryStore;
+import app.domain.store.ParameterStore;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

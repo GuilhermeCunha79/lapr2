@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.domain.model.Client;
-import auth.domain.store.ClientStore;
+import app.domain.store.ClientStore;
 
 public class RegisterClientController {
     private ClientStore ctStore;

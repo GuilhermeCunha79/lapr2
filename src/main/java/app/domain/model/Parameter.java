@@ -1,6 +1,5 @@
 package app.domain.model;
 
-
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
@@ -18,30 +17,20 @@ public class Parameter {
     private String category;
 
     public Parameter(String shortName, String code, String description, String category) {
-        checkCodeRules(code);
-        checkShortNameRules(shortName);
-        checkDescriptionRules(description);
+        setCode(code);
+        setShortName(shortName);
+        setDescription(description);
         this.code = code;
         this.shortName = shortName;
         this.description = description;
         this.category = category;
     }
 
-    private void checkDescriptionRules(String description) {
-        if (description.length() > DESCRIPTION_LENGTH)
-            throw new IllegalArgumentException("Description has more than 20 chars");
-        if (StringUtils.isBlank(description))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
+    public String getCode() {
+        return code;
     }
 
-    private void checkShortNameRules(String shortName) {
-        if (shortName.length() > SHORT_NAME_LENGTH)
-            throw new IllegalArgumentException("Short name has more than 8 chars");
-        if (StringUtils.isBlank(shortName))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
-    }
-
-    private void checkCodeRules(String code) {
+    public void setCode(String code) {
         if (code.length() != CODE_LENGTH)
             throw new IllegalArgumentException("Code needs to have exactly 5 chars");
         if (StringUtils.isBlank(code))
@@ -52,15 +41,6 @@ public class Parameter {
             if (!c.matches("[A-Za-z0-9]"))
                 throw new IllegalArgumentException("Code has non alphanumeric chars.");
         }
-
-
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
         this.code = code;
     }
 
@@ -69,6 +49,10 @@ public class Parameter {
     }
 
     public void setShortName(String shortName) {
+        if (shortName.length() > SHORT_NAME_LENGTH)
+            throw new IllegalArgumentException("Short name has more than 8 chars");
+        if (StringUtils.isBlank(shortName))
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
         this.shortName = shortName;
     }
 
@@ -77,6 +61,10 @@ public class Parameter {
     }
 
     public void setDescription(String description) {
+        if (description.length() > DESCRIPTION_LENGTH)
+            throw new IllegalArgumentException("Description has more than 20 chars");
+        if (StringUtils.isBlank(description))
+            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
         this.description = description;
     }
 
