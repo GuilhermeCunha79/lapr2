@@ -155,12 +155,12 @@ public class ClientTest {
         Client ct01 = new Client("Tomás", "123456789012345688", "1234567891", "1234567890", "23/12/2001", "12345678901", "tomas1@isep.ipp.pt");
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void checkNhsWrongFirstConstructor() {
         Client ct01 = new Client("Tomás", "1234567890123456", "987654321311", "1234567890", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void checkNhsWrongSecondConstructor() {
         Client ct01 = new Client("Tomás", "1234567890123456", "987654321", "1234567890", "23/12/2001", "12345678901", "tomas1@isep.ipp.pt");
     }
