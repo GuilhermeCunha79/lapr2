@@ -2,9 +2,15 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 /***
@@ -12,6 +18,15 @@ import java.util.regex.Pattern;
  */
 public class Client {
 
+    static final int CITIZEN_CARD_DIGITS = 16;
+    static final int MAX_CHAR_NAME = 35;
+    static final int NHSTIN_NUMBER_DIGITS = 10;
+    static final int PHONE_NUMBER_DIGITS = 11;
+    static final int MAX_AGE = 150;
+    static final String SEX_MALE = "male";
+    static final String SEX_FEMALE = "female";
+    static final String SEX_BY_OMISSION= "Not defined";
+    List<Client> clientList = new ArrayList<>();
     private String name;
     private String citizenCardNumber;
     private String nhsNumber;
@@ -20,14 +35,6 @@ public class Client {
     private String sex;
     private String phoneNumber;
     private String email;
-    List<Client> clientList = new ArrayList<>();
-
-    static final int CITIZEN_CARD_DIGITS = 16;
-    static final int MAX_CHAR_NAME = 35;
-    static final int NHSTIN_NUMBER_DIGITS = 10;
-    static final int PHONE_NUMBER_DIGITS = 11;
-    static final String SEX_MALE = "male";
-    static final String SEX_FEMALE = "female";
 
     /***
      * Constructor for class Client, complete
@@ -67,19 +74,40 @@ public class Client {
         setBirthDate(birthDate);
         setPhoneNumber(phoneNumber);
         setEmail(email);
+        this.sex=SEX_BY_OMISSION;
     }
 
+    /***
+     * Method that returns the age of the client "at this moment"
+     * @param birthDate
+     * @param currentDate
+     * @return
+     */
+    public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+        if ((birthDate != null) && (currentDate != null)) {
+            int years = Period.between(birthDate, currentDate).getYears();
+            return years;
+        } else {
+            return 0;
+        }
+    }
 
-    private boolean checkIfStringJustHaveJustNumbers(String number, int n) {
-
-        for (int i = 0; i < n; i++) {
+    /***
+     * Verify if the given string just have numbers
+     * @param number
+     * @return
+     */
+    private boolean checkIfStringJustHaveNumbers(String number) {
+        int numberq = 0;
+        for (int i = 0; i < number.length(); i++) {
             if (Character.isDigit(number.charAt(i))) {
-                return true;
-            }
-            else {
+                numberq++;
+            } else {
                 return false;
             }
         }
+        if (numberq == number.length())
+            return true;
         return false;
     }
 
@@ -88,7 +116,7 @@ public class Client {
      * @param email
      * @return
      */
-    public boolean isValidEmail(String email) {
+    private boolean isValidEmail(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
@@ -100,18 +128,34 @@ public class Client {
         return pat.matcher(email).matches();
     }
 
-    public boolean checkBirthDateRules(String birthDate) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
-        sdf.setLenient(false);
-        try {
-            Date javaDate = sdf.parse(birthDate);
-            System.out.println(birthDate);
-        } catch (ParseException e) {
-            return false;
-        }
-        return true;
+    /***
+     * Convert a given string to Date
+     * @param birthDate
+     * @return
+     */
+
+    private LocalDate convertStringToDate(String birthDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy").withLocale(Locale.FRENCH);
+        LocalDate date = LocalDate.parse(birthDate, formatter);
+        return date;
     }
-    //private void calcula CALCULAR IDADEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
+    /***
+     * Verify if the given birth respect the correct format (DD/MM/YYYY)
+     * @param birthDate
+     * @return
+     */
+
+    private boolean checkBirthDateRules(String birthDate) {
+        boolean valid;
+        try {
+            LocalDate.parse(birthDate, DateTimeFormatter.ofPattern("dd/MM/uuuu").withResolverStyle(ResolverStyle.STRICT));
+            valid = true;
+        } catch (DateTimeParseException e) {
+            valid = false;
+        }
+        return valid;
+    }
 
 
     /***
@@ -154,8 +198,8 @@ public class Client {
      */
     public void setCitizenCardNumber(String citizenCardNumber) {
         if (StringUtils.isBlank(citizenCardNumber))
-            throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
-        if (!(checkIfStringJustHaveJustNumbers(citizenCardNumber,citizenCardNumber.length())) || citizenCardNumber.length() > CITIZEN_CARD_DIGITS || citizenCardNumber.length() < CITIZEN_CARD_DIGITS)
+            throw new IllegalArgumentException("Citizen card number cannot be blank.");
+        if (!(checkIfStringJustHaveNumbers(citizenCardNumber)) || citizenCardNumber.length() != CITIZEN_CARD_DIGITS)
             throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
         this.citizenCardNumber = citizenCardNumber;
     }
@@ -176,7 +220,7 @@ public class Client {
     public void setNhsNumber(String nhsNumber) {
         if (StringUtils.isBlank(nhsNumber))
             throw new IllegalArgumentException("NHS number cannot be blank.");
-        if (!(checkIfStringJustHaveJustNumbers(nhsNumber,nhsNumber.length())) || nhsNumber.length()>NHSTIN_NUMBER_DIGITS || nhsNumber.length()<NHSTIN_NUMBER_DIGITS)
+        if (!(checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() > NHSTIN_NUMBER_DIGITS || nhsNumber.length() < NHSTIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
         this.nhsNumber = nhsNumber;
     }
@@ -195,8 +239,8 @@ public class Client {
      */
     public void setTinNumber(String tinNumber) {
         if (StringUtils.isBlank(tinNumber))
-            throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
-        if (!(checkIfStringJustHaveJustNumbers(tinNumber, tinNumber.length())) || tinNumber.length()>NHSTIN_NUMBER_DIGITS || tinNumber.length()<NHSTIN_NUMBER_DIGITS)
+            throw new IllegalArgumentException("TIN number cannot be blank.");
+        if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() > NHSTIN_NUMBER_DIGITS || tinNumber.length() < NHSTIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
         this.tinNumber = tinNumber;
     }
@@ -214,11 +258,17 @@ public class Client {
      * @param birthDate
      */
     public void setBirthDate(String birthDate) {
+        LocalDate date = LocalDate.now();
         if (StringUtils.isBlank(birthDate))
-            throw new IllegalArgumentException("Data cannot be blank");
+            throw new IllegalArgumentException("Data cannot be blank.");
 
-        if(!(checkBirthDateRules(birthDate)))
-            throw new IllegalArgumentException("The date of birth provided is in an incorrect format");
+        if (!(checkBirthDateRules(birthDate)))
+            throw new IllegalArgumentException("The date of birth provided is in an incorrect format. Correct format: DD/MM/YYYY");
+
+        if (calculateAge(convertStringToDate(birthDate), date) >= MAX_AGE)
+            throw new IllegalArgumentException("It is not possible to register a client older than 150 years.");
+
+
         this.birthDate = birthDate;
     }
 
@@ -258,9 +308,9 @@ public class Client {
     public void setPhoneNumber(String phoneNumber) {
         if (StringUtils.isBlank(phoneNumber))
             throw new IllegalArgumentException("Phone number cannot be blank.");
-        if (!(checkIfStringJustHaveJustNumbers(phoneNumber,phoneNumber.length())) || phoneNumber.length()>PHONE_NUMBER_DIGITS || phoneNumber.length()< PHONE_NUMBER_DIGITS)
+        if (!(checkIfStringJustHaveNumbers(phoneNumber)) || phoneNumber.length() != PHONE_NUMBER_DIGITS)
             throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
-        this.phoneNumber=phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
 
     /***
@@ -283,10 +333,10 @@ public class Client {
         this.email = email;
     }
 
-    /**
-     * Validation of instance Client
-     *
-     * @return true or false
+    /***
+     * Validate a client if he is not null
+     * @param client
+     * @return
      */
     public boolean validateClient(Client client) {
         return (client.name != null
@@ -304,11 +354,6 @@ public class Client {
                 this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email);
     }
 
-    /***
-     * Verify if the data of two Client's are equal
-     * @param o
-     * @return
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
