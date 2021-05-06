@@ -220,7 +220,7 @@ public class Client {
     public void setNhsNumber(String nhsNumber) {
         if (StringUtils.isBlank(nhsNumber))
             throw new IllegalArgumentException("NHS number cannot be blank.");
-        if (!(checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() > NHSTIN_NUMBER_DIGITS || nhsNumber.length() < NHSTIN_NUMBER_DIGITS))
+        if (!(checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHSTIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
         this.nhsNumber = nhsNumber;
     }
@@ -240,7 +240,7 @@ public class Client {
     public void setTinNumber(String tinNumber) {
         if (StringUtils.isBlank(tinNumber))
             throw new IllegalArgumentException("TIN number cannot be blank.");
-        if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() > NHSTIN_NUMBER_DIGITS || tinNumber.length() < NHSTIN_NUMBER_DIGITS))
+        if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() != NHSTIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
         this.tinNumber = tinNumber;
     }

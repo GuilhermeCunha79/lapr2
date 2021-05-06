@@ -2,8 +2,6 @@ package app.domain.model;
 
 import org.junit.Test;
 
-import java.util.UnknownFormatConversionException;
-
 import static org.junit.Assert.*;
 
 public class ClientTest {
@@ -132,53 +130,29 @@ public class ClientTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void checkNameWrongFirstConstructor() {
+    public void checkNameWrong() {
         Client ct01 = new Client("Tom1s", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void checkNameWrongSecondConstructor() {
-        Client ct01 = new Client("Tom1s", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "12345678901", "tomas1@isep.ipp.pt");
-    }
 
     @Test(expected = IllegalArgumentException.class)
-    public void checkCitizenCardNumberWrongFirstConstructor() {
+    public void checkCitizenCardNumberWrong() {
         Client ct01 = new Client("Tomás", "123456789012345688", "1234567891", "1234567890", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void checkCitizenCardNumberWrongSecondConstructor() {
-        Client ct01 = new Client("Tomás", "123456789012345688", "1234567891", "1234567890", "23/12/2001", "12345678901", "tomas1@isep.ipp.pt");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void checkNhsWrongFirstConstructor() {
+    @Test
+    public void checkNhsWrong() {
         Client ct01 = new Client("Tomás", "1234567890123456", "987654321311", "1234567890", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void checkNhsWrongSecondConstructor() {
-        Client ct01 = new Client("Tom1s", "1234567890123456", "987654321", "1234567890", "23/12/2001", "12345678901", "tomas1@isep.ipp.pt");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void checkTinWrongFirstConstructor() {
+    public void checkTinWrong() {
         Client ct01 = new Client("Tomás", "1234567890123456", "9876543213", "987654321311", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void checkTinWrongSecondConstructor() {
-        Client ct01 = new Client("Tomás", "1234567890123456", "9876543213", "987654321311", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void checkBirthDateWrongFirstConstructor() {
+    public void checkBirthDateWrong() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/20011", "Male", "12345678901", "tomas1@isep.ipp.pt");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void checkBirthDateWrongSecondConstructor() {
-        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/20011", "12345678901", "tomas1@isep.ipp.pt");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -254,16 +228,16 @@ public void checkCalculateAge(){
 
     @Test
     public void checkGetBirthDate() {
-        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
-        String expected = "23/12/98";
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2000", "male", "12345678901", "tomas@isep.ipp.pt");
+        String expected = "23/12/2000";
         assertEquals(expected, ct01.getBirthDate());
     }
 
     @Test
     public void checkSetBirthDate() {
-        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
-        ct01.setBirthDate("24/11/97");
-        String expected = "24/11/97";
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt");
+        ct01.setBirthDate("24/11/2002");
+        String expected = "24/11/2002";
         assertEquals(expected, ct01.getBirthDate());
     }
 
@@ -314,52 +288,52 @@ public void checkCalculateAge(){
 
     @Test
     public void checkToStringMethod() {
-        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/98", "male", "12345678901", "tomas@isep.ipp.pt");
-        String expected = String.format("Client:%nName: Tomás%nCitizen Card Number: 1234567890123456%nNHS number: 1234567891%nTIN number: 1234567890%nBirth date: 23/12/98%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
+        String expected = String.format("Client:%nName: Tomás%nCitizen Card Number: 1234567890123456%nNHS number: 1234567891%nTIN number: 1234567890%nBirth date: 23/12/2001%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt");
         assertEquals(expected, ct01.toString());
     }
 
 
     @Test
     public void checkEqualsJustNameEqual() {
-        Client ct01 = new Client("Miguel", "1234567890123456", "1234567891", "1234567831", "23/12/20", "male", "12345678211", "tomas@isep.ipp.pt");
-        Client ct02 = new Client("Miguel", "1234567890123456", "1234567891", "1234567123", "23/12/22", "female", "12345678945", "tomas11@isep.ipp.pt");
+        Client ct01 = new Client("Miguel", "1234567890123456", "1234567891", "1234567831", "23/12/2001", "male", "12345678211", "tomas@isep.ipp.pt");
+        Client ct02 = new Client("Miguel", "1234567890123456", "1234567891", "1234567123", "23/12/2002", "female", "12345678945", "tomas11@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
     }
 
     @Test
     public void checkEqualsJustFalseCitizenCardNumberEqual() {
-        Client ct01 = new Client("Tomás","1234567890123458" , "1234567891", "1234567123", "23/12/20", "male", "12345678321", "tomas@isep.ipp.pt");
-        Client ct02 = new Client("Miguel", "1234567890123458", "1234567891", "1234567231", "23/12/22", "female", "12345678123", "tomas11@isep.ipp.pt");
+        Client ct01 = new Client("Tomás","1234567890123458" , "1234567891", "1234567123", "23/12/2011", "male", "12345678321", "tomas@isep.ipp.pt");
+        Client ct02 = new Client("Miguel", "1234567890123458", "1234567891", "1234567231", "23/12/2010", "female", "12345678123", "tomas11@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
     }
 
 
     @Test
     public void checkEqualsJustPhoneNumberEqual() {
-        Client ct01 = new Client("Tomás", "1234567890123123", "1234567843", "1234567832", "23/12/20", "male", "12345678901", "tomas@isep.ipp.pt");
-        Client ct02 = new Client("Miguel", "1234567890123456", "1234567891", "1234567890", "23/12/22", "female", "12345678901", "tomas11@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", "1234567890123123", "1234567843", "1234567832", "23/12/2010", "male", "12345678901", "tomas@isep.ipp.pt");
+        Client ct02 = new Client("Miguel", "1234567890123456", "1234567891", "1234567890", "23/12/2011", "female", "12345678901", "tomas11@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
     }
 
     @Test
     public void checkEqualsJustNhsNumberEqual() {
-        Client ct01 = new Client("Tomás", "1234567890123412", "1234567812", "1234567897", "23/12/20", "male", "12345678931", "tomas@isep.ipp.pt");
-        Client ct02 = new Client("Miguel", "1234567890123456", "1234567842", "1234567892", "23/12/22", "female", "12345678921", "tomas11@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", "1234567890123412", "1234567812", "1234567897", "23/12/2010", "male", "12345678931", "tomas@isep.ipp.pt");
+        Client ct02 = new Client("Miguel", "1234567890123456", "1234567842", "1234567892", "23/12/2011", "female", "12345678921", "tomas11@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
     }
 
     @Test
     public void checkEqualsJustTinNumberEqual() {
-        Client ct01 = new Client("Tomás", "1234567890123456", "1234567897", "1234567821", "23/12/20", "male", "12345678921", "tomas@isep.ipp.pt");
-        Client ct02 = new Client("Miguel", "1234567890123443", "1234567892", "1234561230", "21/12/22", "female", "12345678901", "tomas11@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567897", "1234567821", "23/12/2010", "male", "12345678921", "tomas@isep.ipp.pt");
+        Client ct02 = new Client("Miguel", "1234567890123443", "1234567892", "1234561230", "23/12/2011", "female", "12345678901", "tomas11@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
     }
 
     @Test
     public void checkEqualsJustEmailEqual() {
-        Client ct01 = new Client("Tomás", "1234567890123234", "1234567123", "1234567890", "23/12/20", "male", "12345678921", "tomas@isep.ipp.pt");
-        Client ct02 = new Client("Miguel", "1234567890123443", "1234567891", "1234567456", "21/12/22", "female", "12345678901", "tomas@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", "1234567890123234", "1234567123", "1234567890", "23/12/2010", "male", "12345678921", "tomas@isep.ipp.pt");
+        Client ct02 = new Client("Miguel", "1234567890123443", "1234567891", "1234567456", "23/12/2001", "female", "12345678901", "tomas@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
 
 
