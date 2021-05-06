@@ -5,12 +5,15 @@ import app.domain.store.ParameterCategoryStore;
 
 public class CreateParameterCategoryController {
 
-    public static ParameterCategoryStore pcStore;
-
+    private ParameterCategoryStore pcStore;
     private ParameterCategory pc;
 
     public CreateParameterCategoryController() {
-        this.pcStore = new ParameterCategoryStore();
+        this(App.getInstance().getCompany().getParameterCategoryStore());
+    }
+
+    public CreateParameterCategoryController(ParameterCategoryStore pcStore) {
+        this.pcStore = pcStore;
         this.pc = null;
     }
 
@@ -21,9 +24,5 @@ public class CreateParameterCategoryController {
 
     public boolean saveParameterCategory(){
         return this.pcStore.saveParameterCategory(pc);
-    }
-
-    public ParameterCategoryStore getPcStore() {
-        return pcStore;
     }
 }

@@ -32,7 +32,7 @@ As an administrator, I want to specify a new parameter category.
 >
 > **Answer:** Name: is a string with no more than 10 characters;
 >
->Code: are five alphanumeric characters. The code is unique and is not automatically generated.
+> Code: are five alphanumeric characters. The code is unique and is not automatically generated.
 
 
 

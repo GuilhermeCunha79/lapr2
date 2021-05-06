@@ -12,13 +12,17 @@ public class CreateNewParameterController {
 
     private Parameter param;
 
-    public CreateNewParameterController(){
-        this.ps = new ParameterStore();
+    public CreateNewParameterController() {
+        this(App.getInstance().getCompany().getParameterStore());
+    }
+
+    public CreateNewParameterController(ParameterStore pStore){
+        this.ps = pStore;
         this.param = null;
     }
 
-    public boolean createNewParameter(String shortName, String code, String description, String category){
-        this.param = this.ps.createParameter(shortName,code,description,category);
+    public boolean createNewParameter(String code, String name, String description, String category){
+        this.param = this.ps.createParameter(code,name,description,category);
         return saveParameter();
     }
 
@@ -27,7 +31,7 @@ public class CreateNewParameterController {
     }
 
     public List<ParameterCategory> getCategoryList(){
-        return CreateParameterCategoryController.pcStore.getParameterCategoryList();
+        return App.getInstance().getCompany().getParameterCategoryStore().getParameterCategoryList();
     }
 
 
