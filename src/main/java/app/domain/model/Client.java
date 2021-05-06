@@ -25,7 +25,7 @@ public class Client {
     static final int MAX_AGE = 150;
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
-    static final String SEX_BY_OMISSION= "Not defined";
+    static final String SEX_BY_OMISSION = "Not defined";
     List<Client> clientList = new ArrayList<>();
     private String name;
     private String citizenCardNumber;
@@ -74,7 +74,7 @@ public class Client {
         setBirthDate(birthDate);
         setPhoneNumber(phoneNumber);
         setEmail(email);
-        this.sex=SEX_BY_OMISSION;
+        this.sex = SEX_BY_OMISSION;
     }
 
     /***
@@ -89,6 +89,21 @@ public class Client {
         } else {
             return 0;
         }
+    }
+
+    /***
+     * Validate a client if he is not null
+     * @param client
+     * @return
+     */
+    public static boolean validateClient(Client client) {
+        return (client.name != null
+                && client.tinNumber != null
+                && client.birthDate != null
+                && client.nhsNumber != null
+                && client.phoneNumber != null
+                && client.email != null
+                && client.sex != null);
     }
 
     /***
@@ -155,7 +170,6 @@ public class Client {
         return valid;
     }
 
-
     /***
      * Method that returns the name of the Client
      * @return
@@ -169,6 +183,8 @@ public class Client {
      * @param name
      */
     public void setName(String name) {
+        if (name == null)
+            throw new NullPointerException("Name cannot be null");
         if (StringUtils.isBlank(name))
             throw new IllegalArgumentException("Name cannot be blank.");
         if (name.length() > MAX_CHAR_NAME)
@@ -176,7 +192,7 @@ public class Client {
 
         for (int i = 0; i < name.length(); i++) {
             String c = String.valueOf(name.charAt(i));
-            if (!c.matches("[A-Za-zÁ-Úá-ú]"))
+            if (!c.matches("[A-Za-zÁ-Úá-úã-õ]"))
                 throw new IllegalArgumentException("Name has non alphanumeric chars.");
         }
         this.name = name;
@@ -195,9 +211,11 @@ public class Client {
      * @param citizenCardNumber
      */
     public void setCitizenCardNumber(String citizenCardNumber) {
+        if (citizenCardNumber == null)
+            throw new NullPointerException("Citizen Card Number cannot be null");
         if (StringUtils.isBlank(citizenCardNumber))
             throw new IllegalArgumentException("Citizen card number cannot be blank.");
-        if (!(checkIfStringJustHaveNumbers(citizenCardNumber)) || citizenCardNumber.length() != CITIZEN_CARD_DIGITS)
+        if ((!checkIfStringJustHaveNumbers(citizenCardNumber) || citizenCardNumber.length() != CITIZEN_CARD_DIGITS))
             throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
         this.citizenCardNumber = citizenCardNumber;
     }
@@ -216,9 +234,11 @@ public class Client {
      */
 
     public void setNhsNumber(String nhsNumber) {
+        if (nhsNumber == null)
+            throw new NullPointerException("NHS number cannot be null");
         if (StringUtils.isBlank(nhsNumber))
             throw new IllegalArgumentException("NHS number cannot be blank.");
-        if (!(checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHSTIN_NUMBER_DIGITS))
+        if ((!checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHSTIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
         this.nhsNumber = nhsNumber;
     }
@@ -236,6 +256,8 @@ public class Client {
      * @param tinNumber
      */
     public void setTinNumber(String tinNumber) {
+        if (tinNumber == null)
+            throw new NullPointerException("TIN number cannot be null");
         if (StringUtils.isBlank(tinNumber))
             throw new IllegalArgumentException("TIN number cannot be blank.");
         if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() != NHSTIN_NUMBER_DIGITS))
@@ -257,6 +279,8 @@ public class Client {
      */
     public void setBirthDate(String birthDate) {
         LocalDate date = LocalDate.now();
+        if (birthDate == null)
+            throw new NullPointerException("Birth date cannot be null");
         if (StringUtils.isBlank(birthDate))
             throw new IllegalArgumentException("Data cannot be blank.");
 
@@ -269,7 +293,6 @@ public class Client {
 
         this.birthDate = birthDate;
     }
-
 
     /***
      * Method that returns the sex of the Client
@@ -284,6 +307,8 @@ public class Client {
      * @param sex
      */
     public void setSex(String sex) {
+        if (sex == null)
+            throw new NullPointerException("Sex cannot be null");
         if (StringUtils.isBlank(sex))
             throw new IllegalArgumentException("Sex cannot be blank.");
         if (!(sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE)))
@@ -304,6 +329,8 @@ public class Client {
      * @param phoneNumber
      */
     public void setPhoneNumber(String phoneNumber) {
+        if (phoneNumber == null)
+            throw new NullPointerException("Phone number cannot be null");
         if (StringUtils.isBlank(phoneNumber))
             throw new IllegalArgumentException("Phone number cannot be blank.");
         if (!(checkIfStringJustHaveNumbers(phoneNumber)) || phoneNumber.length() != PHONE_NUMBER_DIGITS)
@@ -324,26 +351,13 @@ public class Client {
      * @param email
      */
     public void setEmail(String email) {
+        if (email == null)
+            throw new NullPointerException("Email cannot be null");
         if (StringUtils.isBlank(email))
             throw new IllegalArgumentException("Email cannot be blank.");
         if (!isValidEmail(email))
             throw new IllegalArgumentException("The introduced email is not valid.");
         this.email = email;
-    }
-
-    /***
-     * Validate a client if he is not null
-     * @param client
-     * @return
-     */
-    public static boolean validateClient(Client client) {
-        return (client.name != null
-                && client.tinNumber != null
-                && client.birthDate != null
-                && client.nhsNumber != null
-                && client.phoneNumber != null
-                && client.email != null
-                && client.sex != null);
     }
 
     @Override
@@ -361,6 +375,7 @@ public class Client {
 
         Client client = (Client) o;
         return Objects.equals(phoneNumber, client.phoneNumber)
+                && Objects.equals(name, client.name)
                 && Objects.equals(citizenCardNumber, client.citizenCardNumber)
                 && Objects.equals(nhsNumber, client.nhsNumber)
                 && Objects.equals(tinNumber, client.tinNumber)

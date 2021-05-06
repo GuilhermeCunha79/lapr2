@@ -16,8 +16,7 @@ public class ClientStore {
 
         public boolean saveClient(Client ct){
             if(validateClient(ct)){
-                addClient(ct);
-                return true;
+                return addClient(ct);
             }
             return false;
         }
@@ -25,20 +24,19 @@ public class ClientStore {
 
         public boolean addClient(Client ct)
         {
-            if (ct != null) {
-                if (!validateClient(ct))
+            if (ct != null && validateClient(ct)) {
                     return this.clientList.add(ct);
             }
             return false;
         }
 
         public boolean validateClient(Client ct) {
-            for (Client parCt : clientList){
-                if(parCt.equals(ct)){
-                    return true;
+            for (Client par : clientList){
+                if(par.equals(ct)){
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
 
         public List<Client> getClientList() {

@@ -7,7 +7,11 @@ public class RegisterClientController {
     private ClientStore ctStore;
     private Client ct;
 
-    public RegisterClientController(ClientStore clientStore) {
+    public RegisterClientController() {
+        this(App.getInstance().getCompany().getClientStore());
+    }
+
+    public RegisterClientController(ClientStore ctStore) {
         this.ctStore=ctStore;
         this.ct = null;
     }

@@ -19,6 +19,7 @@ public class Company {
     private AuthFacade authFacade;
 
     private TypeOfTestStore totStore = new TypeOfTestStore();
+    private ClientStore clientStore = new ClientStore();
     private ParameterCategoryStore pcStore = new ParameterCategoryStore();
     private ParameterStore pStore = new ParameterStore();
 
@@ -50,8 +51,8 @@ public class Company {
         return this.pStore;
     }
 
-    public List<Client> getClientStore() {
-        return this.ctStore.getClientList();
+    public ClientStore getClientStore(){
+        return this.clientStore;
     }
 
     public TypeOfTestStore getTypeOfTestStore() {

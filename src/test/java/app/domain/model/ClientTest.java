@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class ClientTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void garanteeNullClientIsntCreatedWithAllDataAndSex() {
         Client ct = new Client(null, null, null, null, null, null, null, null);
     }
@@ -88,7 +88,7 @@ public class ClientTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatPhoneCantHaveMoreAndLessThan11Char() {
-        Client ct = new Client ("Miguel", "1234567890123456", "1234567891", "1234567890", "23/02/2001", "male", "12345", "tomas@isep.ipp.pt");
+        Client ct = new Client("Miguel", "1234567890123456", "1234567891", "1234567890", "23/02/2001", "male", "12345", "tomas@isep.ipp.pt");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -133,6 +133,7 @@ public class ClientTest {
         assertEquals(expected, ct01.equals(ct02));
 
     }
+
 
     @Test(expected = IllegalArgumentException.class)
     public void checkNameWrongFirstConstructor() {
@@ -191,7 +192,13 @@ public class ClientTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void checkIfStringJustHaveNumbers(){
+    public void checkValidEmail() {
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomasisep.ipp.pt");
+    }
+
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkIfStringJustHaveNumbers() {
         Client ct01 = new Client("Tomás", "1234567890123456", "123456789a", "1234567890", "23/12/2001", "madeira", "12345678901", "tomas1@isep.ipp.pt");
     }
 
@@ -201,7 +208,6 @@ public class ClientTest {
         int actual = calculateAge(birthDate, LocalDate.of(2016, 7, 12));
         Assert.assertEquals(55, actual);
     }
-
 
 
     @Test
@@ -334,14 +340,14 @@ public class ClientTest {
 
     @Test
     public void validateClientCorrect() {
-        Client ct01 = new Client("Tomás", "1234567890123456","1234567890","1234567890","23/12/2002","male","12345678901","tomas@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt");
         boolean result = Client.validateClient(ct01);
         assertTrue(result);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void validateClientError() {
-        Client ct01 = new Client(null, null,"12345678",null,null,"male",null,null);
+        Client ct01 = new Client(null, null, "12345678", null, null, "male", null, null);
         boolean result = Client.validateClient(ct01);
         assertFalse(result);
     }
@@ -355,7 +361,7 @@ public class ClientTest {
 
     @Test
     public void checkEqualsJustFalseCitizenCardNumberEqual() {
-        Client ct01 = new Client("Tomás","1234567890123458" , "1234567891", "1234567123", "23/12/2011", "male", "12345678321", "tomas@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", "1234567890123458", "1234567891", "1234567123", "23/12/2011", "male", "12345678321", "tomas@isep.ipp.pt");
         Client ct02 = new Client("Miguel", "1234567890123458", "1234567891", "1234567231", "23/12/2010", "female", "12345678123", "tomas11@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
     }
@@ -387,7 +393,6 @@ public class ClientTest {
         Client ct01 = new Client("Tomás", "1234567890123234", "1234567123", "1234567890", "23/12/2010", "male", "12345678921", "tomas@isep.ipp.pt");
         Client ct02 = new Client("Miguel", "1234567890123443", "1234567891", "1234567456", "23/12/2001", "female", "12345678901", "tomas@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
-
 
 
     }
