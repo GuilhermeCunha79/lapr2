@@ -85,8 +85,7 @@ public class Client {
      */
     public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
         if ((birthDate != null) && (currentDate != null)) {
-            int years = Period.between(birthDate, currentDate).getYears();
-            return years;
+            return Period.between(birthDate, currentDate).getYears();
         } else {
             return 0;
         }
@@ -136,8 +135,7 @@ public class Client {
 
     private LocalDate convertStringToDate(String birthDate) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy").withLocale(Locale.FRENCH);
-        LocalDate date = LocalDate.parse(birthDate, formatter);
-        return date;
+        return LocalDate.parse(birthDate, formatter);
     }
 
     /***
@@ -338,7 +336,7 @@ public class Client {
      * @param client
      * @return
      */
-    public boolean validateClient(Client client) {
+    public static boolean validateClient(Client client) {
         return (client.name != null
                 && client.tinNumber != null
                 && client.birthDate != null

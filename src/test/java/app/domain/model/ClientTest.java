@@ -1,7 +1,12 @@
 package app.domain.model;
 
+import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.LocalDate;
+
+
+import static app.domain.model.Client.calculateAge;
 import static org.junit.Assert.*;
 
 public class ClientTest {
@@ -130,29 +135,53 @@ public class ClientTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void checkNameWrong() {
+    public void checkNameWrongFirstConstructor() {
         Client ct01 = new Client("Tom1s", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void checkNameWrongSecondConstructor() {
+        Client ct01 = new Client("Tom1s", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "12345678901", "tomas1@isep.ipp.pt");
+    }
 
     @Test(expected = IllegalArgumentException.class)
-    public void checkCitizenCardNumberWrong() {
+    public void checkCitizenCardNumberWrongFirstConstructor() {
         Client ct01 = new Client("Tomás", "123456789012345688", "1234567891", "1234567890", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void checkCitizenCardNumberWrongSecondConstructor() {
+        Client ct01 = new Client("Tomás", "123456789012345688", "1234567891", "1234567890", "23/12/2001", "12345678901", "tomas1@isep.ipp.pt");
+    }
+
     @Test
-    public void checkNhsWrong() {
+    public void checkNhsWrongFirstConstructor() {
         Client ct01 = new Client("Tomás", "1234567890123456", "987654321311", "1234567890", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
     }
 
+    @Test
+    public void checkNhsWrongSecondConstructor() {
+        Client ct01 = new Client("Tomás", "1234567890123456", "987654321", "1234567890", "23/12/2001", "12345678901", "tomas1@isep.ipp.pt");
+    }
+
     @Test(expected = IllegalArgumentException.class)
-    public void checkTinWrong() {
+    public void checkTinWrongFirstConstructor() {
         Client ct01 = new Client("Tomás", "1234567890123456", "9876543213", "987654321311", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void checkBirthDateWrong() {
+    public void checkTinWrongSecondConstructor() {
+        Client ct01 = new Client("Tomás", "1234567890123456", "9876543213", "987654321311", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkBirthDateWrongFirstConstructor() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/20011", "Male", "12345678901", "tomas1@isep.ipp.pt");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkBirthDateWrongSecondConstructor() {
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/20011", "12345678901", "tomas1@isep.ipp.pt");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -161,10 +190,20 @@ public class ClientTest {
 
     }
 
-@Test
-public void checkCalculateAge(){
+    @Test(expected = IllegalArgumentException.class)
+    public void checkIfStringJustHaveNumbers(){
+        Client ct01 = new Client("Tomás", "1234567890123456", "123456789a", "1234567890", "23/12/2001", "madeira", "12345678901", "tomas1@isep.ipp.pt");
+    }
 
-}
+    @Test
+    public void checkCalculateAge() {
+        LocalDate birthDate = LocalDate.of(1961, 5, 17);
+        int actual = calculateAge(birthDate, LocalDate.of(2016, 7, 12));
+        Assert.assertEquals(55, actual);
+    }
+
+
+
     @Test
     public void checkGetName() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -293,6 +332,19 @@ public void checkCalculateAge(){
         assertEquals(expected, ct01.toString());
     }
 
+    @Test
+    public void validateClientCorrect() {
+        Client ct01 = new Client("Tomás", "1234567890123456","1234567890","1234567890","23/12/2002","male","12345678901","tomas@isep.ipp.pt");
+        boolean result = Client.validateClient(ct01);
+        assertTrue(result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void validateClientError() {
+        Client ct01 = new Client(null, null,"12345678",null,null,"male",null,null);
+        boolean result = Client.validateClient(ct01);
+        assertFalse(result);
+    }
 
     @Test
     public void checkEqualsJustNameEqual() {
