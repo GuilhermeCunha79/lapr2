@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.store.TypeOfTestStore;
 import auth.AuthFacade;
 import app.domain.store.ClientStore;
 import app.domain.store.ParameterCategoryStore;
@@ -17,10 +18,12 @@ public class Company {
     private String designation;
     private AuthFacade authFacade;
 
+    private TypeOfTestStore totStore = new TypeOfTestStore();
     private ParameterCategoryStore pcStore = new ParameterCategoryStore();
     private ParameterStore pStore = new ParameterStore();
 
     private ClientStore ctStore;
+
 
     public Company(String designation)
     {
@@ -49,5 +52,9 @@ public class Company {
 
     public List<Client> getClientStore() {
         return this.ctStore.getClientList();
+    }
+
+    public TypeOfTestStore getTypeOfTestStore() {
+        return this.totStore;
     }
 }

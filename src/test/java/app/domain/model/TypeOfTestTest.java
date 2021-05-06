@@ -2,10 +2,13 @@ package app.domain.model;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
+
 
 public class TypeOfTestTest {
+
+    ParameterCategory pc = new ParameterCategory("34567", "Src");
+
     @Test(expected = NullPointerException.class)
     public void ensureNullParameterIsNotCreated() {
        TypeOfTest tot = new TypeOfTest(null, null, null, null);
@@ -13,118 +16,103 @@ public class TypeOfTestTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericCodeAreNotAccepted() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-       TypeOfTest tot = new TypeOfTest("3%251", "RNA remnants", "cotton swab", pc);
+       TypeOfTest tot = new TypeOfTest("3%251", "RNA remnants", "cotton swab", "Src" );
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotHaveMoreOrLessThan5Char() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot = new TypeOfTest("534366", "RNA remnants", "cotton swab", pc);
+
+        TypeOfTest tot = new TypeOfTest("534366", "RNA remnants", "cotton swab", "Src");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotBeBlank() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot = new TypeOfTest("", "RNA remnants", "cotton swab", pc);
+        TypeOfTest tot = new TypeOfTest("", "RNA remnants", "cotton swab", "Src");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotHaveMoreThan15Char() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants and Dna remnats", "cotton swab", pc);
+        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants and Dna remnats", "cotton swab", "Src");
     }
 
     @Test
     public void ensureDescriptionCanHave15Char() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotBeBlank() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot = new TypeOfTest("53436", "", "cotton swab", pc);
+        TypeOfTest tot = new TypeOfTest("53436", "", "cotton swab", "Src");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureColectingMethodCannotHaveMoreThan15Char() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "cotton swab thro the nose", pc);
+        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "cotton swab thro the nose", "Src");
     }
 
     @Test
     public void ensureColectingMethodCanHave15Char() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureColectingMethodCannotBeBlank() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "", pc);
+        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "","Src" );
     }
 
     @Test
     public void checkGetCodeMethod() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
         String expected= "53436";
         assertEquals(expected, tot1.getCode());
     }
 
     @Test
     public void checkSetCodeMethod() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
-        tot1.setCode("120134");
-        String expected= "120134";
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
+        tot1.setCode("12013");
+        String expected= "12013";
         assertEquals(expected, tot1.getCode());
     }
     @Test
     public void checkGetDescriptionMethod() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
         String expected= "RNA remnants";
         assertEquals(expected, tot1.getDescription());
     }
 
     @Test
     public void checkSetDescriptionMethod() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
         tot1.setDescription("DNA remnants");
         String expected= "DNA remnants";
         assertEquals(expected, tot1.getDescription());
     }
     @Test
     public void checkGetColectingMethodMethod() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
         String expected= "cotton swab";
-        assertEquals(expected, tot1.getColectingmethod());
+        assertEquals(expected, tot1.getColectingMethod());
     }
 
     @Test
     public void checkSetColectingMethodMethod() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
-        tot1.setColectingmethod("Saliva bottle");
-        String expected= "Saliva bottle";
-        assertEquals(expected, tot1.getColectingmethod());
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
+        tot1.setColectingMethod("Saliva");
+        String expected = "Saliva";
+        assertEquals(expected, tot1.getColectingMethod());
     }
     @Test
     public void checkToStringMethod() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
-        String expected= String.format("Type of Test: \nCode: 53436 \nDescription: RNA remnants \nColectingMethod: cotton swab ");
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
+        String expected= String.format("Type of Test: %nCode: 53436 %nDescription: RNA remnants %nColectingMethod: cotton swab ");
         assertEquals(expected, tot1.toString());
     }
 
     @Test
     public void checkIfTypeOfTestIsDiffThanNull() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
         TypeOfTest tot2= null;
         boolean expected = false;
         assertEquals(expected, tot1.equals(tot2));
@@ -132,39 +120,37 @@ public class TypeOfTestTest {
 
     @Test
     public void checkIf2TypeOfTestAreEqual() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
-        TypeOfTest tot2= new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab","Src" );
+        TypeOfTest tot2= new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
         assertEquals( tot1,tot2);
     }
 
     @Test
     public void checkIf2TypeOfTestSameCodeAreEqual() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnant", "cotton swab", pc);
-        TypeOfTest tot2= new TypeOfTest("53436", "RNA remnants", "cotton stick", pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnant", "cotton swab","Src" );
+        TypeOfTest tot2= new TypeOfTest("53436", "RNA remnants", "cotton stick","Src" );
         assertEquals( tot1,tot2);
     }
 
     @Test
     public void checkIf2TypeOfTestSameDescriptionAndColectingMethodAreEqual() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
-        TypeOfTest tot2= new TypeOfTest("53435", "RNA remnants", "cotton swab", pc);
+
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab","Src");
+        TypeOfTest tot2= new TypeOfTest("53435", "RNA remnants", "cotton swab", "Src");
         assertEquals( tot1,tot2);
     }
 
     @Test
     public void checkIf2TypeOfTestAreDiferents() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
-        TypeOfTest tot2= new TypeOfTest("53435", "RNA remnant", "cotton swab", pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab","Src" );
+        TypeOfTest tot2= new TypeOfTest("53435", "RNA remnant", "cotton swab", "Src");
         assertNotEquals( tot1,tot2);
     }
 
+    @Test
     public void checkIfTheSameTypeOfTestAreEqual() {
-        ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
         TypeOfTest tot2 = tot1;
         assertEquals( tot1,tot2);
     }
@@ -172,7 +158,7 @@ public class TypeOfTestTest {
     @Test
     public void checkIfDifferentObjectsAreDifferent(){
         ParameterCategory pc = new ParameterCategory("34567", "Src");
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab","Src");
         assertNotEquals( tot1,pc);
     }
 }

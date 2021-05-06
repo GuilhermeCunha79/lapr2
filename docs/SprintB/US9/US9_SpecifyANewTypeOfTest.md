@@ -73,7 +73,7 @@ or more parameters that can be grouped/organized by categories."
 
 ### 1.7 Other Relevant Remarks
 
-
+n/a
 
 ## 2. OO Analysis
 
@@ -158,12 +158,32 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## Class CreateTaskController 
 
+        public boolean createTask(String ref, String designation, String informalDesc, 
+			String technicalDesc, Integer duration, Double cost, Integer catId)() {
 		
+			Category cat = this.platform.getCategoryById(catId);
+			
+			Organization org;
+			// ... (omitted)
+			
+			this.task = org.createTask(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
+			
+			return (this.task != null);
+		}
+
 
 
 ## Class Organization
 
-
+      public Task createTask(String ref, String designation, String informalDesc, 
+			String technicalDesc, Integer duration, Double cost, Category cat)() {
+		
+	
+			Task task = new Task(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
+			if (this.validateTask(task))
+				return task;
+			return null;
+		}
 
 
 # 6. Integration and Demo 

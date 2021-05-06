@@ -2,82 +2,66 @@ package app.domain.model;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Objects;
+
 public class TypeOfTest {
 
     private String code;
     private String description;
     private String colectingMethod;
+    private String category;
 
-    static final String STRING_BLANK_EXEPT = "Strings cannot be empty";
-
-    public TypeOfTest(String code, String description, String colectingmethod, ParameterCategory category){
-        checkCodeRules(code);
-        checkDescriptionRules(description);
-        checkColectingMethod(colectingmethod);
+    public TypeOfTest(String code, String description, String colectingMethod, String category){
+        setCode(code);
+        setDescription(description);
+        setColectingMethod(colectingMethod);
         this.code = code;
         this.description = description;
-        this.colectingMethod = colectingmethod;
+        this.colectingMethod = colectingMethod;
+        this.category = category;
     }
 
 
-    private void checkCodeRules(String code) {
+
+    public String getCode() { return code; }
+
+    public String getDescription() { return description; }
+
+    public String getColectingMethod() { return colectingMethod; }
+
+    public void setCode(String code) {
+        if (code.length() != 5)
+            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
+        if (StringUtils.isBlank(code))
+            throw new IllegalArgumentException("Code cannot be blank");
+
         for (int i = 0; i < code.length(); i++) {
             String c = String.valueOf(code.charAt(i));
             if (!c.matches("[A-Za-z0-9]"))
                 throw new IllegalArgumentException("Code has non alphanumeric chars.");
         }
-
-        if (code.length() != 5)
-            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
-        if (StringUtils.isBlank(code))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
-    }
-
-    private void checkDescriptionRules(String description){
-        if (StringUtils.isBlank(description))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
-        if ( description.length() > 15)
-            throw new IllegalArgumentException("Description cannot pass 15 chars in length.");
-    }
-
-    private void checkColectingMethod(String colectingMethod){
-        if (StringUtils.isBlank(colectingMethod))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
-        if (colectingMethod.length() > 20)
-            throw new IllegalArgumentException("Colecting method cannot pass 20 chars in length.");
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getColectingmethod() {
-        return colectingMethod;
-    }
-
-
-
-    public void setCode(String code) {
         this.code = code;
     }
 
     public void setDescription(String description) {
+        if(StringUtils.isBlank(description))
+            throw new IllegalArgumentException("Description cannot be blank");
+        if (description.length() > 15)
+            throw new IllegalArgumentException("Too long description has more than 15 chars");
         this.description = description;
     }
 
-    public void setColectingmethod(String colectingmethod) {
-        this.colectingMethod = colectingmethod;
+    public void setColectingMethod(String colectingMethod) {
+        if(StringUtils.isBlank(colectingMethod))
+            throw new IllegalArgumentException("Colecting method cannot be blank");
+        if (colectingMethod.length() > 20)
+            throw new IllegalArgumentException("Too long colecting method has more than 20 chars");
+        this.colectingMethod = colectingMethod;
     }
-
-
 
     @Override
     public String toString() {
-        return String.format("Type of Test: \nCode: %s \nDescription: %s \nColectingMethod: %s ", this.code, this.description, this.colectingMethod  );
+        return String.format("Type of Test: %nCode: %s %nDescription: %s %nColectingMethod: %s ", this.code, this.description, this.colectingMethod  );
 
     }
 
