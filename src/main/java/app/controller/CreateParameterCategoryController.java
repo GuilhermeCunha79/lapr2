@@ -25,8 +25,4 @@ public class CreateParameterCategoryController {
     public boolean saveParameterCategory(){
         return this.pcStore.saveParameterCategory(pc);
     }
-
-    public ParameterCategoryStore getPcStore() {
-        return pcStore;
-    }
 }
