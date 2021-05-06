@@ -40,7 +40,7 @@ public class CreateNewParameterUI implements Runnable{
 
                 String category = categoryList.get(option).getName();
 
-                return ctrl.createNewParameter(name, code, description, category);
+                return ctrl.createNewParameter(code, name, description, category);
             }catch(Exception e){
                 System.out.println(e.getLocalizedMessage());
             }

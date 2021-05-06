@@ -17,8 +17,8 @@ public class Company {
     private String designation;
     private AuthFacade authFacade;
 
-    private ParameterCategoryStore pcStore;
-    private ParameterStore pStore;
+    private ParameterCategoryStore pcStore = new ParameterCategoryStore();
+    private ParameterStore pStore = new ParameterStore();
 
     private ClientStore ctStore;
 
@@ -39,12 +39,12 @@ public class Company {
         return authFacade;
     }
 
-    public List<ParameterCategory> getParameterCategoryStore(){
-        return this.pcStore.getParameterCategoryList();
+    public ParameterCategoryStore getParameterCategoryStore(){
+        return this.pcStore;
     }
 
-    public List<Parameter> getParameterStore(){
-        return this.pStore.getParameterList();
+    public ParameterStore getParameterStore(){
+        return this.pStore;
     }
 
     public List<Client> getClientStore() {
