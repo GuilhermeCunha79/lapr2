@@ -238,7 +238,7 @@ public class Client {
             throw new NullPointerException("NHS number cannot be null");
         if (StringUtils.isBlank(nhsNumber))
             throw new IllegalArgumentException("NHS number cannot be blank.");
-        if ((!checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHSTIN_NUMBER_DIGITS))
+        if (!(checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHSTIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
         this.nhsNumber = nhsNumber;
     }

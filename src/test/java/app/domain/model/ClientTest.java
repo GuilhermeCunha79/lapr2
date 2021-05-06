@@ -16,7 +16,7 @@ public class ClientTest {
         Client ct = new Client(null, null, null, null, null, null, null, null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void garanteeNullClientIsntCreatedWithoutSex() {
         Client ct = new Client(null, null, null, null, null, null, null);
     }
@@ -345,7 +345,7 @@ public class ClientTest {
         assertTrue(result);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void validateClientError() {
         Client ct01 = new Client(null, null, "12345678", null, null, "male", null, null);
         boolean result = Client.validateClient(ct01);
