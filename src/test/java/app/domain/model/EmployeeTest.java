@@ -140,13 +140,13 @@ public class EmployeeTest {
     @Test
 
     public void testEquals() {
-        assertEquals(employee, employee1);
+        assertEquals(employee, employee);
     }
 
 
     @Test
     public void testHashCode() {
-        assertEquals(employee1.hashCode(), employee.hashCode());
+        assertEquals(employee.hashCode(), employee.hashCode());
     }
 
     /**
