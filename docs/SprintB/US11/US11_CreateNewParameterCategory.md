@@ -136,20 +136,21 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **Test 1:** Check that it is not possible to create an instance of the NewParameterCategory class with same parameters as an existing parameter category - AC3.
 
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Task instance = new Task(null, null, null, null, null, null, null);
-	}
+	@Test
+    public void ensureCannotAddSameParameterTwice(){
+        Parameter p1 = ps.createParameter("12345", "Cells", "Whatever", "hemograms");
+        Parameter p2 = ps.createParameter("12345", "Cells", "Whatever", "hemograms");
+        ps.saveParameter(p1);
+        assertFalse(ps.saveParameter(p2));
+    }
 	
 
-**Test 2:** Check that it is not possible to create an instance of the NewParameterCategory class with no parameters assigned to it - AC1.
+**Test 2:** Check that it is not possible to create an instance of the NewParameterCategory class with missing parameters - AC1.
 
 	@Test(expected = IllegalArgumentException.class)
-		public void ensureReferenceMeetsAC2() {
-		Category cat = new Category(10, "Category 10");
-		
-		Task instance = new Task("Ab1", "Task Description", "Informal Data", "Technical Data", 3, 3780, cat);
-	}
+    public void ensureCodeCannotBeBlank() {
+        new Parameter("", "Blood", "Test Blood Cells", "hemograms");
+    }   
 
 
 

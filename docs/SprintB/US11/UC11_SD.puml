@@ -24,7 +24,7 @@ activate UI
         deactivate COMP
         CTRL -> PCS : pc = createParameterCategory(name, code)
         activate PCS
-            PCS --> PC** : create(name, code)
+            PCS --> PC** : ParameterCategory(name, code)
         deactivate PCS
         CTRL -> PCS : validateParameterCategory(pc)
         activate PCS

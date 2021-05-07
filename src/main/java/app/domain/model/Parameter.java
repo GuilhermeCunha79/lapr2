@@ -16,6 +16,13 @@ public class Parameter {
     private String description;
     private String category;
 
+    /**
+     * Class Constructor with all parameters needed to create a new parameter
+     * @param code code of the parameter
+     * @param shortName name of the parameter
+     * @param description description of the parameter
+     * @param category category chosen from a list of categories registered in the system
+     */
     public Parameter(String code, String shortName, String description, String category) {
         setCode(code);
         setShortName(shortName);
@@ -26,10 +33,18 @@ public class Parameter {
         this.category = category;
     }
 
+    /**
+     * Method that allows other classes to access a parameter code
+     * @return a String with the parameter code
+     */
     public String getCode() {
         return code;
     }
 
+    /**
+     * Method that verifies if acceptation criterias for a new code are met and also change a parameter code
+     * @param code receives the new code as a parameter
+     */
     public void setCode(String code) {
         if (code.length() != CODE_LENGTH)
             throw new IllegalArgumentException("Code needs to have exactly 5 chars");
@@ -44,10 +59,18 @@ public class Parameter {
         this.code = code;
     }
 
+    /**
+     * Method that allows other classes to access a parameter name
+     * @return a String with the parameter name
+     */
     public String getShortName() {
         return shortName;
     }
 
+    /**
+     * Method that verifies if acceptation criterias for a new name are met and also change a parameter name
+     * @param shortName receives the new name as a parameter
+     */
     public void setShortName(String shortName) {
         if (shortName.length() > SHORT_NAME_LENGTH)
             throw new IllegalArgumentException("Short name has more than 8 chars");
@@ -56,10 +79,18 @@ public class Parameter {
         this.shortName = shortName;
     }
 
+    /**
+     * Method that allows other classes to access a parameter description
+     * @return a String with the parameter description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Method that verifies if acceptation criterias for a new description are met and also change a parameter description
+     * @param description receives the new description as a parameter
+     */
     public void setDescription(String description) {
         if (description.length() > DESCRIPTION_LENGTH)
             throw new IllegalArgumentException("Description has more than 20 chars");
@@ -68,12 +99,21 @@ public class Parameter {
         this.description = description;
     }
 
+    /**
+     * This method returns a string with all the data of the instance of parameter that called the method
+     * @return a string with the data
+     */
     @Override
     public String toString() {
         return String.format("Parameter:%nCode: %s%nName: %s%nDescription: %s",
                 this.code, this.shortName, this.description);
     }
 
+    /**
+     * Method used to check if two objects are equals or not, by comparing their attributes.
+     * @param o object to be compared to the object that called the method
+     * @return true or false
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o)

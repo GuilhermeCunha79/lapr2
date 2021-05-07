@@ -1,4 +1,4 @@
-# US 006 - To create a Task 
+# US 007 - To register a new employee
 
 ## 1. Requirements Engineering
 
@@ -15,10 +15,7 @@ As an administrator, I want to register a new employee in order to get access to
 
 **From the specifications document:**
 
->	Each task is characterized by having a unique reference per organization, a designation, an informal and a technical description, an estimated duration and cost as well as the its classifying task category. 
-
-
->	As long as it is not published, access to the task is exclusive to the employees of the respective organization. 
+>	No information in the specifications document 
 
 
 
@@ -37,20 +34,46 @@ Standard Occupational Classification (SOC) code.
 > The Specialist Doctor has an additional attribute:
 Doctor Index Number.
 
+> **Question:** Is there any size limit to the employee's name?
+>
+> **Answer:** Employee Name is a string with no more than 35 characters".
+
+> **Question:** Is there any validation that needs to be done on the employee's email format and size?
+>
+> **Answer:** The format of an e-mail address is well-known. Attribute validation is always a good practice.
+
+> **Question:** Regarding the registration of a new employee, which is the organization role's format?
+>
+> **Answer:** Organization Role is a string with no more than 15 characters.
+
+> **Question:** When registering a new employee should the administrator write or select his role
+>
+> **Answer:** The administrator should write the role when he is registering a new employee.
+
+> **Question:** What is the length of the Doctor index number and does it need to be validated?
+>
+> **Answer:** The length is 6 digits and for now, it is not necessary to confirm that the code really exists.
+ 
+> **Question:** What is the length of the SOC number and is it generated or manually introduced by the admin?
+>
+> **Answer:** The SOC number is 4 digits, and it is introduced by the administrator.
 
 
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** All required fields must be filled in.
-* **AC2:** Employee reference must have at least 5 alphanumeric chars.
-* **AC3:** When creating a employee with an already existing reference, the system must reject such operation and the user must have the change to modify the typed reference.
-* **AC4:** When creating a employee, the id of the employee should be generated automatically with the format of employee's name initials and five digits.
+* **AC1:** All required fields, namely Organization role, name, address, phone, e-mail and SOC code, must be filled in.
+* **AC2:** The SOC number is 4 digits and introduced by the admin
+* **AC3:** When creating an employee with an already existing reference, the system must reject such operation, and the user must have the change to modify the typed reference.
+* **AC4:** When creating an employee, the id of the employee should be generated automatically with the format of employee's name initials and five digits.
+* **AC5:** The doctor index number is 6 digits and does not need to be confirmed
+* **AC6:** Employee is a String with no more than 35 characters
+* **AC7:** The e-mail format should be validated
 
 
 ### 1.4. Found out Dependencies
 
-
+* None
 
 
 ### 1.5 Input and Output Data
@@ -64,22 +87,17 @@ Doctor Index Number.
 	* Phone Number;
 	* E-Mail;
 	* Standard Occupational Classification (SOC) code.
-	
-* Selected data:
 	* Organization Role;
 	
 * Generated data:
 	* Employee ID;
 
-
 **Output Data:**
 
-* List of existing employees
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
-**Alternative 1**
 
 ![UC7_SSD](UC7_SSD.svg)
 
@@ -127,9 +145,9 @@ n/a
 
 According to the taken rationale, the conceptual classes promoted to software classes are: 
 
- * Administrator
- * Platform
  * Employee
+ * Company
+ * Specialist Doctor
 
 Other software classes (i.e. Pure Fabrication) identified: 
 

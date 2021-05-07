@@ -12,6 +12,9 @@ public class CreateNewParameterUI implements Runnable{
 
     private CreateNewParameterController ctrl;
 
+    /**
+     * First method to run when this UI is instantiated
+     */
     @Override
     public void run() {
         ctrl = new CreateNewParameterController();
@@ -23,6 +26,10 @@ public class CreateNewParameterUI implements Runnable{
         }
     }
 
+    /**
+     * This method enables user interaction to create a new parameter.
+     * @return if the parameter was created or not
+     */
     private boolean createParameter() {
         boolean done=false;
         do {

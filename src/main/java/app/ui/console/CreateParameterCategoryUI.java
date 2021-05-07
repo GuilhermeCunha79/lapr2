@@ -9,6 +9,9 @@ public class CreateParameterCategoryUI implements Runnable {
 
     private CreateParameterCategoryController ctrl;
 
+    /**
+     * First method to be called when this UI is instantiated
+     */
     @Override
     public void run() {
         ctrl = new CreateParameterCategoryController();
@@ -18,6 +21,10 @@ public class CreateParameterCategoryUI implements Runnable {
             System.out.println("\n\nNew category was created!");
     }
 
+    /**
+     * This method is responsible to interact with the user to guide him in the parameter category creation process
+     * @return if the category was created or not
+     */
     public boolean createParamCat(){
         boolean done = false;
         do {

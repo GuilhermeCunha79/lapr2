@@ -6,12 +6,16 @@ import app.ui.console.utils.Utils;
 
 import java.util.Scanner;
 
-public class RegisterEmployeeUI {
+public class RegisterEmployeeUI implements Runnable{
 
     static Scanner scanner = new Scanner(System.in);
 
     private RegisterEmployeeController ctrl;
 
+    @Override
+    public void run() {
+        registerEmployee();
+    }
 
     public  RegisterEmployeeUI() {
         this.ctrl = new RegisterEmployeeController();
@@ -49,4 +53,6 @@ public class RegisterEmployeeUI {
         }
 
     }
+
+
 }

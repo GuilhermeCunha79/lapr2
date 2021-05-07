@@ -24,7 +24,7 @@ activate UI
         deactivate COMP
         CTRL -> PS : p = createParameter(shortName, code, description, category)
         activate PS
-            PS --> P** : create(shortName, code, description, category)
+            PS --> P** : Parameter(shortName, code, description, category)
         deactivate PS
         CTRL -> PS : validateParameter(p)
         activate PS

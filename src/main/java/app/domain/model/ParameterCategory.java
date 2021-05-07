@@ -34,7 +34,7 @@ public class ParameterCategory {
     }
 
     /**
-     * Method to change the Parameter category code
+     * Method to change the Parameter category code and verify if it checks all acceptance criterias
      *
      * @param code receives the new Parameter category code
      */
@@ -63,7 +63,7 @@ public class ParameterCategory {
     }
 
     /**
-     * Method to change the Parameter category name
+     * Method to change the Parameter category name and also check if the acceptance criterias are fulfilled
      *
      * @param name receives the new Parameter category name
      */
