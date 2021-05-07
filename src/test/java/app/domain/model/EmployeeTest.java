@@ -12,11 +12,11 @@ public class EmployeeTest {
     /**
      * Test of getEmployeeID method, of class Employee.
      */
-    @Test
+    /*@Test
     public void getEmployeeID() {
         String expected = "P00025";
         assertEquals(expected, employee.getEmployeeID());
-    }
+    }*/
 
     /**
      * Test of getRole method, of class Employee.
@@ -142,7 +142,6 @@ public class EmployeeTest {
     public void testEquals() {
         assertEquals(employee, employee);
     }
-
 
     @Test
     public void testHashCode() {
