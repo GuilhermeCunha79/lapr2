@@ -4,10 +4,10 @@ autonumber
 actor "Administrador" as ADMIN
 
 participant ":RegisterNewClinicalAnalysisUI" as UI
-participant ":RegisterNewClinicalAnalysisController" as CTRL
-participant ":Company" as COMP
-participant ": ClinicalAnalysisLaboratoryStore " as CALS
-participant ":ClinicalAnalysisLaboratory" as CAL
+participant ":RegisterNewClinicalAnalysis\nRegisterNewClinicalAnalysisController" as CTRL
+participant ":Company" as comp
+participant "store: ClinicalAnalysisLaboratoryStore " as cals
+participant "cal:ClinicalAnalysisLaboratory" as cal
 
 activate ADMIN
 ADMIN -> UI : Register a New Clinical Analysis Laboratory
@@ -16,18 +16,18 @@ UI --> ADMIN : Necessary credentials(laboratoryID, Name, Address, Phone Number,T
 deactivate UI
 ADMIN -> UI : types requested data
 activate UI
-    UI -> CTRL : RegisterNewClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number,TIN Number, testType)
+    UI -> CTRL : RegisterNewClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number,TIN Number)
     activate CTRL
-        CTRL -> COMP : store = getClinicalAnalysisLaboratoryStore()
-        activate COMP
-        deactivate COMP
-        CTRL -> CALS : RegisterClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number, TIN Number, testType)
-        activate CALS
-            CALS --> CAL** : LaboratoryRegister(laboratoryID, Name, Address, Phone Number,TIN Number, testType)
-        deactivate CALS
-        CTRL -> CALS : validateClinicalAnalysisLaboratory()
-        activate CALS
-        deactivate CALS
+        CTRL -> comp : store = getClinicalAnalysisLaboratoryStore()
+        activate comp
+        deactivate comp
+        CTRL -> cals : clinicalAnalysisLaboratory= registerClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number, TIN Number, typeOfTest)
+        activate cals
+            cals --> cal** : register(clinicalAnalysisLaboratory)
+        deactivate cals
+        CTRL -> cals : validateClinicalAnalysisLaboratory(cal)
+        activate cals
+        deactivate cals
     deactivate CTRL
     UI --> ADMIN : Validates the data and shows type of test list and ask to select one
 deactivate UI
@@ -35,15 +35,15 @@ ADMIN -> UI : select requested data(type of test)
 activate UI
     UI -> CTRL : saveClinicalAnalysisLaboratory()
     activate CTRL
-        CTRL -> CALS : saveClinicalAnalysisLaboratory()
-        activate CALS
-            CALS -> CALS : validateClinicalAnalysisLaboratory()
-            activate CALS
-            deactivate CALS
-            CALS -> CALS : addClinicalAnalysisLaboratory()
-            activate CALS
-            deactivate CALS
-        deactivate CALS
+        CTRL -> cals : saveClinicalAnalysisLaboratory(cal)
+        activate cals
+            cals -> cals : validateClinicalAnalysisLaboratory(clinicalAnalysisLaboratory)
+            activate cals
+            deactivate cals
+            cals -> cals : addClinicalAnalysisLaboratory(clinicalAnalysisLaboratory)
+            activate cals
+            deactivate cals
+        deactivate cals
     deactivate CTRL
     UI --> ADMIN : informs operation success
 deactivate UI

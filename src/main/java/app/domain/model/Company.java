@@ -1,13 +1,10 @@
 package app.domain.model;
 
-import app.domain.store.TypeOfTestStore;
+import app.domain.store.*;
 import auth.AuthFacade;
-import app.domain.store.ClientStore;
-import app.domain.store.ParameterCategoryStore;
-import app.domain.store.ParameterStore;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.List;
+
 
 /**
  *
@@ -22,8 +19,8 @@ public class Company {
     private ClientStore clientStore = new ClientStore();
     private ParameterCategoryStore pcStore = new ParameterCategoryStore();
     private ParameterStore pStore = new ParameterStore();
+    private ClinicalAnalysisLaboratoryStore calStore = new ClinicalAnalysisLaboratoryStore();
 
-    private ClientStore ctStore;
 
 
     public Company(String designation)
@@ -57,5 +54,9 @@ public class Company {
 
     public TypeOfTestStore getTypeOfTestStore() {
         return this.totStore;
+    }
+
+    public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){
+        return this.calStore;
     }
 }

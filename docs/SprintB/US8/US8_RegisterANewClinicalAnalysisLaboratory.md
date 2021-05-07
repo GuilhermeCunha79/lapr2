@@ -65,10 +65,10 @@ allowed to exist?
 * **AC1:** All required fields must be filled in.
 * **AC2:** Phone number must have 11 digits
 * **AC3:** TIN must have 10 digits
-* **AC4:** Address: A string with no more than 30 characters
+* **AC4:** Address:Cannot have more than 30 characters
 * **AC5:** Laboratory ID: five alphanumeric characters
-* **AC6:** Name: A string with no more than 20 characters
-* **AC7:** Type of tests performed by the lab
+* **AC6:** Name:Cannot have more than 20 characters
+
 
 ### 1.4. Found out Dependencies
 
@@ -84,7 +84,7 @@ allowed to exist?
     * a TIN number
 	* a laboratory ID (only for clinical analysis laboratories)
 	* an adress
-	* testType
+	
 **Selected data**
 * Type of test chosen
 
