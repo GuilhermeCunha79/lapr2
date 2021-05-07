@@ -3,8 +3,10 @@ package app.domain.model;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
-
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import static app.domain.model.Client.calculateAge;
 import static org.junit.Assert.*;
@@ -172,7 +174,7 @@ public class ClientTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void checkTinWrongSecondConstructor() {
-        Client ct01 = new Client("Tomás", "1234567890123456", "9876543213", "987654321311", "23/12/2001", "Male", "12345678901", "tomas1@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", "1234567890123456", "9876543213", "987654321311", "23/12/2001", "12345678901", "tomas1@isep.ipp.pt");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -192,10 +194,33 @@ public class ClientTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
+    public void checkPhoneNumberWrongFirstConstructor() {
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "1234561111178901", "tomas1@isep.ipp.pt");
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkPhoneNumberWrongSecondConstructor() {
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "1234561111178901", "tomas1@isep.ipp.pt");
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkEmailWrongFirstConstructor() {
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas1isep.ipp.pt");
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkEmailWrongSecondConstructor() {
+        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "12345678901", "tomas1isep.ipp.pt");
+
+    }
+
+    @Test(expected = IllegalArgumentException.class)
     public void checkValidEmail() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomasisep.ipp.pt");
     }
-
 
     @Test(expected = IllegalArgumentException.class)
     public void checkIfStringJustHaveNumbers() {
@@ -203,10 +228,25 @@ public class ClientTest {
     }
 
     @Test
+    public void checkConvertStringToDate() {
+        String birthDate="23/12/2002";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy").withLocale(Locale.FRENCH);
+        LocalDate expected = LocalDate.of(2002,12,23);
+            assertEquals(LocalDate.parse(birthDate,formatter),expected);
+    }
+
+    @Test
     public void checkCalculateAge() {
         LocalDate birthDate = LocalDate.of(1961, 5, 17);
         int actual = calculateAge(birthDate, LocalDate.of(2016, 7, 12));
         Assert.assertEquals(55, actual);
+    }
+
+    @Test(expected = DateTimeException.class)
+    public void checkCalculateAgeNull() {
+        LocalDate birthDate = LocalDate.of(0, 0, 0);
+        int actual = calculateAge(birthDate, LocalDate.of(0, 0, 0));
+        Assert.assertEquals(0, actual);
     }
 
 

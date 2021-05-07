@@ -68,8 +68,7 @@ public class UserRole {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return String.format("%s - %s", this.id, this.description);
     }
 }
