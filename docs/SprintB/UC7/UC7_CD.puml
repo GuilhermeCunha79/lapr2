@@ -7,18 +7,18 @@ class RegisterEmployeeUI
 
 class RegisterEmployeeController
 {
-    +Employee newEmployee(nif, name, email, password)
+    +Employee newEmployee(role, name, address, phoneNumber, email, soc)
     +validateEmployee(Employee employee)
 }
 
 class Employee
 {
-	Employee ID;
+	EmployeeID;
 	Name;
 	Address;
 	Phone Number;
 	E-Mail;
-	Standard Occupational Classification (SOC) code.
+	Standard Occupational Classification code;
     +validateEmployee(Employee employee)
 }
 

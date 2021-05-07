@@ -108,7 +108,7 @@ n/a
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1  		 |	... interacting with the actor? | RegisterEmployeeUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
 | 			  		 |	... coordinating the US? | RegisterEmployeeController | Controller                             |
-| 			  		 |	... instantiating a new Employee? | Administrator   | Creator (Rule 1): in the DM Employee is a administrator, but is the last one that creates new ones.   |
+| 			  		 |	... instantiating a new Employee? | Employee with Administrator role | Creator (Rule 1): in the DM Employee can have a administrator role.   |
 | 			  		 |  ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
 | 			  		 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
 | 			  		 |							 | Administrator   | IE: knows/has its own Employees|

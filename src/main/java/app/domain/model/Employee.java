@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import auth.domain.model.User;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -27,12 +29,12 @@ public class Employee {
      * @param email
      * @param soc
      */
-    public Employee(OrganizationRole role, String name, String address, long phoneNumber, String email, int soc) {
+    public Employee(OrganizationRole role, String name, String address, String phoneNumber, String email, int soc) {
         employeeCount++;
         this.role = role;
         this.name = name;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber = Long.parseLong(phoneNumber);
         this.email = email;
         this.soc = soc;
         this.employeeID = employeeIdCreator();
@@ -129,8 +131,8 @@ public class Employee {
      *
      * @param phoneNumber
      */
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = Long.parseLong(phoneNumber);
     }
 
     /**
@@ -174,7 +176,7 @@ public class Employee {
      *
      * @return true or false
      */
-    public static boolean validateEmployee(Employee employee) {
+    public boolean validateEmployee(Employee employee) {
         return (employee.role != null
                 && employee.name != null
                 && employee.address != null

@@ -5,15 +5,18 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class EmployeeTest {
+    Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", 2);
+    Employee employee1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", "91111311221", "sfgsdfgsfdg@gmail.com", 2);
+    Employee employeenull = new Employee(null, null, null, "00001", null, 0);
 
     /**
      * Test of getEmployeeID method, of class Employee.
      */
-    Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-   // public void getEmployeeID() {
-        //String expected = "P00022";
-       // assertEquals(expected, employee.getEmployeeID());
-    //}*/
+    @Test
+    public void getEmployeeID() {
+        String expected = "P00025";
+        assertEquals(expected, employee.getEmployeeID());
+    }
 
     /**
      * Test of getRole method, of class Employee.
@@ -78,7 +81,7 @@ public class EmployeeTest {
      */
     @Test
     public void getPhoneNumber() {
-        int expected = 911111111;
+        long expected = 91111111221L;
         assertEquals(expected, employee.getPhoneNumber());
     }
 
@@ -87,8 +90,8 @@ public class EmployeeTest {
      */
     @Test
     public void setPhoneNumber() {
-        employee.setPhoneNumber(921111111);
-        int expected = 921111111;
+        employee.setPhoneNumber("91111111221");
+        long expected = 91111111221L;
         assertEquals(expected, employee.getPhoneNumber());
     }
 
@@ -133,32 +136,17 @@ public class EmployeeTest {
     /**
      * Test of Equals, of class Employee.
      */
-    /*
+
     @Test
 
     public void testEquals() {
-        Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        Employee e2 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        assertEquals(e2, e1);
+        assertEquals(employee, employee1);
     }
 
 
     @Test
     public void testHashCode() {
-        Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        Employee e2 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        assertEquals(e2.hashCode(), e1.hashCode());
-    }
-    */
-
-    /**
-     * Test of Equals, of class Employee.
-     */
-    @Test
-    public void testEqualsFalseID() {
-        Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        Employee e2 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        assertNotEquals(e2, e1);
+        assertEquals(employee1.hashCode(), employee.hashCode());
     }
 
     /**
@@ -166,18 +154,16 @@ public class EmployeeTest {
      */
     @Test
     public void testEqualsFalseRole() {
-        Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        Employee e2 = new Employee(OrganizationRole.SpecialistDoctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        assertNotEquals(e2, e1);
+        employee1.setRole(OrganizationRole.SpecialistDoctor);
+        assertNotEquals(employee1, employee);
     }
     /**
      * Test of Equals, of class Employee.
      */
     @Test
     public void testEqualsFalseName() {
-        Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        Employee e2 = new Employee(OrganizationRole.Doctor, "Miguel", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        assertNotEquals(e2, e1);
+        employee1.setName("Miguel");
+        assertNotEquals(employee1, employee);
     }
 
     /**
@@ -185,9 +171,8 @@ public class EmployeeTest {
      */
     @Test
     public void testEqualsFalseAddress() {
-        Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        Employee e2 = new Employee(OrganizationRole.Doctor, "Pedro", "Lisboa", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        assertNotEquals(e2, e1);
+        employee1.setAddress("Lisboa");
+        assertNotEquals(employee1, employee);
     }
 
     /**
@@ -195,9 +180,8 @@ public class EmployeeTest {
      */
     @Test
     public void testEqualsFalsePhoneNumber() {
-        Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        Employee e2 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911122211, "sfgsdfgsfdg@gmail.com", 2);
-        assertNotEquals(e2, e1);
+        employee1.setPhoneNumber("91111211221");
+        assertNotEquals(employee1, employee);
     }
 
     /**
@@ -205,9 +189,8 @@ public class EmployeeTest {
      */
     @Test
     public void testEqualsFalseEmail() {
-        Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        Employee e2 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "aaaaaagsfdg@gmail.com", 2);
-        assertNotEquals(e2, e1);
+        employee1.setEmail("asda@hotmail.com");
+        assertNotEquals(employee1, employee);
     }
 
     /**
@@ -215,9 +198,8 @@ public class EmployeeTest {
      */
     @Test
     public void testEqualsFalseSOC() {
-        Employee e1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 2);
-        Employee e2 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", 911111111, "sfgsdfgsfdg@gmail.com", 3);
-        assertNotEquals(e2, e1);
+        employee1.setSoc(10);
+        assertNotEquals(employee1, employee);
     }
 
     /**
@@ -225,10 +207,8 @@ public class EmployeeTest {
      */
     @Test
     public void validateEmployee() {
-        Employee e1 = new Employee(OrganizationRole.Doctor,"Pedro","Porto",911111111,"sfgsdfgsfdg@gmail.com",2);
-        boolean result = Employee.validateEmployee(e1);
+        boolean result = employee.validateEmployee(employee);
         assertTrue(result);
-
     }
 
     /**
@@ -236,8 +216,7 @@ public class EmployeeTest {
      */
     @Test
     public void validateEmployeeError() {
-        Employee e1 = new Employee(null, null, null, 00001, null, 0);
-        boolean result = Employee.validateEmployee(e1);
+        boolean result = employeenull.validateEmployee(employeenull);
         assertFalse(result);
     }
 }
