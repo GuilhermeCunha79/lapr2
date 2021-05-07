@@ -40,7 +40,7 @@ public class ParameterCategoryStore {
      */
     public boolean addParameterCategory(ParameterCategory pc)
     {
-        if (pc != null) {
+        if (pc != null && validateParameterCategory(pc)) {
             return this.parameterCategoryList.add(pc);
         }
         return false;

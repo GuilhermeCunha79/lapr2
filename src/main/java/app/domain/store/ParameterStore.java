@@ -39,7 +39,7 @@ public class ParameterStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean addParameter(Parameter p) {
-        if (p != null) {
+        if (p != null && validateParameter(p)) {
             return this.parameterList.add(p);
         }
         return false;
