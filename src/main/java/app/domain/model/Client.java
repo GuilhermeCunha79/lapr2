@@ -92,21 +92,6 @@ public class Client {
     }
 
     /***
-     * Validate a client if he is not null
-     * @param client
-     * @return
-     */
-    public static boolean validateClient(Client client) {
-        return (client.name != null
-                && client.tinNumber != null
-                && client.birthDate != null
-                && client.nhsNumber != null
-                && client.phoneNumber != null
-                && client.email != null
-                && client.sex != null);
-    }
-
-    /***
      * Verify if the given string just have numbers
      * @param number
      * @return
@@ -170,6 +155,19 @@ public class Client {
         return valid;
     }
 
+    public boolean isValidChar(CharSequence name) {
+        for (int i = 0; i < name.length(); i++) {
+            char c = name.charAt(i);
+            if ('a' <= c && c <= 'z') continue;
+            if ('ã' <= c && c <= 'õ') continue;
+            if ('á' <= c && c <= 'ó') continue;
+            if ('Á' <= c && c <= 'Ó') continue;
+            if ('A' <= c && c <= 'Z') continue;
+            if (c == ' ') continue;
+            return false;
+        }
+        return true;
+    }
     /***
      * Method that returns the name of the Client
      * @return
@@ -190,13 +188,11 @@ public class Client {
         if (name.length() > MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 35 characters");
 
-        for (int i = 0; i < name.length(); i++) {
-            String c = String.valueOf(name.charAt(i));
-            if (!c.matches("[A-Za-zÁ-Úá-úã-õ]"))
-                throw new IllegalArgumentException("Name has non alphanumeric chars.");
-        }
+        if (!isValidChar(name))
+            throw new IllegalArgumentException("Name has non alphanumeric chars.");
         this.name = name;
     }
+
 
     /***
      * Method that returns the citizen card number of the Client
@@ -260,7 +256,7 @@ public class Client {
             throw new NullPointerException("TIN number cannot be null");
         if (StringUtils.isBlank(tinNumber))
             throw new IllegalArgumentException("TIN number cannot be blank.");
-        if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() != NHSTIN_NUMBER_DIGITS))
+        if ((!checkIfStringJustHaveNumbers(tinNumber)) || tinNumber.length() != NHSTIN_NUMBER_DIGITS)
             throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
         this.tinNumber = tinNumber;
     }
@@ -359,6 +355,21 @@ public class Client {
             throw new IllegalArgumentException("The introduced email is not valid.");
         this.email = email;
     }
+    /***
+     * Validate a client if he is not null
+     * @param client
+     * @return
+     */
+    public static boolean validateClient(Client client) {
+        return (client.name != null
+                && client.tinNumber != null
+                && client.birthDate != null
+                && client.nhsNumber != null
+                && client.phoneNumber != null
+                && client.email != null
+                && client.sex != null);
+    }
+
 
     @Override
     public String toString() {
@@ -375,7 +386,6 @@ public class Client {
 
         Client client = (Client) o;
         return Objects.equals(phoneNumber, client.phoneNumber)
-                && Objects.equals(name, client.name)
                 && Objects.equals(citizenCardNumber, client.citizenCardNumber)
                 && Objects.equals(nhsNumber, client.nhsNumber)
                 && Objects.equals(tinNumber, client.tinNumber)

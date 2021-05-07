@@ -1,7 +1,10 @@
 package app.controller;
 
 import app.domain.model.Client;
+import app.domain.model.ParameterCategory;
 import app.domain.store.ClientStore;
+
+import java.util.List;
 
 public class RegisterClientController {
     private ClientStore ctStore;
@@ -22,5 +25,8 @@ public class RegisterClientController {
     }
     public boolean saveClient(){
         return this.ctStore.saveClient(ct);
+    }
+    public List<Client> getClientList(){
+        return App.getInstance().getCompany().getClientStore().getClientList();
     }
 }

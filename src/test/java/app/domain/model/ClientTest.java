@@ -26,9 +26,9 @@ public class ClientTest {
         Client ct = new Client("Mariana Josefina Amaro Silva Costa Lópes", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void ensureThatNameCanHave35Char() {
-        Client ct = new Client("Maria Josefina Amaro Silva Costa Lóp", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
+        Client ct = new Client("Mariana Josefina Amaro Silva Costa", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -219,7 +219,7 @@ public class ClientTest {
 
     @Test
     public void checkSetName() {
-        Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
+        Client ct01 = new Client("Miguel", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
         ct01.setName("Miguel");
         String expected = "Miguel";
         assertEquals(expected, ct01.getName());

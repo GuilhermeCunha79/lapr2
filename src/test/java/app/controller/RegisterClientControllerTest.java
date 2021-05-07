@@ -27,11 +27,6 @@ public class RegisterClientControllerTest {
         ctrl.newClient("Maria Conceição Fonseca Pimentel Pires","1234567890123456","1234567890","1234567890","23/12/2002","male","12345678901", "tomas@isep.ipp.pt");
     }
 
-    @Test
-    public void ensureNameCanHave35Char() {
-        assertTrue(ctrl.newClient("Tiago","1234567890123456","1234567890","1234567890","23/12/2002","male","12345678901", "tomas@isep.ipp.pt"));
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotBeCreatedBlank() {
         ctrl.newClient("", "1234567890123456","1234567890","1234567890","23/12/2002","male","12345678901", "tomas@isep.ipp.pt");

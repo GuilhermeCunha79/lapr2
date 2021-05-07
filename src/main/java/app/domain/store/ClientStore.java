@@ -31,8 +31,8 @@ public class ClientStore {
         }
 
         public boolean validateClient(Client ct) {
-            for (Client par : clientList){
-                if(par.equals(ct)){
+            for (Client clt : clientList){
+                if(clt.equals(ct)){
                     return false;
                 }
             }
@@ -40,7 +40,7 @@ public class ClientStore {
         }
 
         public List<Client> getClientList() {
-            return clientList;
+            return new ArrayList <>(clientList);
         }
 
     }
