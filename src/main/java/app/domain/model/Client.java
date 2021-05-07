@@ -188,7 +188,7 @@ public class Client {
         if (name.length() > MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 35 characters");
 
-        if (!isValidChar(name))
+        if (!isValidChar(name) || name.length()>MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name has non alphanumeric chars.");
         this.name = name;
     }

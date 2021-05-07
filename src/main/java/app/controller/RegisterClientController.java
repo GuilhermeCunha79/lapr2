@@ -1,7 +1,6 @@
 package app.controller;
 
 import app.domain.model.Client;
-import app.domain.model.ParameterCategory;
 import app.domain.store.ClientStore;
 
 import java.util.List;
