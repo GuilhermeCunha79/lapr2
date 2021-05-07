@@ -123,6 +123,7 @@ public class RegisterClientControllerTest {
         ctrl.newClient("Tomás", "1234567890123462","1234567890","1234567890","23/12/2002","male","123456789101", "tomas@isep.ipp.pt");
     }
 
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureEmailCannotBeCreatedBlank() {
         ctrl.newClient("Tomás", "1234567890123457","1234567890","1234567890","23/12/2002","male","12345678901", "");
