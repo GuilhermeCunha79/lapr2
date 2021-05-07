@@ -17,22 +17,15 @@ class Employee {
 	-Standard Occupational Classification (SOC) code.
 }
 
-enum Category {
-  -Organization Role
+enum OrganizationRole {
+  -OrganizationRole role;
 }
 
-class Administrator {
-  -name
-  -function
-  -phone
-  -email
-}
 
 
 
 Platform "1" -- "*" Employee : has >
-Employee "*" -- "1" Category: classified as >
-Employee "1..*" -- "1..*" Administrator: can be >
+Employee "*" -- "1" OrganizationRole: classified as >
 
 
 

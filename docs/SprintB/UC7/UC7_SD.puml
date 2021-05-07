@@ -10,15 +10,15 @@ participant ":Employee" as E
 
 ADMIN -> UI : Register a employee
 activate UI
-    UI --> ADMIN : Requests necessary credentials (EmployeeID,OrganizationRole,Name,\nAddress,PhoneNumber,EMail,SOC)
+    UI --> ADMIN : Requests necessary credentials (role,name,\naddress,phoneNumber,email,soc)
 deactivate UI
 
 ADMIN -> UI : Inserts the data
 activate UI
-    UI -> CTRL : employee = newEmployee(EmployeeID,OrganizationRole,Name,\nAddress,PhoneNumber,EMail,SOC)
+    UI -> CTRL : employee = newEmployee(role,name,\naddress,phoneNumber,email,soc)
     activate CTRL
 
-        CTRL -> E** : newEmployee(EmployeeID,OrganizationRole,Name,\nAddress,PhoneNumber,EMail,SOC)
+        CTRL -> E** : newEmployee(role,name,\naddress,phoneNumber,email,soc)
     deactivate CTRL
     UI --> ADMIN : Validates the data and asks for confirmation
 deactivate UI
