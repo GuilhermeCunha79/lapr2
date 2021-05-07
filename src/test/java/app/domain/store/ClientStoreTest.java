@@ -34,6 +34,7 @@ public class ClientStoreTest {
         assertFalse(cs.addClient(ct02));
     }
 
+
     @Test
     public void ensureAdd2differentClientsWorks(){
         Client ct01 = cs.newClient("Tomás", "1234567890123456","1234567890","1234567890","23/12/2002","male","12345678901","tomas@isep.ipp.pt");

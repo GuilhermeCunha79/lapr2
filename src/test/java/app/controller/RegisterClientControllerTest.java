@@ -107,6 +107,7 @@ public class RegisterClientControllerTest {
         ctrl.newClient("Tomás", "1234567890123429","1234567890","1234567890","23/12/2002","madeira","12345678901", "tomas@isep.ipp.pt");
     }
 
+
     @Test(expected = IllegalArgumentException.class)
     public void ensurePhoneNumberCannotBeCreatedBlank() {
         ctrl.newClient("Tomás", "1234567890123443","1234567890","1234567890","23/12/2002","male","", "tomas@isep.ipp.pt");

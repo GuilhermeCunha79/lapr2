@@ -155,6 +155,11 @@ public class Client {
         return valid;
     }
 
+    /***
+     * Validate a String if it just have letters and spaces
+     * @param name
+     * @return
+     */
     public boolean isValidChar(CharSequence name) {
         for (int i = 0; i < name.length(); i++) {
             char c = name.charAt(i);
