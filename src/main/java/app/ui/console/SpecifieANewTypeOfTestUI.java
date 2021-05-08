@@ -1,6 +1,5 @@
 package app.ui.console;
 
-import app.controller.App;
 import app.controller.SpecifieANewTypeOfTestController;
 import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;

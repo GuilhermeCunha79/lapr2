@@ -1,59 +1,55 @@
 
 package app.ui.console;
-/*
+
 import app.controller.RegisterEmployeeController;
 
+import app.domain.shared.CommonMethods;
 import app.ui.console.utils.Utils;
 
-import java.util.Scanner;
-
 public class RegisterEmployeeUI implements Runnable{
-
-
-    static Scanner scanner = new Scanner(System.in);
 
     private RegisterEmployeeController ctrl;
 
     @Override
     public void run() {
-        registerEmployee();
-    }
-
-    public  RegisterEmployeeUI() {
         this.ctrl = new RegisterEmployeeController();
+        if(registerEmployee())
+            System.out.println("Employee was succesfully registered!");
     }
 
-
-    public void registerEmployee(){
-
-        String empName = Utils.readLineFromConsole("Introduce the Employee name: ");
-        String empAddress = Utils.readLineFromConsole("Introduce employee's address: ");
-        String empPhoneNumber = Utils.readLineFromConsole("Introduce employee's phone number: ");
-        String empEmail = Utils.readLineFromConsole("Introduce employee's email: ");
-        int empSoc = Utils.readIntegerFromConsole("Introduce employee's email: ");
-
+    public boolean registerEmployee(){
         boolean state = false;
-        try {
-            state = ctrl.newEmployee(null, empName, empAddress, empPhoneNumber, empEmail, empSoc);
-        } catch (IllegalArgumentException e) {
-            System.err.println(e.getStackTrace());
-        }
-        if (state) {
-            System.out.printf("\nConfirm the employee data: \nName: %s\nAddress %s\nPhone Number: %s\nEmail: %s\nSOC:%d", null, empName, empAddress, empPhoneNumber, empEmail, empSoc);
-            String answer = scanner.nextLine();
-            while (!answer.equals("Y") && !answer.equals("N")) {
-                System.out.println("Answer not valid! Use (Y/N)");
-                answer = scanner.nextLine();
-                if (answer.equals("Y")) {
-                    System.out.println("Employee has been registered");
-                }
-            }
-        } else {
-            System.out.println("Employee is invalid!");
-        }
+        do {
+            String empRole = Utils.readLineFromConsole("Introduce employee's role in the company: ");
+            String empName = Utils.readLineFromConsole("Introduce employee's name: ");
+            String empAddress = Utils.readLineFromConsole("Introduce employee's address: ");
+            String empPhoneNumber = Utils.readLineFromConsole("Introduce employee's phone number: ");
+            String empEmail = Utils.readLineFromConsole("Introduce employee's email: ");
+            String empSoc = Utils.readLineFromConsole("Introduce employee's SOC: ");
 
+            try {
+                if(ctrl.isSpecialistDoctor(empRole))
+                    state = ctrl.createSpecialistDoctor(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc, Utils.readIntegerFromConsole("Introduce Doctor Index Number"));
+                state = ctrl.createEmployee(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc);
+
+                if (state) {
+                    String answer = Utils.readLineFromConsole(String.format("%nConfirm the employee data: %nCompany Role: %s%nName: %s%nAddress %s%nPhone Number: %s%nEmail: %s%nSOC:%s%n(Y/N)", empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
+                    while (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")){
+                        answer = Utils.readLineFromConsole("Answer not valid! Use (Y/N)");
+                        if (answer.equalsIgnoreCase("Y")) {
+                            return ctrl.saveEmployee();
+                        }
+                    }
+                } else {
+                    System.out.println("Employee is invalid!");
+                    return false;
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }while(!state);
+        return false;
     }
 
 
 }
-*/

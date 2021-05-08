@@ -7,8 +7,8 @@ import static org.junit.Assert.*;
 
 public class SpecialistDoctorTest {
 
-    SpecialistDoctor employee = new SpecialistDoctor(Constants.ROLE_SPECIALIST_DOCTOR, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", 1234,2);
-    SpecialistDoctor employee1 = new SpecialistDoctor(Constants.ROLE_SPECIALIST_DOCTOR, "Miguel", "Lisboa", "91111111221", "sfgsdfgsfdg@gmail.com", 1234,2);
+    SpecialistDoctor employee = new SpecialistDoctor(Constants.ROLE_SPECIALIST_DOCTOR, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", "1234",2);
+    SpecialistDoctor employee1 = new SpecialistDoctor(Constants.ROLE_SPECIALIST_DOCTOR, "Miguel", "Lisboa", "91111111221", "sfgsdfgsfdg@gmail.com", "1234",2);
 
     @Test
     public void getDoctorIndexNumber() {

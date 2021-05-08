@@ -2,13 +2,11 @@ package app.domain.model;
 
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
-import auth.domain.model.User;
+
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.regex.Pattern;
+
 
 /**
  *Employee class
@@ -20,8 +18,7 @@ public class Employee {
     private String address;
     private String phoneNumber;
     private String email;
-    private int soc;
-    static final int MAX_CHAR_NAME_EMP= 35;
+    private String soc;
     static final int MAX_CHAR_SOC= 4;
     static final int MAX_CHAR_ADDRESS = 30;
 
@@ -35,7 +32,7 @@ public class Employee {
      * @param email
      * @param soc
      */
-    public Employee(String role, String name, String address, String phoneNumber, String email, int soc) {
+    public Employee(String role, String name, String address, String phoneNumber, String email, String soc) {
         employeeCount++;
         setRole(role);
         setName(name);
@@ -53,10 +50,10 @@ public class Employee {
 
     private String employeeIdCreator() {
         StringBuilder nameInitials = new StringBuilder();
-        if(this.name!=null){
+        if (this.name != null) {
             for (int i = 0; i < this.name.length(); i++) {
                 char letter = this.name.charAt(i);
-                if (Character.isUpperCase(letter)){
+                if (Character.isUpperCase(letter)) {
                     nameInitials.append(letter);
                 }
             }
@@ -187,7 +184,7 @@ public class Employee {
      *
      * @return the employee's soc
      */
-    public int getSoc() {
+    public String getSoc() {
         return soc;
     }
 
@@ -196,26 +193,14 @@ public class Employee {
      *
      * @param soc
      */
-    public void setSoc(int soc) {
-        if (soc == 0)
-            throw new IllegalArgumentException("SOC" + Constants.STRING_BLANK_EXEPT);
-        if(soc == MAX_CHAR_SOC)
+    public void setSoc(String soc) {
+        if (soc == null)
+            throw new NullPointerException("SOC" + Constants.STRING_NULL_EXEPT);
+        if (StringUtils.isBlank(soc))
+            throw new NullPointerException("SOC" + Constants.STRING_BLANK_EXEPT);
+        if (soc.length() != MAX_CHAR_SOC)
             throw new IllegalArgumentException("SOC needs to have exactly 4 characters.");
         this.soc = soc;
-    }
-
-    /**
-     * Validation of instance Employee
-     *
-     * @return true or false
-     */
-    public static boolean validateEmployee(Employee employee) {
-        return (employee.role != null
-                && employee.name != null
-                && employee.address != null
-                && employee.phoneNumber != null
-                && employee.email != null
-                && employee.soc > 0);
     }
 
     /**
@@ -229,7 +214,7 @@ public class Employee {
         if (this == o) return true;
         else if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-        return getEmployeeID().equals(employee.getEmployeeID()) && getPhoneNumber().equals(employee.getPhoneNumber()) && getSoc() == employee.getSoc() && getRole().equals(employee.getRole()) && getName().equals(employee.getName()) && getAddress().equals(employee.getAddress()) && getEmail().equals(employee.getEmail());
+        return getEmployeeID().equals(employee.getEmployeeID()) && getPhoneNumber().equals(employee.getPhoneNumber()) && getSoc().equals(employee.getSoc()) && getRole().equals(employee.getRole()) && getName().equals(employee.getName()) && getAddress().equals(employee.getAddress()) && getEmail().equals(employee.getEmail());
     }
 
     /**

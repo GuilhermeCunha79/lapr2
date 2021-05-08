@@ -2,10 +2,16 @@ package app.domain.shared;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.security.SecureRandom;
+import java.util.logging.Formatter;
 import java.util.regex.Pattern;
 
 public class CommonMethods {
 
+
+    private static SecureRandom random = new SecureRandom();
     /***
      * Verify if the given string just have numbers
      * @param number
@@ -65,12 +71,24 @@ public class CommonMethods {
      */
     public static boolean stringHaveAlphanumerical(String name) {
         for (int i = 0; i < name.length(); i++) {
-            String c = String.valueOf(name.charAt(i));
-            if (!c.matches("[A-Za-z0-9]")) {
-                return false;
+            char ch = name.charAt(i);
+            if (Character.isLetterOrDigit(ch) || ch == ' ') {
+                continue;
             }
+            return false;
         }
         return true;
+    }
+
+    public static String generatePassword() {
+        int len = 10;
+        String alphanumericChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        String result = "";
+        for (int i = 0; i < len; i++) {
+            int index = random.nextInt(alphanumericChars.length());
+            result += alphanumericChars.charAt(index);
+        }
+        return result;
     }
 
     public static void nameClientEmployeeValidation(String name) {

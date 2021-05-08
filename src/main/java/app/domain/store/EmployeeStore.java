@@ -9,11 +9,11 @@ import java.util.List;
 public class EmployeeStore {
     private List<Employee> employeeList = new ArrayList<>();
 
-    public Employee createEmployee(String role, String name, String address, String phoneNumber, String email, int soc){
+    public Employee createEmployee(String role, String name, String address, String phoneNumber, String email, String soc){
         return new Employee(role, name, address, phoneNumber, email, soc);
     }
 
-    public Employee createSpecialistDoctor(String role, String name, String address, String phoneNumber, String email, int soc, int indexNumber){
+    public Employee createSpecialistDoctor(String role, String name, String address, String phoneNumber, String email, String soc, int indexNumber){
         return new SpecialistDoctor(role, name, address, phoneNumber, email, soc, indexNumber);
     }
 

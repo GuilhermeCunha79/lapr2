@@ -6,17 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class EmployeeTest {
-    Employee employee = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", 1234);
-    Employee employee1 = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111311221", "sfgsdfgsfdg@gmail.com", 1234);
-    /*
-
-     * Test of getEmployeeID method, of class Employee.
-
-    @Test
-    public void getEmployeeID() {
-        String expected = "P00025";
-        assertEquals(expected, employee.getEmployeeID());
-    }*/
+    Employee employee = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", "1234");
+    Employee employee1 = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111311221", "sfgsdfgsfdg@gmail.com", "1234");
 
     /**
      * Test of getRole method, of class Employee.
@@ -118,7 +109,7 @@ public class EmployeeTest {
      */
     @Test
     public void getSoc() {
-        int expected = 1234;
+        String expected = "1234";
         assertEquals(expected, employee.getSoc());
     }
 
@@ -127,8 +118,8 @@ public class EmployeeTest {
      */
     @Test
     public void setSoc() {
-        employee.setSoc(1234);
-        int expected = 1234;
+        employee.setSoc("1234");
+        String expected = "1234";
         assertEquals(expected, employee.getSoc());
     }
 
@@ -196,25 +187,8 @@ public class EmployeeTest {
      */
     @Test
     public void testEqualsFalseSOC() {
-        employee1.setSoc(1234);
+        employee1.setSoc("1234");
         assertNotEquals(employee1, employee);
     }
 
-    /**
-     * Test of validateEmployee, of class Employee.
-     */
-    @Test
-    public void validateEmployee() {
-        Employee.validateEmployee(employee);
-
-    }
-
-    /**
-     * Test of validateEmployee, of class Employee.
-     */
-    @Test(expected = NullPointerException.class)
-    public void validateEmployeeError() {
-        Employee employeenull = new Employee(null, null, null, "00001", null, 0);
-        Employee.validateEmployee(employeenull);
-    }
 }

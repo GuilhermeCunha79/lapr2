@@ -1,5 +1,4 @@
 package app.ui.console;
-import java.util.Scanner;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
@@ -20,8 +19,9 @@ public class AdminUI implements Runnable{
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Add new parameter category", new CreateParameterCategoryUI()));
         options.add(new MenuItem("Add new parameter and categorize it", new CreateNewParameterUI()));
-        options.add(new MenuItem("Add new Employee", new CreateNewParameterUI()));
+        options.add(new MenuItem("Add new Employee", new RegisterEmployeeUI()));
         options.add(new MenuItem("Add a new type of test and its collecting methods", new SpecifieANewTypeOfTestUI()));
+
 
         int option = 0;
         do
