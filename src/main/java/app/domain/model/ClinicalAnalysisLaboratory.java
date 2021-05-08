@@ -3,9 +3,8 @@ package app.domain.model;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
-
 import java.util.Objects;
-import java.util.regex.Pattern;
+
 
 /***
  * ClinicalAnalysisLaboratoryClass
@@ -16,7 +15,6 @@ public class ClinicalAnalysisLaboratory {
 
     static final int MAX_CHAR_NAME = 20;
     static final int MAX_CHAR_LABORATORY_ID = 5;
-    static final int MAX_CHAR_ADDRESS = 30;
     private String name;
     private String address;
     private String tinNumber;
@@ -66,18 +64,6 @@ public class ClinicalAnalysisLaboratory {
 */
 
     /***
-     * Verify if the given string just have numbers
-     * @param number
-     * @return
-     */
-    private boolean checkStringNumbers(String number) {
-        if (!Pattern.matches("[a-zA-Z]+", number) && number.length() > 2) {
-            return false;
-        }
-        return true;
-    }
-
-    /***
      * Method to get the Clinical Analysis Laboratory name
      * @return return he Clinical Analysis Laboratory name
      */
@@ -114,14 +100,7 @@ public class ClinicalAnalysisLaboratory {
      * @param address
      */
     public void setAddress(String address) {
-        if (address == null)
-            throw new NullPointerException("Address" + Constants.STRING_NULL_EXEPT);
-        if (address.length() > MAX_CHAR_ADDRESS)
-            throw new IllegalArgumentException("Address cannot have more than 35 characters");
-        if (StringUtils.isBlank(address))
-            throw new IllegalArgumentException("Address" + Constants.STRING_BLANK_EXEPT);
-        if (!CommonMethods.stringHaveAlphanumerical(address))
-            throw new IllegalArgumentException("Address" + Constants.NON_ALPHANUM_EXEPT);
+        CommonMethods.addressValidation(address);
         this.address = address;
     }
 

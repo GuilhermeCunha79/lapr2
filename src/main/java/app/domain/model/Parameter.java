@@ -8,14 +8,13 @@ import java.util.Objects;
 
 public class Parameter {
 
-    static final int DESCRIPTION_LENGTH = 20;
-    static final int CODE_LENGTH = 5;
-    static final int SHORT_NAME_LENGTH = 8;
-
     private String code;
     private String shortName;
     private String description;
     private String category;
+
+    static final int DESCRIPTION_LENGTH = 20;
+    static final int SHORT_NAME_LENGTH = 8;
 
     /**
      * Class Constructor with all parameters needed to create a new parameter
@@ -47,14 +46,7 @@ public class Parameter {
      * @param code receives the new code as a parameter
      */
     public void setCode(String code) {
-        if (code == null)
-            throw new NullPointerException("Code" + Constants.STRING_NULL_EXEPT);
-        if (code.length() != CODE_LENGTH)
-            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
-        if (StringUtils.isBlank(code))
-            throw new IllegalArgumentException("Code" + Constants.STRING_BLANK_EXEPT);
-        if (!CommonMethods.stringHaveAlphanumerical(code))
-            throw new IllegalArgumentException("Code" + Constants.NON_ALPHANUM_EXEPT);
+        CommonMethods.codeValidation(code);
         this.code = code;
     }
 
