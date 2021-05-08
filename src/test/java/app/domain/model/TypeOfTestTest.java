@@ -89,18 +89,18 @@ public class TypeOfTestTest {
         assertEquals(expected, tot1.getDescription());
     }
     @Test
-    public void checkGetColectingMethodMethod() {
+    public void checkGetCollectingMethodMethod() {
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
         String expected= "cotton swab";
-        assertEquals(expected, tot1.getColectingMethod());
+        assertEquals(expected, tot1.getCollectingMethod());
     }
 
     @Test
-    public void checkSetColectingMethodMethod() {
+    public void checkSetCollectingMethodMethod() {
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
-        tot1.setColectingMethod("Saliva");
+        tot1.setCollectingMethod("Saliva");
         String expected = "Saliva";
-        assertEquals(expected, tot1.getColectingMethod());
+        assertEquals(expected, tot1.getCollectingMethod());
     }
     @Test
     public void checkToStringMethod() {
