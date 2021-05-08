@@ -38,8 +38,6 @@ or more parameters that can be grouped/organized by categories."
             From a previous post: "Each category has a name and a unique code. There are no subcategories."
 
 
-
-
 ### 1.3. Acceptance Criteria
 
 * **AC1:** All required fields must be filled in.

@@ -1,5 +1,6 @@
 package app.domain.store;
 
+import app.domain.model.ParameterCategory;
 import app.domain.model.TypeOfTest;
 
 import java.util.ArrayList;
@@ -9,8 +10,8 @@ public class TypeOfTestStore {
 
     private List<TypeOfTest> typeOfTestList = new ArrayList();
 
-    public TypeOfTest createTypeOfTest(String code, String description, String colectingmethod, String category){
-        return new TypeOfTest(code, description, colectingmethod, category);
+    public TypeOfTest createTypeOfTest(String code, String description, String colectingmethod, List<ParameterCategory> parameterCategoryList){
+        return new TypeOfTest(code, description, colectingmethod, parameterCategoryList);
     }
 
 
