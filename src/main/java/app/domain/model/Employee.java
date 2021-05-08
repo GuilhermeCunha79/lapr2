@@ -1,11 +1,9 @@
 package app.domain.model;
 
 import app.domain.shared.Constants;
-import auth.domain.model.User;
+
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -20,11 +18,11 @@ public class Employee {
     private String phoneNumber;
     private String email;
     private int soc;
-    List<Employee> employeeList = new ArrayList<>();
+
     static final int MAX_CHAR_NAME_EMP= 35;
-    static final int MAX_CHAR_DOC_INDEX_NUM= 6;
+
     static final int MAX_CHAR_SOC= 4;
-    static final int MAX_ORG_ROLE_CHAR=15;
+
     static final int MAX_PHONE_NUMBER_CHAR=11;
     static final int MAX_CHAR_ADDRESS = 30;
 

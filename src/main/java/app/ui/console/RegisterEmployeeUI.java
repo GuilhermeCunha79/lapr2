@@ -1,5 +1,6 @@
-package app.ui.console;
 
+package app.ui.console;
+/*
 import app.controller.RegisterEmployeeController;
 
 import app.ui.console.utils.Utils;
@@ -7,6 +8,7 @@ import app.ui.console.utils.Utils;
 import java.util.Scanner;
 
 public class RegisterEmployeeUI implements Runnable{
+
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -21,9 +23,7 @@ public class RegisterEmployeeUI implements Runnable{
         this.ctrl = new RegisterEmployeeController();
     }
 
-    /**
-     * Basic UI to get the correct inputs to register a Employee.
-     */
+
     public void registerEmployee(){
 
         String empName = Utils.readLineFromConsole("Introduce the Employee name: ");
@@ -56,3 +56,4 @@ public class RegisterEmployeeUI implements Runnable{
 
 
 }
+*/

@@ -38,7 +38,7 @@ public class ParameterCategoryStore {
      * @param pc receives the Parameter category to be added
      * @return if it was successfully added to the store (true or false)
      */
-    public boolean addParameterCategory(ParameterCategory pc)
+    private boolean addParameterCategory(ParameterCategory pc)
     {
         if (pc != null && validateParameterCategory(pc)) {
             return this.parameterCategoryList.add(pc);

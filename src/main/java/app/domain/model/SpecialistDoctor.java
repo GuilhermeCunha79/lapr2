@@ -15,7 +15,7 @@ public class SpecialistDoctor extends Employee {
      * @param email
      * @param soc
      */
-    public SpecialistDoctor(int doctorIndexNumber, String role, String name, String address, String phoneNumber, String email, int soc) {
+    public SpecialistDoctor(String role, String name, String address, String phoneNumber, String email, int soc, int doctorIndexNumber) {
         super(role, name, address, phoneNumber, email, soc);
         this.doctorIndexNumber = doctorIndexNumber;
     }

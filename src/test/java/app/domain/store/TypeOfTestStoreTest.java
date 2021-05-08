@@ -15,7 +15,7 @@ public class TypeOfTestStoreTest  {
     @Before
     public void createCategoryList(){
         ParameterCategory pc2 = pcs.createParameterCategory("52815", "Src");
-        pcs.addParameterCategory(pc2);
+        pcs.saveParameterCategory(pc2);
     }
 
    TypeOfTestStore tots = new TypeOfTestStore();

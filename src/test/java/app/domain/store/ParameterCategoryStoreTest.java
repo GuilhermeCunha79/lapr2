@@ -3,9 +3,6 @@ package app.domain.store;
 import app.domain.model.ParameterCategory;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 
@@ -24,8 +21,8 @@ public class ParameterCategoryStoreTest {
     public void ensureCannotAddSameCategoryTwiceTest2AddCategory(){
         ParameterCategory pc1 = pcs.createParameterCategory("12345", "hemograms");
         ParameterCategory pc2 = pcs.createParameterCategory("12345", "hemograms");
-        pcs.addParameterCategory(pc1);
-        assertFalse(pcs.addParameterCategory(pc2));
+        pcs.saveParameterCategory(pc1);
+        assertFalse(pcs.saveParameterCategory(pc2));
     }
 
     @Test
@@ -38,7 +35,7 @@ public class ParameterCategoryStoreTest {
 
     @Test
     public void ensureAddNullCategoryDontWork(){
-        assertFalse(pcs.addParameterCategory(null));
+        assertFalse(pcs.saveParameterCategory(null));
     }
 
     @Test
