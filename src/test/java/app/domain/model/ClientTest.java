@@ -44,7 +44,7 @@ public class ClientTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureThatNameNotHaveAlphanumericarChar() {
+    public void ensureThatNameNotHaveAlphanumericChar() {
         new Client("To<más", "1234567890123456", "1234567891", "1234567890", "23/12/2010", "male", "12345678901", "tomas@isep.ipp.pt");
     }
 

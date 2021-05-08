@@ -51,7 +51,7 @@ name,
 address, 
 phone Number, and
 TIN number
-allowed to exist?
+
 
 > **Answer** Only the name of two CAL can be same.
 

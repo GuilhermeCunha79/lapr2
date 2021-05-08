@@ -12,18 +12,18 @@ participant "cal:ClinicalAnalysisLaboratory" as cal
 activate ADMIN
 ADMIN -> UI : Register a New Clinical Analysis Laboratory
 activate UI
-UI --> ADMIN : Necessary credentials(laboratoryID, Name, Address, Phone Number,TIN Number)
+UI --> ADMIN : Necessary credentials(laboratoryID, name, address, phoneNumber, tinNumber, typeOfTest)
 deactivate UI
 ADMIN -> UI : types requested data
 activate UI
-    UI -> CTRL : RegisterNewClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number,TIN Number)
+    UI -> CTRL : registerNewClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber, typeOfTest)
     activate CTRL
         CTRL -> comp : store = getClinicalAnalysisLaboratoryStore()
         activate comp
         deactivate comp
-        CTRL -> cals : clinicalAnalysisLaboratory= registerClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number, TIN Number, typeOfTest)
+        CTRL -> cals : clinicalAnalysisLaboratory= registerClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber, typeOfTest)
         activate cals
-            cals --> cal** : register(clinicalAnalysisLaboratory)
+            cals --> cal** : register(laboratoryID, name, address, phoneNumber, tinNumber, typeOfTest)
         deactivate cals
         CTRL -> cals : validateClinicalAnalysisLaboratory(cal)
         activate cals
@@ -37,10 +37,10 @@ activate UI
     activate CTRL
         CTRL -> cals : saveClinicalAnalysisLaboratory(cal)
         activate cals
-            cals -> cals : validateClinicalAnalysisLaboratory(clinicalAnalysisLaboratory)
+            cals -> cals : validateClinicalAnalysisLaboratory(cal)
             activate cals
             deactivate cals
-            cals -> cals : addClinicalAnalysisLaboratory(clinicalAnalysisLaboratory)
+            cals -> cals : addClinicalAnalysisLaboratory(cal)
             activate cals
             deactivate cals
         deactivate cals

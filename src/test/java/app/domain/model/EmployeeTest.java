@@ -9,6 +9,7 @@ public class EmployeeTest {
     Employee employee = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", "1234");
     Employee employee1 = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111311221", "sfgsdfgsfdg@gmail.com", "1234");
 
+
     /**
      * Test of getRole method, of class Employee.
      */

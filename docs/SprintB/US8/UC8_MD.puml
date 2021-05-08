@@ -5,7 +5,8 @@ skinparam classAttributeIconSize 0
 
 
 class Company {
-  -Designation
+  -Name
+  -Location
 }
 
 class Administrator {
@@ -20,14 +21,14 @@ class ClinicalAnalysisLaboratory {
   -TIN Number
 }
 
-class TestType {
+class TypeOfTest {
   -Designation
 }
 
 
 Company "1" -- "*" Administrator : owns >
 Administrator"1..*" -- "*" ClinicalAnalysisLaboratory : Create >
-ClinicalAnalysisLaboratory"*" -- "*" TestType : Has
+ClinicalAnalysisLaboratory"*" -- "*" TypeOfTest : Has
 
 
 @enduml

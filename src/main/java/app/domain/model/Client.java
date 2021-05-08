@@ -37,7 +37,7 @@ public class Client {
      * @param name
      * @param citizenCardNumber
      * @param nhsNumber
-     * @param tinNumber
+     * @0param tinNumber
      * @param birthDate
      * @param sex
      * @param phoneNumber

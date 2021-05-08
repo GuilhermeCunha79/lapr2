@@ -6,31 +6,30 @@ class NewClinicalAnalysisUI{
 
 class NewClinicalAnalysisController
 {
-    +RegisterNewClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number,TIN Number, testType)
+    +RegisterNewClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address)
     +saveClinicalAnalysisLaboratory()
 }
 
 class ClinicalAnalysisLaboratory{
-    -designation
+    -name
+    -phoneNumber
     -laboratoryID
-    -Name
-    -Address
-    -Phone Number
-    -TIN Number
-    -testType
-    +LaboratoryRegister(laboratoryID, Name, Address, Phone Number,TIN Number, testType)
+    -tinNumber
+    -address
+    + register(clinicalAnalysisLaboratory)
 }
 
 class Company{
-	-designation
+	-name
+	-location
 	+getClinicalAnalysisLaboratoryStore()
 }
 
 class ClinicalAnalysisLaboratoryStore{
-    + validateClinicalAnalysisLaboratory()
-    +  addClinicalAnalysisLaboratory()
-    + RegisterClinicalAnalysisLaboratory(laboratoryID, Name, Address, Phone Number, TIN Number, testType)
-    + saveClinicalAnalysisLaboratory()
+    + validateClinicalAnalysisLaboratory(cal)
+    + addClinicalAnalysisLaboratory(cal)
+    + registerClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address)
+    + saveClinicalAnalysisLaboratory(cal)
 }
 
 NewClinicalAnalysisUI ..> NewClinicalAnalysisController
