@@ -2,7 +2,6 @@ package app.domain.model;
 
 import org.junit.Test;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,61 +18,61 @@ public class TypeOfTestTest {
 
     @Test(expected = NullPointerException.class)
     public void ensureNullTypeOfTestIsNotCreated() {
-       TypeOfTest tot = new TypeOfTest(null, null, null, null);
+       new TypeOfTest(null, null, null, null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericCodeAreNotAccepted() {
         Listpc.add(pc);
-       TypeOfTest tot = new TypeOfTest("3%251", "RNA remnants", "cotton swab", Listpc );
+       new TypeOfTest("3%251", "RNA remnants", "cotton swab", Listpc );
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotHaveMoreOrLessThan5Char() {
         Listpc.add(pc);
-        TypeOfTest tot = new TypeOfTest("534366", "RNA remnants", "cotton swab",Listpc );
+        new TypeOfTest("534366", "RNA remnants", "cotton swab",Listpc );
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotBeBlank() {
         Listpc.add(pc);
-        TypeOfTest tot = new TypeOfTest("", "RNA remnants", "cotton swab",Listpc );
+        new TypeOfTest("", "RNA remnants", "cotton swab",Listpc );
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotHaveMoreThan15Char() {
         Listpc.add(pc);
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants and Dna remnats", "cotton swab",Listpc );
+        new TypeOfTest("53436", "RNA remnants and Dna remnats", "cotton swab",Listpc );
     }
 
     @Test
     public void ensureDescriptionCanHave15Char() {
         Listpc.add(pc);
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
+        new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotBeBlank() {
         Listpc.add(pc);
-        TypeOfTest tot = new TypeOfTest("53436", "", "cotton swab",Listpc );
+        new TypeOfTest("53436", "", "cotton swab",Listpc );
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureColectingMethodCannotHaveMoreThan15Char() {
         Listpc.add(pc);
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "cotton swab thro the nose", Listpc);
+        new TypeOfTest("53436", "RNA remnants", "cotton swab thro the nose", Listpc);
     }
 
     @Test
     public void ensureColectingMethodCanHave15Char() {
         Listpc.add(pc);
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
+        new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureColectingMethodCannotBeBlank() {
         Listpc.add(pc);
-        TypeOfTest tot = new TypeOfTest("53436", "RNA remnants", "", Listpc );
+        new TypeOfTest("53436", "RNA remnants", "", Listpc );
     }
 
     @Test
@@ -113,16 +112,16 @@ public class TypeOfTestTest {
         Listpc.add(pc);
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
         String expected= "cotton swab";
-        assertEquals(expected, tot1.getColectingMethod());
+        assertEquals(expected, tot1.getCollectingMethod());
     }
 
     @Test
     public void checkSetColectingMethodMethod() {
         Listpc.add(pc);
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
-        tot1.setColectingMethod("Saliva");
+        tot1.setCollectingMethod("Saliva");
         String expected = "Saliva";
-        assertEquals(expected, tot1.getColectingMethod());
+        assertEquals(expected, tot1.getCollectingMethod());
     }
 /*
     @Test

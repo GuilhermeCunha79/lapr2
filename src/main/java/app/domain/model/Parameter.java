@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import app.domain.shared.CommonMethods;
+import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
@@ -9,7 +11,6 @@ public class Parameter {
     static final int DESCRIPTION_LENGTH = 20;
     static final int CODE_LENGTH = 5;
     static final int SHORT_NAME_LENGTH = 8;
-    static final String STRING_BLANK_EXEPT = "Strings cannot be empty";
 
     private String code;
     private String shortName;
@@ -27,9 +28,6 @@ public class Parameter {
         setCode(code);
         setShortName(shortName);
         setDescription(description);
-        this.code = code;
-        this.shortName = shortName;
-        this.description = description;
         this.category = category;
     }
 
@@ -46,18 +44,16 @@ public class Parameter {
      * @param code receives the new code as a parameter
      */
     public void setCode(String code) {
+        if(code==null)
+            throw new NullPointerException("Code" + Constants.STRING_NULL_EXEPT);
         if (code.length() != CODE_LENGTH)
             throw new IllegalArgumentException("Code needs to have exactly 5 chars");
         if (StringUtils.isBlank(code))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
-
-        for (int i = 0; i < code.length(); i++) {
-            String c = String.valueOf(code.charAt(i));
-            if (!c.matches("[A-Za-z0-9]"))
-                throw new IllegalArgumentException("Code has non alphanumeric chars.");
-        }
+            throw new IllegalArgumentException("Code" + Constants.STRING_BLANK_EXEPT);
+        if(!CommonMethods.stringHaveAlphanumerical(code))
+                throw new IllegalArgumentException("Code" + Constants.NON_ALPHANUM_EXEPT);
         this.code = code;
-    }
+        }
 
     /**
      * Method that allows other classes to access a parameter name
@@ -75,7 +71,7 @@ public class Parameter {
         if (shortName.length() > SHORT_NAME_LENGTH)
             throw new IllegalArgumentException("Short name has more than 8 chars");
         if (StringUtils.isBlank(shortName))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException("Short Name" + Constants.STRING_BLANK_EXEPT);
         this.shortName = shortName;
     }
 
@@ -95,7 +91,7 @@ public class Parameter {
         if (description.length() > DESCRIPTION_LENGTH)
             throw new IllegalArgumentException("Description has more than 20 chars");
         if (StringUtils.isBlank(description))
-            throw new IllegalArgumentException(STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException("Description" + Constants.STRING_BLANK_EXEPT);
         this.description = description;
     }
 

@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import app.domain.shared.CommonMethods;
+import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 import java.time.LocalDate;
@@ -7,11 +9,8 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.regex.Pattern;
 
 /***
  * Client Class
@@ -26,7 +25,6 @@ public class Client {
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
     static final String SEX_BY_OMISSION = "Not defined";
-    List<Client> clientList = new ArrayList<>();
     private String name;
     private String citizenCardNumber;
     private String nhsNumber;
@@ -92,42 +90,6 @@ public class Client {
     }
 
     /***
-     * Verify if the given string just have numbers
-     * @param number
-     * @return
-     */
-    private boolean checkIfStringJustHaveNumbers(String number) {
-        int numberq = 0;
-        for (int i = 0; i < number.length(); i++) {
-            if (Character.isDigit(number.charAt(i))) {
-                numberq++;
-            } else {
-                return false;
-            }
-        }
-        if (numberq == number.length())
-            return true;
-        return false;
-    }
-
-    /***
-     * Verify if the email given is a valid one
-     * @param email
-     * @return
-     */
-    private boolean isValidEmail(String email) {
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
-                "[a-zA-Z0-9_+&*-]+)*@" +
-                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                "A-Z]{2,7}$";
-
-        Pattern pat = Pattern.compile(emailRegex);
-        if (email == null)
-            return false;
-        return pat.matcher(email).matches();
-    }
-
-    /***
      * Convert a given string to Date
      * @param birthDate
      * @return
@@ -156,21 +118,6 @@ public class Client {
     }
 
     /***
-     * Validate a String if it just have letters and spaces
-     * @param name
-     * @return
-     */
-    public static boolean isValidString(String name){
-        for(int i=0;i<name.length();i++){
-            char ch = name.charAt(i);
-            if (Character.isLetter(ch) || ch == ' ') {
-                continue;
-            }
-            return false;
-        }
-        return true;
-    }
-    /***
      * Method that returns the name of the Client
      * @return
      */
@@ -184,13 +131,13 @@ public class Client {
      */
     public void setName(String name) {
         if (name == null)
-            throw new NullPointerException("Name cannot be null");
+            throw new NullPointerException("Name" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(name))
-            throw new IllegalArgumentException("Name cannot be blank.");
+            throw new IllegalArgumentException("Name" + Constants.STRING_BLANK_EXEPT);
         if (name.length() > MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 35 characters");
-        if (!(isValidString(name)))
-            throw new IllegalArgumentException("Name has non alphanumeric characters.");
+        if (!(CommonMethods.isValidString(name)))
+            throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
         this.name = name;
     }
 
@@ -209,11 +156,11 @@ public class Client {
      */
     public void setCitizenCardNumber(String citizenCardNumber) {
         if (citizenCardNumber == null)
-            throw new NullPointerException("Citizen Card Number cannot be null");
+            throw new NullPointerException("Citizen Card Number" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(citizenCardNumber))
-            throw new IllegalArgumentException("Citizen card number cannot be blank.");
-        if ((!checkIfStringJustHaveNumbers(citizenCardNumber) || citizenCardNumber.length() != CITIZEN_CARD_DIGITS))
-            throw new IllegalArgumentException("Citizen card number must have 10 digit numbers.");
+            throw new IllegalArgumentException("Citizen Card Number" + Constants.STRING_BLANK_EXEPT);
+        if ((!CommonMethods.checkIfStringJustHaveNumbers(citizenCardNumber) || citizenCardNumber.length() != CITIZEN_CARD_DIGITS))
+            throw new IllegalArgumentException("Citizen Card Number must have 10 digit numbers.");
         this.citizenCardNumber = citizenCardNumber;
     }
 
@@ -232,10 +179,10 @@ public class Client {
 
     public void setNhsNumber(String nhsNumber) {
         if (nhsNumber == null)
-            throw new NullPointerException("NHS number cannot be null");
+            throw new NullPointerException("NHS number" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(nhsNumber))
-            throw new IllegalArgumentException("NHS number cannot be blank.");
-        if ((!checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHSTIN_NUMBER_DIGITS))
+            throw new IllegalArgumentException("NHS number" + Constants.STRING_BLANK_EXEPT);
+        if ((!CommonMethods.checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHSTIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
         this.nhsNumber = nhsNumber;
     }
@@ -254,10 +201,10 @@ public class Client {
      */
     public void setTinNumber(String tinNumber) {
         if (tinNumber == null)
-            throw new NullPointerException("TIN number cannot be null");
+            throw new NullPointerException("TIN number" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(tinNumber))
-            throw new IllegalArgumentException("TIN number cannot be blank.");
-        if ((!checkIfStringJustHaveNumbers(tinNumber)) || tinNumber.length() != NHSTIN_NUMBER_DIGITS)
+            throw new IllegalArgumentException("TIN number" + Constants.STRING_BLANK_EXEPT);
+        if ((!CommonMethods.checkIfStringJustHaveNumbers(tinNumber)) || tinNumber.length() != NHSTIN_NUMBER_DIGITS)
             throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
         this.tinNumber = tinNumber;
     }
@@ -277,12 +224,12 @@ public class Client {
     public void setBirthDate(String birthDate) {
         LocalDate date = LocalDate.now();
         if (birthDate == null)
-            throw new NullPointerException("Birth date cannot be null");
+            throw new NullPointerException("Birth Date" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(birthDate))
-            throw new IllegalArgumentException("Data cannot be blank.");
+            throw new IllegalArgumentException("Birth Date" + Constants.STRING_BLANK_EXEPT);
 
         if (!(checkBirthDateRules(birthDate)))
-            throw new IllegalArgumentException("The date of birth provided is in an incorrect format. Correct format: DD/MM/YYYY");
+            throw new IllegalArgumentException("The Birth Date provided is in an incorrect format. Correct format: DD/MM/YYYY");
 
         if (calculateAge(convertStringToDate(birthDate), date) > MAX_AGE)
             throw new IllegalArgumentException("It is not possible to register a client older than 150 years.");
@@ -305,9 +252,9 @@ public class Client {
      */
     public void setSex(String sex) {
         if (sex == null)
-            throw new NullPointerException("Sex cannot be null");
+            throw new NullPointerException("Sex" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(sex))
-            throw new IllegalArgumentException("Sex cannot be blank.");
+            throw new IllegalArgumentException("Sex" + Constants.STRING_BLANK_EXEPT);
         if (!(sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE)))
             throw new IllegalArgumentException("Sex must be Male or Female.");
         this.sex = sex;
@@ -327,11 +274,11 @@ public class Client {
      */
     public void setPhoneNumber(String phoneNumber) {
         if (phoneNumber == null)
-            throw new NullPointerException("Phone number cannot be null");
+            throw new NullPointerException("Phone Number" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(phoneNumber))
-            throw new IllegalArgumentException("Phone number cannot be blank.");
-        if (!(checkIfStringJustHaveNumbers(phoneNumber)) || phoneNumber.length() != PHONE_NUMBER_DIGITS)
-            throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
+            throw new IllegalArgumentException("Phone Number" + Constants.STRING_BLANK_EXEPT);
+        if (!(CommonMethods.checkIfStringJustHaveNumbers(phoneNumber)) || phoneNumber.length() != PHONE_NUMBER_DIGITS)
+            throw new IllegalArgumentException("Phone Number must have 11 digit numbers.");
         this.phoneNumber = phoneNumber;
     }
 
@@ -349,10 +296,10 @@ public class Client {
      */
     public void setEmail(String email) {
         if (email == null)
-            throw new NullPointerException("Email cannot be null");
+            throw new NullPointerException("Email" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(email))
-            throw new IllegalArgumentException("Email cannot be blank.");
-        if (!isValidEmail(email))
+            throw new IllegalArgumentException("Email" + Constants.STRING_BLANK_EXEPT);
+        if (!CommonMethods.isValidEmail(email))
             throw new IllegalArgumentException("The introduced email is not valid.");
         this.email = email;
     }

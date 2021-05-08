@@ -11,6 +11,10 @@ public class Constants {
 
     public static final String ROLE_CLIENT = "CLIENT";
 
+    public static final String STRING_BLANK_EXEPT =  " cannot be empty.";
+    public static final String STRING_NULL_EXEPT =  " cannot be null.";
+    public static final String NON_ALPHANUM_EXEPT =  " has non alphanumeric chars.";
+
 
     public static final String PARAMS_FILENAME = "config.properties";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";

@@ -1,29 +1,31 @@
 package app.domain.model;
 
+import app.domain.shared.CommonMethods;
+import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Objects;
+
 
 public class TypeOfTest {
 
     static final int DESCRIPTION_LENGTH = 15;
     static final int CODE_LENGTH = 5;
-    static final int COLECTING_METHOD_LENGTH = 20;
-
+    static final int COLLECTING_METHOD_LENGTH = 20;
+    private final List<ParameterCategory> parameterCategoryList;
     private String code;
     private String description;
-    private String colectingMethod;
-    private List<ParameterCategory> parameterCategoryList = new ArrayList();
+    private String collectingMethod;
 
-    public TypeOfTest(String code, String description, String colectingMethod, List<ParameterCategory> parameterCategoryList){
+
+    public TypeOfTest(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoryList){
         setCode(code);
         setDescription(description);
-        setColectingMethod(colectingMethod);
+        setCollectingMethod(collectingMethod);
         this.code = code;
         this.description = description;
-        this.colectingMethod = colectingMethod;
+        this.collectingMethod = collectingMethod;
         this.parameterCategoryList = parameterCategoryList;
     }
 
@@ -33,50 +35,53 @@ public class TypeOfTest {
 
     public String getDescription() { return description; }
 
-    public String getColectingMethod() { return colectingMethod; }
+    public String getCollectingMethod() { return collectingMethod; }
+
 
     public void setCode(String code) {
+        if (code == null)
+            throw new NullPointerException("Code" + Constants.STRING_NULL_EXEPT);
         if (code.length() != CODE_LENGTH)
-            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
+            throw new IllegalArgumentException("Code needs to have exactly 5 characters");
         if (StringUtils.isBlank(code))
-            throw new IllegalArgumentException("Code cannot be blank");
-
-        for (int i = 0; i < code.length(); i++) {
-            String c = String.valueOf(code.charAt(i));
-            if (!c.matches("[A-Za-z0-9]"))
-                throw new IllegalArgumentException("Code has non alphanumeric chars.");
-        }
+            throw new IllegalArgumentException("Code" + Constants.STRING_BLANK_EXEPT);
+        if (!CommonMethods.stringHaveAlphanumerical(code))
+            throw new IllegalArgumentException("Code" + Constants.NON_ALPHANUM_EXEPT);
         this.code = code;
     }
 
     public void setDescription(String description) {
-        if(StringUtils.isBlank(description))
-            throw new IllegalArgumentException("Description cannot be blank");
+        if (description == null)
+            throw new NullPointerException("Description" + Constants.STRING_NULL_EXEPT);
+        if (StringUtils.isBlank(description))
+            throw new IllegalArgumentException("Description" + Constants.STRING_BLANK_EXEPT);
         if (description.length() > DESCRIPTION_LENGTH)
-            throw new IllegalArgumentException("Too long description has more than 15 chars");
+            throw new IllegalArgumentException("Description cannot have more than 15 characters.");
         this.description = description;
     }
 
-    public void setColectingMethod(String colectingMethod) {
-        if(StringUtils.isBlank(colectingMethod))
-            throw new IllegalArgumentException("Colecting method cannot be blank");
-        if (colectingMethod.length() > COLECTING_METHOD_LENGTH)
-            throw new IllegalArgumentException("Too long colecting method has more than 20 chars");
-        this.colectingMethod = colectingMethod;
+    public void setCollectingMethod(String collectingMethod) {
+        if (collectingMethod == null)
+            throw new NullPointerException("Collecting method" + Constants.STRING_NULL_EXEPT);
+        if (StringUtils.isBlank(collectingMethod))
+            throw new IllegalArgumentException("Collecting method" + Constants.STRING_BLANK_EXEPT);
+        if (collectingMethod.length() > COLLECTING_METHOD_LENGTH)
+            throw new IllegalArgumentException("Collecting method cannot have more than 20 characters");
+        this.collectingMethod = collectingMethod;
     }
 
     @Override
     public String toString() {
-        return String.format("Type of Test: \nCode: %s \nDescription: %s \nColecting Method: %s \n%s", this.code, this.description, this.colectingMethod, this.printCategories() );
+        return String.format("Type of Test: %nCode: %s %nDescription: %s %nCollecting Method: %s %n%s", this.code, this.description, this.collectingMethod, this.printCategories() );
     }
 
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        TypeOfTest newtot = (TypeOfTest) obj;
-        return code == newtot.code || description.equals(newtot.description) &&
-                colectingMethod.equals(newtot.colectingMethod);
+        TypeOfTest newTot = (TypeOfTest) obj;
+        return code == newTot.code || description.equals(newTot.description) &&
+                collectingMethod.equals(newTot.collectingMethod);
     }
 
     private String printCategories(){
@@ -88,7 +93,7 @@ public class TypeOfTest {
                 output =output.concat(System.lineSeparator());
             }
         }else {
-            output.concat("No Categorys");
+            output.concat("No Categories");
         }
         return output;
     }

@@ -1,5 +1,7 @@
 package app.domain.model;
 
+import app.domain.shared.CommonMethods;
+import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -20,8 +22,6 @@ public class ClinicalAnalysisLaboratory {
     private String phoneNumber;
     private String laboratoryID;
     private int laboratoryCount = 0; //PERGUNTAR FORMATOOOOOOOOOOOOOOOOOOOOOOOOO
-    List<ClinicalAnalysisLaboratory> laboratoryList = new ArrayList<>();
-
     static final int MAX_CHAR_NAME = 20;
     static final int PHONE_NUMBER_DIGITS = 11;
     static final int TIN_NUMBER_DIGITS = 10;
@@ -82,18 +82,14 @@ public class ClinicalAnalysisLaboratory {
      */
     public void setName(String name) {
         if (name == null)
-            throw new IllegalArgumentException("Name cannot be null");
+            throw new NullPointerException("Name" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(name))
-            throw new IllegalArgumentException("Name cannot be blank");
+            throw new IllegalArgumentException("Name" + Constants.STRING_BLANK_EXEPT);
         if (name.length() > MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 20 characters");
-        for (int i = 0; i < name.length(); i++) {
-            String d = String.valueOf(name.charAt(i));
-            if (!d.matches("[A-Za-zÁ-Úá-ú]"))
-                throw new IllegalArgumentException("Name has non alphanumeric chars.");
-        }
+        if(!CommonMethods.stringHaveAlphanumerical(name))
+                throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
         this.name = name;
-
     }
 
     /***
@@ -110,16 +106,13 @@ public class ClinicalAnalysisLaboratory {
      */
     public void setAddress(String address) {
         if (address == null)
-            throw new NullPointerException("Address cannot be null");
+            throw new NullPointerException("Address" + Constants.STRING_NULL_EXEPT);
         if (address.length() > MAX_CHAR_ADDRESS)
             throw new IllegalArgumentException("Address cannot have more than 35 characters");
         if (StringUtils.isBlank(address))
-            throw new IllegalArgumentException("Address cannot be blank");
-        for (int i = 0; i < address.length(); i++) {
-            String c = String.valueOf(address.charAt(i));
-            if (!c.matches("[A-Za-z0-9]"))
-                throw new IllegalArgumentException("Address has non alphanumeric chars.");
-        }
+            throw new IllegalArgumentException("Address" + Constants.STRING_BLANK_EXEPT);
+        if(!CommonMethods.stringHaveAlphanumerical(address))
+                throw new IllegalArgumentException("Address" + Constants.NON_ALPHANUM_EXEPT);
         this.address = address;
     }
 
@@ -138,9 +131,9 @@ public class ClinicalAnalysisLaboratory {
      */
     public void setTinNumber(String tinNumber) {
         if (tinNumber == null)
-            throw new NullPointerException("TIN number cannot be null");
+            throw new NullPointerException("TIN number" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(tinNumber))
-            throw new IllegalArgumentException("TIN number cannot be blank.");
+            throw new IllegalArgumentException("TIN number" + Constants.STRING_BLANK_EXEPT);
         if ((!checkStringNumbers(tinNumber)) || tinNumber.length() != TIN_NUMBER_DIGITS)
             throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
         this.tinNumber = tinNumber;
@@ -152,9 +145,9 @@ public class ClinicalAnalysisLaboratory {
      */
     public void setPhoneNumber(String phoneNumber) {
         if (phoneNumber == null)
-            throw new NullPointerException("Phone number cannot be null");
+            throw new NullPointerException("Phone number" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(phoneNumber))
-            throw new IllegalArgumentException("Phone number cannot be blank.");
+            throw new IllegalArgumentException("Phone number" + Constants.STRING_BLANK_EXEPT);
         if ((!checkStringNumbers(phoneNumber)) || phoneNumber.length() != PHONE_NUMBER_DIGITS)
             throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
         this.phoneNumber = phoneNumber;
@@ -166,16 +159,13 @@ public class ClinicalAnalysisLaboratory {
      */
     public void setLaboratoryID(String laboratoryID) {
         if (laboratoryID == null)
-            throw new IllegalArgumentException("LaboratoryID cannot be null");
+            throw new NullPointerException("LaboratoryID" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(laboratoryID))
-            throw new IllegalArgumentException("LaboratoryID cannot be blank");
+            throw new IllegalArgumentException("LaboratoryID" + Constants.STRING_BLANK_EXEPT);
         if (laboratoryID.length() > MAX_CHAR_LABORATORY_ID)
             throw new IllegalArgumentException("LaboratoryID cannot have more than 5 alphanumerical characters");
-        for (int i = 0; i < laboratoryID.length(); i++) {
-            String d = String.valueOf(laboratoryID.charAt(i));
-            if (!d.matches("[A-Za-z0-9]"))
-                throw new IllegalArgumentException("LaboratoryID has alphanumeric chars.");
-        }
+        if(!CommonMethods.stringHaveAlphanumerical(laboratoryID))
+                throw new IllegalArgumentException("LaboratoryID" + Constants.NON_ALPHANUM_EXEPT);
         this.laboratoryID = laboratoryID;
 
     }

@@ -1,9 +1,12 @@
 package app.domain.model;
 
+import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
-
+import auth.domain.model.User;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -18,11 +21,8 @@ public class Employee {
     private String phoneNumber;
     private String email;
     private int soc;
-
     static final int MAX_CHAR_NAME_EMP= 35;
-
     static final int MAX_CHAR_SOC= 4;
-
     static final int MAX_PHONE_NUMBER_CHAR=11;
     static final int MAX_CHAR_ADDRESS = 30;
 
@@ -54,70 +54,19 @@ public class Employee {
      */
 
     private String employeeIdCreator() {
-        String nameInitials = "";
+        StringBuilder nameInitials = new StringBuilder();
         if(this.name!=null){
             for (int i = 0; i < this.name.length(); i++) {
                 char letter = this.name.charAt(i);
                 if (Character.isUpperCase(letter)){
-                    nameInitials += letter;
+                    nameInitials.append(letter);
                 }
             }
         }
         return String.format("%s%05d", nameInitials, employeeCount);
     }
 
-    /***
-     * Verify if the email given is a valid one
-     * @param email
-     * @return
-     */
-    private boolean isValidEmail(String email) {
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
-                "[a-zA-Z0-9_+&*-]+)*@" +
-                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                "A-Z]{2,7}$";
 
-        Pattern pat = Pattern.compile(emailRegex);
-        if (email == null)
-            return false;
-        return pat.matcher(email).matches();
-    }
-
-    /***
-     * Check if a string just have letters and spaces
-     * @param name
-     * @return
-     */
-
-    public static boolean isValidString(String name){
-        for(int i=0;i<name.length();i++){
-            char ch = name.charAt(i);
-            if (Character.isLetter(ch) || ch == ' ') {
-                continue;
-            }
-            return false;
-        }
-        return true;
-    }
-
-    /***
-     * Verify if the given string just have numbers
-     * @param number
-     * @return
-     */
-    private boolean checkIfStringJustHaveNumbers(String number) {
-        int numberq = 0;
-        for (int i = 0; i < number.length(); i++) {
-            if (Character.isDigit(number.charAt(i))) {
-                numberq++;
-            } else {
-                return false;
-            }
-        }
-        if (numberq == number.length())
-            return true;
-        return false;
-    }
     /**
      * Method that returns the id of the employee
      *
@@ -143,10 +92,11 @@ public class Employee {
      */
     public void setRole(String role) {
         if(role==null)
-            throw new NullPointerException("Role cannot be null.");
+            throw new NullPointerException("Role" + Constants.STRING_NULL_EXEPT);
         if(StringUtils.isBlank(role))
-            throw new IllegalArgumentException("Role cannot be blank");
-        if(!(role.equalsIgnoreCase(Constants.ROLE_ADMIN) || role.equalsIgnoreCase(Constants.ROLE_RECEPTIONIST) || role.equalsIgnoreCase(Constants.ROLE_SPECIALIST_DOCTOR)));
+            throw new IllegalArgumentException("Role" + Constants.STRING_BLANK_EXEPT);
+        if(!(role.equalsIgnoreCase(Constants.ROLE_ADMIN) || role.equalsIgnoreCase(Constants.ROLE_RECEPTIONIST) || role.equalsIgnoreCase(Constants.ROLE_SPECIALIST_DOCTOR)))
+            throw new IllegalArgumentException("The inserted Role it's not valid");
         this.role = role;
     }
 
@@ -166,13 +116,13 @@ public class Employee {
      */
     public void setName(String name) {
         if (name == null)
-            throw new NullPointerException("Name cannot be null");
+            throw new NullPointerException("Name" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(name))
-            throw new IllegalArgumentException("Name cannot be blank.");
+            throw new IllegalArgumentException("Name" + Constants.STRING_BLANK_EXEPT);
         if (name.length() > MAX_CHAR_NAME_EMP)
             throw new IllegalArgumentException("Name cannot have more than 35 characters");
-        if (!(isValidString(name)))
-            throw new IllegalArgumentException("Name has non alphanumeric characters.");
+        if (!(CommonMethods.isValidString(name)))
+            throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
         this.name = name;
     }
 
@@ -192,16 +142,14 @@ public class Employee {
      */
     public void setAddress(String address) {
         if (address == null)
-            throw new NullPointerException("Address cannot be null");
+            throw new NullPointerException("Address" + Constants.STRING_NULL_EXEPT);
         if (address.length() > MAX_CHAR_ADDRESS)
             throw new IllegalArgumentException("Address cannot have more than 35 characters");
         if (StringUtils.isBlank(address))
-            throw new IllegalArgumentException("Address cannot be blank");
-        for (int i = 0; i < address.length(); i++) {
-            String c = String.valueOf(address.charAt(i));
-            if (!c.matches("[A-Za-z0-9]"))
-                throw new IllegalArgumentException("Address has non alphanumeric chars.");
-        }
+            throw new IllegalArgumentException("Address" + Constants.STRING_BLANK_EXEPT);
+        if(!CommonMethods.stringHaveAlphanumerical(address))
+        throw new IllegalArgumentException("Address" + Constants.NON_ALPHANUM_EXEPT);
+
         this.address = address;
     }
 
@@ -221,10 +169,10 @@ public class Employee {
      */
     public void setPhoneNumber(String phoneNumber) {
         if (phoneNumber == null)
-            throw new NullPointerException("Phone number cannot be null");
+            throw new NullPointerException("Phone number" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(phoneNumber))
-            throw new IllegalArgumentException("Phone number cannot be blank.");
-        if (!(checkIfStringJustHaveNumbers(phoneNumber)) || phoneNumber.length() != MAX_PHONE_NUMBER_CHAR)
+            throw new IllegalArgumentException("Phone number" + Constants.STRING_BLANK_EXEPT);
+        if (!(CommonMethods.checkIfStringJustHaveNumbers(phoneNumber)) || phoneNumber.length() != MAX_PHONE_NUMBER_CHAR)
             throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
         this.phoneNumber = phoneNumber;
     }
@@ -245,10 +193,10 @@ public class Employee {
      */
     public void setEmail(String email) {
         if (email == null)
-            throw new NullPointerException("Email cannot be null");
+            throw new NullPointerException("Email" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(email))
-            throw new IllegalArgumentException("Email cannot be blank.");
-        if (!isValidEmail(email))
+            throw new IllegalArgumentException("Email" + Constants.STRING_BLANK_EXEPT);
+        if (!CommonMethods.isValidEmail(email))
             throw new IllegalArgumentException("The introduced email is not valid.");
         this.email = email;
     }
@@ -269,7 +217,7 @@ public class Employee {
      */
     public void setSoc(int soc) {
         if (soc == 0)
-            throw new IllegalArgumentException("SOC cannot be blank.");
+            throw new IllegalArgumentException("SOC" + Constants.STRING_BLANK_EXEPT);
         if(soc == MAX_CHAR_SOC)
             throw new IllegalArgumentException("SOC needs to have exactly 4 characters.");
         this.soc = soc;
