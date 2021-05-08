@@ -19,10 +19,11 @@ public class Parameter {
 
     /**
      * Class Constructor with all parameters needed to create a new parameter
-     * @param code code of the parameter
-     * @param shortName name of the parameter
+     *
+     * @param code        code of the parameter
+     * @param shortName   name of the parameter
      * @param description description of the parameter
-     * @param category category chosen from a list of categories registered in the system
+     * @param category    category chosen from a list of categories registered in the system
      */
     public Parameter(String code, String shortName, String description, String category) {
         setCode(code);
@@ -33,6 +34,7 @@ public class Parameter {
 
     /**
      * Method that allows other classes to access a parameter code
+     *
      * @return a String with the parameter code
      */
     public String getCode() {
@@ -41,22 +43,24 @@ public class Parameter {
 
     /**
      * Method that verifies if acceptation criterias for a new code are met and also change a parameter code
+     *
      * @param code receives the new code as a parameter
      */
     public void setCode(String code) {
-        if(code==null)
+        if (code == null)
             throw new NullPointerException("Code" + Constants.STRING_NULL_EXEPT);
         if (code.length() != CODE_LENGTH)
             throw new IllegalArgumentException("Code needs to have exactly 5 chars");
         if (StringUtils.isBlank(code))
             throw new IllegalArgumentException("Code" + Constants.STRING_BLANK_EXEPT);
-        if(!CommonMethods.stringHaveAlphanumerical(code))
-                throw new IllegalArgumentException("Code" + Constants.NON_ALPHANUM_EXEPT);
+        if (!CommonMethods.stringHaveAlphanumerical(code))
+            throw new IllegalArgumentException("Code" + Constants.NON_ALPHANUM_EXEPT);
         this.code = code;
-        }
+    }
 
     /**
      * Method that allows other classes to access a parameter name
+     *
      * @return a String with the parameter name
      */
     public String getShortName() {
@@ -65,6 +69,7 @@ public class Parameter {
 
     /**
      * Method that verifies if acceptation criterias for a new name are met and also change a parameter name
+     *
      * @param shortName receives the new name as a parameter
      */
     public void setShortName(String shortName) {
@@ -77,6 +82,7 @@ public class Parameter {
 
     /**
      * Method that allows other classes to access a parameter description
+     *
      * @return a String with the parameter description
      */
     public String getDescription() {
@@ -85,6 +91,7 @@ public class Parameter {
 
     /**
      * Method that verifies if acceptation criterias for a new description are met and also change a parameter description
+     *
      * @param description receives the new description as a parameter
      */
     public void setDescription(String description) {
@@ -97,6 +104,7 @@ public class Parameter {
 
     /**
      * This method returns a string with all the data of the instance of parameter that called the method
+     *
      * @return a string with the data
      */
     @Override
@@ -107,6 +115,7 @@ public class Parameter {
 
     /**
      * Method used to check if two objects are equals or not, by comparing their attributes.
+     *
      * @param o object to be compared to the object that called the method
      * @return true or false
      */

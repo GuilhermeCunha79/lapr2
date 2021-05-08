@@ -23,7 +23,6 @@ public class Employee {
     private int soc;
     static final int MAX_CHAR_NAME_EMP= 35;
     static final int MAX_CHAR_SOC= 4;
-    static final int MAX_PHONE_NUMBER_CHAR=11;
     static final int MAX_CHAR_ADDRESS = 30;
 
     private static int employeeCount = 0;
@@ -115,14 +114,7 @@ public class Employee {
      * @param name
      */
     public void setName(String name) {
-        if (name == null)
-            throw new NullPointerException("Name" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(name))
-            throw new IllegalArgumentException("Name" + Constants.STRING_BLANK_EXEPT);
-        if (name.length() > MAX_CHAR_NAME_EMP)
-            throw new IllegalArgumentException("Name cannot have more than 35 characters");
-        if (!(CommonMethods.isValidString(name)))
-            throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
+        CommonMethods.nameClientEmployeeValidation(name);
         this.name = name;
     }
 
@@ -168,12 +160,7 @@ public class Employee {
      * @param phoneNumber
      */
     public void setPhoneNumber(String phoneNumber) {
-        if (phoneNumber == null)
-            throw new NullPointerException("Phone number" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(phoneNumber))
-            throw new IllegalArgumentException("Phone number" + Constants.STRING_BLANK_EXEPT);
-        if (!(CommonMethods.checkIfStringJustHaveNumbers(phoneNumber)) || phoneNumber.length() != MAX_PHONE_NUMBER_CHAR)
-            throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
+        CommonMethods.phoneValidation(phoneNumber);
         this.phoneNumber = phoneNumber;
     }
 
@@ -192,12 +179,7 @@ public class Employee {
      * @param email
      */
     public void setEmail(String email) {
-        if (email == null)
-            throw new NullPointerException("Email" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(email))
-            throw new IllegalArgumentException("Email" + Constants.STRING_BLANK_EXEPT);
-        if (!CommonMethods.isValidEmail(email))
-            throw new IllegalArgumentException("The introduced email is not valid.");
+        CommonMethods.isValidEmail(email);
         this.email = email;
     }
 

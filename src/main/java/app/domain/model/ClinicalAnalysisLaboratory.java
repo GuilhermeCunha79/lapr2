@@ -4,8 +4,6 @@ import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -16,17 +14,15 @@ import java.util.regex.Pattern;
 public class ClinicalAnalysisLaboratory {
 
 
+    static final int MAX_CHAR_NAME = 20;
+    static final int MAX_CHAR_LABORATORY_ID = 5;
+    static final int MAX_CHAR_ADDRESS = 30;
     private String name;
     private String address;
     private String tinNumber;
     private String phoneNumber;
     private String laboratoryID;
     private int laboratoryCount = 0; //PERGUNTAR FORMATOOOOOOOOOOOOOOOOOOOOOOOOO
-    static final int MAX_CHAR_NAME = 20;
-    static final int PHONE_NUMBER_DIGITS = 11;
-    static final int TIN_NUMBER_DIGITS = 10;
-    static final int MAX_CHAR_LABORATORY_ID = 5;
-    static final int MAX_CHAR_ADDRESS = 30;
 
 
     /***
@@ -39,13 +35,35 @@ public class ClinicalAnalysisLaboratory {
      */
 
 
-    public ClinicalAnalysisLaboratory (String name, String phoneNumber, String laboratoryID, String tinNumber, String address) {
+    public ClinicalAnalysisLaboratory(String name, String phoneNumber, String laboratoryID, String tinNumber, String address) {
         setName(name);
         setTinNumber(tinNumber);
         setPhoneNumber(phoneNumber);
         setLaboratoryID(laboratoryID);
         setAddress(address);
     }
+
+    /***
+     * Validate a Clinical Analysis Laboratory if it's not null
+     * @param clinicalAnalysisLaboratory
+     * @return
+     */
+    public static boolean validateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory) {
+        return (clinicalAnalysisLaboratory.name != null
+                && clinicalAnalysisLaboratory.tinNumber != null
+                && clinicalAnalysisLaboratory.address != null
+                && clinicalAnalysisLaboratory.phoneNumber != null
+                && clinicalAnalysisLaboratory.laboratoryID != null);
+    }
+
+/*
+    /***
+     * Verify if the typeOfTest respect the imposed rules
+     * @param typeOfTest
+
+    private void checkTypeOfTestRules(String typeOfTest) {
+
+*/
 
     /***
      * Verify if the given string just have numbers
@@ -58,15 +76,6 @@ public class ClinicalAnalysisLaboratory {
         }
         return true;
     }
-
-/*
-    /***
-     * Verify if the typeOfTest respect the imposed rules
-     * @param typeOfTest
-
-    private void checkTypeOfTestRules(String typeOfTest) {
-
-*/
 
     /***
      * Method to get the Clinical Analysis Laboratory name
@@ -87,8 +96,8 @@ public class ClinicalAnalysisLaboratory {
             throw new IllegalArgumentException("Name" + Constants.STRING_BLANK_EXEPT);
         if (name.length() > MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 20 characters");
-        if(!CommonMethods.stringHaveAlphanumerical(name))
-                throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
+        if (!CommonMethods.stringHaveAlphanumerical(name))
+            throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
         this.name = name;
     }
 
@@ -111,11 +120,10 @@ public class ClinicalAnalysisLaboratory {
             throw new IllegalArgumentException("Address cannot have more than 35 characters");
         if (StringUtils.isBlank(address))
             throw new IllegalArgumentException("Address" + Constants.STRING_BLANK_EXEPT);
-        if(!CommonMethods.stringHaveAlphanumerical(address))
-                throw new IllegalArgumentException("Address" + Constants.NON_ALPHANUM_EXEPT);
+        if (!CommonMethods.stringHaveAlphanumerical(address))
+            throw new IllegalArgumentException("Address" + Constants.NON_ALPHANUM_EXEPT);
         this.address = address;
     }
-
 
     /***
      * Method to get the Clinical Analysis Laboratory tinNumber
@@ -130,12 +138,7 @@ public class ClinicalAnalysisLaboratory {
      * @param tinNumber
      */
     public void setTinNumber(String tinNumber) {
-        if (tinNumber == null)
-            throw new NullPointerException("TIN number" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(tinNumber))
-            throw new IllegalArgumentException("TIN number" + Constants.STRING_BLANK_EXEPT);
-        if ((!checkStringNumbers(tinNumber)) || tinNumber.length() != TIN_NUMBER_DIGITS)
-            throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
+        CommonMethods.tinValidation(tinNumber);
         this.tinNumber = tinNumber;
     }
 
@@ -144,12 +147,7 @@ public class ClinicalAnalysisLaboratory {
      * @param phoneNumber
      */
     public void setPhoneNumber(String phoneNumber) {
-        if (phoneNumber == null)
-            throw new NullPointerException("Phone number" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(phoneNumber))
-            throw new IllegalArgumentException("Phone number" + Constants.STRING_BLANK_EXEPT);
-        if ((!checkStringNumbers(phoneNumber)) || phoneNumber.length() != PHONE_NUMBER_DIGITS)
-            throw new IllegalArgumentException("Phone number must have 11 digit numbers.");
+        CommonMethods.phoneValidation(phoneNumber);
         this.phoneNumber = phoneNumber;
     }
 
@@ -164,24 +162,12 @@ public class ClinicalAnalysisLaboratory {
             throw new IllegalArgumentException("LaboratoryID" + Constants.STRING_BLANK_EXEPT);
         if (laboratoryID.length() > MAX_CHAR_LABORATORY_ID)
             throw new IllegalArgumentException("LaboratoryID cannot have more than 5 alphanumerical characters");
-        if(!CommonMethods.stringHaveAlphanumerical(laboratoryID))
-                throw new IllegalArgumentException("LaboratoryID" + Constants.NON_ALPHANUM_EXEPT);
+        if (!CommonMethods.stringHaveAlphanumerical(laboratoryID))
+            throw new IllegalArgumentException("LaboratoryID" + Constants.NON_ALPHANUM_EXEPT);
         this.laboratoryID = laboratoryID;
 
     }
 
-    /***
-     * Validate a Clinical Analysis Laboratory if it's not null
-     * @param clinicalAnalysisLaboratory
-     * @return
-     */
-    public static boolean validateClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory clinicalAnalysisLaboratory) {
-        return (clinicalAnalysisLaboratory.name != null
-                && clinicalAnalysisLaboratory.tinNumber != null
-                && clinicalAnalysisLaboratory.address != null
-                && clinicalAnalysisLaboratory.phoneNumber != null
-                && clinicalAnalysisLaboratory.laboratoryID != null);
-    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

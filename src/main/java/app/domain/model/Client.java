@@ -18,9 +18,7 @@ import java.util.Objects;
 public class Client {
 
     static final int CITIZEN_CARD_DIGITS = 16;
-    static final int MAX_CHAR_NAME = 35;
-    static final int NHSTIN_NUMBER_DIGITS = 10;
-    static final int PHONE_NUMBER_DIGITS = 11;
+    static final int NHS_MAX_CHAR=10;
     static final int MAX_AGE = 150;
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
@@ -35,9 +33,10 @@ public class Client {
     private String email;
 
     /***
-     * Constructor for class Client, complete
-     * @param nhsNumber
+     * Complete constructor for class Client
      * @param name
+     * @param citizenCardNumber
+     * @param nhsNumber
      * @param tinNumber
      * @param birthDate
      * @param sex
@@ -56,9 +55,10 @@ public class Client {
     }
 
     /***
-     * Constructor for class Client, without sex and with phoneNumber
-     * @param nhsNumber
+     * Constructor for class Client, without sex
      * @param name
+     * @param citizenCardNumber
+     * @param nhsNumber
      * @param tinNumber
      * @param birthDate
      * @param phoneNumber
@@ -103,7 +103,7 @@ public class Client {
     /***
      * Verify if the given birth respect the correct format (DD/MM/YYYY)
      * @param birthDate
-     * @return
+     * @return valid
      */
 
     private boolean checkBirthDateRules(String birthDate) {
@@ -119,7 +119,7 @@ public class Client {
 
     /***
      * Method that returns the name of the Client
-     * @return
+     * @return name
      */
     public String getName() {
         return name;
@@ -130,21 +130,13 @@ public class Client {
      * @param name
      */
     public void setName(String name) {
-        if (name == null)
-            throw new NullPointerException("Name" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(name))
-            throw new IllegalArgumentException("Name" + Constants.STRING_BLANK_EXEPT);
-        if (name.length() > MAX_CHAR_NAME)
-            throw new IllegalArgumentException("Name cannot have more than 35 characters");
-        if (!(CommonMethods.isValidString(name)))
-            throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
+        CommonMethods.nameClientEmployeeValidation(name);
         this.name = name;
     }
 
-
     /***
      * Method that returns the citizen card number of the Client
-     * @return
+     * @return citizenCardNumber
      */
     public String getCitizenCardNumber() {
         return citizenCardNumber;
@@ -166,7 +158,7 @@ public class Client {
 
     /***
      * Method that returns the nhs number of the Client
-     * @return
+     * @return nhsNumber
      */
     public String getNhsNumber() {
         return nhsNumber;
@@ -182,14 +174,14 @@ public class Client {
             throw new NullPointerException("NHS number" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(nhsNumber))
             throw new IllegalArgumentException("NHS number" + Constants.STRING_BLANK_EXEPT);
-        if ((!CommonMethods.checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHSTIN_NUMBER_DIGITS))
+        if ((!CommonMethods.checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHS_MAX_CHAR))
             throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
         this.nhsNumber = nhsNumber;
     }
 
     /***
      * Method that returns the tin number of the Client
-     * @return
+     * @return tinNumber
      */
     public String getTinNumber() {
         return tinNumber;
@@ -200,18 +192,13 @@ public class Client {
      * @param tinNumber
      */
     public void setTinNumber(String tinNumber) {
-        if (tinNumber == null)
-            throw new NullPointerException("TIN number" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(tinNumber))
-            throw new IllegalArgumentException("TIN number" + Constants.STRING_BLANK_EXEPT);
-        if ((!CommonMethods.checkIfStringJustHaveNumbers(tinNumber)) || tinNumber.length() != NHSTIN_NUMBER_DIGITS)
-            throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
+        CommonMethods.tinValidation(tinNumber);
         this.tinNumber = tinNumber;
     }
 
     /***
      * Method that returns the birth date of the Client
-     * @return
+     * @return birthDate
      */
     public String getBirthDate() {
         return birthDate;
@@ -227,10 +214,8 @@ public class Client {
             throw new NullPointerException("Birth Date" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(birthDate))
             throw new IllegalArgumentException("Birth Date" + Constants.STRING_BLANK_EXEPT);
-
         if (!(checkBirthDateRules(birthDate)))
             throw new IllegalArgumentException("The Birth Date provided is in an incorrect format. Correct format: DD/MM/YYYY");
-
         if (calculateAge(convertStringToDate(birthDate), date) > MAX_AGE)
             throw new IllegalArgumentException("It is not possible to register a client older than 150 years.");
 
@@ -240,7 +225,7 @@ public class Client {
 
     /***
      * Method that returns the sex of the Client
-     * @return
+     * @return sex
      */
     public String getSex() {
         return sex;
@@ -262,7 +247,7 @@ public class Client {
 
     /***
      * Method that returns the phone number of the Client
-     * @return
+     * @return phoneNumber
      */
     public String getPhoneNumber() {
         return phoneNumber;
@@ -273,18 +258,13 @@ public class Client {
      * @param phoneNumber
      */
     public void setPhoneNumber(String phoneNumber) {
-        if (phoneNumber == null)
-            throw new NullPointerException("Phone Number" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(phoneNumber))
-            throw new IllegalArgumentException("Phone Number" + Constants.STRING_BLANK_EXEPT);
-        if (!(CommonMethods.checkIfStringJustHaveNumbers(phoneNumber)) || phoneNumber.length() != PHONE_NUMBER_DIGITS)
-            throw new IllegalArgumentException("Phone Number must have 11 digit numbers.");
+        CommonMethods.phoneValidation(phoneNumber);
         this.phoneNumber = phoneNumber;
     }
 
     /***
      * Method that returns the email of the Client
-     * @return
+     * @return email
      */
     public String getEmail() {
         return email;
@@ -295,29 +275,9 @@ public class Client {
      * @param email
      */
     public void setEmail(String email) {
-        if (email == null)
-            throw new NullPointerException("Email" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(email))
-            throw new IllegalArgumentException("Email" + Constants.STRING_BLANK_EXEPT);
-        if (!CommonMethods.isValidEmail(email))
-            throw new IllegalArgumentException("The introduced email is not valid.");
+        CommonMethods.emailValidation(email);
         this.email = email;
     }
-    /***
-     * Validate a client if he is not null
-     * @param client
-     * @return
-     */
-    public static boolean validateClient(Client client) {
-        return (client.name != null
-                && client.tinNumber != null
-                && client.birthDate != null
-                && client.nhsNumber != null
-                && client.phoneNumber != null
-                && client.email != null
-                && client.sex != null);
-    }
-
 
     @Override
     public String toString() {

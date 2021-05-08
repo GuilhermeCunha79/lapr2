@@ -406,19 +406,6 @@ public class ClientTest {
     }
 
     @Test
-    public void validateClientCorrect() {
-        Client ct01 =new Client("Tomás", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt");
-        Client.validateClient(ct01);
-
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void validateClientError() {
-        Client ct01 =new Client(null, null, "12345678", null, null, "male", null, null);
-        Client.validateClient(ct01);
-    }
-
-    @Test
     public void checkEqualsJustNameEqual() {
         Client ct01 = new Client("Miguel", "1234567890123456", "1234567891", "1234567831", "23/12/2001", "male", "12345678211", "tomas@isep.ipp.pt");
         Client ct02 = new Client("Miguel", "1234567890123456", "1234567891", "1234567123", "23/12/2002", "female", "12345678945", "tomas11@isep.ipp.pt");
