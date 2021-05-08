@@ -7,8 +7,8 @@ class RegisterEmployeeUI
 
 class RegisterEmployeeController
 {
-    +Employee newEmployee(role, name, address, phoneNumber, email, soc)
-    +validateEmployee(Employee employee)
+    +createEmployee(role, name, address, phoneNumber, email, soc)
+    +validateEmployee(employee)
 }
 
 class Employee
@@ -19,9 +19,29 @@ class Employee
 	-phoneNumber;
 	-email;
 	-soc;
-    +validateEmployee(Employee employee)
+    +validateEmployee(employee)
+}
+
+class Company{
+    -description
+    +getEmployeeStore()
+}
+
+class EmployeeStore{
+    +createEmployee(role, name, address, phoneNumber, email, soc)
+    +validateEmployee(employee))
+    +saveEmployee(employee))
+    +addEmployee(employee))
+}
+
+class SpecialistDoctor{
+    -doctorIndexNumber
 }
 
 RegisterEmployeeUI ..> RegisterEmployeeController
-RegisterEmployeeController ..> Employee
+RegisterEmployeeController ..> Company
+Company --> EmployeeStore
+EmployeeStore --> Employee
+SpecialistDoctor -left-|> Employee
+
 @enduml

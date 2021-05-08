@@ -1,6 +1,6 @@
 @startuml
 autonumber
-'hide footbox
+
 actor "Administrator" as ADMIN
 
 participant ":RegisterEmployeeUI" as UI
@@ -12,7 +12,7 @@ participant ":Employee" as EMP
 
 ADMIN -> UI : Register a employee
 activate UI
-    UI --> ADMIN : Requests necessary credentials (organizationRole role,name,\naddress,phoneNumber,email,soc)
+    UI --> ADMIN : Requests necessary credentials (role, name,\naddress, phoneNumber, email, soc)
 deactivate UI
 
 ADMIN -> UI : Inserts the data
@@ -22,9 +22,9 @@ UI -> CTRL : newEmployee(role,name,\naddress,phoneNumber,email,soc)
         CTRL -> COMP : store = getEmployeeStore()
         activate COMP
         deactivate COMP
-        CTRL -> EMPS : employee = registerEmployee(oraganizationRole role,name,\naddress,phoneNumber,email,soc)
+        CTRL -> EMPS : employee = registerEmployee(role, name,\naddress, phoneNumber, email, soc)
                 activate EMPS
-                    EMPS --> EMP** : register(oraganizationRole role,name,\naddress,phoneNumber,email,soc)
+                    EMPS --> EMP** : Employee(role, name,\naddress, phoneNumber, email, soc)
                 deactivate EMPS
                 CTRL -> EMPS : validateEmployee(emp)
                 activate EMPS
@@ -39,17 +39,17 @@ activate UI
     UI -> CTRL : saveEmployee()
 
 activate CTRL
-    CTRL -> COMP : saveEmployee(emp)
+    CTRL -> EMPS : saveEmployee(emp)
 
-activate COMP
 
-    COMP -> COMP : validateEmployee(emp)
-    activate COMP
-    deactivate COMP
-    COMP -> COMP : addEmployee(emp)
-    activate COMP
-    deactivate COMP
-    deactivate COMP
+activate EMPS
+    EMPS -> EMPS : validateEmployee(emp)
+    activate EMPS
+    deactivate EMPS
+    EMPS -> EMPS : addEmployee(emp)
+    activate EMPS
+    deactivate EMPS
+deactivate EMPS
 
 
 UI --> ADMIN : Saves data and informs success of operation
