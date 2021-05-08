@@ -23,13 +23,7 @@ As an administrator, I want to register a new employee in order to get access to
 
 > **Question:** What kind of information does the company store about their employees and owned laboratories?
 >  
-> **Answer:** Employee ID;
-Organization Role;
-Name;
-Address;
-Phone Number;
-E-Mail;
-Standard Occupational Classification (SOC) code.
+> **Answer:** Employee ID; Organization Role; Name; Address; Phone Number; E-Mail; Standard Occupational Classification (SOC) code.
 >
 > The Specialist Doctor has an additional attribute:
 Doctor Index Number.
@@ -75,7 +69,6 @@ Doctor Index Number.
 
 * None
 
-
 ### 1.5 Input and Output Data
 
 
@@ -88,6 +81,7 @@ Doctor Index Number.
 	* E-Mail;
 	* Standard Occupational Classification (SOC) code.
 	* Organization Role;
+	* Doctor Index Number (Only when adding a new specialist doctor)
 	
 * Generated data:
 	* Employee ID;
@@ -124,22 +118,20 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1  		 |	... interacting with the actor? | RegisterEmployeeUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
-| 			  		 |	... coordinating the US? | RegisterEmployeeController | Controller                             |
-| 			  		 |	... instantiating a new Employee? | Employee with Administrator role | Creator (Rule 1): in the DM Employee can have a administrator role.   |
-| 			  		 |  ... knowing the user using the system?  | UserSession  | IE: cf. A&A component documentation.  |
-| 			  		 |	... knowing to which organization the user belongs to? | Platform  | IE: has registed all Organizations |
-| 			  		 |							 | Administrator   | IE: knows/has its own Employees|
-| 			  		 |							 | Employee  | IE: knows its own data (e.g. email) |
-| Step 2  		 |							 |             |                              |
-| Step 3  		 |	... saving the inputted data? | Employee  | IE: object created in step 1 has its own data.  |
-| Step 4  		 |	... knowing the employee roles to show? | Platform  | IE: Employee roles are defined by the Platform. |
-| Step 5  		 |	... saving the selected category? | Employee  | IE: object created in step 1 is classified in one Employee.  |
-| Step 6  		 |							 |             |                              |              
-| Step 7  		 |	... validating all data (local validation)? | Employee | IE: owns its data.| 
-| 			  		 |	... validating all data (global validation)? | Administrator | IE: knows all its employees.| 
-| 			  		 |	... saving the created employee? | Employee | IE: owns all its employee.| 
-| Step 8  		 |	... informing operation success?| RegisterEmployeeUI  | IE: is responsible for user interactions.  | 
+| Step 1/2/3     |	... interacting with the actor? | RegisterEmployeeUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
+| 			     |	... instantiating a new Employee? | Employee with Administrator role | Creator (Rule 1): in the DM Employee can have a administrator role.   |
+|       		 |	... knowing the employee roles to show? | Company | IE: Employee roles are defined by the Company. |
+| Step 4 	  	 |	... connecting the UI layer to the Domain? | RegisterEmployeeController | Controller is responsible for making the bridge between UI and Domain |
+| Step 5  		 |	... send the Employee List of the company employee store? | Company  | IE: Company knows all its Employee  |
+| Step 6  		 |	... sending the inputted data to the object constructor? | EmployeeStore  | The employee store is responsible for sending data to the Employee constructor and store the object later.  |
+| Step 7  		 |	... saving the inputted data? | Employee  | IE: object created in this step has its own data.  |
+|                |	... validating all data (local validation)? | Employee | IE: owns its data.| 
+| Step 9	     |	... asking user to confirm data? | RegisterEmployeeUI | UI Layer is responsible for user interactions.|  
+| Step 11	     |	... asking to save the Employee after admin validated data? | RegisterEmployeeController | Sends UI commands to the Domain layer.| 
+| Step 12	     |	... saving the Employee after admin validated data? | EmployeeStore | IE: stores all employees.| 
+| Step 8/13	     |	... validating all data (global validation)? | EmployeeStore | IE: knows all its employees.| 
+| Step 14	  	 |	... adding the created employee to the employee list? | EmployeeStore | IE: owns all its employee.| 
+| Step 15  		 |	... informing operation success?| RegisterEmployeeUI  | UI Layer is responsible for user interactions.  | 
 
 ### Systematization ##
 
