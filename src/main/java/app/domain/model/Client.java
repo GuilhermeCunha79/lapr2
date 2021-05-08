@@ -284,7 +284,7 @@ public class Client {
         if (!(checkBirthDateRules(birthDate)))
             throw new IllegalArgumentException("The date of birth provided is in an incorrect format. Correct format: DD/MM/YYYY");
 
-        if (calculateAge(convertStringToDate(birthDate), date) >= MAX_AGE)
+        if (calculateAge(convertStringToDate(birthDate), date) > MAX_AGE)
             throw new IllegalArgumentException("It is not possible to register a client older than 150 years.");
 
 

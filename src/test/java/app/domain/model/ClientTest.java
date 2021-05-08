@@ -29,7 +29,8 @@ public class ClientTest {
 
     @Test
     public void ensureThatNameCanHave35Char() {
-        new Client("ÂNGELO Josefina Amaro Silva Costa", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
+        new Client("Ângelo Josefina Amaro Silva Costa", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
+        new Client("Ângelo Josefina Amaro Silva Costa", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -407,8 +408,8 @@ public class ClientTest {
     @Test
     public void validateClientCorrect() {
         Client ct01 =new Client("Tomás", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt");
-        boolean result = Client.validateClient(ct01);
-        assertTrue(result);
+        Client.validateClient(ct01);
+
     }
 
     @Test(expected = NullPointerException.class)
