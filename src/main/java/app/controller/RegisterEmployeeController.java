@@ -1,7 +1,6 @@
 package app.controller;
 
 import app.domain.model.Employee;
-import app.domain.model.OrganizationRole;
 
 public class RegisterEmployeeController {
     public Employee employee;

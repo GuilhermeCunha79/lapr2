@@ -1,8 +1,6 @@
 package app.domain.model;
 
-import java.util.Objects;
-
-public class SpecialistDoctor extends Employee{
+public class SpecialistDoctor extends Employee {
 
     private int doctorIndexNumber;
 
@@ -17,30 +15,40 @@ public class SpecialistDoctor extends Employee{
      * @param email
      * @param soc
      */
-    public SpecialistDoctor(int doctorIndexNumber, OrganizationRole role, String name, String address, String phoneNumber, String email, int soc) {
+    public SpecialistDoctor(int doctorIndexNumber, String role, String name, String address, String phoneNumber, String email, int soc) {
         super(role, name, address, phoneNumber, email, soc);
         this.doctorIndexNumber = doctorIndexNumber;
     }
 
+    /**
+     * Returns the Specialist doctor index number
+     * @return an integer with the doctor index number
+     */
     public int getDoctorIndexNumber() {
         return doctorIndexNumber;
     }
 
+    /**
+     * Allows making a change to the Specialist Doctor index number
+     * @param doctorIndexNumber new index number to be assigned to the Doctor
+     */
     public void setDoctorIndexNumber(int doctorIndexNumber) {
         this.doctorIndexNumber = doctorIndexNumber;
     }
 
+    /**
+     * Compares if one object is the same as the specialist doctor instance that called the method
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         else if (!(o instanceof SpecialistDoctor)) return false;
-        else if(!super.equals(o)) return false;
-        SpecialistDoctor that = (SpecialistDoctor) o;
-        return getDoctorIndexNumber() == that.getDoctorIndexNumber();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getDoctorIndexNumber());
+        else if (!super.equals(o)) return false;
+        SpecialistDoctor specDoc = (SpecialistDoctor) o;
+        return getDoctorIndexNumber() == specDoc.getDoctorIndexNumber()
+                || super.getPhoneNumber() == specDoc.getPhoneNumber()
+                || super.getEmail().equals(specDoc.getEmail());
     }
 }
