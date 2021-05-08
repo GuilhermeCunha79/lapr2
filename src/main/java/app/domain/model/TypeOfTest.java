@@ -63,7 +63,7 @@ public class TypeOfTest {
 
     @Override
     public String toString() {
-        return String.format("Type of Test: %nCode: %s%nDescription: %s%nCollectingMethod: %s%nCategory %s ", this.code, this.description, this.collectingMethod, this.category  );
+        return String.format("Type of Test: %nCode: %s%nDescription: %s%nCollectingMethod: %s%nCategory: %s", this.code, this.description, this.collectingMethod, this.category  );
 
     }
 

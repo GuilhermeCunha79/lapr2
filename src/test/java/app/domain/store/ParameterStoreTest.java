@@ -15,7 +15,7 @@ public class ParameterStoreTest {
     @Before
     public void createCategoryList(){
         ParameterCategory pc2 = pcs.createParameterCategory("12345", "hemograms");
-        pcs.addParameterCategory(pc2);
+        pcs.saveParameterCategory(pc2);
     }
 
     ParameterStore ps = new ParameterStore();

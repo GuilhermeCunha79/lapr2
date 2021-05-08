@@ -27,8 +27,7 @@ public class ParameterCategoryStore {
      */
     public boolean saveParameterCategory(ParameterCategory pc){
         if(validateParameterCategory(pc)){
-            addParameterCategory(pc);
-            return true;
+            return addParameterCategory(pc);
         }
         return false;
     }

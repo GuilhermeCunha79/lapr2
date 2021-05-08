@@ -102,12 +102,17 @@ public class TypeOfTestTest {
         String expected = "Saliva";
         assertEquals(expected, tot1.getCollectingMethod());
     }
+
+
     @Test
     public void checkToStringMethod() {
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", "Src");
-        String expected= String.format("Type of Test: %nCode: 53436 %nDescription: RNA remnants %nColectingMethod: cotton swab ");
+        String expected= String.format("Type of Test: %nCode: 53436%nDescription: RNA remnants%nCollectingMethod: cotton swab%nCategory: Src");
         assertEquals(expected, tot1.toString());
     }
+
+
+
 
     @Test
     public void checkIfTypeOfTestIsDiffThanNull() {
