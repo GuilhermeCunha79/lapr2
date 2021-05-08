@@ -29,9 +29,9 @@ class Company{
 
 class EmployeeStore{
     +createEmployee(role, name, address, phoneNumber, email, soc)
-    +validateEmployee(employee))
-    +saveEmployee(employee))
-    +addEmployee(employee))
+    +validateEmployee(employee)
+    +saveEmployee(employee)
+    +addEmployee(employee)
 }
 
 class SpecialistDoctor{

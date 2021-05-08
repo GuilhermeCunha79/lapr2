@@ -1,7 +1,7 @@
 @startuml
 autonumber
 'hide footbox
-actor "Administrador" as ADMIN
+actor "Administrator" as ADMIN
 
 participant ":System" as SYSTEM
 

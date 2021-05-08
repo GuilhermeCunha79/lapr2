@@ -44,7 +44,6 @@ public class Employee {
         setEmail(email);
         setSoc(soc);
         this.employeeID = employeeIdCreator();
-
     }
 
     /***

@@ -6,7 +6,7 @@
 ### 1.1. User Story Description
 
 
-As an administrator, I want to register a new employee in order to get access to the application.
+As an administrator, I want to register a new employee and give access to the application.
 
 
 
@@ -139,7 +139,8 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
  * Employee
  * Company
- * Specialist Doctor
+ * SpecialistDoctor
+ * EmployeeStore
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
@@ -185,32 +186,34 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## Class CreateEmployeeController 
 
-		public boolean createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Integer catId)() {
-		
-			Category cat = this.platform.getCategoryById(catId);
-			
-			Organization org;
-			// ... (omitted)
-			
-			this.task = org.createTask(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			
-			return (this.task != null);
-		}
+    public boolean createEmployee(String role, String name, String address, String phoneNumber, String email, int soc){
+        this.emp = this.empStore.createEmployee(role, name, address, phoneNumber, email, soc);
+        return saveEmployee();
+    }
+
+    public boolean createSpecialistDoctor(String role, String name, String address, String phoneNumber, String email, int soc, int indexNumber){
+        this.emp = this.empStore.createSpecialistDoctor(role,name,address,phoneNumber,email,soc, indexNumber);
+        return saveEmployee();
+    }
+
+	private boolean saveEmployee() {
+        return this.empStore.saveEmployee(emp);
+    }
 
 
-## Class Organization
+## Class Employee
 
 
-		public Task createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Category cat)() {
-		
-	
-			Task task = new Task(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			if (this.validateTask(task))
-				return task;
-			return null;
-		}
+	public Employee(String role, String name, String address, String phoneNumber, String email, int soc) {
+        employeeCount++;
+        setRole(role);
+        setName(name);
+        setAddress(address);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+        setSoc(soc);
+        this.employeeID = employeeIdCreator();
+    }
 
 
 
