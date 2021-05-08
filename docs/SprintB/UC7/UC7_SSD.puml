@@ -7,7 +7,7 @@ participant ":System" as SYSTEM
 
 ADMIN -> SYSTEM : Ask to register a Employee
 activate SYSTEM
-SYSTEM --> ADMIN : Requests necessary information (role, name, address, \nphoneNumber, email, soc)
+SYSTEM --> ADMIN : Requests necessary information (organizationRole, name, address, \nphoneNumber, email, soc)
 
 deactivate SYSTEM
 
@@ -18,7 +18,7 @@ deactivate SYSTEM
 
 ADMIN -> SYSTEM : Confirms the data
 activate SYSTEM
-SYSTEM --> ADMIN : Tell the user that the Employee has been successfully created
+SYSTEM --> ADMIN : Tell the user that the employee has been successfully created
 deactivate SYSTEM
 
 

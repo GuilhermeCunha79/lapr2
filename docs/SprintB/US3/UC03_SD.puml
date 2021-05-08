@@ -51,10 +51,10 @@ activate CTRL
 
 activate C
 
-    C -> C : validateClient(client)
+    C -> C : validateClient(clt)
     activate C
     deactivate C
-    C -> C : addClient(client)
+    C -> C : addClient(clt)
     activate C
     deactivate C
     deactivate C

@@ -13,12 +13,12 @@ class RegisterEmployeeController
 
 class Employee
 {
-	EmployeeID;
-	Name;
-	Address;
-	Phone Number;
-	E-Mail;
-	Standard Occupational Classification code;
+	-employeeID;
+	-name;
+	-address;
+	-phoneNumber;
+	-email;
+	-soc;
     +validateEmployee(Employee employee)
 }
 

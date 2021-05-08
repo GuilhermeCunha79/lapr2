@@ -9,16 +9,16 @@ class Platform {
 }
 
 class Employee {
-	-Employee ID;
-	-Name;
-	-Address;
-	-Phone Number;
-	-E-Mail;
-	-Standard Occupational Classification (SOC) code.
+	-employeeId;
+	-name;
+	-address;
+	-phoneNumber;
+	-email;
+	-soc.
 }
 
 enum OrganizationRole {
-  -OrganizationRole role;
+  -organizationRole role;
 }
 
 

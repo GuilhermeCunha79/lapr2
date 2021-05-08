@@ -160,15 +160,12 @@ public class Client {
      * @param name
      * @return
      */
-    public boolean isValidChar(CharSequence name) {
-        for (int i = 0; i < name.length(); i++) {
-            char c = name.charAt(i);
-            if ('a' <= c && c <= 'z') continue;
-            if ('ã' <= c && c <= 'õ') continue;
-            if ('á' <= c && c <= 'ó') continue;
-            if ('Á' <= c && c <= 'Ó') continue;
-            if ('A' <= c && c <= 'Z') continue;
-            if (c == ' ') continue;
+    public static boolean isValidString(String name){
+        for(int i=0;i<name.length();i++){
+            char ch = name.charAt(i);
+            if (Character.isLetter(ch) || ch == ' ') {
+                continue;
+            }
             return false;
         }
         return true;
@@ -192,9 +189,8 @@ public class Client {
             throw new IllegalArgumentException("Name cannot be blank.");
         if (name.length() > MAX_CHAR_NAME)
             throw new IllegalArgumentException("Name cannot have more than 35 characters");
-
-        if (!(isValidChar(name)))
-            throw new IllegalArgumentException("Name has non alphanumeric chars.");
+        if (!(isValidString(name)))
+            throw new IllegalArgumentException("Name has non alphanumeric characters.");
         this.name = name;
     }
 
