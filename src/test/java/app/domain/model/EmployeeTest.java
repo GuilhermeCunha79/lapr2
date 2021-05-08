@@ -1,18 +1,18 @@
 package app.domain.model;
 
+import app.domain.shared.Constants;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class EmployeeTest {
-    Employee employee = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", 2);
-    Employee employee1 = new Employee(OrganizationRole.Doctor, "Pedro", "Porto", "91111311221", "sfgsdfgsfdg@gmail.com", 2);
-    Employee employeenull = new Employee(null, null, null, "00001", null, 0);
+    Employee employee = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", 1234);
+    Employee employee1 = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111311221", "sfgsdfgsfdg@gmail.com", 1234);
+    /*
 
-    /**
      * Test of getEmployeeID method, of class Employee.
-     */
-    /*@Test
+
+    @Test
     public void getEmployeeID() {
         String expected = "P00025";
         assertEquals(expected, employee.getEmployeeID());
@@ -23,8 +23,7 @@ public class EmployeeTest {
      */
     @Test
     public void getRole() {
-
-        OrganizationRole expected = OrganizationRole.Doctor;
+        String expected = Constants.ROLE_RECEPTIONIST;
         assertEquals(expected, employee.getRole());
     }
 
@@ -33,8 +32,8 @@ public class EmployeeTest {
      */
     @Test
     public void setRole() {
-        employee.setRole(OrganizationRole.SpecialistDoctor);
-        OrganizationRole expected = OrganizationRole.SpecialistDoctor;
+        employee.setRole(Constants.ROLE_RECEPTIONIST);
+        String expected = Constants.ROLE_RECEPTIONIST;
         assertEquals(expected, employee.getRole());
     }
 
@@ -81,7 +80,7 @@ public class EmployeeTest {
      */
     @Test
     public void getPhoneNumber() {
-        long expected = 91111111221L;
+        String expected = "91111111221";
         assertEquals(expected, employee.getPhoneNumber());
     }
 
@@ -91,7 +90,7 @@ public class EmployeeTest {
     @Test
     public void setPhoneNumber() {
         employee.setPhoneNumber("91111111221");
-        long expected = 91111111221L;
+        String expected = "91111111221";
         assertEquals(expected, employee.getPhoneNumber());
     }
 
@@ -119,7 +118,7 @@ public class EmployeeTest {
      */
     @Test
     public void getSoc() {
-        int expected = 2;
+        int expected = 1234;
         assertEquals(expected, employee.getSoc());
     }
 
@@ -128,8 +127,8 @@ public class EmployeeTest {
      */
     @Test
     public void setSoc() {
-        employee.setSoc(3);
-        int expected = 3;
+        employee.setSoc(1234);
+        int expected = 1234;
         assertEquals(expected, employee.getSoc());
     }
 
@@ -153,7 +152,7 @@ public class EmployeeTest {
      */
     @Test
     public void testEqualsFalseRole() {
-        employee1.setRole(OrganizationRole.SpecialistDoctor);
+        employee1.setRole(Constants.ROLE_RECEPTIONIST);
         assertNotEquals(employee1, employee);
     }
     /**
@@ -197,7 +196,7 @@ public class EmployeeTest {
      */
     @Test
     public void testEqualsFalseSOC() {
-        employee1.setSoc(10);
+        employee1.setSoc(1234);
         assertNotEquals(employee1, employee);
     }
 
@@ -206,16 +205,16 @@ public class EmployeeTest {
      */
     @Test
     public void validateEmployee() {
-        boolean result = employee.validateEmployee(employee);
-        assertTrue(result);
+        Employee.validateEmployee(employee);
+
     }
 
     /**
      * Test of validateEmployee, of class Employee.
      */
-    @Test
+    @Test(expected = NullPointerException.class)
     public void validateEmployeeError() {
-        boolean result = employeenull.validateEmployee(employeenull);
-        assertFalse(result);
+        Employee employeenull = new Employee(null, null, null, "00001", null, 0);
+        Employee.validateEmployee(employeenull);
     }
 }
