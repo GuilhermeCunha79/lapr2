@@ -14,19 +14,39 @@ public class ClinicalAnalysisLaboratoryTest {
         new ClinicalAnalysisLaboratory(null, null, null, null, null, null);
     }
 
-
-
     @Test(expected = IllegalArgumentException.class)
-    public void ensureThatNameCannotHaveMoreThan20Char() {
-        new ClinicalAnalysisLaboratory("JoaoManuelOliveiraMartins", "12345678891", "a1234", "1123456789", "RuaNovaDoAldeiro355", new ArrayList<>());
+    public void ensureNonAlphaNumericNameAreNotAccepted() {
+        new ClinicalAnalysisLaboratory("Jo@o", "54782112987", "az321", "1122399874", "RuaMirandela45", new ArrayList<>());
     }
 
 
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureNameCannotHaveMoreThan20Char() {
+        new ClinicalAnalysisLaboratory("JoaoManuelOliveiraMartins", "12345678891", "a1234", "1123456789", "RuaNovaDoAldeiro355", new ArrayList<>());
+    }
 
+    @Test
+    public void ensureNameCanHaveLessThan20Char() {
+        new ClinicalAnalysisLaboratory("Daniela", "91481806790", "mkli9", "2145639898", "RuaDoViso31", new ArrayList<>());
+    }
 
+    @Test
+    public void ensureNameCanHave20Char() {
+        new ClinicalAnalysisLaboratory("JoaoGuilhermeDaniela", "23124985064", "qcp32", "7521496745", "Rua25DeAbril", new ArrayList<>());
+    }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureThatPhoneNumberCannotHaveMoreThan11Digits() {
+    public void ensureNameCannotBeBlank () {
+        new ClinicalAnalysisLaboratory("", "12565478987", "sde45", "7414789658", "Rua21DeMaio", new ArrayList<>());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureThatPhoneNumberMustHaveOnlyDigits() {
+        new ClinicalAnalysisLaboratory("Maria", "aaassdfgtrq", "kli81", "4871295276", " Rua26Junho", new ArrayList<>());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureThatPhoneNumberCannotHaveMoreThan11DigitsNumber () {
         new ClinicalAnalysisLaboratory("Joao Oliveira", "123456789012", "1a234", "1231231231", "Rua do Aldeiro 355", new ArrayList<>() );
     }
 

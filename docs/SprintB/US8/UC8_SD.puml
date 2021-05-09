@@ -12,7 +12,7 @@ participant "cal:ClinicalAnalysisLaboratory" as cal
 activate ADMIN
 ADMIN -> UI : Register a New Clinical Analysis Laboratory
 activate UI
-UI --> ADMIN : Necessary credentials(laboratoryID, name, address, phoneNumber, tinNumber)
+UI --> ADMIN : Necessary credentials(laboratoryID, name, address, phoneNumber, tinNumber, typeOfTestList)
 deactivate UI
 ADMIN -> UI : types requested data
 activate UI

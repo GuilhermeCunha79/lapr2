@@ -5,8 +5,8 @@ skinparam classAttributeIconSize 0
 
 
 class Company {
-  -Name
-  -Location
+  -name
+  -location
 }
 
 class Administrator {
@@ -14,11 +14,12 @@ class Administrator {
 }
 
 class ClinicalAnalysisLaboratory {
-  -LaboratoryID
-  -Name
-  -Address
-  -Phone Number
-  -TIN Number
+  -laboratoryID
+  -name
+  -address
+  -phoneNumber
+  -tinNumber
+  -typeOfTestList
 }
 
 class TypeOfTest {

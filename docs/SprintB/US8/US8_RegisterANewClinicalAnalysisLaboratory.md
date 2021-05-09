@@ -43,18 +43,28 @@ these laboratories also performs Covid-19 tests.
 > **Question** When starting a new clinical analysis laboratory registration, should the entered requested data be showed to the user for confirmation purposes?
 
 > **Answer** It is always a good practice to validate and ask for confirmation.
+
+
+> **Question** Which type/format has LaboratoryID, address, name, phone number, and TIN number on Clinical Analysis Laboratory?
  
+> **Answer** Each Clinical Analysis Laboratory is characterized by the following attributes:
+Laboratory ID: five alphanumeric characters;
+Name: A string with no more than 20 characters;
+Address: A string with no more than 30 characters;
+Phone Number: 11 digit number;
+TIN number: 10 digit number;
+Type of tests performed by the lab.
+All information is required.
 
-> **Question**  Are two Clinical Analysis Laboratories with the same:
-Laboratory ID, 
-name, 
-address, 
-phone Number, and
-TIN number
-
+> **Question** Are two Clinical Analysis Laboratories with the same:
+a) Laboratory ID OR
+b) name OR
+c) address OR
+d) phone Number OR
+e) TIN number
+allowed to exist?
 
 > **Answer** Only the name of two CAL can be same.
-
 
 > **Question** Can a parameter be classified in more than one parameter category?
 
@@ -79,18 +89,18 @@ TIN number
 
 **Input Data:**
     
-    * phone number
-	* a name
-    * a TIN number
-	* a laboratory ID (only for clinical analysis laboratories)
-	* an adress
+    * phoneNumber
+	* name
+    * tinNumber
+	* laboratoryID (only for clinical analysis laboratories)
+	* address
+    *typeOfTest
 	
 **Selected data**
-* Type of test chosen
+* Type of test 
 
 
 **Output Data:**
-* List of existing labs
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)

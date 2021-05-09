@@ -7,7 +7,7 @@ participant ":System" as SYSTEM
 
 ADMIN -> SYSTEM : Register a New Clinical Analaysis Laboratory
 activate SYSTEM
-SYSTEM --> ADMIN : Requests necessary credentials (Name, Laboratory ID, Adress, Phone Number, TIN Number)
+SYSTEM --> ADMIN : Requests necessary credentials (name, laboratoryID, address, phoneNumber, tinNumber)
 deactivate SYSTEM
 
 ADMIN -> SYSTEM : Types requested data

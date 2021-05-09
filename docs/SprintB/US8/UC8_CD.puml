@@ -1,12 +1,12 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class NewClinicalAnalysisUI{
+class RegisterNewClinicalAnalysisUI{
 }
 
-class NewClinicalAnalysisController
+class RegisterNewClinicalAnalysisController
 {
-    +RegisterNewClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address)
+    +registerNewClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address, typeOfTestList)
     +saveClinicalAnalysisLaboratory()
 }
 
@@ -16,7 +16,9 @@ class ClinicalAnalysisLaboratory{
     -laboratoryID
     -tinNumber
     -address
-    + register(clinicalAnalysisLaboratory)
+    -typeOfTestList
+    +register(laboratoryID, name, address, phoneNumber, tinNumber, typeOfTestList)
+
 }
 
 class Company{
@@ -28,12 +30,12 @@ class Company{
 class ClinicalAnalysisLaboratoryStore{
     + validateClinicalAnalysisLaboratory(cal)
     + addClinicalAnalysisLaboratory(cal)
-    + registerClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address)
+    + registerClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address, typeOfTestList)
     + saveClinicalAnalysisLaboratory(cal)
 }
 
-NewClinicalAnalysisUI ..> NewClinicalAnalysisController
-NewClinicalAnalysisController .right.> Company
+RegisterNewClinicalAnalysisUI ..> RegisterNewClinicalAnalysisController
+RegisterNewClinicalAnalysisController .right.> Company
 Company"1" --> "1"ClinicalAnalysisLaboratoryStore : uses
 ClinicalAnalysisLaboratoryStore"1" -left-> "*"ClinicalAnalysisLaboratory : store
 
