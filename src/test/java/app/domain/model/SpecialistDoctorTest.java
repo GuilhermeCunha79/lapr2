@@ -30,36 +30,36 @@ public class SpecialistDoctorTest {
 
     @Test
     public void testEqualsIndex() {
-        assertTrue(employee.getDoctorIndexNumber()==employee.getDoctorIndexNumber());
+        assertEquals(employee.getDoctorIndexNumber(), employee.getDoctorIndexNumber());
     }
 
     @Test
     public void testEqualsPhoneNumber() {
-        assertTrue(employee.getPhoneNumber().equals(employee.getPhoneNumber()));
+        assertEquals(employee.getPhoneNumber(), employee.getPhoneNumber());
     }
 
     @Test
     public void testEqualsEmail() {
-        assertTrue(employee.getEmail().equals(employee.getEmail()));
+        assertEquals(employee.getEmail(), employee.getEmail());
     }
 
     @Test
     public void testEqualsFalse() {
-        assertFalse(employee.equals(employee1));
+        assertNotEquals(employee, employee1);
     }
 
     @Test
     public void testEqualsIndexFalse() {
-        assertFalse(employee.getDoctorIndexNumber()==employee1.getDoctorIndexNumber());
+        assertNotEquals(employee.getDoctorIndexNumber(), employee1.getDoctorIndexNumber());
     }
 
     @Test
     public void testEqualsPhoneNumberFalse() {
-        assertFalse(employee.getPhoneNumber().equals(employee1.getPhoneNumber()));
+        assertNotEquals(employee.getPhoneNumber(), employee1.getPhoneNumber());
     }
 
     @Test
     public void testEqualsEmailFalse() {
-        assertFalse(employee.getEmail().equals(employee1.getEmail()));
+        assertNotEquals(employee.getEmail(), employee1.getEmail());
     }
 }
