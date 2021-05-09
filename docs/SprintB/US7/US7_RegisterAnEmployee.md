@@ -101,7 +101,7 @@ Doctor Index Number.
 
 ## 2. OO Analysis
 
-### 2.1. Relevant Domain Model Excerpt 
+### 2.1. Relevant Domain Model Except 
 
 ![UC7_MD](UC7_MD.svg)
 

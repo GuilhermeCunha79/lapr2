@@ -17,17 +17,14 @@ class Employee {
 	-soc.
 }
 
-class OrganizationRole {
-    -organizationRole;
-}
-
 class SpecialistDoctor{
     -doctorIndexNumber
 }
 
 Company "1" -- "*" Employee : has >
-Employee "*" -- "1" OrganizationRole: classified with >
 SpecialistDoctor -left-|> Employee
+Administrator -right-|> Employee
+
 
 
 @enduml
