@@ -37,7 +37,7 @@ Test"1" -- "1..*"Parameter : > need to analyse
 class Client{
 -nhsNumber
 -name
--tin
+-tinNumber
 -birthDate
 -sex
 -phoneNumber
