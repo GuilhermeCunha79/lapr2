@@ -44,6 +44,13 @@ public class ClinicalAnalysisLaboratoryTest {
         new ClinicalAnalysisLaboratory("Jo<o Manuel Oliveira", "01234567890", "a1234", "01234567890", "Rua Nova do Aldeiro 355", new ArrayList<>() );
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureIfTheAttributesHaveOnlyDigits() {
+        new ClinicalAnalysisLaboratory("Romeu", "343236<7634", "t67yi", "5346987109", "RuaSaoMiguel43", new ArrayList<>());
+    }
+
+
+
 
 
 }
