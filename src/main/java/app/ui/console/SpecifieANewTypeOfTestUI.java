@@ -14,6 +14,9 @@ public class SpecifieANewTypeOfTestUI implements Runnable {
     private SpecifieANewTypeOfTestController ctrl;
 
 
+    /**
+     * First method to run when this UI is instantiated
+     */
     @Override
     public void run() {
         ctrl = new SpecifieANewTypeOfTestController();
@@ -24,6 +27,10 @@ public class SpecifieANewTypeOfTestUI implements Runnable {
         }
     }
 
+    /**
+     * This method enables user interaction to create a new type of test.
+     * @return if the type of test was created or not
+     */
     private boolean createTypeOfTest() {
         boolean done = false;
         do {

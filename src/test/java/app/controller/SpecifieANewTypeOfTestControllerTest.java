@@ -100,4 +100,5 @@ public class SpecifieANewTypeOfTestControllerTest  {
         ctrl.createANewTypeOfTest("33452", "IE", "CM", Listpc);
         assertFalse(ctrl.saveTypeOfTest());
     }
+
 }
