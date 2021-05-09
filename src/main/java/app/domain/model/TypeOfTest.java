@@ -5,6 +5,7 @@ import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,7 +30,7 @@ public class TypeOfTest {
         setCode(code);
         setDescription(description);
         setCollectingMethod(collectingMethod);
-        this.parameterCategoryList = parameterCategoryList;
+        this.parameterCategoryList = new ArrayList<>(parameterCategoryList);
     }
 
     /**

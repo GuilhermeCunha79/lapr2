@@ -4,6 +4,7 @@ import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,7 @@ public class ClinicalAnalysisLaboratory {
         setPhoneNumber(phoneNumber);
         setLaboratoryID(laboratoryID);
         setAddress(address);
-        this.typeOfTestList = typeOfTestList;
+        this.typeOfTestList = new ArrayList<>(typeOfTestList);
     }
 
     /***
