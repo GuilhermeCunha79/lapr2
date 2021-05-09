@@ -135,9 +135,9 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
         assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Maria", "33344433367", "aa2aa", "9634987899", "AvenidaDaRepublicaEArredores35", new ArrayList<>()));
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void ensureAddressCanHaveMoreThan30Char() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Rafael", "21114555676", "12g67", "8651345455", "AvenidadaRepublicaEDaLiberdade4566", new ArrayList<>()));
+        ctrl.registerNewClinicalAnalysisLaboratory("Rafael", "21114555676", "12g67", "8651345455", "AvenidadaRepublicaEDaLiberdade4566", new ArrayList<>());
     }
 
     @Test

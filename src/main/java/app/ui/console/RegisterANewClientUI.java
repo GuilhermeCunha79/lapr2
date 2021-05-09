@@ -1,6 +1,5 @@
 package app.ui.console;
 
-
 import app.controller.RegisterClientController;
 import app.ui.console.utils.Utils;
 import java.util.Objects;
@@ -19,7 +18,6 @@ public class RegisterANewClientUI implements Runnable {
     }
 
     public boolean registerClient() {
-        boolean done = false;
         do {
             try {
                 String cltName = Utils.readLineFromConsole("Introduce the client's name: ");

@@ -30,8 +30,9 @@ public class RegisterClientController {
         return this.ctStore.validateClient(ct);
     }
     public boolean saveClient(){
-        if(this.ctStore.saveClient(ct));
-        return addUserToSystem(ct.getName(), ct.getEmail(), Constants.ROLE_CLIENT);
+        if(this.ctStore.saveClient(ct))
+            return addUserToSystem(ct.getName(), ct.getEmail(), Constants.ROLE_CLIENT);
+        return false;
     }
 
     private boolean addUserToSystem(String name, String email, String role) {

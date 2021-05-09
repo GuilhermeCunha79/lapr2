@@ -6,9 +6,10 @@ Employee <|-- Receptionist
 Receptionist -- Client :> add new
 
 class Client{
--nhsNumber
 -name
--tin
+-citizenCardNumber
+-nhsNumber
+-tinNumber
 -birthDate
 -sex
 -phoneNumber
