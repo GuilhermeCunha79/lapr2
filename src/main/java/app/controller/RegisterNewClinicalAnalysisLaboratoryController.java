@@ -55,6 +55,10 @@ public class RegisterNewClinicalAnalysisLaboratoryController {
         return this.cals.saveClinicalAnalysisLaboratory(cal);
     }
 
+    /**
+     * Returns the list of type of tests available in the system
+     * @return list of type of tests
+     */
     public List<TypeOfTest> listOfTypeOfTests(){
         return App.getInstance().getCompany().getTypeOfTestStore().getTypeOfTestList();
     }

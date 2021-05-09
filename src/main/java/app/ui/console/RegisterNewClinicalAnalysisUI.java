@@ -16,7 +16,9 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
     List<TypeOfTest> listOfSelectedTOfTest = new ArrayList<>();
 
 
-
+    /**
+     * First method to be called when this UI is instantiated
+     */
     public void run() {
         ctrl = new RegisterNewClinicalAnalysisLaboratoryController();
 
@@ -28,6 +30,10 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
             System.out.println("Operation failed");
     }
 
+    /**
+     * This method is responsible to interact with the user to guide him in the clinical analysis laboratory registration process
+     * @return if the lab was registered or not
+     */
     private boolean registerCALab() {
         boolean done = false;
         do {
