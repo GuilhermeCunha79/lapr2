@@ -14,5 +14,4 @@ public class CommonMethodsTest {
         c.setAccessible(true);
         c.newInstance();
     }
-
 }
