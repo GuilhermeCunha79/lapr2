@@ -44,8 +44,8 @@ public class SpecifieANewTypeOfTestController {
 
 
     /**
-     * This method to call the type of test created to show it to the admistrador for comfirmation
-     * @return tot
+     * This method to get the type of test created
+     * @return Type of test
      */
     public TypeOfTest getTot(){
         return this.tot;
