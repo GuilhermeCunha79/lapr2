@@ -1,11 +1,12 @@
 package app.domain.model;
 
+import app.domain.shared.CommonMethods;
+import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 public class ParameterCategory {
 
     private static final int NAME_LENGTH = 10;
-    private static final int CODE_LENGTH = 5;
 
     private String code;
     private String name;
@@ -20,8 +21,6 @@ public class ParameterCategory {
     public ParameterCategory(String code, String name) {
         setCode(code);
         setName(name);
-        this.code = code;
-        this.name = name;
     }
 
     /**
@@ -39,16 +38,7 @@ public class ParameterCategory {
      * @param code receives the new Parameter category code
      */
     public void setCode(String code) {
-        if (code.length() != CODE_LENGTH)
-            throw new IllegalArgumentException("Code needs to have exactly 5 chars");
-        if (StringUtils.isBlank(code))
-            throw new IllegalArgumentException("Code cannot be blank");
-
-        for (int i = 0; i < code.length(); i++) {
-            String c = String.valueOf(code.charAt(i));
-            if (!c.matches("[A-Za-z0-9]"))
-                throw new IllegalArgumentException("Code has non alphanumeric chars.");
-        }
+        CommonMethods.codeValidation(code);
         this.code = code;
     }
 
@@ -70,9 +60,9 @@ public class ParameterCategory {
 
     public void setName(String name) {
         if (StringUtils.isBlank(name))
-            throw new IllegalArgumentException("Name cannot be blank");
+            throw new IllegalArgumentException(Constants.STRING_SHORT_NAME + Constants.STRING_BLANK_EXEPT);
         if (name.length() > NAME_LENGTH)
-            throw new IllegalArgumentException("Short name has more than 10 chars");
+            throw new IllegalArgumentException(Constants.STRING_SHORT_NAME + Constants.STRING_NOT_MORE_THAN_10);
         this.name = name;
     }
 

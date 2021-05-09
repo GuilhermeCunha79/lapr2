@@ -17,6 +17,7 @@ public class ClinicalAnalysisLaboratory {
 
     static final int MAX_CHAR_NAME = 20;
     static final int MAX_CHAR_LABORATORY_ID = 5;
+    static final String STRING_LAB_ID = "Laboratory ID";
     private String name;
     private String address;
     private String tinNumber;
@@ -75,13 +76,13 @@ public class ClinicalAnalysisLaboratory {
          */
         public void setName (String name){
             if (name == null)
-                throw new NullPointerException("Name" + Constants.STRING_NULL_EXEPT);
+                throw new NullPointerException(Constants.STRING_NAME + Constants.STRING_NULL_EXEPT);
             if (StringUtils.isBlank(name))
-                throw new IllegalArgumentException("Name" + Constants.STRING_BLANK_EXEPT);
+                throw new IllegalArgumentException(Constants.STRING_NAME + Constants.STRING_BLANK_EXEPT);
             if (name.length() > MAX_CHAR_NAME)
-                throw new IllegalArgumentException("Name cannot have more than 20 characters");
+                throw new IllegalArgumentException(Constants.STRING_NAME + Constants.STRING_NOT_MORE_THAN_20);
             if (!CommonMethods.stringHaveAlphanumerical(name))
-                throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
+                throw new IllegalArgumentException(Constants.STRING_NAME + Constants.NON_ALPHANUM_EXEPT);
             this.name = name;
         }
 
@@ -134,13 +135,13 @@ public class ClinicalAnalysisLaboratory {
          */
         public void setLaboratoryID (String laboratoryID){
             if (laboratoryID == null)
-                throw new NullPointerException("LaboratoryID" + Constants.STRING_NULL_EXEPT);
+                throw new NullPointerException(STRING_LAB_ID + Constants.STRING_NULL_EXEPT);
             if (StringUtils.isBlank(laboratoryID))
-                throw new IllegalArgumentException("LaboratoryID" + Constants.STRING_BLANK_EXEPT);
+                throw new IllegalArgumentException(STRING_LAB_ID + Constants.STRING_BLANK_EXEPT);
             if (laboratoryID.length() > MAX_CHAR_LABORATORY_ID)
-                throw new IllegalArgumentException("LaboratoryID cannot have more than 5 alphanumerical characters");
+                throw new IllegalArgumentException(STRING_LAB_ID + " cannot have more than 5 alphanumerical characters");
             if(!onlyDigits(laboratoryID))
-                throw new IllegalArgumentException("LaboratoryID cannot have characters different than 5 alphanumerical");
+                throw new IllegalArgumentException(STRING_LAB_ID + " cannot have characters different than 5 alphanumerical");
             this.laboratoryID = laboratoryID;
 
         }

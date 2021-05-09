@@ -12,6 +12,7 @@ public class TypeOfTest {
 
     static final int DESCRIPTION_LENGTH = 15;
     static final int COLLECTING_METHOD_LENGTH = 20;
+    static final String STRING_COLLECTING_METHODS="Collecting method";
     private final List<ParameterCategory> parameterCategoryList;
     private String code;
     private String description;
@@ -39,21 +40,21 @@ public class TypeOfTest {
 
     public void setDescription(String description) {
         if (description == null)
-            throw new NullPointerException("Description" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(Constants.STRING_DESCRIPTION + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(description))
-            throw new IllegalArgumentException("Description" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_DESCRIPTION + Constants.STRING_BLANK_EXEPT);
         if (description.length() > DESCRIPTION_LENGTH)
-            throw new IllegalArgumentException("Description cannot have more than 15 characters.");
+            throw new IllegalArgumentException(Constants.STRING_DESCRIPTION + " cannot have more than 15 characters.");
         this.description = description;
     }
 
     public void setCollectingMethod(String collectingMethod) {
         if (collectingMethod == null)
-            throw new NullPointerException("Collecting method" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(STRING_COLLECTING_METHODS + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(collectingMethod))
-            throw new IllegalArgumentException("Collecting method" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(STRING_COLLECTING_METHODS + Constants.STRING_BLANK_EXEPT);
         if (collectingMethod.length() > COLLECTING_METHOD_LENGTH)
-            throw new IllegalArgumentException("Collecting method cannot have more than 20 characters");
+            throw new IllegalArgumentException(STRING_COLLECTING_METHODS + Constants.STRING_NOT_MORE_THAN_20);
         this.collectingMethod = collectingMethod;
     }
 

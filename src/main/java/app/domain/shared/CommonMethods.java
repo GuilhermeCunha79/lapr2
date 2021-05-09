@@ -1,17 +1,21 @@
 package app.domain.shared;
 
 import org.apache.commons.lang3.StringUtils;
-
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.security.SecureRandom;
-import java.util.logging.Formatter;
 import java.util.regex.Pattern;
 
+
+/***
+ * Common Methods Class
+ */
 public class CommonMethods {
 
+    private CommonMethods() {
+        throw new IllegalStateException("Utility class");
+    }
 
     private static SecureRandom random = new SecureRandom();
+
     /***
      * Verify if the given string just have numbers
      * @param number
@@ -29,9 +33,6 @@ public class CommonMethods {
         return numberq == number.length();
     }
 
-    private CommonMethods() {
-        throw new IllegalStateException("Utility class");
-    }
 
     /***
      * Verify if the email given is a valid one
@@ -82,6 +83,10 @@ public class CommonMethods {
         return true;
     }
 
+    /***
+     * Method that genrate RANDOM
+     * @return
+     */
     public static String generatePassword() {
         int len = 10;
         String alphanumericChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -99,13 +104,13 @@ public class CommonMethods {
      */
     public static void nameClientEmployeeValidation(String name) {
         if (name == null)
-            throw new NullPointerException("Name" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(Constants.STRING_NAME + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(name))
-            throw new IllegalArgumentException("Name" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_NAME + Constants.STRING_BLANK_EXEPT);
         if (name.length() > Constants.CHAR_NAME_EMPLOYEE_CLIENT)
-            throw new IllegalArgumentException("Name cannot have more than 35 characters");
+            throw new IllegalArgumentException(Constants.STRING_NAME + Constants.STRING_NOT_MORE_THAN_35);
         if (!isValidString(name))
-            throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_NAME + Constants.NON_ALPHANUM_EXEPT);
     }
 
 
@@ -115,11 +120,11 @@ public class CommonMethods {
      */
     public static void emailValidation(String email) {
         if (email == null)
-            throw new NullPointerException("Email" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(Constants.STRING_EMAIL + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(email))
-            throw new IllegalArgumentException("Email" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_EMAIL + Constants.STRING_BLANK_EXEPT);
         if (!isValidEmail(email))
-            throw new IllegalArgumentException("The introduced email is not valid.");
+            throw new IllegalArgumentException("The introduced " + Constants.STRING_EMAIL + " is not valid.");
     }
 
     /***
@@ -128,13 +133,13 @@ public class CommonMethods {
      */
     public static void codeValidation(String code) {
         if (code == null)
-            throw new NullPointerException("Code" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(Constants.STRING_CODE + Constants.STRING_NULL_EXEPT);
         if (code.length() != Constants.CODE_DIGITS)
-            throw new IllegalArgumentException("Code needs to have exactly 5 characters");
+            throw new IllegalArgumentException(Constants.STRING_CODE + " needs to have exactly 5 characters");
         if (StringUtils.isBlank(code))
-            throw new IllegalArgumentException("Code" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_CODE + Constants.STRING_BLANK_EXEPT);
         if (!CommonMethods.stringHaveAlphanumerical(code))
-            throw new IllegalArgumentException("Code" + Constants.NON_ALPHANUM_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_CODE + Constants.NON_ALPHANUM_EXEPT);
     }
 
     /***
@@ -143,11 +148,11 @@ public class CommonMethods {
      */
     public static void phoneValidation(String phoneNumber) {
         if (phoneNumber == null)
-            throw new NullPointerException("Phone Number" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(Constants.STRING_PHONE_NUMBER + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(phoneNumber))
-            throw new IllegalArgumentException("Phone Number" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_PHONE_NUMBER + Constants.STRING_BLANK_EXEPT);
         if (!(checkIfStringJustHaveNumbers(phoneNumber)) || phoneNumber.length() != Constants.PHONE_NUMBER_DIGITS)
-            throw new IllegalArgumentException("Phone Number must have 11 digit numbers.");
+            throw new IllegalArgumentException(Constants.STRING_PHONE_NUMBER + " must have 11 digit numbers.");
     }
 
     /***
@@ -156,13 +161,13 @@ public class CommonMethods {
      */
     public static void addressValidation(String address) {
         if (address == null)
-            throw new NullPointerException("Address" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(Constants.STRING_ADDRESS + Constants.STRING_NULL_EXEPT);
         if (address.length() > Constants.ADDRESS_DIGITS)
-            throw new IllegalArgumentException("Address cannot have more than 35 characters");
+            throw new IllegalArgumentException(Constants.STRING_ADDRESS + " cannot have more than 35 characters");
         if (StringUtils.isBlank(address))
-            throw new IllegalArgumentException("Address" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_ADDRESS + Constants.STRING_BLANK_EXEPT);
         if (!CommonMethods.stringHaveAlphanumerical(address))
-            throw new IllegalArgumentException("Address" + Constants.NON_ALPHANUM_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_ADDRESS + Constants.NON_ALPHANUM_EXEPT);
     }
 
     /***
@@ -171,10 +176,10 @@ public class CommonMethods {
      */
     public static void tinValidation(String tinNumber) {
         if (tinNumber == null)
-            throw new NullPointerException("TIN number" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(Constants.STRING_TIN_NUMBER + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(tinNumber))
-            throw new IllegalArgumentException("TIN number" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_BLANK_EXEPT);
         if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() != Constants.NHS_TIN_NUMBER_DIGITS))
-            throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
+            throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_NOT_MORE_THAN_10);
     }
 }

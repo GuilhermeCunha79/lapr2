@@ -20,6 +20,8 @@ public class Client {
     static final int CITIZEN_CARD_DIGITS = 16;
     static final int NHS_MAX_CHAR=10;
     static final int MAX_AGE = 150;
+    static final String STRING_CITIZEN_CARD_NUMBER= "Citizen Card Number";
+    static final String STRING_NHS_NUMBER = "NHS Number";
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
     static final String SEX_BY_OMISSION = "Not defined";
@@ -70,9 +72,9 @@ public class Client {
         setNhsNumber(nhsNumber);
         setTinNumber(tinNumber);
         setBirthDate(birthDate);
+        this.sex = SEX_BY_OMISSION;
         setPhoneNumber(phoneNumber);
         setEmail(email);
-        this.sex = SEX_BY_OMISSION;
     }
 
     /***
@@ -148,11 +150,11 @@ public class Client {
      */
     public void setCitizenCardNumber(String citizenCardNumber) {
         if (citizenCardNumber == null)
-            throw new NullPointerException("Citizen Card Number" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(STRING_CITIZEN_CARD_NUMBER + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(citizenCardNumber))
-            throw new IllegalArgumentException("Citizen Card Number" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(STRING_CITIZEN_CARD_NUMBER + Constants.STRING_BLANK_EXEPT);
         if ((!CommonMethods.checkIfStringJustHaveNumbers(citizenCardNumber) || citizenCardNumber.length() != CITIZEN_CARD_DIGITS))
-            throw new IllegalArgumentException("Citizen Card Number must have 10 digit numbers.");
+            throw new IllegalArgumentException(STRING_CITIZEN_CARD_NUMBER + " must have 16 digit numbers.");
         this.citizenCardNumber = citizenCardNumber;
     }
 
@@ -171,11 +173,11 @@ public class Client {
 
     public void setNhsNumber(String nhsNumber) {
         if (nhsNumber == null)
-            throw new NullPointerException("NHS number" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(STRING_NHS_NUMBER + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(nhsNumber))
-            throw new IllegalArgumentException("NHS number" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(STRING_NHS_NUMBER + Constants.STRING_BLANK_EXEPT);
         if ((!CommonMethods.checkIfStringJustHaveNumbers(nhsNumber) || nhsNumber.length() != NHS_MAX_CHAR))
-            throw new IllegalArgumentException("NHS number must have 10 digit numbers.");
+            throw new IllegalArgumentException(STRING_NHS_NUMBER + Constants.STRING_NOT_MORE_THAN_10);
         this.nhsNumber = nhsNumber;
     }
 

@@ -65,10 +65,12 @@ public class Parameter {
      * @param shortName receives the new name as a parameter
      */
     public void setShortName(String shortName) {
+        if (shortName==null)
+            throw new NullPointerException(Constants.STRING_SHORT_NAME + Constants.STRING_NULL_EXEPT);
         if (shortName.length() > SHORT_NAME_LENGTH)
-            throw new IllegalArgumentException("Short name has more than 8 chars");
+            throw new IllegalArgumentException(Constants.STRING_SHORT_NAME + " has more than 8 chars");
         if (StringUtils.isBlank(shortName))
-            throw new IllegalArgumentException("Short Name" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_SHORT_NAME + Constants.STRING_BLANK_EXEPT);
         this.shortName = shortName;
     }
 
@@ -87,10 +89,12 @@ public class Parameter {
      * @param description receives the new description as a parameter
      */
     public void setDescription(String description) {
+        if (description==null)
+            throw new NullPointerException(Constants.STRING_DESCRIPTION + Constants.STRING_NULL_EXEPT);
         if (description.length() > DESCRIPTION_LENGTH)
-            throw new IllegalArgumentException("Description has more than 20 chars");
+            throw new IllegalArgumentException(Constants.STRING_DESCRIPTION + Constants.STRING_NOT_MORE_THAN_20);
         if (StringUtils.isBlank(description))
-            throw new IllegalArgumentException("Description" + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_DESCRIPTION + Constants.STRING_BLANK_EXEPT);
         this.description = description;
     }
 

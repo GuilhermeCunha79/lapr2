@@ -2,16 +2,21 @@ package app.domain.model;
 
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
-
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 
 
 /**
- *Employee class
+ * Employee class
  */
 public class Employee {
+    static final String STRING_ROLE = "Role";
+    static final String STRING_SOC = "SOC Number";
+    static final int MAX_CHAR_SOC = 4;
+    static final int MAX_CHAR_ADDRESS = 30;
+
+    private static int employeeCount = 0;
     private String employeeID;
     private String role;
     private String name;
@@ -19,12 +24,10 @@ public class Employee {
     private String phoneNumber;
     private String email;
     private String soc;
-    static final int MAX_CHAR_SOC= 4;
-    static final int MAX_CHAR_ADDRESS = 30;
 
-    private static int employeeCount = 0;
     /**
      * Constructor for class Employee.
+     *
      * @param role
      * @param name
      * @param address
@@ -86,12 +89,12 @@ public class Employee {
      * @param role
      */
     public void setRole(String role) {
-        if(role==null)
-            throw new NullPointerException("Role" + Constants.STRING_NULL_EXEPT);
-        if(StringUtils.isBlank(role))
-            throw new IllegalArgumentException("Role" + Constants.STRING_BLANK_EXEPT);
-        if(!(role.equalsIgnoreCase(Constants.ROLE_ADMIN) || role.equalsIgnoreCase(Constants.ROLE_RECEPTIONIST) || role.equalsIgnoreCase(Constants.ROLE_SPECIALIST_DOCTOR)))
-            throw new IllegalArgumentException("The inserted Role it's not valid");
+        if (role == null)
+            throw new NullPointerException(STRING_ROLE + Constants.STRING_NULL_EXEPT);
+        if (StringUtils.isBlank(role))
+            throw new IllegalArgumentException(STRING_ROLE + Constants.STRING_BLANK_EXEPT);
+        if (!(role.equalsIgnoreCase(Constants.ROLE_ADMIN) || role.equalsIgnoreCase(Constants.ROLE_RECEPTIONIST) || role.equalsIgnoreCase(Constants.ROLE_SPECIALIST_DOCTOR)))
+            throw new IllegalArgumentException("The inserted" + STRING_ROLE  + "it's not valid");
         this.role = role;
     }
 
@@ -130,13 +133,13 @@ public class Employee {
      */
     public void setAddress(String address) {
         if (address == null)
-            throw new NullPointerException("Address" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(Constants.STRING_ADDRESS + Constants.STRING_NULL_EXEPT);
         if (address.length() > MAX_CHAR_ADDRESS)
-            throw new IllegalArgumentException("Address cannot have more than 35 characters");
+            throw new IllegalArgumentException(Constants.STRING_ADDRESS + Constants.STRING_NOT_MORE_THAN_35);
         if (StringUtils.isBlank(address))
-            throw new IllegalArgumentException("Address" + Constants.STRING_BLANK_EXEPT);
-        if(!CommonMethods.stringHaveAlphanumerical(address))
-        throw new IllegalArgumentException("Address" + Constants.NON_ALPHANUM_EXEPT);
+            throw new IllegalArgumentException(Constants.STRING_ADDRESS  + Constants.STRING_BLANK_EXEPT);
+        if (!CommonMethods.stringHaveAlphanumerical(address))
+            throw new IllegalArgumentException(Constants.STRING_ADDRESS  + Constants.NON_ALPHANUM_EXEPT);
 
         this.address = address;
     }
@@ -195,9 +198,9 @@ public class Employee {
      */
     public void setSoc(String soc) {
         if (soc == null)
-            throw new NullPointerException("SOC" + Constants.STRING_NULL_EXEPT);
+            throw new NullPointerException(STRING_SOC + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(soc))
-            throw new NullPointerException("SOC" + Constants.STRING_BLANK_EXEPT);
+            throw new NullPointerException(STRING_SOC + Constants.STRING_BLANK_EXEPT);
         if (soc.length() != MAX_CHAR_SOC)
             throw new IllegalArgumentException("SOC needs to have exactly 4 characters.");
         this.soc = soc;
