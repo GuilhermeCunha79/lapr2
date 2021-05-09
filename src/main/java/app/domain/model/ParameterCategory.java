@@ -41,13 +41,11 @@ public class ParameterCategory {
         CommonMethods.codeValidation(code);
         this.code = code;
     }
-
     /**
      * Method to get the Parameter category name
      *
      * @return return he Parameter category name
      */
-
     public String getName() {
         return name;
     }

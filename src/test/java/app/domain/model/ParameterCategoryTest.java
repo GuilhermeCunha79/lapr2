@@ -14,43 +14,32 @@ public class ParameterCategoryTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericCodeAreNotAccepted() {
-        ParameterCategory pc = new ParameterCategory("120@12", "hemograms");
+        new ParameterCategory("120@12", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotHaveMoreThan5Char() {
-        ParameterCategory pc = new ParameterCategory("120121", "hemograms");
+        new ParameterCategory("120121", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotHaveLessThan5Char() {
-        ParameterCategory pc = new ParameterCategory("120", "hemograms");
-    }
-
-    @Test
-    public void ensureCodeHas5Char() {
-        ParameterCategory pc = new ParameterCategory("12012", "hemograms");
+        new ParameterCategory("120", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotBeBlank() {
-        ParameterCategory pc = new ParameterCategory("", "hemograms");
+        new ParameterCategory("", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotHaveMoreThan10Char() {
-        ParameterCategory pc = new ParameterCategory("12012", "hemograms12");
-    }
-
-    @Test
-    public void ensureNameCanHave10Char() {
-        ParameterCategory pc = new ParameterCategory("12012", "hemogramss");
-
+        new ParameterCategory("12012", "hemograms12");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotBeBlank() {
-        ParameterCategory pc = new ParameterCategory("12012", "");
+        new ParameterCategory("12012", "");
     }
 
     @Test

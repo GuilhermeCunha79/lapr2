@@ -34,7 +34,7 @@ public class CreateParameterCategoryControllerTest {
     }
 
     @Test
-    public void ensureCodeHasWith5CharIsAccepted() {
+    public void ensureCodeWith5CharIsAccepted() {
         assertTrue(ctrl.createNewParameterCategory("12112", "hemogram"));
     }
 
