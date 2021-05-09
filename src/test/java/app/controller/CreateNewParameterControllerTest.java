@@ -53,6 +53,11 @@ public class CreateNewParameterControllerTest {
     }
 
     @Test
+    public void ensureNameCanHaveLessThan8Char() {
+        assertTrue(ctrl.createNewParameter("12563", "hemoms2", "descriptiasdon", "hemograms"));
+    }
+
+    @Test
     public void ensureNameCanHave8Char() {
         assertTrue(ctrl.createNewParameter("12715", "hemoram", "descript", "hemograms"));
     }
@@ -64,12 +69,17 @@ public class CreateNewParameterControllerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotHaveMoreThan20Char() {
-        ctrl.createNewParameter("12012", "hemograms2", "description super long", "hemograms");
+        ctrl.createNewParameter("12912", "hemograms2", "description super long", "hemograms");
     }
 
     @Test
     public void ensureDescriptionCanHave20Char() {
         assertTrue(ctrl.createNewParameter("12015", "hemogram", "description with 20c", "hemograms"));
+    }
+
+    @Test
+    public void ensureDescriptionCanHaveLessThan20Char() {
+        assertTrue(ctrl.createNewParameter("12075", "hemogrsm", "descriptic", "hemograms"));
     }
 
     @Test(expected = IllegalArgumentException.class)

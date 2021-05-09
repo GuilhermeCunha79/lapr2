@@ -2,8 +2,7 @@ package app.domain.model;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class ParameterCategoryTest {
 
@@ -83,9 +82,7 @@ public class ParameterCategoryTest {
     @Test
     public void checkIfParameterCategoryIsDiffThanNull(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
-        ParameterCategory pc2 = null;
-        boolean expected = false;
-        assertEquals(expected, pc.equals(pc2));
+        assertFalse(pc.equals(null));
     }
 
     @Test
@@ -120,15 +117,14 @@ public class ParameterCategoryTest {
     @Test
     public void checkIfTheSameParametersAreEqual(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
-        ParameterCategory pc2 = pc;
-        assertEquals(pc, pc2);
+        assertEquals(pc, pc);
     }
 
     @Test
     public void checkIfDifferentObjectsAreDifferent(){
-        ParameterCategory pc = new ParameterCategory("12012", "hemograms");
+        new ParameterCategory("12012", "hemograms");
         Parameter p1 = new Parameter("12012", "Blood1", "Test lood Cells", "hemograms");
-        assertNotEquals(p1, pc);
+        assertNotEquals(p1, new String());
     }
 
 }
