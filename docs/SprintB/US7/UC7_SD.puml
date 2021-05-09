@@ -8,6 +8,8 @@ participant ":RegisterEmployeeController" as CTRL
 participant ":Company" as COMP
 participant ":EmployeeStore" as EMPS
 participant ":Employee" as EMP
+participant ":CommonMethods" as CM
+
 
 
 ADMIN -> UI : Register a employee
@@ -26,8 +28,14 @@ UI -> CTRL : newEmployee(role,name,\naddress,phoneNumber,email,soc)
                 activate EMPS
                     EMPS --> EMP** : Employee(role, name,\naddress, phoneNumber, email, soc)
                 deactivate EMPS
-                CTRL -> EMPS : validateEmployee(emp)
+
+
+                CTRL -> EMPS : saveEmployee(emp)
+
                 activate EMPS
+                CTRL -> CM : addUserToSystem(name,email,role)
+                                activate CM
+                                deactivate CM
                 deactivate EMPS
     deactivate CTRL
     UI --> ADMIN : Validates the data and asks for confirmation

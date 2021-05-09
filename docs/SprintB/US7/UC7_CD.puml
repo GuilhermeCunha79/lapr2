@@ -7,8 +7,7 @@ class RegisterEmployeeUI
 
 class RegisterEmployeeController
 {
-    +createEmployee(role, name, address, phoneNumber, email, soc)
-    +validateEmployee(employee)
+    +addUserToSystem(employee)
 }
 
 class Employee
@@ -23,7 +22,7 @@ class Employee
 }
 
 class Company{
-    -description
+    -description;
     +getEmployeeStore()
 }
 
