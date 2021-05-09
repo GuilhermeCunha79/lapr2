@@ -18,7 +18,7 @@ deactivate UI
 
 RECEP -> UI : inserts the required data
 activate UI
-    UI -> CTRL : newClient(name, citizenCardNumber,tinNumber,\n birthDate, sex, phoneNumber, email)
+    UI -> CTRL : newClient(name, citizenCardNumber, nhsNumber,\n tinNumber, birthDate, sex, phoneNumber, email)
 
 activate CTRL
 
@@ -26,7 +26,7 @@ activate CTRL
         activate C
         deactivate C
 
-        CTRL -> CS: client = newClient(name, citizenCardNumber,\n tinNumber, birthDate, sex, phoneNumber, email)
+        CTRL -> CS: client = newClient(name, citizenCardNumber, nhsNumber,\n tinNumber, birthDate, sex, phoneNumber, email)
 
         activate CS
         CS --> CL** : create(newClient)

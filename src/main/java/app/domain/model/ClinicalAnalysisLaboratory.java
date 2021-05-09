@@ -139,11 +139,10 @@ public class ClinicalAnalysisLaboratory {
             if (StringUtils.isBlank(laboratoryID))
                 throw new IllegalArgumentException(STRING_LAB_ID + Constants.STRING_BLANK_EXEPT);
             if (laboratoryID.length() != MAX_CHAR_LABORATORY_ID)
-                throw new IllegalArgumentException(STRING_LAB_ID + " must have exactly 5 alphanumerical characters");
+                throw new IllegalArgumentException(STRING_LAB_ID + " must have exactly 5 alphanumerical characters.");
             if(!onlyDigits(laboratoryID))
-                throw new IllegalArgumentException(STRING_LAB_ID + " cannot have characters different than 5 alphanumerical");
+                throw new IllegalArgumentException(STRING_LAB_ID + " cannot have characters different than 5 alphanumerical characters.");
             this.laboratoryID = laboratoryID;
-
         }
 
         private String printTypeOfTestList () {
@@ -168,8 +167,7 @@ public class ClinicalAnalysisLaboratory {
 
 
             ClinicalAnalysisLaboratory clinicalAnalysisLaboratory = (ClinicalAnalysisLaboratory) o;
-            return Objects.equals(name, clinicalAnalysisLaboratory.name)
-                    && Objects.equals(phoneNumber, clinicalAnalysisLaboratory.phoneNumber)
+            return  Objects.equals(phoneNumber, clinicalAnalysisLaboratory.phoneNumber)
                     && Objects.equals(laboratoryID, clinicalAnalysisLaboratory.laboratoryID)
                     && Objects.equals(tinNumber, clinicalAnalysisLaboratory.tinNumber)
                     && Objects.equals(address, clinicalAnalysisLaboratory.address)
