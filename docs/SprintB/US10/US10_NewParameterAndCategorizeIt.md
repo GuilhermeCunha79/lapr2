@@ -27,7 +27,7 @@ As an administrator, I want to specify a new parameter and categorize it.
 
 > **Question:** What rules do the parameter's data need to follow in order to be accepted? 
 >
-> **Answer:** The Code are five alphanumeric characters. The Short Name is a String with no more than 8 characters. 
+> **Answer:** The Code is five alphanumeric characters. The Short Name is a String with no more than 8 characters. 
 >The Description is a String with no more than 20 characters.
 
 > **Question:** Can a parameter be classified in more than one parameter category?
@@ -92,7 +92,7 @@ must have at least one category, so the admin can categorize the new parameter.
 
 ### 2.2. Other Remarks
 
-n/a
+* n/a
 
 
 ## 3. Design - User Story Realization 
@@ -144,67 +144,82 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 4. Tests 
 
-**Test 1:** Check that it is not possible to create an instance of a Parameter without having a category assigned to it. 
-
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Task instance = new Task(null, null, null, null, null, null, null);
-	}
+**Test 1:** Check that it is not possible to create an instance of a Parameter without all attributes assigned to it. (AC1/2)
+    
+    @Test(expected = NullPointerException.class)
+    public void ensureNullParameterIsNotCreated() {
+        new Parameter(null, null, null, null);
+    }
 	
+**Test 2:** Check that it is not possible to create an instance of a parameter with a code with more than 8 characters. (AC3)
 
-**Test 2:** Check that it is not possible to create an instance of a parameter without having named it. 
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureCodeCannotHaveMoreThan5Char() {
+        new Parameter("102322", "Blood", "Test Blood Cells", "hemograms");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureCodeCannotHaveLessThan5Char() {
+        new Parameter("122", "Blood", "Test Blood Cells", "hemograms");
+    }
+
+
+**Test 3:** Check that it is not possible to create an instance of a parameter with a name with more than 8 characters. (AC4)
 
 	@Test(expected = IllegalArgumentException.class)
-		public void ensureReferenceMeetsAC2() {
-		Category cat = new Category(10, "Category 10");
-		
-		Task instance = new Task("Ab1", "Task Description", "Informal Data", "Technical Data", 3, 3780, cat);
-	}
+    public void ensureNameCannotHaveMoreThan8Char() {
+        new Parameter("10322", "Blood Cells", "Test Blood Cells", "hemograms");
+    }
 
+**Test 4:** Check that it is not possible to create an instance of a parameter with a description with more than 20 characters. (AC5)
 
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureDescriptionCannotHaveMoreThan20Char() {
+        new Parameter("10322", "Blood Cells", "Test Blood Cells and Urine", "hemograms");
+    }
 
 
 # 5. Construction (Implementation)
 
 
-## Class CreateTaskController 
+## Class CreateNewParameterController
 
-		public boolean createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Integer catId)() {
-		
-			Category cat = this.platform.getCategoryById(catId);
-			
-			Organization org;
-			// ... (omitted)
-			
-			this.task = org.createTask(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			
-			return (this.task != null);
-		}
-
-
-## Class Organization
-
-
-		public Task createTask(String ref, String designation, String informalDesc, 
-			String technicalDesc, Integer duration, Double cost, Category cat)() {
-		
-	
-			Task task = new Task(ref, designation, informalDesc, technicalDesc, duration, cost, cat);
-			if (this.validateTask(task))
-				return task;
-			return null;
-		}
-
-
+    public class CreateNewParameterController {
+    
+        private ParameterStore ps;
+    
+        private Parameter param;
+    
+        public CreateNewParameterController() {
+            this(App.getInstance().getCompany().getParameterStore());
+        }
+    
+        public CreateNewParameterController(ParameterStore pStore){
+            this.ps = pStore;
+            this.param = null;
+        }
+    
+        public boolean createNewParameter(String code, String name, String description, String category){
+            this.param = this.ps.createParameter(code,name,description,category);
+            return saveParameter();
+        }
+    
+        public boolean saveParameter(){
+            return this.ps.saveParameter(param);
+        }
+    
+        public List<ParameterCategory> getCategoryList(){
+            return App.getInstance().getCompany().getParameterCategoryStore().getParameterCategoryList();
+        }       
+    }
 
 # 6. Integration and Demo 
 
-
+* n/a
 
 # 7. Observations
 
-
+* n/a
 
 
 

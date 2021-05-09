@@ -6,11 +6,17 @@ import static org.junit.Assert.*;
 
 public class ParameterCategoryTest {
 
+    /**
+     * Checks if category with null values is not created
+     */
     @Test(expected = NullPointerException.class)
     public void ensureNullParameterCategoryIsNotCreated() {
         ParameterCategory p = new ParameterCategory(null, null);
     }
 
+    /**
+     * Tests for code's acceptance criteria
+     */
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericCodeAreNotAccepted() {
         new ParameterCategory("120@12", "hemograms");
@@ -31,6 +37,9 @@ public class ParameterCategoryTest {
         new ParameterCategory("", "hemograms");
     }
 
+    /**
+     * Tests for name's acceptance criteria
+     */
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotHaveMoreThan10Char() {
         new ParameterCategory("12012", "hemograms12");
@@ -41,18 +50,13 @@ public class ParameterCategoryTest {
         new ParameterCategory("12012", "");
     }
 
+    /**
+     * Tests for get methods
+     */
     @Test
     public void checkGetCodeMethod(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
         String expected = "12012";
-        assertEquals(expected, pc.getCode());
-    }
-
-    @Test
-    public void checkSetCodeMethod(){
-        ParameterCategory pc = new ParameterCategory("12012", "hemograms");
-        pc.setCode("10231");
-        String expected = "10231";
         assertEquals(expected, pc.getCode());
     }
 
@@ -63,6 +67,18 @@ public class ParameterCategoryTest {
         assertEquals(expected, pc.getName());
     }
 
+    /**
+     * Tests for set methods
+     */
+
+    @Test
+    public void checkSetCodeMethod(){
+        ParameterCategory pc = new ParameterCategory("12012", "hemograms");
+        pc.setCode("10231");
+        String expected = "10231";
+        assertEquals(expected, pc.getCode());
+    }
+
     @Test
     public void checkSetNameMethod(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
@@ -71,7 +87,9 @@ public class ParameterCategoryTest {
         assertEquals(expected, pc.getName());
     }
 
-
+    /**
+     * Test for parameter category toString method
+     */
     @Test
     public void checkToStringMethod(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
