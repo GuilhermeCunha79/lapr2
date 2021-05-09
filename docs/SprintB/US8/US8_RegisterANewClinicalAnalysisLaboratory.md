@@ -201,12 +201,35 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## Class CreateTaskController 
 
+    public class RegisterNewClinicalAnalysisLaboratoryController {
+
+    private ClinicalAnalysisLaboratoryStore cals;
+    private ClinicalAnalysisLaboratory cal;
+
+    public RegisterNewClinicalAnalysisLaboratoryController() {
+        this(App.getInstance().getCompany().getClinicalAnalysisLaboratoryStore());
+    }
+
+    public RegisterNewClinicalAnalysisLaboratoryController(ClinicalAnalysisLaboratoryStore cals) {
+        this.cals = cals;
+        this.cal = null;
+    }
 
 
+    public boolean registerNewClinicalAnalysisLaboratory(String name, String phoneNumber, String laboratoryID, String tinNumber, String address, List<TypeOfTest> typeOfTestList) {
+        this.cal = this.cals.registerClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address, typeOfTestList);
+        return this.cals.validateClinicalAnalysisLaboratory(cal);
+    }
 
-## Class Organization
 
+    public boolean saveClinicalAnalysisLaboratory() {
+        return this.cals.saveClinicalAnalysisLaboratory(cal);
+    }
 
+    public List<TypeOfTest> listOfTypeOfTests(){
+        return App.getInstance().getCompany().getTypeOfTestStore().getTypeOfTestList();
+    }
+}
 
 
 # 6. Integration and Demo 
