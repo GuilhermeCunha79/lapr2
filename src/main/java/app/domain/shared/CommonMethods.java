@@ -168,12 +168,14 @@ public class CommonMethods {
         if (address == null)
             throw new NullPointerException(Constants.STRING_ADDRESS + Constants.STRING_NULL_EXEPT);
         if (address.length() > Constants.ADDRESS_DIGITS)
-            throw new IllegalArgumentException(Constants.STRING_ADDRESS + " cannot have more than 35 characters");
+            throw new IllegalArgumentException(Constants.STRING_ADDRESS + Constants.STRING_NOT_MORE_THAN_30);
         if (StringUtils.isBlank(address))
             throw new IllegalArgumentException(Constants.STRING_ADDRESS + Constants.STRING_BLANK_EXEPT);
         if (!CommonMethods.stringHaveAlphanumerical(address))
             throw new IllegalArgumentException(Constants.STRING_ADDRESS + Constants.NON_ALPHANUM_EXEPT);
     }
+
+
 
     /***
      * Validate a string (tinNumber) by testing the string with some imposed rules

@@ -1,9 +1,5 @@
 package app.domain.shared;
 
-/**
- * @author Paulo Maio <pam@isep.ipp.pt>
- */
-
 /***
  * Constants Class
  */
@@ -36,6 +32,7 @@ public class Constants {
     //PARAMETER MAX DIGITS
     public static final String STRING_NOT_MORE_THAN_10 = " cannot have more than 10 characters.";
     public static final String STRING_NOT_MORE_THAN_20 = " cannot have more than 20 characters.";
+    public static final String STRING_NOT_MORE_THAN_30 = " cannot have more than 30 characters.";
     public static final String STRING_NOT_MORE_THAN_35 = " cannot have more than 35 characters.";
 
     //COMMON ERRORS

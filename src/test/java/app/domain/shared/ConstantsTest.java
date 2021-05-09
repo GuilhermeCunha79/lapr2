@@ -12,6 +12,6 @@ public class ConstantsTest {
     public void testConstructor() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Constructor<Constants> c = Constants.class.getDeclaredConstructor();
         c.setAccessible(true);
-        Constants u = c.newInstance();
+        c.newInstance();
     }
 }
