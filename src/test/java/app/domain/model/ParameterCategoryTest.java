@@ -87,7 +87,7 @@ public class ParameterCategoryTest {
     @Test
     public void checkToStringMethod(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
-        String expected = String.format("Parameter Category:%nName: hemograms%nCode: 12012");
+        String expected = String.format("Parameter Category:%nName: hemograms%nCode: 12012%n");
         assertEquals(expected, pc.toString());
     }
 
