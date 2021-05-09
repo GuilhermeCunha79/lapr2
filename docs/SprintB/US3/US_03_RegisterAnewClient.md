@@ -101,7 +101,7 @@ must have a receptionist logged in, so the receptionist can register the client.
 
 ### 1.6. System Sequence Diagram (SSD)
 
-![UC03_SSD-MD](UC03_SSD.svg)
+![UC03_SSD](UC03_SSD.svg)
 
 ### 1.7 Other Relevant Remarks
 
@@ -225,8 +225,6 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 5. Construction (Implementation)
 
-*In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
-
 #Class RegisterClientController
 
 
@@ -278,6 +276,8 @@ Other software classes (i.e. Pure Fabrication) identified:
         this.sex = SEX_BY_OMISSION;
         setPhoneNumber(phoneNumber);
         setEmail(email);
+
+        ....
     }
 
 
@@ -301,6 +301,8 @@ Other software classes (i.e. Pure Fabrication) identified:
 
         this.designation = designation;
         this.authFacade = new AuthFacade();
+        
+        ...
     }
 
 # 6. Integration and Demo 
