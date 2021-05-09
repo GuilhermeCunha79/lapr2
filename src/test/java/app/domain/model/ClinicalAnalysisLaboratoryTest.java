@@ -215,6 +215,15 @@ public class ClinicalAnalysisLaboratoryTest {
         ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Felix", "90905490875", "2345b", "7845874896", "RuaDoCouto98", new ArrayList<>());
     }
 
+    @Test
+    public void checkToStringMethod() {
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Pedro", "12321140565", "test5", "4656497894", "RuaDaMorte98", new ArrayList<>());
+        String expected = String.format("Clinical Analysis Laboratory:%nName: Pedro%nPhone Number: 12321140565%nLaboratory ID: test5%nTIN number: 4656497894%nAddress: RuaDaMorte98%n Type of Tests List:%n");
+        assertEquals(expected, c1.toString());
+    }
+
+    
+
 
 }
 

@@ -184,17 +184,46 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 4. Tests 
 
-**Test 1:** Check that it is not possible to create an instance of the Task class with null values. 
+**Test 1:** Check that it is not possible to create an instance of a Clinical Analysis Laboratory without all attributes assigned to it. 
+
+            @Test(expected = NullPointerException.class)
+               public void ensureNullClinicalAnalysisLaboratoryIsNotCreated() {
+               new ClinicalAnalysisLaboratory(null, null, null, null);
+                           }
+
+**Test 2:** Check that it is not possible to create an instance of a Clinical Analysis Laboratory with a name with more than 20 characters. (AC6)
+      
+            @Test(expected = IllegalArgumentException.class)
+    public void ensureNameCannotHaveMoreThan20Char() {
+        new ClinicalAnalysisLaboratory("JoaoManuelOliveiraMartins", "12345678891", "a1234", "1123456789", "RuaNovaDoAldeiro355", new ArrayList<>());
+    }
+
+**Test 3:** Check that it is not possible to create an instance of an Address with a name with more than 30 characters. (AC4)
+                      
+                       @Test(expected = IllegalArgumentException.class)
+                            public void ensureThatAddressCannotHaveMoreThan30Chars() {
+                                new ClinicalAnalysisLaboratory("Joao Santos","11234567890", "a1234", "01234567890", "Avenida Nova do Aldeiro 3455 Lourosa", new ArrayList<>());
+                       }
+**Test 3:** Check that it is not possible to create an instance of a Clinical Analysis Laboratory with a LaboratoryID with more than 5 characters. (AC5)
 
 
-	
-	
+                             @Test(expected = IllegalArgumentException.class)
+                                    public void ensureThatLaboratoryIDCannotHaveMoreThan5CharAlphanumeric() {
+                                          new ClinicalAnalysisLaboratory("JoaoManuelOliveira", "11234567890", "a12345", "0123456789", "Rua Nova do Aldeiro 355", new ArrayList<>() );
+                             }
 
-**Test 2:** Check that it is not possible to create an instance of the Task class with a reference containing less than five chars - AC2. 
-
-	
-
-*It is also recommended organizing this content by subsections.* 
+**Test 4:** Check that it is not possible to create an instance of a Clinical Analysis Laboratory with a Phone Number with more than 11 characters. (AC2)
+                            
+                             @Test(expected = IllegalArgumentException.class)
+                                     public void ensureThatPhoneNumberCannotHaveMoreThan11DigitsNumber () {
+                                             new ClinicalAnalysisLaboratory("Joao Oliveira", "123456789012", "1a234", "1231231231", "RuaDoAldeiro355", new ArrayList<>());
+                                                                            
+**Test 5:** Check that it is not possible to create an instance of a Clinical Analysis Laboratory with a Tin Number with more than 10 characters. (AC3)
+                             
+                             @Test(expected = IllegalArgumentException.class)
+                                   public void ensureThatTinNumberCannotHaveMoreThan10Digits() {
+                                           new ClinicalAnalysisLaboratory("Joao Manuel","11234567890", "a1234", "01234567891", "Rua Nova do Aldeiro 355", new ArrayList<>()  );
+                             }
 
 # 5. Construction (Implementation)
 
