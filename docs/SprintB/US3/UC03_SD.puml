@@ -37,8 +37,10 @@ activate CTRL
         CTRL -> CS : validateClient(ct)
 
         activate CS
-        CTRL -> CM : addUserToSystem(String name, String email, String role)
 
+        CTRL -> CM : addUserToSystem(String name, String email, String role)
+        activate CM
+        deactivate CM
         deactivate CS
 
 
