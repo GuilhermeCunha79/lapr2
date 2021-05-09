@@ -36,7 +36,7 @@ Standard Occupational Classification (SOC) code.
 
 * **AC1:** The client must become a system user.
 * **AC2:** The "auth" component available on the repository must be reused (without modifications).
-* **AC3:** There are some formats that need to be respected like: name have a maximum of 35 characters, Citizen Card must have a 16 digit number; NHS must have a 10 digit number; Birth Date must be in DD/MM/YY format; only two genders available (Male/Female); Phone number must have an 11 digit number.
+* **AC3:** There are some formats that need to be respected like: name have a maximum of 35 characters, Citizen Card must have a 16 digit number; NHS must have a 10 digit number; Birth Date must be in DD/MM/YYYY format; only two genders available (Male/Female); Phone number must have an 11 digit number.
 * **AC4:** The sex of the client is optional.
 * **AC5:** When registering a client with an already existing data, the system must reject such operation with an error and the user must have the change to modify the typed reference.
 

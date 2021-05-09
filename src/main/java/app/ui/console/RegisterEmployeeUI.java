@@ -6,6 +6,8 @@ import app.controller.RegisterEmployeeController;
 import app.domain.shared.CommonMethods;
 import app.ui.console.utils.Utils;
 
+import java.util.Objects;
+
 public class RegisterEmployeeUI implements Runnable{
 
     private RegisterEmployeeController ctrl;
@@ -33,12 +35,13 @@ public class RegisterEmployeeUI implements Runnable{
                 state = ctrl.createEmployee(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc);
 
                 if (state) {
-                    String answer = Utils.readLineFromConsole(String.format("%nConfirm the employee data: %nCompany Role: %s%nName: %s%nAddress %s%nPhone Number: %s%nEmail: %s%nSOC:%s%n(Y/N)", empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
+                    String answer = Utils.readLineFromConsole(String.format("%nConfirm the employee data: %nCompany Role: %s%nName: %s%nAddress %s%nPhone Number: %s%nEmail: %s%nSOC: %s%n(Y/N)", empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
                     while (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")){
                         answer = Utils.readLineFromConsole("Answer not valid! Use (Y/N)");
-                        if (answer.equalsIgnoreCase("Y")) {
-                            return ctrl.saveEmployee();
-                        }
+
+                    }
+                    if (answer.equalsIgnoreCase("Y")) {
+                        return ctrl.saveEmployee();
                     }
                 } else {
                     System.out.println("Employee is invalid!");

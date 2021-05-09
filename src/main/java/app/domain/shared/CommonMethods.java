@@ -1,5 +1,6 @@
 package app.domain.shared;
 
+import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
@@ -194,10 +195,23 @@ public class CommonMethods {
      * @throws IOException
      */
     public static void sendEmailWithPassword(String name, String password) throws IOException {
-        File email = new File("SMS_EMAIL\\email.txt");
+        File email = new File("email.txt");
         PrintWriter out = new PrintWriter(email);
 
         out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%n%s", name, password);
         out.close();
+    }
+
+    public static boolean addUserToSystem(String name, String email, String role, AuthFacade authFacade) {
+        String password = CommonMethods.generatePassword();
+        try {
+            if (authFacade.addUserWithRole(name, email, password, role)) {
+                CommonMethods.sendEmailWithPassword(name, password);
+                return true;
+            }
+        }catch(Exception e){
+            return false;
+        }
+        return false;
     }
 }

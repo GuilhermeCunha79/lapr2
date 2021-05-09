@@ -124,16 +124,14 @@ public class TypeOfTestTest {
         String expected = "Saliva";
         assertEquals(expected, tot1.getCollectingMethod());
     }
-
-/*
     @Test
     public void checkToStringMethod() {
         Listpc.add(pc);
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
-        String expected= String.format("Type of Test: \nCode: 53436 \nDescription: RNA remnants \nCollecting Method: cotton swab \nParameter Category(ies):\nParameter Category:\nName: Src\nCode: 34567\n");
+        String expected= String.format("Type of Test:%nCode: 53436%nDescription: RNA remnants%nCollecting Method: cotton swab%nParameter Category(ies):%nParameter Category:%nName: Src%nCode: 34567%n");
        assertEquals(expected, tot1.toString());
     }
-/*/
+
     @Test
     public void checkIfTypeOfTestIsDiffThanNull() {
         Listpc.add(pc);

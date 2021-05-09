@@ -6,9 +6,6 @@ import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import app.domain.store.EmployeeStore;
 import auth.AuthFacade;
-import auth.domain.store.UserStore;
-
-import java.util.InputMismatchException;
 
 public class RegisterEmployeeController {
     public Employee employee;
@@ -41,31 +38,21 @@ public class RegisterEmployeeController {
 
     public boolean createEmployee(String role, String name, String address, String phoneNumber, String email, String soc){
         this.emp = this.empStore.createEmployee(role, name, address, phoneNumber, email, soc);
-        if(saveEmployee())
-            return addUserToSystem(name, email, role);
-        return false;
+        return this.empStore.validateEmployee(emp);
     }
 
     private boolean addUserToSystem(String name, String email, String role) {
-        String password = CommonMethods.generatePassword();
-        try {
-            if (this.authFacade.addUserWithRole(name, email, password, role)) {
-                System.out.println(password);
-                CommonMethods.sendEmailWithPassword(name, password);
-                return true;
-            }
-        }catch(Exception e){
-            return false;
-        }
-        return false;
+        return CommonMethods.addUserToSystem(name, email, role, this.authFacade);
     }
 
     public boolean createSpecialistDoctor(String role, String name, String address, String phoneNumber, String email, String soc, int indexNumber){
         this.emp = this.empStore.createSpecialistDoctor(role,name,address,phoneNumber,email,soc, indexNumber);
-        return saveEmployee();
+        return this.empStore.validateEmployee(emp);
     }
 
     public boolean saveEmployee() {
-        return this.empStore.saveEmployee(emp);
+        if(this.empStore.saveEmployee(emp))
+            return addUserToSystem(emp.getName(), emp.getEmail(), emp.getRole());
+        return false;
     }
 }

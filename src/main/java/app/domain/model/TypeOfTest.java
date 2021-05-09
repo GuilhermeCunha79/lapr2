@@ -60,7 +60,7 @@ public class TypeOfTest {
 
     @Override
     public String toString() {
-        return String.format("Type of Test: %nCode: %s %nDescription: %s %nCollecting Method: %s %n%s", this.code, this.description, this.collectingMethod, printCategories());
+        return String.format("Type of Test:%nCode: %s%nDescription: %s%nCollecting Method: %s%n%s", this.code, this.description, this.collectingMethod, printCategories());
     }
 
     @Override
@@ -74,7 +74,7 @@ public class TypeOfTest {
 
     private String printCategories(){
         if(parameterCategoryList != null && parameterCategoryList.size()>0){
-            String output = "Parameter Category(ies):\n";
+            String output = String.format("Parameter Category(ies):%n");
             for (ParameterCategory category : parameterCategoryList) {
                 output = output.concat(category.toString());
             }
