@@ -42,7 +42,9 @@ public class Constants {
     public static final String PARAMS_FILENAME = "config.properties";
     public static final String PARAMS_COMPANY_DESIGNATION = "Company.Designation";
 
-
+    /***
+     *
+     */
     private Constants() {
         throw new IllegalStateException("Utility class");
     }

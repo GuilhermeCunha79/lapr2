@@ -30,6 +30,19 @@ Address;
 Phone Number;
 E-Mail;
 Standard Occupational Classification (SOC) code.
+> 
+> **Question:** What attributes a Client have?
+>
+>**Answer:**
+Name;
+Citizen Card Number
+NHS number
+TIN number
+Birth Date
+Sex
+Phone number
+Email
+.
 
 
 ### 1.3. Acceptance Criteria
@@ -50,9 +63,10 @@ must have a receptionist logged in, so the receptionist can register the client.
 
 *Input Data*
 
--Typed Data: Name; Address; Phone Number; E-Mail; Citizen Card number; TIN number; Birth date; Sex.
+-Typed Data: Name; Citizen Card Number; NHS number; TIN number; Birth Date; Sex; Phone Number; Email.
 
--Output Data: (In)Success of the operation.
+-Output Data: The client receives an email with the registration confirmation and his password
+(In)Success of the operation.
 
 *Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
@@ -86,24 +100,24 @@ must have a receptionist logged in, so the receptionist can register the client.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1/Msg 1: register a new client                     | ... instantiating a new Client?               |  Receptionist             | Creator (Rule 1): in the DM Receptionist add Client |
-|                                                         | ... interacting with the actor?               |  RegisterClientUI         | Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model |
-|                                                         | ... coordination the US?                      |  RegisterClientController | Controller                                      |
-|                                                         | ... asking for the needed data?               |  RegisterClientController | Controller                                      |
-|                                                         | ... knowing the user using the system?        |  UserSession              | IE: cf. A&A component documentation             |
-|                                                         |                                               |  Company                  | IE: knows/has its own Clients                   |
-|                                                         |                                               |  Client                   | IE: knows its own data                          |
-| Step 2/Msg 2: request mandatory data (Citizen Card number, NHS number, TIN number, Birth day, sex) and optional data (Phone number) | n/a |                                           |
-| Step 3/Msg 3: insert the data                           |	... saving the input data                     |  ClientStore              | IE: object created in step 1 has its own data   |
-| Step 4/Msg 4: shows the data and request a confirmation |	... validating locally all the data?          |  Client                   | IE: knows its own data                          |
-|                                                         | ... validating globally all the data?         |  Company                  | IE: knows all the Client objects                |
-| Step 5/Msg 5: confirms the data                         | ... saving the registered client?	          |  Client                   | IE: owns all its client                         |
-| Step 6/Msg 6: informs operation success                 |	... informing operation success?              |  RegisterClientUI         | IE: responsible for user interaction            |              
+| Step 1: Start new parameter |... interacting with the actor? | RegisterAnewClientUI | UI Layer is always responsible for user interactions |         
+| Step 2: Ask for the data |... requesting data needed? | RegisterAnewClientUI | UI Layer is responsible for user interaction |
+| Step 4: Create new parameter |... send command to register a new client? | RegisterClientController | Controller makes the bridge between UI layer and Domain Layer|
+| Step 5: Initiate store process|... start the store process for the client being registered? | Company | HC+LC: Company delegates some of its responsibilities to other classes |      
+| Step 6: Register new Client |... instantiating new Client? | ClientStore | Creator: R1/2 |      
+| Step 7: Save Data |... saving the introduced data? | Client | IE: instance of object created has its own data.  |
+| Step 8: Validate client |... validating all data (local validation)? | ClientStore | IE: knows its own data.|
+| Step 9: Present data to user |...requesting confirmation for data introduced? | RegisterAnewClient | UI Layer is responsible for user interaction |
+| Step 11: Save client |... send command to save the created client? | CreateNewParameterController | Controller makes the bridge between UI layer and Domain Layer|
+| Step 12: Save client |... saving the created client? | ClientStore | IE: stores all parameters created|
+| Step 13: Validate client globally |... validating all data at global level? | ClientStore | IE: Company Knows all existing Clients|
+| Step 14: Add client |... add created parameter to the list? | ClientStore | IE: Responsible to add new Client to the list|
+| Step 15: Operation success |... informing operation success?| RegisterAnewClientUI | UI Layer is responsible for user interactions.  |
+
 
 ### Systematization ##
 
-According to the taken rationale, the conceptual classes promoted to software classes are: 
-
+According to the taken rationale, the conceptual classes promoted to software classes are:
  * Company
  * Client
  * ClientStore
@@ -127,10 +141,17 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **Test 1:** Check that it is not possible to create an instance of the Client class with null values. 
 
-	@Test(expected = IllegalArgumentException.class)
-		public void ensureNullIsNotAllowed() {
-		Client instance = new Client(null, null, null, null, null, null, null);
-	}
+	 @Test(expected = NullPointerException.class)
+    public void garanteeNullClientIsntCreatedWithAllDataAndSex() {
+        new Client(null, null, null, null, null, null, null, null);
+    }
+
+**Test 2:** Check that it is not possible to create an instance of the Client class with null values.
+
+	 @Test(expected = NullPointerException.class)
+    public void garanteeNullClientIsntCreatedWithAllDataAndSex() {
+        new Client(null, null, null, null, null, null, null, null);
+    }
 
 *It is also recommended to organize this content by subsections.* 
 
@@ -140,30 +161,56 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 #Class RegisterClientController
 
-		public boolean newClient(String name, String email, 
-			int nhsNumber, String birthDate, String sex, int phoneNumber)() {
-		
-			Client clt = this.platform.getClientByName(cltName);
-			
-			Organization org;
-			// ... (omitted)
-			
-			this.client = org.newClient(name, email, nhsNumber, birthDate, sex, phoneNumber, clt);
-			
-			return (this.client != null);
-		}
 
-## Class Company
+    public class RegisterClientController {
+        private ClientStore ctStore;
+        private Client ct;
 
-		public Client newClient(String name, String email, 
-			int nhsNumber, String birthDate, String sex, int phoneNumber)() {
-		
-	
-			Client client = new Client(name, email, nhsNumber, birthDate, sex, phoneNumber, clt);
-			if (this.validateClient(client))
-				return client;
-			return null;
-		}
+    private AuthFacade authFacade;
+
+    public RegisterClientController() {
+        this(App.getInstance().getCompany());
+    }
+
+    public RegisterClientController(Company company) {
+        this.ctStore= company.getClientStore();
+        this.authFacade = company.getAuthFacade();
+        this.ct = null;
+    }
+
+    private boolean addUserToSystem(String name, String email, String role) {
+        return CommonMethods.addUserToSystem(name, email, role, this.authFacade);
+    }
+
+    public List<Client> getClientList(){
+        return App.getInstance().getCompany().getClientStore().getClientList();
+        }
+    }
+
+
+## Class Client
+
+    public Client(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String sex, String phoneNumber, String email) {
+        setName(name);
+        setCitizenCardNumber(citizenCardNumber);
+        setNhsNumber(nhsNumber);
+        setTinNumber(tinNumber);
+        setBirthDate(birthDate);
+        setSex(sex);
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+    }
+
+    public Client(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String phoneNumber, String email) {
+        setName(name);
+        setCitizenCardNumber(citizenCardNumber);
+        setNhsNumber(nhsNumber);
+        setTinNumber(tinNumber);
+        setBirthDate(birthDate);
+        this.sex = SEX_BY_OMISSION;
+        setPhoneNumber(phoneNumber);
+        setEmail(email);
+    }
  
 
 # 6. Integration and Demo 
