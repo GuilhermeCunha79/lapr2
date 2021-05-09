@@ -91,19 +91,19 @@ n/a
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: Specifie a New Type of test  |... interacting with the actor? | SpecifieANewTypeOfTestUI    | UI Layer is always responsible for user interactions |         
-| Step 2: Requests necessary data |... requesting data needed? | SpecifieANewTypeOfTestUI | UI Layer is responsible for user interaction |
-| Step 4: Create new type of test |... send command to create new type of test? | SpecifieANewTypeOfTestController | Controller makes the bridge between UI layer and Domain Layer|
+| Step 1: Specify a New Type of test  |... interacting with the actor? | SpecifyANewTypeOfTestUI    | UI Layer is always responsible for user interactions |         
+| Step 2: Requests necessary data |... requesting data needed? | SpecifyANewTypeOfTestUI | UI Layer is responsible for user interaction |
+| Step 4: Create new type of test |... send command to create new type of test? | SpecifyANewTypeOfTestController | Controller makes the bridge between UI layer and Domain Layer|
 | Step 5: Initiate store process|... start the store process for the type of test being created? | Company | HC+LC: Company delegates some of its responsibilities to other classes |      
 | Step 6: Create new type of test |... instantiating new type of test? | TypeOfTestStore | Creator: R1/2 |      
 | Step 7: Save Data |... saving the introduced data? | TypeOfTest  | IE: instance of object created has its own data.  |
 | Step 8: Validate type of test |... validating all data (local validation)? | TypeOfTestStore | IE: knows its own data.|
-| Step 9: Present data to user |...requesting confirmation for data introduced? | SpecifieANewTypeOfTestUI | UI Layer is responsible for user interaction |
-| Step 11: Save type of test |... send command to save the created type of test? | SpecifieANewTypeOfTestController | Controller makes the bridge between UI layer and Domain Layer|
+| Step 9: Present data to user |...requesting confirmation for data introduced? | SpecifyANewTypeOfTestUI | UI Layer is responsible for user interaction |
+| Step 11: Save type of test |... send command to save the created type of test? | SpecifyANewTypeOfTestController | Controller makes the bridge between UI layer and Domain Layer|
 | Step 12: Save type of test |... saving the created type of test? | TypeOfTestStore | IE: stores all type of test created|
 | Step 13: Validate type of test globally |... validating all data at global level? | TypeOfTestStore | IE: Company Knows all existing Type of Test|
 | Step 14: Add type of test |... add created parameter category to the list? | TypeOfTestStore | IE: Responsible to add new Type of Test to the list|
-| Step 15: Operation success |... informing operation success?| SpecifieANewTypeOfTestUI | UI Layer is responsible for user interactions.  |
+| Step 15: Operation success |... informing operation success?| SpecifyANewTypeOfTestUI | UI Layer is responsible for user interactions.  |
 
 ### Systematization ##
 
@@ -115,8 +115,8 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
 Other software classes (i.e. Pure Fabrication) identified: 
 
- * SpecifieANewTypeOfTestUI
- * SpecifieANewTypeOfTestController
+ * SpecifyANewTypeOfTestUI
+ * SpecifyANewTypeOfTestController
  
 ## 3.2. Sequence Diagram (SD)
 
@@ -156,7 +156,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 5. Construction (Implementation)
 
 
-## Class SpecifieANewTypeOfTestController
+## Class SpecifyANewTypeOfTestController
 
     public SpecifieANewTypeOfTestController(TypeOfTestStore totStore){
         this.tots = totStore;

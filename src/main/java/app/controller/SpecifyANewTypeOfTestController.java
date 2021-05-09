@@ -4,10 +4,9 @@ import app.domain.model.ParameterCategory;
 import app.domain.model.TypeOfTest;
 import app.domain.store.TypeOfTestStore;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class SpecifieANewTypeOfTestController {
+public class SpecifyANewTypeOfTestController {
 
     private TypeOfTestStore tots;
 
@@ -17,7 +16,7 @@ public class SpecifieANewTypeOfTestController {
      * This Constructor receives the Type of Test Store picked from the class Company to be used in this controller
      * @param totStore Type of Test Store from the Company Class
      */
-    public SpecifieANewTypeOfTestController(TypeOfTestStore totStore){
+    public SpecifyANewTypeOfTestController(TypeOfTestStore totStore){
         this.tots = totStore;
         this.tot = null;
     }
@@ -25,7 +24,7 @@ public class SpecifieANewTypeOfTestController {
     /**
      * Class Constructor that gets the Type of Test Store created in the Company Class
      */
-    public SpecifieANewTypeOfTestController() {
+    public SpecifyANewTypeOfTestController() {
         this(App.getInstance().getCompany().getTypeOfTestStore());
     }
 
