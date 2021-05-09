@@ -50,6 +50,8 @@ public class ClinicalAnalysisLaboratoryTest {
         new ClinicalAnalysisLaboratory("Joao Oliveira", "123456789012", "1a234", "1231231231", "Rua do Aldeiro 355", new ArrayList<>() );
     }
 
+
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatLaboratoryIDCannotHaveMoreThan5CharAlphanumeric() {
         new ClinicalAnalysisLaboratory("Joao Manuel Oliveira", "11234567890", "a12345", "0123456789", "Rua Nova do Aldeiro 355", new ArrayList<>() );

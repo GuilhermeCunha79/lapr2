@@ -43,7 +43,7 @@ public class ClinicalAnalysisLaboratoryStoreTest {
     @Test
     public void ensureAdd2DifferentClinicalAnalysisLaboratoriesWorks() {
         ClinicalAnalysisLaboratory c1 = c.registerClinicalAnalysisLaboratory("Juliana", "34543675498", "acs39", "3174955631", "RuaDaMoita345", new ArrayList<>());
-        ClinicalAnalysisLaboratory c2 = c.registerClinicalAnalysisLaboratory("Julia", "67832449864", "tyu71", "4145639745", "RuaDaMota354", new ArrayList<>());
+        ClinicalAnalysisLaboratory c2 = c.registerClinicalAnalysisLaboratory("Juliana", "67832449864", "tyu71", "4145639745", "RuaDaMota354", new ArrayList<>());
         c.saveClinicalAnalysisLaboratory(c1);
         assertTrue(c.saveClinicalAnalysisLaboratory(c2));
     }
