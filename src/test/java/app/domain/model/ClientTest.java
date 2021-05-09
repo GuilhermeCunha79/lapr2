@@ -80,7 +80,12 @@ public class ClientTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatSexIsNotBlank() {
-        new Client("Miguel", "1234567890123456", "1234567891", "1234567890", "23/02/2001", "", "12345678901", "");
+        new Client("Miguel", "1234567890123456", "1234567891", "1234567890", "23/02/2001", "", "12345678901", "guilherm2@isp.ipp.pt");
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void ensureThatSexIsNotNull() {
+        new Client("Miguel", "1234567890123456", "1234567891", "1234567890", "23/02/2001", null, "12345678901", "guilherm2@isp.ipp.pt");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -276,6 +281,11 @@ public class ClientTest {
         Assert.assertEquals(0, actual);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void checkCalculateAgeOlder(){
+        new Client("Tomás", "1234567890231451", "1234567877", "1234567898","12/11/1800","male", "12341111111","tomas@isep.ipp.pt");
+    }
+
 
     @Test
     public void checkGetName() {
@@ -406,19 +416,11 @@ public class ClientTest {
     }
 
     @Test
-    public void checkEqualsJustNameEqual() {
-        Client ct01 = new Client("Miguel", "1234567890123456", "1234567891", "1234567831", "23/12/2001", "male", "12345678211", "tomas@isep.ipp.pt");
-        Client ct02 = new Client("Miguel", "1234567890123456", "1234567891", "1234567123", "23/12/2002", "female", "12345678945", "tomas11@isep.ipp.pt");
-        assertNotEquals(ct01, ct02);
-    }
-
-    @Test
     public void checkEqualsJustFalseCitizenCardNumberEqual() {
         Client ct01 =new Client("Tomás", "1234567890123458", "1234567891", "1234567123", "23/12/2011", "male", "12345678321", "tomas@isep.ipp.pt");
         Client ct02 = new Client("Miguel", "1234567890123458", "1234567891", "1234567231", "23/12/2010", "female", "12345678123", "tomas11@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
     }
-
 
     @Test
     public void checkEqualsJustPhoneNumberEqual() {
@@ -435,6 +437,13 @@ public class ClientTest {
     }
 
     @Test
+    public void checkEqualsJustNhsNumberDifferent() {
+        Client ct01 =new Client("Tomás", "1234567890123412", "1234567812", "1234567897", "23/12/2010", "male", "12345678931", "tomas@isep.ipp.pt");
+        Client ct02 = new Client("Tomás", "1234567890123412", "1234567842", "1234567897", "23/12/2010", "male", "12345678931", "tomas@isep.ipp.pt");
+        assertNotEquals(ct01, ct02);
+    }
+
+    @Test
     public void checkEqualsJustTinNumberEqual() {
         Client ct01 =new Client("Tomás", "1234567890123456", "1234567897", "1234567821", "23/12/2010", "male", "12345678921", "tomas@isep.ipp.pt");
         Client ct02 = new Client("Miguel", "1234567890123443", "1234567892", "1234561230", "23/12/2011", "female", "12345678901", "tomas11@isep.ipp.pt");
@@ -442,9 +451,23 @@ public class ClientTest {
     }
 
     @Test
+    public void checkEqualsJustTinNumberDifferent() {
+        Client ct01 =new Client("Tomás", "1234567890123456", "1234567897", "1234567821", "23/12/2010", "male", "12345678921", "tomas11@isep.ipp.pt");
+        Client ct02 = new Client("Tomás", "1234567890123456", "1234567897", "1234561230", "23/12/2010", "male", "12345678921", "tomas11@isep.ipp.pt");
+        assertNotEquals(ct01, ct02);
+    }
+
+    @Test
     public void checkEqualsJustEmailEqual() {
-        Client ct01 = new Client("Tomás", "1234567890123234", "1234567123", "1234567890", "23/12/2010", "male", "12345678921", "tomas@isep.ipp.pt");
-        Client ct02 = new Client("Miguel", "1234567890123443", "1234567891", "1234567456", "23/12/2001", "female", "12345678901", "tomas@isep.ipp.pt");
+        Client ct01 = new Client("Tomás", "1234567890123234", "1234567123", "1234567890", "23/12/2010", "male", "12345678921", "tomas2@isep.ipp.pt");
+        Client ct02 = new Client("Miguel", "1234567890123443", "1234567891", "1234567456", "23/12/2001", "female", "12345678901", "tomas2@isep.ipp.pt");
+        assertNotEquals(ct01, ct02);
+    }
+
+    @Test
+    public void checkEqualsJustEmailDifferent() {
+        Client ct01 = new Client("Tomás", "1234567890123234", "1234567123", "1234567890", "23/12/2010", "male", "12345678921", "miguel@isep.ipp.pt");
+        Client ct02 = new Client("Tomás", "1234567890123234", "1234567123", "1234567890", "23/12/2010", "male", "12345678921", "tomas11@isep.ipp.pt");
         assertNotEquals(ct01, ct02);
     }
 
