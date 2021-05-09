@@ -130,7 +130,7 @@ public class ClinicalAnalysisLaboratoryTest {
 
     @Test
     public void ensureThatAddressCanHaveLessThan30Char() {
-        new ClinicalAnalysisLaboratory("Artur", "56545687609", "sw34r", "587858985", "Rua", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("Artur", "56545687609", "sw34r", "5878458985", "Rua", new ArrayList<>());
     }
 
     @Test
@@ -152,7 +152,7 @@ public class ClinicalAnalysisLaboratoryTest {
 
     @Test
     public void checkSetNameMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Mateus", "69693696369", "45po5", "7865987698", "RuaDaPraia34", new ArrayList<>())
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Mateus", "69693696369", "45po5", "7865987698", "RuaDaPraia34", new ArrayList<>());
         c1.setName("Mateus");
         String expected = "Mateus";
         assertEquals(expected, c1.getName());
@@ -165,14 +165,67 @@ public class ClinicalAnalysisLaboratoryTest {
         assertEquals(expected, c1.getPhoneNumber());
     }
 
+    @Test
+    public void checkSetPhoneNumberMethod() {
+            ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Francisco", "21209096837", "458ty", "1232561232", "RuaDoAlgarve45", new ArrayList<>());
+        c1.setPhoneNumber("21209096837");
+        String expected = "21209096837";
+        assertEquals(expected, c1.getPhoneNumber());
+    }
 
+    @Test
+    public void checkGetTinNumberMethod() {
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Ricky", "54684852958", "2345t", "4540954876", "RuaDoPataco56", new ArrayList<>());
+        String expected = "54684852958";
+        assertEquals(expected, c1.getPhoneNumber());
+    }
 
+    @Test
+    public void checkSetTinNumberMethod() {
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Edu", "09865679803", "e3e4r", "4578965412", "RuaDaAreia48", new ArrayList<>());
+        c1.setTinNumber("4578965412");
+        String expected = "4578965412";
+        assertEquals(expected, c1.getTinNumber());
+    }
 
+    @Test
+    public void checkGetLaboratoryIDMethod() {
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Nani", "43454321232", "hy908", "1420214036", "RuaDaAndorinha34", new ArrayList<>());
+        String expected = "hy908";
+        assertEquals(expected, c1.getLaboratoryID());
+    }
 
+    @Test
+    public void checkSetLaboratoryIDMethod() {
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Simao", "12345678900", "frgt6", "3446803276", "RuaDaMadeira21", new ArrayList<>());
+        c1.setLaboratoryID("frgt6");
+        String excepted = "frgt6";
+        assertEquals(excepted, c1.getLaboratoryID());
+    }
 
+    @Test
+    public void checkGetAddressMethod() {
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Ronaldo", "86920858385", "cfgt5", "4596758745", "RuaDaPassada45", new ArrayList<>());
+        String expected = "RuaDaPassada45";
+        assertEquals(expected, c1.getAddress());
+    }
+
+    @Test
+    public void checkSetAddressMethod() {
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Felix", "90905490875", "2345b", "7845874896", "RuaDoCouto98", new ArrayList<>());
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
 
 
 
