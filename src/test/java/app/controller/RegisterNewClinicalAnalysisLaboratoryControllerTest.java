@@ -25,9 +25,9 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
         ctrl.registerNewClinicalAnalysisLaboratory("", "", "", "", "", new ArrayList<>());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test()
     public void ensureNonAlphaNumericNameAreNotAccepted() {
-        ctrl.registerNewClinicalAnalysisLaboratory("T2om<s@", "12345678901", "a1234", "1234567890", "RuaDeFornos223", new ArrayList<>());
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Henrique23", "12345678901", "a1234", "1234567890", "RuaDeFornos223", new ArrayList<>()));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -125,9 +125,9 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
         ctrl.registerNewClinicalAnalysisLaboratory("Mario", "64821545632", "ghij7", "", "RuaApertada32", new ArrayList<>());
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void ensureNonAlphaNumericAddressAreNotAccepted() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Joaquim", "21232343454", "w9i9i", "5654987123", "Ruad<Dragão,1", new ArrayList<>());
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Joaquim", "21232343454", "w9i9i", "5654987123", "RuaDoDragao1", new ArrayList<>()));
     }
 
     @Test

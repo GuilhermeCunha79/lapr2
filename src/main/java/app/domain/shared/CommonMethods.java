@@ -89,7 +89,7 @@ public class CommonMethods {
     }
 
     /***
-     * Method that genrate RANDOM
+     * Method that generate RANDOM
      * @return
      */
     public static String generatePassword() {
