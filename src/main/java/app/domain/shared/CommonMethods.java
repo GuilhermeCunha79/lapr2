@@ -2,8 +2,7 @@ package app.domain.shared;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.security.SecureRandom;
 import java.util.logging.Formatter;
 import java.util.regex.Pattern;
@@ -176,5 +175,13 @@ public class CommonMethods {
             throw new IllegalArgumentException("TIN number" + Constants.STRING_BLANK_EXEPT);
         if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() != Constants.NHS_TIN_NUMBER_DIGITS))
             throw new IllegalArgumentException("TIN number must have 10 digit numbers.");
+    }
+
+    public static void sendEmailWithPassword(String name, String password) throws IOException {
+        File email = new File("SMS_EMAIL\\email.txt");
+        PrintWriter out = new PrintWriter(email);
+
+        out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%n%s", name, password);
+        out.close();
     }
 }
