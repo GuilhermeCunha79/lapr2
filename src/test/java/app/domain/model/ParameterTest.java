@@ -31,11 +31,6 @@ public class ParameterTest {
         new Parameter("10322", "Blood Cells", "Test Blood Cells", "hemograms");
     }
 
-    @Test
-    public void ensureNameCanHave8Char() {
-        new Parameter("10322", "BlodTest", "Test Blood Cells", "hemograms");
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotBeBlank() {
         new Parameter("13212", "", "Test Blood Cells", "hemograms");
@@ -44,11 +39,6 @@ public class ParameterTest {
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotHaveMoreThan20Char() {
         new Parameter("10322", "Blood Cells", "Test Blood Cells and Urine", "hemograms");
-    }
-
-    @Test
-    public void ensureDescriptionCanHave20Char() {
-        new Parameter("10322", "Cells", "Test BloodCell Urine", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -78,12 +68,22 @@ public class ParameterTest {
         assertEquals(expected, p1.getShortName());
     }
 
+    @Test(expected = NullPointerException.class)
+    public void checkGetShortNameMethodWithNull() {
+        new Parameter("10232", null, "Test Blood Cells", "hemograms");
+    }
+
     @Test
     public void checkSetNameMethod() {
         Parameter p1 = new Parameter("10232", "blood", "Test Blood Cells", "hemograms");
         p1.setShortName("urine");
         String expected = "urine";
         assertEquals(expected, p1.getShortName());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void checkGetDescriptionMethodWithNull() {
+        new Parameter("10232", "Blood", null, "hemograms");
     }
 
     @Test
@@ -111,8 +111,7 @@ public class ParameterTest {
     @Test
     public void checkIfParameterIsDiffThanNull() {
         Parameter p1 = new Parameter("10232", "Blood", "Test Blood Cells", "hemograms");
-        Parameter p2 = null;
-        assertFalse(p1.equals(p2));
+        assertNotEquals(p1, null);
     }
 
     @Test

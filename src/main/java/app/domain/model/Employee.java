@@ -17,7 +17,7 @@ public class Employee {
     static final int MAX_CHAR_ADDRESS = 30;
 
     private static int employeeCount = 0;
-    private String employeeID;
+    private final String employeeID;
     private String role;
     private String name;
     private String address;
@@ -132,15 +132,7 @@ public class Employee {
      * @param address
      */
     public void setAddress(String address) {
-        if (address == null)
-            throw new NullPointerException(Constants.STRING_ADDRESS + Constants.STRING_NULL_EXEPT);
-        if (address.length() > MAX_CHAR_ADDRESS)
-            throw new IllegalArgumentException(Constants.STRING_ADDRESS + Constants.STRING_NOT_MORE_THAN_35);
-        if (StringUtils.isBlank(address))
-            throw new IllegalArgumentException(Constants.STRING_ADDRESS  + Constants.STRING_BLANK_EXEPT);
-        if (!CommonMethods.stringHaveAlphanumerical(address))
-            throw new IllegalArgumentException(Constants.STRING_ADDRESS  + Constants.NON_ALPHANUM_EXEPT);
-
+        CommonMethods.addressValidation(address);
         this.address = address;
     }
 

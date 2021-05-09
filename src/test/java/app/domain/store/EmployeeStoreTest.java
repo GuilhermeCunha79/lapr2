@@ -38,6 +38,11 @@ public class EmployeeStoreTest {
     }
 
     @Test
+    public void saveEmployeeError() {
+        assertFalse(employeeStore.saveEmployee(null));
+    }
+
+    @Test
     public void getEmployeeList() {
         employeeStore.saveEmployee(employee);
         employeeStore.saveEmployee(employee1);

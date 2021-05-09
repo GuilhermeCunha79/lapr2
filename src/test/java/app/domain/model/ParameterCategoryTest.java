@@ -2,8 +2,7 @@ package app.domain.model;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class ParameterCategoryTest {
 
@@ -14,43 +13,32 @@ public class ParameterCategoryTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericCodeAreNotAccepted() {
-        ParameterCategory pc = new ParameterCategory("120@12", "hemograms");
+        new ParameterCategory("120@12", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotHaveMoreThan5Char() {
-        ParameterCategory pc = new ParameterCategory("120121", "hemograms");
+        new ParameterCategory("120121", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotHaveLessThan5Char() {
-        ParameterCategory pc = new ParameterCategory("120", "hemograms");
-    }
-
-    @Test
-    public void ensureCodeHas5Char() {
-        ParameterCategory pc = new ParameterCategory("12012", "hemograms");
+        new ParameterCategory("120", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotBeBlank() {
-        ParameterCategory pc = new ParameterCategory("", "hemograms");
+        new ParameterCategory("", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotHaveMoreThan10Char() {
-        ParameterCategory pc = new ParameterCategory("12012", "hemograms12");
-    }
-
-    @Test
-    public void ensureNameCanHave10Char() {
-        ParameterCategory pc = new ParameterCategory("12012", "hemogramss");
-
+        new ParameterCategory("12012", "hemograms12");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotBeBlank() {
-        ParameterCategory pc = new ParameterCategory("12012", "");
+        new ParameterCategory("12012", "");
     }
 
     @Test
@@ -94,9 +82,7 @@ public class ParameterCategoryTest {
     @Test
     public void checkIfParameterCategoryIsDiffThanNull(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
-        ParameterCategory pc2 = null;
-        boolean expected = false;
-        assertEquals(expected, pc.equals(pc2));
+        assertFalse(pc.equals(null));
     }
 
     @Test
@@ -131,15 +117,14 @@ public class ParameterCategoryTest {
     @Test
     public void checkIfTheSameParametersAreEqual(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
-        ParameterCategory pc2 = pc;
-        assertEquals(pc, pc2);
+        assertEquals(pc, pc);
     }
 
     @Test
     public void checkIfDifferentObjectsAreDifferent(){
-        ParameterCategory pc = new ParameterCategory("12012", "hemograms");
+        new ParameterCategory("12012", "hemograms");
         Parameter p1 = new Parameter("12012", "Blood1", "Test lood Cells", "hemograms");
-        assertNotEquals(p1, pc);
+        assertNotEquals(p1, new String());
     }
 
 }
