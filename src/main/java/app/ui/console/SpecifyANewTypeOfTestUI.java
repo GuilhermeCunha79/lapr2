@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class SpecifieANewTypeOfTestUI implements Runnable {
+public class SpecifyANewTypeOfTestUI implements Runnable {
 
     private SpecifieANewTypeOfTestController ctrl;
 
