@@ -35,23 +35,53 @@ Standard Occupational Classification (SOC) code.
 >
 >**Answer:**
 Name;
-Citizen Card Number
-NHS number
-TIN number
-Birth Date
-Sex
-Phone number
-Email
-.
+Citizen Card Number;
+NHS number;
+TIN number;
+Birth Date;
+Sex;
+Phone number;
+Email.
+> 
+> **Question:** Does the receptionist need to be logged in the app to perform the regist?
+> 
+> **Answer:**
+> Yes
+> 
+> **Question:** What parameters asked by the receptionist should the system use to create the password of the new client?
+> 
+> **Answer:**
+> The password should be randomly generated. 
+> 
+> **Question:** How the system respond in the event of creating a new user with the same attributes of an already existing user?
+> 
+> **Answer:**
+> This should be treated as an error. A subset of the attributes of any client are unique.
+> 
+> **Question:** After being registered by the receptionist, should the client receive some kind of confirmation e-mail in order to finish the registration?
+>
+> **Answer:**
+> The client only receives an e-mail informing that the registration was successful and that he can start to use the system. The email includes the client password
+> 
+> **Question:** During the registration of the client, if he gives a phone number already used by another customer, should the registration continue normally, or should it be cancelled?
+>
+> **Answer:**
+> The email address and phone number should be unique for each user . The system should present a message informing about the error and asking for a different phone number.
+
 
 
 ### 1.3. Acceptance Criteria
 
 * **AC1:** The client must become a system user.
 * **AC2:** The "auth" component available on the repository must be reused (without modifications).
-* **AC3:** There are some formats that need to be respected like: name have a maximum of 35 characters, Citizen Card must have a 16 digit number; NHS must have a 10 digit number; Birth Date must be in DD/MM/YYYY format; only two genders available (Male/Female); Phone number must have an 11 digit number.
-* **AC4:** The sex of the client is optional.
-* **AC5:** When registering a client with an already existing data, the system must reject such operation with an error and the user must have the change to modify the typed reference.
+* **AC3:** Name have a maximum of 35 characters;
+* **AC4:** Citizen Card must have 16 digit number;
+* **AC5:** NHS number must have 10 digit number;
+* **AC6:** Birth Date must be in DD/MM/YYYY format;
+* **AC7:** Phone number must have 11 digit number.
+* **AC8:** The sex of the client is optional and are only two genders available (Male/Female).
+* **AC9:** The password should have 10 alphanumeric characters.
+* **AC9:** When registering a client with an already existing email, phone number, the system must reject such operation with an error and the user must have the change to modify the typed reference.
 
 
 ### 1.4. Found out Dependencies
@@ -67,8 +97,6 @@ must have a receptionist logged in, so the receptionist can register the client.
 
 -Output Data: The client receives an email with the registration confirmation and his password
 (In)Success of the operation.
-
-*Identity here the data to be inputted by the system actor as well as the output data that the system have/needs to present in order to properly support the actor actions. Regarding the inputted data, it is suggested to distinguish between typed data and selected data (e.g. from a list)*
 
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -153,7 +181,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         new Client(null, null, null, null, null, null, null, null);
     }
 
-*It is also recommended to organize this content by subsections.* 
+
 
 # 5. Construction (Implementation)
 
@@ -211,7 +239,29 @@ Other software classes (i.e. Pure Fabrication) identified:
         setPhoneNumber(phoneNumber);
         setEmail(email);
     }
- 
+
+
+## Class Company
+    public class Company {
+
+    private String designation;
+    private AuthFacade authFacade;
+
+    private TypeOfTestStore totStore = new TypeOfTestStore();
+    private ClientStore clientStore = new ClientStore();
+    private ParameterCategoryStore pcStore = new ParameterCategoryStore();
+    private ParameterStore pStore = new ParameterStore();
+    private ClinicalAnalysisLaboratoryStore calStore = new ClinicalAnalysisLaboratoryStore();
+    private EmployeeStore empStore = new EmployeeStore();
+
+    public Company(String designation)
+    {
+        if (StringUtils.isBlank(designation))
+            throw new IllegalArgumentException("Designation cannot be blank.");
+
+        this.designation = designation;
+        this.authFacade = new AuthFacade();
+    }
 
 # 6. Integration and Demo 
 
@@ -220,7 +270,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 7. Observations
 
-*In this section, it is suggested to present a critical perspective on the developed work, pointing, for example, to other alternatives and or future related work.*
+*Overall, it is believed that the work done is consistent and meets the requirements specified by the Client.*
 
 
 

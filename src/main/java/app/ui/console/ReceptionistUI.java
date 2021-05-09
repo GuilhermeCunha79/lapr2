@@ -9,7 +9,7 @@ public class ReceptionistUI implements Runnable {
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
-        options.add(new MenuItem("Add new client", new RegisterAnewClientUI()));
+        options.add(new MenuItem("Add new client", new RegisterANewClientUI()));
 
         int option = 0;
         do {
