@@ -13,7 +13,7 @@ public class EmployeeStore {
         return new Employee(role, name, address, phoneNumber, email, soc);
     }
 
-    public Employee createSpecialistDoctor(String role, String name, String address, String phoneNumber, String email, String soc, int indexNumber){
+    public SpecialistDoctor createSpecialistDoctor(String role, String name, String address, String phoneNumber, String email, String soc, int indexNumber){
         return new SpecialistDoctor(role, name, address, phoneNumber, email, soc, indexNumber);
     }
 

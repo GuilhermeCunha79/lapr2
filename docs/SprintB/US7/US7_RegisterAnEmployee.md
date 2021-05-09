@@ -226,9 +226,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 7. Observations
 
-Platform and Organization classes are getting too many responsibilities due to IE pattern and, therefore, they are becoming huge and harder to maintain. 
 
-Is there any way to avoid this to happen?
 
 
 
