@@ -20,11 +20,6 @@ public class RegisterEmployeeControllerTest {
         assertTrue(expected);
     }
 
-    @Test
-    public void createEmployee() {
-        boolean expected = controller.createEmployee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", "1234");
-        assertTrue(expected);
-    }
 
     @Test
     public void createSpecialistDoctor() {

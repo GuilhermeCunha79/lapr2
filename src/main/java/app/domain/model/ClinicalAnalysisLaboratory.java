@@ -140,7 +140,7 @@ public class ClinicalAnalysisLaboratory {
                 throw new IllegalArgumentException(STRING_LAB_ID + Constants.STRING_BLANK_EXEPT);
             if (laboratoryID.length() > MAX_CHAR_LABORATORY_ID)
                 throw new IllegalArgumentException(STRING_LAB_ID + " cannot have more than 5 alphanumerical characters");
-            if(!onlyDigits(laboratoryID))
+            if(onlyDigits(laboratoryID))
                 throw new IllegalArgumentException(STRING_LAB_ID + " cannot have characters different than 5 alphanumerical");
             this.laboratoryID = laboratoryID;
 
