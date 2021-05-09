@@ -22,7 +22,7 @@ public class RegisterANewClientUI implements Runnable {
         boolean done = false;
         do {
             try {
-                String cltName = Utils.readLineFromConsole("Introduce the Client name: ");
+                String cltName = Utils.readLineFromConsole("Introduce the client's name: ");
                 String cltCitizenCardNumber = Utils.readLineFromConsole("Introduce client's citizen card number: ");
                 String cltNhs = Utils.readLineFromConsole("Introduce client's NHS number: ");
                 String cltTin = Utils.readLineFromConsole("Introduce client's TIN number: ");
@@ -36,7 +36,6 @@ public class RegisterANewClientUI implements Runnable {
                     System.out.printf("\nConfirm the client data: %nName: %s%nCitizen Card Number: %s%nNHS Number: %s%nTIN Number: %s%nDate of Birth: %s%nSex: %s%nPhone Number: %s%nEmail: %s%n", cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail);
 
                     if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
-                        done = true;
                         return ctrl.saveClient();
 
                     } else {
@@ -53,8 +52,7 @@ public class RegisterANewClientUI implements Runnable {
 
                 System.out.println(e.getLocalizedMessage());
             }
-        } while (!done);
+        } while (true);
 
-        return false;
     }
 }
