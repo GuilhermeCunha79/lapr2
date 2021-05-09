@@ -26,6 +26,10 @@ public class TypeOfTestStoreTest  {
 
    TypeOfTestStore tots = new TypeOfTestStore();
 
+
+    /**
+     * Verify that it is not possible to add the same Type of Test twice(saveTypeOfTest method)
+     */
     @Test
     public void ensureCannotAddSameTypeOfTestTwice(){
         Listpc.add(pc);
@@ -35,6 +39,9 @@ public class TypeOfTestStoreTest  {
         assertFalse(tots.saveTypeOfTest(tot2));
     }
 
+    /**
+     * Verify that it is not possible to add the same type of test twice (tests addTYpeofTest method)
+     */
     @Test
     public void ensureCannotAddSameTypeOfTestTwiceTest2AddNewTypeOfTest(){
         Listpc.add(pc);
@@ -44,6 +51,9 @@ public class TypeOfTestStoreTest  {
         assertFalse(tots.addTypeOfTest(tot2));
     }
 
+    /**
+     * Ensures that it is possible to add two different Types of Test to the system
+     */
     @Test
     public void ensureAdd2differentTypeOfTestWorks(){
         Listpc.add(pc);
@@ -53,13 +63,18 @@ public class TypeOfTestStoreTest  {
         assertTrue(tots.addTypeOfTest(tot2));
     }
 
+    /**
+     * Verify that it is not possible to add a null Types of Test
+     */
     @Test
     public void ensureAddNullTypeOfTestDontWork(){
         assertFalse(tots.addTypeOfTest(null));
     }
 
-    @Test
-    public void testGetCategoryListMethod(){
+    /**
+     * Verify that it is getTypeOfTestList method works as intended
+     */
+    public void testGetTypeofTestListMethod(){
         Listpc.add(pc);
         TypeOfTest tot1 = tots.createTypeOfTest("13599", "Sangue", "urine", Listpc);
         TypeOfTest tot2 = tots.createTypeOfTest("13591", "HNS", "Thoot", Listpc);

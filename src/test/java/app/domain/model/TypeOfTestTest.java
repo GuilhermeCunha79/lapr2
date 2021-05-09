@@ -16,13 +16,18 @@ public class TypeOfTestTest {
     List<ParameterCategory> Listpc = new ArrayList<ParameterCategory>();
 
 
-
+    /**
+     * Tests with null values
+     */
     @Test(expected = NullPointerException.class)
     public void ensureNullTypeOfTestIsNotCreated() {
        new TypeOfTest(null, null, null, null);
     }
 
 
+    /**
+     * Tests to type of test's code acceptance criterias
+     */
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericCodeAreNotAccepted() {
         Listpc.add(pc);
@@ -44,11 +49,16 @@ public class TypeOfTestTest {
     }
 
 
+    /**
+     * Tests to Type of Test's description acceptance criterias
+     */
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotHaveMoreThan15Char() {
         Listpc.add(pc);
         new TypeOfTest("53436", "RNA remnants and Dna remnats", "cotton swab",Listpc );
     }
+
+
 
     @Test
     public void ensureDescriptionCanHave15Char() {
@@ -63,7 +73,9 @@ public class TypeOfTestTest {
         new TypeOfTest("53436", "", "cotton swab",Listpc );
     }
 
-
+    /**
+     * Tests to type of test's colllecting acceptance criterias
+     */
     @Test(expected = IllegalArgumentException.class)
     public void ensureColectingMethodCannotHaveMoreThan15Char() {
         Listpc.add(pc);
@@ -84,7 +96,9 @@ public class TypeOfTestTest {
         new TypeOfTest("53436", "RNA remnants", "", Listpc );
     }
 
-
+    /**
+     * Tests to get methods
+     */
     @Test
     public void checkGetCodeMethod() {
         Listpc.add(pc);
@@ -93,7 +107,25 @@ public class TypeOfTestTest {
         assertEquals(expected, tot1.getCode());
     }
 
+    @Test
+    public void checkGetDescriptionMethod() {
+        Listpc.add(pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
+        String expected= "RNA remnants";
+        assertEquals(expected, tot1.getDescription());
+    }
 
+    @Test
+    public void checkGetColectingMethodMethod() {
+        Listpc.add(pc);
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
+        String expected= "cotton swab";
+        assertEquals(expected, tot1.getCollectingMethod());
+    }
+
+    /**
+     * Check set methods
+     */
     @Test
     public void checkSetCodeMethod() {
         Listpc.add(pc);
@@ -101,15 +133,6 @@ public class TypeOfTestTest {
         tot1.setCode("12013");
         String expected= "12013";
         assertEquals(expected, tot1.getCode());
-    }
-
-
-    @Test
-    public void checkGetDescriptionMethod() {
-        Listpc.add(pc);
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
-        String expected= "RNA remnants";
-        assertEquals(expected, tot1.getDescription());
     }
 
 
@@ -123,13 +146,7 @@ public class TypeOfTestTest {
     }
 
 
-    @Test
-    public void checkGetColectingMethodMethod() {
-        Listpc.add(pc);
-        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
-        String expected= "cotton swab";
-        assertEquals(expected, tot1.getCollectingMethod());
-    }
+
 
     @Test
     public void checkSetColectingMethodMethod() {
@@ -140,6 +157,9 @@ public class TypeOfTestTest {
         assertEquals(expected, tot1.getCollectingMethod());
     }
 
+    /**
+     * Test for type of test toString method
+     */
     @Test
     public void checkToStringMethod() {
         Listpc.add(pc);
@@ -149,6 +169,9 @@ public class TypeOfTestTest {
     }
 
 
+    /**
+     * Test for type of test equals method
+     */
     @Test
     public void checkIfTypeOfTestIsDiffThanNull() {
         Listpc.add(pc);
