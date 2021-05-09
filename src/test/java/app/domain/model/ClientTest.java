@@ -13,6 +13,9 @@ import static org.junit.Assert.assertNotEquals;
 
 public class ClientTest {
 
+    /**
+     * Test of setEmail method, of class Client.
+     */
     @Test(expected = NullPointerException.class)
     public void garanteeNullClientIsntCreatedWithAllDataAndSex() {
         new Client(null, null, null, null, null, null, null, null);
@@ -283,6 +286,9 @@ public class ClientTest {
         new Client("Tomás", "1234567890231451", "1234567877", "1234567898", "12/11/1800", "male", "12341111111", "tomas@isep.ipp.pt");
     }
 
+    /**
+     * Test of getName method, of class Client.
+     */
     @Test
     public void checkGetName() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -290,6 +296,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getName());
     }
 
+    /**
+     * Test of setName method, of class Client.
+     */
     @Test
     public void checkSetName() {
         Client ct01 = new Client("Miguel", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -298,6 +307,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getName());
     }
 
+    /**
+     * Test of getCitizenCardNumber method, of class Client.
+     */
     @Test
     public void checkGetCitizenCardNumber() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -305,6 +317,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getCitizenCardNumber());
     }
 
+    /**
+     * Test of setCitizenCardNumber method, of class Client.
+     */
     @Test
     public void checkSetCitizenCardNumber() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -313,6 +328,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getCitizenCardNumber());
     }
 
+    /**
+     * Test of getNhsNumber method, of class Client.
+     */
     @Test
     public void checkGetNhsNumber() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567890", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -320,6 +338,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getNhsNumber());
     }
 
+    /**
+     * Test of setNhsNumber method, of class Client.
+     */
     @Test
     public void checkSetNhsNumber() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -328,7 +349,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getNhsNumber());
     }
 
-
+    /**
+     * Test of getTinNumber method, of class Client.
+     */
     @Test
     public void checkGetTinNumber() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -336,6 +359,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getTinNumber());
     }
 
+    /**
+     * Test of setTinNumber method, of class Client.
+     */
     @Test
     public void checkSetTinNumber() {
         Client ct01 = new Client("Tomas", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -344,6 +370,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getTinNumber());
     }
 
+    /**
+     * Test of getBirthDate method, of class Client.
+     */
     @Test
     public void checkGetBirthDate() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2000", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -351,6 +380,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getBirthDate());
     }
 
+    /**
+     * Test of setBirthDate method, of class Client.
+     */
     @Test
     public void checkSetBirthDate() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -359,6 +391,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getBirthDate());
     }
 
+    /**
+     * Test of getSex method, of class Client.
+     */
     @Test
     public void checkGetSex() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -366,6 +401,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getSex());
     }
 
+    /**
+     * Test of setSex method, of class Client.
+     */
     @Test
     public void checkSetSex() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -374,13 +412,19 @@ public class ClientTest {
         assertEquals(expected, ct01.getSex());
     }
 
+    /**
+     * Test of getPhoneNumber method, of class Client.
+     */
     @Test
-    public void checkPhoneNumber() {
+    public void checkGetPhoneNumber() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
         String expected = "12345678901";
         assertEquals(expected, ct01.getPhoneNumber());
     }
 
+    /**
+     * Test of setPhoneNumber method, of class Client.
+     */
     @Test
     public void checkSetPhoneNumber() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -389,6 +433,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getPhoneNumber());
     }
 
+    /**
+     * Test of getEmail method, of class Client.
+     */
     @Test
     public void checkGetEmail() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -396,6 +443,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getEmail());
     }
 
+    /**
+     * Test of setEmail method, of class Client.
+     */
     @Test
     public void checkSetEmail() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
@@ -404,6 +454,9 @@ public class ClientTest {
         assertEquals(expected, ct01.getEmail());
     }
 
+    /**
+     * Test of toString method, of class Client.
+     */
     @Test
     public void checkToStringMethod() {
         Client ct01 = new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");

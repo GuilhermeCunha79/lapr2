@@ -12,13 +12,22 @@ import static org.junit.Assert.assertTrue;
 public class ParameterStoreTest {
 
     ParameterCategoryStore pcs = new ParameterCategoryStore();
+    ParameterStore ps = new ParameterStore();
+
+
+    /**
+     * Creates a category to be used in other tests that need it
+     *
+     */
     @Before
     public void createCategoryList(){
         ParameterCategory pc2 = pcs.createParameterCategory("12345", "hemograms");
         pcs.saveParameterCategory(pc2);
     }
 
-    ParameterStore ps = new ParameterStore();
+    /**
+     * Verify that it is not possible to add the same parameter twice(saveParameter method)
+     */
     @Test
     public void ensureCannotAddSameParameterTwice(){
         Parameter p1 = ps.createParameter("12345", "Cells", "Whatever", "hemograms");
@@ -26,6 +35,10 @@ public class ParameterStoreTest {
         ps.saveParameter(p1);
         assertFalse(ps.saveParameter(p2));
     }
+
+    /**
+     * Verify that it is not possible to add the same parameter twice (tests addParameter method)
+     */
 
     @Test
     public void ensureCannotAddSameParameterTwiceTest2AddParameter(){
@@ -35,6 +48,10 @@ public class ParameterStoreTest {
         assertFalse(ps.addParameter(p2));
     }
 
+    /**
+     * Ensures that it is possible to add two different parameters to the system
+     */
+
     @Test
     public void ensureAdd2differentParametersWorks(){
         Parameter p1 = ps.createParameter("12322", "Blood", "addText", "hemograms");
@@ -42,12 +59,17 @@ public class ParameterStoreTest {
         ps.saveParameter(p1);
         assertTrue(ps.saveParameter(p2));
     }
-
+    /**
+     * Verify that it is not possible to add a null parameter
+     */
     @Test
-    public void ensureAddNullCategoryDontWork(){
+    public void ensureAddNullParameterDontWork(){
         assertFalse(ps.addParameter(null));
     }
 
+    /**
+     * Verify that it is getParameterList method works as intended
+     */
     @Test
     public void testGetCategoryListMethod(){
         Parameter p1 = ps.createParameter("12327", "Covid", "add description", "hemograms");

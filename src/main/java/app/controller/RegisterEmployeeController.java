@@ -24,7 +24,7 @@ public class RegisterEmployeeController {
     }
 
     /**
-     * Class Constructor that assign
+     * Class Constructor
      * @param company
      */
     public RegisterEmployeeController(Company company){

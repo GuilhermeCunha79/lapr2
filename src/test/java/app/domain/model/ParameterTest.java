@@ -6,19 +6,41 @@ import static org.junit.Assert.*;
 
 public class ParameterTest {
 
+    /**
+     * Tests with null values
+     */
     @Test(expected = NullPointerException.class)
     public void ensureNullParameterIsNotCreated() {
         new Parameter(null, null, null, null);
     }
 
+    @Test(expected = NullPointerException.class)
+    public void checkGetShortNameMethodWithNull() {
+        new Parameter("10232", null, "Test Blood Cells", "hemograms");
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void checkGetDescriptionMethodWithNull() {
+        new Parameter("10232", "Blood", null, "hemograms");
+    }
+
+
+    /**
+     * Tests to parameter's code acceptance criterias
+     */
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericCodeAreNotAccepted() {
         new Parameter("10@22", "Blood", "Test Blood Cells", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureCodeCannotHaveMoreOrLessThan5Char() {
+    public void ensureCodeCannotHaveMoreThan5Char() {
         new Parameter("102322", "Blood", "Test Blood Cells", "hemograms");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureCodeCannotHaveLessThan5Char() {
+        new Parameter("122", "Blood", "Test Blood Cells", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -26,6 +48,9 @@ public class ParameterTest {
         new Parameter("", "Blood", "Test Blood Cells", "hemograms");
     }
 
+    /**
+     * Tests to parameter's name acceptance criterias
+     */
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotHaveMoreThan8Char() {
         new Parameter("10322", "Blood Cells", "Test Blood Cells", "hemograms");
@@ -36,28 +61,26 @@ public class ParameterTest {
         new Parameter("13212", "", "Test Blood Cells", "hemograms");
     }
 
+    /**
+     * Tests to parameter's description acceptance criterias
+     */
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotHaveMoreThan20Char() {
         new Parameter("10322", "Blood Cells", "Test Blood Cells and Urine", "hemograms");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureDescriptionCannotBeBlank() throws Exception {
+    public void ensureDescriptionCannotBeBlank() {
         new Parameter("12012", "Cells", "", "hemograms");
     }
 
+    /**
+     * Tests to get methods
+     */
     @Test
     public void checkGetCodeMethod() {
         Parameter p1 = new Parameter("10232", "Blood", "Test Blood Cells", "hemograms");
         String expected = "10232";
-        assertEquals(expected, p1.getCode());
-    }
-
-    @Test
-    public void checkSetCodeMethod() {
-        Parameter p1 = new Parameter("10232", "Blood", "Test Blood Cells", "hemograms");
-        p1.setCode("10231");
-        String expected = "10231";
         assertEquals(expected, p1.getCode());
     }
 
@@ -68,10 +91,16 @@ public class ParameterTest {
         assertEquals(expected, p1.getShortName());
     }
 
-    @Test(expected = NullPointerException.class)
-    public void checkGetShortNameMethodWithNull() {
-        new Parameter("10232", null, "Test Blood Cells", "hemograms");
+    @Test
+    public void checkGetDescriptionMethod() {
+        Parameter p1 = new Parameter("10232", "Blood", "Test Blood Cells", "hemograms");
+        String expected = "Test Blood Cells";
+        assertEquals(expected, p1.getDescription());
     }
+
+    /**
+     * Check set methods
+     */
 
     @Test
     public void checkSetNameMethod() {
@@ -79,18 +108,6 @@ public class ParameterTest {
         p1.setShortName("urine");
         String expected = "urine";
         assertEquals(expected, p1.getShortName());
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void checkGetDescriptionMethodWithNull() {
-        new Parameter("10232", "Blood", null, "hemograms");
-    }
-
-    @Test
-    public void checkGetDescriptionMethod() {
-        Parameter p1 = new Parameter("10232", "Blood", "Test Blood Cells", "hemograms");
-        String expected = "Test Blood Cells";
-        assertEquals(expected, p1.getDescription());
     }
 
     @Test
@@ -102,12 +119,26 @@ public class ParameterTest {
     }
 
     @Test
+    public void checkSetCodeMethod() {
+        Parameter p1 = new Parameter("10232", "Blood", "Test Blood Cells", "hemograms");
+        p1.setCode("10231");
+        String expected = "10231";
+        assertEquals(expected, p1.getCode());
+    }
+
+    /**
+     * Test for parameter toString method
+     */
+    @Test
     public void checkToStringMethod() {
         Parameter p1 = new Parameter("10232", "Blood", "Test Blood Cells", "hemograms");
         String expected = String.format("Parameter:%nCode: 10232%nName: Blood%nDescription: Test Blood Cells");
         assertEquals(expected, p1.toString());
     }
 
+    /**
+     * Test for parameter equals method
+     */
     @Test
     public void checkIfParameterIsDiffThanNull() {
         Parameter p1 = new Parameter("10232", "Blood", "Test Blood Cells", "hemograms");

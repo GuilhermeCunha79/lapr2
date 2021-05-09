@@ -22,11 +22,13 @@ public class TypeOfTestTest {
        new TypeOfTest(null, null, null, null);
     }
 
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericCodeAreNotAccepted() {
         Listpc.add(pc);
        new TypeOfTest("3%251", "RNA remnants", "cotton swab", Listpc );
     }
+
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotHaveMoreOrLessThan5Char() {
@@ -34,11 +36,13 @@ public class TypeOfTestTest {
         new TypeOfTest("534366", "RNA remnants", "cotton swab",Listpc );
     }
 
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotBeBlank() {
         Listpc.add(pc);
         new TypeOfTest("", "RNA remnants", "cotton swab",Listpc );
     }
+
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotHaveMoreThan15Char() {
@@ -52,11 +56,13 @@ public class TypeOfTestTest {
         new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
     }
 
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotBeBlank() {
         Listpc.add(pc);
         new TypeOfTest("53436", "", "cotton swab",Listpc );
     }
+
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureColectingMethodCannotHaveMoreThan15Char() {
@@ -64,17 +70,20 @@ public class TypeOfTestTest {
         new TypeOfTest("53436", "RNA remnants", "cotton swab thro the nose", Listpc);
     }
 
+
     @Test
     public void ensureColectingMethodCanHave15Char() {
         Listpc.add(pc);
         new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
     }
 
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureColectingMethodCannotBeBlank() {
         Listpc.add(pc);
         new TypeOfTest("53436", "RNA remnants", "", Listpc );
     }
+
 
     @Test
     public void checkGetCodeMethod() {
@@ -84,6 +93,7 @@ public class TypeOfTestTest {
         assertEquals(expected, tot1.getCode());
     }
 
+
     @Test
     public void checkSetCodeMethod() {
         Listpc.add(pc);
@@ -92,6 +102,8 @@ public class TypeOfTestTest {
         String expected= "12013";
         assertEquals(expected, tot1.getCode());
     }
+
+
     @Test
     public void checkGetDescriptionMethod() {
         Listpc.add(pc);
@@ -99,6 +111,7 @@ public class TypeOfTestTest {
         String expected= "RNA remnants";
         assertEquals(expected, tot1.getDescription());
     }
+
 
     @Test
     public void checkSetDescriptionMethod() {
@@ -108,6 +121,8 @@ public class TypeOfTestTest {
         String expected= "DNA remnants";
         assertEquals(expected, tot1.getDescription());
     }
+
+
     @Test
     public void checkGetColectingMethodMethod() {
         Listpc.add(pc);
@@ -124,6 +139,7 @@ public class TypeOfTestTest {
         String expected = "Saliva";
         assertEquals(expected, tot1.getCollectingMethod());
     }
+
     @Test
     public void checkToStringMethod() {
         Listpc.add(pc);
@@ -131,6 +147,7 @@ public class TypeOfTestTest {
         String expected= String.format("Type of Test:%nCode: 53436%nDescription: RNA remnants%nCollecting Method: cotton swab%nParameter Category(ies):%nParameter Category:%nName: Src%nCode: 34567%n");
        assertEquals(expected, tot1.toString());
     }
+
 
     @Test
     public void checkIfTypeOfTestIsDiffThanNull() {
@@ -141,6 +158,7 @@ public class TypeOfTestTest {
         assertEquals(expected, tot1.equals(tot2));
     }
 
+
     @Test
     public void checkIf2TypeOfTestAreEqual() {
         Listpc.add(pc);
@@ -148,6 +166,7 @@ public class TypeOfTestTest {
         TypeOfTest tot2= new TypeOfTest("53436", "RNA remnants", "cotton swab", Listpc);
         assertEquals( tot1,tot2);
     }
+
 
     @Test
     public void checkIf2TypeOfTestSameCodeAreEqual() {
@@ -157,6 +176,7 @@ public class TypeOfTestTest {
         assertEquals( tot1,tot2);
     }
 
+
     @Test
     public void checkIf2TypeOfTestSameDescriptionAndColectingMethodAreEqual() {
         Listpc.add(pc);
@@ -164,6 +184,7 @@ public class TypeOfTestTest {
         TypeOfTest tot2= new TypeOfTest("53435", "RNA remnants", "cotton swab", Listpc);
         assertEquals( tot1,tot2);
     }
+
 
     @Test
     public void checkIf2TypeOfTestAreDiferents() {
@@ -173,6 +194,7 @@ public class TypeOfTestTest {
         assertNotEquals( tot1,tot2);
     }
 
+
     @Test
     public void checkIfTheSameTypeOfTestAreEqual() {
         Listpc.add(pc);
@@ -180,6 +202,7 @@ public class TypeOfTestTest {
         TypeOfTest tot2 = tot1;
         assertEquals( tot1,tot2);
     }
+
 
     @Test
     public void checkIfDifferentObjectsAreDifferent(){

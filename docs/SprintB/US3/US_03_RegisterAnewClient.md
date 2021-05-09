@@ -101,7 +101,7 @@ must have a receptionist logged in, so the receptionist can register the client.
 
 ### 1.6. System Sequence Diagram (SSD)
 
-![UC03_SSD-MD](UC03_SSD.svg)
+![UC03_SSD](UC03_SSD.svg)
 
 ### 1.7 Other Relevant Remarks
 
@@ -174,18 +174,56 @@ Other software classes (i.e. Pure Fabrication) identified:
         new Client(null, null, null, null, null, null, null, null);
     }
 
-**Test 2:** Check that it is not possible to create an instance of the Client class with null values.
+**Test 2:** Check that it is not possible to create an instance of the Client class with a name with alphanumerical values.
 
-	 @Test(expected = NullPointerException.class)
-    public void garanteeNullClientIsntCreatedWithAllDataAndSex() {
-        new Client(null, null, null, null, null, null, null, null);
+	 @Test(expected = IllegalArgumentException.class)
+    public void ensureThatNameNotHaveAlphanumericChar() {
+        new Client("To<más", "1234567890123456", "1234567891", "1234567890", "23/12/2010", "male", "12345678901", "tomas@isep.ipp.pt");
     }
 
+**Test 3:** Check that it is not possible to create an instance of the Client class with a citizen card number with more than 16 numbers.
 
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureThatCitizenCardNumberCannotHaveMore16Characters() {
+        new Client("Tomás", "12345678901234568", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
+    }
+
+**Test 4:** Check that it is not possible to create an instance of the Client class with a NHS and TIN number with more than 10 numbers.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureThatNhsAndTinCannotHaveMoreAndLessThan10Characters() {
+        new Client("Tomás", "1234567890123456", "12345678901", "12345678901", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt");
+    }
+
+**Test 5:** Check that it is not possible to create an instance of the Client class with a birth date in a wrong format.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkBirthDateWrongFirstConstructor() {
+        new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/20011", "Male", "12345678901", "tomas1@isep.ipp.pt");
+    }
+
+**Test 6:** Check that it is not possible to create an instance of the Client class with a sex that don't match with the correct formats (Male/Female).
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkSexWrong() {
+        new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "madeira", "12345678901", "tomas1@isep.ipp.pt");
+    }
+
+**Test 7:** Check that it is not possible to create an instance of the Client class with a phone number that have more or less than 11 numbers.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkPhoneNumberWrongFirstConstructor() {
+        new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "1234561111178901", "tomas1@isep.ipp.pt");
+    }
+
+**Test 8:** Check that it is not possible to create an instance of the Client class with an invalid email.
+
+    @Test(expected = IllegalArgumentException.class)
+    public void checkEmailWrongFirstConstructor() {
+        new Client("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas1isep.ipp.pt");
+    }
 
 # 5. Construction (Implementation)
-
-*In this section, it is suggested to provide, if necessary, some evidence that the construction/implementation is in accordance with the previously carried out design. Furthermore, it is recommeded to mention/describe the existence of other relevant (e.g. configuration) files and highlight relevant commits.*
 
 #Class RegisterClientController
 
@@ -238,6 +276,8 @@ Other software classes (i.e. Pure Fabrication) identified:
         this.sex = SEX_BY_OMISSION;
         setPhoneNumber(phoneNumber);
         setEmail(email);
+
+        ....
     }
 
 
@@ -261,6 +301,8 @@ Other software classes (i.e. Pure Fabrication) identified:
 
         this.designation = designation;
         this.authFacade = new AuthFacade();
+        
+        ...
     }
 
 # 6. Integration and Demo 

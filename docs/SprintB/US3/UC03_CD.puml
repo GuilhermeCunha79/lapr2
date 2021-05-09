@@ -8,14 +8,14 @@ class RegisterClientUI
 
 class RegisterClientController
 {
-    +Client newClient(name, citizenCardNumber,tinNumber, birthDate, sex)
+    +Client newClient(name, citizenCardNumber,nhsNumber,tinNumber, birthDate, sex, phoneNumber, email)
     +validateClient(Client client)
 }
 
 class Client{
-	-nhsNumber
-    -name
-    -tin
+	-name
+    -nhsNumber
+    -tinNumber
     -birthDate
     -sex
     -phoneNumber
@@ -30,10 +30,10 @@ class Company{
 }
 
 class ClientStore{
-+newClient(name, citizenCardNumber, tinNumber, birthDate, sex)
++newClient(name, citizenCardNumber,nhsNumber, tinNumber, birthDate, sex, phoneNumber, email)
 +validateClient(ct)
 +saveClient(ct)
--addClient(ct)
++addClient(ct)
 }
 
 RegisterClientUI ..> RegisterClientController

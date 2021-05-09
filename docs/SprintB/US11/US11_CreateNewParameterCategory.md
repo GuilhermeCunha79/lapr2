@@ -39,12 +39,12 @@ As an administrator, I want to specify a new parameter category.
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** All required fields must be filled.
-* **AC2:** Each category must have a name, a unique code.
+* **AC1:** All required fields must be filled in.
+* **AC2:** Each category must have a name and a unique code.
 * **AC3:** When creating a new category with the same name and code as one previously registered in the system, 
 the application should deny the operation and inform the user to change the parameters or discard the operation.
 * **AC4:** Code must be unique having 5 chars
-* **AC4:** Name cannot have more than 10 characters
+* **AC5:** Name cannot have more than 10 characters
 
 ### 1.4. Found out Dependencies
 
@@ -152,24 +152,54 @@ Other software classes (i.e. Pure Fabrication) identified:
         new Parameter("", "Blood", "Test Blood Cells", "hemograms");
     }   
 
+**Test 3:** Check that it is not possible to create an instance of the NewParameterCategory with a code composed with more or less than 5 chars - AC4.
 
+     @Test(expected = IllegalArgumentException.class)
+     public void ensureCodeCannotHaveMoreThan5Char() {
+         new ParameterCategory("120121", "hemograms");
+     }
+    
+     @Test(expected = IllegalArgumentException.class)
+     public void ensureCodeCannotHaveLessThan5Char() {
+         new ParameterCategory("120", "hemograms");
+     }   
 
+**Test 4:** Check that it is not possible to create an instance of the NewParameterCategory with a code composed with more than 10 chars - AC5.
 
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureNameCannotHaveMoreThan10Char() {
+        new ParameterCategory("12012", "hemograms12");
+    }
 # 5. Construction (Implementation)
 
 
-## Class CreateTaskController 
+## Class CreateParameterCategoryController
 
-		
+    public class CreateParameterCategoryController {
 
-
-## Class Organization
-
-
-
+        private ParameterCategoryStore pcStore;
+        private ParameterCategory pc;
+    
+        public CreateParameterCategoryController() {
+            this(App.getInstance().getCompany().getParameterCategoryStore());
+        }
+    
+        public CreateParameterCategoryController(ParameterCategoryStore pcStore) {
+            this.pcStore = pcStore;
+            this.pc = null;
+        }
+    
+        public boolean createNewParameterCategory(String code, String name){
+            this.pc = this.pcStore.createParameterCategory(code, name);
+            return this.pcStore.validateParameterCategory(pc);
+        }
+    
+        public boolean saveParameterCategory(){
+            return this.pcStore.saveParameterCategory(pc);
+        }
+    }
 
 # 6. Integration and Demo 
-
 
 
 
