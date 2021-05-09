@@ -14,14 +14,20 @@ public class ClinicalAnalysisLaboratoryTest {
         new ClinicalAnalysisLaboratory(null, null, null, null, null, null);
     }
 
+
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatNameCannotHaveMoreThan20Char() {
-        new ClinicalAnalysisLaboratory("Joao Manuel Oliveira Martins", "12345678891", "a1234", "1123456789", "Rua Nova do Aldeiro 355", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("JoaoManuelOliveiraMartins", "12345678891", "a1234", "1123456789", "RuaNovaDoAldeiro355", new ArrayList<>());
     }
+
+
+
+
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatPhoneNumberCannotHaveMoreThan11Digits() {
-        new ClinicalAnalysisLaboratory("Joao Guilherme Oliveira", "123456789012", "1a234", "1231231231", "Rua do Aldeiro 355", new ArrayList<>() );
+        new ClinicalAnalysisLaboratory("Joao Oliveira", "123456789012", "1a234", "1231231231", "Rua do Aldeiro 355", new ArrayList<>() );
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -48,6 +54,8 @@ public class ClinicalAnalysisLaboratoryTest {
     public void ensureIfTheAttributesHaveOnlyDigits() {
         new ClinicalAnalysisLaboratory("Romeu", "34323667634", "t<7yi", "5346987109", "RuaSaoMiguel43", new ArrayList<>());
     }
+
+
 
 
 

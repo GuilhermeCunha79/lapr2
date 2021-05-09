@@ -37,7 +37,7 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test
     public void ensureNameCanHaveLessThan20Char() {
-        ctrl.registerNewClinicalAnalysisLaboratory("DiogoDias", "11234543565", "k9k87", "2123435459", "RuaDoCorvo65", new ArrayList<>());
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("DiogoDias", "11234543565", "k9k87", "2123435459", "RuaDoCorvo65", new ArrayList<>()));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensurePhoneNumberMustHaveNumbers() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Joana", "aaaaaaaaaa", "w3x4d", "3434343434", "RuaEstreita41", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Joana", "aaaaaaaaaaa", "w3x4d", "3434343434", "RuaEstreita41", new ArrayList<>());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -67,7 +67,7 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test
     public void ensurePhoneNumberMustHave11Digits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Rui", "23212123233", "d4r56", "9897898988", "RuaDezembro56", new ArrayList<>());
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Rui", "23212123233", "d4r56", "9897898988", "RuaDezembro56", new ArrayList<>()));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -75,9 +75,9 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
         ctrl.registerNewClinicalAnalysisLaboratory("Lia", "", "z3z45", "2434541421", "AvenidaRaimundo98", new ArrayList<>());
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test
     public void ensureLaboratoryIDMustHaveAlphanumericChar() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Sergio", "21987654323", "><,&o", "4546567879", "RuaEscura76", new ArrayList<>());
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Sergio", "21987654323", "a23de", "4546567879", "RuaEscura76", new ArrayList<>()));
     }
 
     @Test
@@ -87,12 +87,12 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureLaboratoryIDCannotHaveMoreThan5AlphanumericChar() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Julia", "91481806878", "v545,,", "4346765699", "RuaDoCharco314", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Julia", "91481806878", "v545tt", "4346765699", "RuaDoCharco314", new ArrayList<>());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureLaboratoryIDCannotHaveLessThan5AlphanumericChar() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Ana", "25643164854", "<,5e", "5459616498", "AvenidaDaSolidao76", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Ana", "25643164854", "fr5e", "5459616498", "AvenidaDaSolidao76", new ArrayList<>());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -132,7 +132,7 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test
     public void ensureAddressCanHave30Char() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Maria", "33344433367", "aaaaa", "9634987899", "AvenidaDaRepublicaEArredores35", new ArrayList<>()));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Maria", "33344433367", "aa2aa", "9634987899", "AvenidaDaRepublicaEArredores35", new ArrayList<>()));
     }
 
     @Test
@@ -142,12 +142,12 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test
     public void ensureAddressCanHaveLessThan30Char() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Rafaela", "56566678798", "ert56", "2198674545", "Rua43", new ArrayList<>());
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Rafaela", "56566678798", "ert56", "2198674545", "Rua43", new ArrayList<>()));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureAddressCannotBeCreatedBlank() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Rui","55555666777", ",,<as", "1119998887", "", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Rui","55555666777", "123as", "1119998887", "", new ArrayList<>());
     }
 
     @Test
