@@ -67,8 +67,8 @@ public class ClinicalAnalysisLaboratory {
          * Method to get the Clinical Analysis Laboratory name
          * @return return he Clinical Analysis Laboratory name
          */
-        public String getName (String name){
-            return name;
+        public String getName (){
+            return this.name;
         }
 
         /***
@@ -91,8 +91,8 @@ public class ClinicalAnalysisLaboratory {
          * Method to get the Clinical Analysis Laboratory address
          * @return return he Clinical Analysis Laboratory address
          */
-        public String getAddress (String address){
-            return address;
+        public String getAddress (){
+            return this.address;
         }
 
         /***
@@ -108,8 +108,8 @@ public class ClinicalAnalysisLaboratory {
          * Method to get the Clinical Analysis Laboratory tinNumber
          * @return return he Clinical Analysis Laboratory tinNumber
          */
-        public String getTinNumber (String tinNumber){
-            return tinNumber;
+        public String getTinNumber (){
+            return this.tinNumber;
         }
 
         /***
@@ -121,6 +121,8 @@ public class ClinicalAnalysisLaboratory {
             this.tinNumber = tinNumber;
         }
 
+        public String getPhoneNumber () { return  this.phoneNumber;}
+
         /***
          * Method that sets the phone number of the Client
          * @param phoneNumber
@@ -129,6 +131,8 @@ public class ClinicalAnalysisLaboratory {
             CommonMethods.phoneValidation(phoneNumber);
             this.phoneNumber = phoneNumber;
         }
+
+        public String getLaboratoryID () { return this.laboratoryID;}
 
         /***
          * Method that sets the laboratoryID of the Clinical Analysis Laboratory
