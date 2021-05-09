@@ -11,19 +11,22 @@ Recep --> (UC2 - Register Test to perform to a client)
 :Specialist Doctor: --> (UC6 - After Validation Work, \n Reports become available in the system)
 
 :Lab Coordinator: as lc
-(UC7 - Confirm diagnosis and Reports) as UC7
-(UC8 - Send SMS and e-mail to Client) as UC8
+(UC12 - Confirm diagnosis and Reports) as UC12
+
 :Lab Technician: as lt
-(UC9 - Record Sample) as UC9
+(UC13 - Record Sample) as UC13
 
-:Scheduler: --> (UC10 - Generate Daily Reports)
-:Scheduler: --> (UC11 - Company Performance Evaluation)
-lc --> UC7
-lc --> UC8
+:Scheduler: --> (UC15 - Generate Daily Reports)
+:Scheduler: --> (UC16 - Company Performance Evaluation)
+lc --> UC12
 
-lt --> UC9
 
-:Admin: --> (UC12 - Add new types of tests to the system)
-:Employee: --> (UC14 - Order clients by TIN or name)
-:Client: --> (UC13 - Check his medical tests results)
+lt --> UC13
+
+:Admin: --> (UC7 - Add new employee to the system)
+:Admin: --> (UC8 - Add new clinical analysis labs to the system)
+:Admin: --> (UC9 - Add new types of tests to the system)
+:Admin: --> (UC10 - Add new parameters to the system)
+:Admin: --> (UC11 - Add new parameter category to the system)
+:Client: --> (UC14 - Check his medical tests results)
 @enduml

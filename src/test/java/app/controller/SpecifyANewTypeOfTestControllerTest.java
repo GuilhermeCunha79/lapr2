@@ -1,16 +1,15 @@
 package app.controller;
 
 import app.domain.model.ParameterCategory;
-import app.domain.model.TypeOfTest;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-public class SpecifieANewTypeOfTestControllerTest  {
+public class SpecifyANewTypeOfTestControllerTest {
 
-    SpecifieANewTypeOfTestController ctrl = new SpecifieANewTypeOfTestController();
+    SpecifyANewTypeOfTestController ctrl = new SpecifyANewTypeOfTestController();
 
     ParameterCategory pc = new ParameterCategory("34567", "Src");
 

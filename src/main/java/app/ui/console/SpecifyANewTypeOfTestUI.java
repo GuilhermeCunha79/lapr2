@@ -1,6 +1,6 @@
 package app.ui.console;
 
-import app.controller.SpecifieANewTypeOfTestController;
+import app.controller.SpecifyANewTypeOfTestController;
 import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;
 
@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class SpecifyANewTypeOfTestUI implements Runnable {
 
-    private SpecifieANewTypeOfTestController ctrl;
+    private SpecifyANewTypeOfTestController ctrl;
 
 
     /**
@@ -19,7 +19,7 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
      */
     @Override
     public void run() {
-        ctrl = new SpecifieANewTypeOfTestController();
+        ctrl = new SpecifyANewTypeOfTestController();
 
         boolean created = createTypeOfTest();
         if (created) {
