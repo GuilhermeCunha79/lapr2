@@ -31,12 +31,11 @@ public class ClientTest {
     @Test
     public void ensureThatNameCanHave35Char() {
         new Client("Ângelo Josefina Amaro Silva Costa", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
-        new Client("Ângelo Josefina Amaro Silva Costa", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void ensureThatNhsCanHave10Char() {
-        new Client("Maria Josefina", "1234567890123456", "1234567890L", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
+        new Client("Maria Josefina", "1234567890123456", "1234567890", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
     }
 
     @Test

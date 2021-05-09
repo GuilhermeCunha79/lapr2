@@ -281,6 +281,7 @@ public class Client {
         this.email = email;
     }
 
+
     @Override
     public String toString() {
         return String.format("Client:%nName: %s%nCitizen Card Number: %s%nNHS number: %s%nTIN number: %s%nBirth date: %s%nSex: %s%nPhone number: %s%nEmail: %s",

@@ -24,7 +24,7 @@ public class CommonMethods {
     /***
      * Verify if the given string just have numbers
      * @param number
-     * @return
+     * @return if it was successfully added to the store (true or false)
      */
     public static boolean checkIfStringJustHaveNumbers(String number) {
         int numberq = 0;
@@ -42,7 +42,7 @@ public class CommonMethods {
     /***
      * Verify if the email given is a valid one
      * @param email
-     * @return
+     * @return if it was successfully added to the store (true or false)
      */
     public static boolean isValidEmail(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
@@ -59,7 +59,7 @@ public class CommonMethods {
     /***
      * Validate a String if it just have letters and spaces
      * @param name
-     * @return
+     * @return if it was successfully added to the store (true or false)
      */
     public static boolean isValidString(String name) {
         for (int i = 0; i < name.length(); i++) {
@@ -75,7 +75,7 @@ public class CommonMethods {
     /***
      *  Check if a string contains alphanumerical characters
      * @param name
-     * @return
+     * @return if it was successfully added to the store (true or false)
      */
     public static boolean stringHaveAlphanumerical(String name) {
         for (int i = 0; i < name.length(); i++) {
@@ -90,7 +90,7 @@ public class CommonMethods {
 
     /***
      * Method that generate RANDOM
-     * @return
+     * @return result
      */
     public static String generatePassword() {
         int len = 10;
@@ -204,6 +204,14 @@ public class CommonMethods {
         out.close();
     }
 
+    /***
+     * Method that user in the system and send a confirmation with the password
+     * @param name
+     * @param email
+     * @param role
+     * @param authFacade
+     * @return
+     */
     public static boolean addUserToSystem(String name, String email, String role, AuthFacade authFacade) {
         String password = CommonMethods.generatePassword();
         try {

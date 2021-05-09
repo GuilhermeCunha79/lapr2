@@ -60,7 +60,7 @@ or more parameters that can be grouped/organized by categories."
     *collecting method
     
 * Selected data:
-    *Cathegory
+    *Category
  
 **Output Data:**
 *(In)Success of the operation
