@@ -26,9 +26,11 @@ public class CommonMethods {
                 return false;
             }
         }
-        if (numberq == number.length())
-            return true;
-        return false;
+        return numberq == number.length();
+    }
+
+    private CommonMethods() {
+        throw new IllegalStateException("Utility class");
     }
 
     /***
@@ -65,7 +67,7 @@ public class CommonMethods {
     }
 
     /***
-     *
+     *  Check if a string contains alphanumerical characters
      * @param name
      * @return
      */
@@ -91,6 +93,10 @@ public class CommonMethods {
         return result;
     }
 
+    /***
+     * Validate a string (name) by testing the string with some imposed rules
+     * @param name
+     */
     public static void nameClientEmployeeValidation(String name) {
         if (name == null)
             throw new NullPointerException("Name" + Constants.STRING_NULL_EXEPT);
@@ -102,6 +108,11 @@ public class CommonMethods {
             throw new IllegalArgumentException("Name" + Constants.NON_ALPHANUM_EXEPT);
     }
 
+
+    /***
+     * Validate a string (email) by testing the string with some imposed rules
+     * @param email
+     */
     public static void emailValidation(String email) {
         if (email == null)
             throw new NullPointerException("Email" + Constants.STRING_NULL_EXEPT);
@@ -111,6 +122,10 @@ public class CommonMethods {
             throw new IllegalArgumentException("The introduced email is not valid.");
     }
 
+    /***
+     * Validate a string (code) by testing the string with some imposed rules
+     * @param code
+     */
     public static void codeValidation(String code) {
         if (code == null)
             throw new NullPointerException("Code" + Constants.STRING_NULL_EXEPT);
@@ -122,6 +137,10 @@ public class CommonMethods {
             throw new IllegalArgumentException("Code" + Constants.NON_ALPHANUM_EXEPT);
     }
 
+    /***
+     * Validate a string (phoneNumber) by testing the string with some imposed rules
+     * @param phoneNumber
+     */
     public static void phoneValidation(String phoneNumber) {
         if (phoneNumber == null)
             throw new NullPointerException("Phone Number" + Constants.STRING_NULL_EXEPT);
@@ -131,6 +150,10 @@ public class CommonMethods {
             throw new IllegalArgumentException("Phone Number must have 11 digit numbers.");
     }
 
+    /***
+     * Validate a string (address) by testing the string with some imposed rules
+     * @param address
+     */
     public static void addressValidation(String address) {
         if (address == null)
             throw new NullPointerException("Address" + Constants.STRING_NULL_EXEPT);
@@ -142,6 +165,10 @@ public class CommonMethods {
             throw new IllegalArgumentException("Address" + Constants.NON_ALPHANUM_EXEPT);
     }
 
+    /***
+     * Validate a string (tinNumber) by testing the string with some imposed rules
+     * @param tinNumber
+     */
     public static void tinValidation(String tinNumber) {
         if (tinNumber == null)
             throw new NullPointerException("TIN number" + Constants.STRING_NULL_EXEPT);

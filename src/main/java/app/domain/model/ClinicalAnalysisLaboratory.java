@@ -22,7 +22,6 @@ public class ClinicalAnalysisLaboratory {
     private String tinNumber;
     private String phoneNumber;
     private String laboratoryID;
-    private int laboratoryCount = 0;
     private final List<TypeOfTest> typeOfTestList;
 
 
@@ -38,7 +37,6 @@ public class ClinicalAnalysisLaboratory {
 
 
     public ClinicalAnalysisLaboratory(String name, String phoneNumber, String laboratoryID, String tinNumber, String address, List<TypeOfTest> typeOfTestList) {
-        laboratoryCount++;
         setName(name);
         setTinNumber(tinNumber);
         setPhoneNumber(phoneNumber);
@@ -47,34 +45,22 @@ public class ClinicalAnalysisLaboratory {
         this.typeOfTestList = typeOfTestList;
     }
 
-
-
-    private String employeeIdCreator() {
-        StringBuilder nameInitials = new StringBuilder();
-        if (this.name != null) {
-            for (int i = 0; i < this.name.length(); i++) {
-                char letter = this.name.charAt(i);
-                if (Character.isUpperCase(letter)) {
-                    nameInitials.append(letter);
-                }
+    /***
+     * Method that checks if a string just have numbers and digits
+     * @param str
+     * @return
+     */
+    public static boolean onlyDigits(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isDigit(str.charAt(i))) {
+                return true;
+            }
+            else {
+                return false;
             }
         }
-        return String.format("%s%05d", nameInitials, laboratoryCount);
+        return false;
     }
-
-
-
-
-
-/*
-    /***
-     * Verify if the typeOfTest respect the imposed rules
-     * @param typeOfTest
-
-    private void checkTypeOfTestRules(String typeOfTest) {
-
-*/
-
         /***
          * Method to get the Clinical Analysis Laboratory name
          * @return return he Clinical Analysis Laboratory name
@@ -153,7 +139,9 @@ public class ClinicalAnalysisLaboratory {
                 throw new IllegalArgumentException("LaboratoryID" + Constants.STRING_BLANK_EXEPT);
             if (laboratoryID.length() > MAX_CHAR_LABORATORY_ID)
                 throw new IllegalArgumentException("LaboratoryID cannot have more than 5 alphanumerical characters");
-            this.laboratoryID = laboratoryID; //Verificaaaaaaaaaaaaaaaaaaaaaaaaaaaar
+            if(!onlyDigits(laboratoryID))
+                throw new IllegalArgumentException("LaboratoryID cannot have characters different than 5 alphanumerical");
+            this.laboratoryID = laboratoryID;
 
         }
 

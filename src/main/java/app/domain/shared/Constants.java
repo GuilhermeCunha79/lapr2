@@ -4,7 +4,13 @@ package app.domain.shared;
  *
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
+
 public class Constants {
+
+    private Constants() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static final String ROLE_ADMIN = "ADMINISTRATOR";
     public static final String ROLE_RECEPTIONIST = "RECEPTIONIST";
     public static final String ROLE_SPECIALIST_DOCTOR = "SPECIALIST DOCTOR";
