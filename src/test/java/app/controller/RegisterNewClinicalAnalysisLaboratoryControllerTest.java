@@ -75,14 +75,14 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
         ctrl.registerNewClinicalAnalysisLaboratory("Lia", "", "z3z45", "2434541421", "AvenidaRaimundo98", new ArrayList<>());
     }
 
-    @Test
+    @Test (expected = IllegalArgumentException.class)
     public void ensureLaboratoryIDMustHaveAlphanumericChar() {
         ctrl.registerNewClinicalAnalysisLaboratory("Sergio", "21987654323", "><,&o", "4546567879", "RuaEscura76", new ArrayList<>());
     }
 
     @Test
     public void ensureLaboratoryIDMustHave5AlphanumericChar() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Sofia", "91211808691", "f,<0o", "1219659656", "AvenidaPicoto987", new ArrayList<>());
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Sofia", "91211808691", "f120o", "1219659656", "AvenidaPicoto987", new ArrayList<>()));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -90,7 +90,7 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
         ctrl.registerNewClinicalAnalysisLaboratory("Julia", "91481806878", "v545,,", "4346765699", "RuaDoCharco314", new ArrayList<>());
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void ensureLaboratoryIDCannotHaveLessThan5AlphanumericChar() {
         ctrl.registerNewClinicalAnalysisLaboratory("Ana", "25643164854", "<,5e", "5459616498", "AvenidaDaSolidao76", new ArrayList<>());
     }
@@ -100,24 +100,24 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
         ctrl.registerNewClinicalAnalysisLaboratory("Rita", "25556667543", "", "9998887776", "RuaDaAlegria34", new ArrayList<>());
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void ensureTinNumberMustHaveDigits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Diana", "91621304747", "ft,65", "1212223332", "NacionalN1", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Diana", "91621304747", "ft165", "1<12223332", "NacionalN1", new ArrayList<>());
     }
 
     @Test
     public void ensureTinNumberMustHave10Digits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Marta", "23113224565", "hji,,", "9812143212", "AvenidaDaFelicidade21", new ArrayList<>());
+       assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Marta", "23113224565", "hji11", "9812143212", "AvenidaDaFelicidade21", new ArrayList<>()));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureTinNumberCannotHaveMoreThan10Digits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Raquel", "91411623636", "<,f,<", "22211122233", "AvenidaDaFaculdade67", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Raquel", "91411623636", "lk122", "22211122233", "AvenidaDaFaculdade67", new ArrayList<>());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureTinNumberCannotHaveLessThan10Digits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Daniel", "91343221221", "fr,t6", "21", "RuaDoComercio32", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Daniel", "91343221221", "lk122", "21", "RuaDoComercio32", new ArrayList<>());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -132,12 +132,12 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test
     public void ensureAddressCanHave30Char() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Maria", "33344433367", "n5m6g", "9634987899", "AvenidaDaRepublicaEArredores35", new ArrayList<>()));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Maria", "33344433367", "aaaaa", "9634987899", "AvenidaDaRepublicaEArredores35", new ArrayList<>()));
     }
 
     @Test
     public void ensureAddressCanHaveMoreThan30Char() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Rafael", "21114555676", "<,g67", "8651345455", "AvenidadaRepublicaEDaLiberdade4566", new ArrayList<>());
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Rafael", "21114555676", "12g67", "8651345455", "AvenidadaRepublicaEDaLiberdade4566", new ArrayList<>()));
     }
 
     @Test
@@ -152,9 +152,9 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test
     public void ensureCannotCreateSameClinicalAnalysisLaboratoryTwice() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Tomas", "12345678907","gt65,","1234567890","RuaSantosSilva44", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Tomas", "12345678907","gt615","1234567890","RuaSantosSilva44", new ArrayList<>());
         ctrl.saveClinicalAnalysisLaboratory();
-        ctrl.registerNewClinicalAnalysisLaboratory("Tomas", "12345678907","gt65,","1234567890","RuaSantosSilva44", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Tomas", "12345678907","gt615","1234567890","RuaSantosSilva44", new ArrayList<>());
         assertFalse(ctrl.saveClinicalAnalysisLaboratory());
     }
 

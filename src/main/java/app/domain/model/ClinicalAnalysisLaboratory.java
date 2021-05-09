@@ -53,14 +53,14 @@ public class ClinicalAnalysisLaboratory {
      */
     public static boolean onlyDigits(String str) {
         for (int i = 0; i < str.length(); i++) {
-            if (Character.isDigit(str.charAt(i))) {
-                return true;
+            if (Character.isLetterOrDigit(str.charAt(i))) {
+                continue;
             }
             else {
                 return false;
             }
         }
-        return false;
+        return true;
     }
         /***
          * Method to get the Clinical Analysis Laboratory name
@@ -138,9 +138,9 @@ public class ClinicalAnalysisLaboratory {
                 throw new NullPointerException(STRING_LAB_ID + Constants.STRING_NULL_EXEPT);
             if (StringUtils.isBlank(laboratoryID))
                 throw new IllegalArgumentException(STRING_LAB_ID + Constants.STRING_BLANK_EXEPT);
-            if (laboratoryID.length() > MAX_CHAR_LABORATORY_ID)
-                throw new IllegalArgumentException(STRING_LAB_ID + " cannot have more than 5 alphanumerical characters");
-            if(onlyDigits(laboratoryID))
+            if (laboratoryID.length() != MAX_CHAR_LABORATORY_ID)
+                throw new IllegalArgumentException(STRING_LAB_ID + " must have exactly 5 alphanumerical characters");
+            if(!onlyDigits(laboratoryID))
                 throw new IllegalArgumentException(STRING_LAB_ID + " cannot have characters different than 5 alphanumerical");
             this.laboratoryID = laboratoryID;
 

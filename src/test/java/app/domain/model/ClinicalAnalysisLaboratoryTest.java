@@ -46,7 +46,7 @@ public class ClinicalAnalysisLaboratoryTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureIfTheAttributesHaveOnlyDigits() {
-        new ClinicalAnalysisLaboratory("Romeu", "343236<7634", "t67yi", "5346987109", "RuaSaoMiguel43", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("Romeu", "34323667634", "t<7yi", "5346987109", "RuaSaoMiguel43", new ArrayList<>());
     }
 
 
