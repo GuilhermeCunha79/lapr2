@@ -1,6 +1,10 @@
 package app.domain.shared;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.SecureRandom;
 import java.util.regex.Pattern;
 
@@ -181,5 +185,19 @@ public class CommonMethods {
             throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_BLANK_EXEPT);
         if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() != Constants.NHS_TIN_NUMBER_DIGITS))
             throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_NOT_MORE_THAN_10);
+    }
+
+    /***
+     * Method that sends a email with the password
+     * @param name
+     * @param password
+     * @throws IOException
+     */
+    public static void sendEmailWithPassword(String name, String password) throws IOException {
+        File email = new File("SMS_EMAIL\\email.txt");
+        PrintWriter out = new PrintWriter(email);
+
+        out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%n%s", name, password);
+        out.close();
     }
 }
