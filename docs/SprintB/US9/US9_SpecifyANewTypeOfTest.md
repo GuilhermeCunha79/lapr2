@@ -41,7 +41,7 @@ or more parameters that can be grouped/organized by categories."
 ### 1.3. Acceptance Criteria
 
 * **AC1:** All required fields must be filled in.
-* **AC2:** The colecting method description neds the materials used and have no more than 20 characters.
+* **AC2:** The collecting method description needs the materials used and have no more than 20 characters.
 * **AC3:** The code must have 5 alphanumeric characters written.
 * **AC4:** The Description must have no more than 15 characters.
 * **AC5:** There exists only one collection method per test type.

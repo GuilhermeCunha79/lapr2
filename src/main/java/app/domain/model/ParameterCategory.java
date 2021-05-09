@@ -73,7 +73,7 @@ public class ParameterCategory {
      */
     @Override
     public String toString() {
-        return String.format("Parameter Category:%nName: %s%nCode: %s", this.name, this.code);
+        return String.format("Parameter Category:%nName: %s%nCode: %s%n", this.name, this.code);
     }
 
     /**

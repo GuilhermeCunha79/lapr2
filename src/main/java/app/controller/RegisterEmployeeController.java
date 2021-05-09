@@ -8,6 +8,8 @@ import app.domain.store.EmployeeStore;
 import auth.AuthFacade;
 import auth.domain.store.UserStore;
 
+import java.util.InputMismatchException;
+
 public class RegisterEmployeeController {
     public Employee employee;
 
@@ -46,9 +48,14 @@ public class RegisterEmployeeController {
 
     private boolean addUserToSystem(String name, String email, String role) {
         String password = CommonMethods.generatePassword();
-        if(this.authFacade.addUserWithRole(name,email,password,role)) {
-            System.out.println(password);
-            return true;
+        try {
+            if (this.authFacade.addUserWithRole(name, email, password, role)) {
+                System.out.println(password);
+                CommonMethods.sendEmailWithPassword(name, password);
+                return true;
+            }
+        }catch(Exception e){
+            return false;
         }
         return false;
     }
