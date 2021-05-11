@@ -8,8 +8,6 @@ participant ":CreateClient \n RegisterClientController" as CTRL
 participant ":Company" as C
 participant "store:ClientStore" as CS
 participant "ct: Client" as CL
-participant "CommonMethods" as CM
-
 
 
 RECEP -> UI : register a new client
@@ -33,17 +31,13 @@ activate CTRL
         CS --> CL** : create(newClient)
         deactivate CS
 
-
         CTRL -> CS : validateClient(ct)
 
         activate CS
 
-        CTRL -> CM : addUserToSystem(String name, String email, String role)
-        activate CM
-        deactivate CM
+        CTRL -> CS : addUserToSystem(name,email,role)
+
         deactivate CS
-
-
 
     deactivate CTRL
     UI --> RECEP : shows the data and asks for confirmation

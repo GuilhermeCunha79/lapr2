@@ -1,8 +1,8 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-Company -- Employee :> has
-Employee <|-- Receptionist
+Company -- Receptionist :> has
+Company -- Client :> stores
 Receptionist -- Client :> add new
 
 class Client{
@@ -12,15 +12,6 @@ class Client{
 -tinNumber
 -birthDate
 -sex
--phoneNumber
--email
-}
-
-class Employee{
--employeeID
--name
--address
--socCode
 -phoneNumber
 -email
 }

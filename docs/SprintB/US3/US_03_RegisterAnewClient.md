@@ -20,17 +20,6 @@ birth date, sex, Tax Identification number (TIN), phone number, e-mail and name.
   
 *From the Client Specifications:*
 
-> **Question:** What attributes a Receptionist have? 
->
->**Answer:** 
-Employee ID;
-Organization Role;
-Name;
-Address;
-Phone Number;
-E-Mail;
-Standard Occupational Classification (SOC) code.
-> 
 > **Question:** What attributes a Client have?
 >
 >**Answer:**
@@ -42,27 +31,27 @@ Birth Date;
 Sex;
 Phone number;
 Email.
-> 
+
 > **Question:** Does the receptionist need to be logged in the app to perform the regist?
 > 
 > **Answer:**
 > Yes
-> 
+
 > **Question:** What parameters asked by the receptionist should the system use to create the password of the new client?
 > 
 > **Answer:**
 > The password should be randomly generated. 
-> 
+
 > **Question:** How the system respond in the event of creating a new user with the same attributes of an already existing user?
 > 
 > **Answer:**
 > This should be treated as an error. A subset of the attributes of any client are unique.
-> 
+
 > **Question:** After being registered by the receptionist, should the client receive some kind of confirmation e-mail in order to finish the registration?
 >
 > **Answer:**
 > The client only receives an e-mail informing that the registration was successful and that he can start to use the system. The email includes the client password
-> 
+
 > **Question:** During the registration of the client, if he gives a phone number already used by another customer, should the registration continue normally, or should it be cancelled?
 >
 > **Answer:**
