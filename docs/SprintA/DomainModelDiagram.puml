@@ -18,7 +18,8 @@ Employee <|-- LabCoordinator
 Employee <|-- Admin
 Employee <|-- SpecialistDoctor
 ClinicalChemistryTechnologist"*" -- "1"ChemicalLab : > works at
-Test"1" -- "1"Report : > has
+Test"1" -- "1"Result : > has
+Result"1" -- "1"Report : > has
 MedicalLabTechnician"1" -- "*"Sample : > collect
 Sample"1" -right- "1"Test : < has
 Company"1" -- "1..*"TypeOfTest : > conduct
@@ -108,7 +109,7 @@ class SpecialistDoctor{
 }
 
 class Result{
--
+- Parameter
 }
 
 

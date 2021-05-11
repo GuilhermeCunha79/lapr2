@@ -2,6 +2,8 @@
 
 | **_TEA_ (EN)**  | **_TEA_ (PT)** | **_Description_ (EN)** |                                       
 |:------------------------|:-----------------|:--------------------------------------------|
+| Administrator | Administrador | Person responsible for carrying out the administration of a business or organization |
+| Admin | Admin | Short-form for Administrator |
 | Algorithm | Algoritmo | A finite sequence of well-defined, computer-implementable instructions |
 | API | API | Acronym for Application Program Interface |
 | Application Program Interface | Interface de Programação de Aplicações | Set of protocols, tools, and routines for building software applications, that specifies how software components should interact |
@@ -26,6 +28,7 @@
 | Covid-19 tests | Cliente | It analyses samples to assess the current or past presence of Covid-19 |
 | Diagnosis | Diagnóstico | A judgment about what a particular illness or problem |
 | Doctor | Doutor | Doctor is the actor who will collect the samples. Its synonym of Specialist Doctor |
+| Employee | Empregado | Person employed for wages or salary |
 | External module | Módulo externo | Section of code written as a separate source file that contains at least one import or export declaration |
 | E-mail | E-mail | The system for using computers to send messages over the internet |
 | Forecast | Previsão | A calculation or estimate of future events |

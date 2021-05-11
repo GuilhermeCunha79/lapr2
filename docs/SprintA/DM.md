@@ -163,10 +163,11 @@ Iterative Development".
 | Admin                             | create new         | Category |
 | TestRequest                       | originates         | Test |
 | Parameter                         | presented under    | Category |
-| Test                              | has                | Report |
+| Test                              | has                | Result |
 | Test                              | has                | TypeOfTest |
 | Test                              | has                | Sample |
 | Test                              | need to analyse    | Parameter |
+! Result                            | has                | Report   | 
 | Report                            | delivered to       | Client |
 | ChemicalLab                       | owns               | Sample |
 | Client                            | does               | TestRequest |
