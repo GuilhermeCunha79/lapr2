@@ -17,14 +17,6 @@ import java.util.Objects;
  */
 public class Client {
 
-    static final int CITIZEN_CARD_DIGITS = 16;
-    static final int NHS_MAX_CHAR=10;
-    static final int MAX_AGE = 150;
-    static final String STRING_CITIZEN_CARD_NUMBER= "Citizen Card Number";
-    static final String STRING_NHS_NUMBER = "NHS Number";
-    static final String SEX_MALE = "male";
-    static final String SEX_FEMALE = "female";
-    static final String SEX_BY_OMISSION = "Not defined";
     private String name;
     private String citizenCardNumber;
     private String nhsNumber;
@@ -33,6 +25,15 @@ public class Client {
     private String sex;
     private String phoneNumber;
     private String email;
+
+    static final int CITIZEN_CARD_DIGITS = 16;
+    static final int NHS_MAX_CHAR=10;
+    static final int MAX_AGE = 150;
+    static final String STRING_CITIZEN_CARD_NUMBER= "Citizen Card Number";
+    static final String STRING_NHS_NUMBER = "NHS Number";
+    static final String SEX_MALE = "male";
+    static final String SEX_FEMALE = "female";
+    static final String SEX_BY_OMISSION = "Not defined";
 
     /***
      * Complete constructor for class Client
