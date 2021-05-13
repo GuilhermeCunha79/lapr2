@@ -1,0 +1,6 @@
+@startuml
+usecase "UC14 - Make the diagnosis and write a report" as UC14
+actor sdoctor as "Specialist Doctor"
+
+sdoctor --> (UC14)
+@enduml

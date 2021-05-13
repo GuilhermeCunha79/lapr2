@@ -1,0 +1,68 @@
+@startuml
+autonumber
+
+actor "Administrator" as ADMIN
+
+participant ":RegisterEmployeeUI" as UI
+participant ":RegisterEmployeeController" as CTRL
+participant ":Company" as COMP
+participant ":EmployeeStore" as EMPS
+participant ":SpecialistDoctor" as EMP
+participant ":CommonMethods" as CM
+
+
+
+ADMIN -> UI : Register a specialist doctor
+activate UI
+    UI --> ADMIN : Requests necessary credentials (role, name,\naddress, phoneNumber, email, soc, \ndoctorindexnumber)
+deactivate UI
+
+ADMIN -> UI : Inserts the data
+activate UI
+UI -> CTRL : newEmployee(role,name,\naddress,phoneNumber,email,soc, \ndoctorindexnumber)
+    activate CTRL
+        CTRL -> COMP : store = getEmployeeStore()
+        activate COMP
+        deactivate COMP
+        CTRL -> EMPS : employee = registerEmployee(role, name,\naddress, phoneNumber, email, soc, \ndoctorindexnumber)
+                activate EMPS
+                    EMPS --> EMP** : SpecialistDoctor(role, name,\naddress, phoneNumber, email, soc, \ndoctorindexnumber)
+                deactivate EMPS
+
+
+                CTRL -> EMPS : saveEmployee(emp)
+
+                activate EMPS
+                CTRL -> CM : addUserToSystem(name,email,role)
+                                activate CM
+                                deactivate CM
+                deactivate EMPS
+    deactivate CTRL
+    UI --> ADMIN : Validates the data and asks for confirmation
+deactivate UI
+
+ADMIN -> UI : Confirms the data
+activate UI
+
+    UI -> CTRL : saveEmployee()
+
+activate CTRL
+    CTRL -> EMPS : saveEmployee(emp)
+
+
+activate EMPS
+    EMPS -> EMPS : validateEmployee(emp)
+    activate EMPS
+    deactivate EMPS
+    EMPS -> EMPS : addEmployee(emp)
+    activate EMPS
+    deactivate EMPS
+deactivate EMPS
+
+
+UI --> ADMIN : Saves data and informs success of operation
+deactivate COMP
+deactivate UI
+deactivate CTRL
+
+@enduml

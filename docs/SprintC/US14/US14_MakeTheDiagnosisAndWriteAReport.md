@@ -6,7 +6,7 @@
 ### 1.1. User Story Description
 
 
-As an administrator, I want to register a new employee and give access to the application.
+As an specialist doctor, I want to make diagnosis and be able to write reports of the results.
 
 
 
@@ -15,43 +15,29 @@ As an administrator, I want to register a new employee and give access to the ap
 
 **From the specifications document:**
 
->	No information in the specifications document 
+>	After completing the chemical analysis, the results of all chemical analyses are analysed by a
+specialist doctor who makes a diagnosis and writes a report that afterwards will be delivered to the
+client.
 
 
 
 **From the client clarifications:**
 
-> **Question:** What kind of information does the company store about their employees and owned laboratories?
+> **Question:**  Should the specialist doctor make the diagnosis and report at the same time? Or should he have the possibility to make one of them and, later, the other? (eg.: in case he needs to exit the application but has already worked on one of the two)
 >  
-> **Answer:** Employee ID; Organization Role; Name; Address; Phone Number; E-Mail; Standard Occupational Classification (SOC) code.
->
-> The Specialist Doctor has an additional attribute:
-Doctor Index Number.
+> **Answer:** 
 
-> **Question:** Is there any size limit to the employee's name?
+> **Question:**  Should the application have a specific order for the "documents" to be made by the specialist doctor? Or can he choose which one he wants to make first?
 >
-> **Answer:** Employee Name is a string with no more than 35 characters".
-
-> **Question:** Is there any validation that needs to be done on the employee's email format and size?
+> **Answer:**
+> 
+> **Question:**  Should the specialist doctor write the diagnosis and report in the application, or should he upload files written in another API?
 >
-> **Answer:** The format of an e-mail address is well-known. Attribute validation is always a good practice.
-
-> **Question:** Regarding the registration of a new employee, which is the organization role's format?
+> **Answer:**
+> 
+> **Question:**  How should the specialist doctor choose the test to work on? By the indexes on a list with all the tests to validate, or by a specific parameter of the test (eg.: code)? In case he should do it by a specific parameter, which one should it be?
 >
-> **Answer:** Organization Role is a string with no more than 15 characters.
-
-> **Question:** When registering a new employee should the administrator write or select his role
->
-> **Answer:** The administrator should write the role when he is registering a new employee.
-
-> **Question:** What is the length of the Doctor index number and does it need to be validated?
->
-> **Answer:** The length is 6 digits and for now, it is not necessary to confirm that the code really exists.
- 
-> **Question:** What is the length of the SOC number and is it generated or manually introduced by the admin?
->
-> **Answer:** The SOC number is 4 digits, and it is introduced by the administrator.
-
+> **Answer:**
 
 ### 1.3. Acceptance Criteria
 
@@ -152,9 +138,6 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 
 ![UC7_SD](UC7_SD.svg)
-
-*Alternative 1*
-![UC7_SD(1)](UC7_SD(1).svg)
 
 
 ## 3.3. Class Diagram (CD)
