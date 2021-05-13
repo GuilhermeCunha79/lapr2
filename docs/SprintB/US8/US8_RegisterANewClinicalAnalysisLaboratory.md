@@ -170,7 +170,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 ## 3.2. Sequence Diagram (SD)
 
 **Alternative 1**
-![UC8_SD](UC8_CD.svg)
+![UC8_SD](UC8_SD.svg)
 
 **Alternative 2**
 

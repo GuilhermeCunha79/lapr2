@@ -1,4 +1,4 @@
-# Supplementary Specification (FURPS+)
+ # Supplementary Specification (FURPS+)
 
 ## Functionality
 

@@ -12,9 +12,6 @@ Iterative Development".
 ### _Conceptual Class Category List_ ###
 
 **Business Transactions**
-
-* Test
-
 ---
 
 **Transaction Line Items**
