@@ -23,7 +23,6 @@ class SpecialistDoctor{
 
 Company "1" -- "*" Employee : has >
 SpecialistDoctor -left-|> Employee
-Administrator -right-|> Employee
 
 
 

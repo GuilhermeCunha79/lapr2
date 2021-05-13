@@ -1,0 +1,26 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+
+
+class Result
+{
+}
+
+class Diagnosis
+{
+}
+
+class DiagnosisStore{
+}
+
+
+Result --> Diagnosis : will origin >
+Result --> Report : will origin >
+DiagnosisStore --> Diagnosis : stores >
+ReportStore --> Report : stores >
+
+
+@enduml
