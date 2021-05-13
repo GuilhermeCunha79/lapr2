@@ -28,7 +28,7 @@ or more parameters that can be grouped/organized by categories."
 >When the administrator (US9) specifies a new type of test, the administrator also specifies the method to collect a sample.
 > The administrator introduces a brief description for each collecting method.
 
->**Question:** Does a type of test holds any attribute besides it's name and collecting methods?
+>**Question:** Does a type of test holds any attribute besides its name and collecting methods?
 >
 >**Answer:**The attributes for a new test type are:
             Code: five alphanumeric characters. The code is not automatically generated.
@@ -131,7 +131,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 4. Tests 
 
-**Test 1:** Check that it is not possible to create an instance of the NewTypeOfTest class with null values.
+**Test 1:** Check that it is not possible to create an instance of a NewTypeOfTest class with null values.
 
     (expected = NullPointerException.class)
     public void ensureNullTypeOfTestIsNotCreated() {
@@ -140,7 +140,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 
 
-**Test 2:** Check that it is not possible to an instance of the NewTypeOfTest class with values assyned to anotherone.
+**Test 2:** Check that it is not possible to get an instance of a NewTypeOfTest class with values assigned to another.
 
 
     public void ensureCannotCreateSameTOTTwice() {

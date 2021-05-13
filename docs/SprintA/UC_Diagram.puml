@@ -2,31 +2,20 @@
 'https://plantuml.com/use-case-diagram
 
 left to right direction
-:Receptionist: as Recep
-Recep --> (UC3 - Register new Client)
-Recep --> (UC2 - Register Test to perform to a client)
-:Clinical Chemistry Technologist: --> (UC1 - Record Sample Test Results)
-:Specialist Doctor: --> (UC4 - Save diagnosis and report for each sample)
-:Specialist Doctor: --> (UC5 - Uses External Module to help Validation Work)
-:Specialist Doctor: --> (UC6 - After Validation Work, \n Reports become available in the system)
 
-:Lab Coordinator: as lc
-(UC12 - Confirm diagnosis and Reports) as UC12
-
-:Lab Technician: as lt
-(UC13 - Record Sample) as UC13
-
-:Scheduler: --> (UC15 - Generate Daily Reports)
-:Scheduler: --> (UC16 - Company Performance Evaluation)
-lc --> UC12
-
-
-lt --> UC13
-
+:Scheduler: --> (UC1 - Generate Daily Reports)
+:Scheduler: --> (UC2 - Company Performance Evaluation)
+:Receptionist: --> (UC3 - Register new Client)
+:Receptionist: --> (UC4 -  register a test to be performed\n to a registered client)
+:Lab Technician: --> (UC5 -  record the samples collected in \n the scope of a given test)
+:Client: --> (UC6 - Check his medical tests results)
 :Admin: --> (UC7 - Add new employee to the system)
 :Admin: --> (UC8 - Add new clinical analysis labs to the system)
 :Admin: --> (UC9 - Add new types of tests to the system)
 :Admin: --> (UC10 - Add new parameters to the system)
 :Admin: --> (UC11 - Add new parameter category to the system)
-:Client: --> (UC14 - Check his medical tests results)
+:Clinical Chemistry Technologist: --> (UC12 - Record the results of a given test)
+:Specialist Doctor: --> (UC14 - Make the diagnosis \n and write a report for a given test)
+:Lab Coordinator: --> (UC15 - Validate the work done by the clinical chemistry \n technologist and specialist doctor.)
+
 @enduml

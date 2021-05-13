@@ -28,7 +28,7 @@ As an administrator, I want to specify a new parameter and categorize it.
 > **Question:** What rules do the parameter's data need to follow in order to be accepted? 
 >
 > **Answer:** The Code is five alphanumeric characters. The Short Name is a String with no more than 8 characters. 
->The Description is a String with no more than 20 characters.
+> The Description is a String with no more than 20 characters.
 
 > **Question:** Can a parameter be classified in more than one parameter category?
 >
@@ -76,7 +76,7 @@ must have at least one category, so the admin can categorize the new parameter.
 ### 1.6. System Sequence Diagram (SSD)
 
 
-![UC11_SSD](UC11_SSD.svg)
+![UC10_SSD](UC10_SSD.svg)
 
 
 ### 1.7 Other Relevant Remarks
@@ -88,7 +88,7 @@ must have at least one category, so the admin can categorize the new parameter.
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![UC11_MD](UC11_MD.svg)
+![UC10_MD](UC10_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -134,13 +134,13 @@ Other software classes (i.e. Pure Fabrication) identified:
 ## 3.2. Sequence Diagram (SD)
 
 
-![UC11_SD](UC11_SD.svg)
+![UC10_SD](UC10_SD.svg)
 
 
 ## 3.3. Class Diagram (CD)
 
 
-![UC11_CD](UC11_CD.svg)
+![UC10_CD](UC10_CD.svg)
 
 # 4. Tests 
 
