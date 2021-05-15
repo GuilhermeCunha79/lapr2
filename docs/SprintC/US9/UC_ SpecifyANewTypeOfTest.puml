@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+usecase "select a category" as s
+usecase "UC9 -  Specify a new type of test " as UC9
+actor admin as "Administrator"
+
+admin --> (UC9)
+(UC9) --> s
+@enduml

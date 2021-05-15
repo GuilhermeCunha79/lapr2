@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="258.75px" preserveAspectRatio="none" style="width:292px;height:258px;" version="1.1" viewBox="0 0 292 258" width="292.5px" zoomAndPan="magnify"><defs><filter height="300%" id="f13gbpegg866ae" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="142.6981" cy="214.4146" fill="#FEFECE" filter="url(#f13gbpegg866ae)" rx="135.1981" ry="30.0396" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="223.75" x="30.8231" y="219.0753">UC7 - Register an Employee</text><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
+entity admin--><ellipse cx="142.5" cy="17.5" fill="#FEFECE" filter="url(#f13gbpegg866ae)" rx="10" ry="10" style="stroke:#A80036;stroke-width:1.875;"/><path d="M142.5,27.5 L142.5,61.25 M126.25,37.5 L158.75,37.5 M142.5,61.25 L126.25,80 M142.5,61.25 L158.75,80 " fill="none" filter="url(#f13gbpegg866ae)" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="103.75" x="90.625" y="105.0415">Administrator</text><!--MD5=[344886c417e37e43416c4c9c8d9962d3]
+link admin to UC7--><path d="M142.5,109.725 C142.5,131.975 142.5,157.525 142.5,177.6625 " fill="none" id="admin-to-UC7" style="stroke:#A80036;stroke-width:1.25;"/><polygon fill="#A80036" points="142.5,184.2625,147.5,173.0125,142.5,178.0125,137.5,173.0125,142.5,184.2625" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[51bd1b510290e72606fcc860c9488146]
+@startuml
+usecase "UC7 - Register an Employee" as UC7
+actor admin as "Administrator"
+
+admin - -> (UC7)
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

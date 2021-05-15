@@ -1,0 +1,53 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADMIN
+
+participant ":CreateNewParameterCategoryUI" as UI
+participant ":CreateNewParameterCategoryController" as CTRL
+participant ":Company" as COMP
+participant ":ParameterCategoryStore" as PCS
+participant ":ParameterCategory" as PC
+
+
+activate ADMIN
+ADMIN -> UI : Start new parameter category
+activate UI
+UI --> ADMIN : ask data (name, code)
+deactivate UI
+ADMIN -> UI : insert requested data
+activate UI
+    UI -> CTRL : CreateNewParameterCategory(name, code)
+    activate CTRL
+        CTRL -> COMP : store = getParameterCategoryStore()
+        activate COMP
+        deactivate COMP
+        CTRL -> PCS : pc = createParameterCategory(name, code)
+        activate PCS
+            PCS --> PC** : ParameterCategory(name, code)
+        deactivate PCS
+        CTRL -> PCS : validateParameterCategory(pc)
+        activate PCS
+        deactivate PCS
+    deactivate CTRL
+    UI --> ADMIN : presents data and asks for confirmation
+deactivate UI
+ADMIN -> UI : confirms data
+activate UI
+    UI -> CTRL : saveParameterCategory()
+    activate CTRL
+        CTRL -> PCS : saveParameterCategory(pc)
+        activate PCS
+            PCS -> PCS : validateParameterCategory(pc)
+            activate PCS
+            deactivate PCS
+            PCS -> PCS : addParameterCategory(pc)
+            activate PCS
+            deactivate PCS
+        deactivate PCS
+    deactivate CTRL
+    UI --> ADMIN : informs operation success
+deactivate UI
+deactivate ADMIN
+
+@enduml

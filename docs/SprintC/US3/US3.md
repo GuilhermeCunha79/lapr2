@@ -1,12 +1,12 @@
-# US15 - To validate the work done by the clinical chemistry technologist and specialist doctor
+# US 03 - To register a new client
 
 ## 1. Requirements Engineering
 
 ### 1.1. User Story Description
 
-*As a laboratory coordinator, I want to validate the work done by the clinical chemistry and specialist doctor.*
+*As a receptionist of the laboratory, I want to register a client in order to access the application.*
 
-### 1.2. Customer Specifications and Clarifications
+### 1.2. Customer Specifications and Clarifications 
 *From the Specification Document:*
 
 > "Typically, the client arrives at one of the clinical analysis laboratories with a lab order prescribed by
@@ -17,20 +17,9 @@ be performed to that client."
 > "In case of a new client, the receptionist registers the client in the application. To register a client, the
 receptionist needs the client’s citizen card number, National Healthcare Service (NHS) number,
 birth date, sex, Tax Identification number (TIN), phone number, e-mail and name."
-
+  
 *From the Client Specifications:*
 
-> **Question:** What attributes a Receptionist have?
->
->**Answer:**
-Employee ID;
-Organization Role;
-Name;
-Address;
-Phone Number;
-E-Mail;
-Standard Occupational Classification (SOC) code.
->
 > **Question:** What attributes a Client have?
 >
 >**Answer:**
@@ -42,27 +31,27 @@ Birth Date;
 Sex;
 Phone number;
 Email.
->
+
 > **Question:** Does the receptionist need to be logged in the app to perform the regist?
->
+> 
 > **Answer:**
 > Yes
->
+
 > **Question:** What parameters asked by the receptionist should the system use to create the password of the new client?
->
+> 
 > **Answer:**
-> The password should be randomly generated.
->
+> The password should be randomly generated. 
+
 > **Question:** How the system respond in the event of creating a new user with the same attributes of an already existing user?
->
+> 
 > **Answer:**
 > This should be treated as an error. A subset of the attributes of any client are unique.
->
+
 > **Question:** After being registered by the receptionist, should the client receive some kind of confirmation e-mail in order to finish the registration?
 >
 > **Answer:**
 > The client only receives an e-mail informing that the registration was successful and that he can start to use the system. The email includes the client password
->
+
 > **Question:** During the registration of the client, if he gives a phone number already used by another customer, should the registration continue normally, or should it be cancelled?
 >
 > **Answer:**
@@ -72,22 +61,22 @@ Email.
 
 ### 1.3. Acceptance Criteria
 
-* **AC1:** The system does not show client personal information but shows all dates(test registration code, chemical analysis date and diagnosis date);
-* **AC2:** The application must allow ordering the clients by TIF and name.
-* **AC3:** At least two sorting algorithms should be evaluated and documented in th application user manual.
-  
-* **AC4:** 
-* **AC5:** 
-* **AC6:** 
-* **AC7:** 
-* **AC8:** 
-* **AC9:**
-* **AC9:** 
+* **AC1:** The client must become a system user.
+* **AC2:** The "auth" component available on the repository must be reused (without modifications).
+* **AC3:** Name have a maximum of 35 characters;
+* **AC4:** Citizen Card must have 16 digit number;
+* **AC5:** NHS number must have 10 digit number;
+* **AC6:** Birth Date must be in DD/MM/YYYY format;
+* **AC7:** Phone number must have 11 digit number.
+* **AC8:** The sex of the client is optional and are only two genders available (Male/Female).
+* **AC9:** The password should have 10 alphanumeric characters.
+* **AC9:** When registering a client with an already existing email, phone number, the system must reject such operation with an error and the user must have the change to modify the typed reference.
 
 
 ### 1.4. Found out Dependencies
 
-There is dependency with the "US12 - To record the results of a given test" and "US14 - to make the diagnosis and write a report for a given test", because in order to validate the work done by the clinical chemistry technologist and specialist doctor.
+There is dependency with the US07 - Register an employee, because in order to register a new client the system
+must have a receptionist logged in, so the receptionist can register the client.
 
 ### 1.5 Input and Output Data
 
@@ -105,7 +94,7 @@ There is dependency with the "US12 - To record the results of a given test" and 
 
 ### 1.7 Other Relevant Remarks
 
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.*
+*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
 
 
 ## 2. OO Analysis
@@ -116,11 +105,11 @@ There is dependency with the "US12 - To record the results of a given test" and 
 
 ### 2.2. Other Remarks
 
-*Use this section to capture some additional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).*
+*Use this section to capture some additional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
 
 
 
-## 3. Design - User Story Realization
+## 3. Design - User Story Realization 
 
 ### 3.1. Rationale
 
@@ -146,13 +135,13 @@ There is dependency with the "US12 - To record the results of a given test" and 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are:
-* Company
-* Client
-* ClientStore
+ * Company
+ * Client
+ * ClientStore
 
-Other software classes (i.e. Pure Fabrication) identified:
-* RegisterClientUI
-* RegisterClientController
+Other software classes (i.e. Pure Fabrication) identified: 
+ * RegisterClientUI  
+ * RegisterClientController
 
 ## 3.2. Sequence Diagram (SD)
 
@@ -162,12 +151,12 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ![UC03_CD](UC03_CD.svg)
 
-# 4. Tests
-*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.*
+# 4. Tests 
+*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
 
 **_DO NOT COPY ALL DEVELOPED TESTS HERE_**
 
-**Test 1:** Check that it is not possible to create an instance of the Client class with null values.
+**Test 1:** Check that it is not possible to create an instance of the Client class with null values. 
 
 	 @Test(expected = NullPointerException.class)
     public void garanteeNullClientIsntCreatedWithAllDataAndSex() {
@@ -305,7 +294,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         ...
     }
 
-# 6. Integration and Demo
+# 6. Integration and Demo 
 
 *In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
 
@@ -313,6 +302,8 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 7. Observations
 
 *Overall, it is believed that the work done is consistent and meets the requirements specified by the Client.*
+
+
 
 
 

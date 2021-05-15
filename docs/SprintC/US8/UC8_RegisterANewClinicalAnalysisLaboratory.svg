@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="329px" preserveAspectRatio="none" style="width:351px;height:329px;" version="1.1" viewBox="0 0 351 329" width="351px" zoomAndPan="magnify"><defs><filter height="300%" id="f1bsy6jl0mkput" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="172.5369" cy="183.2074" fill="#FEFECE" filter="url(#f1bsy6jl0mkput)" rx="166.5369" ry="35.7074" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="303" x="21.0369" y="186.9359">UC8 - Register a new clinical analysis laboratory</text><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
+entity admin--><ellipse cx="172.5" cy="14" fill="#FEFECE" filter="url(#f1bsy6jl0mkput)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M172.5,22 L172.5,49 M159.5,30 L185.5,30 M172.5,49 L159.5,64 M172.5,49 L185.5,64 " fill="none" filter="url(#f1bsy6jl0mkput)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="131" y="84.0332">Administrator</text><ellipse cx="172.4267" cy="297.7853" fill="#FEFECE" filter="url(#f1bsy6jl0mkput)" rx="84.4267" ry="19.2853" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="109.9267" y="301.5139">Select a type of test</text><!--MD5=[e6d45900de7ae7de5659f3cd2b4514ee]
+link admin to UC8--><path d="M172.5,87.5 C172.5,104.82 172.5,124.97 172.5,142.21 " fill="none" id="admin-to-UC8" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="172.5,147.46,176.5,138.46,172.5,142.46,168.5,138.46,172.5,147.46" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[43c4a72f41ae1ba2e661c7d7f695a24e]
+link UC8 to Select a type of test--><path d="M172.5,218.52 C172.5,236.24 172.5,257.39 172.5,273.27 " fill="none" id="UC8-to-Select a type of test" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="172.5,278.44,176.5,269.44,172.5,273.44,168.5,269.44,172.5,278.44" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6dd3c7db416b8667d1ef019f2b675622]
+@startuml
+usecase "UC8 - Register a new clinical analysis laboratory" as UC8
+actor admin as "Administrator"
+admin - -> (UC8)
+(UC8) - -> (Select a type of test)
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

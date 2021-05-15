@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+
+:Scheduler: --> (UC1 - Generate Daily Reports)
+:Scheduler: --> (UC2 - Company Performance Evaluation)
+:Receptionist: --> (UC3 - Register new Client)
+:Receptionist: --> (UC4 -  register a test to be performed\n to a registered client)
+:Lab Technician: --> (UC5 -  record the samples collected in \n the scope of a given test)
+:Client: --> (UC6 - Check his medical tests results)
+:Admin: --> (UC7 - Add new employee to the system)
+:Admin: --> (UC8 - Add new clinical analysis labs to the system)
+:Admin: --> (UC9 - Add new types of tests to the system)
+:Admin: --> (UC10 - Add new parameters to the system)
+:Admin: --> (UC11 - Add new parameter category to the system)
+:Clinical Chemistry Technologist: --> (UC12 - Record the results of a given test)
+:Specialist Doctor: --> (UC14 - Make the diagnosis \n and write a report for a given test)
+:Lab Coordinator: --> (UC15 - Validate the work done by the clinical chemistry \n technologist and specialist doctor.)
+
+@enduml

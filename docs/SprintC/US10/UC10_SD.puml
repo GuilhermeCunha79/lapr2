@@ -1,0 +1,52 @@
+@startuml
+autonumber
+
+actor "Administrator" as ADMIN
+
+participant ":CreateNewParameterUI" as UI
+participant ":CreateNewParameterController" as CTRL
+participant ":Company" as COMP
+participant ":ParameterStore" as PS
+participant ":Parameter" as P
+
+
+
+ADMIN -> UI : Start a new parameter
+activate UI
+UI --> ADMIN : ask data (shortName, code, description, category)
+deactivate UI
+ADMIN -> UI : insert requested data
+activate UI
+    UI -> CTRL : CreateNewParameter(shortName, code, description, category)
+    activate CTRL
+        CTRL -> COMP : store = getParameterStore()
+        activate COMP
+        deactivate COMP
+        CTRL -> PS : p = createParameter(shortName, code, description, category)
+        activate PS
+            PS --> P** : Parameter(shortName, code, description, category)
+        deactivate PS
+        CTRL -> PS : validateParameter(p)
+        activate PS
+        deactivate PS
+    deactivate CTRL
+    UI --> ADMIN : presents data and asks for confirmation
+deactivate UI
+ADMIN -> UI : confirms data
+activate UI
+    UI -> CTRL : saveParameter()
+    activate CTRL
+        CTRL -> PS : saveParameter(p)
+        activate PS
+            PS -> PS : validateParameter(p)
+            activate PS
+            deactivate PS
+            PS -> PS : addParameter(p)
+            activate PS
+            deactivate PS
+        deactivate PS
+    deactivate CTRL
+    UI --> ADMIN : informs operation success
+deactivate UI
+
+@enduml
