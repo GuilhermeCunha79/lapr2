@@ -1,0 +1,41 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class CreateNewParameterUI{
+}
+
+class CreateNewParameterController{
+    +CreateNewParameter(shortName, code, description, category)
+    +saveParameter()
+}
+
+class Company{
+	-designation
+	+getParameterStore()
+}
+
+class Parameter{
+    -code
+    -shortName
+    -description
+    +Parameter(code, shortName, description, category)
+}
+
+class ParameterStore{
+    +createParameter(code, shortName, description, category)
+    +validateParameter(p)
+    +saveParameter(p)
+}
+
+class ParameterCategory{
+    -code
+    -name
+    +ParameterCategory(code, name)
+}
+
+CreateNewParameterController <.down. CreateNewParameterUI
+CreateNewParameterController .right.> Company
+Company"1" --> "1"ParameterStore : uses
+ParameterStore"1" --> "*"Parameter : store
+Parameter"*" -left-> "1"ParameterCategory : presented under
+@enduml

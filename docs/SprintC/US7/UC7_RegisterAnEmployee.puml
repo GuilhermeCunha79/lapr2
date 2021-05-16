@@ -1,0 +1,6 @@
+@startuml
+usecase "UC7 - Register an Employee" as UC7
+actor admin as "Administrator"
+
+admin --> (UC7)
+@enduml

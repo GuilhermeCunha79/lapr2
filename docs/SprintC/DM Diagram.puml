@@ -1,0 +1,123 @@
+@startuml
+
+hide methods
+
+class Company{
+ -designation
+}
+
+class Client{
+ -name
+ -tinNumber
+ -citizenCardNumber
+ -nhsNumber
+ -birthDate
+ -sex
+ -phoneNumber
+ -email
+}
+
+class Employee{
+ -employeeID
+ -name
+ -address
+ -socCode
+ -phoneNumber
+ -email
+}
+
+class Report{
+ -diagnosis
+}
+
+class Result{
+ -parameter
+}
+
+class Parameter{
+ -name
+ -code
+ -description
+}
+
+class Category{
+ -code
+ -name
+}
+
+class TypeOfTest{
+ -description
+ -code
+ -collectingMethods
+}
+
+class ClinicalAnalysisLaboratory{
+ -name
+ -phoneNumber
+ -laboratoryId
+ -tinNumber
+ -address
+}
+
+class SpecialistDoctor {
+ -doctorIndexNumber
+}
+
+class Sample {
+ -barcode
+}
+
+class Test {
+ -testRegistrationDate
+ -chemicalAnalysisDate
+ -diagnosisDate
+}
+
+class ChemicalLab {
+ -name
+ -address
+ -phoneNumber
+ -tinNumber
+}
+
+Company -- Client
+Company -right- Employee
+Company -up- ChemicalLab
+Employee <|-right- SpecialistDoctor
+
+TypeOfTest -right- Category
+Parameter -left- Category
+
+Company -left- ClinicalAnalysisLaboratory
+
+Sample -right- Result
+Result - Report
+Report -right- Client
+
+Admin -- Employee
+Admin -up- Category
+
+Admin -up- TypeOfTest
+Admin -up- Parameter
+
+Employee -- Receptionist
+Receptionist -- Test
+Receptionist -left- Client
+
+Test -left- Sample
+
+Client -- Test
+
+Employee -- MedicalLabTechnician
+MedicalLabTechnician -- Sample
+
+Employee -- ClinicalChemistryTechnologist
+ClinicalChemistryTechnologist -- Result
+
+SpecialistDoctor -- Report
+
+Employee -- LaboratoryCoordinator
+LaboratoryCoordinator -- Report
+LaboratoryCoordinator -- Result
+
+@enduml

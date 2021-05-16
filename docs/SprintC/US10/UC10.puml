@@ -1,0 +1,6 @@
+@startuml
+usecase "UC10 - Create new parameter\n and categorize it" as UC10
+actor admin as "Administrator"
+
+admin --> (UC10)
+@enduml

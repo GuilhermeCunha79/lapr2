@@ -1,0 +1,25 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADMIN
+
+participant ":System" as SYSTEM
+
+ADMIN -> SYSTEM : Ask to register a Employee
+activate SYSTEM
+SYSTEM --> ADMIN : Requests necessary information (organizationRole, name, address, \nphoneNumber, email, soc)
+
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : Inserts the data
+activate SYSTEM
+SYSTEM --> ADMIN : Validates the data and asks for confirmation
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : Confirms the data
+activate SYSTEM
+SYSTEM --> ADMIN : Tell the user that the employee has been successfully created
+deactivate SYSTEM
+
+
+@enduml

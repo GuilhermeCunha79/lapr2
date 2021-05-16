@@ -1,0 +1,116 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+top to bottom direction
+
+Company"1" --- "1..*"Employee : > has
+Company"1" -- "*"Client : > has
+Company"1" -- "1..*"ClinicalAnalysisLab : > has
+MedicalLabTechnician"*" -- "1"ClinicalAnalysisLab : > works at
+Receptionist"1" -- "*"TestRequest : > register new
+Headquarter"1" -- "1"ChemicalLab : > has
+Company"1" -- "1"Headquarter : > owns
+Receptionist"1..*" -- "*"Client : > add
+Employee <|-- MedicalLabTechnician
+Employee <|-- ClinicalChemistryTechnologist
+Employee <|-- Receptionist
+Employee <|-- LabCoordinator
+Employee <|-- Admin
+Employee <|-- SpecialistDoctor
+ClinicalChemistryTechnologist"*" -- "1"ChemicalLab : > works at
+Test"1" -- "1"Result : > has
+Result"1" -- "1"Report : > has
+MedicalLabTechnician"1" -- "*"Sample : > collect
+Sample"1" -- "1"Test : < has
+Company"1" -- "1..*"TypeOfTest : > conduct
+Company"1" -- "*"Test : > perform
+TestRequest"1..*" -- "1""Client" : < does
+SpecialistDoctor"1" -- "*"Report : > write
+SpecialistDoctor"1..*" -- "1"Headquarter : > works at
+Sample"*" -- "1"ChemicalLab : < owns
+LabCoordinator"1" -- "*"Report : > validate
+TestRequest"1" -- "1"Test : > originates
+TypeOfTest"1" -- "1""Test" : < has
+Admin"1..*" -- "*"Category : > create new
+Category"1" -- "*"Parameter : < presented under
+Test"1" -- "1..*"Parameter : > need to analyse
+
+class Client{
+-nhsNumber
+-name
+-tinNumber
+-birthDate
+-sex
+-phoneNumber
+-email
+}
+
+class Sample{
+-barcode
+}
+
+class Report{
+-diagnosis
+-results
+}
+
+class Employee{
+-employeeID
+-name
+-address
+-socCode
+-phoneNumber
+-email
+}
+
+class ClinicalAnalysisLab{
+-labId
+-name
+-address
+-phoneNumber
+-tinNumber
+}
+class ChemicalLab{
+-name
+-address
+-phoneNumber
+-tinNumber
+}
+
+class TestRequest{
+-requestDate
+-testType
+}
+
+class Company{
+-name
+-location
+}
+
+class Headquarter{
+-location
+}
+
+class Test{
+-timestampOfSampleCollected
+-timestampOfDiagnosis
+-timestampOfChemicalAnalysis
+-timestampOfValidation
+}
+
+class Category{
+-nhsId
+-internalCode
+-description
+}
+
+class SpecialistDoctor{
+-doctorIndexNumber
+}
+
+class Result{
+- Parameter
+}
+
+
+@enduml

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="222px" preserveAspectRatio="none" style="width:309px;height:222px;" version="1.1" viewBox="0 0 309 222" width="309px" zoomAndPan="magnify"><defs><filter height="300%" id="fhpkzdqxaoscb" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="151.9478" cy="179.0896" fill="#FEFECE" filter="url(#fhpkzdqxaoscb)" rx="145.9478" ry="31.5896" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="260" x="21.9478" y="182.8181">UC11 - Create a new parameter category</text><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
+entity admin--><ellipse cx="152" cy="14" fill="#FEFECE" filter="url(#fhpkzdqxaoscb)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M152,22 L152,49 M139,30 L165,30 M152,49 L139,64 M152,49 L165,64 " fill="none" filter="url(#fhpkzdqxaoscb)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="110.5" y="84.0332">Administrator</text><!--MD5=[82f64621edba5c3b20c09d5802f5d0cb]
+link admin to UC11--><path d="M152,87.73 C152,105.16 152,125.32 152,142.17 " fill="none" id="admin-to-UC11" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="152,147.29,156,138.29,152,142.29,148,138.29,152,147.29" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[64bd5e2f42fa0b1cee98ca5936434f3b]
+@startuml
+usecase "UC11 - Create a new parameter category" as UC11
+actor admin as "Administrator"
+
+admin - -> (UC11)
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 10:25:05 GMT 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

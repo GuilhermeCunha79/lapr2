@@ -1,0 +1,6 @@
+@startuml
+usecase "UC3 - Register a new Client" as UC3
+actor recep as "Receptionist"
+
+recep --> (UC3)
+@enduml
