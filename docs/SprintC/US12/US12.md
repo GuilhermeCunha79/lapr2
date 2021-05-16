@@ -15,31 +15,53 @@ As a clinical chemistry technologist, I intend to record the results of a given 
 
 **From the specifications document:**
 
-> "At the company's headquarters, the clinical chemistry technologist receives the samples (delivered 
-  by a courier) and performs the chemical analysis, recording the results in the software application."
+>   "At the company's headquarters, the clinical chemistry technologist receives the samples (delivered 
+    by a courier) and performs the chemical analysis, recording the results in the software application."
 
-> "Blood tests are frequently characterized by measuring several parameters which for 
- presentation/reporting purposes are organized by categories. For example, parameters such 
- as the number of Red Blood Cells (RBC), White Blood Cells (WBC) and Platelets (PLT) are 
- usually presented under the blood count (Hemogram) category."
+>   "Blood tests are frequently characterized by measuring several parameters which for 
+    presentation/reporting purposes are organized by categories. For example, parameters such 
+    as the number of Red Blood Cells (RBC), White Blood Cells (WBC) and Platelets (PLT) are 
+    usually presented under the blood count (Hemogram) category."
 
-> "Covid tests are characterized by measuring a single parameter stating whether it is a positive 
-   or a negative result."
+>   "Covid tests are characterized by measuring a single parameter stating whether it is a positive 
+    or a negative result."
 
-> " The application should use an external module that is responsible
-   for providing the test reference values. The application can use an external module for 
-   each type of test. For instance, when the results are for blood tests parameters, the
-   external module BloodReferenceValues1API can be used. When the results are for 
-   Covid-19 tests parameters, the external module CovidReferenceValues1API can be used. 
-   In any case, the API request should include, at most: (i) a key to access the module (e.g.: “KEY1234”); (ii) a parameter identifier; (iii) the reference date; and (iv) reference 
-   measurement unit (e.g. "mg")."
+>   "The application should use an external module that is responsible for providing the test reference values. 
+    The application can use an external module for each type of test. 
+    For instance, when the results are for blood tests parameters, the
+    external module BloodReferenceValues1API can be used. When the results are for 
+    Covid-19 tests parameters, the external module CovidReferenceValues1API can be used. 
+    In any case, the API request should include, at most: (i) a key to access the module
+    (e.g.: “KEY1234”); (ii) a parameter identifier; (iii) the reference date; and (iv) reference 
+    measurement unit (e.g. "mg")."
 
 
 **From the client clarifications:**
 
-> **Question:** 
+> **Question:** The Reference Values' API asks for a parameter identifier (which we assume will be stored alongside each parameter). 
+ What will the format of this identifier be?
 >  
 > **Answer:** 
+> 
+> **Question:** Are there any attributes to the Test Result? If there are none, what is needed for a Test Result?
+>
+> **Answer:**
+> 
+> **Question:** What is the acceptance criteria for the Parameter identifier that goes to the module?
+>
+> **Answer:**
+> 
+> **Question:** What is the data needed in order to record the results of a given test? And which of them are typed and selected?
+>
+> **Answer:**
+> 
+> **Question:** When the Clinical Chemistry Technologist wants to record the results of a test, how does he has access to that test? By internal code, NHS code?
+>
+> **Answer:** Each sample has a unique barcode. The clinical chemistry technologist should use the sample barcode number to find the test for which the sample was collected.
+>
+> **Question:** Should the system present a result for each test parameter or a single result for the test to be recorded?
+>
+> **Answer:** The Clinical Chemistry Technologist should register a value/result for each parameter of the test.
 
 
 ### 1.3. Acceptance Criteria
@@ -76,12 +98,12 @@ As a clinical chemistry technologist, I intend to record the results of a given 
 
 **Alternative 1**
 
-![US006_SSD](US006_SSD.svg)
+![US12_SSD](US12_SSD.svg)
 
 
 **Alternative 2**
 
-![US006_SSD_v2](US006_SSD_v2.svg)
+![US12_SSD_v2](US12_SSD_v2.svg)
 
 
 **Other alternatives might exist.**
@@ -95,7 +117,7 @@ As a clinical chemistry technologist, I intend to record the results of a given 
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![US006_MD](US006_MD.svg)
+![US12_MD](US12_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -143,17 +165,17 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 **Alternative 1**
 
-![US006_SD](US006_SD.svg)
+![US12_SD](US12_SD.svg)
 
 **Alternative 2**
 
-![US006_SD](US006_SD_v2.svg)
+![US12_SD](US12_SD_v2.svg)
 
 ## 3.3. Class Diagram (CD)
 
 **From alternative 1**
 
-![US006_CD](US006_CD.svg)
+![US12_CD](US12_CD.svg)
 
 # 4. Tests 
 
