@@ -2,6 +2,7 @@
 
 hide methods
 
+
 class Company{
  -designation
 }
@@ -40,7 +41,7 @@ class Parameter{
  -description
 }
 
-class Category{
+class ParameterCategory{
  -code
  -name
 }
@@ -51,12 +52,15 @@ class TypeOfTest{
  -collectingMethods
 }
 
-class ClinicalAnalysisLaboratory{
+class Laboratory{
  -name
  -phoneNumber
- -laboratoryId
  -tinNumber
  -address
+}
+
+class ClinicalAnalysisLaboratory {
+ -laboratoryId
 }
 
 class SpecialistDoctor {
@@ -64,7 +68,7 @@ class SpecialistDoctor {
 }
 
 class Sample {
- -barcode
+ -barcodeNumber
 }
 
 class Test {
@@ -74,50 +78,59 @@ class Test {
 }
 
 class ChemicalLab {
- -name
- -address
- -phoneNumber
- -tinNumber
 }
 
-Company -- Client
-Company -right- Employee
-Company -up- ChemicalLab
-Employee <|-right- SpecialistDoctor
+class User {
+ -email
+ -name
+ -password
+}
 
-TypeOfTest -right- Category
-Parameter -left- Category
+class OrganizationRole {
+ -description
+}
 
-Company -left- ClinicalAnalysisLaboratory
+Company"1" -up- "*"Client : "> knows"
+Company"1" -left- "*"Employee : "> employs"
+Company"1" -- "1"ChemicalLab : "> owns"
+Employee <|-- SpecialistDoctor
+ChemicalLab --|> Laboratory
+ClinicalAnalysisLaboratory -|> Laboratory
+Employee"0..1" -- "1"User : "> registered as"
+TypeOfTest"*" -right- "1..*"ParameterCategory : "> can measure \n parameters under a"
+Parameter"*" -- "1"ParameterCategory : "> categorized under a"
+Employee"*" -up- "1"OrganizationRole : "> has an"
+Company"1" -- "*"ClinicalAnalysisLaboratory : "> owns"
+ClinicalAnalysisLaboratory"*" -- "1..*"TypeOfTest : "> performs"
+Company"1" - "*"TypeOfTest : "> conducts"
+Sample"1" -- "1"Result : "> receives"
+Result"1" - "1"Report : "> originates"
+Report"*" -- "*"Client : "> sent to"
+Client"0..1" -up- "1"User : "> becomes"
+Employee <|-- Admin
+Admin"1..*" -- "*"ParameterCategory : "> specifies"
+Company"1" -- "*"ParameterCategory : "> adopts"
+Admin"1..*" -- "*"TypeOfTest : "> specifies"
+Admin"1..*" -- "*"Parameter : "> specifies"
 
-Sample -right- Result
-Result - Report
-Report -right- Client
+Employee <|- Receptionist
+Receptionist"1..*" -- "*"Test : "> register"
+Receptionist"1..*" -- "*"Client : "> register"
 
-Admin -- Employee
-Admin -up- Category
+Test"*" -- "*"Sample : "> has"
 
-Admin -up- TypeOfTest
-Admin -up- Parameter
+Client"*" -left- "1..*"Test : "> asks for"
 
-Employee -- Receptionist
-Receptionist -- Test
-Receptionist -left- Client
+Employee <|-left- MedicalLabTechnician
+MedicalLabTechnician"1..*" -- "*"Sample : "> register"
 
-Test -left- Sample
+Employee <|-- ClinicalChemistryTechnologist
+ClinicalChemistryTechnologist"1..*" -- "*"Result : "> record"
 
-Client -- Test
-
-Employee -- MedicalLabTechnician
-MedicalLabTechnician -- Sample
-
-Employee -- ClinicalChemistryTechnologist
-ClinicalChemistryTechnologist -- Result
-
-SpecialistDoctor -- Report
-
-Employee -- LaboratoryCoordinator
-LaboratoryCoordinator -- Report
-LaboratoryCoordinator -- Result
+SpecialistDoctor"1..*" -- "*"Report : "> write"
+Company"1" -- "*"Parameter : "> capable of analysing"
+Employee <|- LaboratoryCoordinator
+LaboratoryCoordinator"1..*" -- "*"Report : "> validates"
+LaboratoryCoordinator"1..*" -- "*"Result : "> validates"
 
 @enduml

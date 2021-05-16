@@ -1,45 +1,4 @@
 @startuml
-skinparam classAttributeIconSize 0
 
-class MakeDiagnosisUI
-{
-}
-
-class MakeDiagnosisController
-{
-}
-
-class Diagnosis
-{
-}
-
-class DiagnosisStore{
-}
-
-
-
-MakeDiagnosisUI ..> MakeDiagnosisController
-MakeDiagnosisController --> DiagnosisStore
-DiagnosisStore --> Diagnosis
-
-class WriteReportUI
-{
-}
-
-class WriteReportController
-{
-}
-
-class Report
-{
-}
-
-class ReportStore{
-}
-
-
-WriteReportUI ..> WriteReportController
-WriteReportController --> ReportStore
-ReportStore --> Report
 
 @enduml

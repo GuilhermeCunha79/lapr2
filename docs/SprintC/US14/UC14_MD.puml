@@ -1,26 +1,23 @@
 @startuml
+
 hide methods
-left to right direction
-skinparam classAttributeIconSize 0
 
-
-
-class Result
-{
+class SpecialistDoctor {
+    - doctorIndexNumber
 }
 
-class Diagnosis
-{
+class Report {
+    - report
 }
 
-class DiagnosisStore{
+class Test {
+    -
 }
 
+class Result {
+    -
+}
 
-Result --> Diagnosis : will origin >
-Result --> Report : will origin >
-DiagnosisStore --> Diagnosis : stores >
-ReportStore --> Report : stores >
 
 
 @enduml
