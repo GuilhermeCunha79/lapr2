@@ -11,7 +11,7 @@ public class Parameter {
     private String code;
     private String shortName;
     private String description;
-    private String category;
+    private ParameterCategory category;
 
     static final int DESCRIPTION_LENGTH = 20;
     static final int SHORT_NAME_LENGTH = 8;
@@ -24,7 +24,7 @@ public class Parameter {
      * @param description description of the parameter
      * @param category    category chosen from a list of categories registered in the system
      */
-    public Parameter(String code, String shortName, String description, String category) {
+    public Parameter(String code, String shortName, String description, ParameterCategory category) {
         setCode(code);
         setShortName(shortName);
         setDescription(description);

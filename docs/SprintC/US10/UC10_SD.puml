@@ -6,24 +6,45 @@ actor "Administrator" as ADMIN
 participant ":CreateNewParameterUI" as UI
 participant ":CreateNewParameterController" as CTRL
 participant ":Company" as COMP
-participant ":ParameterStore" as PS
+participant "pStore: ParameterStore" as PS
 participant ":Parameter" as P
+participant "pcStore: Parameter\nCategoryStore" as PCS
+participant "pcMapper: Parameter\nCategoryMapper" as PCM
 
 
 
 ADMIN -> UI : Start a new parameter
 activate UI
-UI --> ADMIN : ask data (shortName, code, description, category)
+UI --> ADMIN : ask data (shortName, code, description)
 deactivate UI
 ADMIN -> UI : insert requested data
 activate UI
-    UI -> CTRL : CreateNewParameter(shortName, code, description, category)
+UI -> CTRL : lPCDto = getAllParameterCategories()
     activate CTRL
-        CTRL -> COMP : store = getParameterStore()
+        CTRL -> COMP : pcStore = getParameterCategoryStore()
         activate COMP
         deactivate COMP
-        CTRL -> PS : p = createParameter(shortName, code, description, category)
+        CTRL -> PCS : lPC = getAllParameterCategories()
+        activate PCS
+        deactivate PCS
+        CTRL -> PCM : lPCDto = toDTO(lPC)
+        activate PCM
+        deactivate PCM
+    deactivate CTRL
+UI --> ADMIN : shows all categories and asks to select one of them
+deactivate UI
+ADMIN -> UI : selects one category
+activate UI
+    UI -> CTRL : CreateNewParameter(shortName, code, description, pcId)
+    activate CTRL
+        CTRL -> COMP : pStore = getParameterStore()
+        activate COMP
+        deactivate COMP
+        CTRL -> PS : p = createParameter(shortName, code, description, pcId)
         activate PS
+            PS -> PCS : pc = getParameterCategory(pcId)
+            activate PCS
+            deactivate PCS
             PS --> P** : Parameter(shortName, code, description, category)
         deactivate PS
         CTRL -> PS : validateParameter(p)

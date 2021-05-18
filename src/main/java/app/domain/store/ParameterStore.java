@@ -1,6 +1,8 @@
 package app.domain.store;
 
+import app.controller.App;
 import app.domain.model.Parameter;
+import app.domain.model.ParameterCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +16,13 @@ public class ParameterStore {
      * @param code of the parameter
      * @param shortName of the parameter
      * @param description of the parameter
-     * @param category of the parameter
+     * @param pcId parameter category ID of the parameter
      * @return the parameter created
      */
-    public Parameter createParameter(String code, String shortName, String description, String category) {
-        return new Parameter(code, shortName, description, category);
+    public Parameter createParameter(String code, String shortName, String description, String pcId) {
+        ParameterCategoryStore pcStore = App.getInstance().getCompany().getParameterCategoryStore();
+        ParameterCategory pc = pcStore.getParameterCategory(pcId);
+        return new Parameter(code, shortName, description, pc);
     }
 
     /**
@@ -38,7 +42,7 @@ public class ParameterStore {
      * @param p receives the Parameter to be added
      * @return if it was successfully added to the store (true or false)
      */
-    public boolean addParameter(Parameter p) {
+    private boolean addParameter(Parameter p) {
         if (p != null && validateParameter(p)) {
             return this.parameterList.add(p);
         }

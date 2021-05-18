@@ -31,6 +31,7 @@ class ParameterCategoryStore{
 CreateParameterCategoryUI ..> CreateParameterCategoryController
 CreateParameterCategoryController .right.> Company
 Company"1" --> "1"ParameterCategoryStore : uses
-ParameterCategoryStore"1" -left-> "*"ParameterCategory : store
-
+ParameterCategoryStore"1" -left-> "*"ParameterCategory : stores
+CreateParameterCategoryController ..> ParameterCategory
+CreateParameterCategoryController ..> ParameterCategoryStore
 @enduml

@@ -21,6 +21,19 @@ public class ParameterCategoryStore {
     }
 
     /**
+     * Method that returns a parameter category from the list with the same code as the one received by parameter
+     * @param categoryId
+     * @return Parameter category
+     */
+    public ParameterCategory getParameterCategory(String categoryId) {
+        for (ParameterCategory pc: parameterCategoryList) {
+            if(pc.getCode().equals(categoryId))
+                return pc;
+        }
+        return null;
+    }
+
+    /**
      * This method validates the parameter category received by parameter and adds it to the Parameter category store by calling the method addParameterCategory
      * @param pc Parameter category that will be added
      * @return if it was successfully added to the store (true or false)
@@ -66,5 +79,6 @@ public class ParameterCategoryStore {
     public List<ParameterCategory> getParameterCategoryList() {
         return new ArrayList<>(parameterCategoryList);
     }
+
 
 }

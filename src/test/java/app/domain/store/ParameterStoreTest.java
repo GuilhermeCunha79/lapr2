@@ -13,7 +13,7 @@ public class ParameterStoreTest {
 
     ParameterCategoryStore pcs = new ParameterCategoryStore();
     ParameterStore ps = new ParameterStore();
-
+    
 
     /**
      * Creates a category to be used in other tests that need it
@@ -44,8 +44,8 @@ public class ParameterStoreTest {
     public void ensureCannotAddSameParameterTwiceTest2AddParameter(){
         Parameter p1 = ps.createParameter("12325", "Cell", "description", "hemograms");
         Parameter p2 = ps.createParameter("12325", "Cell", "description", "hemograms");
-        ps.addParameter(p1);
-        assertFalse(ps.addParameter(p2));
+        ps.saveParameter(p1);
+        assertFalse(ps.saveParameter(p2));
     }
 
     /**
@@ -64,7 +64,7 @@ public class ParameterStoreTest {
      */
     @Test
     public void ensureAddNullParameterDontWork(){
-        assertFalse(ps.addParameter(null));
+        assertFalse(ps.saveParameter(null));
     }
 
     /**

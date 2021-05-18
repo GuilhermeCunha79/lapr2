@@ -1,11 +1,14 @@
 package app.domain.model;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class ParameterCategoryTest {
 
+
+    ParameterCategory pc = new ParameterCategory("12345", "covid");
     /**
      * Checks if category with null values is not created
      */
@@ -141,7 +144,7 @@ public class ParameterCategoryTest {
     @Test
     public void checkIfDifferentObjectsAreDifferent(){
         new ParameterCategory("12012", "hemograms");
-        Parameter p1 = new Parameter("12012", "Blood1", "Test lood Cells", "hemograms");
+        Parameter p1 = new Parameter("12012", "Blood1", "Test lood Cells", pc);
         assertNotEquals(p1, new String());
     }
 

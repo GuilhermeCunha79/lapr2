@@ -9,26 +9,12 @@ class Company {
   -designation
 }
 
-class Admin{
-}
-
-class Parameter{
-    -code
-    -shortName
-    -description
-}
-
 class ParameterCategory{
     -code
     -name
 }
 
-Company"1" -- "*"Admin :> employs
-Company"1" -- "*"Parameter :> capable of \n analysing
 Company"1" -- "*"ParameterCategory :> adopts
-Admin"1" -- "*"Parameter :< created by
-Parameter"*" -- "1"ParameterCategory :> shown under
-Admin"1" -- "*"ParameterCategory :< created by
 
 
 

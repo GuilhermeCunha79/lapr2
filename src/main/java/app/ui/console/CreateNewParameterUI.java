@@ -1,7 +1,6 @@
 package app.ui.console;
 
 import app.controller.CreateNewParameterController;
-import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
@@ -38,24 +37,21 @@ public class CreateNewParameterUI implements Runnable{
                 String code = Utils.readLineFromConsole("Introduce parameter's code: ");
                 String description = Utils.readLineFromConsole("Introduce parameter's description: ");
 
-                List<ParameterCategory> categoryList = ctrl.getCategoryList();
+                List<String> categoryList = ctrl.getAllParameterCategories();
                 if(categoryList.isEmpty()) {
                     System.out.println("\nThere is no parameter categories in the system.\nPlease create one first!");
                 }else {
                     System.out.println();
-                    List<String> displayCatList = new ArrayList<>();
-                    for (ParameterCategory category : categoryList) {
-                        displayCatList.add(category.getName());
-                    }
+                    List<String> displayCatList = new ArrayList<>(categoryList);
                     int option = Utils.showAndSelectIndex(displayCatList, "Choose Category");
-                    String category;
+                    String categoryId;
                     if(option != -1)
-                        category = categoryList.get(option).getName();
+                        categoryId = categoryList.get(option).substring(1,6);
                     else
                         return false;
-                    boolean created = ctrl.createNewParameter(code, name, description, category);
+                    boolean created = ctrl.createNewParameter(code, name, description, categoryId);
                     if (created) {
-                        System.out.printf("\nConfirm parameter category: \nName: %s\nCode: %s\nDescription: %s\nCategory: %s", name, code, description, category);
+                        System.out.printf("\nConfirm parameter category: \nName: %s\nCode: %s\nDescription: %s\nCategory: %s", name, code, description, categoryId);
                         if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
                             done = true;
                             return ctrl.saveParameter();

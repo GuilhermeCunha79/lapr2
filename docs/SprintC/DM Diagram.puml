@@ -112,7 +112,7 @@ Admin"1..*" -- "*"ParameterCategory : "> specifies"
 Company"1" -- "*"ParameterCategory : "> adopts"
 Admin"1..*" -- "*"TypeOfTest : "> specifies"
 Admin"1..*" -- "*"Parameter : "> specifies"
-
+Admin"1..*" -- "*"Employee : "> register"
 Employee <|- Receptionist
 Receptionist"1..*" -- "*"Test : "> register"
 Receptionist"1..*" -- "*"Client : "> register"
