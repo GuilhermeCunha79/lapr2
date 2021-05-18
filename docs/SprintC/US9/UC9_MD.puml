@@ -6,8 +6,8 @@ skinparam classAttributeIconSize 0
 
 
 Company"1" -- "*"TypeOfTest:> conducts
-Company"1" -- "*"Category :> adopts
-TypeOfTest"*" -- "1"Category :> has a
+Company"1" -- "*"ParamaterCategory :> adopts
+TypeOfTest"*" -- "1"ParamaterCategory :> has a
 
 class TypeOfTest{
 -code
@@ -19,7 +19,7 @@ class Company{
 -designation
 }
 
-class Category{
+class ParamaterCategory{
     -code
     -name
 }
