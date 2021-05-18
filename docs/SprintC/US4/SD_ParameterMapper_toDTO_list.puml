@@ -1,34 +1,34 @@
 @startuml
 autonumber
 
-participant "parameterMap:ParameterMapper" as PMAPPER
-participant "storeParamater: ParameterStore" as PSTORE
+participant "parameterMap:ParameterMapper" as PARMAPPER
+participant "storeParamater: ParameterStore" as PARSTORE
 participant "listParameterDto : List<ParameterDto>" as PARAMETERLIST
 participant "objDTO: ParameterDto" as PARAMETERDTO
 participant "catStore : CategoryStore" as CATSTORE
 
 
-[o-> PMAPPER : toDTO(categoryList)
-PMAPPER -> PARAMETERLIST**: create()
+[o-> PARMAPPER : toDTO(categoryList)
+PARMAPPER -> PARAMETERLIST**: create()
 
 loop For each object in categoryList
 
-PMAPPER -> CATSTORE : parameterList = getParametersByCategory(i)
+PARMAPPER -> CATSTORE : parameterList = getParametersByCategory(i)
 activate CATSTORE
 deactivate CATSTORE
     loop For each object in parameterList
-        PMAPPER -> PSTORE : parameterObj = getParameterById(j)
-        activate PSTORE
-        deactivate PSTORE
-        PMAPPER -> PMAPPER : objDto = toDTO(parameterObj)
-        PMAPPER -> PARAMETERDTO** : create(code, name)
-        PMAPPER -> PARAMETERLIST : add(objDto)
+        PARMAPPER -> PARSTORE : parameterObj = getParameterById(j)
+        activate PARSTORE
+        deactivate PARSTORE
+        PARMAPPER -> PARMAPPER : objDto = toDTO(parameterObj)
+        PARMAPPER -> PARAMETERDTO** : create(code, name)
+        PARMAPPER -> PARAMETERLIST : add(objDto)
         activate PARAMETERLIST
         deactivate PARAMETERLIST
     end
 end
 
-<-- PMAPPER : listParameterDto
+<-- PARMAPPER : listParameterDto
 
 
 @enduml

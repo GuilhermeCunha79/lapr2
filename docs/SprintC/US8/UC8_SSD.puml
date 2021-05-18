@@ -1,26 +1,24 @@
 @startuml
 autonumber
 'hide footbox
-actor "Administrador" as ADMIN
+actor "Administrator" as ADMIN
 
 participant ":System" as SYSTEM
 
-ADMIN -> SYSTEM : Register a New Clinical Analaysis Laboratory
+ADMIN -> SYSTEM : Register a New Clinical Analysis Laboratory
 activate SYSTEM
-SYSTEM --> ADMIN : Requests necessary credentials (name, laboratoryID, address, phoneNumber, tinNumber, typeOfTestList)
+SYSTEM --> ADMIN : request data(name, laboratoryID, address, phoneNumber, tinNumber)
 deactivate SYSTEM
 
 ADMIN -> SYSTEM : Types requested data
 activate SYSTEM
-SYSTEM --> ADMIN : Validates the data and shows type of test list and ask to select one
+SYSTEM --> ADMIN : shows test types to be selected
 deactivate SYSTEM
 
-ADMIN -> SYSTEM : Selects a type of test
+SYSTEM -> ADMIN : shows the data and requests a confirmation
 activate SYSTEM
-SYSTEM --> ADMIN : Shows all data and requests confirmation
+ADMIN --> SYSTEM : confirms the data
 deactivate SYSTEM
-ADMIN -> SYSTEM : Confirms the Data
-activate SYSTEM
-SYSTEM --> ADMIN : Informs operation sucess
+SYSTEM -> ADMIN : Informs operation success
 
 @enduml
