@@ -77,7 +77,7 @@ n/a
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![UC9_MD](../../SprintB/US9/UC9_MD.svg)
+![UC9_MD](UC9_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -102,7 +102,7 @@ n/a
 | Step 11: Save type of test |... send command to save the created type of test? | SpecifyANewTypeOfTestController | Controller makes the bridge between UI layer and Domain Layer|
 | Step 12: Save type of test |... saving the created type of test? | TypeOfTestStore | IE: stores all type of test created|
 | Step 13: Validate type of test globally |... validating all data at global level? | TypeOfTestStore | IE: Company Knows all existing Type of Test|
-| Step 14: Add type of test |... add created parameter category to the list? | TypeOfTestStore | IE: Responsible to add new Type of Test to the list|
+| Step 14: Add type of test |... add created type of test to the list? | TypeOfTestStore | IE: Responsible to add new Type of Test to the list|
 | Step 15: Operation success |... informing operation success?| SpecifyANewTypeOfTestUI | UI Layer is responsible for user interactions.  |
 
 ### Systematization ##
@@ -121,7 +121,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 ## 3.2. Sequence Diagram (SD)
 
 
-![UC9_SD](../../SprintB/US9/UC9_SD.svg)
+![UC9_SD](UC9_SD.svg)
 
 
 ## 3.3. Class Diagram (CD)

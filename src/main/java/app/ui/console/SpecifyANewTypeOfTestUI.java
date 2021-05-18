@@ -1,12 +1,10 @@
 package app.ui.console;
 
 import app.controller.SpecifyANewTypeOfTestController;
-import app.domain.model.ParameterCategory;
 import app.ui.console.utils.Utils;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Objects;
 
 
 public class SpecifyANewTypeOfTestUI implements Runnable {
@@ -22,13 +20,17 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
         ctrl = new SpecifyANewTypeOfTestController();
 
         boolean created = createTypeOfTest();
+
         if (created) {
             System.out.println("Type of test was created!");
+        } else {
+            System.out.println("Operation failed");
         }
     }
 
     /**
      * This method enables user interaction to create a new type of test.
+     *
      * @return if the type of test was created or not
      */
     private boolean createTypeOfTest() {
@@ -39,47 +41,30 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
                 String description = Utils.readLineFromConsole("Introduce type of test description: ");
                 String collectingMethod = Utils.readLineFromConsole("Introduce type of test colecting method: ");
 
-                List<ParameterCategory> categoryList = ctrl.getCategoryList();
-                if (categoryList.isEmpty()) {
+                List<String> categoryDisplayList = ctrl.getCategoryList();
+                if (categoryDisplayList.isEmpty()) {
                     System.out.println("\nThere is no parameter categories in the system.\nPlease create one first!");
                     return false;
                 } else {
                     System.out.println();
-                    List<String> displayCatList = new ArrayList<>();
-                    for (ParameterCategory category : categoryList) {
-                        displayCatList.add(category.getName());
+                    int option = Utils.showAndSelectIndex(categoryDisplayList, "Choose Category:");
+                    if (option != -1) {
+                        String selectedCategory = categoryDisplayList.get(option);
+                        ctrl.createANewTypeOfTest(code, description, collectingMethod, selectedCategory.substring(1, 6));
+                        categoryDisplayList.remove(option);
                     }
-                    ArrayList<ParameterCategory> listOfSelectedCategories = new ArrayList<ParameterCategory>();
-                    int option = Utils.showAndSelectIndex(displayCatList, "Choose Category:");
-                    while (option != -1) {
-
-                        ParameterCategory selectedCategory;
-                        selectedCategory = categoryList.get(option);
-
-                        listOfSelectedCategories.add(selectedCategory);
-
-                        displayCatList.remove(option);
-                        if (Objects.requireNonNull(Utils.readLineFromConsole("Add another category: (Y or N)")).equalsIgnoreCase("y"))
-                            option = Utils.showAndSelectIndex(displayCatList, "Choose Category:");
-                        else
-                            option =-1;
-                    }
-
-                    boolean created = ctrl.createANewTypeOfTest(code, description, collectingMethod, listOfSelectedCategories);
-                    if (created) {
-                        System.out.println("Confirm Type of test: ");
-                        System.out.println(ctrl.getTot().toString());
-                        if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
-                            done = true;
-                            return ctrl.saveTypeOfTest();
-                        } else {
-                            System.out.println("\nOperation cancelled");
-                            return false;
+                    String addMorePC = Utils.readLineFromConsole("Add another category? (Y/N)");
+                    while (addMorePC != null && addMorePC.equalsIgnoreCase("y") && !categoryDisplayList.isEmpty()) {
+                        option = Utils.showAndSelectIndex(categoryDisplayList, "Choose Category:");
+                        if (option != -1) {
+                            String selectedCategory = categoryDisplayList.get(option);
+                            ctrl.addCategory(selectedCategory.substring(1, 6));
+                            categoryDisplayList.remove(option);
                         }
                     }
+                    done = true;
+                    return ctrl.saveTypeOfTest();
                 }
-                System.out.println("Error: Duplicated Type of Test:");
-                return false;
             } catch (Exception e) {
                 System.out.println(e.getLocalizedMessage());
             }

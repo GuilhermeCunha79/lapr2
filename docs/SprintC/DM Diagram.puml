@@ -72,9 +72,9 @@ class Sample {
 }
 
 class Test {
- -testRegistrationDate
- -chemicalAnalysisDate
- -diagnosisDate
+ -createdAt
+ -nhsCode
+ -internalCode
 }
 
 class ChemicalLab {

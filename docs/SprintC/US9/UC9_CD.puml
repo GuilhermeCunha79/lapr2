@@ -2,39 +2,55 @@
 'https://plantuml.com/sequence-diagram
 skinparam classAttributeIconSize 0
 
-class SpecifieANewTypeOfTestUI{
+class SpecifyANewTypeOfTestUI{
 }
 
-class SpecifieANewTypeOfTestController{
-    +CreateNewTypeOfTest()
+class SpecifyANewTypeOfTestController{
+    +createNewTypeOfTest(code, description, collectingMethod, pcId)
+    +addCategory(pcId)
     +saveTypeOfTest()
 }
 
 class Company{
 	-designation
-	+getParameterStore()
+	+getTestTypeStore()
+	+getParameterCategoryStore()
 }
 
 class TypeOfTest{
     -code
     -shortName
     -description
-    +Parameter(code, shortName, description, category)
+    +TypeOfTest(code, description, collectingMethod, pc)
+    +addParameterCategory(pc)
 }
 
 class TypeOfTestStore{
-    +createTypeOfTest(code, shortName, description, category)
-    +validateTypeOfTest(p)
-    +saveTypeOfTest(p)
+    +createTypeOfTest(code, description, collectingMethod, pc)
+    +validateTypeOfTest(tot)
+    +saveTypeOfTest(tot)
+    -addTypeOfTest(tot)
+}
+
+class ParameterCategoryStore {
+    +getParameterCategoryList()
+    +getParameterCategory(pcId)
+}
+
+class ParameterCategoryMapper {
+    +toDto(lPC)
 }
 
 
 
- SpecifieANewTypeOfTestController  <.down. SpecifieANewTypeOfTestUI
-SpecifieANewTypeOfTestController .right.> Company
-Company"1" --> "1"TypeOfTestStore : uses
+SpecifyANewTypeOfTestController  <.right. SpecifyANewTypeOfTestUI
+SpecifyANewTypeOfTestController .right.> Company
+Company"1" -up-> "1"TypeOfTestStore : uses
+Company"1" --> "1"ParameterCategoryStore : uses
 TypeOfTestStore"1" --> "*"TypeOfTest : store
-
+SpecifyANewTypeOfTestController .up.> ParameterCategoryStore
+SpecifyANewTypeOfTestController .left.> ParameterCategoryMapper
+SpecifyANewTypeOfTestController ..> TypeOfTestStore
+SpecifyANewTypeOfTestController ..> TypeOfTest
 @enduml
 
-@enduml

@@ -7,17 +7,18 @@ class SpecialistDoctor {
 }
 
 class Report {
-    - report
-}
-
-class Test {
-    -
+    -createdAt
+    -diagnosis
 }
 
 class Result {
-    -
+    -createdAt
+    -value
+    -metric
 }
 
+SpecialistDoctor"1..*" -- "*"Report : "> write"
+SpecialistDoctor"1..*" -up- "*"Result : "> checks"
 
 
 @enduml

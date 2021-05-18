@@ -14,12 +14,12 @@ public class TypeOfTestStore {
      * Method that receives type of test from the associated controller to create a new type of test
      * @param code of he type of test
      * @param description of he type of test
-     * @param colectingmethod of he type of test
-     * @param parameterCategoryList of he type of test
+     * @param collectingMethod of he type of test
+     * @param pc to be added to the type of test
      * @return the type od test created
      */
-    public TypeOfTest createTypeOfTest(String code, String description, String colectingmethod, List<ParameterCategory> parameterCategoryList){
-        return new TypeOfTest(code, description, colectingmethod, parameterCategoryList);
+    public TypeOfTest createTypeOfTest(String code, String description, String collectingMethod, ParameterCategory pc){
+        return new TypeOfTest(code, description, collectingMethod, pc);
     }
 
     /**
@@ -40,7 +40,7 @@ public class TypeOfTestStore {
      * @param tot receives Type of Test that will be added
      * @return if it was successfully added to the store (true or false)
      */
-    public boolean addTypeOfTest(TypeOfTest tot) {
+    private boolean addTypeOfTest(TypeOfTest tot) {
         if (tot != null && validateTypeOfTest(tot)){
                 return this.typeOfTestList.add(tot);
         }

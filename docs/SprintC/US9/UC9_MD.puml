@@ -3,11 +3,9 @@
 hide methods
 skinparam classAttributeIconSize 0
 
-
-
 Company"1" -- "*"TypeOfTest:> conducts
-Company"1" -- "*"ParamaterCategory :> adopts
-TypeOfTest"*" -- "1"ParamaterCategory :> has a
+Company"1" -left- "*"ParameterCategory : "> adopts"
+TypeOfTest"*" -- "1"ParameterCategory : "> has a"
 
 class TypeOfTest{
 -code
@@ -19,7 +17,7 @@ class Company{
 -designation
 }
 
-class ParamaterCategory{
+class ParameterCategory{
     -code
     -name
 }
