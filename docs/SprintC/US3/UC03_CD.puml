@@ -8,19 +8,22 @@ class RegisterClientUI
 
 class RegisterClientController
 {
-    +Client newClient(name, citizenCardNumber,nhsNumber,tinNumber, birthDate, sex, phoneNumber, email)
-    +validateClient(Client client)
+    +newClient(clientDto)
+    +saveClient()
 }
 
 class Client{
 	-name
+	-citizenCardNumber
     -nhsNumber
     -tinNumber
     -birthDate
     -sex
     -phoneNumber
     -email
-    +client(Client client)
+    +client(clientDto)
+    +getEmail()
+    +getName()
 }
 
 class Company{

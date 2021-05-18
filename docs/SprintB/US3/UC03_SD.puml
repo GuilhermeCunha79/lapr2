@@ -34,8 +34,8 @@ activate CTRL
         CTRL -> CS : validateClient(ct)
 
         activate CS
+        CS -> CL : email = getEmail()
 
-        CTRL -> CS : addUserToSystem(name,email,role)
 
         deactivate CS
 
@@ -53,6 +53,9 @@ activate CTRL
 activate C
 
     C -> C : validateClient(clt)
+    C -> CL : email=getEmail()
+    C -> CL : name=getName()
+    C -> CL : pwd = generatePassword()
     activate C
     deactivate C
     C -> C : addClient(clt)

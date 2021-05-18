@@ -1,9 +1,8 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-Company -- Receptionist :> has
-Company -- Client :> stores
-Receptionist -- Client :> add new
+Company -- "1"Client :> knows
+Client"0..1" -- "1"User :> becomes
 
 class Client{
 -name
@@ -18,5 +17,11 @@ class Client{
 
 class Company{
 -designation
+}
+
+class User{
+-name
+-email
+-password
 }
 @enduml

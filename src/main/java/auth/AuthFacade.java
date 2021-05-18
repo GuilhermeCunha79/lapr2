@@ -61,8 +61,7 @@ public class AuthFacade {
         return this.users.add(user);
     }
 
-    public boolean existsUser(String email)
-    {
+    public boolean existsUser(String email) {
         return this.users.exists(email);
     }
 

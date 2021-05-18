@@ -8,6 +8,8 @@ participant ":CreateClient \n RegisterClientController" as CTRL
 participant ":Company" as C
 participant "store:ClientStore" as CS
 participant "ct: Client" as CL
+participant "clientDto: \n ClientDto" as CLDTO
+participant ": AuthFacade" as AF
 
 
 RECEP -> UI : register a new client
@@ -17,7 +19,7 @@ deactivate UI
 
 RECEP -> UI : inserts the required data
 activate UI
-    UI -> CTRL : newClient(name, citizenCardNumber, nhsNumber,\n tinNumber, birthDate, sex, phoneNumber, email)
+    UI -> CTRL : newClient(clientDto)
 
 activate CTRL
 
@@ -25,19 +27,54 @@ activate CTRL
         activate C
         deactivate C
 
-        CTRL -> CS: client = newClient(name, citizenCardNumber, nhsNumber,\n tinNumber, birthDate, sex, phoneNumber, email)
+        CTRL -> CS: client = newClient(clientDto))
 
         activate CS
-        CS --> CL** : create(newClient)
+        CS --> CL** : create(clientDto)
         deactivate CS
 
-        CTRL -> CS : validateClient(ct)
+        activate CL
+        CL -> CLDTO : name=getName()
+        activate CLDTO
+        deactivate CLDTO
+        CL -> CLDTO : citizenCardNumber=getCitizenCardNumebr()
+        activate CLDTO
+        deactivate CLDTO
+        CL -> CLDTO : nhsNumber=getNhsNumber()
+        activate CLDTO
+        deactivate CLDTO
+        CL -> CLDTO : tinNumber=getTinNumber()
+        activate CLDTO
+        deactivate CLDTO
+        CL -> CLDTO : birthDate=getBirthDate()
+        activate CLDTO
+        deactivate CLDTO
+        CL -> CLDTO : sex=getSex()
+        activate CLDTO
+        deactivate CLDTO
+        CL -> CLDTO : phoneNumber=getPhoneNumber()
+        activate CLDTO
+        deactivate CLDTO
+        CL -> CLDTO : email=getEmail()
+        activate CLDTO
+        deactivate CLDTO
 
+
+        deactivate CL
+
+        CTRL -> CS : validateClient(client)
         activate CS
-
-        CTRL -> CS : addUserToSystem(name,email,role)
-
+        CS -> CL : email=getEmail()
+        activate CL
+        deactivate CL
+        CS -> AF : b = existsUser(email)
+        activate AF
+        deactivate AF
+        CS -> CS : checkDuplicates(client)
+        activate CS
         deactivate CS
+        deactivate CS
+
 
     deactivate CTRL
     UI --> RECEP : shows the data and asks for confirmation
@@ -48,17 +85,32 @@ activate UI
     UI -> CTRL : saveClient()
 
 activate CTRL
-    CTRL -> C : saveClient(ct)
+    CTRL -> CS : saveClient(ct)
 
-activate C
+activate CS
 
-    C -> C : validateClient(clt)
-    activate C
-    deactivate C
-    C -> C : addClient(clt)
-    activate C
-    deactivate C
-    deactivate C
+    CS -> CS : validateClient(clt)
+    activate CS
+    deactivate CS
+    CS -> CL : email=getEmail()
+    activate CL
+    deactivate CL
+    CS -> CL : name=getName()
+    activate CL
+    deactivate CL
+    CS -> CS : pwd=generatePassword()
+    activate CS
+    deactivate CS
+    CS -> AF : b=addUserWihtRole(name,email,pwd,"CLIENT")
+    activate AF
+    deactivate AF
+    CS -> CS : addClient(clt)
+    activate CS
+    deactivate CS
+    CS -> CS : sendEmail(client,pwd)
+    activate CS
+    deactivate CS
+    deactivate CS
 
 
 UI --> RECEP : saves data and informs success of operation

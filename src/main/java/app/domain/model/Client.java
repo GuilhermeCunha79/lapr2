@@ -294,13 +294,11 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass())
             return false;
-
-
         Client client = (Client) o;
         return Objects.equals(phoneNumber, client.phoneNumber)
-                && Objects.equals(citizenCardNumber, client.citizenCardNumber)
-                && Objects.equals(nhsNumber, client.nhsNumber)
-                && Objects.equals(tinNumber, client.tinNumber)
-                && Objects.equals(email, client.email);
+                || Objects.equals(citizenCardNumber, client.citizenCardNumber)
+                || Objects.equals(nhsNumber, client.nhsNumber)
+                || Objects.equals(tinNumber, client.tinNumber)
+                || Objects.equals(email, client.email);
     }
 }

@@ -14,6 +14,7 @@ class RegisterClientController
 
 class Client{
 	-name
+	-citizenCardNumber
     -nhsNumber
     -tinNumber
     -birthDate
@@ -24,8 +25,7 @@ class Client{
 }
 
 class Company{
--name
--location
+-designation
 +getClientStore()
 }
 
@@ -33,7 +33,7 @@ class ClientStore{
 +newClient(name, citizenCardNumber,nhsNumber, tinNumber, birthDate, sex, phoneNumber, email)
 +validateClient(ct)
 +saveClient(ct)
-+addClient(ct)
+-addClient(ct)
 }
 
 RegisterClientUI ..> RegisterClientController
