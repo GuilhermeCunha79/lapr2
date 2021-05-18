@@ -4,20 +4,17 @@ left to right direction
 skinparam classAttributeIconSize 0
 
 class Company {
-  -designation
+ -designation
 }
 
 class Test {
-  - nHSCode
-  - description
-  - analysedAt
-  - sampleID
+  - nhsCode
   - internalCode
-  - testTypeID
-}
+  - createdAT
+ }
 
 class TypeOfTest {
-  - code
+  -code
   -description
   -collectingMethod
 }
@@ -26,18 +23,18 @@ class TypeOfTest {
 class Client {
   - name
   - citizenCardNumber
-  - nHSNumber
+  - nhsNumber
   - birthDate
   - sex
-  - tIF
+  - tin
   - phoneNumber
   - email
 }
 
 class Parameter {
 -name
-- code
-- description
+-code
+-description
 }
 
 class ParameterCategory {

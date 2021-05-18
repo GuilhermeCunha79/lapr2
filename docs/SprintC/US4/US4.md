@@ -25,63 +25,34 @@ be performed to that client.
 
 **From the client clarifications:**
 
-> **Question:** What are the information that the receptionist needs to insert/select in order to register a test to be performed to a registered client?
->
-> **Answer:**
+> **Question:** What are the necessary parameters according to the type of test?
 
--
-
-> **Question:** Since the Client has a Lab Order which contains the type of test and all the parameters to be measured, all the parameters selected by the Receptionist need to be equal to the Lab Order's parameters?
->
-> **Answer:**
+> **Answer:** Each parameter is associated with one category. Each parameter has a Code, a Short Name and a Description. The Code are five alphanumeric characters. The Short Name is a String with no more than 8 characters. The Description is a String with no more than 20 characters."
+This answers your question? Moreover, you have US10 saying "As an administrator, I want to specify a new parameter and categorize it".
 
 
--
+> **Question:** When the receptionist chooses the test type, should the categories appear, and then when selecting the category, the receptionist can choose the parameters for the test? Or when the Receptionist chooses the test type, should appear all the parameters that it includes immediately?
 
-> **Question:** About the other Test attributes, do we need to have in consideration any other criteria? Is the code generated or NHS code ooptional ?
->
-> **Answer:**
+> **Answer:** Firstly, the receptionist should choose a test type. Then choose a category from a set of categories. Last, the receptionist should choose a parameter.
 
--
-
-> **Question:** In the case of the Covid test, since the result can only be positive/negative, is there a parameter associated? And should the step of choosing a parameter be ignored in this case, i.e., should the app not even ask if the receptionist wants to add a parameter?
->
-> **Answer:**
-
--
-
-> **Question:** In the case of the Covid test, since the result can only be positive/negative, is there a parameter associated? And should the step of choosing a parameter be ignored in this case, i.e., should the app not even ask if the receptionist wants to add a parameter?
->
-> **Answer:**
-
-
--
-
-> **Question:** On the project description it says "Each test is characterized by an internal code, an NHS code, a description that identifies the sample collection method...". Are these attributes automatically generated or should they be manually introduced? Is the description automatically filled with the collection method associated with the type of test?
->
-> **Answer:**
-
-
--
-
-> **Question:** OShould there be a control of the phase of the test, i.e., a field that says "Sample in collection/In analysis/Results Available"?
->
-> **Answer:**
-
-
--
-
-> **Question:** One of the attributes that characterizes a test is an NHS Code. Is this code the same as the clients' NHS Number as a means of associating both?
->
-> **Answer:**
-
-
--
 
 > **Question:** What are the attributes of a test and the acceptance criteria?
->
-> **Answer:**
 
+> **Answer:** A test has the following attributes:
+Test code : Sequential number with 12 digits. The code is automatically generated.
+NHS code: 12 alphanumeric characters.
+
+
+> **Question:** Since the Client has a Lab Order which contains the type of test and all the parameters to be measured, all the parameters selected by the Receptionist need to be equal to the Lab Order's parameters?
+
+> **Answer:** Yes.
+
+
+> **Question:** About the other Test attributes, do we need to have in consideration any other criteria? Is the code generated or NHS code optional ?
+
+> **Answer:** All test attributes are mandatory. The test attributes are the following:
+Test code : sequential number with 12 digits. The code is automatically generated.
+NHS code: 12 alphanumeric characters.
 
 
 ### 1.3. Acceptance Criteria
