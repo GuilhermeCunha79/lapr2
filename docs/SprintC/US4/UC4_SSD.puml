@@ -1,0 +1,31 @@
+@startuml
+autonumber
+actor "Receptionist" as RE
+
+activate RE
+RE -> ":System" : start the creation of a new test
+activate ":System"
+":System" --> RE : requests data (citizenCardNumber, NHS code)
+deactivate ":System"
+RE -> ":System" : types requested data
+activate ":System"
+":System" --> RE : shows test type list
+deactivate ":System"
+RE -> ":System" : selects a test Type
+activate ":System"
+":System" --> RE : shows parameter list
+loop
+deactivate ":System"
+RE -> ":System" : selects a parameter
+activate ":System"
+end
+":System" --> RE : shows all data and requests confirmation
+deactivate ":System"
+RE -> ":System" : confirms the data
+activate ":System"
+":System" --> RE : informs operation success
+deactivate ":System"
+
+deactivate RE
+
+@enduml

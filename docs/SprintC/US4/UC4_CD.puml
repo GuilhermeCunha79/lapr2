@@ -1,0 +1,100 @@
+@startuml
+skinparam classAttributeIconSize 0
+left to right direction
+
+class Test {
+  -Client client
+  -String status
+  -List parameterList
+  +Test(client, testType, parameterList)
+}
+
+class Company {
+  -String designation
+  + Company(designation)
+  + getClientStore()
+  + getTestTypeStore()
+  + getParameterCategoryStore()
+  + getParameterStore()
+  + getTestStore()
+}
+
+class ClientStore {
+  + getClientByCitizenCard(citizenCardNumber)
+}
+class TestTypeStore {
+  + getTestTyleList()
+  + getTestTypeById(test)
+  + getCategoryListbyTestType(test)
+}
+
+
+class ParameterStore {
+  + getParameterById(parameter)
+}
+
+class RegisterTestController {
+  + List<ParamaterDto> getListOfParameter()
+  + List<TestTypeDto> getListOfTesType()
+}
+
+class TestStore
+
+class TestTypeMapper {
+  + List<TestTypeDto> toDTO(List<TestType> list)
+  + TestTypeDto toDTO(TestType obj)
+}
+
+class ParameterMapper {
+  + List<ParamaterDto> toDTO(List<Parameter> list)
+  + ParameterDto toDTO(Parameter obj)
+}
+
+class ParameterDto {
+  - code
+  - name
+  + ParameterDto(code, name)
+}
+
+class TestTypeDto {
+  - code
+  - description
+  +TestTypeDto(code, description)
+}
+
+class Parameter {
+    -code
+    -shortName
+    -description
+    +Parameter(code, shortName, description, category)
+}
+
+
+class RegisterTestUI
+
+
+RegisterTestController ..> Company
+RegisterTestController ..> Test
+RegisterTestController ..> ParameterMapper
+RegisterTestController ..> TestTypeMapper
+RegisterTestController ..> TestTypeDto
+RegisterTestController ..> ParameterDto
+TestTypeMapper ..> TestType
+TestTypeMapper ..> TestTypeDto
+
+ParameterMapper ..> Parameter
+ParameterMapper ..> ParameterDto
+
+RegisterTestUI ..> ParameterDto
+RegisterTestUI ..> TestTypeDto
+RegisterTestUI ..> RegisterTestController
+Company "1" -> "1" TestStore : use
+Company "1" --> "1" ClientStore : use
+Company "1" --> "1" TestTypeStore : use
+Company "1" --> "1" ParameterStore : use
+TestStore "1" -> "*" Test : knows
+
+
+
+
+@enduml

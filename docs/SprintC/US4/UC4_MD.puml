@@ -1,0 +1,49 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Company {
+  -designation
+}
+
+class Test {
+  - nHSCode
+  - description
+  - analysedAt
+  - sampleID
+  - internalCode
+  - testTypeID
+}
+
+class TestType {
+  - designation
+}
+
+
+class Client {
+  - name
+  - citizenCardNumber
+  - nHSNumber
+  - birthDate
+  - sex
+  - tIF
+  - phoneNumber
+  - email
+}
+
+class Parameter {
+-name
+- code
+- description
+}
+
+
+Company "1" -- "*" Test : performs >
+Test "*" -- "1" TestType: is of >
+Test "1..*" -- "1" Client: requested by >
+Parameter "1..*" -- "1" Category: presented under >
+Parameter "1..*" --> "1" Test : has >
+
+
+@enduml

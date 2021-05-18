@@ -1,0 +1,171 @@
+@startuml
+autonumber
+actor "Receptionist" as REC
+
+participant ":CreateTestUI" as UI
+participant ":CreateTestController" as CTRL
+participant "camp\n:Company" as CAMP
+
+participant "testStore: TestStore" as TSTORE
+
+participant "store: ClientStore" as STORE
+
+participant "storeTestType: TestTypeStore" as TTSTORE
+
+participant "test\n:Test" as TEST
+participant "testDto: TestDto" as TESTDTO
+participant "testTypeMap:TestTypeMapper" as TMAPPER
+
+participant "parameterMap:ParameterMapper" as PMAPPER
+participant "storeParamater: ParameterStore" as PSTORE
+
+
+activate REC
+REC -> UI : start the creation of a new test
+activate UI
+UI --> REC : requests data (citizanCardNumber, nhsCode)
+deactivate UI
+REC -> UI : types requested data
+activate UI
+UI -> CTRL : addClient(**testDto**)
+activate CTRL
+
+CTRL -> CAMP : cliStore = getClientStore()
+activate CAMP
+deactivate CAMP
+CTRL -> TESTDTO : citizanCardNumber = getCitizanCardNumber()
+activate TESTDTO
+deactivate TESTDTO
+CTRL -> STORE : client = getClientByCitizenCard(citizanCardNumber)
+activate STORE
+deactivate STORE
+
+
+CTRL -> CAMP : ttStore = getTestTypeStore()
+activate CAMP
+deactivate CAMP
+
+deactivate TSTORE
+deactivate TEST
+
+
+CTRL -> TTSTORE : ttList=getTestTyleList()
+activate TTSTORE
+deactivate TTSTORE
+CTRL -> TMAPPER** : toDTO(ttList)
+
+activate TMAPPER
+ref over TMAPPER
+  SD_TestTypeMapper_toDTO_list
+end ref
+
+
+TMAPPER --> CTRL : listTestTypeDto
+deactivate TMAPPER
+CTRL --> UI : listTestTypeDto
+deactivate CTRL
+deactivate STORE
+UI --> REC: shows Test Type list
+deactivate CTRL
+deactivate UI
+
+REC -> UI : choose a test type
+activate UI
+
+UI -> CTRL : addTestType(testTypeId)
+activate CTRL
+CTRL -> TTSTORE : testType = getTestTypeById(testTypeId)
+activate TTSTORE
+deactivate TTSTORE
+
+deactivate TSTORE
+deactivate TEST
+
+CTRL -> TTSTORE : categoryList = getCategoryListbyTestType(testType)
+
+activate TTSTORE
+deactivate TTSTORE
+
+CTRL -> PMAPPER** : toDTO(categoryList)
+activate PMAPPER
+
+ref over PMAPPER
+  SD_ParameterMapper_toDTO_list
+end ref
+
+
+PMAPPER --> CTRL : listParameterDto
+deactivate PMAPPER
+CTRL --> UI : listParameterDto
+deactivate CTRL
+UI --> REC : show parameters list
+deactivate UI
+
+REC -> UI :  selects one parameter category
+activate UI
+UI -> CTRL : createTest(pcId)
+activate CTRL
+CTRL -> CAMP : testStore = getTestStore()
+activate CAMP
+deactivate CAMP
+
+CTRL -> TSTORE : test = createTest(client, testType, pcId)
+
+activate TSTORE
+  TSTORE -> TEST** : create(client, testType, pcId)
+  activate TEST
+  TEST -> TESTDTO : nhsCode = getNhsCode()
+deactivate TEST
+
+deactivate TSTORE
+  CTRL -> TSTORE : validateTest(test)
+activate TSTORE
+deactivate TSTORE
+deactivate CTRL
+UI -> REC : shows parameter categories to select other (if intended)
+deactivate UI
+
+loop [for any intended parameter category]
+
+  REC -> UI : choose a parameter
+  activate UI
+  UI -> CTRL : addParamter(parameterId)
+  activate CTRL
+  CTRL -> PSTORE : parameter = getParameterById(parameterId)
+  activate PSTORE
+  deactivate PSTORE
+    CTRL -> TEST : addParameter(parameter)
+    activate TEST
+    deactivate TEST
+
+  CTRL --> UI : ok
+  UI -> REC : added with success
+
+end
+
+UI --> REC : shows all data and request confirmation
+deactivate UI
+deactivate CTRL
+  REC -> UI : confirms the data
+activate UI
+  UI -> CTRL : saveTest()
+activate CTRL
+
+
+  CTRL -> TSTORE : saveTest(test)
+  activate TSTORE
+  TSTORE -> TSTORE : validateTest(test)
+  TSTORE -> TSTORE : addTest(test)
+
+  TSTORE --> CTRL : test added
+
+deactivate TSTORE
+  CTRL --> UI: result
+deactivate CTRL
+
+UI --> REC : informs operation success
+deactivate CAMP
+deactivate CTRL
+deactivate UI
+deactivate REC
+@enduml
