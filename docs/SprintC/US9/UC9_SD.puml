@@ -28,14 +28,13 @@ activate UI
                 CTRL -> TOTS : validateTypeOfTest(tot)
                 activate TOTS
                 deactivate TOTS
-
     deactivate CTRL
     UI --> ADMIN : presents data and asks for confirmation
 deactivate UI
 
 ADMIN -> UI : Confirms the data
 activate UI
-    UI -> CTRL : saveTypeOfTest()
+    UI -> CTRL : saveTypeOfTest(code, description, collecting method, cathegory)
 activate TOTS
             TOTS -> TOTS : validateTypeOfTest(tot)
             activate TOTS

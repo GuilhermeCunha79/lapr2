@@ -77,7 +77,7 @@ n/a
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![UC9_MD](UC9_MD.svg)
+![UC9_MD](../../SprintB/US9/UC9_MD.svg)
 
 ### 2.2. Other Remarks
 
@@ -121,7 +121,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 ## 3.2. Sequence Diagram (SD)
 
 
-![UC9_SD](UC9_SSD.svg)
+![UC9_SD](../../SprintB/US9/UC9_SD.svg)
 
 
 ## 3.3. Class Diagram (CD)

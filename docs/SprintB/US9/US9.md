@@ -77,7 +77,7 @@ n/a
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-![UC9_MD](UC9_MD.svg)
+![UC9_MD](../../SprintC/US9/UC9_MD.svg)
 
 ### 2.2. Other Remarks
 
