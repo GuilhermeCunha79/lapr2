@@ -85,7 +85,7 @@ activate UI
     UI -> CTRL : saveClient()
 
 activate CTRL
-    CTRL -> CS : saveClient(ct)
+    CTRL -> CS : saveClient(client)
 
 activate CS
 
