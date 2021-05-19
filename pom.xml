@@ -120,6 +120,11 @@
 	    <version>4.12</version>
 	    <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>isep.lei.sem2</groupId>
+            <artifactId>Sem2App</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 </project>

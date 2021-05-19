@@ -1,10 +1,11 @@
 package app.domain.store;
 
 import app.controller.App;
-import app.domain.dto.ClientDto;
+
+
+import app.domain.mappers.dto.ClientDTO;
 import app.domain.model.Client;
-import app.domain.model.Company;
-import auth.AuthFacade;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,22 +14,13 @@ public class ClientStore {
 
     private List<Client> clientList = new ArrayList();
 
-    private AuthFacade authFacade;
-
-    public ClientStore() {
-        this(App.getInstance().getCompany());
-    }
-
-    public ClientStore(Company company) {
-        this.authFacade = company.getAuthFacade();
-    }
 
     /***
      * Method that receives parameters from the associated controller to create a new client
      * @param dto
      * @return
      */
-    public Client newClient(ClientDto dto) {
+    public Client newClient(ClientDTO dto) {
         return new Client(dto);
     }
 
@@ -65,7 +57,7 @@ public class ClientStore {
      */
     public boolean validateClient(Client client) {
         String email = client.getEmail();
-        if(this.authFacade.existsUser(email) || checkDuplicate(client)){
+        if(App.getInstance().getCompany().getAuthFacade().existsUser(email) || checkDuplicate(client)){
             return false;
         }
         return true;

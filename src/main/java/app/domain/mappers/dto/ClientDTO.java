@@ -1,7 +1,6 @@
-package app.domain.dto;
+package app.domain.mappers.dto;
 
-
-public class ClientDto {
+public class ClientDTO {
     private String name;
     private String citizenCardNumber;
     private String nhsNumber;
@@ -13,7 +12,7 @@ public class ClientDto {
 
     public static  String SEX_BY_OMISSION = "Not defined";
 
-    public ClientDto(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String sex, String phoneNumber, String email) {
+    public ClientDTO(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String sex, String phoneNumber, String email) {
         this.name=name;
         this.citizenCardNumber=citizenCardNumber;
         this.nhsNumber=nhsNumber;
@@ -24,7 +23,7 @@ public class ClientDto {
         this.email=email;
     }
 
-    public ClientDto(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String phoneNumber, String email) {
+    public ClientDTO(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String phoneNumber, String email) {
         this.name=name;
         this.citizenCardNumber=citizenCardNumber;
         this.nhsNumber=nhsNumber;

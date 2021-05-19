@@ -1,10 +1,9 @@
 package app.domain.model;
 
-import app.domain.dto.ClientDto;
+import app.domain.mappers.dto.ClientDTO;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
-
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -38,7 +37,7 @@ public class Client {
     /***
      * Complete constructor for class Client
      */
-    public Client(ClientDto dto) {
+    public Client(ClientDTO dto) {
         setName(dto.getName());
         setCitizenCardNumber(dto.getCitizenCardNumber());
         setNhsNumber(dto.getNhsNumber());

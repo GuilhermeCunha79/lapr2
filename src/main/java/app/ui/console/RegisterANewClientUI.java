@@ -1,7 +1,7 @@
 package app.ui.console;
 
 import app.controller.RegisterClientController;
-import app.domain.dto.ClientDto;
+import app.domain.mappers.dto.ClientDTO;
 import app.ui.console.utils.Utils;
 
 import java.util.Objects;
@@ -31,7 +31,7 @@ public class RegisterANewClientUI implements Runnable {
                 String cltPhoneNumber = Utils.readLineFromConsole("Introduce client's phone number: ");
                 String cltEmail = Utils.readLineFromConsole("Introduce client's email: ");
 
-                ClientDto dto = new ClientDto(cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail);
+                ClientDTO dto = new ClientDTO(cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail);
                 boolean created = ctrl.newClient(dto);
                 if (created) {
                     System.out.printf("\nConfirm the client data: %nName: %s%nCitizen Card Number: %s%nNHS Number: %s%nTIN Number: %s%nDate of Birth: %s%nSex: %s%nPhone Number: %s%nEmail: %s%n", cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail);
