@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Medical lab technician" as Mlt
+
+participant ":RegisterSampleUI" as UI
+participant ":RegisterSampleController" as CTRL
+participant "camp\n:Company" as CAMP
+
+participant "sampleStore: SampleStore" as SSTORE
+
+participant "testStore: TestStore" as TSTORE
+
+participant "sample\n:Sample" as SAMPLE
+participant "sampleDto: SampleDto" as SAMPLEDTO
+participant "testMap:TestMapper" as TMAPPER
+
+@enduml
