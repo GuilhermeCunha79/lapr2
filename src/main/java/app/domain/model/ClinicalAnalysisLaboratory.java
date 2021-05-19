@@ -19,7 +19,7 @@ public class ClinicalAnalysisLaboratory {
     static final int MAX_CHAR_NAME = 20;
     static final int MAX_CHAR_LABORATORY_ID = 5;
     static final String STRING_LAB_ID = "Laboratory ID";
-    private final List<TypeOfTest> typeOfTestList;
+    private List<TypeOfTest> typeOfTestList = new ArrayList<>();
     private String name;
     private String address;
     private String tinNumber;
@@ -34,17 +34,15 @@ public class ClinicalAnalysisLaboratory {
      * @param tinNumber
      * @param phoneNumber
      * @param laboratoryID
-     * @param typeOfTestList
      */
 
 
-    public ClinicalAnalysisLaboratory(String name, String phoneNumber, String laboratoryID, String tinNumber, String address, List<TypeOfTest> typeOfTestList) {
+    public ClinicalAnalysisLaboratory(String laboratoryID, String name, String address, String phoneNumber, String tinNumber) {
         setName(name);
         setTinNumber(tinNumber);
         setPhoneNumber(phoneNumber);
         setLaboratoryID(laboratoryID);
         setAddress(address);
-        this.typeOfTestList = new ArrayList<>(typeOfTestList);
     }
 
     /***
@@ -163,6 +161,14 @@ public class ClinicalAnalysisLaboratory {
     }
 
     /**
+     * This method is used to add new types of test to the clinical analysis laboratory
+     * @param tt test type to add
+     * @return (in)success of the operation
+     */
+    public boolean addTestType(TypeOfTest tt){
+        return this.typeOfTestList.add(tt);
+    }
+    /**
      * This method prints all of the type of tests assigned to the lab
      * @return
      */
@@ -188,11 +194,12 @@ public class ClinicalAnalysisLaboratory {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
+
         if (o == null || getClass() != o.getClass())
             return false;
 
-
         ClinicalAnalysisLaboratory clinicalAnalysisLaboratory = (ClinicalAnalysisLaboratory) o;
+
         return Objects.equals(phoneNumber, clinicalAnalysisLaboratory.phoneNumber)
                 && Objects.equals(laboratoryID, clinicalAnalysisLaboratory.laboratoryID)
                 && Objects.equals(tinNumber, clinicalAnalysisLaboratory.tinNumber)

@@ -13,146 +13,122 @@ public class ClinicalAnalysisLaboratoryTest {
 
     @Test(expected = NullPointerException.class)
     public void ensureNullClinicalAnalysisLaboratoryIsNotCreated() {
-        new ClinicalAnalysisLaboratory(null, null, null, null, null, null);
+        new ClinicalAnalysisLaboratory(null, null, null, null, null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericNameAreNotAccepted() {
-        new ClinicalAnalysisLaboratory("Jo@o", "54782112987", "az321", "1122399874", "RuaMirandela45", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("az321", "Jo@o", "RuaMirandela45", "11223998741", "5478212987");
     }
 
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotHaveMoreThan20Char() {
-        new ClinicalAnalysisLaboratory("JoaoManuelOliveiraMartins", "12345678891", "a1234", "1123456789", "RuaNovaDoAldeiro355", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("a1234", "JoaoManuelOliveiraMartins", "RuaNovaDoAldeiro355", "11234516789", "1234578891");
     }
 
     @Test
     public void ensureNameCanHaveLessThan20Char() {//store
-        new ClinicalAnalysisLaboratory("Daniela", "91481806790", "mkli9", "2145639898", "RuaDoViso31", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("mkli9", "Daniela", "RuaDoViso31", "21456319898", "9148106790");
     }
 
     @Test
     public void ensureNameCanHave20Char() {//store
-        new ClinicalAnalysisLaboratory("JoaoGuilhermeDaniela", "23124985064", "qcp32", "7521496745", "Rua25DeAbril", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("qcp32", "JoaoGuilhermeDaniela", "Rua25DeAbril", "75211496745", "2312495064");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotBeBlank () {
-        new ClinicalAnalysisLaboratory("", "12565478987", "sde45", "7414789658", "Rua21DeMaio", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("sde45", "", "Rua21DeMaio", "12565478987", "7414789658");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatPhoneNumberMustHaveOnlyDigits() {
-        new ClinicalAnalysisLaboratory("Maria", "aaassdfgtrq", "kli81", "4871295276", " Rua26Junho", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("kli81", "Maria", "Rua26Junho", "aaassdfgtrq", "4871295276");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatPhoneNumberCannotHaveMoreThan11DigitsNumber () {
-        new ClinicalAnalysisLaboratory("Joao Oliveira", "123456789012", "1a234", "1231231231", "RuaDoAldeiro355", new ArrayList<>() );
+        new ClinicalAnalysisLaboratory("1a234", "Joao Oliveira", "RuaDoAldeiro355", "123456789012", "1231231231" );
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatPhoneNumberCannotHaveLessThan11DigitsNumber () {
-        new ClinicalAnalysisLaboratory("Diogo Ribeiro", "4875457487", "vba09", "2012352102", "RuaDaBoavista4525", new ArrayList<>());
-    }
-
-    @Test
-    public void ensureThatPhoneNumberMustHave11DigitsNumber () {//store
-        new ClinicalAnalysisLaboratory("Rute", "41598547412", "5fr43", "1010235263", "RuaDeCoimbra45", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("vba09", "Diogo Ribeiro", "RuaDaBoavista4525", "2012352102", "4875457487");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensurePhoneNumberCannotBeBlank () {
-        new ClinicalAnalysisLaboratory("Benedita", "", "der45", "9574136859", "RuaDaLousada420", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("der45", "Benedita", "RuaDaLousada420", "", "9574136859");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureLaboratoryIDMustHaveAlphanumericChar() {
-        new ClinicalAnalysisLaboratory("Diana", "87587896589", "@,ft5", "8787458746", "RuaDaVindima37", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("@,ft5", "Diana", "RuaDaVindima37", "87587896589", "8787458746");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatLaboratoryIDCannotHaveLessThan5CharAplphanumeric() {
-        new ClinicalAnalysisLaboratory("Tiago", "78787562562", "7r5", "7414787458", "RuaDaTerra54", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("7r5", "Tiago", "RuaDaTerra54", "17414787458", "7878762562");
     }
 
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatLaboratoryIDCannotHaveMoreThan5CharAlphanumeric() {
-        new ClinicalAnalysisLaboratory("JoaoManuelOliveira", "11234567890", "a12345", "0123456789", "Rua Nova do Aldeiro 355", new ArrayList<>() );
-    }
-
-    @Test
-    public void ensureThatLaboratoryIDMustHave5CharAlphanumeric() {//store
-        new ClinicalAnalysisLaboratory("JoseGomes", "45345345656", "t6r54", "2323098573", "RuaMirandesa45", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("a12345", "JoaoManuelOliveira", "Rua Nova do Aldeiro 355", "11234567890", "1134567890" );
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatLaboratoryIDCannotBeBlanked() {
-        new ClinicalAnalysisLaboratory("Rui", "21209429854", "", "7871203021", "RuaLusitana1924", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("", "Rui", "RuaLusitana19242", "78712030211", "1209429854");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatTinNumberMustHaveOnlyDigitNumbers() {
-        new ClinicalAnalysisLaboratory("Rafael", "23432980764", "klop5", "awedsftrewq", "RuaVelha54", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("klop5", "Rafael", "RuaVelha54", "23432980764", "awedsftrewq");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatTinNumberCannotHaveMoreThan10Digits() {
-        new ClinicalAnalysisLaboratory("Joao Manuel","11234567890", "a1234", "01234567891", "Rua Nova do Aldeiro 355", new ArrayList<>()  );
+        new ClinicalAnalysisLaboratory("a1234","Joao Manuel", "Rua Nova do Aldeiro 355", "01234567891", "01234567891");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatTinNumberHaveLessThan10Digits() {
-        new ClinicalAnalysisLaboratory("Romao", "78741549794", "lcz21", "32", "AvenidaAlmada23", new ArrayList<>());
-    }
-
-    @Test
-    public void ensureThatTinNumberMustHave10Digits() {
-        new ClinicalAnalysisLaboratory("Roberto", "34390987890", "2q234", "1456541458", "RuaDaRocha21", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("lcz21", "Romao", "lcz21", "78741549794", "12");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatTinNumberCannotBeBlanked() {
-        new ClinicalAnalysisLaboratory("Leonel", "4543210987", "frt56", "", "RuaDoRojao56", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("frt56", "Leonel", "RuaDoRojao56", "4543210987", "");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatAddressCannotHaveMoreThan30Chars() {
-        new ClinicalAnalysisLaboratory("Joao Santos","11234567890", "a1234", "01234567890", "Avenida Nova do Aldeiro 3455 Lourosa", new ArrayList<>() );
+        new ClinicalAnalysisLaboratory("a1234","Joao Santos", "Avenida Nova do Aldeiro 3455 Lourosa", "01234567890", "0123456789" );
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatAddressCannotBeBlanked() {
-        new ClinicalAnalysisLaboratory("Rolando", "74102036580", "qzxo9", "3184562339", "", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("qzxo9", "Rolando", "", "31845623319", "74102036580");
     }
 
-    @Test
-    public void ensureThatAddressCanHaveLessThan30Char() {
-        new ClinicalAnalysisLaboratory("Artur", "56545687609", "sw34r", "5878458985", "Rua", new ArrayList<>());
-    }
-
-    @Test
-    public void ensureThatAddressCanHave30Char() {
-        new ClinicalAnalysisLaboratory("Rafa", "56426802864", "kjkh5", "2121098640", "RuaNovaDaAldeia12345", new ArrayList<>());
-    }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericAddressAreNotAccepted() {
-        new ClinicalAnalysisLaboratory("Sara", "45434509875", "qwlo9", "1456325412", "@,Rua,@", new ArrayList<>());
+        new ClinicalAnalysisLaboratory("qwlo9", "Sara", "@,Rua,@", "14563215412", "4543450875");
     }
 
     @Test
     public void checkGetNameMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Matias", "34510245987", "fvt56", "7485963214", "AvenidaDeGaia34", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("fvt56", "Matias", "AvenidaDeGaia34", "74859613214", "3451024598");
         String expected = "Matias";
         assertEquals(expected, c1.getName());
     }
 
     @Test
     public void checkSetNameMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Mateus", "69693696369", "45po5", "7865987698", "RuaDaPraia34", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("45po5", "john", "RuaDaPraia34", "78659876918", "7865187698");
         c1.setName("Mateus");
         String expected = "Mateus";
         assertEquals(expected, c1.getName());
@@ -160,14 +136,14 @@ public class ClinicalAnalysisLaboratoryTest {
 
     @Test
     public void checkGetPhoneNumberMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Raul", "32123421234", "787po", "4747858596", "RuaDaBaia234", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("787po", "Raul", "RuaDaBaia234", "32123421234", "3212342123");
         String expected = "32123421234";
         assertEquals(expected, c1.getPhoneNumber());
     }
 
     @Test
     public void checkSetPhoneNumberMethod() {
-            ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Francisco", "21209096837", "458ty", "1232561232", "RuaDoAlgarve45", new ArrayList<>());
+            ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("458ty", "Francisco", "RuaDoAlgarve45", "12325161232", "1232516123");
         c1.setPhoneNumber("21209096837");
         String expected = "21209096837";
         assertEquals(expected, c1.getPhoneNumber());
@@ -175,14 +151,14 @@ public class ClinicalAnalysisLaboratoryTest {
 
     @Test
     public void checkGetTinNumberMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Ricky", "54684852958", "2345t", "4540954876", "RuaDoPataco56", new ArrayList<>());
-        String expected = "54684852958";
-        assertEquals(expected, c1.getPhoneNumber());
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("2345t", "Ricky", "RuaDoPataco56", "54684852958", "5464852958");
+        String expected = "5464852958";
+        assertEquals(expected, c1.getTinNumber());
     }
 
     @Test
     public void checkSetTinNumberMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Edu", "09865679803", "e3e4r", "4578965412", "RuaDaAreia48", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("e3e4r", "Edu", "RuaDaAreia48", "45789651412", "5464852958");
         c1.setTinNumber("4578965412");
         String expected = "4578965412";
         assertEquals(expected, c1.getTinNumber());
@@ -190,14 +166,14 @@ public class ClinicalAnalysisLaboratoryTest {
 
     @Test
     public void checkGetLaboratoryIDMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Nani", "43454321232", "hy908", "1420214036", "RuaDaAndorinha34", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("hy908", "Nani", "RuaDaAndorinha34", "14202140361", "1420240361");
         String expected = "hy908";
         assertEquals(expected, c1.getLaboratoryID());
     }
 
     @Test
     public void checkSetLaboratoryIDMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Simao", "12345678900", "frgt6", "3446803276", "RuaDaMadeira21", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Si2ao", "John", "RuaDaMadeira21", "34468031276", "1234678900");
         c1.setLaboratoryID("frgt6");
         String excepted = "frgt6";
         assertEquals(excepted, c1.getLaboratoryID());
@@ -205,20 +181,23 @@ public class ClinicalAnalysisLaboratoryTest {
 
     @Test
     public void checkGetAddressMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Ronaldo", "86920858385", "cfgt5", "4596758745", "RuaDaPassada45", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("cfgt5", "Ronaldo", "RuaDaPassada45", "45967518745", "8692858385");
         String expected = "RuaDaPassada45";
         assertEquals(expected, c1.getAddress());
     }
 
     @Test
     public void checkSetAddressMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Felix", "90905490875", "2345b", "7845874896", "RuaDoCouto98", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("2345b", "Felix", "RuaDoCouto98", "78458741896", "7845871896");
+        c1.setAddress("rua 21");
+        String expected = "rua 21";
+        assertEquals(expected, c1.getAddress());
     }
 
     @Test
     public void checkToStringMethod() {
-        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("Pedro", "12321140565", "test5", "4656497894", "RuaDaMorte98", new ArrayList<>());
-        String expected = String.format("Clinical Analysis Laboratory:%nName: Pedro%nPhone Number: 12321140565%nLaboratory ID: test5%nTIN number: 4656497894%nAddress: RuaDaMorte98%n Type of Tests List:%n");
+        ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("test5", "Pedro", "RuaDaMorte98", "46564971894", "4656497194");
+        String expected = String.format("Clinical Analysis Laboratory:%nName: Pedro%nPhone Number: 46564971894%nLaboratory ID: test5%nTIN number: 4656497194%nAddress: RuaDaMorte98%n Type of Tests List:%n");
         assertEquals(expected, c1.toString());
     }
 

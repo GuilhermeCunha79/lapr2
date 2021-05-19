@@ -18,7 +18,7 @@ public class ClinicalAnalysisLaboratoryStoreTest {
 
     @Before
     public void createLaboratoryList() {
-        ClinicalAnalysisLaboratory cal = cals.registerClinicalAnalysisLaboratory("Andre", "92898235465", "d3t7y", "3219877895", "RuaDoChocolate11", new ArrayList<>());
+        ClinicalAnalysisLaboratory cal = cals.registerClinicalAnalysisLaboratory("d3t7y", "Andre", "RuaDoChocolate11", "32198177895", "3219817789");
         cals.saveClinicalAnalysisLaboratory(cal);
     }
 
@@ -26,37 +26,29 @@ public class ClinicalAnalysisLaboratoryStoreTest {
 
     @Test
     public void ensureCannotAddSameClinicalAnalysisLaboratoryTwice() {
-        ClinicalAnalysisLaboratory c1 = c.registerClinicalAnalysisLaboratory("Andre", "92898235465", "d3t7y", "3219877895", "RuaDoChocolate11", new ArrayList<>());
-        ClinicalAnalysisLaboratory c2 = c.registerClinicalAnalysisLaboratory("Andre", "92898235465", "d3t7y", "3219877895", "RuaDoChocolate11", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = c.registerClinicalAnalysisLaboratory("d3t7y", "Andre", "RuaDoChocolate11", "32198177895", "3219817789");
+        ClinicalAnalysisLaboratory c2 = c.registerClinicalAnalysisLaboratory("d3t7y", "Andre", "RuaDoChocolate11", "32198177895", "3219817789");
         c.saveClinicalAnalysisLaboratory(c1);
         assertFalse(c.saveClinicalAnalysisLaboratory(c2));
     }
 
     @Test
-    public void ensureCannotAddSameClinicalAnalysisLaboratoryTwiceTest2AddClinicalAnalysisLaboratory() {
-        ClinicalAnalysisLaboratory c1 = c.registerClinicalAnalysisLaboratory("Joao", "18998643596", "ertu8", "7896541254", "RuaDaBoavista49", new ArrayList<>());
-        ClinicalAnalysisLaboratory c2 = c.registerClinicalAnalysisLaboratory("Joao", "18998643596", "ertu8", "7896541254", "RuaDaBoavista49", new ArrayList<>());
-        c.addClinicalAnalysisLaboratory(c1);
-        assertFalse(c.addClinicalAnalysisLaboratory(c2));
-    }
-
-    @Test
     public void ensureAdd2DifferentClinicalAnalysisLaboratoriesWorks() {
-        ClinicalAnalysisLaboratory c1 = c.registerClinicalAnalysisLaboratory("Juliana", "34543675498", "acs39", "3174955631", "RuaDaMoita345", new ArrayList<>());
-        ClinicalAnalysisLaboratory c2 = c.registerClinicalAnalysisLaboratory("Juliana", "67832449864", "tyu71", "4145639745", "RuaDaMota354", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = c.registerClinicalAnalysisLaboratory("acs39", "Juliana", "RuaDaMoita345", "31749155631", "3454365498");
+        ClinicalAnalysisLaboratory c2 = c.registerClinicalAnalysisLaboratory("ac212", "Juli", "RuaDaMoita5", "31329155631", "3454325498");
         c.saveClinicalAnalysisLaboratory(c1);
         assertTrue(c.saveClinicalAnalysisLaboratory(c2));
     }
 
     @Test
     public void ensureAddNullLaboratoryDontWork() {
-        assertFalse(c.addClinicalAnalysisLaboratory(null));
+        assertFalse(c.saveClinicalAnalysisLaboratory(null));
     }
 
     @Test
     public void testGetCategoryListMethod() {
-        ClinicalAnalysisLaboratory c1 = c.registerClinicalAnalysisLaboratory("Samanta", "78541236547", "fghj9", "8964716509", "RuaDaTravessa33", new ArrayList<>());
-        ClinicalAnalysisLaboratory c2 = c.registerClinicalAnalysisLaboratory("Sandra", "85631778429", "zmb41", "1593578426", "RuaNovaDaConsituicao45", new ArrayList<>());
+        ClinicalAnalysisLaboratory c1 = c.registerClinicalAnalysisLaboratory("ac139", "lab31", "RuaDaMoita5", "31743155631", "3454545498");
+        ClinicalAnalysisLaboratory c2 = c.registerClinicalAnalysisLaboratory("ac239", "lab1", "RuaMoita5", "31776155631", "3454585498");
         c.saveClinicalAnalysisLaboratory(c1);
         c.saveClinicalAnalysisLaboratory(c2);
         assertTrue(c.getClinicalAnalysisLaboratoryList().contains(c1) && c.getClinicalAnalysisLaboratoryList().contains(c2));

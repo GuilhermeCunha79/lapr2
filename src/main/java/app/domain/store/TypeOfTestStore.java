@@ -63,6 +63,19 @@ public class TypeOfTestStore {
     }
 
     /**
+     * Method receives an ID and compares it to the codes of all test types available in the list
+     * @param ttId code to compare
+     * @return the test type with a matching code
+     */
+    public TypeOfTest getTestType(String ttId){
+        for(TypeOfTest typeOfTest : typeOfTestList){
+            if (typeOfTest.getCode().equals(ttId))
+                return typeOfTest;
+        }
+        return null;
+    }
+
+    /**
      * This method return a copy of the Type of Test List for other classes that need and can access it
      * @return List of type of test
      */

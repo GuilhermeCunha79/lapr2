@@ -1,8 +1,11 @@
 package app.controller;
 
+import app.domain.mappers.TestTypeMapper;
 import app.domain.model.ClinicalAnalysisLaboratory;
+import app.domain.model.Company;
 import app.domain.model.TypeOfTest;
 import app.domain.store.ClinicalAnalysisLaboratoryStore;
+import app.domain.store.TypeOfTestStore;
 
 import java.util.List;
 
@@ -11,21 +14,23 @@ public class RegisterNewClinicalAnalysisLaboratoryController {
 
     private ClinicalAnalysisLaboratoryStore cals;
     private ClinicalAnalysisLaboratory cal;
+    private TypeOfTestStore totStore;
 
     /**
      * Class Constructor that gets the Clinical Analysis Laboratory Store from the Company Class
      */
     public RegisterNewClinicalAnalysisLaboratoryController() {
-        this(App.getInstance().getCompany().getClinicalAnalysisLaboratoryStore());
+        this(App.getInstance().getCompany());
     }
 
     /**
      * Constructor that receives the Clinical Analysis Laboratory Store picked from the class Company to be used in this controller
      *
-     * @param cals Clinical Analysis Laboratory Store from the Company Class
+     * @param company Company Class
      */
-    public RegisterNewClinicalAnalysisLaboratoryController(ClinicalAnalysisLaboratoryStore cals) {
-        this.cals = cals;
+    public RegisterNewClinicalAnalysisLaboratoryController(Company company) {
+        this.cals = company.getClinicalAnalysisLaboratoryStore();
+        this.totStore = company.getTypeOfTestStore();
         this.cal = null;
     }
 
@@ -37,11 +42,10 @@ public class RegisterNewClinicalAnalysisLaboratoryController {
      * @param laboratoryID   of the clinical analysis laboratory
      * @param tinNumber      of the clinical analysis laboratory
      * @param address        of the clinical analysis laboratory
-     * @param typeOfTestList of the clinical analysis laboratory
      * @return if the clinical analysis laboratory was successfully saved in the clinical analysis laboratory store using the saveClinicalAnalysisLaboratory method
      */
-    public boolean registerNewClinicalAnalysisLaboratory(String name, String phoneNumber, String laboratoryID, String tinNumber, String address, List<TypeOfTest> typeOfTestList) {
-        this.cal = this.cals.registerClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address, typeOfTestList);
+    public boolean registerNewClinicalAnalysisLaboratory(String laboratoryID, String name, String address, String phoneNumber, String tinNumber) {
+        this.cal = this.cals.registerClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber);
         return this.cals.validateClinicalAnalysisLaboratory(cal);
     }
 
@@ -56,10 +60,20 @@ public class RegisterNewClinicalAnalysisLaboratoryController {
     }
 
     /**
+     * This method adds a new test types to a CA Laboratory instance
+     * @param ttId
+     * @return (in)success of the operation
+     */
+    public boolean addTestType(String ttId){
+        TypeOfTest typeOfTest = this.totStore.getTestType(ttId);
+        return cal.addTestType(typeOfTest);
+    }
+    /**
      * Returns the list of type of tests available in the system
      * @return list of type of tests
      */
-    public List<TypeOfTest> listOfTypeOfTests(){
-        return App.getInstance().getCompany().getTypeOfTestStore().getTypeOfTestList();
+    public List<String> listOfTypeOfTests(){
+        List<TypeOfTest> lTT = this.totStore.getTypeOfTestList();
+        return TestTypeMapper.toDto(lTT);
     }
 }
