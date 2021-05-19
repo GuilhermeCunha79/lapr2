@@ -45,7 +45,7 @@ public class ClientTest {
      */
     @Test
     public void ensureThatNameCanHave35Char() {
-        ClientDTO dto = new ClientDTO("Ângelo Josefina Amaro Silva Costa", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
+        ClientDTO dto = new ClientDTO("Ângelo Josefina Amaro Silva Costaaa", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "mariajosefina69@yalol.com");
         new Client(dto);
     }
 

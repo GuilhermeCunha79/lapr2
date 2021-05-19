@@ -190,19 +190,6 @@ public class CommonMethods {
             throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_NOT_MORE_THAN_10);
     }
 
-    /***
-     * Method that sends a email with the password
-     * @param name
-     * @param password
-     * @throws IOException
-     */
-    public static void sendEmailWithPassword(String name, String password) throws IOException {
-        File email = new File("email.txt");
-        PrintWriter out = new PrintWriter(email);
-
-        out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%n%s", name, password);
-        out.close();
-    }
 
     /***
      * Method that user in the system and send a confirmation with the password
@@ -216,7 +203,7 @@ public class CommonMethods {
         String password = CommonMethods.generatePassword();
         try {
             if (authFacade.addUserWithRole(name, email, password, role)) {
-                CommonMethods.sendEmailWithPassword(name, password);
+                SendingEmail.sendEmailWithPassword(name, password);
                 return true;
             }
         }catch(Exception e){

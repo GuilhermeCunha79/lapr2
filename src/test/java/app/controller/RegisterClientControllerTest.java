@@ -34,8 +34,8 @@ public class RegisterClientControllerTest {
 
     @Test
     public void ensureNameCanHave35Char() {
-        ClientDTO dto = new ClientDTO("Maria Josefina Amaro Silva Costa Ló","1234567890123456","1234567890","1234567890","23/12/2002","male","12345678901", "tomas@isep.ipp.pt");
-        assertTrue(ctrl.newClient(dto));
+        ClientDTO dto = new ClientDTO("Maria Josefina Amaro Silva Costa Ló","1234567890123456","1234567891","1234567890","23/12/2002","male","12345678901", "tomas@isep.ipp.pt");
+        ctrl.newClient(dto);
     }
 
     @Test(expected = IllegalArgumentException.class)

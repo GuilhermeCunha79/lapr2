@@ -5,8 +5,10 @@ import app.controller.App;
 
 import app.domain.mappers.dto.ClientDTO;
 import app.domain.model.Client;
+import app.domain.shared.SendingEmail;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,14 +65,18 @@ public class ClientStore {
         return true;
     }
 
-
     private boolean checkDuplicate(Client client) {
         for (Client clt : clientList) {
             if (clt.equals(client)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
+    }
+
+    private void sendEmail(Client client, String pwd) throws IOException {
+        String name = client.getName();
+        SendingEmail.sendEmailWithPassword(name,pwd);
     }
 
     /***
