@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="391px" preserveAspectRatio="none" style="width:571px;height:391px;" version="1.1" viewBox="0 0 571 391" width="571px" zoomAndPan="magnify"><defs><filter height="300%" id="f1ttxmrt0fh2ds" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><rect codeLine="5" fill="#FEFECE" filter="url(#f1ttxmrt0fh2ds)" height="53.8359" id="Company" style="stroke:#A80036;stroke-width:1.5;" width="85" x="248.5" y="7"/><ellipse cx="263.5" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M265.5,19.5 Q265.7031,19 265.9375,18.75 Q266.1719,18.5 266.4375,18.5 Q266.9063,18.5 267.2031,18.7813 Q267.5,19.0625 267.5,19.7188 L267.5,21.2813 Q267.5,21.9375 267.2188,22.2188 Q266.9375,22.5 266.5,22.5 Q266.1094,22.5 265.8594,22.3281 Q265.6094,22.1563 265.5,21.7031 Q265.4531,21.3906 265.2813,21.2188 Q264.9688,20.8906 264.4063,20.7031 Q263.8438,20.5 263.2813,20.5 Q262.5781,20.5 261.9844,20.7813 Q261.4063,21.0625 260.9531,21.6875 Q260.5,22.3125 260.5,23.1719 L260.5,24.0938 Q260.5,25.125 261.3438,25.8125 Q262.1875,26.5 263.6875,26.5 Q264.5781,26.5 265.2031,26.2969 Q265.5625,26.1875 265.9688,25.8281 Q266.2344,25.625 266.375,25.5625 Q266.5156,25.5 266.6875,25.5 Q267.0156,25.5 267.25,25.7656 Q267.5,26.0156 267.5,26.375 Q267.5,26.7188 267.1563,27.125 Q266.6563,27.7188 265.8594,28.0469 Q264.8125,28.5 263.5313,28.5 Q262.0313,28.5 260.8281,27.9063 Q259.8594,27.4375 259.1719,26.4219 Q258.5,25.4063 258.5,24.2031 L258.5,23.1094 Q258.5,21.8594 259.0938,20.7656 Q259.7031,19.6719 260.75,19.0938 Q261.8125,18.5 263,18.5 Q263.7188,18.5 264.3438,18.75 Q264.9688,19 265.5,19.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="53" x="277.5" y="27.9102">Company</text><line style="stroke:#A80036;stroke-width:1.5;" x1="249.5" x2="332.5" y1="39" y2="39"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="254.5" y="54.4189">-designation</text><!--MD5=[1934a092c0e7d4da7dc7075b6f4b6b03]
+class ClinicalAnalysisLaboratory--><rect codeLine="9" fill="#FEFECE" filter="url(#f1ttxmrt0fh2ds)" height="53.8359" id="ClinicalAnalysisLaboratory" style="stroke:#A80036;stroke-width:1.5;" width="177" x="202.5" y="153"/><ellipse cx="217.5" cy="169" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M219.5,165.5 Q219.7031,165 219.9375,164.75 Q220.1719,164.5 220.4375,164.5 Q220.9063,164.5 221.2031,164.7813 Q221.5,165.0625 221.5,165.7188 L221.5,167.2813 Q221.5,167.9375 221.2188,168.2188 Q220.9375,168.5 220.5,168.5 Q220.1094,168.5 219.8594,168.3281 Q219.6094,168.1563 219.5,167.7031 Q219.4531,167.3906 219.2813,167.2188 Q218.9688,166.8906 218.4063,166.7031 Q217.8438,166.5 217.2813,166.5 Q216.5781,166.5 215.9844,166.7813 Q215.4063,167.0625 214.9531,167.6875 Q214.5,168.3125 214.5,169.1719 L214.5,170.0938 Q214.5,171.125 215.3438,171.8125 Q216.1875,172.5 217.6875,172.5 Q218.5781,172.5 219.2031,172.2969 Q219.5625,172.1875 219.9688,171.8281 Q220.2344,171.625 220.375,171.5625 Q220.5156,171.5 220.6875,171.5 Q221.0156,171.5 221.25,171.7656 Q221.5,172.0156 221.5,172.375 Q221.5,172.7188 221.1563,173.125 Q220.6563,173.7188 219.8594,174.0469 Q218.8125,174.5 217.5313,174.5 Q216.0313,174.5 214.8281,173.9063 Q213.8594,173.4375 213.1719,172.4219 Q212.5,171.4063 212.5,170.2031 L212.5,169.1094 Q212.5,167.8594 213.0938,166.7656 Q213.7031,165.6719 214.75,165.0938 Q215.8125,164.5 217,164.5 Q217.7188,164.5 218.3438,164.75 Q218.9688,165 219.5,165.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="145" x="231.5" y="173.9102">ClinicalAnalysisLaboratory</text><line style="stroke:#A80036;stroke-width:1.5;" x1="203.5" x2="378.5" y1="185" y2="185"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="62" x="208.5" y="200.4189">-laboratoryID</text><!--MD5=[f69a48f7b38bde3533dca6607cc4e94a]
+class TypeOfTest--><rect codeLine="14" fill="#FEFECE" filter="url(#f1ttxmrt0fh2ds)" height="81.5078" id="TypeOfTest" style="stroke:#A80036;stroke-width:1.5;" width="96" x="7" y="139"/><ellipse cx="22.9" cy="155" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M24.9,151.5 Q25.1031,151 25.3375,150.75 Q25.5719,150.5 25.8375,150.5 Q26.3063,150.5 26.6031,150.7813 Q26.9,151.0625 26.9,151.7188 L26.9,153.2813 Q26.9,153.9375 26.6188,154.2188 Q26.3375,154.5 25.9,154.5 Q25.5094,154.5 25.2594,154.3281 Q25.0094,154.1563 24.9,153.7031 Q24.8531,153.3906 24.6813,153.2188 Q24.3688,152.8906 23.8063,152.7031 Q23.2438,152.5 22.6813,152.5 Q21.9781,152.5 21.3844,152.7813 Q20.8063,153.0625 20.3531,153.6875 Q19.9,154.3125 19.9,155.1719 L19.9,156.0938 Q19.9,157.125 20.7438,157.8125 Q21.5875,158.5 23.0875,158.5 Q23.9781,158.5 24.6031,158.2969 Q24.9625,158.1875 25.3688,157.8281 Q25.6344,157.625 25.775,157.5625 Q25.9156,157.5 26.0875,157.5 Q26.4156,157.5 26.65,157.7656 Q26.9,158.0156 26.9,158.375 Q26.9,158.7188 26.5563,159.125 Q26.0563,159.7188 25.2594,160.0469 Q24.2125,160.5 22.9313,160.5 Q21.4313,160.5 20.2281,159.9063 Q19.2594,159.4375 18.5719,158.4219 Q17.9,157.4063 17.9,156.2031 L17.9,155.1094 Q17.9,153.8594 18.4938,152.7656 Q19.1031,151.6719 20.15,151.0938 Q21.2125,150.5 22.4,150.5 Q23.1188,150.5 23.7438,150.75 Q24.3688,151 24.9,151.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="62" x="37.1" y="159.9102">TypeOfTest</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="102" y1="171" y2="171"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="28" x="13" y="186.4189">-code</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="57" x="13" y="200.2549">-description</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="84" x="13" y="214.0908">-collectionMethod</text><!--MD5=[a64badb107d3691f2dc6af242cdbeb21]
+class ChemicalLaboratory--><rect codeLine="20" fill="#FEFECE" filter="url(#f1ttxmrt0fh2ds)" height="40" id="ChemicalLaboratory" style="stroke:#A80036;stroke-width:1.5;" width="143" x="414.5" y="160"/><ellipse cx="429.5" cy="176" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M431.5,172.5 Q431.7031,172 431.9375,171.75 Q432.1719,171.5 432.4375,171.5 Q432.9063,171.5 433.2031,171.7813 Q433.5,172.0625 433.5,172.7188 L433.5,174.2813 Q433.5,174.9375 433.2188,175.2188 Q432.9375,175.5 432.5,175.5 Q432.1094,175.5 431.8594,175.3281 Q431.6094,175.1563 431.5,174.7031 Q431.4531,174.3906 431.2813,174.2188 Q430.9688,173.8906 430.4063,173.7031 Q429.8438,173.5 429.2813,173.5 Q428.5781,173.5 427.9844,173.7813 Q427.4063,174.0625 426.9531,174.6875 Q426.5,175.3125 426.5,176.1719 L426.5,177.0938 Q426.5,178.125 427.3438,178.8125 Q428.1875,179.5 429.6875,179.5 Q430.5781,179.5 431.2031,179.2969 Q431.5625,179.1875 431.9688,178.8281 Q432.2344,178.625 432.375,178.5625 Q432.5156,178.5 432.6875,178.5 Q433.0156,178.5 433.25,178.7656 Q433.5,179.0156 433.5,179.375 Q433.5,179.7188 433.1563,180.125 Q432.6563,180.7188 431.8594,181.0469 Q430.8125,181.5 429.5313,181.5 Q428.0313,181.5 426.8281,180.9063 Q425.8594,180.4375 425.1719,179.4219 Q424.5,178.4063 424.5,177.2031 L424.5,176.1094 Q424.5,174.8594 425.0938,173.7656 Q425.7031,172.6719 426.75,172.0938 Q427.8125,171.5 429,171.5 Q429.7188,171.5 430.3438,171.75 Q430.9688,172 431.5,172.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="111" x="443.5" y="180.9102">ChemicalLaboratory</text><line style="stroke:#A80036;stroke-width:1.5;" x1="415.5" x2="556.5" y1="192" y2="192"/><!--MD5=[0caf3a413731a0de34fc6162fe213ed9]
+class Laboratory--><rect codeLine="23" fill="#FEFECE" filter="url(#f1ttxmrt0fh2ds)" height="95.3438" id="Laboratory" style="stroke:#A80036;stroke-width:1.5;" width="128" x="324" y="282"/><ellipse cx="356.1" cy="298" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M358.1,294.5 Q358.3031,294 358.5375,293.75 Q358.7719,293.5 359.0375,293.5 Q359.5063,293.5 359.8031,293.7813 Q360.1,294.0625 360.1,294.7188 L360.1,296.2813 Q360.1,296.9375 359.8188,297.2188 Q359.5375,297.5 359.1,297.5 Q358.7094,297.5 358.4594,297.3281 Q358.2094,297.1563 358.1,296.7031 Q358.0531,296.3906 357.8813,296.2188 Q357.5688,295.8906 357.0063,295.7031 Q356.4438,295.5 355.8813,295.5 Q355.1781,295.5 354.5844,295.7813 Q354.0063,296.0625 353.5531,296.6875 Q353.1,297.3125 353.1,298.1719 L353.1,299.0938 Q353.1,300.125 353.9438,300.8125 Q354.7875,301.5 356.2875,301.5 Q357.1781,301.5 357.8031,301.2969 Q358.1625,301.1875 358.5688,300.8281 Q358.8344,300.625 358.975,300.5625 Q359.1156,300.5 359.2875,300.5 Q359.6156,300.5 359.85,300.7656 Q360.1,301.0156 360.1,301.375 Q360.1,301.7188 359.7563,302.125 Q359.2563,302.7188 358.4594,303.0469 Q357.4125,303.5 356.1313,303.5 Q354.6313,303.5 353.4281,302.9063 Q352.4594,302.4375 351.7719,301.4219 Q351.1,300.4063 351.1,299.2031 L351.1,298.1094 Q351.1,296.8594 351.6938,295.7656 Q352.3031,294.6719 353.35,294.0938 Q354.4125,293.5 355.6,293.5 Q356.3188,293.5 356.9438,293.75 Q357.5688,294 358.1,294.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="58" x="373.9" y="302.9102">Laboratory</text><line style="stroke:#A80036;stroke-width:1.5;" x1="325" x2="451" y1="314" y2="314"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="30" x="330" y="329.4189">-name</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="44" x="330" y="343.2549">-address</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="71" x="330" y="357.0908">-phoneNumber</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="116" x="330" y="370.9268">-taxIdentificationNumber</text><!--MD5=[147acf42fe9475025d9b6f56a55be7cf]
+link Company to TypeOfTest--><path codeLine="31" d="M248.26,61.08 C207.35,86.04 145.72,123.64 103.11,149.65 " fill="none" id="Company-TypeOfTest" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="195.7319,102.7802,204.9838,100.5775,201.9222,95.56,195.7319,102.7802" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="209" y="105.4951">conducts</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="233.6015" y="61.7779">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="110.8597" y="141.3374">*</text><!--MD5=[aafc5d8a5829a6a8d6dc892cb1ff5d24]
+link Company to ClinicalAnalysisLaboratory--><path codeLine="32" d="M291,61.08 C291,87.01 291,126.59 291,152.63 " fill="none" id="Company-ClinicalAnalysisLaboratory" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="296,105.1758,298.9389,96.1307,293.0611,96.1307,296,105.1758" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="30" x="305" y="105.4951">owns</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="283.2344" y="82.3053">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="285.4219" y="142.0054">*</text><!--MD5=[d6a5ae732362cd0f86c2003645f951b1]
+link Company to ChemicalLaboratory--><path codeLine="33" d="M326.31,61.08 C364.84,89.53 425.59,134.39 459.99,159.79 " fill="none" id="Company-ChemicalLaboratory" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="398.0223,103.1458,392.4917,95.4087,389.0001,100.1372,398.0223,103.1458" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="30" x="403" y="105.4951">owns</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="326.2684" y="82.3053">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="22" x="427.1183" y="149.0501">0..1</text><!--MD5=[ca241da2d6b7ba1ad04f00d8baddcc83]
+link ChemicalLaboratory to Laboratory--><path codeLine="34" d="M473.19,200.28 C462.17,216.87 445.63,241.77 430.04,265.22 " fill="none" id="ChemicalLaboratory-to-Laboratory" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="435.86,269.12,418.96,281.91,424.19,261.37,435.86,269.12" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[6d0dfcacb99e5b6ea3de933623cb0bd1]
+link ClinicalAnalysisLaboratory to Laboratory--><path codeLine="35" d="M308.12,207.03 C318.74,223.18 332.88,244.69 346.31,265.11 " fill="none" id="ClinicalAnalysisLaboratory-to-Laboratory" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="352.2,261.32,357.34,281.87,340.5,269.01,352.2,261.32" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b963e0d46e17a3d18e7a85af89c70400]
+link TypeOfTest to ClinicalAnalysisLaboratory--><path codeLine="36" d="M103.04,180 C131.61,180 168.75,180 202.46,180 " fill="none" id="TypeOfTest-ClinicalAnalysisLaboratory" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="120.25,168.1758,129.2951,171.1147,129.2951,165.2369,120.25,168.1758" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="50" x="134.25" y="173.4951">performs</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="111.0948" y="176.2874">*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="5" x="189.6363" y="176.8298">*</text><!--MD5=[4ea7a97cfadb2f57f9103757b28a3bca]
+@startuml
+'https://plantuml.com/use-case-diagram
+hide methods
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+class ClinicalAnalysisLaboratory{
+-laboratoryID
+}
+
+
+class TypeOfTest{
+-code
+-description
+-collectionMethod
+}
+
+class ChemicalLaboratory{
+}
+
+class Laboratory{
+-name
+-address
+-phoneNumber
+-taxIdentificationNumber
+}
+
+
+Company"1" - - "*"TypeOfTest:> conducts
+Company"1" - - "*"ClinicalAnalysisLaboratory:> owns
+Company"1" - - "0..1" ChemicalLaboratory:> owns
+ChemicalLaboratory - -|> Laboratory
+ClinicalAnalysisLaboratory - -|> Laboratory
+ClinicalAnalysisLaboratory "*" -left- "*" TypeOfTest:> performs
+@enduml
+
+@startuml
+hide methods
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+class ClinicalAnalysisLaboratory{
+-laboratoryID
+}
+
+
+class TypeOfTest{
+-code
+-description
+-collectionMethod
+}
+
+class ChemicalLaboratory{
+}
+
+class Laboratory{
+-name
+-address
+-phoneNumber
+-taxIdentificationNumber
+}
+
+
+Company"1" - - "*"TypeOfTest:> conducts
+Company"1" - - "*"ClinicalAnalysisLaboratory:> owns
+Company"1" - - "0..1" ChemicalLaboratory:> owns
+ChemicalLaboratory - -|> Laboratory
+ClinicalAnalysisLaboratory - -|> Laboratory
+ClinicalAnalysisLaboratory "*" -left- "*" TypeOfTest:> performs
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

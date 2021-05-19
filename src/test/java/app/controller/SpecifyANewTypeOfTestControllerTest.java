@@ -1,19 +1,10 @@
 package app.controller;
-
-import app.domain.model.ParameterCategory;
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
 public class SpecifyANewTypeOfTestControllerTest {
-
-    SpecifyANewTypeOfTestController ctrl = new SpecifyANewTypeOfTestController();
-
-    ParameterCategory pc = new ParameterCategory("34567", "Src");
-
-    ArrayList<ParameterCategory> Listpc = new ArrayList<ParameterCategory>();
+    private SpecifyANewTypeOfTestController ctrl = new SpecifyANewTypeOfTestController();
 
     @Test(expected = NullPointerException.class)
     public void ensureNullTypeOfTestIsNotCreated() {
@@ -22,81 +13,70 @@ public class SpecifyANewTypeOfTestControllerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureTypeOfTestIsNotCreatedWithBlankAttributes() {
-        ctrl.createANewTypeOfTest("", "","" , Listpc);
+        ctrl.createANewTypeOfTest("", "","" , "34567");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericCodeAreNotAccepted() {
-        Listpc.add(pc);
-        ctrl.createANewTypeOfTest("334@2", "IE", "CM", Listpc);
+
+        ctrl.createANewTypeOfTest("334@2", "IE", "CM", "34567");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotHaveMoreThan5Char() {
-        Listpc.add(pc);
-        ctrl.createANewTypeOfTest("334672", "IE", "CM", Listpc);
+        ctrl.createANewTypeOfTest("334672", "IE", "CM", "34567");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotHaveLessThan5Char() {
-        Listpc.add(pc);
-        ctrl.createANewTypeOfTest("33", "IE", "CM", Listpc);
+        ctrl.createANewTypeOfTest("33", "IE", "CM", "34567");
     }
 
     @Test
     public void ensureCodeHasWith5CharIsAccepted() {
-        Listpc.add(pc);
-        assertTrue( ctrl.createANewTypeOfTest("34565", "FL", "Cl", Listpc));
+        assertTrue( ctrl.createANewTypeOfTest("34565", "FL", "Cl", "34567"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureCodeCannotBeCreatedBlank() {
-        Listpc.add(pc);
-        ctrl.createANewTypeOfTest("", "IE", "CM", Listpc);
+        ctrl.createANewTypeOfTest("", "IE", "CM", "34567");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotHaveMoreThan15Char() {
-        Listpc.add(pc);
-        ctrl.createANewTypeOfTest("53436", "RNA remnants and Dna remnats", "cotton swab", Listpc);
+        ctrl.createANewTypeOfTest("53436", "RNA remnants and Dna remnats", "cotton swab", "34567");
     }
 
     @Test
     public void ensureDescriptionCanHave15Char() {
-        Listpc.add(pc);
-        assertTrue(ctrl.createANewTypeOfTest("53447", "RNA ", "cotton swab", Listpc));
+        assertTrue(ctrl.createANewTypeOfTest("53447", "RNA ", "cotton swab", "34567"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotBeBlank() {
-        Listpc.add(pc);
-        ctrl.createANewTypeOfTest("53436", "", "cotton swab", Listpc);
+        ctrl.createANewTypeOfTest("53436", "", "cotton swab", "34567");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureColectingMethodCannotHaveMoreThan15Char() {
-        Listpc.add(pc);
-        ctrl.createANewTypeOfTest("53436", "RNA remnants", "cotton swab thro the nose", Listpc);
+    public void ensureCollectingMethodCannotHaveMoreThan15Char() {
+        ctrl.createANewTypeOfTest("53436", "RNA remnants", "cotton swab thro the nose", "34567");
     }
 
     @Test
-    public void ensureColectingMethodCanHave15Char() {
-        Listpc.add(pc);
-        assertTrue(ctrl.createANewTypeOfTest("53237", "RNA", "Seringe", Listpc));
+    public void ensureCollectingMethodCanHave15Char() {
+        assertTrue(ctrl.createANewTypeOfTest("53237", "RNA", "Seringe", "34567"));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureColectingMethodCannotBeBlank() {
-        Listpc.add(pc);
-        ctrl.createANewTypeOfTest("53436", "RNA remnants", "",Listpc );
+    public void ensureCollectingMethodCannotBeBlank() {
+        ctrl.createANewTypeOfTest("53436", "RNA remnants", "","34567" );
     }
 
     @Test
     public void ensureCannotCreateSameTOTTwice() {
-        Listpc.add(pc);
-        ctrl.createANewTypeOfTest("33452", "IE", "CM", Listpc);
+        ctrl.createANewTypeOfTest("33452", "IE", "CM", "34567");
         ctrl.saveTypeOfTest();
-        ctrl.createANewTypeOfTest("33452", "IE", "CM", Listpc);
+        ctrl.createANewTypeOfTest("33452", "IE", "CM", "34567");
         assertFalse(ctrl.saveTypeOfTest());
     }
 

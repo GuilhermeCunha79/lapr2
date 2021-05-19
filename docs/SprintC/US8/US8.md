@@ -114,7 +114,7 @@ allowed to exist?
 
 ### 2.1. Relevant Domain Model Excerpt 
 
-[US8_MD](US8_MD.svg)
+![US8_MD](US8_MD.svg)
 
 
 ### 2.2. Other Remarks
@@ -159,7 +159,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 ## 3.2. Sequence Diagram (SD)
 
 
-![UC8_SD](UC8_SD.svg)
+![US8_SD](US8_SD.svg)
 
 
 ## 3.3. Class Diagram (CD)
@@ -259,3 +259,5 @@ No observations.
 
 
 
+
+[]: UC8.svg

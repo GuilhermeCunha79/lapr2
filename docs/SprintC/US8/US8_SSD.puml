@@ -14,11 +14,15 @@ ADMIN -> SYSTEM : Types requested data
 activate SYSTEM
 SYSTEM --> ADMIN : shows test types to be selected
 deactivate SYSTEM
-
-SYSTEM -> ADMIN : shows the data and requests a confirmation
+loop for all intended test types
+ADMIN -> SYSTEM : selects one test type
 activate SYSTEM
-ADMIN --> SYSTEM : confirms the data
+SYSTEM --> ADMIN : confirms selection
 deactivate SYSTEM
-SYSTEM -> ADMIN : Informs operation success
-
+end loop
+SYSTEM --> ADMIN : shows the data and requests a confirmation
+ADMIN -> SYSTEM : confirms the data
+activate SYSTEM
+SYSTEM --> ADMIN : Informs operation success
+deactivate SYSTEM
 @enduml

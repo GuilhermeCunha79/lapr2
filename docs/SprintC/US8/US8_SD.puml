@@ -1,0 +1,82 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrador" as ADMIN
+
+participant ":RegisterNewClinicalAnalysisUI" as UI
+participant ":RegisterNewClinicalAnalysis\nRegisterNewClinicalAnalysisController" as CTRL
+participant ":Company" as comp
+participant "store: ClinicalAnalysisLaboratoryStore " as cals
+participant "cal:ClinicalAnalysisLaboratory" as cal
+participant "tts:TestTypeStore" as tts
+participant "ttm:TestTypeMapper" as ttm
+
+activate ADMIN
+ADMIN -> UI : Register a New Clinical Analysis Laboratory
+activate UI
+UI --> ADMIN : request necessary credentials(laboratoryID, name, address, phoneNumber, tinNumber)
+deactivate UI
+ADMIN -> UI : types requested data
+activate UI
+    UI -> CTRL : registerNewClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber, )
+    activate CTRL
+        CTRL -> comp : calStore = getClinicalAnalysisLaboratoryStore()
+        activate comp
+        deactivate comp
+        CTRL -> cals : cal = registerClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber)
+        activate cals
+            cals --> cal** : register(laboratoryID, name, address, phoneNumber, tinNumber)
+        deactivate cals
+        CTRL -> cals : validateClinicalAnalysisLaboratory(cal)
+        activate cals
+        deactivate cals
+    deactivate CTRL
+    UI -> CTRL : lTTdto = getTestTypesList()
+    activate CTRL
+        CTRL -> comp : ttStore = getTestTypeStore()
+        activate comp
+        deactivate comp
+        CTRL -> tts : lTT = getTestTypesList()
+        activate tts
+        deactivate tts
+        CTRL -> ttm : lTTdto = toDto(lTT)
+        activate ttm
+        deactivate ttm
+    deactivate CTRL
+    UI --> ADMIN : show all test types available to be selected
+deactivate UI
+loop for all intended test types
+ADMIN -> UI : select one test type
+activate UI
+UI -> CTRL : addTestType(ttId)
+activate CTRL
+CTRL -> tts : tt = getTestType(ttId)
+activate tts
+deactivate tts
+CTRL -> cal : addTestType(tt)
+activate cal
+deactivate cal
+CTRL --> UI : done
+deactivate CTRL
+UI --> ADMIN : added with success
+end loop
+UI --> ADMIN : presents all data and asks for confirmation
+deactivate UI
+ADMIN -> UI : confirms data
+activate UI
+    UI -> CTRL : saveClinicalAnalysisLaboratory()
+    activate CTRL
+        CTRL -> cals : saveClinicalAnalysisLaboratory(cal)
+        activate cals
+            cals -> cals : validateClinicalAnalysisLaboratory(cal)
+            activate cals
+            deactivate cals
+            cals -> cals : addClinicalAnalysisLaboratory(cal)
+            activate cals
+            deactivate cals
+        deactivate cals
+    deactivate CTRL
+    UI --> ADMIN : informs operation success
+deactivate UI
+
+@enduml

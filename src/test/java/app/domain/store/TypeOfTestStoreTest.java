@@ -33,8 +33,8 @@ public class TypeOfTestStoreTest  {
     @Test
     public void ensureCannotAddSameTypeOfTestTwice(){
         Listpc.add(pc);
-        TypeOfTest tot1 = tots.createTypeOfTest("34567", "RNA remnants", "cotton swab",Listpc );
-        TypeOfTest tot2 = tots.createTypeOfTest("34567", "RNA remnants", "cotton swab", Listpc);
+        TypeOfTest tot1 = tots.createTypeOfTest("34567", "RNA remnants", "cotton swab",pc );
+        TypeOfTest tot2 = tots.createTypeOfTest("34567", "RNA remnants", "cotton swab", pc);
         tots.saveTypeOfTest(tot1);
         assertFalse(tots.saveTypeOfTest(tot2));
     }
@@ -45,10 +45,10 @@ public class TypeOfTestStoreTest  {
     @Test
     public void ensureCannotAddSameTypeOfTestTwiceTest2AddNewTypeOfTest(){
         Listpc.add(pc);
-        TypeOfTest tot1 = tots.createTypeOfTest("14567", "RNA remnants", "saliva bottle",  Listpc);
-        TypeOfTest tot2 = tots.createTypeOfTest("14567", "RNA remnants", "saliva bottle", Listpc);
-        tots.addTypeOfTest(tot1);
-        assertFalse(tots.addTypeOfTest(tot2));
+        TypeOfTest tot1 = tots.createTypeOfTest("14567", "RNA remnants", "saliva bottle",  pc);
+        TypeOfTest tot2 = tots.createTypeOfTest("14567", "RNA remnants", "saliva bottle", pc);
+        tots.saveTypeOfTest(tot1);
+        assertFalse(tots.saveTypeOfTest(tot2));
     }
 
     /**
@@ -57,10 +57,10 @@ public class TypeOfTestStoreTest  {
     @Test
     public void ensureAdd2differentTypeOfTestWorks(){
         Listpc.add(pc);
-        TypeOfTest tot1 = tots.createTypeOfTest("13567", "RNA remnants", "cotton swab",  Listpc);
-        TypeOfTest tot2 = tots.createTypeOfTest("13557", "DNA remnants", "saliva bottle", Listpc);
-        tots.addTypeOfTest(tot1);
-        assertTrue(tots.addTypeOfTest(tot2));
+        TypeOfTest tot1 = tots.createTypeOfTest("13567", "RNA remnants", "cotton swab",  pc);
+        TypeOfTest tot2 = tots.createTypeOfTest("13557", "DNA remnants", "saliva bottle", pc);
+        tots.saveTypeOfTest(tot1);
+        assertTrue(tots.saveTypeOfTest(tot2));
     }
 
     /**
@@ -68,7 +68,7 @@ public class TypeOfTestStoreTest  {
      */
     @Test
     public void ensureAddNullTypeOfTestDontWork(){
-        assertFalse(tots.addTypeOfTest(null));
+        assertFalse(tots.saveTypeOfTest(null));
     }
 
     /**
@@ -76,8 +76,8 @@ public class TypeOfTestStoreTest  {
      */
     public void testGetTypeofTestListMethod(){
         Listpc.add(pc);
-        TypeOfTest tot1 = tots.createTypeOfTest("13599", "Sangue", "urine", Listpc);
-        TypeOfTest tot2 = tots.createTypeOfTest("13591", "HNS", "Thoot", Listpc);
+        TypeOfTest tot1 = tots.createTypeOfTest("13599", "Sangue", "urine", pc);
+        TypeOfTest tot2 = tots.createTypeOfTest("13591", "HNS", "Thoot", pc);
         tots.saveTypeOfTest(tot1);
         tots.saveTypeOfTest(tot2);
         assertTrue(tots.getTypeOfTestList().contains(tot1) && tots.getTypeOfTestList().contains(tot2));

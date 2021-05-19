@@ -32,8 +32,8 @@ class Laboratory{
 Company"1" -- "*"TypeOfTest:> conducts
 Company"1" -- "*"ClinicalAnalysisLaboratory:> owns
 Company"1" -- "0..1" ChemicalLaboratory:> owns
-ChemicalLaboratory -- Laboratory
-ClinicalAnalysisLaboratory -- Laboratory
-ClinicalAnalysisLaboratory "*" -- "*" TypeOfTest:> performs
+ChemicalLaboratory --|> Laboratory
+ClinicalAnalysisLaboratory --|> Laboratory
+ClinicalAnalysisLaboratory "*" -left- "*" TypeOfTest:> performs
 @enduml
 

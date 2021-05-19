@@ -6,8 +6,9 @@ class RegisterNewClinicalAnalysisUI{
 
 class RegisterNewClinicalAnalysisController
 {
-    +registerNewClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address, typeOfTestList)
+    +registerNewClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address)
     +saveClinicalAnalysisLaboratory()
+    +addTestType(ttId)
 }
 
 class ClinicalAnalysisLaboratory{
@@ -17,26 +18,39 @@ class ClinicalAnalysisLaboratory{
     -tinNumber
     -address
     -typeOfTestList
-    +register(laboratoryID, name, address, phoneNumber, tinNumber, typeOfTestList)
-
+    +ClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber)
+    +addTestType(tt)
 }
 
 class Company{
-	-name
-	-location
+	-description
 	+getClinicalAnalysisLaboratoryStore()
+	+getTestTypeStore()
 }
 
 class ClinicalAnalysisLaboratoryStore{
     + validateClinicalAnalysisLaboratory(cal)
     + addClinicalAnalysisLaboratory(cal)
-    + registerClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address, typeOfTestList)
+    + registerClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber)
     + saveClinicalAnalysisLaboratory(cal)
+}
+
+class TestTypeStore{
+    +getTestTypeList()
+    +getTestType(ttId)
+}
+
+class TestTypeMapper {
+    +toDto(lTT)
 }
 
 RegisterNewClinicalAnalysisUI ..> RegisterNewClinicalAnalysisController
 RegisterNewClinicalAnalysisController .right.> Company
+Company"1" -up-> "1"TestTypeStore : uses
 Company"1" --> "1"ClinicalAnalysisLaboratoryStore : uses
 ClinicalAnalysisLaboratoryStore"1" -left-> "*"ClinicalAnalysisLaboratory : store
-
+RegisterNewClinicalAnalysisController .left.> TestTypeMapper
+RegisterNewClinicalAnalysisController ..> ClinicalAnalysisLaboratory
+RegisterNewClinicalAnalysisController ..> ClinicalAnalysisLaboratoryStore
+RegisterNewClinicalAnalysisController .up.> TestTypeStore
 @enduml

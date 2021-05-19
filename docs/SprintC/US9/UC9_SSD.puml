@@ -2,23 +2,32 @@
 'https://plantuml.com/sequence-diagram
 autonumber
 'hide footbox
-actor "Administrador" as ADMIN
+actor "Administrator" as ADMIN
 
 participant ":System" as SYSTEM
 
 ADMIN -> SYSTEM : Create New Parameter Category
 activate SYSTEM
-SYSTEM --> ADMIN : Requests necessary data (code, description, collecting method, Cathegory)
+SYSTEM --> ADMIN : Requests necessary data (code, description, collectingMethod)
 deactivate SYSTEM
 
-ADMIN -> SYSTEM : Inserts the data
+ADMIN -> SYSTEM : Inserts the data and selects one parameter category
+activate SYSTEM
+SYSTEM --> ADMIN : Present other parameter categories available
+deactivate SYSTEM
+loop until all needed categories are selected
+ADMIN -> SYSTEM : Selects parameter category available
+activate SYSTEM
+SYSTEM --> ADMIN : Confirms selection
+deactivate SYSTEM
+end loop
 activate SYSTEM
 SYSTEM --> ADMIN : Validates the data and asks for confirmation
 deactivate SYSTEM
 
 ADMIN -> SYSTEM : Confirms the data
 activate SYSTEM
-SYSTEM --> ADMIN : Tell the user that the new test as been sepecified
+SYSTEM --> ADMIN : Tell the user that the new test type as been created
 deactivate SYSTEM
 
 

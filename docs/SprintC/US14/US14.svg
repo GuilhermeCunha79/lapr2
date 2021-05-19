@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="227px" preserveAspectRatio="none" style="width:333px;height:227px;" version="1.1" viewBox="0 0 333 227" width="333px" zoomAndPan="magnify"><defs><filter height="300%" id="fzewvme0fsukm" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="163.8881" cy="181.4776" fill="#FEFECE" filter="url(#fzewvme0fsukm)" rx="157.8881" ry="33.9776" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="285" x="21.3881" y="185.2061">UC14 - Make the diagnosis and write a report</text><!--MD5=[0465c33012c512a0d32a66c226961ad1]
+entity sdoctor--><ellipse cx="164" cy="14" fill="#FEFECE" filter="url(#fzewvme0fsukm)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M164,22 L164,49 M151,30 L177,30 M164,49 L151,64 M164,49 L177,64 " fill="none" filter="url(#fzewvme0fsukm)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="111" y="84.0332">Specialist Doctor</text><!--MD5=[51070c22c486bdad1432e224b5a8aef0]
+link sdoctor to UC14--><path d="M164,87.78 C164,105.01 164,124.98 164,141.97 " fill="none" id="sdoctor-to-UC14" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="164,147.14,168,138.14,164,142.14,160,138.14,164,147.14" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ab46d81e28b61d4077bc420bf052c15e]
+@startuml
+usecase "UC14 - Make the diagnosis and write a report" as UC14
+actor sdoctor as "Specialist Doctor"
+
+sdoctor - -> (UC14)
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

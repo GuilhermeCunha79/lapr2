@@ -4,37 +4,71 @@
 autonumber
 actor "Administrator" as ADMIN
 
-participant ":SpecifieANewTypeOfTestUI" as UI
-participant ":SpecifieANewTypeOfTestController" as CTRL
+participant ":SpecifyANewTypeOfTestUI" as UI
+participant ":SpecifyANewTypeOfTestController" as CTRL
 participant ":Company" as COMP
 participant ":TypeOfTestStore" as TOTS
 participant ":TypeOfTest" as TOT
+participant ":PCStore" as PCS
+participant ":ParameterCategoryMapper" as PCM
 
-ADMIN -> UI : Specifie a New Type of test
+ADMIN -> UI : Specify a New Type of test
 activate UI
-    UI --> ADMIN : Requests necessary data (code, description, collecting method, cathegory)
-deactivate UI
-ADMIN -> UI : Inserts the data
-activate UI
-    UI -> CTRL : SpecifieANewTypeOfTest(code, description, collecting method, cathegory)
+    UI -> CTRL : lPC = getAllParameterCategories()
     activate CTRL
-        CTRL -> COMP : store = getParameterStore()
+        CTRL -> COMP : pcStore = getParameterCategoryStore()
+        CTRL -> PCS : lPC = getAllParameterCategories()
+        activate PCS
+        deactivate PCS
+        CTRL -> PCM : lPCdto = toDto(lPC)
+        activate PCM
+        deactivate PCM
+    deactivate CTRL
+    UI --> ADMIN : Requests necessary data (code, description, collecting method)\n and presents parameter categories available to select one
+deactivate UI
+ADMIN -> UI : Inserts the data and selects one parameter category
+activate UI
+    UI -> CTRL : specifyANewTypeOfTest(code, description, collecting method, pcId)
+    activate CTRL
+        CTRL -> COMP : ttStore = getTypeTestStore()
         activate COMP
         deactivate COMP
-        CTRL -> TOTS : tot = createTypeOfTest(code, description, collecting method, cathegory)
+        CTRL -> PCS : pc = getParameterCategory(pcId)
+        activate PCS
+        deactivate PCS
+        CTRL -> TOTS : tot = createTypeOfTest(code, description, collecting method, pc)
                 activate TOTS
-                    TOTS --> TOT** : create(code, description, collecting method, cathegory)
+                    TOTS --> TOT** : create(code, description, collecting method, pc)
                 deactivate TOTS
                 CTRL -> TOTS : validateTypeOfTest(tot)
                 activate TOTS
                 deactivate TOTS
     deactivate CTRL
-    UI --> ADMIN : presents data and asks for confirmation
+    UI --> ADMIN : shows all other parameter categories to select another (if needed)
 deactivate UI
-
+loop until all categories needed are selected
+    ADMIN -> UI : selects another category
+    activate UI
+        UI -> CTRL : addCategory(pcId)
+        activate CTRL
+        CTRL -> PCM : pc = getParameterCategory(pcId)
+        activate PCM
+        deactivate PCM
+        CTRL -> TOT : addParameterCategory(pc)
+        activate TOT
+        deactivate TOT
+        CTRL --> UI : confirmation
+        deactivate CTRL
+        UI --> ADMIN : category added
+    deactivate UI
+end loop
+UI --> ADMIN : shows data and asks confirmation
 ADMIN -> UI : Confirms the data
 activate UI
-    UI -> CTRL : saveTypeOfTest(code, description, collecting method, cathegory)
+    UI -> CTRL : saveTypeOfTest()
+    activate CTRL
+        CTRL -> TOTS : saveTypeOfTest(tot)
+    deactivate CTRL
 activate TOTS
             TOTS -> TOTS : validateTypeOfTest(tot)
             activate TOTS

@@ -85,6 +85,10 @@ public class Company {
         return this.totStore;
     }
 
+    /**
+     * This method returns the CA laboratory store used by the company
+     * @return the CA laboratory store
+     */
     public ClinicalAnalysisLaboratoryStore getClinicalAnalysisLaboratoryStore(){
         return this.calStore;
     }

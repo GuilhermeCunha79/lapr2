@@ -14,7 +14,7 @@ public class TypeOfTest {
     static final int DESCRIPTION_LENGTH = 15;
     static final int COLLECTING_METHOD_LENGTH = 20;
     static final String STRING_COLLECTING_METHODS="Collecting method";
-    private final List<ParameterCategory> parameterCategoryList;
+    private List<ParameterCategory> parameterCategoryList = new ArrayList<>();
     private String code;
     private String description;
     private String collectingMethod;
@@ -24,13 +24,13 @@ public class TypeOfTest {
      * @param code  of the type of test
      * @param description of the type of test
      * @param collectingMethod of the type of test
-     * @param parameterCategoryList of the type of test
+     * @param pc to be added to the type of test
      */
-    public TypeOfTest(String code, String description, String collectingMethod, List<ParameterCategory> parameterCategoryList){
+    public TypeOfTest(String code, String description, String collectingMethod, ParameterCategory pc){
         setCode(code);
         setDescription(description);
         setCollectingMethod(collectingMethod);
-        this.parameterCategoryList = new ArrayList<>(parameterCategoryList);
+        this.parameterCategoryList.add(pc);
     }
 
     /**
@@ -93,6 +93,14 @@ public class TypeOfTest {
         this.collectingMethod = collectingMethod;
     }
 
+    /**
+     * Method used to add the new parameter category to the test type received by parameter
+     * @param pc parameter category to be added
+     * @return (in)success of the operation
+     */
+    public boolean addParameterCategory(ParameterCategory pc){
+        return this.parameterCategoryList.add(pc);
+    }
     /**
      * This method returns a string with all the data of the instance of type of test that called the method
      *
