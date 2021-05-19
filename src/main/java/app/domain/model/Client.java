@@ -1,5 +1,6 @@
 package app.domain.model;
 
+import app.domain.dto.ClientDto;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
@@ -33,49 +34,19 @@ public class Client {
     static final String STRING_NHS_NUMBER = "NHS Number";
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
-    static final String SEX_BY_OMISSION = "Not defined";
 
     /***
      * Complete constructor for class Client
-     * @param name
-     * @param citizenCardNumber
-     * @param nhsNumber
-     * @0param tinNumber
-     * @param birthDate
-     * @param sex
-     * @param phoneNumber
-     * @param email
      */
-    public Client(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String sex, String phoneNumber, String email) {
-        setName(name);
-        setCitizenCardNumber(citizenCardNumber);
-        setNhsNumber(nhsNumber);
-        setTinNumber(tinNumber);
-        setBirthDate(birthDate);
-        setSex(sex);
-        setPhoneNumber(phoneNumber);
-        setEmail(email);
-    }
-
-    /***
-     * Constructor for class Client, without sex
-     * @param name
-     * @param citizenCardNumber
-     * @param nhsNumber
-     * @param tinNumber
-     * @param birthDate
-     * @param phoneNumber
-     * @param email
-     */
-    public Client(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String phoneNumber, String email) {
-        setName(name);
-        setCitizenCardNumber(citizenCardNumber);
-        setNhsNumber(nhsNumber);
-        setTinNumber(tinNumber);
-        setBirthDate(birthDate);
-        this.sex = SEX_BY_OMISSION;
-        setPhoneNumber(phoneNumber);
-        setEmail(email);
+    public Client(ClientDto dto) {
+        setName(dto.getName());
+        setCitizenCardNumber(dto.getCitizenCardNumber());
+        setNhsNumber(dto.getNhsNumber());
+        setTinNumber(dto.getTinNumber());
+        setBirthDate(dto.getBirthDate());
+        setSex(dto.getSex());
+        setPhoneNumber(dto.getPhoneNumber());
+        setEmail(dto.getEmail());
     }
 
     /***
