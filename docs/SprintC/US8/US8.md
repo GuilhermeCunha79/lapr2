@@ -164,8 +164,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## 3.3. Class Diagram (CD)
 
-**From alternative 1**
-![UC8_CD](UC8_CD.svg)
+![US8_CD](US8_CD.svg)
 
 
 # 4. Tests 

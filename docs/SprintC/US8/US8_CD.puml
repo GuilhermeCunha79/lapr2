@@ -30,9 +30,9 @@ class Company{
 
 class ClinicalAnalysisLaboratoryStore{
     + validateClinicalAnalysisLaboratory(cal)
-    + addClinicalAnalysisLaboratory(cal)
     + registerClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber)
     + saveClinicalAnalysisLaboratory(cal)
+    - addClinicalAnalysisLaboratory(cal)
 }
 
 class TestTypeStore{

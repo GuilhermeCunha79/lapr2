@@ -17,148 +17,146 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test(expected = NullPointerException.class)
     public void ensureNullClinicalAnalysisLaboratoryIsNotCreated() {
-        ctrl.registerNewClinicalAnalysisLaboratory(null, null, null, null, null, null);
+        ctrl.registerNewClinicalAnalysisLaboratory(null, null, null, null, null);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureClinicalAnalysisLaboratoryIsNotCreatedWithBlankAttributes() {
-        ctrl.registerNewClinicalAnalysisLaboratory("", "", "", "", "", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("", "", "", "", "");
     }
 
-    @Test()
+    @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericNameAreNotAccepted() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Henrique23", "12345678901", "a1234", "1234567890", "RuaDeFornos223", new ArrayList<>()));
+        ctrl.registerNewClinicalAnalysisLaboratory("43232", "sfas@dcasd", "asdcsdca", "12345617890", "3413323341");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotHaveMoreThan20Char() {
-        ctrl.registerNewClinicalAnalysisLaboratory("MariaFonsecaOliveiraDias", "12341234123", "b34d5", "2323148976", "AvenidaDaLiberdade34", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("43237", "asfsadsadssvaasvasdfa", "adfsdafasd", "23231418976", "1321232123");
     }
 
     @Test
     public void ensureNameCanHaveLessThan20Char() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("DiogoDias", "11234543565", "k9k87", "2123435459", "RuaDoCorvo65", new ArrayList<>()));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("13423", "safadsf", "avdasdvas", "21234135459", "1231241234"));
     }
 
     @Test
     public void ensureNameCanHave20Char() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("JoaoPedroSilvaDaniel", "45678989999", "f54f5", "7685450976", "RuaDosDescobrimentos17", new ArrayList<>()));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("f54f5", "JoaoPedroSilvaDaniel", "RuaDosDescobrimentos17", "76854509176", "7685459176"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotBeCreatedBlank() {
-        ctrl.registerNewClinicalAnalysisLaboratory("", "21213434345", "g5g67", "6543211121", "AvenidaDaMemoria34", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("31223", "", "aergadb", "65432111121", "654321111213");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensurePhoneNumberMustHaveNumbers() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Joana", "aaaaaaaaaaa", "w3x4d", "3434343434", "RuaEstreita41", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("13434", "aaaaaaaaaaa", "advasdv", "343434a3434", "343433423434");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensurePhoneNumberCannotHaveMoreThan11Digits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("JoaoPaulo", "234321564758", "q2w3e", "9645090867", "RuaCentral45", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("54343", "adavadsv", "advsdvad", "964509011867", "9645090118");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensurePhoneNumberCannotHaveLessThan11Digits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("RicardoReis", "4878657097", "we3r4", "4370954325", "RuaLateral87", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("65456", "asdvasdv", "we3advavr4", "4370954325", "4370954325");
     }
 
     @Test
     public void ensurePhoneNumberMustHave11Digits() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Rui", "23212123233", "d4r56", "9897898988", "RuaDezembro56", new ArrayList<>()));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("13243", "advasdv", "asdsav", "98978989188", "9897889188"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensurePhoneNumberCannotBeCreatedBlank() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Lia", "", "z3z45", "2434541421", "AvenidaRaimundo98", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("12424", "abcbzxc", "z3z45", "", "1242424434");
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void ensureLaboratoryIDMustHaveAlphanumericChar() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Sergio", "21987654323", "a23de", "4546567879", "RuaEscura76", new ArrayList<>()));
+        ctrl.registerNewClinicalAnalysisLaboratory("@£@@£", "dasgasdg", "asdgasdga", "45465671879", "4551671879");
     }
 
     @Test
     public void ensureLaboratoryIDMustHave5AlphanumericChar() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Sofia", "91211808691", "f120o", "1219659656", "AvenidaPicoto987", new ArrayList<>()));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("32143", "afsdgds", "agadga", "12196591656", "1243234423"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureLaboratoryIDCannotHaveMoreThan5AlphanumericChar() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Julia", "91481806878", "v545tt", "4346765699", "RuaDoCharco314", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("453244", "gsdgsdfgss", "sfgfdgsgfs", "43416765699", "3421343234");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureLaboratoryIDCannotHaveLessThan5AlphanumericChar() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Ana", "25643164854", "fr5e", "5459616498", "AvenidaDaSolidao76", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("123", "dadfasdf", "adsfasdf", "54591616498", "1231212412");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureLaboratoryIDCannotBeCreatedBlank() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Rita", "25556667543", "", "9998887776", "RuaDaAlegria34", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("", "davsdfasd", "asdfasdfas", "99988817776", "9998817776");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureTinNumberMustHaveDigits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Diana", "91621304747", "ft165", "1<12223332", "NacionalN1", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("12324", "adsgasd", "dasgasd", "11232223332", "NacionalN1");
     }
 
     @Test
     public void ensureTinNumberMustHave10Digits() {
-       assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Marta", "23113224565", "hji11", "9812143212", "AvenidaDaFelicidade21", new ArrayList<>()));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("32132", "daasgsdg", "adgasdas", "98121143212", "2314133244"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureTinNumberCannotHaveMoreThan10Digits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Raquel", "91411623636", "lk122", "22211122233", "AvenidaDaFaculdade67", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("12332", "adsfadsfas", "adfadsfas", "22211122233", "12412342341234");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureTinNumberCannotHaveLessThan10Digits() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Daniel", "91343221221", "lk122", "21", "RuaDoComercio32", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("14241", "asdgdsgda", "dafsdsfadf", "12341341324", "2142421");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureTinNumberCannotBeCreatedBlank() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Mario", "64821545632", "ghij7", "", "RuaApertada32", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("Mario", "adsfsdfasd", "afsasdfasd", "12341371324", "");
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void ensureNonAlphaNumericAddressAreNotAccepted() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Joaquim", "21232343454", "w9i9i", "5654987123", "RuaDoDragao1", new ArrayList<>()));
+        ctrl.registerNewClinicalAnalysisLaboratory("21243", "adsfsfasdf", "§@DSAFASD", "56549817123", "5654987123");
     }
 
     @Test
     public void ensureAddressCanHave30Char() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Maria", "33344433367", "aa2aa", "9634987899", "AvenidaDaRepublicaEArredores35", new ArrayList<>()));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Maria", "adfasdf", "aaadfasdasdasdsgasdasgsdgsd2aa", "96341987899", "1231313213"));
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureAddressCanHaveMoreThan30Char() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Rafael", "21114555676", "12g67", "8651345455", "AvenidadaRepublicaEDaLiberdade4566", new ArrayList<>());
+    public void ensureAddressCannotHaveMoreThan30Char() {
+        ctrl.registerNewClinicalAnalysisLaboratory("13412", "dasfasdfa", "aaadfasdasdasdsgasdasgsdgsd2aafasf", "86513451455", "1231313213");
     }
 
     @Test
     public void ensureAddressCanHaveLessThan30Char() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("Rafaela", "56566678798", "ert56", "2198674545", "Rua43", new ArrayList<>()));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("56754", "adsvsdvd", "ert56", "21986174545", "2186174545"));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureAddressCannotBeCreatedBlank() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Rui","55555666777", "123as", "1119998887", "", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("21319", "dadsvasdv", "", "11199980887", "1119998887");
     }
 
     @Test
     public void ensureCannotCreateSameClinicalAnalysisLaboratoryTwice() {
-        ctrl.registerNewClinicalAnalysisLaboratory("Tomas", "12345678907","gt615","1234567890","RuaSantosSilva44", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("13243", "adsfsdfad", "adsfasdfa", "12345678690", "2142534345");
         ctrl.saveClinicalAnalysisLaboratory();
-        ctrl.registerNewClinicalAnalysisLaboratory("Tomas", "12345678907","gt615","1234567890","RuaSantosSilva44", new ArrayList<>());
+        ctrl.registerNewClinicalAnalysisLaboratory("13243", "adsfsdfad", "adsfasdfa", "12345678690", "2142534345");
         assertFalse(ctrl.saveClinicalAnalysisLaboratory());
     }
-
-
 
 
 }
