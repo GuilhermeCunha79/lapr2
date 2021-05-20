@@ -5,20 +5,25 @@ actor "Administrator" as ADMIN
 
 participant ":System" as SYSTEM
 
-ADMIN -> SYSTEM : Ask to register a Employee
+ADMIN -> SYSTEM : Initiate register Employee process
 activate SYSTEM
-SYSTEM --> ADMIN : Requests necessary information (organizationRole, name, address, \nphoneNumber, email, soc)
+SYSTEM --> ADMIN : ask to select the employee role
 
 deactivate SYSTEM
 
-ADMIN -> SYSTEM : Inserts the data
+ADMIN -> SYSTEM : selects role from list
 activate SYSTEM
-SYSTEM --> ADMIN : Validates the data and asks for confirmation
+SYSTEM --> ADMIN : request necessary data (name, address, phoneNumber, email, soc)
 deactivate SYSTEM
 
-ADMIN -> SYSTEM : Confirms the data
+ADMIN -> SYSTEM : inserts data
 activate SYSTEM
-SYSTEM --> ADMIN : Tell the user that the employee has been successfully created
+SYSTEM --> ADMIN : presents data and asks for confirmation
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : confirms data
+activate SYSTEM
+SYSTEM --> ADMIN : informs success of the registration
 deactivate SYSTEM
 
 
