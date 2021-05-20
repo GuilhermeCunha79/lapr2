@@ -62,8 +62,8 @@ public class ClientStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean validateClient(Client client) {
-        String email = client.getEmail();
         for (Client clt : clientList) {
+            String email = client.getEmail();
             if (App.getInstance().getCompany().getAuthFacade().existsUser(email) || checkDuplicate(clt)) {
                 return false;
             }
