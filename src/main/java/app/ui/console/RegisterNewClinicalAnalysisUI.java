@@ -19,6 +19,8 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
 
         if (registerCALab())
             System.out.println("\nClinical analysis laboratory added to the system");
+        else
+            System.out.println("\nClinical analysis laboratory not added to the system");
     }
 
     /**
@@ -58,10 +60,12 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
                             done = true;
                             return ctrl.saveClinicalAnalysisLaboratory();
                         } else {
-                            System.out.println("Operation cancelled!");
+                            System.out.println("\nOperation cancelled!");
                             return false;
                         }
                     }
+                }else{
+                    System.out.println("\nFailed to add new clinical analysis laboratory");
                 }
             } catch (Exception e) {
                 
