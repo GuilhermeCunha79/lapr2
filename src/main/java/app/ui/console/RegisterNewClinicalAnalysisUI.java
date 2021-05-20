@@ -64,6 +64,7 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
                     }
                 }
             } catch (Exception e) {
+                
                 System.out.println(e.getLocalizedMessage());
             }
 

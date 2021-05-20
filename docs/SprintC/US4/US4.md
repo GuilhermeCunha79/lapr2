@@ -16,7 +16,7 @@ registered client.
 
 **From the specifications document:**
 
->	Typically, the client arrives at one of the clinical analysis laboratories with a lab order prescribed by
+>Typically, the client arrives at one of the clinical analysis laboratories with a lab order prescribed by
 a doctor. Once there, a receptionist asks the client’s citizen card number, the lab order (which
 contains the type of test and parameters to be measured), and registers in the application the test to
 be performed to that client.
@@ -80,14 +80,14 @@ NHS code: 12 alphanumeric characters.
 * Typed data:
     * Citizen card number
 * Selected data:
-    * Classifying Test Type category
     * Classifying Parameter
+    * Classifying Type Of Test category
 
 
 **Output Data:**
 
-* List of existing test Type categories
-* List of existing parameters for each test type categories
+* List of existing parameters for each type of test categories
+* List of existing type of test categories
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
@@ -99,7 +99,6 @@ NHS code: 12 alphanumeric characters.
 
 ### 1.7 Other Relevant Remarks
 
-* The created task stays in a "not published" state in order to distinguish from "published" tasks.
 
 
 ## 2. OO Analysis
@@ -141,15 +140,23 @@ n/a
 
 According to the taken rationale, the conceptual classes promoted to software classes are:
 
+* CreateTestUI
+* CreateTestController
+* Company
 
 Other software classes (i.e. Pure Fabrication) identified:
 
+* Test
+* TestDto
+* TypeOfTestMapper
+* ParameterMapper
+* ParameterStore
 
 
 ## 3.2. Sequence Diagram (SD)
 
 
-**SD_TestTypeMapper_toDTO_list**
+**SD_TypeOfTestMapper_toDTO_list**
 
 
 **SD_ParameterMapper_toDTO_list**

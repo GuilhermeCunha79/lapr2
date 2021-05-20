@@ -201,10 +201,10 @@ public class ClinicalAnalysisLaboratory {
         ClinicalAnalysisLaboratory clinicalAnalysisLaboratory = (ClinicalAnalysisLaboratory) o;
 
         return Objects.equals(phoneNumber, clinicalAnalysisLaboratory.phoneNumber)
-                && Objects.equals(laboratoryID, clinicalAnalysisLaboratory.laboratoryID)
-                && Objects.equals(tinNumber, clinicalAnalysisLaboratory.tinNumber)
-                && Objects.equals(address, clinicalAnalysisLaboratory.address)
-                && Objects.equals(typeOfTestList, clinicalAnalysisLaboratory.typeOfTestList);
+                || Objects.equals(laboratoryID, clinicalAnalysisLaboratory.laboratoryID)
+                || Objects.equals(tinNumber, clinicalAnalysisLaboratory.tinNumber)
+                || Objects.equals(address, clinicalAnalysisLaboratory.address)
+                || Objects.equals(typeOfTestList, clinicalAnalysisLaboratory.typeOfTestList);
     }
 
     /**

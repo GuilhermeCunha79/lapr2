@@ -4,7 +4,7 @@ actor "Receptionist" as REC
 
 participant ":CreateTestUI" as UI
 participant ":CreateTestController" as CTRL
-participant "camp\n:Company" as COMP
+participant "comp\n:Company" as COMP
 
 participant "testStore: TestStore" as TSTORE
 

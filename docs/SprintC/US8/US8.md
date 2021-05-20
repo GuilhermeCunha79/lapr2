@@ -69,8 +69,8 @@ allowed to exist?
 > **Question** Can a parameter be classified in more than one parameter category?
 
 > **Answer** No. Each parameter has only one category. There are no subcategories. 
-### 1.3. Acceptance Criteria
 
+### 1.3. Acceptance Criteria
 
 * **AC1:** All required fields must be filled in.
 * **AC2:** Phone number must have 11 digits
@@ -94,7 +94,6 @@ allowed to exist?
 * tinNumber
 * laboratoryID (only for clinical analysis laboratories)
 * address
-* typeOfTest
 	
 **Selected data**
 * Type of test 
@@ -259,4 +258,3 @@ No observations.
 
 
 
-[]: UC8.svg
