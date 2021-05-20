@@ -1,34 +1,34 @@
 @startuml
 autonumber
 
-participant "parameterMap:ParameterMapper" as PARMAPPER
-participant "storeParamater: ParameterStore" as PARSTORE
-participant "listParameterDto : List<ParameterDto>" as PARAMETERLIST
-participant "objDTO: ParameterDto" as PARAMETERDTO
+participant "parameterMap:ParameterMapper" as PMAPPER
+participant "storeParameter: ParameterStore" as PSTORE
+participant "listParameterDto : List<ParameterDto>" as PLIST
+participant "objDTO: ParameterDto" as PDTO
 participant "catStore : CategoryStore" as CATSTORE
 
 
-[o-> PARMAPPER : toDTO(categoryList)
-PARMAPPER -> PARAMETERLIST**: create()
+[o-> PMAPPER : toDTO(categoryList)
+PMAPPER -> PLIST**: create()
 
 loop For each object in categoryList
 
-PARMAPPER -> CATSTORE : parameterList = getParametersByCategory(i)
+PMAPPER -> CATSTORE : parameterList = getParametersByCategory(i)
 activate CATSTORE
 deactivate CATSTORE
     loop For each object in parameterList
-        PARMAPPER -> PARSTORE : parameterObj = getParameterById(j)
-        activate PARSTORE
-        deactivate PARSTORE
-        PARMAPPER -> PARMAPPER : objDto = toDTO(parameterObj)
-        PARMAPPER -> PARAMETERDTO** : create(code, name)
-        PARMAPPER -> PARAMETERLIST : add(objDto)
-        activate PARAMETERLIST
-        deactivate PARAMETERLIST
+        PMAPPER -> PSTORE : parameterObj = getParameterById(j)
+        activate PSTORE
+        deactivate PSTORE
+        PMAPPER -> PMAPPER : objDto = toDTO(parameterObj)
+        PMAPPER -> PDTO** : create(code, name)
+        PMAPPER -> PLIST : add(objDto)
+        activate PLIST
+        deactivate PLIST
     end
 end
 
-<-- PARMAPPER : listParameterDto
+<-- PMAPPER : listParameterDto
 
 
 @enduml

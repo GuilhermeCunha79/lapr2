@@ -5,13 +5,13 @@ actor "Receptionist" as RE
 activate RE
 RE -> ":System" : start the creation of a new test
 activate ":System"
-":System" --> RE : requests data (citizenCardNumber, NHS code)
+":System" --> RE : Asks to select a registered client from the list
 deactivate ":System"
-RE -> ":System" : types requested data
+RE -> ":System" : Selects one client
 activate ":System"
-":System" --> RE : shows test type list
+":System" --> RE : shows type of test list
 deactivate ":System"
-RE -> ":System" : selects a test Type
+RE -> ":System" : selects a type of test
 activate ":System"
 ":System" --> RE : shows parameter list
 loop

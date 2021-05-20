@@ -58,7 +58,7 @@ NHS code: 12 alphanumeric characters.
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** a test can have only one test type
+* **AC1:** a test can have only one type of test
 * **AC2:** a test can have only one client
 
 

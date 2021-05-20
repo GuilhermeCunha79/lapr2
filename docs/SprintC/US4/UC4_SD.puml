@@ -4,84 +4,84 @@ actor "Receptionist" as REC
 
 participant ":CreateTestUI" as UI
 participant ":CreateTestController" as CTRL
-participant "camp\n:Company" as CAMP
+participant "camp\n:Company" as COMP
 
 participant "testStore: TestStore" as TSTORE
 
-participant "store: ClientStore" as STORE
+participant "store: ClientStore" as CSTORE
 
-participant "storeTestType: TestTypeStore" as TTSTORE
+participant "storeTypeOfTest: TypeOfTestStore" as TTSTORE
 
 participant "test\n:Test" as TEST
-participant "testDto: TestDto" as TESTDTO
-participant "testTypeMap:TestTypeMapper" as TMAPPER
+participant "testDto: TestDto" as TDTO
+participant "typeOfTestMap:TypeOfTestMapper" as TTMAPPER
 
 participant "parameterMap:ParameterMapper" as PMAPPER
-participant "storeParamater: ParameterStore" as PSTORE
+participant "storeParameter: ParameterStore" as PSTORE
 
 
 activate REC
 REC -> UI : start the creation of a new test
 activate UI
-UI --> REC : requests data (citizanCardNumber, nhsCode)
+UI --> REC : Asks to select a registered client
 deactivate UI
-REC -> UI : types requested data
+REC -> UI : Select one client
 activate UI
 UI -> CTRL : addClient(**testDto**)
 activate CTRL
 
-CTRL -> CAMP : cliStore = getClientStore()
-activate CAMP
-deactivate CAMP
-CTRL -> TESTDTO : citizanCardNumber = getCitizanCardNumber()
-activate TESTDTO
-deactivate TESTDTO
-CTRL -> STORE : client = getClientByCitizenCard(citizanCardNumber)
-activate STORE
-deactivate STORE
+CTRL -> COMP : cliStore = getClientStore()
+activate COMP
+deactivate COMP
+CTRL -> TDTO : citizenCardNumber = getCitizenCardNumber()
+activate TDTO
+deactivate TDTO
+CTRL -> CSTORE : client = getClientByCitizenCard(citizenCardNumber)
+activate CSTORE
+deactivate CSTORE
 
 
-CTRL -> CAMP : ttStore = getTestTypeStore()
-activate CAMP
-deactivate CAMP
+CTRL -> COMP : ttStore = getTypeOfTestStore()
+activate COMP
+deactivate COMP
 
 deactivate TSTORE
 deactivate TEST
 
 
-CTRL -> TTSTORE : ttList=getTestTyleList()
+CTRL -> TTSTORE : ttList=getTypeOfTestList()
 activate TTSTORE
 deactivate TTSTORE
 CTRL -> TMAPPER** : toDTO(ttList)
 
 activate TMAPPER
 ref over TMAPPER
-  SD_TestTypeMapper_toDTO_list
+  SD_TypeOfTestMapper_toDTO_list
 end ref
 
 
-TMAPPER --> CTRL : listTestTypeDto
+TMAPPER --> CTRL : typeOfTestListDto
 deactivate TMAPPER
-CTRL --> UI : listTestTypeDto
+CTRL --> UI : typeOfTestListDto
 deactivate CTRL
-deactivate STORE
-UI --> REC: shows Test Type list
+deactivate CSTORE
+UI --> REC: shows type of test list
 deactivate CTRL
 deactivate UI
 
-REC -> UI : choose a test type
+REC -> UI : choose a type of test
 activate UI
 
-UI -> CTRL : addTestType(testTypeId)
+UI -> CTRL : addTypeOfTest(typeOfTestId)
 activate CTRL
-CTRL -> TTSTORE : testType = getTestTypeById(testTypeId)
+CTRL -> TTSTORE : typeOfTest = getTypeOfTestById(typeOfTestId)
 activate TTSTORE
 deactivate TTSTORE
 
 deactivate TSTORE
 deactivate TEST
 
-CTRL -> TTSTORE : categoryList = getCategoryListbyTestType(testType)
+CTRL -> TTSTORE : categoryList = getCategoryListByTypeOfTest(typeOfTest)
 
 activate TTSTORE
 deactivate TTSTORE
@@ -105,9 +105,9 @@ REC -> UI :  selects one parameter category
 activate UI
 UI -> CTRL : createTest(pcId)
 activate CTRL
-CTRL -> CAMP : testStore = getTestStore()
-activate CAMP
-deactivate CAMP
+CTRL -> COMP : testStore = getTestStore()
+activate COMP
+deactivate COMP
 
 CTRL -> TSTORE : test = createTest(client, testType, pcId)
 
@@ -129,7 +129,7 @@ loop [for any intended parameter category]
 
   REC -> UI : choose a parameter
   activate UI
-  UI -> CTRL : addParamter(parameterId)
+  UI -> CTRL : addParameter(parameterId)
   activate CTRL
   CTRL -> PSTORE : parameter = getParameterById(parameterId)
   activate PSTORE
@@ -164,7 +164,7 @@ deactivate TSTORE
 deactivate CTRL
 
 UI --> REC : informs operation success
-deactivate CAMP
+deactivate COMP
 deactivate CTRL
 deactivate UI
 deactivate REC

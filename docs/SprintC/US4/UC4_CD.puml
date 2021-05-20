@@ -13,7 +13,7 @@ class Company {
   -String designation
   + Company(designation)
   + getClientStore()
-  + getTestTypeStore()
+  + getTypeOfTestStore()
   + getParameterCategoryStore()
   + getParameterStore()
   + getTestStore()
@@ -23,9 +23,9 @@ class ClientStore {
   + getClientByCitizenCard(citizenCardNumber)
 }
 class TestTypeStore {
-  + getTestTyleList()
-  + getTestTypeById(test)
-  + getCategoryListbyTestType(test)
+  + getTypeOfTestList()
+  + getTypeOfTestById(test)
+  + getCategoryListByTypeOfTest(test)
 }
 
 
@@ -34,19 +34,19 @@ class ParameterStore {
 }
 
 class RegisterTestController {
-  + List<ParamaterDto> getListOfParameter()
-  + List<TestTypeDto> getListOfTesType()
+  + List<ParameterDto> getListOfParameter()
+  + List<TypeOfTestDto> getTypeOfTestList()
 }
 
 class TestStore
 
 class TestTypeMapper {
-  + List<TestTypeDto> toDTO(List<TestType> list)
-  + TestTypeDto toDTO(TestType obj)
+  + List<TypeOfTestDto> toDTO(List<TypeOfTest> list)
+  + TypeOfTestDto toDTO(TypeOfTest obj)
 }
 
 class ParameterMapper {
-  + List<ParamaterDto> toDTO(List<Parameter> list)
+  + List<ParameterDto> toDTO(List<Parameter> list)
   + ParameterDto toDTO(Parameter obj)
 }
 
@@ -59,7 +59,7 @@ class ParameterDto {
 class TestTypeDto {
   - code
   - description
-  +TestTypeDto(code, description)
+  +TypeOfTestDto(code, description)
 }
 
 class Parameter {
@@ -76,21 +76,21 @@ class RegisterTestUI
 RegisterTestController ..> Company
 RegisterTestController ..> Test
 RegisterTestController ..> ParameterMapper
-RegisterTestController ..> TestTypeMapper
-RegisterTestController ..> TestTypeDto
+RegisterTestController ..> TypeOfTestMapper
+RegisterTestController ..> TypeOfTestDto
 RegisterTestController ..> ParameterDto
-TestTypeMapper ..> TestType
-TestTypeMapper ..> TestTypeDto
+TypeOfTestMapper ..> TypeOfTest
+TypeOfTestMapper ..> TypeOfTestDto
 
 ParameterMapper ..> Parameter
 ParameterMapper ..> ParameterDto
 
 RegisterTestUI ..> ParameterDto
-RegisterTestUI ..> TestTypeDto
+RegisterTestUI ..> TypeOfTestDto
 RegisterTestUI ..> RegisterTestController
 Company "1" -> "1" TestStore : use
 Company "1" --> "1" ClientStore : use
-Company "1" --> "1" TestTypeStore : use
+Company "1" --> "1" TypeOfTestStore : use
 Company "1" --> "1" ParameterStore : use
 TestStore "1" -> "*" Test : knows
 
