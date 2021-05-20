@@ -5,12 +5,16 @@ import app.controller.App;
 
 import app.domain.mappers.dto.ClientDTO;
 import app.domain.model.Client;
+import app.domain.model.Parameter;
+import app.domain.shared.Constants;
 import app.domain.shared.SendingEmail;
 
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static app.domain.shared.CommonMethods.generatePassword;
 
 public class ClientStore {
 
@@ -59,8 +63,10 @@ public class ClientStore {
      */
     public boolean validateClient(Client client) {
         String email = client.getEmail();
-        if(App.getInstance().getCompany().getAuthFacade().existsUser(email) || checkDuplicate(client)){
-            return false;
+        for (Client clt : clientList) {
+            if (App.getInstance().getCompany().getAuthFacade().existsUser(email) || checkDuplicate(clt)) {
+                return false;
+            }
         }
         return true;
     }
@@ -68,15 +74,17 @@ public class ClientStore {
     private boolean checkDuplicate(Client client) {
         for (Client clt : clientList) {
             if (clt.equals(client)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
-    private void sendEmail(Client client, String pwd) throws IOException {
+    private void sendEmail(Client client, String pwd){
         String name = client.getName();
-        SendingEmail.sendEmailWithPassword(name,pwd);
+        if(name != null){
+            SendingEmail.sendEmailWithPassword(name, pwd);
+        }
     }
 
     /***

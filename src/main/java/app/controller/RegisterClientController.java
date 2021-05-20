@@ -6,6 +6,7 @@ import app.domain.model.Company;
 import app.domain.store.ClientStore;
 
 
+import java.io.IOException;
 import java.util.List;
 
 public class RegisterClientController {
@@ -26,7 +27,7 @@ public class RegisterClientController {
         return this.ctStore.validateClient(ct);
     }
 
-    public boolean saveClient() {
+    public boolean saveClient() throws IOException {
         return this.ctStore.saveClient(ct);
     }
 

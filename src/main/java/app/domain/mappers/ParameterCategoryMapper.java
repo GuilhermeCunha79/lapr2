@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ParameterCategoryMapper {
 
+
     public static List<String> toDTO (List<ParameterCategory> lPC){
         List<String> listPC = new ArrayList<>();
         for (ParameterCategory pc : lPC){

@@ -3,6 +3,8 @@ package app.controller;
 import app.domain.mappers.dto.ClientDTO;
 import org.junit.Test;
 
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
 public class RegisterClientControllerTest {
@@ -119,7 +121,7 @@ public class RegisterClientControllerTest {
     @Test
     public void ensureSexCanBeMaleFemale() {
         ClientDTO dto = new ClientDTO("Tomás", "1234567890123467","1234567890","1234567890","23/12/2002","male","12345678901", "tomas@isep.ipp.pt");
-        ctrl.newClient(dto);
+        assertTrue(ctrl.newClient(dto));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -138,7 +140,7 @@ public class RegisterClientControllerTest {
     @Test
     public void ensurePhoneNumberCanHave11Char() {
         ClientDTO dto = new ClientDTO("Tomás", "1234567890123417","1234567890","1234567890","23/12/2002","male","12345678901", "tomas@isep.ipp.pt");
-        ctrl.newClient(dto);
+        assertTrue(ctrl.newClient(dto));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -156,7 +158,7 @@ public class RegisterClientControllerTest {
     @Test
     public void ensureEmailHaveValidFormat() {
         ClientDTO dto = new ClientDTO("Tomás", "1234567890123452","1234567890","1234567890","23/12/2002","male","12345678901", "tomas@isep.ipp.pt");
-        ctrl.newClient(dto);
+        assertTrue(ctrl.newClient(dto));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -166,7 +168,7 @@ public class RegisterClientControllerTest {
     }
 
     @Test
-    public void ensureCannotCreateSameClientTwice() {
+    public void ensureCannotCreateSameClientTwice() throws IOException {
         ClientDTO dto = new ClientDTO("Tomás", "1234567890123455","1234567890","1234567890","23/12/2000","male","12345678901","tomas@isep.ipp.pt");
         ctrl.newClient(dto);
         ctrl.saveClient();

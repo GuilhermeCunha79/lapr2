@@ -11,11 +11,16 @@ public class SendingEmail {
      * @param password
      * @throws IOException
      */
-    public static void sendEmailWithPassword(String name, String password) throws IOException {
-        File email = new File("email.txt");
-        PrintWriter out = new PrintWriter(email);
+    public static void sendEmailWithPassword(String name, String password) {
+        try {
+            File email = new File("email.txt");
+            PrintWriter out = new PrintWriter(email);
 
-        out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%n%s", name, password);
-        out.close();
+            out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%n%s", name, password);
+            out.close();
+        }catch(Exception e){
+            System.out.println("Email not send");
+        }
+
     }
 }
