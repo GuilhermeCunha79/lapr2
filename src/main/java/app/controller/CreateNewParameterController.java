@@ -1,11 +1,12 @@
 package app.controller;
 
-import app.domain.mappers.ParameterCategoryMapper;
+
 import app.domain.model.Company;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
+import app.mappers.ParameterCategoryMapper;
 
 import java.util.List;
 

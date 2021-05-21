@@ -3,6 +3,7 @@ package app.domain.store;
 import app.controller.App;
 
 
+import app.domain.shared.Constants;
 import app.mappers.dto.ClientDTO;
 import app.domain.model.Client;
 import app.domain.shared.SendingEmail;
@@ -10,6 +11,8 @@ import app.domain.shared.SendingEmail;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static app.domain.shared.PasswordGenerator.generatePassword;
 
 public class ClientStore {
 
@@ -28,12 +31,17 @@ public class ClientStore {
 
     /***
      * This method validates the client received and adds it to the Parameter store by calling the method addClient
-     * @param ct
+     * @param client
      * @return if it was successfully added to the store (true or false)
      */
-    public boolean saveClient(Client ct) {
-        if (validateClient(ct)) {
-            return addClient(ct);
+    public boolean saveClient(Client client) {
+        String email = client.getEmail();
+        String name = client.getName();
+        String pwd = generatePassword();
+        if (validateClient(client)) {
+            App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
+            sendEmail(client, pwd);
+            return addClient(client);
         }
         return false;
     }

@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Lab Coordinator" as LABC
+
+participant ":System" as SYSTEM
+
+LABC -> SYSTEM : register a new client
+activate SYSTEM
+SYSTEM --> LABC : request mandatory data (results , report)
+deactivate SYSTEM
+
+LABC -> SYSTEM : insert the data
+activate SYSTEM
+SYSTEM --> LABC : shows the data and request a confirmation
+deactivate SYSTEM
+
+LABC -> SYSTEM : confirms the data
+activate SYSTEM
+SYSTEM --> LABC : informs operation success
+deactivate SYSTEM
+
+@enduml

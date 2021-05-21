@@ -1,9 +1,8 @@
 package app.controller;
 
-import app.domain.mappers.dto.ClientDTO;
-import org.junit.Test;
 
-import java.io.IOException;
+import app.mappers.dto.ClientDTO;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 
@@ -168,7 +167,7 @@ public class RegisterClientControllerTest {
     }
 
     @Test
-    public void ensureCannotCreateSameClientTwice() throws IOException {
+    public void ensureCannotCreateSameClientTwice() {
         ClientDTO dto = new ClientDTO("Tomás", "1234567890123455","1234567890","1234567890","23/12/2000","male","12345678901","tomas@isep.ipp.pt");
         ctrl.newClient(dto);
         ctrl.saveClient();
