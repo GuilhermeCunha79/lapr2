@@ -2,6 +2,8 @@ package app.domain.model;
 
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
+import app.mappers.dto.EmpDto;
+import auth.domain.model.UserRole;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
@@ -14,7 +16,6 @@ public class Employee {
     static final String STRING_ROLE = "Role";
     static final String STRING_SOC = "SOC Number";
     static final int MAX_CHAR_SOC = 4;
-    static final int MAX_CHAR_ADDRESS = 30;
 
     private static int employeeCount = 0;
     private final String employeeID;
@@ -26,23 +27,18 @@ public class Employee {
     private String soc;
 
     /**
-     * Constructor for class Employee.
+     * Constructor for class Employee using a data transfer object.
      *
-     * @param role
-     * @param name
-     * @param address
-     * @param phoneNumber
-     * @param email
-     * @param soc
+     * @param empDto
      */
-    public Employee(String role, String name, String address, String phoneNumber, String email, String soc) {
+    public Employee(EmpDto empDto) {
         employeeCount++;
-        setRole(role);
-        setName(name);
-        setAddress(address);
-        setPhoneNumber(phoneNumber);
-        setEmail(email);
-        setSoc(soc);
+        setRole(empDto.getRole());
+        setName(empDto.getName());
+        setAddress(empDto.getAddress());
+        setPhoneNumber(empDto.getPhoneNumber());
+        setEmail(empDto.getEmail());
+        setSoc(empDto.getSoc());
         this.employeeID = employeeIdCreator();
     }
 

@@ -1,13 +1,15 @@
 package app.domain.model;
 
 import app.domain.shared.Constants;
+import app.mappers.dto.EmpDto;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class EmployeeTest {
-    Employee employee = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", "1234");
-    Employee employee1 = new Employee(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111311221", "sfgsdfgsfdg@gmail.com", "1234");
+    EmpDto empDto = new EmpDto(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", "1234");
+    Employee employee = new Employee(empDto);
+    Employee employee1 = new Employee(empDto);
 
 
     /**

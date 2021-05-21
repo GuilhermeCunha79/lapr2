@@ -3,18 +3,13 @@ package app.domain.store;
 import app.controller.App;
 
 
-import app.domain.mappers.dto.ClientDTO;
+import app.mappers.dto.ClientDTO;
 import app.domain.model.Client;
-import app.domain.model.Parameter;
-import app.domain.shared.Constants;
 import app.domain.shared.SendingEmail;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static app.domain.shared.CommonMethods.generatePassword;
 
 public class ClientStore {
 
@@ -49,7 +44,7 @@ public class ClientStore {
      * @return if it was successfully added to the store (true or false)
      */
     private boolean addClient(Client ct) {
-        if (ct != null && validateClient(ct)) {
+        if (ct != null) {
             return this.clientList.add(ct);
         }
         return false;
@@ -74,10 +69,10 @@ public class ClientStore {
     private boolean checkDuplicate(Client client) {
         for (Client clt : clientList) {
             if (clt.equals(client)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     private void sendEmail(Client client, String pwd){

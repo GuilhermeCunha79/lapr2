@@ -5,6 +5,7 @@ import app.domain.model.Employee;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import app.domain.store.EmployeeStore;
+import app.mappers.dto.EmpDto;
 import auth.AuthFacade;
 
 public class RegisterEmployeeController {
@@ -42,16 +43,11 @@ public class RegisterEmployeeController {
 
     /**
      * Method that creates a specialist doctor from the given information
-     * @param role of the employee
-     * @param name of the employee
-     * @param address of the employee
-     * @param phoneNumber of the employee
-     * @param email of the employee
-     * @param soc of the employee
+     * @param empDto
      * @return true or false
      */
-    public boolean createEmployee(String role, String name, String address, String phoneNumber, String email, String soc){
-        this.emp = this.empStore.createEmployee(role, name, address, phoneNumber, email, soc);
+    public boolean createEmployee(EmpDto empDto){
+        this.emp = this.empStore.createEmployee(empDto);
         return this.empStore.validateEmployee(emp);
     }
 
@@ -67,8 +63,8 @@ public class RegisterEmployeeController {
      * Method that creates a specialist doctor from the given information
      * @return if it was validates or not (True or false)
      */
-    public boolean createSpecialistDoctor(String role, String name, String address, String phoneNumber, String email, String soc, int indexNumber){
-        this.emp = this.empStore.createSpecialistDoctor(role,name,address,phoneNumber,email,soc, indexNumber);
+    public boolean createSpecialistDoctor(EmpDto empDto){
+        this.emp = this.empStore.createSpecialistDoctor(empDto);
         return this.empStore.validateEmployee(emp);
     }
 

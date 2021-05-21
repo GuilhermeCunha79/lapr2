@@ -1,6 +1,6 @@
 package app.domain.model;
 
-import app.domain.mappers.dto.ClientDTO;
+import app.mappers.dto.ClientDTO;
 import org.junit.Assert;
 import org.junit.Test;
 import java.time.LocalDate;

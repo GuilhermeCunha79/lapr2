@@ -1,7 +1,9 @@
 package app.domain.store;
 
+import app.controller.App;
 import app.domain.model.Employee;
 import app.domain.model.SpecialistDoctor;
+import app.mappers.dto.EmpDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,32 +12,21 @@ public class EmployeeStore {
     private List<Employee> employeeList = new ArrayList<>();
 
     /**
-     * Method that receives information from the associated controller to create a new employee
-     * @param role of the employee
-     * @param name of the employee
-     * @param address of the employee
-     * @param phoneNumber of the employee
-     * @param email of the employee
-     * @param soc of the employee
+     * Method that receives information from the associated controller to create a new employee with data received from a dto
+     * @param empDto
      * @return the employee created
      */
-    public Employee createEmployee(String role, String name, String address, String phoneNumber, String email, String soc){
-        return new Employee(role, name, address, phoneNumber, email, soc);
+    public Employee createEmployee(EmpDto empDto){
+        return new Employee(empDto);
     }
 
     /**
-     * Method that receives parameters from the associated controller to create a new parameter category
-     * @param role of the employee
-     * @param name of the employee
-     * @param address of the employee
-     * @param phoneNumber of the employee
-     * @param email of the employee
-     * @param soc of the employee
-     * @param indexNumber of the employee
+     * Method that receives parameters from the associated controller to create a new Specialist Doctor with data received from a DTO
+     * @param empDto
      * @return the parameter category created
      */
-    public SpecialistDoctor createSpecialistDoctor(String role, String name, String address, String phoneNumber, String email, String soc, int indexNumber){
-        return new SpecialistDoctor(role, name, address, phoneNumber, email, soc, indexNumber);
+    public SpecialistDoctor createSpecialistDoctor(EmpDto empDto){
+        return new SpecialistDoctor(empDto);
     }
 
     /**
@@ -44,6 +35,16 @@ public class EmployeeStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean validateEmployee(Employee emp){
+        String email = emp.getEmail();
+        return !App.getInstance().getCompany().getAuthFacade().existsUser(email) && !checkDuplicates(emp);
+    }
+
+    /**
+     * This method is called by validateEmployee() and is function is to check if the employee that is being added is not already in the system
+     * @param emp
+     * @return if it already is in the system or not
+     */
+    private boolean checkDuplicates(Employee emp){
         for (Employee employee : employeeList){
             if(emp.equals(employee))
                 return false;
@@ -57,8 +58,12 @@ public class EmployeeStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean saveEmployee(Employee emp){
-        if(emp!=null && validateEmployee(emp))
+        if(validateEmployee(emp)) {
+            String name = emp.getName();
+            String role = emp.getRole();
+
             return addEmployee(emp);
+        }
         return false;
 
     }

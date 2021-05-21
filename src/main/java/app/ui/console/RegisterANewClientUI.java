@@ -1,7 +1,7 @@
 package app.ui.console;
 
 import app.controller.RegisterClientController;
-import app.domain.mappers.dto.ClientDTO;
+import app.mappers.dto.ClientDTO;
 import app.ui.console.utils.Utils;
 
 import java.util.Objects;

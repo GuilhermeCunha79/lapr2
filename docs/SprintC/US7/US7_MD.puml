@@ -21,8 +21,21 @@ class SpecialistDoctor{
     -doctorIndexNumber
 }
 
-Company "1" -- "*" Employee : has >
+class User {
+    -name
+    -email
+    -password
+}
+
+class OrganizationRole {
+    -description
+}
+
+Company "1" -- "*" Employee : employs >
+Company "1" -left- "*"OrganizationRole : "comprehends >"
 SpecialistDoctor -left-|> Employee
+Employee"*" -- "1"OrganizationRole : has >
+Employee"0..1" -up- "1"User : becomes >
 
 
 

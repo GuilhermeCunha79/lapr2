@@ -1,25 +1,30 @@
 package app.domain.model;
 
 import app.domain.shared.Constants;
+import app.mappers.dto.EmpDto;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class SpecialistDoctorTest {
 
-    SpecialistDoctor employee = new SpecialistDoctor(Constants.ROLE_SPECIALIST_DOCTOR, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", "1234",2);
-    SpecialistDoctor employee1 = new SpecialistDoctor(Constants.ROLE_SPECIALIST_DOCTOR, "Miguel", "Lisboa", "91131111221", "sfgsgsfdg@gmail.com", "4414",3);
+    EmpDto empDto = new EmpDto(Constants.ROLE_RECEPTIONIST, "Pedro", "Porto", "91111111221", "sfgsdfgsfdg@gmail.com", "1234", "123412");
+    EmpDto empDto1 = new EmpDto(Constants.ROLE_RECEPTIONIST, "Paulo", "Porto", "91111131221", "sfgsadfsgsfdg@gmail.com", "1274", "123112");
+
+
+    SpecialistDoctor employee = new SpecialistDoctor(empDto);
+    SpecialistDoctor employee1 = new SpecialistDoctor(empDto1);
 
     @Test
     public void getDoctorIndexNumber() {
-        int expected = 2;
+        String expected = "123412";
         assertEquals(expected, employee.getDoctorIndexNumber());
     }
 
     @Test
     public void setDoctorIndexNumber() {
-        employee.setDoctorIndexNumber(3);
-        int expected = 3;
+        employee.setDoctorIndexNumber("987654");
+        String expected = "987654";
         assertEquals(expected, employee.getDoctorIndexNumber());
     }
 

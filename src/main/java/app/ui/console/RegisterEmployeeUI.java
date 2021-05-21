@@ -4,6 +4,7 @@ package app.ui.console;
 import app.controller.RegisterEmployeeController;
 
 import app.domain.shared.CommonMethods;
+import app.mappers.dto.EmpDto;
 import app.ui.console.utils.Utils;
 
 import java.util.Objects;
@@ -31,8 +32,8 @@ public class RegisterEmployeeUI implements Runnable{
 
             try {
                 if(ctrl.isSpecialistDoctor(empRole))
-                    state = ctrl.createSpecialistDoctor(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc, Utils.readIntegerFromConsole("Introduce Doctor Index Number"));
-                state = ctrl.createEmployee(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc);
+                    state = ctrl.createSpecialistDoctor(new EmpDto(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc, Utils.readLineFromConsole("Introduce Doctor Index Number")));
+                state = ctrl.createEmployee(new EmpDto(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
 
                 if (state) {
                     String answer = Utils.readLineFromConsole(String.format("%nConfirm the employee data: %nCompany Role: %s%nName: %s%nAddress %s%nPhone Number: %s%nEmail: %s%nSOC: %s%n(Y/N)", empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));

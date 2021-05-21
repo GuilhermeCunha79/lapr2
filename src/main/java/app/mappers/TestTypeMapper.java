@@ -1,4 +1,4 @@
-package app.domain.mappers;
+package app.mappers;
 
 import app.domain.model.TypeOfTest;
 

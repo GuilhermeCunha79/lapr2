@@ -1,0 +1,95 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class RegisterEmployeeUI
+{
+}
+
+class RegisterEmployeeController
+{
+    +newEmployee(empDto)
+    +saveEmployee()
+}
+
+class Company{
+    -description;
+    +getRolesStore()
+    +getEmployeeStore()
+}
+
+class EmployeeStore{
+    +newEmployee(empDto)
+    +newSpecialistDoctor(empDto)
+    +validateEmployee(emp)
+    +saveEmployee(emp)
+    -checkDuplicates()
+    -generatePassword()
+    -addEmployee()
+    -sendEmail(emp, pwd)
+}
+
+class Employee
+{
+	-employeeID;
+	-name;
+	-address;
+	-phoneNumber;
+	-email;
+	-soc;
+	+getEmail()
+	+getRole()
+}
+
+class SpecialistDoctor{
+    -doctorIndexNumber
+}
+
+class EmpDto {
+    +getRole()
+    +getName()
+    +getAddress()
+    +getPhoneNumber()
+    +getEmail()
+    +getSoc()
+    +getDoctorIndexNumber()
+}
+
+class UserRoleStore {
+    +getById(roleId)
+}
+
+class AuthFacade {
+    +existUser(email)
+    +addUserWithRole(name, email, pwd, roleDesc)
+}
+
+class UserRole {
+    +getDescription()
+}
+
+class PasswordGenerator {
+    +generatePassword()
+}
+
+class EmailNotificationSender {
+    +sendEmailNotification(name, pwd)
+}
+
+
+RegisterEmployeeUI ..> RegisterEmployeeController
+RegisterEmployeeController ..> Company
+Company"1" --> "1"EmployeeStore : knows
+EmployeeStore"1" --> "*"Employee : stores
+SpecialistDoctor -right-|> Employee
+RegisterEmployeeController ..> EmployeeStore
+EmployeeStore .left.> UserRoleStore
+EmployeeStore .right.> AuthFacade
+EmployeeStore ..> UserRole
+EmployeeStore ..> EmpDto
+RegisterEmployeeUI ..> EmpDto
+RegisterEmployeeController .left.> EmpDto
+Employee ..> EmpDto
+SpecialistDoctor .up.> EmpDto
+EmployeeStore ..> PasswordGenerator
+EmployeeStore ..> EmailNotificationSender
+@enduml

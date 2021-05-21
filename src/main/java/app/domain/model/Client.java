@@ -1,6 +1,6 @@
 package app.domain.model;
 
-import app.domain.mappers.dto.ClientDTO;
+import app.mappers.dto.ClientDTO;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;

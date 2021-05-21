@@ -1,6 +1,6 @@
 package app.controller;
 
-import app.domain.mappers.ParameterCategoryMapper;
+import app.mappers.*;
 import app.domain.model.Company;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TypeOfTest;

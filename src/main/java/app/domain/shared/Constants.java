@@ -21,6 +21,7 @@ public class Constants {
     public static final String STRING_PHONE_NUMBER = "Phone Number";
     public static final String STRING_ADDRESS = "Address";
     public static final String STRING_TIN_NUMBER = "TIN Number";
+    public static final String STRING_DOC_INDEX_NUMB = "Doctor Index Number";
 
     //PARAMETER DIGITS
     public static final int ADDRESS_DIGITS = 30;
