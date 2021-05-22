@@ -56,12 +56,17 @@ Email.
 >
 > **Answer:**
 > The email address and phone number should be unique for each user . The system should present a message informing about the error and asking for a different phone number.
-
+> 
+> **Question:** Is there any restrictions to the client **age**?
+> **Answer:** A client should not have more than 150 years of age. Although there are important developments in the pursuit of eternal youth, for now this value is ok.
+> 
+> **Question:** **login** information?
+> **Answer:**  e-mail and password
 
 
 ### 1.3. Acceptance Criteria
 
-* **AC1:** The client must become a system user.
+* **AC1:** The client must become a system user. The "auth" component available on the repository must be reused (without modifications).
 * **AC2:** The "auth" component available on the repository must be reused (without modifications).
 * **AC3:** Name have a maximum of 35 characters;
 * **AC4:** Citizen Card must have 16 digit number;
@@ -94,7 +99,7 @@ must have a receptionist logged in, so the receptionist can register the client.
 
 ### 1.7 Other Relevant Remarks
 
-*Use this section to capture other relevant information that is related with this US such as (i) special requirements ; (ii) data and/or technology variations; (iii) how often this US is held.* 
+*There are some similarities to US 7 regarding the need (i) to generate a password and (ii) to send an email to the resulting user.*
 
 
 ## 2. OO Analysis
@@ -105,7 +110,7 @@ must have a receptionist logged in, so the receptionist can register the client.
 
 ### 2.2. Other Remarks
 
-*Use this section to capture some additional notes/remarks that must be taken into consideration into the design activity. In some case, it might be usefull to add other analysis artifacts (e.g. activity or state diagrams).* 
+n/a
 
 
 
@@ -117,19 +122,22 @@ must have a receptionist logged in, so the receptionist can register the client.
 
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
-| Step 1: Start new parameter |... interacting with the actor? | RegisterAnewClientUI | UI Layer is always responsible for user interactions |         
-| Step 2: Ask for the data |... requesting data needed? | RegisterAnewClientUI | UI Layer is responsible for user interaction |
-| Step 4: Create new parameter |... send command to register a new client? | RegisterClientController | Controller makes the bridge between UI layer and Domain Layer|
-| Step 5: Initiate store process|... start the store process for the client being registered? | Company | HC+LC: Company delegates some of its responsibilities to other classes |      
-| Step 6: Register new Client |... instantiating new Client? | ClientStore | Creator: R1/2 |      
-| Step 7: Save Data |... saving the introduced data? | Client | IE: instance of object created has its own data.  |
-| Step 8: Validate client |... validating all data (local validation)? | ClientStore | IE: knows its own data.|
-| Step 9: Present data to user |...requesting confirmation for data introduced? | RegisterAnewClient | UI Layer is responsible for user interaction |
-| Step 11: Save client |... send command to save the created client? | CreateNewParameterController | Controller makes the bridge between UI layer and Domain Layer|
-| Step 12: Save client |... saving the created client? | ClientStore | IE: stores all parameters created|
-| Step 13: Validate client globally |... validating all data at global level? | ClientStore | IE: Company Knows all existing Clients|
-| Step 14: Add client |... add created parameter to the list? | ClientStore | IE: Responsible to add new Client to the list|
-| Step 15: Operation success |... informing operation success?| RegisterAnewClientUI | UI Layer is responsible for user interactions.  |
+| Step 1                 |	... interacting with the actor? | RegisterClientUI   |  **Pure Fabrication:** there is no reason to assign this responsibility to any existing class in the Domain Model           |
+| 			  		     |	... coordinating the US? | RegisterClientController | **Controller**                             |
+| Step 2                 |							 |             |                              |
+| Step 3                 |	...transfer the data typed in the UI to the domain? | ClientDto | **DTO:** When there is so much data to transfer, it is better to opt by using a DTO in order to reduce coupling between UI and domain |
+|                        |	...saving the typed data? | Client  | **IE:** a client knows its own data 						 |             |                              |
+| 		                 |	... instantiating a new Client? | ClientStore   | **Creator (R1)** and **HC+LC**: By the application of the Creator (R1) it would be the "Company". But, by applying HC + LC to the "Company", this delegates that responsibility to the "ClientStore"   |
+|  		 			     |  ... knows ClientStore?	 |  Company   |  **IE:** Company knows the ClientStore to which it is delegating some tasks |
+|  		                 |	... validating all data (local validation)? | Client | **IE:** an object knows its data|
+| 			  		     |	... validating all data (global validation)? | ClientStore | **IE:** knows all the clients| 
+|                        | ... validate the exclusivity of the client's email? | AuthFacade | **IE:** user management is responsibility of the respective external component whose point of interaction is through the class "AuthFacade"
+| Step 4                 |	                |                   |                   |        
+| Step 5                   |	... generating the password? | PasswordGenerator | **IE** and **Pure Fabrication:** ClientStore has all the required information and means to generate the password (IE). However, to avoid code duplication (cf. US7) this responsibility might be assign to a common and shared artificial class, specialized in this task.|
+| 			  		     |	... registering the client as a system user? | AuthFacade | **IE:** cf. A&A component documentation | 
+| 			  		     |	... saving the client? | ClientStore | **IE:** Knows all clients| 
+| 			  		     |	... sending email? | EmailNotificationSender | **IE** and **Pure Fabrication:** has all the required information and means to send the email (IE). However, to avoid code duplication (cf. US7) this responsibility might be assign to a common and shared artificial class, specialized in this task.| 
+| Step 6                 |	... informing operation success?| RegisterClientUI  | **IE:** is responsible for user interactions  | 
 
 
 ### Systematization ##
@@ -152,9 +160,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 ![UC03_CD](UC03_CD.svg)
 
 # 4. Tests 
-*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.* 
-
-**_DO NOT COPY ALL DEVELOPED TESTS HERE_**
+*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.*
 
 **Test 1:** Check that it is not possible to create an instance of the Client class with null values. 
 

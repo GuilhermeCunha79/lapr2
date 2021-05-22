@@ -37,7 +37,7 @@ activate CTRL
         CL -> CLDTO : name=getName()
         activate CLDTO
         deactivate CLDTO
-        CL -> CLDTO : citizenCardNumber=getCitizenCardNumebr()
+        CL -> CLDTO : citizenCardNumber=getCitizenCardNumber()
         activate CLDTO
         deactivate CLDTO
         CL -> CLDTO : nhsNumber=getNhsNumber()

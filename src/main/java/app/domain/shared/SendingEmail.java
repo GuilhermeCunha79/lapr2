@@ -13,10 +13,10 @@ public class SendingEmail {
      */
     public static void sendEmailWithPassword(String name, String email, String password) {
         try {
-            File emailBox = new File("%s.txt", email);
+            File emailBox = new File("emailAndSMSMessages.txt");
             PrintWriter out = new PrintWriter(emailBox);
 
-            out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%n%s", name, password);
+            out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%n Login data: %s%n%s", name, email, password);
             out.close();
         }catch(Exception e){
             System.out.println("Email not send");
@@ -24,3 +24,29 @@ public class SendingEmail {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
