@@ -85,8 +85,9 @@ public class ClientStore {
 
     private void sendEmail(Client client, String pwd){
         String name = client.getName();
+        String email = client.getEmail();
         if(name != null){
-            SendingEmail.sendEmailWithPassword(name, pwd);
+            SendingEmail.sendEmailWithPassword(name,email, pwd);
         }
     }
 

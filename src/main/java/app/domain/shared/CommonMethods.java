@@ -203,7 +203,7 @@ public class CommonMethods {
         String password = CommonMethods.generatePassword();
         try {
             if (authFacade.addUserWithRole(name, email, password, role)) {
-                SendingEmail.sendEmailWithPassword(name, password);
+                SendingEmail.sendEmailWithPassword(name, email, password);
                 return true;
             }
         }catch(Exception e){
