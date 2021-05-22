@@ -6,7 +6,7 @@ import app.controller.App;
 import app.domain.shared.Constants;
 import app.mappers.dto.ClientDTO;
 import app.domain.model.Client;
-import app.domain.shared.SendingEmail;
+import app.domain.shared.SendingEmailSMS;
 
 
 import java.util.ArrayList;
@@ -84,7 +84,7 @@ public class ClientStore {
         String name = client.getName();
         String email = client.getEmail();
         if(name != null){
-            SendingEmail.sendEmailWithPassword(name,email, pwd);
+            SendingEmailSMS.sendEmailWithPassword(name,email, pwd);
         }
     }
 

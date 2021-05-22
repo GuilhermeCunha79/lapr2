@@ -9,7 +9,7 @@ participant ":System" as SYSTEM
 
 LABC -> SYSTEM : register a new client
 activate SYSTEM
-SYSTEM --> LABC : request mandatory data (results , report)
+SYSTEM --> LABC : request mandatory data (resultsClinicalAnalysis , report,chemicalAnalysisDate; diagnosisDate)
 deactivate SYSTEM
 
 LABC -> SYSTEM : insert the data

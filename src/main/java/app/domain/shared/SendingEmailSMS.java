@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class SendingEmail {
+public class SendingEmailSMS {
     /***
      * Method that sends a email with the password
      * @param name

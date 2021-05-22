@@ -5,7 +5,7 @@ import app.domain.model.Employee;
 import app.domain.model.SpecialistDoctor;
 import app.domain.shared.Constants;
 import app.domain.shared.PasswordGenerator;
-import app.domain.shared.SendingEmail;
+import app.domain.shared.SendingEmailSMS;
 import app.mappers.dto.EmpDto;
 import auth.domain.model.UserRole;
 import auth.domain.store.UserRoleStore;
@@ -86,7 +86,7 @@ public class EmployeeStore {
             String pwd = PasswordGenerator.generatePassword();
             App.getInstance().getCompany().getAuthFacade().addUserWithRole(emp.getName(), emp.getEmail(), pwd, roleDesc);
             if(addEmployee(emp)) {
-                SendingEmail.sendEmailWithPassword(emp.getName(), emp.getEmail(), pwd);
+                SendingEmailSMS.sendEmailWithPassword(emp.getName(), emp.getEmail(), pwd);
                 return true;
             }
         }
