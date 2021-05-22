@@ -2,15 +2,15 @@ package app.mappers.dto;
 
 public class EmpDto {
     private String name;
-    private String role;
+    private String roleId;
     private String address;
     private String phoneNumber;
     private String email;
     private String soc;
     private String doctorIndexNumber;
 
-    public EmpDto(String role, String name, String address, String phoneNumber, String email, String soc){
-        this.role = role;
+    public EmpDto(String roleId, String name, String address, String phoneNumber, String email, String soc) {
+        this.roleId = roleId;
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
@@ -18,8 +18,8 @@ public class EmpDto {
         this.soc = soc;
     }
 
-    public EmpDto(String role, String name, String address, String phoneNumber, String email, String soc, String doctorIndexNumber){
-        this.role = role;
+    public EmpDto(String roleId, String name, String address, String phoneNumber, String email, String soc, String doctorIndexNumber) {
+        this.roleId = roleId;
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
@@ -32,8 +32,8 @@ public class EmpDto {
         return name;
     }
 
-    public String getRole() {
-        return role;
+    public String getRoleId() {
+        return roleId;
     }
 
     public String getAddress() {

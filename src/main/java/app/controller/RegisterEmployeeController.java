@@ -2,11 +2,10 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.Employee;
-import app.domain.shared.CommonMethods;
-import app.domain.shared.Constants;
 import app.domain.store.EmployeeStore;
 import app.mappers.dto.EmpDto;
-import auth.AuthFacade;
+import auth.domain.model.UserRole;
+import auth.domain.store.UserRoleStore;
 
 public class RegisterEmployeeController {
     public Employee employee;
@@ -14,14 +13,12 @@ public class RegisterEmployeeController {
     private EmployeeStore empStore;
     private Employee emp;
 
-    private AuthFacade authFacade;
 
     /**
      * This method gets the company employee store
      */
     public RegisterEmployeeController (){
         this(App.getInstance().getCompany());
-        ;
     }
 
     /**
@@ -29,16 +26,7 @@ public class RegisterEmployeeController {
      * @param company
      */
     public RegisterEmployeeController(Company company){
-        this.empStore = company.getEmpStore();
-        this.authFacade = company.getAuthFacade();
-    }
-
-    /**
-     * Method that checks if the employee is a specialist doctor or not
-     * @return if it is a specialist doctor (True or false)
-     */
-    public boolean isSpecialistDoctor(String role){
-        return role.equalsIgnoreCase(Constants.ROLE_SPECIALIST_DOCTOR);
+        this.empStore = company.getEmployeeStore();
     }
 
     /**
@@ -46,17 +34,18 @@ public class RegisterEmployeeController {
      * @param empDto
      * @return true or false
      */
-    public boolean createEmployee(EmpDto empDto){
+    public boolean newEmployee(EmpDto empDto){
         this.emp = this.empStore.createEmployee(empDto);
-        return this.empStore.validateEmployee(emp);
+        if(this.empStore.validateEmployee(emp)) {
+            addEmployeeRole(empDto);
+            return true;
+        }
+        return false;
     }
-
-    /**
-     * Method that adds the given information in a user and after introduces it in the system
-     * @return if it was added (True or false)
-     */
-    private boolean addUserToSystem(String name, String email, String role) {
-        return CommonMethods.addUserToSystem(name, email, role, this.authFacade);
+    
+    public void addEmployeeRole(EmpDto empDto){
+        UserRole role = empStore.getUserRole(empDto.getRoleId());
+        emp.setRole(role);
     }
 
     /**
@@ -69,12 +58,19 @@ public class RegisterEmployeeController {
     }
 
     /**
+     * Method that checks if the employee is a specialist doctor or not
+     * @return if it is a specialist doctor (True or false)
+     */
+    public boolean isSpecialistDoctor(String role){
+        UserRole userRole = empStore.getUserRole(role.toUpperCase());
+        return empStore.isSpecialistDoctor(role);
+    }
+
+    /**
      * Method that asks the employee store to save the category being created
      * @return if it was saved (True or false)
      */
     public boolean saveEmployee() {
-        if(this.empStore.saveEmployee(emp))
-            return addUserToSystem(emp.getName(), emp.getEmail(), emp.getRole());
-        return false;
+        return this.empStore.saveEmployee(emp);
     }
 }

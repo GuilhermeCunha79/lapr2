@@ -97,7 +97,7 @@ public class Company {
      * This method returns the employee store used by the company
      * @return the employee store
      */
-    public EmployeeStore getEmpStore(){
+    public EmployeeStore getEmployeeStore(){
         return this.empStore;
     }
 }

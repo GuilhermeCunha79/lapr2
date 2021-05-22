@@ -19,7 +19,7 @@ public class Employee {
 
     private static int employeeCount = 0;
     private final String employeeID;
-    private String role;
+    private UserRole role;
     private String name;
     private String address;
     private String phoneNumber;
@@ -33,7 +33,6 @@ public class Employee {
      */
     public Employee(EmpDto empDto) {
         employeeCount++;
-        setRole(empDto.getRole());
         setName(empDto.getName());
         setAddress(empDto.getAddress());
         setPhoneNumber(empDto.getPhoneNumber());
@@ -75,7 +74,7 @@ public class Employee {
      *
      * @return the employee's role
      */
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
@@ -84,13 +83,9 @@ public class Employee {
      *
      * @param role
      */
-    public void setRole(String role) {
+    public void setRole(UserRole role) {
         if (role == null)
             throw new NullPointerException(STRING_ROLE + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(role))
-            throw new IllegalArgumentException(STRING_ROLE + Constants.STRING_BLANK_EXEPT);
-        if (!(role.equalsIgnoreCase(Constants.ROLE_ADMIN) || role.equalsIgnoreCase(Constants.ROLE_RECEPTIONIST) || role.equalsIgnoreCase(Constants.ROLE_SPECIALIST_DOCTOR)))
-            throw new IllegalArgumentException("The inserted" + STRING_ROLE  + "it's not valid");
         this.role = role;
     }
 
@@ -205,16 +200,6 @@ public class Employee {
         if (this == o) return true;
         else if (!(o instanceof Employee)) return false;
         Employee employee = (Employee) o;
-        return getEmployeeID().equals(employee.getEmployeeID()) && getPhoneNumber().equals(employee.getPhoneNumber()) && getSoc().equals(employee.getSoc()) && getRole().equals(employee.getRole()) && getName().equals(employee.getName()) && getAddress().equals(employee.getAddress()) && getEmail().equals(employee.getEmail());
-    }
-
-    /**
-     * Method that returns the hash code
-     *
-     * @return the hash code
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(getEmployeeID(), getRole(), getName(), getAddress(), getPhoneNumber(), getEmail(), getSoc());
+        return getEmployeeID().equals(employee.getEmployeeID()) || getPhoneNumber().equals(employee.getPhoneNumber()) || getSoc().equals(employee.getSoc()) || getEmail().equals(employee.getEmail());
     }
 }

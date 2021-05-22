@@ -57,8 +57,9 @@ public class SpecialistDoctor extends Employee {
         else if (!(o instanceof SpecialistDoctor)) return false;
         else if (!super.equals(o)) return false;
         SpecialistDoctor specDoc = (SpecialistDoctor) o;
-        return getDoctorIndexNumber() == specDoc.getDoctorIndexNumber()
+        return getDoctorIndexNumber().equals(specDoc.getDoctorIndexNumber())
                 || super.getPhoneNumber().equals(specDoc.getPhoneNumber())
-                || super.getEmail().equals(specDoc.getEmail());
+                || super.getEmail().equals(specDoc.getEmail())
+                || super.getSoc().equals(specDoc.getSoc());
     }
 }
