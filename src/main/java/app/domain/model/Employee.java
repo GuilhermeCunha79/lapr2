@@ -183,7 +183,7 @@ public class Employee {
         if (soc == null)
             throw new NullPointerException(STRING_SOC + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(soc))
-            throw new NullPointerException(STRING_SOC + Constants.STRING_BLANK_EXEPT);
+            throw new IllegalArgumentException(STRING_SOC + Constants.STRING_BLANK_EXEPT);
         if (soc.length() != MAX_CHAR_SOC)
             throw new IllegalArgumentException("SOC needs to have exactly 4 characters.");
         this.soc = soc;

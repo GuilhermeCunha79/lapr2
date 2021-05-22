@@ -33,7 +33,7 @@ public class EmployeeStore {
      * @param empDto
      * @return the specialist doctor created
      */
-    public Employee createSpecialistDoctor(EmpDto empDto) {
+    public SpecialistDoctor createSpecialistDoctor(EmpDto empDto) {
         return new SpecialistDoctor(empDto);
     }
 
@@ -102,14 +102,5 @@ public class EmployeeStore {
      */
     private boolean addEmployee(Employee emp) {
         return this.employeeList.add(emp);
-    }
-
-    /**
-     * This method return a copy of the employee List for other classes that need to access it
-     *
-     * @return List of employee
-     */
-    public List<Employee> getEmployeeList() {
-        return new ArrayList<>(employeeList);
     }
 }

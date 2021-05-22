@@ -52,7 +52,9 @@ public class CommonMethods {
 
         Pattern pat = Pattern.compile(emailRegex);
         if (email == null)
-            return false;
+            throw new NullPointerException("No email inserted");
+        if (StringUtils.isBlank(email))
+            throw new IllegalArgumentException("No email introduced");
         return pat.matcher(email).matches();
     }
 
@@ -86,21 +88,6 @@ public class CommonMethods {
             return false;
         }
         return true;
-    }
-
-    /***
-     * Method that generate RANDOM
-     * @return result
-     */
-    public static String generatePassword() {
-        int len = 10;
-        String alphanumericChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        String result = "";
-        for (int i = 0; i < len; i++) {
-            int index = random.nextInt(alphanumericChars.length());
-            result += alphanumericChars.charAt(index);
-        }
-        return result;
     }
 
     /***
@@ -188,27 +175,5 @@ public class CommonMethods {
             throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_BLANK_EXEPT);
         if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() != Constants.NHS_TIN_NUMBER_DIGITS))
             throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_NOT_MORE_THAN_10);
-    }
-
-
-    /***
-     * Method that user in the system and send a confirmation with the password
-     * @param name
-     * @param email
-     * @param role
-     * @param authFacade
-     * @return
-     */
-    public static boolean addUserToSystem(String name, String email, String role, AuthFacade authFacade) {
-        String password = CommonMethods.generatePassword();
-        try {
-            if (authFacade.addUserWithRole(name, email, password, role)) {
-                SendingEmail.sendEmailWithPassword(name, email, password);
-                return true;
-            }
-        }catch(Exception e){
-            return false;
-        }
-        return false;
     }
 }

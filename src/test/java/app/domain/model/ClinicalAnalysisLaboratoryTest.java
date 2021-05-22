@@ -3,8 +3,6 @@ package app.domain.model;
 
 import org.junit.Test;
 
-import javax.naming.Name;
-import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 

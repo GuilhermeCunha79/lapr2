@@ -52,9 +52,13 @@ public class RegisterEmployeeController {
      * Method that creates a specialist doctor from the given information
      * @return if it was validates or not (True or false)
      */
-    public boolean createSpecialistDoctor(EmpDto empDto){
+    public boolean newSpecialistDoctor(EmpDto empDto){
         this.emp = this.empStore.createSpecialistDoctor(empDto);
-        return this.empStore.validateEmployee(emp);
+        if(this.empStore.validateEmployee(emp)){
+            addEmployeeRole(empDto);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -62,7 +66,6 @@ public class RegisterEmployeeController {
      * @return if it is a specialist doctor (True or false)
      */
     public boolean isSpecialistDoctor(String role){
-        UserRole userRole = empStore.getUserRole(role.toUpperCase());
         return empStore.isSpecialistDoctor(role);
     }
 

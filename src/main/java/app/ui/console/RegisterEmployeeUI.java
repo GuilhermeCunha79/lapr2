@@ -29,7 +29,7 @@ public class RegisterEmployeeUI implements Runnable{
 
             try {
                 if(ctrl.isSpecialistDoctor(empRole))
-                    state = ctrl.createSpecialistDoctor(new EmpDto(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc, Utils.readLineFromConsole("Introduce doctor index number: ")));
+                    state = ctrl.newSpecialistDoctor(new EmpDto(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc, Utils.readLineFromConsole("Introduce doctor index number: ")));
                 state = ctrl.newEmployee(new EmpDto(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
 
                 if (state) {
