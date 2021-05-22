@@ -65,20 +65,17 @@ public class ClientStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean validateClient(Client client) {
-        for (Client clt : clientList) {
             String email = client.getEmail();
-            if (App.getInstance().getCompany().getAuthFacade().existsUser(email) || checkDuplicate(clt)) {
+            if(App.getInstance().getCompany().getAuthFacade().existsUser(email) || checkDuplicate(client)){
                 return false;
             }
-        }
-        return true;
+            return true;
     }
 
     private boolean checkDuplicate(Client client) {
         for (Client clt : clientList) {
-            if (clt.equals(client)) {
+            if (clt.equals(client))
                 return true;
-            }
         }
         return false;
     }

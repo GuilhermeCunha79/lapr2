@@ -16,7 +16,7 @@ public class SendingEmail {
             File emailBox = new File("emailAndSMSMessages.txt");
             PrintWriter out = new PrintWriter(emailBox);
 
-            out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%n Login data: %s%n%s", name, email, password);
+            out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%nLogin data: %nEmail: %s%nPassword: %s", name, email, password);
             out.close();
         }catch(Exception e){
             System.out.println("Email not send");
