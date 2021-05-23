@@ -15,7 +15,7 @@ import java.util.List;
 
 public class EmployeeStore {
 
-    private List<Employee> employeeList = new ArrayList<>();
+    private final List<Employee> employeeList = new ArrayList<>();
 
     /**
      * Method that receives information from the associated controller to create a new employee with data received from a dto
@@ -42,13 +42,15 @@ public class EmployeeStore {
         return userRole.hasId(Constants.ROLE_SPECIALIST_DOCTOR);
     }
 
-    public UserRole getUserRole(String roleId){
+    public UserRole getUserRole(String roleId) {
         UserRoleStore roles = App.getInstance().getCompany().getAuthFacade().getUserRoleStore();
-        if (!roles.getById(roleId).isPresent()) {
+        if (roles.getById(roleId).isPresent())
+            return roles.getById(roleId).get();
+        else
             throw new IllegalArgumentException("Typed role isn't available in the system.");
-        }
-        return roles.getById(roleId).get();
+
     }
+
     /**
      * Method responsible to validate a new employee before it's added to the list when called by the saveParameterCategory method
      *
@@ -85,10 +87,10 @@ public class EmployeeStore {
             String roleDesc = emp.getRole().getDescription();
             String pwd = PasswordGenerator.generatePassword();
             App.getInstance().getCompany().getAuthFacade().addUserWithRole(emp.getName(), emp.getEmail(), pwd, roleDesc);
-            if(addEmployee(emp)) {
-                SendingEmailSMS.sendEmailWithPassword(emp.getName(), emp.getEmail(), pwd);
-                return true;
-            }
+            addEmployee(emp);
+            SendingEmailSMS.sendEmailWithPassword(emp.getName(), emp.getEmail(), pwd);
+            return true;
+
         }
         return false;
 
@@ -100,7 +102,7 @@ public class EmployeeStore {
      * @param emp receives the Parameter category to be added
      * @return if it was successfully added to the store (true or false)
      */
-    private boolean addEmployee(Employee emp) {
-        return this.employeeList.add(emp);
+    private void addEmployee(Employee emp) {
+        this.employeeList.add(emp);
     }
 }

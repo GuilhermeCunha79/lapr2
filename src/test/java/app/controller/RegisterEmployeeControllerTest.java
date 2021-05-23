@@ -2,6 +2,7 @@ package app.controller;
 
 
 import app.mappers.dto.EmpDto;
+import auth.AuthFacade;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -44,7 +45,7 @@ public class RegisterEmployeeControllerTest {
         EmpDto dto = new EmpDto("Receptionist", "John", "Street 101", "98989898989", "john@gmail.com","1231");
         ctrl.newEmployee(dto);
         ctrl.saveEmployee();
-        ctrl.newEmployee(dto);
+        assertFalse(ctrl.newEmployee(dto));
     }
 
     @Test
@@ -52,7 +53,7 @@ public class RegisterEmployeeControllerTest {
         EmpDto dto = new EmpDto("Specialist doctor", "John", "Street 101", "98989888989", "johns@gmail.com","1931", "121456");
         ctrl.newSpecialistDoctor(dto);
         ctrl.saveEmployee();
-        ctrl.newSpecialistDoctor(dto);
+        assertFalse(ctrl.newSpecialistDoctor(dto));
     }
 
 
