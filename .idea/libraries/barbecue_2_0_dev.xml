@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="barbecue-2.0-dev">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/barbecue-2.0-dev.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/CovidReferenceValues1API.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/ExternalModule2API.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/ExternalModule3API.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
