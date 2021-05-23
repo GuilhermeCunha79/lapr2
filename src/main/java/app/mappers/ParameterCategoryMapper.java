@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParameterCategoryMapper {
+    private ParameterCategoryMapper() {
+        throw new IllegalStateException("Utility class");
+    }
 
 
     public static List<String> toDTO (List<ParameterCategory> lPC){

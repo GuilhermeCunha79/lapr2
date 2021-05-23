@@ -13,7 +13,7 @@ Mlt --> ":System" : select test
 activate ":System"
 ":System"--> Mlt : output selected test and ask the number of samples (int)
 deactivate ":System"
-Mlt --> ":System" : imput the number of samples (int)
+Mlt --> ":System" : input the number of samples (int)
 activate ":System"
 ":System" --> Mlt : requests data (UPC)
 loop

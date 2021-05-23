@@ -34,7 +34,7 @@ public class CreateParameterCategoryUI implements Runnable {
 
                 boolean created = ctrl.createNewParameterCategory(catCode, catName);
                 if (created) {
-                    System.out.printf("\nConfirm parameter category: \nName: %s\nCode: %s\n", catName, catCode);
+                    System.out.printf("%nConfirm parameter category: %nName: %s%nCode: %s%n", catName, catCode);
                     if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
                         done = true;
                         return ctrl.saveParameterCategory();

@@ -7,6 +7,10 @@ import java.util.List;
 
 public class TestTypeMapper {
 
+    private TestTypeMapper() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static List<String> toDto(List<TypeOfTest>lTT) {
         List<String> totListDto = new ArrayList<>();
         for(TypeOfTest typeOfTest:lTT){

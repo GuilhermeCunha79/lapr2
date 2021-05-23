@@ -10,7 +10,7 @@ public class ClientDTO {
     private String phoneNumber;
     private String email;
 
-    public static  String SEX_BY_OMISSION = "Not defined";
+    public static final String SEX_BY_OMISSION = "Not defined";
 
     public ClientDTO(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String sex, String phoneNumber, String email) {
         this.name=name;

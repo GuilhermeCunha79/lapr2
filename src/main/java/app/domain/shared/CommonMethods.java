@@ -1,12 +1,7 @@
 package app.domain.shared;
 
-import auth.AuthFacade;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.security.SecureRandom;
 import java.util.regex.Pattern;
 
 
@@ -18,8 +13,6 @@ public class CommonMethods {
     private CommonMethods() {
         throw new IllegalStateException("Utility class");
     }
-
-    private static SecureRandom random = new SecureRandom();
 
     /***
      * Verify if the given string just have numbers

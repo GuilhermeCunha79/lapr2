@@ -65,11 +65,8 @@ public class ClientStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean validateClient(Client client) {
-            String email = client.getEmail();
-            if(App.getInstance().getCompany().getAuthFacade().existsUser(email) || checkDuplicate(client)){
-                return false;
-            }
-            return true;
+        String email = client.getEmail();
+        return !App.getInstance().getCompany().getAuthFacade().existsUser(email) && !checkDuplicate(client);
     }
 
     private boolean checkDuplicate(Client client) {
@@ -80,11 +77,11 @@ public class ClientStore {
         return false;
     }
 
-    private void sendEmail(Client client, String pwd){
+    private void sendEmail(Client client, String pwd) {
         String name = client.getName();
         String email = client.getEmail();
-        if(name != null){
-            SendingEmailSMS.sendEmailWithPassword(name,email, pwd);
+        if (name != null) {
+            SendingEmailSMS.sendEmailWithPassword(name, email, pwd);
         }
     }
 

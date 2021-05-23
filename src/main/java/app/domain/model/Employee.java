@@ -6,8 +6,6 @@ import app.mappers.dto.EmpDto;
 import auth.domain.model.UserRole;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Objects;
-
 
 /**
  * Employee class

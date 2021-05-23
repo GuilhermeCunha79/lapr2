@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class SendingEmailSMS {
+    private SendingEmailSMS() {
+        throw new IllegalStateException("Utility class");
+    }
     /***
      * Method that sends a email with the password
      * @param name
