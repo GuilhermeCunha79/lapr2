@@ -177,10 +177,4 @@ public class CommonMethods {
         if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() != Constants.NHS_TIN_NUMBER_DIGITS))
             throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_NOT_MORE_THAN_10);
     }
-
-    public static BufferedImage generateEAN13BarcodeImage(String barcodeText) throws Exception {
-        Barcode barcode = BarcodeFactory.createEAN13(barcodeText);
-
-        return BarcodeImageHandler.getImage(barcode);
-    }
 }

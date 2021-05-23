@@ -9,9 +9,10 @@ participant ":WriteReportController" as CTRL
 participant ":Company" as COMP
 participant ":Test" as T
 participant ":Report" as RPRT
-participant ":Result" as RSLT
+participant ":TestParameterResult" as RSLT
 participant ":TestStore" as TS
 participant ":TestListMapper" as TLM
+participant ":DateTime" as DT
 
 SD -> UI : Write a report for a test
 activate UI
@@ -63,6 +64,12 @@ UI -> CTRL : saveReport()
         activate T
             T -> T : changeStateToReportDone()
             activate T
+                T -> RPRT : registerReportDateTime()
+                activate RPRT
+                    RPRT -> DT : createdAt = registerCurrentDateTime()
+                    activate DT
+                    deactivate DT
+                deactivate RPRT
             deactivate T
         deactivate T
     deactivate CTRL

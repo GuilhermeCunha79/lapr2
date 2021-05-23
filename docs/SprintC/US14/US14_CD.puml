@@ -43,6 +43,13 @@ class TestParameterResult {
 class Report {
     -createdAt
     -reportText
+    +registerReportDateTime()
+}
+
+class DateTime {
+    -date
+    -time
+    +registerCurrentDateTime()
 }
 
 WriteReportUI .right.> WriteReportController
@@ -56,5 +63,6 @@ Company"1" --> "1"TestStore : "uses"
 TestStore"1" --> "*"Test : "store"
 Test"1" -left-> "1"Report : "originates"
 Test"1" -right-> "*"TestParameterResult : "analyses parameter to get"
+Report .left.> DateTime
 
 @enduml

@@ -23,6 +23,7 @@ public class Company {
     private ParameterStore pStore = new ParameterStore();
     private ClinicalAnalysisLaboratoryStore calStore = new ClinicalAnalysisLaboratoryStore();
     private EmployeeStore empStore = new EmployeeStore();
+    private TestStore testStore = new TestStore();
 
     /**
      * Constructor of the company class assigning a designation to it
@@ -93,6 +94,13 @@ public class Company {
         return this.calStore;
     }
 
+    /**
+     * This method returns the test store used by the company
+     * @return the test store
+     */
+    public TestStore getTestStore(){
+        return this.testStore;
+    }
     /**
      * This method returns the employee store used by the company
      * @return the employee store
