@@ -38,6 +38,16 @@ public class CommonMethods {
         return numberq == number.length();
     }
 
+    /***
+     * count the number of words in a string
+     * @param text
+     * @return a number
+     */
+    public static int wordCounter(String text) {
+        String[] words = text.split("\\s+");
+        return words.length;
+    }
+
 
     /***
      * Verify if the email given is a valid one

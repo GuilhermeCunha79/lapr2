@@ -11,10 +11,22 @@ public class TestStore {
     private List<Test> testList = new ArrayList<>();
 
     public List<Test> getTestWithoutReport(){
-        throw new NotImplementedException("Method not implemented yet");
+        List<Test> lTestNoReport = new ArrayList<>();
+        for (Test test : testList){
+            if(!test.getReportStatus())
+                lTestNoReport.add(test);
+        }
+        if(lTestNoReport.isEmpty())
+            return null;
+        else
+            return lTestNoReport;
     }
 
     public Test getTestByCode(String testCode){
-        throw new NotImplementedException("Method not implemented yet");
+        for(Test test : testList){
+            if(test.getInternalCode().equals(testCode))
+                return test;
+        }
+        return null;
     }
 }

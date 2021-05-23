@@ -1,16 +1,18 @@
 package app.mappers;
 
+import app.domain.model.Test;
 import org.apache.commons.lang3.NotImplementedException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestListMapper {
 
-    private TestListMapper(){
-        throw new IllegalStateException("Utility class");
-    }
-
-    public List<String> toDto(){
-        throw new NotImplementedException("Method not implemented yet");
+    public List<String> toDto(List<Test> lTestNoReport){
+        List<String> testListNoReportDto = new ArrayList<>();
+        for(Test test : lTestNoReport){
+            testListNoReportDto.add(test.toString());
+        }
+        return testListNoReportDto;
     }
 }
