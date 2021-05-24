@@ -11,14 +11,26 @@ public class Report {
 
     private final int MAX_WORDS_IN_REPORT = 400;
 
+    /**
+     * Constructor of this class
+     * @param reportText saved in the reportText string
+     */
     public Report (String reportText){
         setReportText(reportText);
     }
 
+    /**
+     * Get method for the report text
+     * @return a string with the report text
+     */
     public String getReportText() {
         return reportText;
     }
 
+    /**
+     * This method sets the report text and also validates is own content
+     * @param reportText to set
+     */
     public void setReportText(String reportText) {
         if(reportText == null)
             throw new NullPointerException();
@@ -30,12 +42,19 @@ public class Report {
         registerReportDateTime();
     }
 
+    /**
+     * This method when called saves the date and time of when the report was done
+     */
     public void registerReportDateTime(){
         this.createdAt = new DateTime();
     }
 
+    /**
+     * To string method with essential data about the report such as the creation date and time and also the report text
+     * @return a string
+     */
     @Override
     public String toString() {
-        return String.format("Report created on %s: %n Report: %s", createdAt, reportText);
+        return String.format("Report created on: %s%nReport: %s", createdAt, reportText);
     }
 }

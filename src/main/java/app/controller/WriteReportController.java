@@ -16,14 +16,23 @@ public class WriteReportController {
 
     private Report report;
 
+    /**
+     * This constructor finds the instance of the company being used by the app
+     */
     public WriteReportController(){
         this(App.getInstance().getCompany());
     }
-
+    /**
+     * This constructor finds the testStore used by the company
+     */
     public WriteReportController(Company company){
         this.testStore = company.getTestStore();
     }
 
+    /**
+     * This method returns a list with the main information about each test available without a report
+     * @return a list of Strings holding the data for each test
+     */
     public List<String> getTestWithoutReport(){
         List<Test> lTestNoReport = testStore.getTestWithoutReport();
         if(lTestNoReport != null) {
@@ -33,17 +42,29 @@ public class WriteReportController {
         return null;
     }
 
+    /**
+     * This method receives an internal code and finds the test that has it from the test store, then, returns all of its test results
+     * @param testCode internal code to be used
+     * @return all the parameter tested results
+     */
     public String getTestResults(String testCode){
         this.test = testStore.getTestByCode(testCode);
         return test.getTestResults();
     }
 
+    /**
+     * This method receives a text and creates a new instance of a report to save the text
+     * @param text
+     */
     public void newReport(String text){
         this.report = new Report(text);
     }
 
-    public void saveReport(){
-        this.test.addReport(this.report);
+    /**
+     * When everything is confirmed by the user, this method saves the report created as an attribute of its test
+     */
+    public boolean saveReport(){
+        return this.test.addReport(this.report);
     }
 
 }

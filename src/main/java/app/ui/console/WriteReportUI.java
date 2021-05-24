@@ -9,6 +9,10 @@ import java.util.Objects;
 public class WriteReportUI implements Runnable{
 
     private WriteReportController ctrl = new WriteReportController();
+
+    /**
+     * This method initiates the write report process and enables the option to write multiple reports without having to return to the menu
+     */
     @Override
     public void run() {
         boolean repeat;
@@ -17,10 +21,15 @@ public class WriteReportUI implements Runnable{
         }while(repeat && Objects.requireNonNull(Utils.readLineFromConsole("Write another report? (Y/N)")).equalsIgnoreCase("y"));
     }
 
+    /**
+     * This method is responsible to guide the user through the test selection and report creation process
+     * @return false if its not possible to write another report due to not having more tests
+     * needing reports, return true when there are tests still needing reports
+     */
     private boolean writeReportProcess() {
 
         boolean done = false;
-        while (!done){
+        while (true){
             try {
                 List<String> lTestDto = ctrl.getTestWithoutReport();
                 if (lTestDto != null) {
@@ -31,8 +40,8 @@ public class WriteReportUI implements Runnable{
                     ctrl.newReport(report);
                     System.out.printf("Confirm report for Test: %s%n%s%nYour report: %n%s", lTestDto.get(option), results, report);
                     if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
-                        ctrl.saveReport();
-                        System.out.println("INFO: Report Saved.");
+                        if(ctrl.saveReport())
+                            System.out.println("INFO: Report Saved.");
                         done = true;
                         return true;
                     }
@@ -45,6 +54,5 @@ public class WriteReportUI implements Runnable{
                 System.out.println(e.getMessage());
             }
         }
-        return false;
     }
 }

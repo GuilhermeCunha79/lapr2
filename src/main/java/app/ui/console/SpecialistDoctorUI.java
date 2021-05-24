@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpecialistDoctorUI implements Runnable{
+
+    /**
+     * Method that implements the options that appear in the specialist doctor UI
+     */
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
