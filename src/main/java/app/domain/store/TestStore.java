@@ -1,7 +1,6 @@
 package app.domain.store;
 
 import app.domain.model.Test;
-import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,14 +11,18 @@ public class TestStore {
 
     public List<Test> getTestWithoutReport(){
         List<Test> lTestNoReport = new ArrayList<>();
-        for (Test test : testList){
-            if(!test.getReportStatus())
-                lTestNoReport.add(test);
-        }
-        if(lTestNoReport.isEmpty())
+        if(!testList.isEmpty()) {
+            for (Test test : testList) {
+                if (!test.getReportStatus())
+                    lTestNoReport.add(test);
+            }
+            if (lTestNoReport.isEmpty())
+                return null;
+            else
+                return lTestNoReport;
+        }else{
             return null;
-        else
-            return lTestNoReport;
+        }
     }
 
     public Test getTestByCode(String testCode){
