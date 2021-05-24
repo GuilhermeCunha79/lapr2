@@ -14,6 +14,7 @@
 | Benchmark Algorithm | Algoritmo de Ponto de referência | Is the act of running the algorithms of the program with some specified parameters to check the effectiveness of the algorithm |
 | Blood test | Teste ao Sangue | Laboratory examination of a blood sample used to check for a variety of things, in the human body |
 | Brute-force Algorithm | Algoritmo de força bruta | An algorithm also known by generate and test, that consists in checking all positions of the list and find all the solutions that validates the given condition |
+| CA | CA | Acronym for Clinical Analysis |
 | Citizen Card Number | Número do Cartão de Cidadão | It's used by the governments of many countries as a means of tracking their citizens |
 | Chemical analysis | Análises químicas | It determines the physical properties or chemical composition of samples of matter |
 | Chemical test | Teste Químico | A fast reaction performed in a test tube that gives a visual clue as evidence for a chemical reaction |

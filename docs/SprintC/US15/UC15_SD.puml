@@ -1,0 +1,71 @@
+@startuml
+autonumber
+'hide footbox
+actor "Lab Coordinator" as LC
+
+participant ":MakeValidation \n ValidationWorkUI" as UI
+participant ":MakeValidation \n ValidationWorkController" as CTRL
+participant ":Company" as C
+participant "store:TestStore" as TS
+participant "val: ValidationWork" as VW
+participant ":DateTime" as DT
+
+
+LC -> UI : validate work done by the clinical chemistry technologist and specialist doctor
+activate UI
+    UI -> CTRL : readyToValidate(testRegistrationDate, caDate, diagnosisDate)
+    activate CTRL
+    CTRL -> C : testStore = getTestStore()
+    activate C
+    deactivate C
+    CTRL -> TS : getTestRegistrationDate()
+    activate TS
+    deactivate TS
+    CTRL -> TS : getCaDate()
+    activate TS
+    deactivate TS
+    CTRL -> TS : getDiagnosisDate()
+     activate TS
+        deactivate TS
+    deactivate CTRL
+    UI --> LC : shows the test(s) that have the test registration date, the chemical\n analysis date and the diagnosis date registered in the system
+deactivate UI
+
+LC -> UI : select the test(s)
+activate UI
+
+UI -> CTRL : getTestReady(testsReady)
+activate CTRL
+CTRL -> TS : selectedTests = getTestReady()
+activate TS
+deactivate TS
+deactivate CTRL
+
+
+
+
+
+    deactivate CTRL
+    UI --> LC : ask for validation
+deactivate UI
+LC -> UI : confirms the validation
+activate UI
+    UI -> CTRL : saveValidation()
+    activate CTRL
+    CTRL -> VW : doValidation(selectedTests)
+    activate VW
+    VW -> VW : changeStateToValidationDone()
+    activate VW
+    VW -> DT : validatedAt = DateTime()
+    activate DT
+    deactivate DT
+    deactivate VW
+    deactivate VW
+
+
+UI --> LC : saves validation and informs operation success
+deactivate C
+deactivate UI
+deactivate CTRL
+
+@enduml

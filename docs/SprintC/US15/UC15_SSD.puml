@@ -7,17 +7,17 @@ actor "Lab Coordinator" as LABC
 
 participant ":System" as SYSTEM
 
-LABC -> SYSTEM : register a new client
+LABC -> SYSTEM : validate work done by the clinical chemistry technologist and specialist doctor
 activate SYSTEM
-SYSTEM --> LABC : request mandatory data (resultsClinicalAnalysis , report,chemicalAnalysisDate; diagnosisDate)
+SYSTEM --> LABC : shows the test(s) that have the test registration date, the chemical\n analysis date and the diagnosis date registered in the system
 deactivate SYSTEM
 
-LABC -> SYSTEM : insert the data
+LABC -> SYSTEM : select the test(s)
 activate SYSTEM
-SYSTEM --> LABC : shows the data and request a confirmation
+SYSTEM --> LABC : ask for validation
 deactivate SYSTEM
 
-LABC -> SYSTEM : confirms the data
+LABC -> SYSTEM : confirms the validation
 activate SYSTEM
 SYSTEM --> LABC : informs operation success
 deactivate SYSTEM

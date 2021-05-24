@@ -18,7 +18,7 @@ activate ":System"
 ":System" --> Mlt : requests data (UPC)
 loop
 deactivate ":System"
-Mlt --> ":System" : imput data (UPC)
+Mlt --> ":System" : input data (UPC)
 activate ":System"
 end
 ":System" --> Mlt : print all data (UPC)

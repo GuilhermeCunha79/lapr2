@@ -145,11 +145,13 @@ n/a
 According to the taken rationale, the conceptual classes promoted to software classes are:
  * Company
  * Client
- * ClientStore
 
 Other software classes (i.e. Pure Fabrication) identified: 
- * RegisterClientUI  
- * RegisterClientController
+* RegisterClientUI
+* ClientStore
+* RegisterClientController
+* **EmailNotificationSender**
+* **PasswordGenerator**
 
 ## 3.2. Sequence Diagram (SD)
 
@@ -159,8 +161,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ![UC03_CD](UC03_CD.svg)
 
-# 4. Tests 
-*In this section, it is suggested to systematize how the tests were designed to allow a correct measurement of requirements fulfilling.*
+# 4. Tests
 
 **Test 1:** Check that it is not possible to create an instance of the Client class with null values. 
 
@@ -302,7 +303,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 6. Integration and Demo 
 
-*In this section, it is suggested to describe the efforts made to integrate this functionality with the other features of the system.*
+*A new option to the receptionist menu was added.*
 
 
 # 7. Observations
