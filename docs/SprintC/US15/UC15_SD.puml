@@ -7,7 +7,6 @@ participant ":MakeValidation \n ValidationWorkUI" as UI
 participant ":MakeValidation \n ValidationWorkController" as CTRL
 participant ":Company" as C
 participant "store:TestStore" as TS
-participant "val: ValidationWork" as VW
 participant ":DateTime" as DT
 
 
@@ -52,15 +51,15 @@ LC -> UI : confirms the validation
 activate UI
     UI -> CTRL : saveValidation()
     activate CTRL
-    CTRL -> VW : doValidation(selectedTests)
-    activate VW
-    VW -> VW : changeStateToValidationDone()
-    activate VW
-    VW -> DT : validatedAt = DateTime()
+    CTRL -> TS : doValidation(selectedTests)
+    activate TS
+    TS -> TS : changeStateToValidationDone()
+    activate TS
+    TS -> DT : validatedAt = DateTime()
     activate DT
     deactivate DT
-    deactivate VW
-    deactivate VW
+    deactivate TS
+    deactivate TS
 
 
 UI --> LC : saves validation and informs operation success
