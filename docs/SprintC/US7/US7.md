@@ -114,8 +114,6 @@ n/a
 
 ### 3.1. Rationale
 
-**SSD - Alternative 1 is adopted.**
-
 | Interaction ID | Question: Which class is responsible for... | Answer  | Justification (with patterns)  |
 |:-------------  |:--------------------- |:------------|:---------------------------- |
 | Step 1/2/3     |	... interacting with the actor? | RegisterEmployeeUI   |  Pure Fabrication: there is no reason to assign this responsibility to any existing class in the Domain Model.           |
@@ -198,11 +196,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 
 
-# 6. Integration and Demo 
-
-* A new option on the Employee menu options was added.
-
-* Some demo purposes some tasks are bootstrapped while system starts.
+# 6. Integration and Demo
 
 
 # 7. Observations

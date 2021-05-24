@@ -23,7 +23,7 @@ public class EmployeeStore {
      * @param empDto
      * @return the employee created
      */
-    public Employee createEmployee(EmpDto empDto) {
+    public Employee newEmployee(EmpDto empDto) {
         return new Employee(empDto);
     }
 
@@ -33,7 +33,7 @@ public class EmployeeStore {
      * @param empDto
      * @return the specialist doctor created
      */
-    public SpecialistDoctor createSpecialistDoctor(EmpDto empDto) {
+    public SpecialistDoctor newSpecialistDoctor(EmpDto empDto) {
         return new SpecialistDoctor(empDto);
     }
 

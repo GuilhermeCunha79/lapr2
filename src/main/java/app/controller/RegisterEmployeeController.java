@@ -5,7 +5,6 @@ import app.domain.model.Employee;
 import app.domain.store.EmployeeStore;
 import app.mappers.dto.EmpDto;
 import auth.domain.model.UserRole;
-import auth.domain.store.UserRoleStore;
 
 public class RegisterEmployeeController {
     public Employee employee;
@@ -35,7 +34,7 @@ public class RegisterEmployeeController {
      * @return true or false
      */
     public boolean newEmployee(EmpDto empDto){
-        this.emp = this.empStore.createEmployee(empDto);
+        this.emp = this.empStore.newEmployee(empDto);
         if(this.empStore.validateEmployee(emp)) {
             addEmployeeRole(empDto);
             return true;
@@ -43,7 +42,7 @@ public class RegisterEmployeeController {
         return false;
     }
     
-    public void addEmployeeRole(EmpDto empDto){
+    private void addEmployeeRole(EmpDto empDto){
         UserRole role = empStore.getUserRole(empDto.getRoleId());
         emp.setRole(role);
     }
@@ -53,7 +52,7 @@ public class RegisterEmployeeController {
      * @return if it was validates or not (True or false)
      */
     public boolean newSpecialistDoctor(EmpDto empDto){
-        this.emp = this.empStore.createSpecialistDoctor(empDto);
+        this.emp = this.empStore.newSpecialistDoctor(empDto);
         if(this.empStore.validateEmployee(emp)){
             addEmployeeRole(empDto);
             return true;

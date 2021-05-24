@@ -24,17 +24,31 @@ UI --> ADMIN : asks data (roleId, name, address, phoneNumber, email, soc)
 deactivate UI
 ADMIN -> UI : inserts requested data
 activate UI
-UI -> CTRL : newEmployee(empDto)
-    activate CTRL
-        CTRL -> COMP : empStore = getEmployeeStore()
-        activate COMP
-        deactivate COMP
-        CTRL -> EMPS : emp = newEmployee(empDto)
+UI -> CTRL : isSpecialistDoctor(empRole)
+activate CTRL
+CTRL -> COMP : empStore = getEmployeeStore()
+    activate COMP
+    deactivate COMP
+    CTRL -> EMPS : isSpecialistDoctor(role)
+    activate EMPS
+    deactivate EMPS
+    CTRL --> UI : true or false
+    deactivate CTRL
+
+alt is a specialist doctor
+
+UI --> ADMIN : asks for doctor index number
+ADMIN -> UI : introduces doctor index number
+
+UI -> CTRL : newSpecialistDoctor(empDto)
+activate CTRL
+
+        CTRL -> EMPS : emp = newSpecialistDoctor(empDto)
         activate EMPS
             EMPS -> ORS : role = getRolebyId(roleId)
         activate ORS
         deactivate ORS
-        alt role is specialist doctor
+
         EMPS -> SpDoc : createSpecialistDoctor(empDto)
         activate SpDoc
             SpDoc -> EDTO : role = getRole()
@@ -59,7 +73,18 @@ UI -> CTRL : newEmployee(empDto)
             activate EDTO
             deactivate EDTO
         deactivate SpDoc
-        else other role
+        deactivate EMPS
+        deactivate CTRL
+
+else is not a specialist doctor
+
+UI -> CTRL : newEmployee(empDto)
+activate CTRL
+        CTRL -> EMPS : emp = newEmployee(empDto)
+                activate EMPS
+                    EMPS -> ORS : role = getRolebyId(roleId)
+                activate ORS
+                deactivate ORS
         EMPS -> EMP : createEmployee(empDto)
         activate EMP
         EMP -> EDTO : role = getRole()
@@ -81,19 +106,18 @@ UI -> CTRL : newEmployee(empDto)
         activate EDTO
         deactivate EDTO
         deactivate EMP
-        end alt
+
         deactivate EMPS
+        end alt
         CTRL -> EMPS : validateEmployee(emp)
         activate EMPS
-            alt role is specialist doctor
-            EMPS -> SpDoc : email = getEmail()
-            activate SpDoc
-            deactivate SpDoc
-            else other role
+        CTRL -> CTRL : addEmployeeRole(empDto)
+        activate CTRL
+        deactivate CTRL
+
             EMPS -> EMP : email = getEmail()
             activate EMP
             deactivate EMP
-            end alt
             EMPS -> AF : existUser(email)
             activate AF
             deactivate AF
@@ -102,6 +126,7 @@ UI -> CTRL : newEmployee(empDto)
             deactivate EMPS
         deactivate EMPS
     deactivate CTRL
+
     UI --> ADMIN : Validates the data and asks for confirmation
 
 deactivate UI
@@ -112,36 +137,23 @@ activate UI
 activate CTRL
     CTRL -> EMPS : saveEmployee(emp)
 activate EMPS
-alt role is specialist doctor
-            EMPS -> SpDoc : email = getEmail()
-            activate SpDoc
-            deactivate SpDoc
-            else other role
+
             EMPS -> EMP : email = getEmail()
             activate EMP
             deactivate EMP
-            end alt
     EMPS -> EMPS : validateEmployee(emp)
     activate EMPS
     EMPS -> AF : existUser(email)
     activate AF
     deactivate AF
     deactivate EMPS
-    alt role is specialist doctor
-                EMPS -> SpDoc : name = getName()
-                activate SpDoc
-                deactivate SpDoc
-                EMPS -> SpDoc : role = getRole()
-                activate SpDoc
-                deactivate SpDoc
-                else other role
-                EMPS -> EMP : email = getEmail()
+                EMPS -> EMP : email = getName()
                 activate EMP
                 deactivate EMP
                 EMPS -> EMP : role = getRole()
                 activate EMP
                 deactivate EMP
-                end alt
+
                 EMPS -> UR : roleDesc = getDescription()
                 activate UR
                 deactivate UR
@@ -161,7 +173,7 @@ alt role is specialist doctor
     deactivate EMPS
 deactivate CTRL
 UI --> ADMIN : Saves data and informs success of operation
-deactivate COMP
+
 deactivate UI
 
 
