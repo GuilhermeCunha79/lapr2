@@ -34,7 +34,7 @@ public class Test {
 
     @Override
     public String toString() {
-        return String.format("Internal Code: %s | NHS Code: %s | Created on: %s |",
+        return String.format("Internal Code: 000000000001 | NHS Code: %s | Created on: %s |",
                 this.internalCode, this.nhsCode, this.createdAt);
     }
 }

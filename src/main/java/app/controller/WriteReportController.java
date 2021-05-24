@@ -5,7 +5,6 @@ import app.domain.model.Report;
 import app.domain.model.Test;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
-import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class WriteReportController {
 
     public List<String> getTestWithoutReport(){
         List<Test> lTestNoReport = testStore.getTestWithoutReport();
-        if(!lTestNoReport.isEmpty()) {
+        if(lTestNoReport != null) {
             TestListMapper tlm = new TestListMapper();
             return tlm.toDto(lTestNoReport);
         }
