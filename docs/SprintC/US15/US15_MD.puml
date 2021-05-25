@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Company{
+-name
+-location
+}
+
+class Test{
+-createdAt
+ -nhsCode
+ -internalCode
+}
+
+class TestValidation{
+-createdAt
+}
+
+class Sample{
+-createdAt
+}
+
+class Notification{
+-message
+}
+
+class Result{
+-parameter
+-createdAt
+}
+
+class Report{
+-createdAt
+-diagnosis
+}
+
+class LaboratoryCoordinator{
+}
+
+Company -- Test :> performs
+Test -- Sample :> has
+Test -- TestValidation :> validated by
+TestValidation -- LaboratoryCoordinator :> done by
+TestValidation -- Notification :> sends
+Sample -- Result :> receives
+Result -- Report :> originates
+
+@enduml

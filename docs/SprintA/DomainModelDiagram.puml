@@ -19,6 +19,9 @@ Employee <|-- Admin
 Employee <|-- SpecialistDoctor
 ClinicalChemistryTechnologist"*" -- "1"ChemicalLab : > works at
 Test"1" -- "1"Result : > has
+Test"1" --TestValidation : > is validated
+TestValidation -- LabCoordinator : > done by
+TestValidation -- Notification : > sends
 Result"1" -- "1"Report : > has
 MedicalLabTechnician"1" -- "*"Sample : > collect
 Sample"1" -right- "1"Test : < has
@@ -50,7 +53,7 @@ class Sample{
 }
 
 class Report{
--diagnosis
+-createdAt
 -results
 }
 
@@ -102,6 +105,18 @@ class Category{
 -nhsId
 -internalCode
 -description
+}
+
+class TestValidation{
+-createdAt
+}
+
+class Sample{
+-createdAt
+}
+
+class Notification{
+-message
 }
 
 class SpecialistDoctor{

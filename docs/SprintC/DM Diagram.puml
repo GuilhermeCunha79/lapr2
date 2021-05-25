@@ -18,6 +18,23 @@ class Client{
  -email
 }
 
+class TestRequest{
+-requestDate
+-testType
+}
+
+class TestValidation{
+-createdAt
+}
+
+class Sample{
+-createdAt
+}
+
+class Notification{
+-message
+}
+
 class Employee{
  -employeeID
  -name
@@ -28,6 +45,7 @@ class Employee{
 }
 
 class Report{
+-createdAt
  -diagnosis
 }
 
@@ -130,7 +148,8 @@ ClinicalChemistryTechnologist"1..*" -- "*"Result : "> record"
 SpecialistDoctor"1..*" -- "*"Report : "> write"
 Company"1" -- "*"Parameter : "> capable of analysing"
 Employee <|- LaboratoryCoordinator
-LaboratoryCoordinator"1..*" -- "*"Report : "> validates"
-LaboratoryCoordinator"1..*" -- "*"Result : "> validates"
 
+LaboratoryCoordinator -- TestValidation :> done by
+Test"1" --TestValidation : > is validated
+TestValidation -- Notification : > sends
 @enduml
