@@ -3,8 +3,7 @@ package app.domain.model;
 
 import org.junit.Test;
 
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 
 public class ClinicalAnalysisLaboratoryTest {
@@ -12,6 +11,11 @@ public class ClinicalAnalysisLaboratoryTest {
     @Test(expected = NullPointerException.class)
     public void ensureNullClinicalAnalysisLaboratoryIsNotCreated() {
         new ClinicalAnalysisLaboratory(null, null, null, null, null);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void ensureNullLabIDIsNotAccepted() {
+        new ClinicalAnalysisLaboratory(null, "Joao", "RuaMirandela45", "11223998741", "5478212987");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -195,13 +199,61 @@ public class ClinicalAnalysisLaboratoryTest {
     @Test
     public void checkToStringMethod() {
         ClinicalAnalysisLaboratory c1 = new ClinicalAnalysisLaboratory("test5", "Pedro", "RuaDaMorte98", "46564971894", "4656497194");
-        String expected = String.format("Clinical Analysis Laboratory:%nName: Pedro%nPhone Number: 46564971894%nLaboratory ID: test5%nTIN number: 4656497194%nAddress: RuaDaMorte98%n Type of Tests List:%n");
+        String expected = String.format("Clinical Analysis Laboratory:%nName: Pedro%nPhone Number: 46564971894%nLaboratory ID: test5%nTIN number: 4656497194%nAddress: RuaDaMorte98%n No Type of Tests");
         assertEquals(expected, c1.toString());
     }
 
-    
+    @Test
+    public void ensureAddingTestTypesWorks() {
+        ClinicalAnalysisLaboratory cal = new ClinicalAnalysisLaboratory("az321", "Joao", "RuaMirandela45", "11223998741", "5478212987");
+        assertTrue(cal.addTestType(new TypeOfTest("12132", "sdadvvasdv", "swab", new ParameterCategory("21322", "advas"))));
+    }
 
+    @Test
+    public void ensureTwoCALWithSameParametersAreEquals() {
+        ClinicalAnalysisLaboratory cal = new ClinicalAnalysisLaboratory("az321", "Joao", "RuaMirandela45", "11223998741", "5478212987");
+        assertEquals(cal, cal);
+    }
 
+    @Test
+    public void ensureCALIsDifferentThanNullObject() {
+        ClinicalAnalysisLaboratory cal = new ClinicalAnalysisLaboratory("az321", "Joao", "RuaMirandela45", "11223998741", "5478212987");
+        assertFalse(cal.equals(null));
+    }
+
+    @Test
+    public void ensureCALIsDifferentThanOtherClassObject() {
+        ClinicalAnalysisLaboratory cal = new ClinicalAnalysisLaboratory("az321", "Joao", "RuaMirandela45", "11223998741", "5478212987");
+        assertFalse(cal.equals("saaa"));
+    }
+
+    @Test
+    public void ensureTwoCALWithSamePhoneNumberAreEquals() {
+        ClinicalAnalysisLaboratory cal = new ClinicalAnalysisLaboratory("az321", "Joao", "RuaMirandela45", "11223998741", "5478212987");
+        ClinicalAnalysisLaboratory cal2 = new ClinicalAnalysisLaboratory("add23", "Lab3", "RuaMirandela32", "11223998741", "5472312987");
+        assertEquals(cal, cal2);
+    }
+
+    @Test
+    public void ensureTwoCALWithSameIDAreEquals() {
+        ClinicalAnalysisLaboratory cal = new ClinicalAnalysisLaboratory("az321", "Joao", "RuaMirandela45", "11223998741", "5478212987");
+        ClinicalAnalysisLaboratory cal2 = new ClinicalAnalysisLaboratory("az321", "Lab3", "RuaMirandela32", "11223998741", "5472312987");
+        assertEquals(cal, cal2);
+    }
+
+    @Test
+    public void ensureTwoCALWithSameTINAreEquals() {
+        ClinicalAnalysisLaboratory cal = new ClinicalAnalysisLaboratory("az321", "Joao", "RuaMirandela45", "11223998741", "5478212987");
+        ClinicalAnalysisLaboratory cal2 = new ClinicalAnalysisLaboratory("a2121", "Lab3", "RuaMirandela32", "11223998741", "5478212987");
+        assertEquals(cal, cal2);
+    }
+
+    @Test
+    public void ensureTwoCALWithSameAddressAreEquals() {
+        ClinicalAnalysisLaboratory cal = new ClinicalAnalysisLaboratory("az321", "Joao", "RuaMirandela45", "11223998741", "5478212987");
+        ClinicalAnalysisLaboratory cal2 = new ClinicalAnalysisLaboratory("a2121", "Lab3", "RuaMirandela45", "11223998741", "5477612987");
+        assertEquals(cal, cal2);
+    }
 }
 
 

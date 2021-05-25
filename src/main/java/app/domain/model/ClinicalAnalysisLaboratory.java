@@ -19,7 +19,7 @@ public class ClinicalAnalysisLaboratory {
     static final int MAX_CHAR_NAME = 20;
     static final int MAX_CHAR_LABORATORY_ID = 5;
     static final String STRING_LAB_ID = "Laboratory ID";
-    private List<TypeOfTest> typeOfTestList = new ArrayList<>();
+    private final List<TypeOfTest> typeOfTestList = new ArrayList<>();
     private String name;
     private String address;
     private String tinNumber;
@@ -174,14 +174,13 @@ public class ClinicalAnalysisLaboratory {
      */
     private String printTypeOfTestList() {
         String output = "Type of Tests List:" + System.lineSeparator();
-        if (typeOfTestList != null && typeOfTestList.size() > 0) {
-            for (int i = 0; i < typeOfTestList.size(); i++) {
-                typeOfTestList.get(i).toString();
-                output = output.concat(typeOfTestList.get(i).toString());
+        if (typeOfTestList.size() > 0) {
+            for (TypeOfTest typeOfTest : typeOfTestList) {
+                output = output.concat(typeOfTest.toString());
                 output = output.concat(System.lineSeparator());
             }
         } else {
-            output.concat("No Type of Tests");
+            output = "No Type of Tests";
         }
         return output;
     }
