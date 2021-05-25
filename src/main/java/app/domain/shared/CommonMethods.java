@@ -1,12 +1,7 @@
 package app.domain.shared;
 
-import net.sourceforge.barbecue.Barcode;
-import net.sourceforge.barbecue.BarcodeFactory;
-import net.sourceforge.barbecue.BarcodeImageHandler;
+
 import org.apache.commons.lang3.StringUtils;
-
-
-import java.awt.image.BufferedImage;
 import java.util.regex.Pattern;
 
 
