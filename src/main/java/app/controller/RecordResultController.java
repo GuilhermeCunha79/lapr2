@@ -1,7 +1,6 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.Result;
 import app.domain.model.Test;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
@@ -13,7 +12,7 @@ public class RecordResultController {
 
     private Test test;
 
-    private Result result;
+    //private Result result;
 
     public RecordResultController(){
         this(App.getInstance().getCompany());
@@ -31,7 +30,7 @@ public class RecordResultController {
         }
         return null;
     }
-
+/*
     public Result getTestResults(String testCode){
         this.test = testStore.getTestByCode(testCode);
         return test.getTestResults();
@@ -40,9 +39,9 @@ public class RecordResultController {
     public void newResult(String text){
         this.result = new Result(text);
     }
-
+*/
     public void saveResult(Test test){
-        test.addResult(this.result);
+        //test.addResult(this.result);
     }
 
 }

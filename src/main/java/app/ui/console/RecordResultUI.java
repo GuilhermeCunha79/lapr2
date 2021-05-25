@@ -12,11 +12,11 @@ public class RecordResultUI implements Runnable{
     @Override
     public void run() {
         this.ctrl = new RecordResultController();
-        if(registerEmployee())
+        //if(registerEmployee())
             System.out.println("Employee was succesfully registered!");
     }
 
-    public boolean registerEmployee(){
+ /*   public boolean registerEmployee(){
         boolean state = false;
         do {
             String result = Utils.readLineFromConsole("Introduce the result of the given test: ");
@@ -46,5 +46,5 @@ public class RecordResultUI implements Runnable{
         }while(!state);
         return false;
     }
-
+*/
 }

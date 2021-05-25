@@ -1,11 +1,14 @@
-package app.controller;
+/*package app.controller;
 
 import app.domain.model.Company;
+import app.domain.model.Test;
 import app.domain.store.TestStore;
 
 public class ValidationWorkController {
 
     private TestStore testStore;
+
+    private Test test;
 
     public ValidationWorkController(){
         this(App.getInstance().getCompany());
@@ -29,4 +32,4 @@ public class ValidationWorkController {
         this.test = testStore.getDiagnosisDate(date);
         return test.getDiagnosisDate();
     }
-}
+}*/

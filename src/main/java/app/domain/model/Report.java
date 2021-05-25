@@ -9,7 +9,7 @@ public class Report {
     private DateTime createdAt;
     private String reportText;
 
-    private final int MAX_WORDS_IN_REPORT = 400;
+    private static final int MAX_WORDS_IN_REPORT = 400;
 
     /**
      * Constructor of this class

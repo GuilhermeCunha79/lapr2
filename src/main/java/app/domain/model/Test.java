@@ -2,13 +2,7 @@ package app.domain.model;
 
 import app.domain.shared.DateTime;
 import org.apache.commons.lang3.NotImplementedException;
-import net.sourceforge.barbecue.Barcode;
-import net.sourceforge.barbecue.BarcodeException;
-import net.sourceforge.barbecue.BarcodeFactory;
-import net.sourceforge.barbecue.BarcodeImageHandler;
-import net.sourceforge.barbecue.output.OutputException;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Test {
@@ -19,7 +13,7 @@ public class Test {
     private boolean reportDone;
     private boolean resultDone;
     private Report report;
-    private Result result;
+ //   private Result result;
     private BufferedImage qrcode;
 
     public Test(String internalCode, String nhsCode) {
@@ -87,14 +81,14 @@ public class Test {
      * This method finds all the parameter test results done for this test and return them in a string
      * @return the results available
      */
-    public Result getTestResults() {
-        return result;
+    public String getTestResults() {
+        throw new NotImplementedException("Method not implemented");
     }
-
+/*
     public void addResult (Result result) {
         this.result = result;
         changeStateToResultDone();
-    }
+    }*/
 
     /**
      * This method receives a Report and assigns it to the test it's related to
