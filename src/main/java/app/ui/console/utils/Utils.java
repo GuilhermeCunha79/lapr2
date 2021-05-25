@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class Utils {
 
-    static public String readLineFromConsole(String prompt) {
+    public static String readLineFromConsole(String prompt) {
         try {
             System.out.println("\n" + prompt);
 
@@ -28,7 +28,7 @@ public class Utils {
         }
     }
 
-    static public int readIntegerFromConsole(String prompt) {
+    public static int readIntegerFromConsole(String prompt) {
         do {
             try {
                 String input = readLineFromConsole(prompt);
@@ -42,7 +42,7 @@ public class Utils {
         } while (true);
     }
 
-    static public double readDoubleFromConsole(String prompt) {
+    public static double readDoubleFromConsole(String prompt) {
         do {
             try {
                 String input = readLineFromConsole(prompt);
@@ -56,7 +56,7 @@ public class Utils {
         } while (true);
     }
 
-    static public Date readDateFromConsole(String prompt) {
+    public static Date readDateFromConsole(String prompt) {
         do {
             try {
                 String strDate = readLineFromConsole(prompt);
@@ -72,7 +72,7 @@ public class Utils {
         } while (true);
     }
 
-    static public boolean confirm(String message) {
+    public static boolean confirm(String message) {
         String input;
         do {
             input = Utils.readLineFromConsole("\n" + message + "\n");
@@ -81,17 +81,17 @@ public class Utils {
         return input.equalsIgnoreCase("s");
     }
 
-    static public Object showAndSelectOne(List list, String header) {
+    public static Object showAndSelectOne(List list, String header) {
         showList(list, header);
         return selectsObject(list);
     }
 
-    static public int showAndSelectIndex(List list, String header) {
+    public static int showAndSelectIndex(List list, String header) {
         showList(list, header);
         return selectsIndex(list);
     }
 
-    static public void showList(List list, String header) {
+    public static void showList(List list, String header) {
         System.out.println(header);
 
         int index = 0;
@@ -104,7 +104,7 @@ public class Utils {
         System.out.println("0 - Cancel");
     }
 
-    static public Object selectsObject(List list) {
+    public static Object selectsObject(List list) {
         String input;
         Integer value;
         do {
@@ -119,7 +119,7 @@ public class Utils {
         }
     }
 
-    static public int selectsIndex(List list) {
+    public static int selectsIndex(List list) {
         String input;
         Integer value;
         do {

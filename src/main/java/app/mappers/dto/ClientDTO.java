@@ -1,14 +1,14 @@
 package app.mappers.dto;
 
 public class ClientDTO {
-    private String name;
-    private String citizenCardNumber;
-    private String nhsNumber;
-    private String tinNumber;
-    private String birthDate;
-    private String sex;
-    private String phoneNumber;
-    private String email;
+    private final String name;
+    private final String citizenCardNumber;
+    private final String nhsNumber;
+    private final String tinNumber;
+    private final String birthDate;
+    private final String sex;
+    private final String phoneNumber;
+    private final String email;
 
     public static final String SEX_BY_OMISSION = "Not defined";
 

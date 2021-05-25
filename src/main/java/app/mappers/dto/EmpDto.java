@@ -1,12 +1,12 @@
 package app.mappers.dto;
 
 public class EmpDto {
-    private String name;
-    private String roleId;
-    private String address;
-    private String phoneNumber;
-    private String email;
-    private String soc;
+    private final String name;
+    private final String roleId;
+    private final String address;
+    private final String phoneNumber;
+    private final String email;
+    private final String soc;
     private String doctorIndexNumber;
 
     public EmpDto(String roleId, String name, String address, String phoneNumber, String email, String soc) {

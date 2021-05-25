@@ -49,6 +49,12 @@ public class TypeOfTestTest {
     /**
      * Tests to Type of Test's description acceptance criterias
      */
+    @Test(expected = NullPointerException.class)
+    public void ensureDescriptionCannotBeNull() {
+
+        new TypeOfTest("53436", null, "cotton swab",pc );
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotHaveMoreThan15Char() {
 
@@ -86,6 +92,11 @@ public class TypeOfTestTest {
         new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
     }
 
+    @Test(expected = NullPointerException.class)
+    public void ensureCollectingMethodCannotBeNull() {
+
+        new TypeOfTest("53436", "adfaasdv", null,pc );
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureColectingMethodCannotBeBlank() {

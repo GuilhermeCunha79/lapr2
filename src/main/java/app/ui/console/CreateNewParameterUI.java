@@ -39,7 +39,7 @@ public class CreateNewParameterUI implements Runnable{
 
                 List<String> categoryList = ctrl.getAllParameterCategories();
                 if(categoryList.isEmpty()) {
-                    System.out.println("\nThere is no parameter categories in the system.\nPlease create one first!");
+                    System.out.println("%nThere is no parameter categories in the system.%nPlease create one first!");
                 }else {
                     System.out.println();
                     List<String> displayCatList = new ArrayList<>(categoryList);

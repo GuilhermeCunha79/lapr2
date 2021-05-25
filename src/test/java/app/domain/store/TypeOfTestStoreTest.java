@@ -7,13 +7,14 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TypeOfTestStoreTest  {
 
 
     ParameterCategoryStore pcs = new ParameterCategoryStore();
+    private Object TypeOfTest;
+
     @Before
     public void createCategoryList(){
         ParameterCategory pc2 = pcs.createParameterCategory("52815", "Src");
@@ -74,6 +75,7 @@ public class TypeOfTestStoreTest  {
     /**
      * Verify that it is getTypeOfTestList method works as intended
      */
+    @Test
     public void testGetTypeofTestListMethod(){
         Listpc.add(pc);
         TypeOfTest tot1 = tots.createTypeOfTest("13599", "Sangue", "urine", pc);
@@ -81,5 +83,25 @@ public class TypeOfTestStoreTest  {
         tots.saveTypeOfTest(tot1);
         tots.saveTypeOfTest(tot2);
         assertTrue(tots.getTypeOfTestList().contains(tot1) && tots.getTypeOfTestList().contains(tot2));
+    }
+
+    @Test
+    public void ensureDescriptionCanHave15Char() {
+        assertNotNull(tots.createTypeOfTest("53436", "RNA remnants", "cotton swab", pc));
+    }
+
+    @Test
+    public void ensureDescriptionCanHaveLess15Char() {
+        assertNotNull(tots.createTypeOfTest("53436", "RNA", "cotton swab", pc));
+    }
+
+    @Test
+    public void ensureCollectingMethodCanHave20Char() {
+        assertNotNull(tots.createTypeOfTest("53436", "RNA remnants", "cotton swab fgfhfxfg", pc));
+    }
+
+    @Test
+    public void ensureCollectingMethodCanHaveLess20Char() {
+        assertNotNull(tots.createTypeOfTest("53436", "RNA", "cotton swab 12313", pc));
     }
 }
