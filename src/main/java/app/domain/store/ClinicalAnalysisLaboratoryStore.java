@@ -9,7 +9,7 @@ import java.util.List;
 public class ClinicalAnalysisLaboratoryStore {
 
 
-    private List<ClinicalAnalysisLaboratory> laboratoryList = new ArrayList<>();
+    private final List<ClinicalAnalysisLaboratory> laboratoryList = new ArrayList<>();
 
     /**
      * Method that receives parameters from the associated controller to create a new clinical analysis laboratory
@@ -32,7 +32,7 @@ public class ClinicalAnalysisLaboratoryStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal) {
-        if (validateClinicalAnalysisLaboratory(cal)) {
+        if (cal != null && validateClinicalAnalysisLaboratory(cal)) {
             return addClinicalAnalysisLaboratory(cal);
         }
         return false;
@@ -46,10 +46,7 @@ public class ClinicalAnalysisLaboratoryStore {
      */
 
     private boolean addClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal) {
-        if (cal != null && validateClinicalAnalysisLaboratory(cal)) {
             return this.laboratoryList.add(cal);
-        }
-        return false;
     }
 
     /**
