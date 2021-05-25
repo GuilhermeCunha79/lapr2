@@ -6,7 +6,7 @@ actor "Medical lab technician" as Mlt
 
 participant ":RegisterSampleUI" as UI
 participant ":RegisterSampleController" as CTRL
-participant "camp\n:Company" as CAMP
+participant "comp\n:Company" as COMP
 
 participant "sampleStore: SampleStore" as SSTORE
 
@@ -15,5 +15,98 @@ participant "testStore: TestStore" as TSTORE
 participant "sample\n:Sample" as SAMPLE
 participant "sampleDto: SampleDto" as SAMPLEDTO
 participant "testMap:TestMapper" as TMAPPER
+
+activate Mlt
+
+    Mlt-> UI: start the registration of the sample(s)
+
+    activate UI
+
+        UI -> CTRL : showAvailableTest(sampleDto)
+
+        activate CTRL
+
+            CTRL -> COMP : tStore = getTestStore()
+            activate COMP
+            deactivate COMP
+            CTRL -> TSTORE : ttList=getAvailableTestList()
+            activate TSTORE
+            deactivate TSTORE
+            CTRL -> TMAPPER** : toDTO(tList)
+            activate TMAPPER
+            ref over TMAPPER
+              SD_TestMapper_toDTO_list
+            end ref
+            TMAPPER --> CTRL : testListDto
+            deactivate TMAPPER
+            CTRL --> UI : testListDto
+
+        deactivate CTRL
+
+        UI --> Mlt: print the list of tests without registered sample(s)
+
+    deactivate UI
+
+    Mlt -> UI : select test
+
+    activate UI
+
+        UI -> CTRL : printTest(testId)
+        activate CTRL
+        CTRL -> TSTORE : test = getTestById(testId)
+        activate TSTORE
+        deactivate TSTORE
+        deactivate CTRL
+
+        UI --> Mlt: print select test and ask the number of samples (n)
+
+    deactivate UI
+
+    Mlt -> UI : input number of samples(n)
+
+    activate UI
+
+        UI -> CTRL : generateSample(n)
+        activate CTRL
+        CTRL -> SAMPLE : generateSample(n)
+        activate SAMPLE
+        deactivate SAMPLE
+        deactivate CTRL
+
+        UI --> Mlt: print all data (array) and ask for confirmation
+
+    deactivate UI
+
+Mlt -> UI :  confirms the data
+
+    activate UI
+         UI -> CTRL : saveSample(array)
+         activate CTRL
+         CTRL -> SSTORE : saveSample(array)
+           activate SSTORE
+           SSTORE -> SSTORE : validateSample(array)
+           SSTORE -> SSTORE : addSample(array)
+
+           SSTORE --> CTRL : Sample added
+
+         deactivate SSTORE
+
+          CTRL --> UI: result
+         deactivate CTRL
+
+         UI -> CTRL : setSample(array)
+         activate CTRL
+         CTRL -> TSTORE : setSample(array)
+         activate TSTORE
+         deactivate TSTORE
+
+          CTRL --> UI: result
+         deactivate CTRL
+
+         UI --> Mlt : informs operation success
+
+    deactivate UI
+
+
 
 @enduml

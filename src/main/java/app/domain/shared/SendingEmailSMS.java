@@ -26,6 +26,27 @@ public class SendingEmailSMS {
         }
 
     }
+
+    /***
+     * Method that sends a email with the password
+     * @param name
+     * @param password
+     * @throws IOException
+     */
+    public static void sendEmailWithNotification(String name) {
+        try {
+            File emailBox = new File("emailAndSMSMessages.txt");
+            PrintWriter out = new PrintWriter(emailBox);
+
+            out.printf("Hello %s,%nYou now can acess the application to check the results of your test!", name);
+            out.close();
+        }catch(Exception e){
+            System.out.println("Email not send");
+        }
+
+    }
+
+
 }
 
 
