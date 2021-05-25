@@ -1,6 +1,5 @@
 package app.domain.model;
 
-
 import app.mappers.dto.EmpDto;
 import org.junit.Test;
 

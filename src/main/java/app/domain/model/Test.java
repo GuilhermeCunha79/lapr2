@@ -2,6 +2,14 @@ package app.domain.model;
 
 import app.domain.shared.DateTime;
 import org.apache.commons.lang3.NotImplementedException;
+import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.BarcodeException;
+import net.sourceforge.barbecue.BarcodeFactory;
+import net.sourceforge.barbecue.BarcodeImageHandler;
+import net.sourceforge.barbecue.output.OutputException;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Test {
 
@@ -9,7 +17,17 @@ public class Test {
     private String internalCode;
     private String nhsCode;
     private boolean reportDone;
+    private boolean resultDone;
     private Report report;
+    private Result result;
+    private BufferedImage qrcode;
+
+    public Test(String internalCode, String nhsCode) {
+        //setQRCode(internalCode);
+        setNHSCode(nhsCode);
+        reportDone = false;
+        resultDone = false;
+    }
 
     /**
      * this method returns if this test already has a report or not using the reportDone boolean variable
@@ -20,6 +38,15 @@ public class Test {
     }
 
     /**
+     * this method returns if this test already has a result
+     * @return true or false
+     */
+    public boolean getResultStatus(){
+        return this.resultDone;
+    }
+
+
+    /**
      * This method returns the internal code of this test
      * @return a string with the internal code
      */
@@ -27,12 +54,46 @@ public class Test {
         return this.internalCode;
     }
 
+    /*public BufferedImage setQRCode(String internalCode) throws OutputException {
+        this.qrcode = generateEAN13BarcodeImage(internalCode);
+
+        return this.qrcode;
+    }*/
+
+    public String setNHSCode(String nhsCode) {
+        this.nhsCode = nhsCode;
+
+        return this.nhsCode;
+    }
+
+    /*
+    private static BufferedImage generateEAN13BarcodeImage(String barcodeText) throws OutputException {
+        Barcode barcode = null;
+        try {
+            barcode = BarcodeFactory.createEAN13(barcodeText);
+        } catch (BarcodeException e) {
+            e.printStackTrace();
+        }
+        barcode.setPreferredBarHeight(40);
+        barcode.setBarWidth(2);
+        barcode.setFont(new Font(Font.SANS_SERIF,Font.PLAIN,10));
+
+
+        return BarcodeImageHandler.getImage(barcode);
+
+    }*/
+
     /**
      * This method finds all the parameter test results done for this test and return them in a string
      * @return the results available
      */
-    public String getTestResults() {
-        throw new NotImplementedException("Method not implemented yet");
+    public Result getTestResults() {
+        return result;
+    }
+
+    public void addResult (Result result) {
+        this.result = result;
+        changeStateToResultDone();
     }
 
     /**
@@ -51,6 +112,10 @@ public class Test {
      */
     private void changeStateToReportDone() {
         reportDone = true;
+    }
+
+    private void changeStateToResultDone() {
+        resultDone = true;
     }
 
     /**

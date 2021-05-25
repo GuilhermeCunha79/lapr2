@@ -16,7 +16,7 @@ import static app.domain.shared.PasswordGenerator.generatePassword;
 
 public class ClientStore {
 
-    private List<Client> clientList = new ArrayList();
+    private final List<Client> clientList = new ArrayList();
 
 
     /***
@@ -35,13 +35,15 @@ public class ClientStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean saveClient(Client client) {
-        String email = client.getEmail();
-        String name = client.getName();
-        String pwd = generatePassword();
-        if (validateClient(client)) {
-            App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
-            sendEmail(client, pwd);
-            return addClient(client);
+        if(client!=null) {
+            String email = client.getEmail();
+            String name = client.getName();
+            String pwd = generatePassword();
+            if (validateClient(client)) {
+                App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
+                sendEmail(client, pwd);
+                return addClient(client);
+            }
         }
         return false;
     }
@@ -52,10 +54,7 @@ public class ClientStore {
      * @return if it was successfully added to the store (true or false)
      */
     private boolean addClient(Client ct) {
-        if (ct != null) {
-            return this.clientList.add(ct);
-        }
-        return false;
+        return this.clientList.add(ct);
     }
 
     /***

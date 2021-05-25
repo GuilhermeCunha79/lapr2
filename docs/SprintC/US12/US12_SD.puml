@@ -1,104 +1,78 @@
 @startuml
+'https://plantuml.com/sequence-diagram
+
 autonumber
-'hide footbox
-actor "Organization Employee" as ADM
 
-participant ":CreateTaskUI" as UI
-participant ":CreateTaskController" as CTRL
-participant "ApplicationPOT" as _APP
-participant "app\n:ApplicationPOT" as APP
-participant "session\n:UserSession" as SESSAO
-participant ":Platform" as PLAT
-participant "org\n:Organization" as ORG
-participant "task\n:Task" as TAREFA
-participant "cat\n:Category" as CAT
-participant "lc\n:List<Category>" as LIST_CAT
+actor "Clinical Chemistry Technologist" as CCT
+participant ":RecordResultUI" as UI
+participant ":RecordResultController" as CTRL
+participant ":Company" as COMP
+participant ":Test" as T
+participant ":Result" as RPRT
+participant ":TestParameterResult" as RSLT
+participant ":TestStore" as TS
+participant ":TestListMapper" as TLM
+participant ":DateTime" as DT
 
-activate ADM
-ADM -> UI : asks to create a new task
+CCT -> UI : Record a result for a given test
 activate UI
-UI --> ADM : requests data (reference, designation,  informal \n description, technical description, duration, cost)
+UI -> CTRL :  getListOfTestWithoutResult()
+    activate CTRL
+        CTRL -> COMP : testStore = getTestStore()
+        activate COMP
+        deactivate COMP
+        CTRL -> TS : getListOfTestWithoutResult()
+        activate TS
+        deactivate TS
+        CTRL -> TLM : lTestNoResultDto = toDto(lTestNoResult)
+        activate TLM
+        deactivate TLM
+    deactivate CTRL
+UI --> CCT : asks to select a test \n which doesn't have a result
 deactivate UI
-
-ADM -> UI : types requested data
+CCT -> UI : selects the test
 activate UI
-
-UI -> CTRL : lc=getTaskCategories()
-activate CTRL
-
-CTRL -> PLAT : lc=getTaskCategories()
-activate PLAT
-|||
-deactivate PLAT
-deactivate CTRL
-
-UI --> ADM : shows task categories list and ask to select one
-deactivate PLAT
+UI -> CTRL : getTest(testCode)
+    activate CTRL
+        CTRL -> TS : selectedTest = getTestByCode(testCode)
+        activate TS
+        deactivate TS
+        CTRL -> T : get(selectedTest)
+        activate T
+            T -> RSLT : toString()
+            activate RSLT
+            deactivate RSLT
+        deactivate T
+    deactivate CTRL
 deactivate UI
-
-ADM -> UI : selects a task category
+CCT -> UI : Record the result
 activate UI
-
-UI -> CTRL : createTask(ref,designation,informalDesc,technicalDesc,duration,cost,categoryId)
-activate CTRL
-
-CTRL -> PLAT : cat=getCategoryById(categoryId)
-activate PLAT
-|||
-deactivate PLAT
-
-CTRL -> _APP: app = getInstance()
-activate _APP
-|||
-deactivate _APP
-
-CTRL -> APP: session = getCurrentSession()
-activate APP
-|||
-deactivate APP
-
-CTRL -> SESSAO: email = getUserEmail()
-activate SESSAO
-|||
-deactivate SESSAO
-
-CTRL -> PLAT: org = getOrganizationByUserEmail(email)
-activate PLAT
-|||
-deactivate PLAT
-
-CTRL -> ORG: task=createTask(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
-activate ORG
-
-ORG --> TAREFA**: create(ref,designation,informalDesc,technicalDesc,duration,cost,cat)
-ORG -> ORG: validateTask(task)
-
-CTRL --> UI: result
-
-UI --> ADM: shows all data and requests confirmation
-deactivate ORG
-deactivate PLAT
-deactivate CTRL
+UI -> CTRL : newResult(description)
+    activate CTRL
+        CTRL -> RPRT : createResult(description)
+        activate RPRT
+        deactivate RPRT
+    deactivate CTRL
+UI --> CCT : validates the result of the test and shows the info \n for user confirmation
 deactivate UI
-
-ADM -> UI : confirms the data
+CCT -> UI : confirms the result
 activate UI
-UI -> CTRL : saveTask()
-activate CTRL
-
-CTRL -> ORG : saveTask(task)
-activate ORG
-
-ORG -> ORG: validateTask(task)
-ORG -> ORG: addTask(task)
-
-CTRL --> UI: result
-
-UI --> ADM : informs operation success
-deactivate ORG
-deactivate CTRL
+UI -> CTRL : saveResult()
+    activate CTRL
+        CTRL -> T : addResult(Result)
+        activate T
+            T -> T : changeStateToResultDone()
+            activate T
+                T -> RPRT : registerResultDateTime()
+                activate RPRT
+                    RPRT -> DT : createdAt = registerCurrentDateTime()
+                    activate DT
+                    deactivate DT
+                deactivate RPRT
+            deactivate T
+        deactivate T
+    deactivate CTRL
+UI --> CCT : informs that the Result was saved successfully into the test
 deactivate UI
-
-deactivate ADM
 
 @enduml

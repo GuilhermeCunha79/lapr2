@@ -4,9 +4,6 @@ left to right direction
 skinparam classAttributeIconSize 0
 
 
-class Platform {
-  -designation
-}
 
 class Test {
   -name
@@ -16,6 +13,9 @@ class Test {
   -email
 }
 
+class Employee{
+Role ClinicalChemistryTechnologist;
+}
 
 class Result {
   -id
@@ -23,9 +23,8 @@ class Result {
 }
 
 
-Platform "1" -- "*" Organization : has registered >
-Platform "1" -- "*" Category : defines >
-Organization "1" -- "1..*" Employee : has >
+Test "1" -- "*" Employee : is delivered to >
+Employee "1" -- "*" Result : to make the >
 
 
 

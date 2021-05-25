@@ -1,34 +1,22 @@
 @startuml
+
 hide methods
-left to right direction
-skinparam classAttributeIconSize 0
 
-
-class Company {
-  -name
-  -location
+class Employee {
+    Role clinicalChemistryTechnologist
 }
 
-
-
-
-class ClinicalAnalysisLaboratory {
-  -laboratoryID
-  -name
-  -address
-  -phoneNumber
-  -tinNumber
-  -typeOfTestList
+class Test {
+    -createdAt
 }
 
-class TypeOfTest {
-  -Designation
+class Result {
+    -createdAt
+    -description
 }
 
-
-Company "1" -- "*" ClinicalAnalysisLaboratory : store >
-Company"1" -- "*" TypeOfTest : store >
-ClinicalAnalysisLaboratory "*" -- "*" TypeOfTest : perform >
+Employee"1..*" -- "*"Result : "> write"
+Employee"1..*" -up- "*"Test : "> checks"
 
 
 @enduml

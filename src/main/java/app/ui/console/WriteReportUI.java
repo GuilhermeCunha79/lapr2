@@ -5,10 +5,11 @@ import app.ui.console.utils.Utils;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class WriteReportUI implements Runnable{
 
-    private WriteReportController ctrl = new WriteReportController();
+    private final WriteReportController ctrl = new WriteReportController();
 
     /**
      * This method initiates the write report process and enables the option to write multiple reports without having to return to the menu
@@ -27,14 +28,12 @@ public class WriteReportUI implements Runnable{
      * needing reports, return true when there are tests still needing reports
      */
     private boolean writeReportProcess() {
-
-        boolean done = false;
         while (true){
             try {
                 List<String> lTestDto = ctrl.getTestWithoutReport();
                 if (lTestDto != null) {
                     int option = Utils.showAndSelectIndex(lTestDto, "Select one of the following tests:");
-                    String results = ctrl.getTestResults(lTestDto.get(option).substring(15, 26));
+                    String results = ctrl.getTestResults(lTestDto.get(option).substring(15, 26)).toString();
                     System.out.println(results);
                     String report = Utils.readLineFromConsole("Write report below:");
                     ctrl.newReport(report);
@@ -42,7 +41,6 @@ public class WriteReportUI implements Runnable{
                     if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
                         if(ctrl.saveReport())
                             System.out.println("INFO: Report Saved.");
-                        done = true;
                         return true;
                     }
                 } else {

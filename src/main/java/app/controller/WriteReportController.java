@@ -2,6 +2,7 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.Report;
+import app.domain.model.Result;
 import app.domain.model.Test;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
@@ -47,7 +48,7 @@ public class WriteReportController {
      * @param testCode internal code to be used
      * @return all the parameter tested results
      */
-    public String getTestResults(String testCode){
+    public Result getTestResults(String testCode){
         this.test = testStore.getTestByCode(testCode);
         return test.getTestResults();
     }

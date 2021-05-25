@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant "testMap:TestMapper" as TMAPPER
+participant "storeTest: TestStore" as TSTORE
+participant "TestDto : List<TestDto>" as TLIST
+participant "objDTO: TestDto" as TDTO
+
+
+[o-> TMAPPER : toDTO(Test)
+TMAPPER -> TLIST**: create()
+
+loop For each object in TestList
+
+TMAPPER -> TSTORE : TestObj = getTestById(i)
+activate TSTORE
+deactivate TSTORE
+TMAPPER -> TMAPPER : objDto = toDTO(TypeOfTestObj)
+TMAPPER -> TDTO** : create(code)
+TMAPPER -> TLIST : add(objDto)
+activate TLIST
+deactivate TLIST
+
+end
+
+<-- TMAPPER : listTestDto
+@enduml
