@@ -3,8 +3,8 @@ autonumber
 'hide footbox
 actor "Lab Coordinator" as LC
 
-participant ":MakeValidation \n ValidationWorkUI" as UI
-participant ":MakeValidation \n ValidationWorkController" as CTRL
+participant ":ValidationUI" as UI
+participant ":ValidationController" as CTRL
 participant ":Company" as C
 participant "store:TestStore" as TS
 participant ":DateTime" as DT
@@ -17,13 +17,13 @@ activate UI
     CTRL -> C : testStore = getTestStore()
     activate C
     deactivate C
-    CTRL -> TS : getTestRegistrationDate()
+    CTRL -> TS : registrationDate = getTestRegistrationDate()
     activate TS
     deactivate TS
-    CTRL -> TS : getCaDate()
+    CTRL -> TS : clinicalAnalysisDate = getCaDate()
     activate TS
     deactivate TS
-    CTRL -> TS : getDiagnosisDate()
+    CTRL -> TS : diagnosisDate = getDiagnosisDate()
      activate TS
         deactivate TS
     deactivate CTRL
@@ -39,11 +39,6 @@ CTRL -> TS : selectedTests = getTestReady()
 activate TS
 deactivate TS
 deactivate CTRL
-
-
-
-
-
     deactivate CTRL
     UI --> LC : ask for validation
 deactivate UI
