@@ -49,5 +49,12 @@ public class ParameterCategoryStoreTest {
         assertTrue(pcs.getParameterCategoryList().contains(pc1) && pcs.getParameterCategoryList().contains(pc2));
     }
 
+    @Test
+    public void testGetParameterCategoryMethod(){
+        ParameterCategory pc1 = pcs.createParameterCategory("12345", "hemograms");
+        pcs.saveParameterCategory(pc1);
+        assertEquals(pc1, pcs.getParameterCategory("12345"));
+    }
+
 
 }

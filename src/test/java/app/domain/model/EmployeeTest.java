@@ -1,8 +1,11 @@
 package app.domain.model;
 
 import app.mappers.dto.EmpDto;
+import auth.domain.model.UserRole;
 import org.junit.Test;
 
+
+import javax.management.relation.Role;
 
 import static org.junit.Assert.assertEquals;
 
@@ -74,6 +77,14 @@ public class EmployeeTest {
     public void testSetPhoneNumberWithNonNumericChars(){
         new Employee(new EmpDto("Receptionist", "James", "s@£treet", "12asf121212", "james@gmail.com", "12"));
 
+    }
+
+    @Test
+    public void testGetName(){
+        Employee emp = new Employee(new EmpDto("Receptionist", "James", "street", "91919191919", "james@gmail.com", "1232"));
+        emp.setRole(new UserRole("RECEPTIONIST", "RECEPTIONIST"));
+        String expected = "James";
+        assertEquals(expected, emp.getName());
     }
 
 }
