@@ -1,22 +1,60 @@
 @startuml
-skinparam classAttributeIconSize 0
 
-
-class Platform {
-  -String designation
-  +getTests()
-  +getTestByClient(clientId)
+class RecordResultUI {
 }
 
 class RecordResultController {
+    +getTestWithoutResult()
+    +getTestResults(testCode)
+    +newResult(text)
+    +saveResult()
 }
 
-class RecordResultUI {
-
+class Company {
+    -description
+    +getTestStore()
 }
 
-RecordResultUI ..> RecordResultController
-RecordResultController ..> Platform
+class TestStore {
+    +getTestWithoutResult()
+    +getTestByCode(testCode)
+}
 
+class TestListMapper {
+    +toDto(lTestNoResult)
+}
+
+class Test {
+    -createdAt
+    -internalCode
+    -nhsCode
+    +getTestResults()
+    +addResult(Result)
+    -changeStateToResultDone()
+}
+
+class Result {
+    -createdAt
+    -ResultText
+    +registerResultDateTime()
+}
+
+class DateTime {
+    -date
+    -time
+    +registerCurrentDateTime()
+}
+
+RecordResultUI .right.> RecordResultController
+RecordResultController ..> Company
+RecordResultController ..> TestStore
+RecordResultController .right.> TestListMapper
+RecordResultController ..> Test
+RecordResultController ..> Result
+Company"1" --> "*"Test : "performs"
+Company"1" --> "1"TestStore : "uses"
+TestStore"1" --> "*"Test : "store"
+Test"1" -left-> "1"Result : "originates"
+Result .left.> DateTime
 
 @enduml
