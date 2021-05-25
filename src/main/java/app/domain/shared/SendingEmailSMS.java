@@ -15,14 +15,17 @@ public class SendingEmailSMS {
      * @throws IOException
      */
     public static void sendEmailWithPassword(String name, String email, String password) {
+        File emailBox = new File("emailAndSMSMessages.txt");
+        PrintWriter out = null;
         try {
-            File emailBox = new File("emailAndSMSMessages.txt");
-            PrintWriter out = new PrintWriter(emailBox);
+            out = new PrintWriter(emailBox);
 
             out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%nLogin data: %nEmail: %s%nPassword: %s", name, email, password);
-            out.close();
         }catch(Exception e){
             System.out.println("Email not send");
+        }finally {
+            if(out != null)
+                out.close();
         }
 
     }
@@ -34,14 +37,18 @@ public class SendingEmailSMS {
      * @throws IOException
      */
     public static void sendEmailWithNotification(String name) {
+        File emailBox = new File("emailAndSMSMessages.txt");
+        PrintWriter out = null;
         try {
-            File emailBox = new File("emailAndSMSMessages.txt");
-            PrintWriter out = new PrintWriter(emailBox);
+            out = new PrintWriter(emailBox);
 
             out.printf("Hello %s,%nYou now can acess the application to check the results of your test!", name);
             out.close();
         }catch(Exception e){
             System.out.println("Email not send");
+        }finally {
+            if(out != null)
+                out.close();
         }
 
     }
