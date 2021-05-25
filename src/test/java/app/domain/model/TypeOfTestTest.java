@@ -61,15 +61,6 @@ public class TypeOfTestTest {
         new TypeOfTest("53436", "RNA remnants and Dna remnats", "cotton swab",pc );
     }
 
-
-
-    @Test
-    public void ensureDescriptionCanHave15Char() {
-
-        new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
-    }
-
-
     @Test(expected = IllegalArgumentException.class)
     public void ensureDescriptionCannotBeBlank() {
 
@@ -80,16 +71,9 @@ public class TypeOfTestTest {
      * Tests to type of test's colllecting acceptance criterias
      */
     @Test(expected = IllegalArgumentException.class)
-    public void ensureColectingMethodCannotHaveMoreThan15Char() {
+    public void ensureCollectingMethodCannotHaveMoreThan15Char() {
 
         new TypeOfTest("53436", "RNA remnants", "cotton swab thro the nose", pc);
-    }
-
-
-    @Test
-    public void ensureColectingMethodCanHave15Char() {
-
-        new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
     }
 
     @Test(expected = NullPointerException.class)
@@ -99,7 +83,7 @@ public class TypeOfTestTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureColectingMethodCannotBeBlank() {
+    public void ensureCollectingMethodCannotBeBlank() {
 
         new TypeOfTest("53436", "RNA remnants", "", pc );
     }
@@ -124,7 +108,7 @@ public class TypeOfTestTest {
     }
 
     @Test
-    public void checkGetColectingMethodMethod() {
+    public void checkGetCollectingMethodMethod() {
 
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
         String expected= "cotton swab";
@@ -157,7 +141,7 @@ public class TypeOfTestTest {
 
 
     @Test
-    public void checkSetColectingMethodMethod() {
+    public void checkSetCollectingMethodMethod() {
        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
         tot1.setCollectingMethod("Saliva");
         String expected = "Saliva";
@@ -181,9 +165,7 @@ public class TypeOfTestTest {
     @Test
     public void checkIfTypeOfTestIsDiffThanNull() {
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
-        TypeOfTest tot2= null;
-        boolean expected = false;
-        assertEquals(expected, tot1.equals(tot2));
+        assertNotEquals(null, tot1);
     }
 
 
@@ -204,15 +186,22 @@ public class TypeOfTestTest {
 
 
     @Test
-    public void checkIf2TypeOfTestSameDescriptionAndColectingMethodAreEqual() {
+    public void checkIf2TypeOfTestSameDescriptionAndCollectingMethodAreEqual() {
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab",pc);
         TypeOfTest tot2= new TypeOfTest("53435", "RNA remnants", "cotton swab", pc);
         assertEquals( tot1,tot2);
     }
 
+    @Test
+    public void checkIf2TypeOfTestJustSameDescriptionAreDifferent() {
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab",pc);
+        TypeOfTest tot2= new TypeOfTest("53433", "RNA remnants", "swab", pc);
+        assertNotEquals( tot1,tot2);
+    }
+
 
     @Test
-    public void checkIf2TypeOfTestAreDiferents() {
+    public void checkIf2TypeOfTestsAreDifferent() {
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab",pc);
         TypeOfTest tot2= new TypeOfTest("53435", "RNA remnant", "cotton swab", pc);
         assertNotEquals( tot1,tot2);
@@ -232,5 +221,18 @@ public class TypeOfTestTest {
         ParameterCategory pc = new ParameterCategory("34567", "Src");
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab",pc);
         assertNotEquals( tot1,pc);
+    }
+
+    @Test
+    public void checkIfItsPossibleToAddMoreCategories() {
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab",pc);
+        assertTrue( tot1.addParameterCategory(new ParameterCategory("43212", "pc")));
+    }
+
+    @Test
+    public void checkIfPrintCategoriesReturnFalseWhenNull() {
+        TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab",null);
+        String expected = String.format("Type of Test:%nCode: 53436%nDescription: RNA remnants%nCollecting Method: cotton swab%nNo Categories");
+        assertEquals(expected, tot1.toString());
     }
 }

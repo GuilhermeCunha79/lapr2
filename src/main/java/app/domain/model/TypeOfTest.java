@@ -30,7 +30,7 @@ public class TypeOfTest {
         setCode(code);
         setDescription(description);
         setCollectingMethod(collectingMethod);
-        this.parameterCategoryList.add(pc);
+        addParameterCategory(pc);
     }
 
     /**
@@ -99,7 +99,9 @@ public class TypeOfTest {
      * @return (in)success of the operation
      */
     public boolean addParameterCategory(ParameterCategory pc){
-        return this.parameterCategoryList.add(pc);
+        if(pc != null)
+            return this.parameterCategoryList.add(pc);
+        return false;
     }
     /**
      * This method returns a string with all the data of the instance of type of test that called the method
@@ -132,7 +134,7 @@ public class TypeOfTest {
      * @return output or String ("No Categories")
      */
     private String printCategories(){
-        if(parameterCategoryList != null && parameterCategoryList.size()>0){
+        if(parameterCategoryList != null && !parameterCategoryList.isEmpty()){
             String output = String.format("Parameter Category(ies):%n");
             for (ParameterCategory category : parameterCategoryList) {
                 output = output.concat(category.toString());
