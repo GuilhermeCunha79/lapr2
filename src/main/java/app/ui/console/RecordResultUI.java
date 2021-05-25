@@ -33,7 +33,7 @@ public class RecordResultUI implements Runnable{
                         answer = Utils.readLineFromConsole("Answer not valid! Use (Y/N)");
                     }
                     if (answer.equalsIgnoreCase("Y")) {
-                        ctrl.saveResult(test);
+                       // ctrl.saveResult(test);
                         return true;
                     }
                 } else {

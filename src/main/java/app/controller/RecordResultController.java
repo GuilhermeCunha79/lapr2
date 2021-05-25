@@ -34,15 +34,15 @@ public class RecordResultController {
 
     public Result getTestResults(String testCode){
         this.test = testStore.getTestByCode(testCode);
-        return test.getTestResults();
+        return result;//change this
     }
 
     public void newResult(String text){
         this.result = new Result(text);
     }
-
+/*
     public void saveResult(Test test){
         test.addResult(this.result);
     }
-
+*/
 }

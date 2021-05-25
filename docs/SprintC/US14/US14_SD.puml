@@ -16,6 +16,8 @@ participant ":DateTime" as DT
 
 SD -> UI : Write a report for a test
 activate UI
+loop while the user wants to write another report\n or there are still tests ready to receive a report
+
 UI -> CTRL : lTestDto = getTestWithoutReport()
     activate CTRL
         CTRL -> COMP : testStore = getTestStore()
@@ -75,5 +77,6 @@ UI -> CTRL : saveReport()
     deactivate CTRL
 UI --> SD : informs that the report was saved successfully
 deactivate UI
+end loop
 
 @enduml

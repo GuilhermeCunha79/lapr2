@@ -7,6 +7,7 @@ participant ":System" as SYSTEM
 
 SD -> SYSTEM : Write a report for a test
 activate SYSTEM
+loop while the user wants to write another report\n or there are still tests ready to receive a report
 SYSTEM --> SD : Asks for which existing test he wants to write a report for
 deactivate SYSTEM
 
@@ -24,4 +25,5 @@ SD -> SYSTEM : Confirms the report
 activate SYSTEM
 SYSTEM --> SD : Informs that the report was saved successfully
 deactivate SYSTEM
+end loop
 @enduml

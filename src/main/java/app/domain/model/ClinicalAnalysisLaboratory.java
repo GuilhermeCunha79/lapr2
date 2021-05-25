@@ -174,7 +174,7 @@ public class ClinicalAnalysisLaboratory {
      */
     private String printTypeOfTestList() {
         String output = "Type of Tests List:" + System.lineSeparator();
-        if (typeOfTestList.size() > 0) {
+        if (!typeOfTestList.isEmpty()) {
             for (TypeOfTest typeOfTest : typeOfTestList) {
                 output = output.concat(typeOfTest.toString());
                 output = output.concat(System.lineSeparator());
