@@ -13,8 +13,6 @@ participant "tst :test" as TST
 participant "ct \n : Client" as CT
 participant "EmailAndSmsMessage" as EM
 participant ":DateTime" as DT
-participant "readyToValidateList: \n List<TestReadyToValidateDTO>" as LTVDTO
-participant "testValidateDTO: \n TestReadyToValidateDTO" as TVDTO
 
 LC -> UI : validate work done by the clinical chemistry technologist and specialist doctor
 activate UI
