@@ -7,8 +7,13 @@ participant ":ValidationUI" as UI
 participant ":ValidationController" as CTRL
 participant ":Company" as C
 participant "store:TestStore" as TS
+participant "testToValidate \n :TestsReadyToValidateMapper" as TVM
+participant "tst :test" as TST
+participant "ct \n : Client as CT"
+participant "EmailAndSmsMessage" as EM
 participant ":DateTime" as DT
-
+participant "readyToValidateList: \n List<TestReadyToValidateDTO>" as LTVDTO
+participant "testValidateDTO: \n TestReadyToValidateDTO" as TVDTO
 
 LC -> UI : validate work done by the clinical chemistry technologist and specialist doctor
 activate UI
@@ -17,42 +22,52 @@ activate UI
     CTRL -> C : testStore = getTestStore()
     activate C
     deactivate C
-    CTRL -> TS : registrationDate = getTestRegistrationDate()
+    CTRL -> TS : readyToValidateList = getTestsReadyToValidate()
     activate TS
     deactivate TS
-    CTRL -> TS : clinicalAnalysisDate = getCaDate()
-    activate TS
-    deactivate TS
-    CTRL -> TS : diagnosisDate = getDiagnosisDate()
-     activate TS
-        deactivate TS
+    CTRL -> TVM : readyToValidateDto = toDto(readyToValidate)
+    activate TVM
+    deactivate TVM
+    deactivate TVM
+    CTRL --> UI : testsReadyToValidateDto
     deactivate CTRL
     UI --> LC : shows the test(s) that have the test registration date, the chemical\n analysis date and the diagnosis date registered in the system
 deactivate UI
-
+loop
 LC -> UI : select the test(s)
 activate UI
 
-UI -> CTRL : getTestReady(testsReady)
+UI -> CTRL : validateTest(internalCode)
 activate CTRL
-CTRL -> TS : selectedTests = getTestReady()
+CTRL -> TS : test= getTestByCode(internalCode)
 activate TS
+CTRL -> TS : validationTest = newTestValidation(test)
 deactivate TS
+
+CTRL -> CTRL : testValidationList = addValidTest(test)
+activate CTRL
 deactivate CTRL
-    deactivate CTRL
+CTRL --> UI : success
+deactivate CTRL
+
     UI --> LC : ask for validation
+    deactivate CTRL
 deactivate UI
+end
 LC -> UI : confirms the validation
 activate UI
     UI -> CTRL : saveValidation()
     activate CTRL
-    CTRL -> TS : doValidation(selectedTests)
+    CTRL -> TS : doValidation(testValidationList)
     activate TS
     TS -> TS : changeStateToValidationDone()
     activate TS
     TS -> DT : validatedAt = DateTime()
     activate DT
-    deactivate DT
+        deactivate DT
+    TS -> EM : sendEmailSmsNotification()
+    activate EM
+    deactivate EM
     deactivate TS
     deactivate TS
 
