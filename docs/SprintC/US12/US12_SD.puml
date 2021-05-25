@@ -9,7 +9,6 @@ participant ":RecordResultController" as CTRL
 participant ":Company" as COMP
 participant ":Test" as T
 participant ":Result" as RPRT
-participant ":TestParameterResult" as RSLT
 participant ":TestStore" as TS
 participant ":TestListMapper" as TLM
 participant ":DateTime" as DT
@@ -32,24 +31,21 @@ UI --> CCT : asks to select a test \n which doesn't have a result
 deactivate UI
 CCT -> UI : selects the test
 activate UI
-UI -> CTRL : getTest(testCode)
+UI -> CTRL : getTest(qrCode)
     activate CTRL
-        CTRL -> TS : selectedTest = getTestByCode(testCode)
+        CTRL -> TS : selectedTest = getTestByQRCode(qrCode)
         activate TS
         deactivate TS
         CTRL -> T : get(selectedTest)
         activate T
-            T -> RSLT : toString()
-            activate RSLT
-            deactivate RSLT
         deactivate T
     deactivate CTRL
 deactivate UI
 CCT -> UI : Record the result
 activate UI
-UI -> CTRL : newResult(description)
+UI -> CTRL : newResult(result)
     activate CTRL
-        CTRL -> RPRT : createResult(description)
+        CTRL -> RPRT : createResult(result)
         activate RPRT
         deactivate RPRT
     deactivate CTRL
@@ -59,7 +55,7 @@ CCT -> UI : confirms the result
 activate UI
 UI -> CTRL : saveResult()
     activate CTRL
-        CTRL -> T : addResult(Result)
+        CTRL -> T : addResult(result)
         activate T
             T -> T : changeStateToResultDone()
             activate T

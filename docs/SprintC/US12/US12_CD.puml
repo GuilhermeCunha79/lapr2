@@ -30,12 +30,13 @@ class Test {
     -nhsCode
     +getTestResults()
     +addResult(Result)
-    -changeStateToResultDone()
+    +changeStateToResultDone()
+    +generateQRImage(internalCode)
 }
 
 class Result {
     -createdAt
-    -ResultText
+    -resultText
     +registerResultDateTime()
 }
 
@@ -45,16 +46,16 @@ class DateTime {
     +registerCurrentDateTime()
 }
 
-RecordResultUI .right.> RecordResultController
+RecordResultUI ..> RecordResultController
 RecordResultController ..> Company
 RecordResultController ..> TestStore
-RecordResultController .right.> TestListMapper
+RecordResultController ..> TestListMapper
 RecordResultController ..> Test
 RecordResultController ..> Result
 Company"1" --> "*"Test : "performs"
 Company"1" --> "1"TestStore : "uses"
 TestStore"1" --> "*"Test : "store"
 Test"1" -left-> "1"Result : "originates"
-Result .left.> DateTime
+Result ..> DateTime
 
 @enduml

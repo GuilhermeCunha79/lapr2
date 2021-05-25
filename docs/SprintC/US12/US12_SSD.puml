@@ -8,7 +8,7 @@ activate ":System"
 ":System" --> CCT : shows tests list and ask to select one
 deactivate ":System"
 
-CCT -> ":System" : select one test
+CCT -> ":System" : deliver the barcode to the application
 activate ":System"
 ":System" --> CCT : shows the information of the test
 deactivate ":System"

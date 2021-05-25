@@ -3,20 +3,27 @@
 hide methods
 
 class Employee {
-    Role clinicalChemistryTechnologist
+    - Role clinicalChemistryTechnologist
 }
 
 class Test {
-    -createdAt
+    - createdAt
+    - DateTime createdAt;
+    - String internalCode;
+    - String nhsCode;
+    - boolean reportDone;
+    - boolean resultDone;
+    - Report report;
+    - Result result;
+    - BufferedImage qrcode;
 }
 
 class Result {
     -createdAt
-    -description
+    -String result
 }
 
 Employee"1..*" -- "*"Result : "> write"
 Employee"1..*" -up- "*"Test : "> checks"
-
 
 @enduml

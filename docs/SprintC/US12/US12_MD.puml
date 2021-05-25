@@ -1,31 +1,29 @@
 @startuml
+
 hide methods
-left to right direction
-skinparam classAttributeIconSize 0
 
-
-
-class Test {
-  -name
-  -VatNumber
-  -website
-  -phoneNumber
-  -email
+class Employee {
+    - Role clinicalChemistryTechnologist
 }
 
-class Employee{
-Role ClinicalChemistryTechnologist;
+class Test {
+    - createdAt
+    - DateTime createdAt;
+    - String internalCode;
+    - String nhsCode;
+    - boolean reportDone;
+    - boolean resultDone;
+    - Report report;
+    - Result result;
+    - BufferedImage qrcode;
 }
 
 class Result {
-  -id
-  -description
+    -createdAt
+    -String result
 }
 
-
-Test "1" -- "*" Employee : is delivered to >
-Employee "1" -- "*" Result : to make the >
-
-
+Employee"1..*" -- "*"Result : "> write"
+Employee"1..*" -up- "*"Test : "> checks"
 
 @enduml
