@@ -38,9 +38,9 @@ given test.
 > After printing the barcodes (one or more) the use case ends."
 
 
-> **Question:**
+> **Question:** After the barcodes are generated. The concept-reality link would be, for example to stick each barcode into each sample?
 > 
-> **Answer:** 
+> **Answer:** Yes. Each generated barcode should be saved in a folder as a jpeg file.
 
 
 > **Question:** 
@@ -122,41 +122,43 @@ n/a
 | 		 |	... coordinating the US? |  RegisterSampleController   |  **Controller**         |
 |       | ... knows TestStore?	| Company  |  **IE** Company knows the TestStore to which is delegation some tasks        |
 | Step 2		 |	|   |          |
-| Step 3		 | 	|  |         |
+| Step 3		 |... gets the test selected? 	|  RegisterSampleController |      **Controller**     |
 | Step 4		 | |   |         |
-| Step 5		 | 	|   |  TODO check this information        |
-| Step 6		 | 	|   |  TODO check this information        |
-| Step 7		 | 	|   |  TODO check this information        |
-| Step 8		 | 	|   |  TODO check this information        |
-| Step 9		 | ...savind the typed/selected data? 	| Test  |  **IE:** a Test knows its own data      |
-| 		                 |	... instantiating a new Test? | TestStore   | **Creator (R1)** and **HC+LC**: By the application of the Creator (R1) it would be the "Company". But, by applying HC + LC to the "Company", this delegates that responsibility to the "TestStore"   |
-|  		 			     |  ... knows TestStore?	 |  Company   |  **IE:** Company knows the TestStore to which it is delegating some tasks |
-|  		             |	... validating all data (local validation)? | Test | **IE:** an object knows its data|
-| 			  		 |	... validating all data (global validation)? | TestStore | **IE:** knows all the clients| 
-| 			  		 |	... saving the test? | TestStore | **IE:** Knows all tests | 
-| Step 10  |	... informing operation success?| CreateTestUI  | **IE:** is responsible for user interactions  |
+| Step 5		 | ... recives the number of Samples ?	| Sample  |   **IE**  object created in step 1 has its own data.   |
+| Step 6		 | ...knowing the task categories to show? |  RegisterSampleController | **IE** Sample Categories are defined by the RegisterSampleController. |
+| Step 7		|	... validating all data (local validation)? | Sample | **IE** owns its data.| 
+| 			  		 |	... validating all data (global validation)? | SampleStore| **IE** knows all its samples.| 
+| 			  		 |	... saving the created sample? | SampleStore | **IE** owns all its sample.|
+|                     |... setting the samples? | TestStore | 
+| Step 8		 | ... informing operation success?| RegisterSampleUI  | **IE** is responsible for user interactions.  | 
 
 ### Systematization ##
 
 According to the taken rationale, the conceptual classes promoted to software classes are:
 
+* RegisterSampleUI
+* RegisterSampleController
+* Company
 
 Other software classes (i.e. Pure Fabrication) identified:
 
+* Sample
+* TestDto
+* TestMapper
+* TestStore
 
 
 ## 3.2. Sequence Diagram (SD)
 
+![UC5_SD](UC5_SD.svg)
 
-**SD_TestTypeMapper_toDTO_list**
+**SD_TestMapper_toDTO_list**
 
-
-**SD_ParameterMapper_toDTO_list**
-
+![SD_TestMapper_toDTO_list](SD_TestMapper_toDTO_list.svg)
 
 ## 3.3. Class Diagram (CD)
 
-
+![UC5_CD](UC5_CD.svg)
 
 # 4. Tests
 
