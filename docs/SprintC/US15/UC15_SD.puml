@@ -8,8 +8,9 @@ participant ":ValidationController" as CTRL
 participant ":Company" as C
 participant "store:TestStore" as TS
 participant "testToValidate \n :TestsReadyToValidateMapper" as TVM
+participant "testValidation:\n TestValidation" as TV
 participant "tst :test" as TST
-participant "ct \n : Client as CT"
+participant "ct \n : Client" as CT
 participant "EmailAndSmsMessage" as EM
 participant ":DateTime" as DT
 participant "readyToValidateList: \n List<TestReadyToValidateDTO>" as LTVDTO
@@ -37,12 +38,15 @@ loop
 LC -> UI : select the test(s)
 activate UI
 
-UI -> CTRL : validateTest(internalCode)
+UI -> CTRL : createValidateTest(internalCode)
 activate CTRL
 CTRL -> TS : test= getTestByCode(internalCode)
 activate TS
-CTRL -> TS : validationTest = newTestValidation(test)
+CTRL -> TS : testValidation=createValidateTest(test)
+TS-> TV** : createValidateTest(test)
 deactivate TS
+
+
 
 CTRL -> CTRL : testValidationList = addValidTest(test)
 activate CTRL
@@ -59,16 +63,29 @@ activate UI
     UI -> CTRL : saveValidation()
     activate CTRL
     CTRL -> TS : doValidation(testValidationList)
+    loop
     activate TS
-    TS -> TS : changeStateToValidationDone()
+    TS -> TS : changeStateToValidationDone(tst)
     activate TS
+    deactivate TS
+    TS -> TV : test=getTest()
+    activate TV
+    deactivate TV
+    TS -> TST : client = getClient()
+    activate TST
+    deactivate TST
+    TS -> CT : name=getName()
+    activate CT
+    deactivate CT
     TS -> DT : validatedAt = DateTime()
     activate DT
         deactivate DT
-    TS -> EM : sendEmailSmsNotification()
+    TS -> EM : sendEmailSmsNotification(name)
     activate EM
-    deactivate EM
-    deactivate TS
+        deactivate EM
+   end
+
+
     deactivate TS
 
 

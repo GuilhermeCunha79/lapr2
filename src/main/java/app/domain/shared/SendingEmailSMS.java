@@ -30,7 +30,7 @@ public class SendingEmailSMS {
     /***
      * Method that sends a email with the password
      * @param name
-     * @param password
+     * @param name
      * @throws IOException
      */
     public static void sendEmailWithNotification(String name) {
