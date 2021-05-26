@@ -3,9 +3,11 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.Test;
 import app.domain.store.TestStore;
+import app.mappers.TestListMapper;
 import app.mappers.TestReadyToValidateMapper;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ValidationController {
 
@@ -22,8 +24,8 @@ public class ValidationController {
     }
 
 
-    public List<String> getTestReadyToValidate(){
-        List<Test> readyToValidate = testStore.getTestWithoutReport();
+    public List<String> testValidationList(){
+        List<Test> readyToValidate = testStore.getTestList();
         if(readyToValidate != null) {
             TestReadyToValidateMapper testReady = new TestReadyToValidateMapper();
             return testReady.toDtoVal(readyToValidate);
@@ -32,10 +34,15 @@ public class ValidationController {
     }
 
 
-    public String getTestByCode(String internalCode){
-        this.test=testStore.getTestByCode(internalCode);
-        return test.getTestResults();
+    public Test getTestByCode(String internalCode){
+        if(internalCode!=null) {
+            this.test = testStore.getTestByCode(internalCode);
+            return testStore.createValidateTest(test);
+        }
+        return null;
     }
 
-
+    public List<Test> getTestList() {
+        return App.getInstance().getCompany().getTestStore().getTestList();
+    }
 }

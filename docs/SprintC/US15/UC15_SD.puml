@@ -40,7 +40,10 @@ UI -> CTRL : createValidateTest(internalCode)
 activate CTRL
 CTRL -> TS : test= getTestByCode(internalCode)
 activate TS
+deactivate TS
 CTRL -> TS : testValidation=createValidateTest(test)
+activate TS
+deactivate R
 TS-> TV** : createValidateTest(test)
 deactivate TS
 

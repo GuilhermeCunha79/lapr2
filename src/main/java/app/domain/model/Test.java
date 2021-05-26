@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Test {              //criar metodo que associe o testCounter ao internalCode
+    private static final int NHS_CODE = 12;
+    private static int testCounter = 0;
+    private DateTime registrationDate;
+    private DateTime reportDate;
+    private DateTime chemicalAnalysisDate;
     private Client client;//set get
     private TypeOfTest typeOfTest;//set get
     private DateTime createdAt;//get
@@ -17,10 +22,6 @@ public class Test {              //criar metodo que associe o testCounter ao int
     private Report report;
     private List<TestParameterResult> resultList = new ArrayList<>();
     private List<Parameter> parameterList;//get set
-
-    private static int testCounter = 0;
-    private static final int NHS_CODE = 12;
-
 
 
     public Test(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList) {
@@ -35,43 +36,58 @@ public class Test {              //criar metodo que associe o testCounter ao int
         resultDone = false;
     }
 
+    public Test(String internalCode, DateTime registrationDate, DateTime chemicalAnalysisDate, DateTime reportDate) {
+        this.internalCode=internalCode;
+        this.registrationDate=registrationDate;
+        this.chemicalAnalysisDate=chemicalAnalysisDate;
+        this.reportDate=reportDate;
+    }
+
 
     public DateTime getRegistrationDate() {
         return this.createdAt;
     }
 
+    public DateTime getChemicalAnalysisDate() {
+        return this.createdAt;
+    }
 
-
-
+    public DateTime getReportDate() {
+        return this.createdAt;
+    }
 
 
     /**
      * this method returns if this test already has a report or not using the reportDone boolean variable
+     *
      * @return true or false
      */
-    public boolean getReportStatus(){
+    public boolean getReportStatus() {
         return this.reportDone;
     }
 
     /**
      * this method returns if this test already has a result
+     *
      * @return true or false
      */
-    public boolean getResultStatus(){
+    public boolean getResultStatus() {
         return this.resultDone;
     }
 
     /**
      * this method returns if this test as already been validated
+     *
      * @return true or false
      */
-    public boolean getValidationStatus(){
+    public boolean getValidationStatus() {
         return this.validationDone;
     }
 
 
     /**
      * This method returns the internal code of this test
+     *
      * @return a string with the internal code
      */
     public String getInternalCode() {
@@ -80,6 +96,7 @@ public class Test {              //criar metodo que associe o testCounter ao int
 
     /**
      * This method returns the client of this test
+     *
      * @return a string with the client
      */
 
@@ -89,15 +106,15 @@ public class Test {              //criar metodo que associe o testCounter ao int
     }
 
 
-
     /**
      * This method finds all the parameter test results done for this test and return them in a string
+     *
      * @return the results available
      */
     public String getTestResults() {
         String results = "";
-        if(!resultList.isEmpty()) {
-            for (TestParameterResult result : resultList){
+        if (!resultList.isEmpty()) {
+            for (TestParameterResult result : resultList) {
                 results.concat(result.toString());
             }
         }
@@ -107,6 +124,7 @@ public class Test {              //criar metodo que associe o testCounter ao int
 
     /**
      * This method receives a Report and assigns it to the test it's related to
+     *
      * @param report the instance of a Report
      * @return if it was added or not
      */
@@ -127,12 +145,13 @@ public class Test {              //criar metodo que associe o testCounter ao int
         resultDone = true;
     }
 
-    private void changeStateValidationToDone(){
-        validationDone=true;
+    private void changeStateValidationToDone() {
+        validationDone = true;
     }
 
     /**
      * This method returns a string with some important data about this test
+     *
      * @return string
      */
     @Override
