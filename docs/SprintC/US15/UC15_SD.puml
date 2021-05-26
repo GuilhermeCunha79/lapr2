@@ -16,15 +16,15 @@ participant ":DateTime" as DT
 
 LC -> UI : validate work done by the clinical chemistry technologist and specialist doctor
 activate UI
-    UI -> CTRL : readyToValidate(testRegistrationDate, caDate, diagnosisDate)
+    UI -> CTRL : readyToValidate()
     activate CTRL
     CTRL -> C : testStore = getTestStore()
     activate C
     deactivate C
-    CTRL -> TS : readyToValidateList = getTestsReadyToValidate()
+    CTRL -> TS : readyToValidate = getTestsReadyToValidate()
     activate TS
     deactivate TS
-    CTRL -> TVM : readyToValidateDto = toDto(readyToValidate)
+    CTRL -> TVM : readyToValidateDto = toDtoVal(readyToValidate)
     activate TVM
     deactivate TVM
     deactivate TVM
@@ -46,7 +46,7 @@ deactivate TS
 
 
 
-CTRL -> CTRL : testValidationList = addValidTest(test)
+CTRL -> CTRL : testValidationList = addValidTest(testValidation)
 activate CTRL
 deactivate CTRL
 CTRL --> UI : success

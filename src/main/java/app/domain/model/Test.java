@@ -18,9 +18,12 @@ public class Test {
 
     private DateTime createdAt;
     private String internalCode;
+    private DateTime registrationDate;
+    private DateTime chemicalAnalysisDate;
     private String nhsCode;
     private boolean reportDone;
     private boolean resultDone;
+    private boolean validationDone;
     private Report report;
     private List<TestParameterResult> resultList = new ArrayList<>();
     private BufferedImage qrcode;
@@ -48,6 +51,14 @@ public class Test {
         return this.resultDone;
     }
 
+    /**
+     * this method returns if this test as already been validated
+     * @return true or false
+     */
+    public boolean getValidationStatus(){
+        return this.validationDone;
+    }
+
 
     /**
      * This method returns the internal code of this test
@@ -65,7 +76,6 @@ public class Test {
 
     public String setNHSCode(String nhsCode) {
         this.nhsCode = nhsCode;
-
         return this.nhsCode;
     }
 
@@ -125,6 +135,10 @@ public class Test {
 
     private void changeStateToResultDone() {
         resultDone = true;
+    }
+
+    private void changeStateValidationToDone(){
+        validationDone=true;
     }
 
     /**

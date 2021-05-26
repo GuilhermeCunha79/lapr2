@@ -1,6 +1,9 @@
 package app.domain.store;
 
+import app.domain.model.Client;
 import app.domain.model.Test;
+import app.domain.shared.DateTime;
+import app.domain.shared.SendingEmailSMS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +11,8 @@ import java.util.List;
 public class TestStore {
 
     private List<Test> testList = new ArrayList<>();
+    private Client client;
+    private DateTime validatedAt;
 
     public List<Test> getTestsWithoutResults(){
         System.out.println(testList.size());
@@ -44,5 +49,16 @@ public class TestStore {
                 return test;
         }
         return null;
+    }
+
+    //LOOP
+
+    public void validatedAt(){
+        this.validatedAt = new DateTime();
+    }
+
+    public void sendEmailSms(String name){
+        name=this.client.getName();
+        SendingEmailSMS.sendEmailWithNotification(name);
     }
 }
