@@ -67,18 +67,22 @@ NHS code: 12 alphanumeric characters.
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** a test can have only one type of test
-* **AC2:** a test can have only one client
+AC1 -- a test can have only one client
+AC2 -- a test can have only one type of test
+AC3 -- NHS code must have 12 alphanumeric characters.
+AC5 -- NHS code must be unique for each type of test
+AC6 -- Internal code must have 12 digit sequential number and generally automatic
+AC7 -- A type of test can have one or more categories
 
 
 ### 1.4. Found out Dependencies
 
 
-* There is a dependency to "US 09 - Specify new test type category" since at least a test type must exist to classify the Test being created.
+* There is a dependency to "US 09 - Specify new test type category" 
 
-* There is a dependency to "US 10 - Specify a new parameter and categorize it" since at least a parameter must exist to classify the Test being created.
+* There is a dependency to "US 10 - Specify a new parameter and categorize it" 
 
-* There is a dependency to "US 11 - Create a parameter category" since at least a parameter category must exist to classify the Test being created.
+* There is a dependency to "US 11 - Create a parameter category" 
 
 
 ### 1.5 Input and Output Data
@@ -87,12 +91,15 @@ NHS code: 12 alphanumeric characters.
 **Input Data:**
 
 * Typed data:
-    * NHS code
+    * citizenCardNumber
+    * code
+    * client  
+    * nhsCode
 * Selected data:
     * Classifying Parameter
     * Classifying Type Of Test category
-
-
+    * Classifying Type Of Test
+  
 **Output Data:**
 
 * List of existing parameters for each type of test categories
@@ -140,7 +147,7 @@ n/a
 | Step 6		 | 	|   |  TODO check this information        |
 | Step 7		 | 	|   |  TODO check this information        |
 | Step 8		 | 	|   |  TODO check this information        |
-| Step 9		 | ...savind the typed/selected data? 	| Test  |  **IE:** a Test knows its own data      |
+| Step 9		 | ...saving the typed/selected data? 	| Test  |  **IE:** a Test knows its own data      |
 | 		                 |	... instantiating a new Test? | TestStore   | **Creator (R1)** and **HC+LC**: By the application of the Creator (R1) it would be the "Company". But, by applying HC + LC to the "Company", this delegates that responsibility to the "TestStore"   |
 |  		 			     |  ... knows TestStore?	 |  Company   |  **IE:** Company knows the TestStore to which it is delegating some tasks |
 |  		             |	... validating all data (local validation)? | Test | **IE:** an object knows its data|
@@ -159,11 +166,13 @@ According to the taken rationale, the conceptual classes promoted to software cl
 Other software classes (i.e. Pure Fabrication) identified:
 
 * Test
-* TestDto
-* TypeOfTestMapper
+* TestStore
+* TypeOfTestStore
 * ParameterMapper
 * ParameterStore
-
+* ClientStore
+* TypeOfTest
+* TestTypeMapper
 
 ## 3.2. Sequence Diagram (SD)
 
@@ -201,12 +210,12 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 6. Integration and Demo
 
 * A new option on the Reception menu options was added.
+* The recepcionist can add one or more parameters when  he/she creates a test
 
 
 # 7. Observations
 
-
-
+No observations.
 
 
 

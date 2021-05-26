@@ -30,7 +30,7 @@ public class Test {              //criar metodo que associe o testCounter ao int
         this.client = client;
         this.typeOfTest = typeOfTest;
         this.createdAt = new DateTime();
-        this.parameterList = parameterList;
+        this.parameterList = new ArrayList<>(parameterList);
         setNHSCode(nhsCode);
         reportDone = false;
         resultDone = false;

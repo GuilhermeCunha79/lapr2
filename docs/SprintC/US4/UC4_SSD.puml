@@ -2,30 +2,38 @@
 autonumber
 actor "Receptionist" as RE
 
-activate RE
+
 RE -> ":System" : Creation of a new test
 activate ":System"
-":System" --> RE : Asks to select a registered client from the list
+":System" --> RE : Asks for client citizen card number
 deactivate ":System"
-RE -> ":System" : Selects one client
+RE -> ":System" : Introduces Citizen Card Number
+activate ":System"
+":System" --> RE : shows the client Data and asks for confirmation
+deactivate ":System"
+RE -> ":System" : confirm the client
 activate ":System"
 ":System" --> RE : Shows type of test list
+
 deactivate ":System"
 RE -> ":System" : Selects a type of test
 activate ":System"
 ":System" --> RE : Shows parameter list
-
+loop
+RE -> ":System" : Selects a parameter
 deactivate ":System"
-RE -> ":System" : Selects a parameter category
+":System" --> RE : Parameter added
 activate ":System"
+end
+":System" --> RE : Show parameter selected and asks for confirmation
+deactivate ":System"
 
+
+
+RE -> ":System" : Confirms the parameters
+activate ":System"
 ":System" --> RE : Shows all data and requests confirmation
-deactivate ":System"
 RE -> ":System" : Confirms the data
-activate ":System"
 ":System" --> RE : Informs operation success
-deactivate ":System"
-
-deactivate RE
 
 @enduml

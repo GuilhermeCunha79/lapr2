@@ -2,122 +2,91 @@
 skinparam classAttributeIconSize 0
 
 
-class RegisterTestUI {
-}
-
-
-class Test {
-- client
-- createdAt
-- parameterList
-- nhsCode
-- internalCode
-+ addParameter(parameter)
-+ Test(clientName, testType, parameter)
-}
-
-
-class ParameterStore {
-- getParameter(pc)
- }
-
-
-class TypeOfTestStore {
-- getTypeOfTest(typeOfTest)
-- getCategoryListByTheTypeOfTest(typeOfTest)
+class CreateTestUI {
 }
 
 
 class ClientStore {
-- getClientThroughCitizenCardNumber(citizenCardNumber)
++ getClientThroughCitizenCardNumber(citizenCardNumber)
 }
 
 
 class Company {
 - designation
-- getClientStore()
-- getClinicalAnalysisLaboratoryStore()
-- getTestTypeStore()
-- getTestStore()
-- getParameterStore()
-}
-
-class ClinicalAnalysisLaboratoryDto {
-+ getLaboratoryId()
++ getClientStore()
++ getParameterStore()
++ getTestTypeStore()
 }
 
 
-class ClinicalAnalysisLaboratoryStore {
-- getTypeOfTestList()
-}
 
-
-class RegisterTestController {
-  + addClient(clientDto)
+class CreateTestController {
+  + getClientThroughCitizenCardNumber(citizenCardNumber)
   + getTypeOfTestList()
-  + addTypeOfTest(typeOfTest)
-  + getParameter()
-  + createTest(pc)
+  + addTypeOfTest(code)
+  + getParameterList()
+  + addParameter(code)
+  + createTest()
   + saveTest()
+  + addParameter(parameter)
+  - getParameterByCode(code)
 }
 
 
 class TestStore {
-    + createTest(clientName, typeOfTest, parameter)
+    + createTest(client, typeOfTest, parameter, nhsCode)
     + validateTest(test)
     + saveTest(test)
+    + addTest(test)
 }
 
 class TestTypeMapper {
-  + List<TestTypeDto> toDTO(List<TestType> list)
-  + TestTypeDto toDTO(TestType obj)
+    +toDTO(testTypeList)
 }
 
 class ParameterMapper {
-  + List<ParameterDto> toDTO(List<Parameter> list)
-  + ParameterDto toDTO(Parameter obj)
+  +toDTO(parameterList)
+}
+
+
+class TypeOfTest {
+  + getCategoryListByTheTypeOfTest()
+}
+
+class TypeOfTestStore {
+  + getTypeOfTestByCode(code)
 }
 
 
 class ParameterStore {
- + getParameter(pc)
+  + getParameterListByTheCategory(category)
+}
+
+class Test {
+  + create(client, typeOfTest, parameter, nhsCode)
 }
 
 
-class TestDTO {
- + getNhsCode()
- + getClientName()
- + getTypeOfTest()
- + getParameterList()
- + getCreatedAt
- + getCitizenCardNumber()
-}
 
-RegisterTestUI --> RegisterTestController
-RegisterTestController --> Company
+CreateTestUI ..> CreateTestController
 
-RegisterTestController --> ClientStore
-RegisterTestController --> Test
-RegisterTestController --> ParameterMapper
-RegisterTestController --> TestTypeMapper
-RegisterTestController --> ClinicalAnalysisLaboratoryStore
-RegisterTestController --> TestStore
-RegisterTestController --> TypeOfTestStore
-RegisterTestController --> TestDTO
-RegisterTestController --> ParameterStore
-RegisterTestController --> ClinicalAnalysisLaboratoryDto
+CreateTestController ..> Company
 
-TestTypeMapper --> TestType
-TestStore"1" --> "*"Test : store
-
-
-Company "1" --> "1" LabStore : use
-Company "1" --> "1" ParameterStore : use
+Company "1" --> "1" TestStore : use
 Company "1" --> "1" ClientStore : use
 Company "1" --> "1" TypeOfTestStore : use
-Company "1" --> "1" TestStore : use
+Company "1" --> "1" ParameterStore : use
 
+CreateTestController ..> Test
+CreateTestController ..> TestStore
+CreateTestController ..> TypeOfTestStore
+CreateTestController ..> ClientStore
+CreateTestController ..> ParameterStore
+CreateTestController ..> ParameterMapper
+CreateTestController ..> TypeOfTest
+CreateTestController ..> TestTypeMapper
 
+TestStore --> Test
 
 
 

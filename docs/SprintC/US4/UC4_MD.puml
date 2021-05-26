@@ -19,13 +19,6 @@ class TypeOfTest {
   -collectingMethod
 }
 
-class ClinicalAnalysisLaboratory {
- - laboratoryID
- - name
- - address
- - phoneNumber
- - tinNumber
-}
 
 
 class Client {
@@ -56,8 +49,7 @@ Test "*" -- "1" TypeOfTest: is of >
 Test "1..*" -- "1" Client: requested by >
 Parameter "1..*" -- "1" ParameterCategory: presented under >
 Parameter "1..*" --> "1" Test : has >
-Company "1" -- "1..*" ClinicalAnalysisLaboratory : owns >
-ClinicalAnalysisLaboratory "*" -- "TypeOfTest" : conducts >
-
+TypeOfTest "1" --> "1..*" ParameterCategory :  has
+Company "1" --> "1..*" Client : knows
 
 @enduml

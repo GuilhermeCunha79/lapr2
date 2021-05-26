@@ -11,13 +11,12 @@ participant "testStore: TestStore" as TSTORE
 
 participant "store: ClientStore" as CSTORE
 
-participant "clinicalAnalysisLaboratoryDTO: ClinicalAnalysisLaboratoryDTO" as CALDTO
-participant "ClinicalAnalysisLaboratoryStore" as CALS
+participant "TypeOfTest" as TT
 
 participant "testTypeStore: TypeOfTestStore" as TTSTORE
 
 participant "test\n:Test" as TEST
-participant "testDto: TestDto" as TDTO
+
 
 participant "testTypeMap:TestTypeMapper" as TMAPPER
 
@@ -27,31 +26,39 @@ participant "storeParameter: ParameterStore" as PSTORE
 activate REC
 REC -> UI : Creation of a new test
 activate UI
-UI --> REC :Asks to select a registered client from the list
+UI --> REC :Asks for client citizen card number
 deactivate UI
-REC -> UI : Selects one client
+REC -> UI : Introduces Citizen Card Number
 activate UI
-UI -> CTRL : addClient(clientDto)
+UI -> CTRL : getClientThroughCitizenCardNumber(citizenCardNumber)
 activate CTRL
+
+
+
 
 CTRL -> COMP : clientStore = getClientStore()
 activate COMP
 deactivate COMP
-CTRL -> TDTO : citizenCardNumber = getCitizenCardNumber()
-activate TDTO
-deactivate TDTO
+CTRL -> CSTORE :client = getClientThroughCitizenCardNumber(citizenCardNumber)
+activate CSTORE
+deactivate CSTORE
+
+UI --> REC : shows the client Data and asks for confirmation
+deactivate UI
+REC -> UI : confirm the client
+activate UI
+
+
 
 deactivate CTRL
 UI ->  CTRL : listOfTypeOfTests = getTypeOfTestList()
 activate CTRL
 
 
-CTRL -> CALDTO : laboratoryID = getLaboratoryID()
-activate CALDTO
-deactivate CALDTO
-CTRL -> COMP : clinicalAnalysisLaboratoryStore = getClinicalAnalysisLaboratoryStore()
-activate COMP
-deactivate COMP
+
+
+
+
 
 deactivate TSTORE
 deactivate TEST
@@ -61,12 +68,8 @@ deactivate TEST
 CTRL -> COMP : testTypeStore = getTestTypeStore()
 activate COMP
 deactivate COMP
-CTRL -> CSTORE : client = getClientThroughCitizenCardNumber(citizenCardNumber)
-activate CSTORE
-deactivate CSTORE
-CTRL -> CALS : typeOfTestList = getTypeOfTestListThroughLaboratoryID(laboratoryID)
-activate CALS
-deactivate CALS
+
+
 CTRL -> TMAPPER : toDTO(testTypeList)
 
 activate TMAPPER
@@ -83,63 +86,85 @@ deactivate UI
 REC -> UI : Selects a type of test
 activate UI
 
-UI -> CTRL : addTypeOfTest(typeOfTest)
+UI -> CTRL : addTypeOfTest(code)
 activate CTRL
+CTRL -> TTSTORE : testType = getTypeOfTestByCode(code)
 activate TTSTORE
-
+deactivate TTSTORE
 deactivate CTRL
 
-UI -> CTRL : parameterList = getParameter()
+UI -> CTRL : getParameterList()
 activate CTRL
 
 deactivate TSTORE
 deactivate TEST
 
-CTRL -> TTSTORE : typeOfTest = getTypeOfTest(typeOfTest)
-
-CTRL -> TTSTORE : categoryList = getCategoryListByTheTypeOfTest(typeOfTest))
-deactivate TTSTORE
 
 
-CTRL -> PMAPPER** : toDTO(categoryList)
-activate PMAPPER
+CTRL -> TT : categoryList = getCategoryListByTheTypeOfTest()
+activate TT
+deactivate TT
 
 
 
-
-PMAPPER --> CTRL : listParameterDto
-deactivate PMAPPER
-CTRL --> UI : listParameterDto
-deactivate CTRL
-UI --> REC : Shows parameter list
-deactivate UI
-
-REC -> UI :  Selects a parameter category
-activate UI
-UI -> CTRL : createTest(pc)
-activate CTRL
-CTRL -> COMP : testStore = getTestStore()
-activate COMP
 CTRL -> COMP : parameterStore = getParameterStore()
-
+activate COMP
 deactivate COMP
+
+
 CTRL -> PSTORE : parameterList = getParameterListByTheCategory(category)
 activate PSTORE
 deactivate PSTORE
-CTRL -> TSTORE : test = createTest(client, typeOfTest, parameter)
+
+CTRL -> PMAPPER : listParameterDTO = toDTO(parameterList)
+activate PMAPPER
+deactivate PMAPPER
+
+deactivate CTRL
+
+
+UI --> REC : Shows parameter list
+deactivate UI
+loop
+REC -> UI :  Selects a parameter
+activate UI
+UI -> CTRL : addParameter(code)
+activate CTRL
+CTRL -> CTRL : parameter = getParameterByCode(code)
+activate CTRL
+deactivate CTRL
+
+CTRL -> CTRL : addParameter(parameter)
+activate CTRL
+deactivate CTRL
+CTRL --> UI : Parameter added
+deactivate CTRL
+
+UI --> REC : Parameter added
+end loop
+
+UI --> REC : Show parameter selected and asks for confirmation
+deactivate UI
+
+REC -> UI : Confirms the parameters
+activate UI
+
+UI -> CTRL : createTest()
+
+
+
+
+activate CTRL
+CTRL -> TSTORE : test = createTest(client, typeOfTest, parameter, nhsCode)
 
 activate TSTORE
-  TSTORE -> TEST** : create(client, typeOfTest, parameter)
+  TSTORE -> TEST** : create(client, typeOfTest, parameter, nhsCode)
   activate TEST
-  TEST -> TDTO : nhsCode = getNhsCode()
-  activate TDTO
-  TEST -> TDTO : clientName  = getClientName()
-  TEST -> TDTO : typeOfTest = getTypeOfTest()
-  TEST -> TDTO : parameterList = getParameterList()
-  TEST -> TDTO : createdAt = getCreatedAt()
-  deactivate TDTO
+
 
 deactivate TEST
+
+
 
 
 deactivate TSTORE
@@ -164,10 +189,13 @@ activate CTRL
 
   activate TSTORE
   TSTORE -> TSTORE : validateTest(test)
+  activate TSTORE
+  deactivate TSTORE
   TSTORE -> TSTORE : addTest(test)
+activate TSTORE
+deactivate TSTORE
 
-  TSTORE --> CTRL : test added
-  CTRL --> UI : result
+
 
 deactivate TSTORE
 
