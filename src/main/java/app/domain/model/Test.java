@@ -1,15 +1,7 @@
 package app.domain.model;
 
 import app.domain.shared.DateTime;
-import org.apache.commons.lang3.NotImplementedException;
-/*import org.apache.commons.lang3.NotImplementedException;
-import net.sourceforge.barbecue.Barcode;
-import net.sourceforge.barbecue.BarcodeException;
-import net.sourceforge.barbecue.BarcodeFactory;
-import net.sourceforge.barbecue.BarcodeImageHandler;
-import net.sourceforge.barbecue.output.OutputException;
-*/
-import java.awt.*;
+
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
