@@ -1,29 +1,30 @@
 @startuml
 
+package UI {
 class WriteReportUI {
 }
+}
 
+package Controller {
 class WriteReportController {
     +getTestWithoutReport()
     +getTestResults(testCode)
     +newReport(text)
     +saveReport()
 }
+}
 
+package Domain {
 class Company {
     -description
     +getTestStore()
 }
-
+package Store {
 class TestStore {
     +getTestWithoutReport()
     +getTestByCode(testCode)
 }
-
-class TestListMapper {
-    +toDto(lTestNoReport)
 }
-
 class Test {
     -createdAt
     -internalCode
@@ -45,11 +46,19 @@ class Report {
     -reportText
     +registerReportDateTime()
 }
-
+package Shared {
 class DateTime {
     -date
     -time
     +registerCurrentDateTime()
+}
+}
+}
+
+package Mappers {
+class TestListMapper {
+    +toDto(lTestNoReport)
+}
 }
 
 WriteReportUI .right.> WriteReportController
@@ -59,10 +68,10 @@ WriteReportController .right.> TestListMapper
 WriteReportController ..> Test
 WriteReportController ..> Report
 Company"1" --> "*"Test : "performs"
-Company"1" --> "1"TestStore : "uses"
+Company"1" -left-> "1"TestStore : "uses"
 TestStore"1" --> "*"Test : "store"
 Test"1" -left-> "1"Report : "originates"
-Test"1" -right-> "*"TestParameterResult : "analyses parameter to get"
-Report .left.> DateTime
+Test"1" -left-> "*"TestParameterResult : "analyses parameter to get"
+Report ..> DateTime
 
 @enduml

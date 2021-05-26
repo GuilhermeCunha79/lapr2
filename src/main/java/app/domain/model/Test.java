@@ -2,7 +2,6 @@ package app.domain.model;
 
 import app.domain.shared.DateTime;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
