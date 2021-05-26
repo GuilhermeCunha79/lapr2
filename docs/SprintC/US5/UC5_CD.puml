@@ -1,0 +1,51 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+skinparam classAttributeIconSize 0
+left to right direction
+
+class TestStore {
+  + getTestList()
+  + getTestById(test)
+}
+
+class Test {
+  -Client client
+  -String status
+  -List parameterList
+  +Test(client, testType, parameterList)
+}
+
+class Company {
+  -String designation
+  + Company(designation)
+  + getSampleStore()
+  + getTestStore()
+}
+
+class TestMapper {
+  + List<TestDto> toDTO(List<Test> list)
+  + TestDto toDTO(Test obj)
+}
+
+class RegisterSampleUI
+
+class RegisterSampleController
+
+class Sample
+
+RegisterSampleUI ..> TestDto
+RegisterSampleUI ..> RegisterSampleController
+
+RegisterSampleController ..> Company
+RegisterSampleController ..> Sample
+RegisterTestController ..> TestMapper
+RegisterTestController ..> TestDto
+TestMapper ..> Test
+TestMapper ..> TestDto
+
+Company "1" -> "1" TestStore : use
+Company "1" -> "1" SampleStore : use
+SampleStore"1" -> "*" Sample : knows
+TestMapper"1"->"*" TestStore : access
+@enduml
