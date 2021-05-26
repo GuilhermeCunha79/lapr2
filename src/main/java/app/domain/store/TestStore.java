@@ -53,6 +53,13 @@ public class TestStore {
 
     //LOOP
 
+/*
+    public Test getTest(){
+    }
+
+    public Client getClient(){
+    }*/
+
     public void validatedAt(){
         this.validatedAt = new DateTime();
     }

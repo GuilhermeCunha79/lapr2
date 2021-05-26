@@ -21,7 +21,7 @@ public class TestReadyToValidateMapper {
         for(Test test:readyToValidate){
             String code = test.getInternalCode();
             Test test1 = testStore.getTestByCode(code);
-            rtvListDto.add(String.format("Internal Code: %s | Registered at: %s | Collected at: %s | Reported at: %s |", test1.getInternalCode(), test1.getRegistrationDate,test1.getChemicalAnalysisDate, test1.getReportDate()));
+            rtvListDto.add(String.format("Internal Code: %s | Registered at:  | Collected at:  | Reported at:  |", test1.getInternalCode()));//, test1.getRegistrationDate,test1.getChemicalAnalysisDate, test1.getReportDate()));
         }
         return rtvListDto;
     }
