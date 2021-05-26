@@ -1,48 +1,76 @@
 @startuml
 skinparam classAttributeIconSize 0
-left to right direction
+
+
+class RegisterTestUI {
+}
+
 
 class Test {
-  -Client client
-  -String status
-  -List parameterList
-  +Test(client, testType, parameterList)
-}
-
-class Company {
-  -String designation
-  + Company(designation)
-  + getClientStore()
-  + getTypeOfTestStore()
-  + getParameterCategoryStore()
-  + getParameterStore()
-  + getTestStore()
-}
-
-class ClientStore {
-  + getClientByCitizenCard(citizenCardNumber)
-}
-class TestTypeStore {
-  + getTypeOfTestList()
-  + getTypeOfTestById(test)
-  + getCategoryListByTypeOfTest(test)
+- client
+- createdAt
+- parameterList
+- nhsCode
+- internalCode
++ addParameter(parameter)
++ Test(clientName, testType, parameter)
 }
 
 
 class ParameterStore {
-  + getParameterById(parameter)
+- getParameter(pc)
+ }
+
+
+class TypeOfTestStore {
+- getTypeOfTest(typeOfTest)
+- getCategoryListByTheTypeOfTest(typeOfTest)
 }
+
+
+class ClientStore {
+- getClientThroughCitizenCardNumber(citizenCardNumber)
+}
+
+
+class Company {
+- designation
+- getClientStore()
+- getClinicalAnalysisLaboratoryStore()
+- getTestTypeStore()
+- getTestStore()
+- getParameterStore()
+}
+
+class ClinicalAnalysisLaboratoryDto {
++ getLaboratoryId()
+}
+
+
+class ClinicalAnalysisLaboratoryStore {
+- getTypeOfTestList()
+}
+
 
 class RegisterTestController {
-  + List<ParameterDto> getListOfParameter()
-  + List<TypeOfTestDto> getTypeOfTestList()
+  + addClient(clientDto)
+  + getTypeOfTestList()
+  + addTypeOfTest(typeOfTest)
+  + getParameter()
+  + createTest(pc)
+  + saveTest()
 }
 
-class TestStore
+
+class TestStore {
+    + createTest(clientName, typeOfTest, parameter)
+    + validateTest(test)
+    + saveTest(test)
+}
 
 class TestTypeMapper {
-  + List<TypeOfTestDto> toDTO(List<TypeOfTest> list)
-  + TypeOfTestDto toDTO(TypeOfTest obj)
+  + List<TestTypeDto> toDTO(List<TestType> list)
+  + TestTypeDto toDTO(TestType obj)
 }
 
 class ParameterMapper {
@@ -50,51 +78,54 @@ class ParameterMapper {
   + ParameterDto toDTO(Parameter obj)
 }
 
-class ParameterDto {
-  - code
-  - name
-  + ParameterDto(code, name)
-}
 
-class TestTypeDto {
-  - code
-  - description
-  +TypeOfTestDto(code, description)
-}
-
-class Parameter {
-    -code
-    -shortName
-    -description
-    +Parameter(code, shortName, description, category)
+class ParameterStore {
+ + getParameter(pc)
 }
 
 
-class RegisterTestUI
+class TestDTO {
+ + getNhsCode()
+ + getClientName()
+ + getTypeOfTest()
+ + getParameterList()
+ + getCreatedAt
+ + getCitizenCardNumber()
+}
+
+RegisterTestUI --> RegisterTestController
+RegisterTestController --> Company
+
+RegisterTestController --> ClientStore
+RegisterTestController --> Test
+RegisterTestController --> ParameterMapper
+RegisterTestController --> TestTypeMapper
+RegisterTestController --> ClinicalAnalysisLaboratoryStore
+RegisterTestController --> TestStore
+RegisterTestController --> TypeOfTestStore
+RegisterTestController --> TestDTO
+RegisterTestController --> ParameterStore
+RegisterTestController --> ClinicalAnalysisLaboratoryDto
+
+TestTypeMapper --> TestType
+TestStore"1" --> "*"Test : store
 
 
-RegisterTestController ..> Company
-RegisterTestController ..> Test
-RegisterTestController ..> ParameterMapper
-RegisterTestController ..> TypeOfTestMapper
-RegisterTestController ..> TypeOfTestDto
-RegisterTestController ..> ParameterDto
-TypeOfTestMapper ..> TypeOfTest
-TypeOfTestMapper ..> TypeOfTestDto
-
-ParameterMapper ..> Parameter
-ParameterMapper ..> ParameterDto
-
-RegisterTestUI ..> ParameterDto
-RegisterTestUI ..> TypeOfTestDto
-RegisterTestUI ..> RegisterTestController
-Company "1" -> "1" TestStore : use
+Company "1" --> "1" LabStore : use
+Company "1" --> "1" ParameterStore : use
 Company "1" --> "1" ClientStore : use
 Company "1" --> "1" TypeOfTestStore : use
-Company "1" --> "1" ParameterStore : use
-TestStore "1" -> "*" Test : knows
+Company "1" --> "1" TestStore : use
+
 
 
 
 
 @enduml
+
+
+
+
+
+
+

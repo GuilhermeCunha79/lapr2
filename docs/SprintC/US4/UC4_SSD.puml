@@ -3,27 +3,27 @@ autonumber
 actor "Receptionist" as RE
 
 activate RE
-RE -> ":System" : start the creation of a new test
+RE -> ":System" : Creation of a new test
 activate ":System"
 ":System" --> RE : Asks to select a registered client from the list
 deactivate ":System"
 RE -> ":System" : Selects one client
 activate ":System"
-":System" --> RE : shows type of test list
+":System" --> RE : Shows type of test list
 deactivate ":System"
-RE -> ":System" : selects a type of test
+RE -> ":System" : Selects a type of test
 activate ":System"
-":System" --> RE : shows parameter list
-loop
+":System" --> RE : Shows parameter list
+
 deactivate ":System"
-RE -> ":System" : selects a parameter
+RE -> ":System" : Selects a parameter category
 activate ":System"
-end
-":System" --> RE : shows all data and requests confirmation
+
+":System" --> RE : Shows all data and requests confirmation
 deactivate ":System"
-RE -> ":System" : confirms the data
+RE -> ":System" : Confirms the data
 activate ":System"
-":System" --> RE : informs operation success
+":System" --> RE : Informs operation success
 deactivate ":System"
 
 deactivate RE

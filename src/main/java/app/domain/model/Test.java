@@ -6,26 +6,45 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test {
-
-    private DateTime createdAt;
-    private String internalCode;
-    private DateTime registrationDate;
-    private DateTime chemicalAnalysisDate;
-    private String nhsCode;
+public class Test {              //criar metodo que associe o testCounter ao internalCode
+    private Client client;//set get
+    private TypeOfTest typeOfTest;//set get
+    private DateTime createdAt;//get
+    private String internalCode;//get
+    private String nhsCode;// get set(criar metodo que verifique os 12 digitos)
     private boolean reportDone;
     private boolean resultDone;
     private boolean validationDone;
     private Report report;
     private List<TestParameterResult> resultList = new ArrayList<>();
-    private BufferedImage qrcode;
+    private List<Parameter> parameterList;//get set
 
-    public Test(String internalCode, String nhsCode) {
-        //setQRCode(internalCode);
+    private static int testCounter = 0;
+    private static final int NHS_CODE = 12;
+
+
+
+    public Test(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList) {
+        testCounter++;
+        this.nhsCode = nhsCode;
+        this.client = client;
+        this.typeOfTest = typeOfTest;
+        this.createdAt = new DateTime();
+        this.parameterList = parameterList;
         setNHSCode(nhsCode);
         reportDone = false;
         resultDone = false;
     }
+
+
+    public DateTime getRegistrationDate() {
+        return this.createdAt;
+    }
+
+
+
+
+
 
     /**
      * this method returns if this test already has a report or not using the reportDone boolean variable
@@ -60,33 +79,17 @@ public class Test {
         return this.internalCode;
     }
 
-    /*public BufferedImage setQRCode(String internalCode) throws OutputException {
-        this.qrcode = generateQRImage(internalCode);
+    /**
+     * This method returns the client of this test
+     * @return a string with the client
+     */
 
-        return this.qrcode;
-    }*/
 
-    public String setNHSCode(String nhsCode) {
+    public void setNHSCode(String nhsCode) {
         this.nhsCode = nhsCode;
-        return this.nhsCode;
     }
 
-    /*
-    private static BufferedImage generateQRImage(String barcodeText) throws OutputException {
-        Barcode barcode = null;
-        try {
-            barcode = BarcodeFactory.createEAN13(barcodeText);
-        } catch (BarcodeException e) {
-            e.printStackTrace();
-        }
-        barcode.setPreferredBarHeight(40);
-        barcode.setBarWidth(2);
-        barcode.setFont(new Font(Font.SANS_SERIF,Font.PLAIN,10));
 
-
-        return BarcodeImageHandler.getImage(barcode);
-
-    }*/
 
     /**
      * This method finds all the parameter test results done for this test and return them in a string
@@ -101,11 +104,7 @@ public class Test {
         }
         return results;
     }
-/*
-    public void addResult (Result result) {
-        this.result = result;
-        changeStateToResultDone();
-    }*/
+
 
     /**
      * This method receives a Report and assigns it to the test it's related to

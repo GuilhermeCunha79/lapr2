@@ -54,6 +54,15 @@ NHS code: 12 alphanumeric characters.
 Test code : sequential number with 12 digits. The code is automatically generated.
 NHS code: 12 alphanumeric characters.
 
+ 
+> **Question:** when the receptionist is registering a test for a client, the test can have more than one category and many parameters of the chosen categories or it only can have one category?
+
+> **Answer** Each test can have more than one category.
+
+
+> **Question** I wanted to ask if the NHS code of which test is unique or not.
+
+> **Answer** Yes. 
 
 ### 1.3. Acceptance Criteria
 
@@ -78,7 +87,7 @@ NHS code: 12 alphanumeric characters.
 **Input Data:**
 
 * Typed data:
-    * Citizen card number
+    * NHS code
 * Selected data:
     * Classifying Parameter
     * Classifying Type Of Test category
@@ -88,11 +97,13 @@ NHS code: 12 alphanumeric characters.
 
 * List of existing parameters for each type of test categories
 * List of existing type of test categories
+* List of the types of tests  
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
 **Alternative 1**
+
 
 
 **Other alternatives might exist.**
@@ -104,6 +115,7 @@ NHS code: 12 alphanumeric characters.
 ## 2. OO Analysis
 
 ### 2.1. Relevant Domain Model Excerpt
+
 
 
 ### 2.2. Other Remarks
@@ -156,10 +168,8 @@ Other software classes (i.e. Pure Fabrication) identified:
 ## 3.2. Sequence Diagram (SD)
 
 
-**SD_TypeOfTestMapper_toDTO_list**
 
 
-**SD_ParameterMapper_toDTO_list**
 
 
 ## 3.3. Class Diagram (CD)
