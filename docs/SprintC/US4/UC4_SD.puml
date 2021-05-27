@@ -26,11 +26,11 @@ participant "storeParameter: ParameterStore" as PSTORE
 activate REC
 REC -> UI : Creation of a new test
 activate UI
-UI --> REC :Asks for client citizen card number
+UI --> REC :Asks for client TIN
 deactivate UI
-REC -> UI : Introduces Citizen Card Number
+REC -> UI : Introduces TIN
 activate UI
-UI -> CTRL : getClientThroughCitizenCardNumber(citizenCardNumber)
+UI -> CTRL : getClientByTIN(tin)
 activate CTRL
 
 
@@ -39,7 +39,7 @@ activate CTRL
 CTRL -> COMP : clientStore = getClientStore()
 activate COMP
 deactivate COMP
-CTRL -> CSTORE :client = getClientThroughCitizenCardNumber(citizenCardNumber)
+CTRL -> CSTORE :client = getClientByTIN(tin)
 activate CSTORE
 deactivate CSTORE
 
