@@ -22,6 +22,7 @@ public class Constants {
     public static final String STRING_ADDRESS = "Address";
     public static final String STRING_TIN_NUMBER = "TIN Number";
     public static final String STRING_DOC_INDEX_NUMB = "Doctor Index Number";
+    public static final String STRING_NHS_CODE = "NhsCode";
 
     //PARAMETER DIGITS
     public static final int ADDRESS_DIGITS = 30;
@@ -35,6 +36,7 @@ public class Constants {
     public static final String STRING_NOT_MORE_THAN_20 = " cannot have more than 20 characters.";
     public static final String STRING_NOT_MORE_THAN_30 = " cannot have more than 30 characters.";
     public static final String STRING_NOT_MORE_THAN_35 = " cannot have more than 35 characters.";
+    public static final String STRING_NOT_MORE_THAN_12 = " cannot have more than 12 characters.";
 
     //COMMON ERRORS
     public static final String STRING_BLANK_EXEPT = " cannot be empty.";

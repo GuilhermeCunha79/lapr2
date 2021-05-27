@@ -35,7 +35,7 @@ public class ClientStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean saveClient(Client client) {
-        if(client!=null) {
+        if (client != null) {
             String email = client.getEmail();
             String name = client.getName();
             String pwd = generatePassword();
@@ -92,4 +92,20 @@ public class ClientStore {
         return new ArrayList<>(clientList);
     }
 
+    /***
+     * This method return a client by find his TIN
+     * @param tin
+     * @return client
+     */
+    public Client getClientByTIN(String tin) {
+        if (tin != null && !tin.isEmpty()) {
+            for (Client client : clientList) {
+                if (client.getTinNumber().equals(tin))
+                    return client;
+            }
+        }
+        return null;
+    }
+
 }
+

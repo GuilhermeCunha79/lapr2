@@ -1,0 +1,129 @@
+@startuml
+
+class RecordResultUI {
+}
+
+class RecordResultController {
+    +getListOfTestWithoutResult()
+    +getTest(internalCode)
+    +addParameterTestResult(parameterCode, value, metric)
+    +changeStateToResultDone()
+}
+
+class Company {
+    -description
+    +getTestStore()
+}
+
+class TestStore {
+    +getTestWithoutResult()
+    +getTestByCode(testCode)
+}
+
+class TestListMapper {
+    +toDto(lTestNoResult)
+}
+
+class Test {
+    -createdAt
+    -internalCode
+    -nhsCode
+    +addTestResult(paramCode, value, metric)
+    +changeStateToResultDone()
+    -getTestParameterByCode(paramCode)
+}
+
+
+
+class DateTime {
+    -date
+    -time
+    +registerCurrentDateTime()
+}
+
+class TestType {
+    -code
+    -description
+    -collectingMethod
+    +getExternalModule()
+}
+
+class TestParameterResult {
+    -createdAt
+    -value
+    -metric
+    +TestParameterResult(value, metric, refValue)
+}
+
+class ReferenceValue {
+
+}
+
+class TestParameter {
+    +getParameter()
+    +addTestResult(value, metric, refValue)
+}
+
+class Parameter {
+    -code
+    -name
+    -description
+}
+
+interface ExternalModule {
+    +ReferenceValue getReferenceValue(param)
+}
+
+class ExternalModuleAdapter1 {
+    +ReferenceValue getReferenceValue(param)
+}
+
+class ExternalModuleAdapter2 {
+    +ReferenceValue getReferenceValue(param)
+}
+
+class ExternalModuleAdapter3 {
+    +ReferenceValue getReferenceValue(param)
+}
+
+class ExternalModule1API {
+    +getMetricsFor(paramID)
+    +getReferenceFor(paramID)
+    +getReferenceFor(paramID, onDate)
+}
+
+class ExternalModule2API {
+    +getMaxReferenceValue(paramID, accessKey)
+    +getMinReferenceValue(paramID, accessKey)
+    +usedMetric(paramID, accessKey)
+}
+
+class ExternalModule3API {
+    +getMaxReferenceValue(paramID, accessKey)
+    +getMinReferenceValue(paramID, accessKey)
+    +usedMetric(paramID, accessKey)
+}
+
+RecordResultUI ..> RecordResultController
+RecordResultController ..> Company
+RecordResultController ..> TestStore
+RecordResultController ..> TestListMapper
+RecordResultController ..> Test
+
+Company"1" --> "*"Test : "performs"
+Company"1" --> "1"TestStore : "uses"
+TestStore"1" --> "*"Test : "store"
+Test"1" -left-> "*"DateTime : registers
+ExternalModule <|.. ExternalModuleAdapter1
+ExternalModule <|.. ExternalModuleAdapter2
+ExternalModule <|.. ExternalModuleAdapter3
+ExternalModuleAdapter1 -down-> ExternalModule1API
+ExternalModuleAdapter2 -down-> ExternalModule2API
+ExternalModuleAdapter3 -down-> ExternalModule3API
+TestType"*" -> "1"ExternalModule : "make use of"
+Test"*" -> "1"TestType : is of
+Test"1" -down-> "1..*" TestParameter
+TestParameter"1" --> "0..1" TestParameterResult : contains
+TestParameter"*" --> "1" Parameter : refers to
+TestParameterResult"1" --> "1"ReferenceValue : records
+@enduml

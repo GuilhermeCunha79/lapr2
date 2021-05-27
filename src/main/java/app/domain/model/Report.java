@@ -28,6 +28,14 @@ public class Report {
     }
 
     /**
+     * Get method for the report creation date
+     * @return a string with the report date
+     */
+    public DateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    /**
      * This method sets the report text and also validates is own content
      * @param reportText to set
      */

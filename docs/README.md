@@ -26,9 +26,15 @@ Throughout the project's development period, the distribution of _tasks / requir
 | Use Case Diagram (UCD)  |  [all](SprintA/UCD.md)   |   [all](SprintB/UCD.md)  |   [all](SprintC/UCD.md)  | [all](SprintD/UCD.md)  |
 | Supplementary Specification   |  [all](SprintA/FURPS.md)   |   [all](SprintB/FURPS.md)  |   [all](SprintC/FURPS.md)  | [all](SprintD/FURPS.md)  |
 | Domain Model  |  [all](SprintA/DM.md)   |   [all](SprintB/DM.md)  |   [all](SprintC/DM.md)  | [all](SprintD/DM.md)  |
-| US 3 (SDP Activities)  |  |[1201506](SprintB/US1.md)       |   |  |
-| US 7 (SDP Activities)  |  |[1191526](SprintB/US2.md)       |   |  |
-| US 8 (SDP Activities)  |  |[1201539](SprintB/US3.md)       |   |  |
-| US 9 (SDP Activities)  |  |[1201485](SprintB/US4.md)       |   |  |
-| US 10 (SDP Activities)  |  |[1201534](SprintB/US4.md)       |   |  |
-| US 11 (SDP Activities)  |  |[1201534](SprintB/US4.md)       |   |  |
+| US 3 (SDP Activities)  |  |[1201506](SprintB/US3.md)       |   |  |
+| US 4 (SDP Activities)  |  |[1201539](SprintC/US4.md)       |   |  |
+| US 5 (SDP Activities)  |  |[1201485](SprintC/US5.md)       |   |  |
+| US 7 (SDP Activities)  |  |[1191526](SprintB/US7.md)       |   |  |
+| US 8 (SDP Activities)  |  |[1201539](SprintB/US8.md)       |   |  |
+| US 9 (SDP Activities)  |  |[1201485](SprintB/US9.md)       |   |  |
+| US 10 (SDP Activities)  |  |[1201534](SprintB/US10.md)       |   |  |
+| US 11 (SDP Activities)  |  |[1201534](SprintB/US11.md)       |   |  |
+| US 12 (SDP Activities)  |  |[1191526](SprintC/US12.md)       |   |  |
+| US 14 (SDP Activities)  |  |[1201534](SprintC/US14.md)       |   |  |
+| US 15 (SDP Activities)  |  |[1201506](SprintC/US15.md)       |   |  |
+
