@@ -12,7 +12,6 @@ public class Test {
     private static final int NHS_CODE = 12;
     private static int testCounter = 0;
     private DateTime registrationDate;
-    private DateTime reportDate;
     private DateTime chemicalAnalysisDate;
     private DateTime validationDate;
     private Client client;
@@ -88,11 +87,11 @@ public class Test {
     }
 
     public DateTime getReportDate() {
-        return this.createdAt;
+        return this.report.getCreatedAt();
     }
 
     public DateTime getValidationDate(){
-        return this.createdAt;
+        return this.validationDate;
     }
 
 
@@ -184,8 +183,10 @@ public class Test {
      * @return if it was added or not
      */
     public boolean addReport(Report report) {
-        this.report = report;
-        changeStateToReportDone();
+        if(!reportDone) {
+            this.report = report;
+            changeStateToReportDone();
+        }
         return this.reportDone;
     }
 
@@ -214,6 +215,14 @@ public class Test {
     public String toString() {
         return String.format("Internal Code: %s | NHS Code: %s | Created on: %s |",
                 this.internalCode, this.nhsCode, this.createdAt);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Test test = (Test) o;
+        return internalCode.equals(test.internalCode) || nhsCode.equals(test.nhsCode);
     }
 
 }
