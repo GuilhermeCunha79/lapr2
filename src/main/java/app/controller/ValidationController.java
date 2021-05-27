@@ -11,21 +11,21 @@ import java.util.List;
 public class ValidationController {
 
     private TestStore testStore;
-    private List<Test> testList = new ArrayList<>();
+    private List<Test> testValidationList = new ArrayList<>();
     private Test test;
 
-    public ValidationController(){
+    public ValidationController() {
         this(App.getInstance().getCompany());
     }
 
-    public ValidationController(Company company){
+    public ValidationController(Company company) {
         this.testStore = company.getTestStore();
     }
 
 
-    public List<String> readyToValidate(){
+    public List<String> readyToValidate() {
         List<Test> readyToValidate = testStore.getTestList();
-        if(readyToValidate != null) {
+        if (readyToValidate != null) {
             TestReadyToValidateMapper testReady = new TestReadyToValidateMapper();
             return testReady.toDtoVal(readyToValidate);
         }
@@ -34,28 +34,29 @@ public class ValidationController {
 
 
     public Test getTestByCode(String internalCode) {
-        for (Test test : testList) {
+        for (Test test : testValidationList) {
             if (test.getInternalCode().equals(internalCode))
                 return test;
         }
         return null;
     }
 
-
-        public boolean changeStateToValidate(List <String> testList){
-            if(!testList.isEmpty()) {
-                for (String test : testList) {
-                    this.test = getTestByCode(test.substring(15, 27));
-                    this.test.changeStateValidationToDone();
-                }
-                return true;
+//VER SE É NECESSÁRIO
+    public boolean changeStateToValidate(List<String> testList) {
+        if (!testList.isEmpty()) {
+            for (String test : testList) {
+                this.test = getTestByCode(test.substring(15, 27));
+                this.test.changeStateValidationToDone();
             }
-            return false;
+            return true;
         }
+        return false;
+    }
 
+    public boolean doValidation(List<Test> testValidationList) {
+        return this.testStore.doValidation(testValidationList);
+    }
 
-
-    //public doValidation(testValidationList)
     public List<Test> getTestList() {
         return App.getInstance().getCompany().getTestStore().getTestList();
     }

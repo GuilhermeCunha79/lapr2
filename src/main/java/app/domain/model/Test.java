@@ -146,7 +146,7 @@ public class Test {              //criar metodo que associe o testCounter ao int
         resultDone = true;
     }
 
-    public void changeStateValidationToDone() {
+    public static void changeStateValidationToDone() {
         this.validationDate=new DateTime();
         validationDone = true;
     }

@@ -2,7 +2,6 @@ package app.domain.store;
 
 import app.domain.model.Client;
 import app.domain.model.Test;
-import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
 
 import java.util.ArrayList;
@@ -49,21 +48,39 @@ public class TestStore {
         return null;
     }
 
-
-    //LOOP
-
-/*
-    public Test getTest(){
+    public List<Test> getTestWithoutValidation() {
+        List<Test> testWithoutValidation = new ArrayList<>();
+        if (!testList.isEmpty()) {
+            for (Test test : testList) {
+                if (!test.getValidationStatus())
+                    testWithoutValidation.add(test);
+            }
+            if (testWithoutValidation.isEmpty())
+                return null;
+            else
+                return testWithoutValidation;
+        } else {
+            return null;
+        }
     }
 
-    public Client getClient(){
+
+    public boolean doValidation(List<Test> testWithoutValidation) {
+
+        if (testWithoutValidation.isEmpty()) {
+            for (Test test:testList) {
+                Test test1= getTestByCode(test.getInternalCode());
+                Client client = test1.getClient();
+                String name = client.getName();
+                Test.changeStateValidationToDone();
+                SendingEmailSMS.sendEmailWithNotification(name);
+                return true;
+            }
+
+        }
+        return false;
     }
 
-
-    public void sendEmailSms(String name) {
-        name = this.client.getName();
-        SendingEmailSMS.sendEmailWithNotification(name);
-    }*/
 
     public List<Test> getTestList() {
         return new ArrayList<>(testList);
