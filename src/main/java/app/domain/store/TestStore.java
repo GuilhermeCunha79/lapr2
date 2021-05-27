@@ -16,14 +16,6 @@ public class TestStore {
     private List<Test> testList = new ArrayList<>();
 
 
-
-    /**
-     * Constructor of test store
-     */
-    public TestStore() {
-        this.testList = new ArrayList<>();
-    }
-
     /**
      * Method to add a parameter to test
      * @param parameter parameter object to be added
@@ -63,7 +55,7 @@ public class TestStore {
         if (testCreated == null)
             return false;
         for (Test test : testList) {
-            if (test.getNhsCode() == test.getNhsCode()) {
+            if (test.equals(testCreated)) {
                 System.out.println(testCreated);
                 return false;
             }
