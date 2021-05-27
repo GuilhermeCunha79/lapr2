@@ -11,7 +11,7 @@ public class TestValidation extends Test {
     private DateTime reportDate;
 
     public TestValidation(Test test){
-        super(test.getInternalCode(), test.getRegistrationDate(), test.getChemicalAnalysisDate(), test.getReportDate());
+        super(test.getInternalCode(), test.getRegistrationDate(), test.getChemicalAnalysisDate(), test.getReportDate(), test.getValidationDate());
     }
 
 

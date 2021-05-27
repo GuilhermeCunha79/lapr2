@@ -72,10 +72,6 @@ public class TestStore {
     public Client getClient(){
     }*/
 
-    public void validatedAt() {
-        this.validatedAt = new DateTime();
-    }
-
 
     public void sendEmailSms(String name) {
         name = this.client.getName();

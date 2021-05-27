@@ -11,6 +11,7 @@ public class Test {              //criar metodo que associe o testCounter ao int
     private DateTime registrationDate;
     private DateTime reportDate;
     private DateTime chemicalAnalysisDate;
+    private DateTime validationDate;
     private Client client;//set get
     private TypeOfTest typeOfTest;//set get
     private DateTime createdAt;//get
@@ -36,11 +37,12 @@ public class Test {              //criar metodo que associe o testCounter ao int
         resultDone = false;
     }
 
-    public Test(String internalCode, DateTime registrationDate, DateTime chemicalAnalysisDate, DateTime reportDate) {
+    public Test(String internalCode, DateTime registrationDate, DateTime chemicalAnalysisDate, DateTime reportDate, DateTime validationDate) {
         this.internalCode=internalCode;
         this.registrationDate=registrationDate;
         this.chemicalAnalysisDate=chemicalAnalysisDate;
         this.reportDate=reportDate;
+        this.validationDate=validationDate;
     }
 
 
@@ -56,7 +58,9 @@ public class Test {              //criar metodo que associe o testCounter ao int
         return this.createdAt;
     }
 
-
+    public DateTime getValidationDate(){
+        return this.createdAt;
+    }
     /**
      * this method returns if this test already has a report or not using the reportDone boolean variable
      *
