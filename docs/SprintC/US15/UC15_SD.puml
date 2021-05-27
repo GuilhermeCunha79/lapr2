@@ -43,7 +43,6 @@ activate TS
 deactivate TS
 CTRL -> TS : testValidation=createValidateTest(test)
 activate TS
-deactivate R
 TS-> TV** : createValidateTest(test)
 deactivate TS
 

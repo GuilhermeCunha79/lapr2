@@ -41,15 +41,19 @@ public class ValidationController {
         return null;
     }
 
-    public Test createValidateTest(Test test){
-        this.test = testStore.getTestByCode(test.getInternalCode());
-            return testStore.createValidateTest(test);
+
+        public boolean changeStateToValidate(List <String> testList){
+            if(!testList.isEmpty()) {
+                for (String test : testList) {
+                    this.test = getTestByCode(test.substring(15, 27));
+                    this.test.changeStateValidationToDone();
+                }
+                return true;
+            }
+            return false;
         }
 
 
-    private boolean testValidationList(Test test){
-        return readyToValidate().add(String.valueOf(createValidateTest(test)));
-    }
 
     //public doValidation(testValidationList)
     public List<Test> getTestList() {

@@ -33,17 +33,14 @@ public class Test {              //criar metodo que associe o testCounter ao int
         this.createdAt = new DateTime();
         this.parameterList = new ArrayList<>(parameterList);
         setNHSCode(nhsCode);
-        reportDone = false;
-        resultDone = false;
     }
 
-    public Test(String internalCode, DateTime registrationDate, DateTime chemicalAnalysisDate, DateTime reportDate, DateTime validationDate) {
+    /*public Test(String internalCode, DateTime registrationDate, DateTime chemicalAnalysisDate, DateTime reportDate) {
         this.internalCode=internalCode;
         this.registrationDate=registrationDate;
         this.chemicalAnalysisDate=chemicalAnalysisDate;
         this.reportDate=reportDate;
-        this.validationDate=validationDate;
-    }
+    }*/
 
 
     public DateTime getRegistrationDate() {
@@ -149,7 +146,8 @@ public class Test {              //criar metodo que associe o testCounter ao int
         resultDone = true;
     }
 
-    private void changeStateValidationToDone() {
+    public void changeStateValidationToDone() {
+        this.validationDate=new DateTime();
         validationDone = true;
     }
 
