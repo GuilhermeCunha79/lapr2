@@ -86,6 +86,7 @@ public class TestStore {
         return false;
     }
 
+
     public List<Test> getTestsWithoutResults() {
         System.out.println(testList.size());
         List<Test> lTestNoResult = new ArrayList<>();
@@ -123,6 +124,10 @@ public class TestStore {
         return null;
     }
 
+    /***
+     * Saves tests that wasn't validated yet in a List
+     * @return testWithoutValidation or null
+     */
     public List<Test> getTestWithoutValidation() {
         List<Test> testWithoutValidation = new ArrayList<>();
         if (!testList.isEmpty()) {
@@ -139,7 +144,11 @@ public class TestStore {
         }
     }
 
-
+    /***
+     * Method that makes the validation of a List of Tests
+     * @param testWithoutValidation
+     * @return true or false
+     */
     public boolean doValidation(List<Test> testWithoutValidation) {
 
         if (testWithoutValidation.isEmpty()) {
