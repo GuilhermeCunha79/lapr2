@@ -8,7 +8,7 @@ participant ":RecordResultUI" as UI
 participant ":RecordResultController" as CTRL
 participant ":Company" as COMP
 participant ":Test" as T
-participant ":Result" as RPRT
+participant ":TestParameterResult" as TPR
 participant ":TestStore" as TS
 participant ":TestListMapper" as TLM
 participant ":DateTime" as DT
@@ -71,12 +71,12 @@ UI -> CTRL : changeStateToResultsDone()
         activate T
             T -> T : changeStateToResultDone()
             activate T
-                T -> RPRT : registerResultDateTime()
-                activate RPRT
-                    RPRT -> DT : createdAt = registerCurrentDateTime()
+                T -> TPR : registerResultDateTime()
+                activate TPR
+                    TPR -> DT : createdAt = registerCurrentDateTime()
                     activate DT
                     deactivate DT
-                deactivate RPRT
+                deactivate TPR
             deactivate T
         deactivate T
     deactivate CTRL

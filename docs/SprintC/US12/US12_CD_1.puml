@@ -113,7 +113,6 @@ RecordResultController ..> Test
 Company"1" --> "*"Test : "performs"
 Company"1" --> "1"TestStore : "uses"
 TestStore"1" --> "*"Test : "store"
-Test"1" --> "1"Result : "originates"
 Test"1" -left-> "*"DateTime : registers
 ExternalModule <|.. ExternalModuleAdapter1
 ExternalModule <|.. ExternalModuleAdapter2
