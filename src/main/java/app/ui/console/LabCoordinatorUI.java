@@ -8,14 +8,14 @@ import java.util.List;
 public class LabCoordinatorUI implements Runnable{
 
     /**
-     * Method that implements the options that appear in the specialist doctor UI
+     * Method that implements the options that appear in the lab coordinator UI
      */
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
-        options.add(new MenuItem("Test Validation", new WriteReportUI()));
+        options.add(new MenuItem("Test Validation", new ValidationUI()));
 
-        int option = 0;
+        int option;
         do
         {
             option = Utils.showAndSelectIndex(options, "\n\nLab Coordinator Menu:");
