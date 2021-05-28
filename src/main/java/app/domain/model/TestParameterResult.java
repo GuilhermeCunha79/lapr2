@@ -6,26 +6,19 @@ import org.apache.commons.lang3.NotImplementedException;
 public class TestParameterResult {
 
     private DateTime createdAt;
-    private String value;
+    private double value;
     private String metric;
-    private Parameter testParameter;
-    private String parameterResult;
+    private ReferenceValue refValue;
 
-    public TestParameterResult(Parameter parameter, String result) {
-        setParameter(parameter);
-        setResult(result);
+    public TestParameterResult(double value, String metric, ReferenceValue refValue) {
+        this.value=value;
+        this.metric = metric;
+        this.refValue = refValue;
     }
 
-    public void setParameter(Parameter parameter){
-        this.testParameter = parameter;
-    }
-
-    public void setResult(String result){
-        this.parameterResult = result;
-    }
 
     @Override
     public String toString() {
-        return String.format("Test Parameter of %s has the following result :", testParameter, parameterResult);
+        return String.format("Results -> value: %f %s | %s", value, metric, refValue.toString());
     }
 }

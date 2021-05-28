@@ -12,6 +12,7 @@ public class Constants {
     public static final String ROLE_SPECIALIST_DOCTOR = "SPECIALIST DOCTOR";
     public static final String ROLE_CLIENT = "CLIENT";
     public static final String ROLE_LAB_COORDINATOR = "LAB COORDINATOR";
+    public static final String ROLE_CLINICAL_CHEMISTRY_TECHNOLOGIST = "CLINICAL CHEMISTRY TECHNOLOGIST";
 
     //PARAMETERS NAMES
     public static final String STRING_NAME = "Name";

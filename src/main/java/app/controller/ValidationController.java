@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ValidationController {
 
-    private static TestStore testStore;
+    private TestStore testStore;
     private List<Test> testValidationList = new ArrayList<>();
     private Test test;
 
@@ -22,11 +22,6 @@ public class ValidationController {
         testStore = company.getTestStore();
     }
 
-    public void displayList(List<String> list) {
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-        }
-    }
 
     public List<String> readyToValidate() {
         List<Test> readyToValidate = testStore.getTestList();
@@ -54,7 +49,7 @@ public class ValidationController {
         return null;
     }
 
-    //VER SE É NECESSÁRIO
+//VER SE É NECESSÁRIO
     public boolean changeStateToValidate(List<String> testList) {
         if (!testList.isEmpty()) {
             for (String test : testList) {

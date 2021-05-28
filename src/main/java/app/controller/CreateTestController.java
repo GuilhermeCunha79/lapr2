@@ -9,22 +9,22 @@ import java.util.List;
 import app.domain.model.Client;
 import app.domain.store.ClientStore;
 import app.mappers.ParameterMapper;
-import app.mappers.TestListMapper;
+
 import app.mappers.TestTypeMapper;
 
 
 public class CreateTestController {
 
-    private Company company;
+
     private String nhsCode;
-    private Test test;
+    private String labId;
+    private CATest test;
     private TypeOfTest typeOfTest;
     private Parameter parameter;
     private Client client;
     private ClientStore cs;
     private TypeOfTestStore tots;
     private TestStore testStore;
-    private ClinicalAnalysisLaboratoryStore cals;
     private ParameterStore ps;
     private List<Parameter> pList;
     private List<TypeOfTest> ttList;
@@ -44,17 +44,20 @@ public class CreateTestController {
     public CreateTestController(Company company) {
         this.testStore = company.getTestStore();
         this.tots = company.getTypeOfTestStore();
+        this.cs = company.getClientStore();
     }
 
     public void createTest() {
-        this.test = testStore.createTest(nhsCode, client, typeOfTest, pList);
+        this.test = testStore.createTest(nhsCode, client, typeOfTest, pList, labId);
     }
 
-    public void saveTest() {
-        this.testStore.saveTest(this.test);
+    public boolean saveTest() {
+        return this.testStore.saveTest(this.test);
     }
 
-
+    public void setLabId(String labId){
+        this.labId = labId;
+    }
     /**
      * Method to get a client by tin
      *
@@ -63,7 +66,7 @@ public class CreateTestController {
      */
     public String getClientByTINAndSaveNhsCode(String tin, String nhsCode) {
         this.nhsCode = nhsCode;
-        this.client = this.company.getClientStore().getClientByTIN(tin);
+        this.client = cs.getClientByTIN(tin);
         return client.toString();
     }
 

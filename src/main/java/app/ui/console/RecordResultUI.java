@@ -1,49 +1,88 @@
 package app.ui.console;
 
 import app.controller.RecordResultController;
-import app.domain.model.Test;
+
 import app.ui.console.utils.Utils;
 
-public class RecordResultUI implements Runnable{
+import java.util.List;
+import java.util.Objects;
+
+public class RecordResultUI implements Runnable {
 
     private RecordResultController ctrl;
-    private Test test;
+
+
+    private final String labId;
+
+    public RecordResultUI(String labId) {
+        this.labId = labId;
+    }
 
     @Override
     public void run() {
-        this.ctrl = new RecordResultController();
-        if(recordResult())
-            System.out.println("Employee was succesfully registered!");
+        ctrl = new RecordResultController();
+        boolean repeat;
+        do {
+            repeat = recordResults();
+        } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("Record results for another test? (Y/N)")).equalsIgnoreCase("y"));
+
     }
 
-    public boolean recordResult(){
-        boolean state = false;
+    private boolean recordResults() {
+        String chosenTest = testSelection();
+        if (chosenTest == null)
+            return false;
+        List<String> testParameterList = ctrl.getTest(chosenTest.substring(15, 27));
+        int option;
+
         do {
-            String result = Utils.readLineFromConsole("Introduce the result of the given test: ");
-
-            try {
-                if(ctrl.getTestResults(test.getInternalCode())!=null){
-                    ctrl.newResult(result);
-                    state = true;
-                }
-
-                if (state) {
-                    String answer = Utils.readLineFromConsole(String.format("%nConfirm the result of the test: %nResult: %s%n(Y/N)", result));
-                    while (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")){
-                        answer = Utils.readLineFromConsole("Answer not valid! Use (Y/N)");
-                    }
-                    if (answer.equalsIgnoreCase("Y")) {
-                       // ctrl.saveResult(test);
-                        return true;
-                    }
-                } else {
-                    System.out.println("Result is invalid!");
-                    return false;
-                }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+            if (testParameterList != null && !testParameterList.isEmpty()) {
+                do {
+                    option = Utils.showAndSelectIndex(testParameterList, "Select a test parameter to add result:");
+                    if (option >= 0 && option < testParameterList.size()) {
+                        if (addResult(chosenTest.substring(15, 27))) {
+                            testParameterList.remove(option);
+                        }
+                    } else
+                        System.out.println("Selection invalid!");
+                } while (option < 0 || option > testParameterList.size());
+            }else{
+                System.out.println("No parameters available");
+                return true;
             }
-        }while(!state);
+        }while(!testParameterList.isEmpty());
+        System.out.println(ctrl.getTestResults());
+        if(Objects.requireNonNull(Utils.readLineFromConsole("Confirm everything? (Y/N)")).equalsIgnoreCase("y"))
+            return ctrl.changeStateToResultDone();
         return false;
     }
+
+    private boolean addResult(String parameterCode) {
+        System.out.println("To add a result to the parameter tested, enter de following data:");
+        do {
+            try {
+                double value = Utils.readDoubleFromConsole("Enter value:");
+                String metric = Utils.readLineFromConsole("Enter metric:");
+                return ctrl.addParameterTestResult(parameterCode, value, metric);
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }while(true);
+    }
+
+    private String testSelection() {
+        List<String> availableTestList = ctrl.getListOfTestWithoutResult(labId);
+        int option;
+        if (availableTestList != null && !availableTestList.isEmpty()) {
+            do {
+                option = Utils.showAndSelectIndex(availableTestList, "Select a test:");
+                if (option >= 0 && option < availableTestList.size())
+                    return availableTestList.get(option);
+                else
+                    System.out.println("Selection invalid!");
+            }while (option < 0 || option > availableTestList.size());
+        }
+        return null;
+    }
+
 }

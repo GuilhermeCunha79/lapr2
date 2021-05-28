@@ -132,11 +132,6 @@ public class TestStore {
         }
     }
 
-    /***
-     * Method responsible for getting a test by its internalCode
-     * @param internalCode
-     * @return
-     */
     public Test getTestByCode(String internalCode) {
         for (Test test : testList) {
             if (test.getInternalCode().equals(internalCode))

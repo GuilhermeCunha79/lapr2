@@ -18,6 +18,8 @@ public class TypeOfTest {
     private String code;
     private String description;
     private String collectingMethod;
+    private Object ExternalModule;
+
 
     /**
      * Class Constructor with all parameters needed to create a new type of test
@@ -102,6 +104,10 @@ public class TypeOfTest {
         if(pc != null)
             return this.parameterCategoryList.add(pc);
         return false;
+    }
+
+    public ExternalModule getExternalModule(){
+        return (ExternalModule) ExternalModule;
     }
     /**
      * This method returns a string with all the data of the instance of type of test that called the method

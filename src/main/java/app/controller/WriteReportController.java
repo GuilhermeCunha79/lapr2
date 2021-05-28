@@ -2,7 +2,7 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.Report;
-import app.domain.model.Test;
+import app.domain.model.CATest;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
 
@@ -12,7 +12,7 @@ public class WriteReportController {
 
     private TestStore testStore;
 
-    private Test test;
+    private CATest test;
 
     private Report report;
 
@@ -34,7 +34,7 @@ public class WriteReportController {
      * @return a list of Strings holding the data for each test
      */
     public List<String> getTestWithoutReport(){
-        List<Test> lTestNoReport = testStore.getTestWithoutReport();
+        List<CATest> lTestNoReport = testStore.getTestWithoutReport();
         if(lTestNoReport != null) {
             TestListMapper tlm = new TestListMapper();
             return tlm.toDto(lTestNoReport);
