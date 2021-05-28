@@ -1,8 +1,8 @@
 package app.domain.store;
 
+import app.domain.model.CATest;
 import app.domain.model.Client;
 import app.domain.model.Parameter;
-import app.domain.model.Test;
 import app.domain.model.TypeOfTest;
 
 
@@ -13,8 +13,8 @@ import java.util.List;
 
 public class TestStore {
 
-    private Test test;
-    private List<Test> testList = new ArrayList<>();
+    private CATest test;
+    private List<CATest> testList = new ArrayList<>();
 
 
     /**
@@ -34,8 +34,8 @@ public class TestStore {
      * @param lParameter object of the Parameter
      * @return
      */
-    public Test createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter) {
-        this.test = new Test(nhsCode, client, typeOfTest, lParameter);
+    public CATest createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter, String labWhereCreated) {
+        this.test = new CATest(nhsCode, client, typeOfTest, lParameter, labWhereCreated);
         return this.test;
     }
 
@@ -43,7 +43,7 @@ public class TestStore {
      * Method  to get the type of tests list
      * @return List<Test>
      */
-    public List<Test> getTestList() {
+    public List<CATest> getTestList() {
         return new ArrayList<>(this.testList);
     }
 
@@ -52,10 +52,10 @@ public class TestStore {
      * @param testCreated object of the test to be validated
      * @return true if test created is valid
      */
-    public boolean validateTest(Test testCreated) {
+    public boolean validateTest(CATest testCreated) {
         if (testCreated == null)
             return false;
-        for (Test test : testList) {
+        for (CATest test : testList) {
             if (test.equals(testCreated)) {
                 System.out.println(testCreated);
                 return false;
@@ -69,7 +69,7 @@ public class TestStore {
      * @param test object test to be added
      * @return
      */
-    private boolean addTest(Test test) {
+    private boolean addTest(CATest test) {
         return this.testList.add(test);
     }
 
@@ -79,7 +79,7 @@ public class TestStore {
      * @param test object test to be saved
      * @return true if added with success, false if not
      */
-    public boolean saveTest(Test test) {
+    public boolean saveTest(CATest test) {
         if(validateTest(test)) {
             return addTest(test);
         }
@@ -87,10 +87,10 @@ public class TestStore {
     }
 
 
-    public List<Test> getTestsWithoutResults() {
+    public List<CATest> getTestsWithoutResults() {
         System.out.println(testList.size());
-        List<Test> lTestNoResult = new ArrayList<>();
-        for (Test recordTest : testList) {
+        List<CATest> lTestNoResult = new ArrayList<>();
+        for (CATest recordTest : testList) {
             if (!recordTest.getResultStatus())
                 lTestNoResult.add(recordTest);
         }
@@ -100,10 +100,10 @@ public class TestStore {
             return lTestNoResult;
     }
 
-    public List<Test> getTestWithoutSample() {
-        List<Test> lTestNoSample = new ArrayList<>();
+    public List<CATest> getTestWithoutSample() {
+        List<CATest> lTestNoSample = new ArrayList<>();
         if (!testList.isEmpty()) {
-            for (Test test : testList) {
+            for (CATest test : testList) {
                 if (!test.getReportStatus())
                     lTestNoSample.add(test);
             }
@@ -116,10 +116,10 @@ public class TestStore {
         }
     }
 
-    public List<Test> getTestWithoutReport() {
-        List<Test> lTestNoReport = new ArrayList<>();
+    public List<CATest> getTestWithoutReport() {
+        List<CATest> lTestNoReport = new ArrayList<>();
         if (!testList.isEmpty()) {
-            for (Test test : testList) {
+            for (CATest test : testList) {
                 if (!test.getReportStatus())
                     lTestNoReport.add(test);
             }
@@ -132,8 +132,8 @@ public class TestStore {
         }
     }
 
-    public Test getTestByCode(String internalCode) {
-        for (Test test : testList) {
+    public CATest getTestByCode(String internalCode) {
+        for (CATest test : testList) {
             if (test.getInternalCode().equals(internalCode))
                 return test;
         }
@@ -144,10 +144,10 @@ public class TestStore {
      * Saves tests that wasn't validated yet in a List
      * @return testWithoutValidation or null
      */
-    public List<Test> getTestWithoutValidation() {
-        List<Test> testWithoutValidation = new ArrayList<>();
+    public List<CATest> getTestWithoutValidation() {
+        List<CATest> testWithoutValidation = new ArrayList<>();
         if (!testList.isEmpty()) {
-            for (Test test : testList) {
+            for (CATest test : testList) {
                 if (!test.getValidationStatus())
                     testWithoutValidation.add(test);
             }
@@ -165,11 +165,11 @@ public class TestStore {
      * @param testWithoutValidation
      * @return true or false
      */
-    public boolean doValidation(List<Test> testWithoutValidation) {
+    public boolean doValidation(List<String> testWithoutValidation) {
 
         if (testWithoutValidation.isEmpty()) {
-            for (Test test:testList) {
-                Test test1= getTestByCode(test.getInternalCode());
+            for (CATest test:testList) {
+                CATest test1= getTestByCode(test.getInternalCode());
                 Client client = test1.getClient();
                 String name = client.getName();
                 test.changeStateValidationToDone();

@@ -40,6 +40,7 @@ public class CATest {
         setNhsCode(nhsCode);
     }
 
+
     private String generateInternalCode() {
         return String.format("%012d", testCounter);
     }

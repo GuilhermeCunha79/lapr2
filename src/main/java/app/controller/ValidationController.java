@@ -1,7 +1,7 @@
 package app.controller;
 
+import app.domain.model.CATest;
 import app.domain.model.Company;
-import app.domain.model.Test;
 import app.domain.store.TestStore;
 import app.mappers.TestReadyToValidateMapper;
 
@@ -11,8 +11,8 @@ import java.util.List;
 public class ValidationController {
 
     private TestStore testStore;
-    private List<Test> testValidationList = new ArrayList<>();
-    private Test test;
+    private List<CATest> testValidationList = new ArrayList<>();
+    private CATest test;
 
     public ValidationController() {
         this(App.getInstance().getCompany());
@@ -24,7 +24,7 @@ public class ValidationController {
 
 
     public List<String> readyToValidate() {
-        List<Test> readyToValidate = testStore.getTestList();
+        List<CATest> readyToValidate = testStore.getTestList();
         if (readyToValidate != null) {
             TestReadyToValidateMapper testReady = new TestReadyToValidateMapper();
             return testReady.toDtoVal(readyToValidate);
@@ -33,7 +33,7 @@ public class ValidationController {
     }
 
     public List<String> getTestWithoutValidation() {
-        List<Test> testWithoutValList = testStore.getTestWithoutValidation();
+        List<CATest> testWithoutValList = testStore.getTestWithoutValidation();
         if (testWithoutValList != null) {
             TestReadyToValidateMapper testMapper = new TestReadyToValidateMapper();
             return testMapper.toDtoVal(testWithoutValList);
@@ -41,8 +41,8 @@ public class ValidationController {
         return null;
     }
 
-    public Test getTestByCode(String internalCode) {
-        for (Test test : testValidationList) {
+    public CATest getTestByCode(String internalCode) {
+        for (CATest test : testValidationList) {
             if (test.getInternalCode().equals(internalCode))
                 return test;
         }
@@ -74,7 +74,13 @@ public class ValidationController {
         return testStore.doValidation(testValidationList);
     }
 
-    public List<Test> getTestList() {
+    public void displayList(List<String> list){
+        for(int i=0;i<list.size();i++){
+            System.out.println(list.get(i));
+        }
+    }
+
+    public List<CATest> getTestList() {
         return App.getInstance().getCompany().getTestStore().getTestList();
     }
 }
