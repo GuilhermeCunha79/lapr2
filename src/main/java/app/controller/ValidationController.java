@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ValidationController {
 
-    private TestStore testStore;
+    private static TestStore testStore;
     private List<Test> testValidationList = new ArrayList<>();
     private Test test;
 
@@ -22,6 +22,11 @@ public class ValidationController {
         this.testStore = company.getTestStore();
     }
 
+    public void displayList(List<String> list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
 
     public List<String> readyToValidate() {
         List<Test> readyToValidate = testStore.getTestList();
@@ -32,6 +37,14 @@ public class ValidationController {
         return null;
     }
 
+    public List<String> getTestWithoutValidation() {
+        List<Test> testWithoutValList = testStore.getTestWithoutValidation();
+        if (testWithoutValList != null) {
+            TestReadyToValidateMapper testMapper = new TestReadyToValidateMapper();
+            return testMapper.toDtoVal(testWithoutValList);
+        }
+        return null;
+    }
 
     public Test getTestByCode(String internalCode) {
         for (Test test : testValidationList) {
@@ -41,13 +54,22 @@ public class ValidationController {
         return null;
     }
 
-//VER SE É NECESSÁRIO
+    //VER SE É NECESSÁRIO
     public boolean changeStateToValidate(List<String> testList) {
         if (!testList.isEmpty()) {
             for (String test : testList) {
                 this.test = getTestByCode(test.substring(15, 27));
                 this.test.changeStateValidationToDone();
             }
+            return true;
+        }
+        return false;
+    }
+
+    public boolean changeStateToValidateOne(String internalCode) {
+        if (test != null) {
+            this.test = getTestByCode(internalCode);
+            this.test.changeStateValidationToDone();
             return true;
         }
         return false;

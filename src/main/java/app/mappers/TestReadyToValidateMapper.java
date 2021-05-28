@@ -16,7 +16,7 @@ public class  TestReadyToValidateMapper {
     }
 
 
-    public static List<String> toDtoVal(List<Test>readyToValidate) {
+    public List<String> toDtoVal(List<Test>readyToValidate) {
         List<String> rtvListDto = new ArrayList<>();
         if (!readyToValidate.isEmpty()) {
             for (Test test : readyToValidate) {
