@@ -1,7 +1,7 @@
 package app.controller;
 
 import app.domain.model.Company;
-import app.domain.model.Test;
+import app.domain.model.CATest;
 import app.domain.store.TestStore;
 import app.mappers.TestReadyToValidateMapper;
 
@@ -11,8 +11,8 @@ import java.util.List;
 public class ValidationController {
 
     private TestStore testStore;
-    private List<Test> testValidationList = new ArrayList<>();
-    private Test test;
+    private List<CATest> testValidationList = new ArrayList<>();
+    private CATest test;
 
     public ValidationController() {
         this(App.getInstance().getCompany());
@@ -24,7 +24,7 @@ public class ValidationController {
 
 
     public List<String> readyToValidate() {
-        List<Test> readyToValidate = testStore.getTestList();
+        List<CATest> readyToValidate = testStore.getTestList();
         if (readyToValidate != null) {
             TestReadyToValidateMapper testReady = new TestReadyToValidateMapper();
             return testReady.toDtoVal(readyToValidate);
@@ -33,8 +33,8 @@ public class ValidationController {
     }
 
 
-    public Test getTestByCode(String internalCode) {
-        for (Test test : testValidationList) {
+    public CATest getTestByCode(String internalCode) {
+        for (CATest test : testValidationList) {
             if (test.getInternalCode().equals(internalCode))
                 return test;
         }
@@ -53,11 +53,11 @@ public class ValidationController {
         return false;
     }
 
-    public boolean doValidation(List<Test> testValidationList) {
+    public boolean doValidation(List<CATest> testValidationList) {
         return this.testStore.doValidation(testValidationList);
     }
 
-    public List<Test> getTestList() {
+    public List<CATest> getTestList() {
         return App.getInstance().getCompany().getTestStore().getTestList();
     }
 }

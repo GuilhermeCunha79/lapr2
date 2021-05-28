@@ -2,7 +2,7 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.Sample;
-import app.domain.model.Test;
+import app.domain.model.CATest;
 import app.domain.shared.DateTime;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
@@ -17,7 +17,7 @@ public class RegisterSampleController {
 
     private TestStore testStore;
 
-    private Test test;
+    private CATest test;
 
     private List<Sample> s;
 
@@ -45,7 +45,7 @@ public class RegisterSampleController {
      * @return a list of Strings holding the data for each test
      */
     public List<String> getTestWithoutSample() {
-        List<Test> testList = testStore.getTestWithoutSample();
+        List<CATest> testList = testStore.getTestWithoutSample();
         if (!testList.isEmpty()) {
             TestListMapper tlm = new TestListMapper();
             return tlm.toDto(testList);

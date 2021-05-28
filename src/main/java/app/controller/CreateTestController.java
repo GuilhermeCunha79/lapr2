@@ -18,7 +18,7 @@ public class CreateTestController {
 
     private String nhsCode;
     private String labId;
-    private Test test;
+    private CATest test;
     private TypeOfTest typeOfTest;
     private Parameter parameter;
     private Client client;

@@ -1,6 +1,6 @@
 package app.mappers;
 
-import app.domain.model.Test;
+import app.domain.model.CATest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +12,9 @@ public class TestListMapper {
      * @param lTestNoReport list of tests
      * @return list of strings
      */
-    public List<String> toDto(List<Test> lTestNoReport){
+    public List<String> toDto(List<CATest> lTestNoReport){
         List<String> testListNoReportDto = new ArrayList<>();
-        for(Test test : lTestNoReport){
+        for(CATest test : lTestNoReport){
             testListNoReportDto.add(test.toString());
         }
         return testListNoReportDto;

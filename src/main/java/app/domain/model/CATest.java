@@ -8,7 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test {
+public class CATest {
     private static final int NHS_CODE = 12;
     private static int testCounter = 0;
     private String labWhereCreated;
@@ -29,7 +29,7 @@ public class Test {
     private List<Parameter> parameterList;
 
 
-    public Test(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated) {
+    public CATest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated) {
         testCounter++;
         this.labWhereCreated = labWhereCreated;
         this.client = client;
@@ -288,7 +288,7 @@ public class Test {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Test test = (Test) o;
+        CATest test = (CATest) o;
         return internalCode.equals(test.internalCode) || nhsCode.equals(test.nhsCode);
     }
 
