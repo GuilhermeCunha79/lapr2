@@ -100,6 +100,22 @@ public class TestStore {
             return lTestNoResult;
     }
 
+    public List<Test> getTestWithoutSample() {
+        List<Test> lTestNoSample = new ArrayList<>();
+        if (!testList.isEmpty()) {
+            for (Test test : testList) {
+                if (!test.getReportStatus())
+                    lTestNoSample.add(test);
+            }
+            if (lTestNoSample.isEmpty())
+                return null;
+            else
+                return lTestNoSample;
+        } else {
+            return null;
+        }
+    }
+
     public List<Test> getTestWithoutReport() {
         List<Test> lTestNoReport = new ArrayList<>();
         if (!testList.isEmpty()) {

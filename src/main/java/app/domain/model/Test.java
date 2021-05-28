@@ -19,10 +19,12 @@ public class Test {
     private DateTime createdAt;
     private String internalCode;
     private String nhsCode;
+    private boolean sampleDone;
     private boolean reportDone;
     private boolean resultDone;
     private boolean validationDone;
     private Report report;
+    private List<Sample> sampleList = new ArrayList<>();
     private List<TestParameterResult> resultList = new ArrayList<>();
     private List<Parameter> parameterList;
 
@@ -120,6 +122,14 @@ public class Test {
         return true;
     }
 
+    /**
+     * this method returns if this test already has a sample or not using the sampleDone boolean variable
+     *
+     * @return true or false
+     */
+    public boolean getSampleStatus() {
+        return this.sampleDone;
+    }
 
     /**
      * this method returns if this test already has a report or not using the reportDone boolean variable
@@ -175,6 +185,19 @@ public class Test {
         return results;
     }
 
+    /**
+     * This method receives a Sample and assigns it to the test it's related to
+     *
+     * @param sample the instance of a Report
+     * @return if it was added or not
+     */
+    public boolean addSample(Sample sample) {
+        if(!sampleDone) {
+            this.sampleList = (List<Sample>) sample;
+            changeStateToSampleDone();
+        }
+        return this.sampleDone;
+    }
 
     /**
      * This method receives a Report and assigns it to the test it's related to
@@ -188,6 +211,13 @@ public class Test {
             changeStateToReportDone();
         }
         return this.reportDone;
+    }
+
+    /**
+     * The only purpose of this method is to change the state of the test to inform that the sample is done
+     */
+    private void changeStateToSampleDone() {
+        sampleDone = true;
     }
 
     /**
