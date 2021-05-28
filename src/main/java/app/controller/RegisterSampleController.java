@@ -3,7 +3,6 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.Sample;
 import app.domain.model.CATest;
-import app.domain.shared.DateTime;
 import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
@@ -11,6 +10,7 @@ import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterSampleController {
@@ -53,19 +53,33 @@ public class RegisterSampleController {
         return null;
     }
 
-    public  Barcode createUPCA (DateTime data) throws BarcodeException {
-        data=test.getChemicalAnalysisDate();
-        return BarcodeFactory.createUPCA(String.valueOf(data));
+    /**
+     * This method receives an internal code and finds the test that has it from the test store, then, returns all of its test codes
+     * @param testCode internal code to be used
+     * @return all the parameter tested results
+     */
+    public String getData(String testCode){
+        this.test = testStore.getTestByCode(testCode);
+        return test.getInternalCode();
     }
 
+    public  Barcode createUPCA (String data) throws BarcodeException {
+        Barcode barcode = BarcodeFactory.createUPCA(data);
+        return barcode ;
+    }
 
+    public Sample createSample(ArrayList sampleList) {
+        Sample sample = new Sample(sampleList);
+        return sample;
+    }
 
     /**
-     * When everything is confirmed by the user, this method saves the report created as an attribute of its test
+     * When everything is confirmed by the user, this method saves the samples created as an attribute of its test
      */
-    public boolean saveSample(){
+    public boolean addSample(){
         return this.test.addSample(this.sample);
     }
+
 
 }
 
