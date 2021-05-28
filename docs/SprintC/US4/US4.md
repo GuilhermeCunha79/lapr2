@@ -64,6 +64,35 @@ NHS code: 12 alphanumeric characters.
 
 > **Answer** Yes. 
 
+
+> **Question** Can the client have two identical tests? or the system should stop from creating the same test?
+
+> **Answer** A test is unique in the system.
+
+
+> **Question** NHS code contains 12 characters and is alphanumeric, so this will be different from the NHS number from the client? If so, how do we know a certain test is associated to a client?
+
+> **Answer** A test has a NHS code, and a client has a NHS number. In US4 the receptionist of the laboratory should ask the client to get his TIN number. Using the TIN number the receptionist of the laboratory can find all information about the client. Do not forget that a client should be registered in the system to make a test.
+ 
+
+> **Question** Should we show the list of all clients available or just introduce the client's CCN ?
+
+> **Answer** The TIN number should be used to find a client and associate the client with the test.
+
+
+> **Question** How is it possible to know in which laboratory the test is being registered? Should the Receptionist select the Laboratory before selecting the Test Type?
+
+> **Answer** After a login the receptionist should select the laboratory where she is working. Then, the receptionist has access to the system's features/functionalities.
+
+
+> **Question** We are aware that both the receptionist, and the MLT are two employees that may work on different labs. As such, do you want that Tests become associated to a specific Lab?
+ 
+> **Answer** Yes.
+ 
+
+> **Question** This means that, when the receptionist creates a new Test, this test will only be "visible" for that specific LAB (for the receptionist and the MLT only), which means that all other roles (Chemistry Technologist, Specialist Doctor and the Laboratory Coordinator) will be able to see a list of all the tests performed in any lab.
+ 
+> **Answer** Yes. The test will only be visible for that specific LAB and for all those working in the Chemical Laboratory.
 ### 1.3. Acceptance Criteria
 
 
@@ -73,7 +102,7 @@ AC3 -- NHS code must have 12 alphanumeric characters.
 AC5 -- NHS code must be unique for each type of test
 AC6 -- Internal code must have 12 digit sequential number and generally automatic
 AC7 -- A type of test can have one or more categories
-
+AC8 -- A receptionist find the client only by the tin
 
 ### 1.4. Found out Dependencies
 
@@ -91,14 +120,14 @@ AC7 -- A type of test can have one or more categories
 **Input Data:**
 
 * Typed data:
-    * citizenCardNumber
-    * code
-    * client  
+    * tin
     * nhsCode
+     
 * Selected data:
     * Classifying Parameter
     * Classifying Type Of Test category
     * Classifying Type Of Test
+    * Classifying Test
   
 **Output Data:**
 
@@ -159,19 +188,20 @@ n/a
 
 According to the taken rationale, the conceptual classes promoted to software classes are:
 
-* CreateTestUI
-* CreateTestController
+
 * Company
+* CATest
+* TypeOfTest
 
 Other software classes (i.e. Pure Fabrication) identified:
 
-* Test
+* CreateTestUI
+* CreateTestController
 * TestStore
 * TypeOfTestStore
 * ParameterMapper
 * ParameterStore
 * ClientStore
-* TypeOfTest
 * TestTypeMapper
 
 ## 3.2. Sequence Diagram (SD)
@@ -210,7 +240,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 6. Integration and Demo
 
 * A new option on the Reception menu options was added.
-* The recepcionist can add one or more parameters when  he/she creates a test
+* The receptionist can add one or more parameters when  he/she creates a test
 
 
 # 7. Observations

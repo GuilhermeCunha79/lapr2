@@ -24,6 +24,7 @@ public class Constants {
     public static final String STRING_TIN_NUMBER = "TIN Number";
     public static final String STRING_DOC_INDEX_NUMB = "Doctor Index Number";
     public static final String STRING_NHS_CODE = "NhsCode";
+    public static final String STRING_CLIENT = "Client";
 
     //PARAMETER DIGITS
     public static final int ADDRESS_DIGITS = 30;

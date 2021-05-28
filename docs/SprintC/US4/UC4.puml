@@ -1,0 +1,7 @@
+@startuml
+usecase "UC4 - Register a new test" as UC4
+actor recep as "Receptionist"
+recep --> (UC4)
+(UC4) --> (To be performed to a registered client)
+
+@enduml

@@ -15,7 +15,7 @@ participant "TypeOfTest" as TT
 
 participant "testTypeStore: TypeOfTestStore" as TTSTORE
 
-participant "test\n:Test" as TEST
+participant "test\n:CATest" as TEST
 
 
 participant "testTypeMap:TestTypeMapper" as TMAPPER
