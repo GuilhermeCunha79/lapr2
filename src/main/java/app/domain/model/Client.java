@@ -15,7 +15,7 @@ import java.util.Objects;
 /***
  * Client Class
  */
-public class Client {
+public class Client  {
 
     private String name;
     private String citizenCardNumber;

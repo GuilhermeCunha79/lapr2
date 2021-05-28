@@ -32,11 +32,12 @@ public class CATest {
     public CATest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated) {
         testCounter++;
         this.labWhereCreated = labWhereCreated;
-        this.client = client;
+        setClient(client);
         this.typeOfTest = typeOfTest;
         this.createdAt = new DateTime();
         this.parameterList = new ArrayList<>(parameterList);
         this.internalCode = generateInternalCode();
+        this.client = client;
         setNhsCode(nhsCode);
     }
 
@@ -67,23 +68,18 @@ public class CATest {
     }
 
     public void setClient(Client client) {
-        this.client = client;
+        if (client == null)
+            throw new NullPointerException(Constants.STRING_CLIENT + Constants.STRING_NULL_EXEPT);
     }
 
-    public void setInternalCode(String internalCode) {
-        this.internalCode = internalCode;
-    }
 
-    public void setCreatedAt(DateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 
     public void setNhsCode(String nhsCode) {
         if (nhsCode == null)
             throw new NullPointerException(Constants.STRING_NHS_CODE + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(nhsCode))
             throw new IllegalArgumentException(Constants.STRING_NHS_CODE + Constants.STRING_BLANK_EXEPT);
-        if (nhsCode.length() > NHS_CODE)
+        if (nhsCode.length() != NHS_CODE)
             throw new IllegalArgumentException(Constants.STRING_NHS_CODE + Constants.STRING_NOT_MORE_THAN_12);
         if (!CommonMethods.stringHaveAlphanumerical(nhsCode))
             throw new IllegalArgumentException(Constants.STRING_NHS_CODE + Constants.NON_ALPHANUM_EXEPT);
