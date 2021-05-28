@@ -236,6 +236,7 @@ public class Test {
         validationDone = true;
     }
 
+
     /**
      * This method returns a string with some important data about this test
      *

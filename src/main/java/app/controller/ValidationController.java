@@ -19,7 +19,7 @@ public class ValidationController {
     }
 
     public ValidationController(Company company) {
-        this.testStore = company.getTestStore();
+        testStore = company.getTestStore();
     }
 
     public void displayList(List<String> list) {
@@ -75,8 +75,8 @@ public class ValidationController {
         return false;
     }
 
-    public boolean doValidation(List<Test> testValidationList) {
-        return this.testStore.doValidation(testValidationList);
+    public boolean doValidation(List<String> testValidationList) {
+        return testStore.doValidation(testValidationList);
     }
 
     public List<Test> getTestList() {
