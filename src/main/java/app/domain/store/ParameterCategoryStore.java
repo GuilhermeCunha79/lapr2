@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ParameterCategoryStore {
 
-    private final List<ParameterCategory> parameterCategoryList = new ArrayList();
+    private List<ParameterCategory> parameterCategoryList = new ArrayList();
 
 
     /**

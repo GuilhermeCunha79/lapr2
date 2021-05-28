@@ -124,6 +124,6 @@ TestType"*" -> "1"ExternalModule : "make use of"
 Test"*" -> "1"TestType : is of
 Test"1" -down-> "1..*" TestParameter
 TestParameter"1" --> "0..1" TestParameterResult : contains
-TestParameter"*" --> "1" Parameter : refers to
+TestParameter"*" -left-> "1" Parameter : refers to
 TestParameterResult"1" --> "1"ReferenceValue : records
 @enduml

@@ -5,15 +5,18 @@ import app.domain.model.ParameterCategory;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 
 public class ParameterStoreTest {
 
     ParameterCategoryStore pcs = new ParameterCategoryStore();
     ParameterStore ps = new ParameterStore();
-    
+    List<ParameterCategory> pcList = new ArrayList<>();
+
 
     /**
      * Creates a category to be used in other tests that need it
@@ -22,7 +25,12 @@ public class ParameterStoreTest {
     @Before
     public void createCategoryList(){
         ParameterCategory pc2 = pcs.createParameterCategory("12345", "hemograms");
+        ParameterCategory pc1 = pcs.createParameterCategory("34232", "Covid");
         pcs.saveParameterCategory(pc2);
+        pcs.saveParameterCategory(pc1);
+
+        pcList.add(pc1);
+        pcList.add(pc2);
     }
 
     /**
@@ -30,20 +38,8 @@ public class ParameterStoreTest {
      */
     @Test
     public void ensureCannotAddSameParameterTwice(){
-        Parameter p1 = ps.createParameter("12345", "Cells", "Whatever", "hemograms");
-        Parameter p2 = ps.createParameter("12345", "Cells", "Whatever", "hemograms");
-        ps.saveParameter(p1);
-        assertFalse(ps.saveParameter(p2));
-    }
-
-    /**
-     * Verify that it is not possible to add the same parameter twice (tests addParameter method)
-     */
-
-    @Test
-    public void ensureCannotAddSameParameterTwiceTest2AddParameter(){
-        Parameter p1 = ps.createParameter("12325", "Cell", "description", "hemograms");
-        Parameter p2 = ps.createParameter("12325", "Cell", "description", "hemograms");
+        Parameter p1 = ps.createParameter("12345", "Cells", "Whatever", "12345");
+        Parameter p2 = ps.createParameter("12345", "Cells", "Whatever", "12345");
         ps.saveParameter(p1);
         assertFalse(ps.saveParameter(p2));
     }
@@ -54,8 +50,8 @@ public class ParameterStoreTest {
 
     @Test
     public void ensureAdd2differentParametersWorks(){
-        Parameter p1 = ps.createParameter("12322", "Blood", "addText", "hemograms");
-        Parameter p2 = ps.createParameter("12321", "Cel", "descriptions", "hemograms");
+        Parameter p1 = ps.createParameter("12322", "Blood", "addText", "12345");
+        Parameter p2 = ps.createParameter("12321", "Cel", "descriptions", "12345");
         ps.saveParameter(p1);
         assertTrue(ps.saveParameter(p2));
     }
@@ -72,12 +68,33 @@ public class ParameterStoreTest {
      */
     @Test
     public void testGetCategoryListMethod(){
-        Parameter p1 = ps.createParameter("12327", "Covid", "add description", "hemograms");
-        Parameter p2 = ps.createParameter("12321", "Covid-19", "no description", "hemograms");
+        Parameter p1 = ps.createParameter("12327", "Covid", "add description", "12345");
+        Parameter p2 = ps.createParameter("12321", "Covid-19", "no description", "12345");
         ps.saveParameter(p1);
         ps.saveParameter(p2);
         assertTrue(ps.getParameterList().contains(p1) && ps.getParameterList().contains(p2));
     }
 
+    @Test
+    public void testGetParameterListByCodeMethod(){
+        Parameter p1 = ps.createParameter("12327", "Covid", "add description", "12345");
+        Parameter p2 = ps.createParameter("12321", "Covid-19", "no description", "12345");
+        ps.saveParameter(p1);
+        ps.saveParameter(p2);
+        assertEquals(p1, ps.getParameterByCode("12327"));
+    }
+/*
+    @Test
+    public void testGetParameterListByCategoryMethod(){
+        Parameter p1 = ps.createParameter("12327", "Covid", "add description", "34232");
+        Parameter p2 = ps.createParameter("12321", "Covid-19", "no description", "12345");
+        ps.saveParameter(p1);
+        ps.saveParameter(p2);
+        List<Parameter> pList = new ArrayList<>();
+        pList.add(p1);
+        pList.add(p2);
+        assertEquals(pList, ps.getParameterListByTheCategory(pcList));
+    }
+*/
 
 }

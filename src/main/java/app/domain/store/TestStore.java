@@ -34,8 +34,8 @@ public class TestStore {
      * @param lParameter object of the Parameter
      * @return
      */
-    public Test createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter) {
-        this.test = new Test(nhsCode, client, typeOfTest, lParameter);
+    public Test createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter, String labWhereCreated) {
+        this.test = new Test(nhsCode, client, typeOfTest, lParameter, labWhereCreated);
         return this.test;
     }
 
@@ -87,12 +87,12 @@ public class TestStore {
     }
 
 
-    public List<Test> getTestsWithoutResults() {
+    public List<Test> getTestsWithoutResults(String labId) {
         System.out.println(testList.size());
         List<Test> lTestNoResult = new ArrayList<>();
-        for (Test recordTest : testList) {
-            if (!recordTest.getResultStatus())
-                lTestNoResult.add(recordTest);
+        for (Test test : testList) {
+            if (!test.getResultStatus() && test.getLabWhereCreated().equals(labId))
+                lTestNoResult.add(test);
         }
         if (lTestNoResult.isEmpty())
             return null;

@@ -1,5 +1,7 @@
 package app.ui.console.utils;
 
+import app.mappers.CalListMapper;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.ParseException;
@@ -128,5 +130,21 @@ public class Utils {
         } while (value < 0 || value > list.size());
 
         return value - 1;
+    }
+
+    public static String selectLab() {
+        List<String> labs = CalListMapper.toDto();
+        int option;
+        if (labs != null) {
+            do {
+                option = Utils.showAndSelectIndex(labs, "\n\nSelect the lab you are currently working from:");
+
+                if ((option >= 0) && (option < labs.size())) {
+                    return labs.get(option).substring(8, 13);
+                }
+
+            } while (option != -1);
+        }
+        return null;
     }
 }

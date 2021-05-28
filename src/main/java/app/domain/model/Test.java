@@ -11,7 +11,7 @@ import java.util.List;
 public class Test {
     private static final int NHS_CODE = 12;
     private static int testCounter = 0;
-    private DateTime registrationDate;
+    private String labWhereCreated;
     private DateTime chemicalAnalysisDate;
     private DateTime validationDate;
     private Client client;
@@ -25,12 +25,13 @@ public class Test {
     private boolean validationDone;
     private Report report;
     private List<Sample> sampleList = new ArrayList<>();
-    private List<TestParameterResult> resultList = new ArrayList<>();
+    private List<TestParameter> testParametersList = new ArrayList<>();
     private List<Parameter> parameterList;
 
 
-    public Test(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList) {
+    public Test(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated) {
         testCounter++;
+        this.labWhereCreated = labWhereCreated;
         this.client = client;
         this.typeOfTest = typeOfTest;
         this.createdAt = new DateTime();
@@ -48,13 +49,21 @@ public class Test {
         return this.createdAt;
     }
 
-    public TypeOfTest getTypeOfTest() { return  this.typeOfTest; }
+    public TypeOfTest getTypeOfTest() {
+        return this.typeOfTest;
+    }
 
-    public Client getClient() { return this.client; }
+    public Client getClient() {
+        return this.client;
+    }
 
-    public String getNhsCode() { return this.nhsCode; }
+    public String getNhsCode() {
+        return this.nhsCode;
+    }
 
-    public List<Parameter> getParameterList() { return new ArrayList<>(parameterList); }
+    public List<Parameter> getParameterList() {
+        return new ArrayList<>(parameterList);
+    }
 
     public void setClient(Client client) {
         this.client = client;
@@ -92,7 +101,7 @@ public class Test {
         return this.report.getCreatedAt();
     }
 
-    public DateTime getValidationDate(){
+    public DateTime getValidationDate() {
         return this.validationDate;
     }
 
@@ -101,21 +110,25 @@ public class Test {
         return this.chemicalAnalysisDate;
     }
 
+    public String getLabWhereCreated() {
+        return this.labWhereCreated;
+    }
+
     /**
      * Method to add a new parameter to parameter list
      * @param parameter Parameter object
      * @return true if parameter added with success false if not
-       */
+     */
     public boolean addParameter(Parameter parameter) {
-      if(!this.parameterList.isEmpty() && checkDuplications(parameter)) {
+        if (!this.parameterList.isEmpty() && checkDuplications(parameter)) {
             return parameterList.add(parameter);
         }
         return false;
     }
 
     private boolean checkDuplications(Parameter parameter) {
-        for(Parameter p : this.parameterList){
-            if(p.equals(parameter)){
+        for (Parameter p : this.parameterList) {
+            if (p.equals(parameter)) {
                 return false;
             }
         }
@@ -176,10 +189,10 @@ public class Test {
      * @return the results available
      */
     public String getTestResults() {
-        String results = "";
-        if (!resultList.isEmpty()) {
-            for (TestParameterResult result : resultList) {
-                results.concat(result.toString());
+        String results = "\n\nTest Results: \n";
+        if (!testParametersList.isEmpty()) {
+            for (TestParameter result : testParametersList) {
+                results = results.concat(result.toString());
             }
         }
         return results;
@@ -206,11 +219,25 @@ public class Test {
      * @return if it was added or not
      */
     public boolean addReport(Report report) {
-        if(!reportDone) {
+        if (!reportDone) {
             this.report = report;
             changeStateToReportDone();
         }
         return this.reportDone;
+    }
+
+    public boolean addTestParameterResult(String paramCode, double value, String metric) {
+        TestParameter testParam = getTestParameterByCode(paramCode);
+        if (testParam != null) {
+            Parameter parameter = testParam.getParameter();
+            ExternalModule em = this.typeOfTest.getExternalModule();
+            ReferenceValue refValue = em.getReferenceValue(parameter);
+            testParam.addTestResult(value, metric, refValue);
+            if (this.chemicalAnalysisDate == null)
+                this.chemicalAnalysisDate = new DateTime();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -227,12 +254,22 @@ public class Test {
         reportDone = true;
     }
 
-    private void changeStateToResultDone() {
-        resultDone = true;
+    public boolean changeStateToResultDone() {
+        return resultDone = true;
+    }
+
+    private TestParameter getTestParameterByCode(String paramCode) {
+        if (!this.testParametersList.isEmpty()) {
+            for (TestParameter tp : this.testParametersList) {
+                if (tp.getParameter().getCode().equals(paramCode))
+                    return tp;
+            }
+        }
+        return null;
     }
 
     public void changeStateValidationToDone() {
-        this.validationDate=new DateTime();
+        this.validationDate = new DateTime();
         validationDone = true;
     }
 
@@ -254,5 +291,6 @@ public class Test {
         Test test = (Test) o;
         return internalCode.equals(test.internalCode) || nhsCode.equals(test.nhsCode);
     }
+
 
 }

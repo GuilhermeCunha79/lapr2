@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParameterCategoryMapper {
-    private ParameterCategoryMapper() {
+
+    public ParameterCategoryMapper() {
         throw new IllegalStateException("Utility class");
     }
 
@@ -14,7 +15,7 @@ public class ParameterCategoryMapper {
     public static List<String> toDTO (List<ParameterCategory> lPC){
         List<String> listPC = new ArrayList<>();
         for (ParameterCategory pc : lPC){
-            listPC.add("("+pc.getCode()+") "+pc.getName());
+            listPC.add(pc.toString());
         }
         return listPC;
     }

@@ -154,7 +154,7 @@ public class TypeOfTestTest {
     @Test
     public void checkToStringMethod() {
         TypeOfTest tot1 = new TypeOfTest("53436", "RNA remnants", "cotton swab", pc);
-        String expected= String.format("Type of Test:%nCode: 53436%nDescription: RNA remnants%nCollecting Method: cotton swab%nParameter Category(ies):%nParameter Category:%nName: Src%nCode: 34567%n");
+        String expected= String.format("Type of Test:%nCode: 53436%nDescription: RNA remnants%nCollecting Method: cotton swab%nParameter Category(ies):%nParameter Category -> Name: Src | Code: 34567 |%n");
        assertEquals(expected, tot1.toString());
     }
 

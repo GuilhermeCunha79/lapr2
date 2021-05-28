@@ -134,7 +134,7 @@ public class ParameterTest {
     @Test
     public void checkToStringMethod() {
         Parameter p1 = new Parameter("10232", "Blood", "Test Blood Cells", pc);
-        String expected = String.format("Parameter:%nCode: 10232%nName: Blood%nDescription: Test Blood Cells");
+        String expected = "Parameter -> Code: 10232 | Name: Blood | Description: Test Blood Cells";
         assertEquals(expected, p1.toString());
     }
 
