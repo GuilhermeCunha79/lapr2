@@ -13,6 +13,7 @@ public class Parameter {
     private String description;
     private ParameterCategory category;
 
+
     static final int DESCRIPTION_LENGTH = 20;
     static final int SHORT_NAME_LENGTH = 8;
 
@@ -30,6 +31,8 @@ public class Parameter {
         setDescription(description);
         this.category = category;
     }
+
+
 
     /**
      * Method that allows other classes to access a parameter code
@@ -127,5 +130,9 @@ public class Parameter {
         return Objects.equals(code, newParam.code) ||
                 Objects.equals(shortName, newParam.shortName) ||
                 Objects.equals(description, newParam.description);
+    }
+
+    public ParameterCategory getCategory() {
+        return this.category;
     }
 }

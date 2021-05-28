@@ -156,7 +156,7 @@ public class TestStore {
                 Test test1= getTestByCode(test.getInternalCode());
                 Client client = test1.getClient();
                 String name = client.getName();
-                Test.changeStateValidationToDone();
+                test.changeStateValidationToDone();
                 SendingEmailSMS.sendEmailWithNotification(name);
                 return true;
             }

@@ -26,11 +26,12 @@ participant "storeParameter: ParameterStore" as PSTORE
 activate REC
 REC -> UI : Creation of a new test
 activate UI
-UI --> REC :Asks for client TIN
+UI --> REC :Asks for client TIN and Nhs Code of the Test
+
 deactivate UI
-REC -> UI : Introduces TIN
+REC -> UI : Introduces TIN and Nhs Code
 activate UI
-UI -> CTRL : getClientByTIN(tin)
+UI -> CTRL : getClientByTINAndSaveNhsCode(tin, nhsCode)
 activate CTRL
 
 
@@ -130,13 +131,12 @@ REC -> UI :  Selects a parameter
 activate UI
 UI -> CTRL : addParameter(code)
 activate CTRL
-CTRL -> CTRL : parameter = getParameterByCode(code)
-activate CTRL
-deactivate CTRL
+CTRL -> PSTORE : parameter = getParameterByCode(code)
+activate PSTORE
+deactivate PSTORE
 
-CTRL -> CTRL : addParameter(parameter)
-activate CTRL
-deactivate CTRL
+
+
 CTRL --> UI : Parameter added
 deactivate CTRL
 

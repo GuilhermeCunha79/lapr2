@@ -14,7 +14,7 @@ public class ParameterMapper {
      * @return list of strings
      */
 
-    public List<String> toDto(List<Parameter>lP) {
+    public static List<String> toDto(List<Parameter>lP) {
         List<String> totListDto = new ArrayList<>();
         for(Parameter parameter:lP){
             totListDto.add(parameter.toString());

@@ -5,9 +5,9 @@ actor "Receptionist" as RE
 
 RE -> ":System" : Creation of a new test
 activate ":System"
-":System" --> RE : Asks for client citizen card number
+":System" --> RE : Asks for client TIN and Nhs Code of the Test
 deactivate ":System"
-RE -> ":System" : Introduces Citizen Card Number
+RE -> ":System" : Introduces TIN and Nhs Code
 activate ":System"
 ":System" --> RE : shows the client Data and asks for confirmation
 deactivate ":System"

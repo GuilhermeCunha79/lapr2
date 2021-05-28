@@ -1,6 +1,7 @@
 package app.domain.store;
 
 import app.controller.App;
+import app.domain.model.Client;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 
@@ -72,4 +73,32 @@ public class ParameterStore {
     public List<Parameter> getParameterList() {
         return new ArrayList<>(parameterList);
     }
+
+
+    public List<Parameter> getParameterListByTheCategory(List<ParameterCategory> listCategory) {
+        List<Parameter> lParameter = new ArrayList<>();
+        if (listCategory != null && !listCategory.isEmpty()) {
+            for (ParameterCategory pc : listCategory) {
+                for (Parameter parameter : parameterList) {
+                    if (parameter.getCategory().equals(pc))
+                        lParameter.add(parameter);
+                }
+            }
+        }
+        return lParameter;
+    }
+
+    public Parameter getParameterByCode(String code) {
+        for (Parameter p : parameterList) {
+            if (p.getCode().equals(code)) {
+                return p;
+            }
+        }
+        return null;
+    }
 }
+
+
+
+
+

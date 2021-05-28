@@ -129,7 +129,7 @@ public class TypeOfTest {
 
 
     /**
-     * Method used to gruop the cathegorys for the test in a String output
+     * Method used to group the categories for the test in a String output
      *
      * @return output or String ("No Categories")
      */
@@ -144,4 +144,9 @@ public class TypeOfTest {
             return ("No Categories");
         }
     }
+
+    public List<ParameterCategory> getCategoryListByTheTypeOfTest(){
+        return new ArrayList<>(parameterCategoryList);
+    }
+
 }

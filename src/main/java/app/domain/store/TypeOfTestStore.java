@@ -1,6 +1,7 @@
 package app.domain.store;
 
 import app.domain.model.ParameterCategory;
+import app.domain.model.Test;
 import app.domain.model.TypeOfTest;
 
 import java.util.ArrayList;
@@ -81,5 +82,14 @@ public class TypeOfTestStore {
      */
     public List<TypeOfTest> getTypeOfTestList() {
         return new ArrayList<>(typeOfTestList);
+    }
+
+
+    public TypeOfTest getTypeOfTestByCode(String code) {
+        for (TypeOfTest typeOfTest : typeOfTestList) {
+            if (typeOfTest.getCode().equals(code))
+                return typeOfTest;
+        }
+        return null;
     }
 }

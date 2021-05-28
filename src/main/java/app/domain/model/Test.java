@@ -201,7 +201,7 @@ public class Test {
         resultDone = true;
     }
 
-    public static void changeStateValidationToDone() {
+    public void changeStateValidationToDone() {
         this.validationDate=new DateTime();
         validationDone = true;
     }

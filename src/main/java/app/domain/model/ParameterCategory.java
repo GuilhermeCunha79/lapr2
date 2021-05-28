@@ -11,6 +11,7 @@ public class ParameterCategory {
     private String code;
     private String name;
 
+
     /**
      * Constructor for ParameterCategory Class
      *
@@ -22,6 +23,7 @@ public class ParameterCategory {
         setCode(code);
         setName(name);
     }
+
 
     /**
      * Method to get the Parameter category code
