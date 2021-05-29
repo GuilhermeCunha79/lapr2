@@ -209,8 +209,8 @@ public class Client  {
      * @param sex
      */
     public void setSex(String sex) {
-        if (StringUtils.isBlank(sex))
-            throw new IllegalArgumentException("Sex" + Constants.STRING_BLANK_EXEPT);
+        if (sex == null)
+            throw new NullPointerException("Sex" + Constants.STRING_NULL_EXEPT);
         if (!(sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE)))
             throw new IllegalArgumentException("Sex must be Male or Female.");
         this.sex = sex;
