@@ -5,8 +5,6 @@ import auth.domain.model.UserRole;
 import org.junit.Test;
 
 
-import javax.management.relation.Role;
-
 import static org.junit.Assert.assertEquals;
 
 public class EmployeeTest {

@@ -2,6 +2,7 @@ package app.domain.model;
 
 
 import app.mappers.dto.EmpDto;
+import app.domain.model.SpecialistDoctorTest;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
