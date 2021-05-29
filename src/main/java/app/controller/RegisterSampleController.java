@@ -3,7 +3,6 @@ package app.controller;
 import app.domain.model.Company;
 import app.domain.model.Sample;
 import app.domain.model.CATest;
-import app.domain.store.SampleStore;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
 import net.sourceforge.barbecue.Barcode;
@@ -22,10 +21,6 @@ public class RegisterSampleController {
     private TestStore testStore;
 
     private CATest test;
-
-    private List<Sample> s;
-
-    private SampleStore ss;
 
     private Sample sample;
 
@@ -67,6 +62,14 @@ public class RegisterSampleController {
         return test.getInternalCode();
     }
 
+    /**
+     * This method  uses the internal code to generate the bar code
+     * @param data internal code to be used
+     * @return gerated barcode
+     * @throws BarcodeException prevents error
+     * @throws OutputException prevents error
+     * @throws IOException prevents error
+     */
     public  Barcode createUPCA (String data) throws BarcodeException, OutputException, IOException {
         Barcode barcode = BarcodeFactory.createUPCA(data);
         File imgFile = new File("UPCA.jpg");
@@ -74,8 +77,13 @@ public class RegisterSampleController {
         return barcode ;
     }
 
+    /**
+     * This method turns the Arraylist received to
+     * @param sampleList list to be added
+     * @return sample
+     */
     public Sample createSample(ArrayList sampleList) {
-        Sample sample = new Sample(sampleList);
+        this.sample = new Sample(sampleList);
         return sample;
     }
 
