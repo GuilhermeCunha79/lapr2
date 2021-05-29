@@ -1,7 +1,6 @@
 package app.domain.store;
 
 import app.controller.App;
-import app.domain.model.Client;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 
