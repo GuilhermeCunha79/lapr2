@@ -211,7 +211,9 @@ public class Client  {
     public void setSex(String sex) {
         if (sex == null)
             throw new NullPointerException("Sex" + Constants.STRING_NULL_EXEPT);
-        if (!(sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase(SEX_MALE)))
+        if (StringUtils.isBlank(sex))
+            this.sex=ClientDTO.SEX_BY_OMISSION;
+        if (!StringUtils.isBlank(sex) && !(sex.equalsIgnoreCase("male")|| sex.equalsIgnoreCase("female")))
             throw new IllegalArgumentException("Sex must be Male or Female.");
         this.sex = sex;
     }
