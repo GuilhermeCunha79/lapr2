@@ -18,18 +18,17 @@ public class ValidationUI implements Runnable {
         int optionSelected = selectOption();
         displayList(rtvListDto);
         do {
-            if (optionSelected != 0) {
+            if (!(optionSelected == 0)) {
                 if (optionSelected == 1) {
-                    ctrl.doValidation(rtvListDto);
-                }
-                if (optionSelected == 2) {
-                    validateJustOneTest();
+                    repeat=ctrl.doValidation(rtvListDto);
+                }else{
                     repeat=doValidation();
                 }
                 displayList(rtvListDto);
             }
         }while(repeat &&Objects.requireNonNull(Utils.readLineFromConsole("Do you want to validate another test(s)? (Y/N)")).equalsIgnoreCase("y"));
     }
+
 
     private boolean doValidation() {
         while (true) {
@@ -56,17 +55,6 @@ public class ValidationUI implements Runnable {
         }
     }
 
-    private void validateJustOneTest() {
-        int testToValidate;
-        do {
-            try {
-                testToValidate = Utils.readIntegerFromConsole("Select the test(s) you want to validate");
-                ctrl.changeStateToValidateOne(rtvListDto.get(testToValidate).substring(15, 26));
-            } catch (Exception exp) {
-                System.out.println("Insert a valid option!");
-            }
-        } while (!Utils.confirm("Do you have any other test that you want to validate? (Y/N)"));
-    }
 
     private int selectOption() {
         int optionSelected;
