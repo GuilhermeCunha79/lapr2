@@ -1,9 +1,7 @@
 package app.ui.console;
 
-import app.controller.RecordResultController;
 import app.controller.RegisterSampleController;
-import app.domain.model.Sample;
-import app.domain.shared.DateTime;
+
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 
@@ -30,7 +28,7 @@ public class RegisterSampleUI {
                 List<String> lTestDto = ctrl.getTestWithoutSample();
                 if (lTestDto != null) {
                     int option = Utils.showAndSelectIndex(lTestDto, "Select one of the following tests:");
-                    String data = ctrl.getData(lTestDto.get(option).substring(15, 26)).toString();
+                    String data = ctrl.getData(lTestDto.get(option).substring(15, 26));
                     System.out.println(data);
                     System.out.println("Write the number of samples below:");
                     int n= ler.nextInt();
@@ -39,7 +37,7 @@ public class RegisterSampleUI {
                        Barcode barcode =ctrl.createUPCA(data);
                         sampleList.add(barcode);
                     }
-                    System.out.printf("Confirm Sample for Test: %s%n%s%nYour samples: %n%s", lTestDto.get(option),sampleList);
+                    System.out.printf("Confirm Sample for Test: %s%n%nYour samples: %n%s", lTestDto.get(option),sampleList);
                     if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
                         ctrl.createSample((ArrayList) sampleList);
                         if(ctrl.addSample())
