@@ -39,6 +39,8 @@ public class CATest {
         this.internalCode = generateInternalCode();
         this.client = client;
         setNhsCode(nhsCode);
+        setTypeOfTest(typeOfTest);
+        setParameterList(parameterList);
     }
 
 
@@ -87,12 +89,17 @@ public class CATest {
     }
 
     public void setParameterList(List<Parameter> parameterList) {
+        if (parameterList == null)
+            throw new NullPointerException(Constants.STRING_PARAMETER_LIST + Constants.STRING_NULL_EXEPT);
         this.parameterList = new ArrayList<>(parameterList);
     }
 
     public void setTypeOfTest(TypeOfTest typeOfTest) {
+        if (typeOfTest == null)
+            throw new NullPointerException(Constants.STRING_CLIENT + Constants.STRING_NULL_EXEPT);
         this.typeOfTest = typeOfTest;
     }
+
 
     public DateTime getReportDate() {
         return this.report.getCreatedAt();
