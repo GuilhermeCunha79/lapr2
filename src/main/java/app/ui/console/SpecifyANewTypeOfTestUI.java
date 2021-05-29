@@ -50,7 +50,7 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
                     int option = Utils.showAndSelectIndex(categoryDisplayList, "Choose Category:");
                     if (option != -1) {
                         String selectedCategory = categoryDisplayList.get(option);
-                        ctrl.createANewTypeOfTest(code, description, collectingMethod, selectedCategory.substring(1, 6));
+                        ctrl.createANewTypeOfTest(code, description, collectingMethod, selectedCategory.substring(42, 47));
                         categoryDisplayList.remove(option);
                     }
                     String addMorePC = Utils.readLineFromConsole("Add another category? (Y/N)");

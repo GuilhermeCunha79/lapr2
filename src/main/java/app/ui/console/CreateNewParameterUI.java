@@ -46,12 +46,12 @@ public class CreateNewParameterUI implements Runnable{
                     int option = Utils.showAndSelectIndex(displayCatList, "Choose Category");
                     String categoryId;
                     if(option != -1)
-                        categoryId = categoryList.get(option).substring(1,6);
+                        categoryId = categoryList.get(option).substring(42,47);
                     else
                         return false;
                     boolean created = ctrl.createNewParameter(code, name, description, categoryId);
                     if (created) {
-                        System.out.printf("\nConfirm parameter category: \nName: %s\nCode: %s\nDescription: %s\nCategory: %s", name, code, description, categoryId);
+                        System.out.printf("\nConfirm parameter: \nName: %s\nCode: %s\nDescription: %s\nCategory: %s", name, code, description, categoryId);
                         if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
                             done = true;
                             return ctrl.saveParameter();

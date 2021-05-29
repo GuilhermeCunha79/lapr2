@@ -33,7 +33,7 @@ public class RegisterEmployeeUI implements Runnable {
                 state = ctrl.newEmployee(new EmpDto(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
 
                 if (state) {
-                    String answer = Utils.readLineFromConsole(String.format("%nConfirm the employee data: %nCompany Role: %s%nName: %s%nAddress %s%nPhone Number: %s%nEmail: %s%nSOC: %s%n(Y/N)", empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
+                    String answer = Utils.readLineFromConsole(String.format("%nConfirm the employee data: %nCompany Role: %s%nName: %s%nAddress: %s%nPhone Number: %s%nEmail: %s%nSOC: %s%n(Y/N)", empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
                     while (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
                         answer = Utils.readLineFromConsole("Answer not valid! Use (Y/N)");
 

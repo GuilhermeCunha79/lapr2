@@ -32,7 +32,7 @@ public class WriteReportUI implements Runnable{
                 List<String> lTestDto = ctrl.getTestWithoutReport();
                 if (lTestDto != null) {
                     int option = Utils.showAndSelectIndex(lTestDto, "Select one of the following tests:");
-                    String results = ctrl.getTestResults(lTestDto.get(option).substring(15, 26)).toString();
+                    String results = ctrl.getTestResults(lTestDto.get(option).substring(15, 27));
                     System.out.println(results);
                     String report = Utils.readLineFromConsole("Write report below:");
                     ctrl.newReport(report);

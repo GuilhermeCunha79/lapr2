@@ -4,6 +4,7 @@ import app.domain.model.*;
 import app.domain.store.*;
 import app.domain.model.Company;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import app.domain.model.Client;
@@ -26,9 +27,9 @@ public class CreateTestController {
     private TypeOfTestStore tots;
     private TestStore testStore;
     private ParameterStore ps;
-    private List<Parameter> pList;
-    private List<TypeOfTest> ttList;
-    private List<ParameterCategory> parameterCategoryList;
+    private List<Parameter> pList = new ArrayList<>();
+    private List<TypeOfTest> ttList = new ArrayList<>();
+
 
 
     /**
@@ -44,6 +45,7 @@ public class CreateTestController {
     public CreateTestController(Company company) {
         this.testStore = company.getTestStore();
         this.tots = company.getTypeOfTestStore();
+        this.ps = company.getParameterStore();
         this.cs = company.getClientStore();
     }
 
