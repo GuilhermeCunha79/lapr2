@@ -24,7 +24,9 @@ public class ValidationUI implements Runnable {
                 }else{
                     repeat=doValidation();
                 }
-                displayList(rtvListDto);
+                if(repeat) {
+                    displayList(rtvListDto);
+                }
             }
         }while(repeat &&Objects.requireNonNull(Utils.readLineFromConsole("Do you want to validate another test(s)? (Y/N)")).equalsIgnoreCase("y"));
     }
@@ -34,7 +36,7 @@ public class ValidationUI implements Runnable {
         while (true) {
             try {
                 if (rtvListDto != null) {
-                    int option = Utils.showAndSelectIndex(rtvListDto, "Select the tests you want to validate:");
+                    int option = Utils.showAndSelectIndex(rtvListDto, "Select the tests you wish to validate:");
                     String results = ctrl.getTestByCode(rtvListDto.get(option).substring(15, 26)).toString();
                     System.out.println(results);
                     System.out.printf("Confirm that the selected tests are to validate: %s%n%s", rtvListDto.get(option), results);
@@ -68,7 +70,7 @@ public class ValidationUI implements Runnable {
         return optionSelected;
     }
 
-    private void displayList(List<String> list) {
+    private void displayList(List<String>list) {
         ctrl.displayList(list);
     }
 }
