@@ -131,15 +131,6 @@ public class ClientTest {
     }
 
     /**
-     * Tests with sex blank
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void ensureThatSexIsNotBlank() {
-        ClientDTO dto = new ClientDTO("Miguel", "1234567890123456", "1234567891", "1234567890", "23/02/2001", "", "12345678901", "guilherm2@isp.ipp.pt");
-        new Client(dto);
-    }
-
-    /**
      * Tests with sex null
      */
     @Test(expected = NullPointerException.class)

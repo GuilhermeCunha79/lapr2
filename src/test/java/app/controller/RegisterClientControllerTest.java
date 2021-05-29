@@ -111,12 +111,6 @@ public class RegisterClientControllerTest {
         ctrl.newClient(dto);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void ensureSexCannotBeCreatedBlank() {
-        ClientDTO dto = new ClientDTO("Tomás", "1234567890123498","1234567890","1234567890","23/12/2002","","12345678901", "tomas@isep.ipp.pt");
-        ctrl.newClient(dto);
-    }
-
     @Test
     public void ensureSexCanBeMaleFemale() {
         ClientDTO dto = new ClientDTO("Tomás", "1234567890123467","1234567890","1234567890","23/12/2002","male","12345678901", "tomas@isep.ipp.pt");

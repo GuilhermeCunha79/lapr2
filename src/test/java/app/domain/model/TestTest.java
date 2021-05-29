@@ -164,4 +164,25 @@ public class TestTest {
         new CATest("232323232323", null, typeOfTest, lparameter, "95123");
     }
 
+    @Test
+    public void testAddReportWorks(){
+        Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
+        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
+        assertTrue(test.addReport(new Report("afakdfbabdf")));
+    }
+
+    @Test
+    public void checkReportDoneIsTrue(){
+        Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
+        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
+        test.addReport(new Report("afakdfbabdf"));
+        assertTrue(test.getReportStatus());
+    }
+
 }

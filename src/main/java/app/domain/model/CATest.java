@@ -89,7 +89,7 @@ public class CATest {
         if (StringUtils.isBlank(nhsCode))
             throw new IllegalArgumentException(Constants.STRING_NHS_CODE + Constants.STRING_BLANK_EXEPT);
         if (nhsCode.length() != NHS_CODE)
-            throw new IllegalArgumentException(Constants.STRING_NHS_CODE + Constants.STRING_NOT_MORE_THAN_12);
+            throw new IllegalArgumentException(Constants.STRING_NHS_CODE + " needs to have exactly 12 alphanumeric characters");
         if (!CommonMethods.stringHaveAlphanumerical(nhsCode))
             throw new IllegalArgumentException(Constants.STRING_NHS_CODE + Constants.NON_ALPHANUM_EXEPT);
         this.nhsCode = nhsCode;

@@ -83,9 +83,9 @@ public class ParameterStoreTest {
         ps.saveParameter(p2);
         assertEquals(p1, ps.getParameterByCode("12327"));
     }
-/*
-    @Test
-    public void testGetParameterListByCategoryMethod(){
+
+/*    @Test
+    public void testGetParameterListByCategoryGetNullMethod(){
         Parameter p1 = ps.createParameter("12327", "Covid", "add description", "34232");
         Parameter p2 = ps.createParameter("12321", "Covid-19", "no description", "12345");
         ps.saveParameter(p1);
@@ -94,7 +94,28 @@ public class ParameterStoreTest {
         pList.add(p1);
         pList.add(p2);
         assertEquals(pList, ps.getParameterListByTheCategory(pcList));
+    }*/
+
+    @Test
+    public void testGetParameterByCodeMethod(){
+        Parameter p1 = ps.createParameter("12327", "Covid", "add description", "34232");
+        Parameter p2 = ps.createParameter("12321", "Covid-19", "no description", "12345");
+
+        ps.saveParameter(p1);
+        ps.saveParameter(p2);
+
+        assertEquals(p1, ps.getParameterByCode("12327"));
     }
-*/
+
+    @Test
+    public void testGetParameterByCodeGetNullMethod(){
+        Parameter p1 = ps.createParameter("12327", "Covid", "add description", "34232");
+        Parameter p2 = ps.createParameter("12321", "Covid-19", "no description", "12345");
+
+        ps.saveParameter(p1);
+        ps.saveParameter(p2);
+
+        assertNull(ps.getParameterByCode("23232"));
+    }
 
 }

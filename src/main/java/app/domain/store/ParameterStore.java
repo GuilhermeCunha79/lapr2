@@ -74,7 +74,11 @@ public class ParameterStore {
         return new ArrayList<>(parameterList);
     }
 
-
+    /**
+     * This method returns a list of parameter with a category that matches one of the categories from the list received
+     * @param listCategory to use in the search
+     * @return a list of parameters
+     */
     public List<Parameter> getParameterListByTheCategory(List<ParameterCategory> listCategory) {
         List<Parameter> lParameter = new ArrayList<>();
         if (listCategory != null && !listCategory.isEmpty()) {
@@ -88,6 +92,11 @@ public class ParameterStore {
         return lParameter;
     }
 
+    /**
+     * This method searches for the parameter that has the same code as the one received by parameter
+     * @param code to use in the search
+     * @return a parameter
+     */
     public Parameter getParameterByCode(String code) {
         for (Parameter p : parameterList) {
             if (p.getCode().equals(code)) {

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class TypeOfTestStore {
 
-    private List<TypeOfTest> typeOfTestList = new ArrayList();
+    private final List<TypeOfTest> typeOfTestList = new ArrayList<>();
 
     /**
      * Method that receives type of test from the associated controller to create a new type of test
@@ -81,14 +81,5 @@ public class TypeOfTestStore {
      */
     public List<TypeOfTest> getTypeOfTestList() {
         return new ArrayList<>(typeOfTestList);
-    }
-
-
-    public TypeOfTest getTypeOfTestByCode(String code) {
-        for (TypeOfTest typeOfTest : typeOfTestList) {
-            if (typeOfTest.getCode().equals(code))
-                return typeOfTest;
-        }
-        return null;
     }
 }

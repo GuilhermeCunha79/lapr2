@@ -68,8 +68,12 @@ public class CreateTestController {
      */
     public String getClientByTINAndSaveNhsCode(String tin, String nhsCode) {
         this.nhsCode = nhsCode;
+
         this.client = cs.getClientByTIN(tin);
-        return client.toString();
+        if (client != null)
+            return client.toString();
+        else
+            return null;
     }
 
     /**
@@ -88,7 +92,7 @@ public class CreateTestController {
 
 
     public void addTypeOfTest(String code) {
-        this.typeOfTest = tots.getTypeOfTestByCode(code);
+        this.typeOfTest = tots.getTestType(code);
     }
 
     public List<String> getParameterList() {

@@ -1,6 +1,5 @@
 package app.ui.console;
 
-import app.controller.RecordResultController;
 import app.controller.RegisterSampleController;
 
 import app.ui.console.utils.Utils;
@@ -9,13 +8,12 @@ import net.sourceforge.barbecue.Barcode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
+
 
 
 public class RegisterSampleUI implements Runnable {
 
     private RegisterSampleController ctrl = new RegisterSampleController();
-    static Scanner ler = new Scanner(System.in);
     private final String labId;
 
     public RegisterSampleUI(String labId) {
@@ -48,8 +46,7 @@ public class RegisterSampleUI implements Runnable {
                     int option = Utils.showAndSelectIndex(lTestDto, "Select one of the following tests:");
                     String data = ctrl.getData(lTestDto.get(option).substring(15, 26));
                     System.out.println(data);
-                    System.out.println("Write the number of samples below:");
-                    int n= ler.nextInt();
+                    int n = Utils.readIntegerFromConsole("Write the number of samples below:");
                     List<Barcode> sampleList = new ArrayList<>(n);
                     while (sampleList.isEmpty()) {
                        Barcode barcode =ctrl.createUPCA(data);

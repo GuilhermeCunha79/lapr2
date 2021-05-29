@@ -11,7 +11,11 @@ public class ParameterCategoryMapper {
         throw new IllegalStateException("Utility class");
     }
 
-
+    /**
+     * This method converts a list of parameter categories into a list of strings with the data from each parameter category to be used in the UI
+     * @param lPC list of parameter categories
+     * @return list of strings
+     */
     public static List<String> toDTO (List<ParameterCategory> lPC){
         List<String> listPC = new ArrayList<>();
         for (ParameterCategory pc : lPC){

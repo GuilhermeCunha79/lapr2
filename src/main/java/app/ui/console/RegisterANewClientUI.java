@@ -30,7 +30,6 @@ public class RegisterANewClientUI implements Runnable {
                 String cltSex = Utils.readLineFromConsole("Introduce client's sex: ");
                 String cltPhoneNumber = Utils.readLineFromConsole("Introduce client's phone number: ");
                 String cltEmail = Utils.readLineFromConsole("Introduce client's email: ");
-
                 ClientDTO dto = new ClientDTO(cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail);
                 boolean created = ctrl.newClient(dto);
                 if (created) {

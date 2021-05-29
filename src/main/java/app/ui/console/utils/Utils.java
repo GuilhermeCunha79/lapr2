@@ -145,6 +145,7 @@ public class Utils {
 
             } while (option != -1);
         }
+        System.out.println("INFO: There are no labs in the system");
         return null;
     }
 }

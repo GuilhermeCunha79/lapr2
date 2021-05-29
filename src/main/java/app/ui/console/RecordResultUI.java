@@ -34,27 +34,34 @@ public class RecordResultUI implements Runnable {
             return false;
         List<String> testParameterList = ctrl.getTest(chosenTest.substring(15, 27));
         int option;
-
-        do {
-            if (testParameterList != null && !testParameterList.isEmpty()) {
+        while(true) {
+            try {
                 do {
-                    option = Utils.showAndSelectIndex(testParameterList, "Select a test parameter to add result:");
-                    if (option >= 0 && option < testParameterList.size()) {
-                        if (addResult(testParameterList.get(option).substring(19, 24))) {
-                            testParameterList.remove(option);
-                        }
-                    } else
-                        System.out.println("Selection invalid!");
-                } while (option < 0 || option > testParameterList.size());
-            }else{
-                System.out.println("No parameters available");
-                return true;
+                    if (testParameterList != null && !testParameterList.isEmpty()) {
+                        do {
+                            option = Utils.showAndSelectIndex(testParameterList, "Select a test parameter to add result:");
+                            if (option >= 0 && option < testParameterList.size()) {
+                                if (addResult(testParameterList.get(option).substring(19, 24))) {
+                                    testParameterList.remove(option);
+                                }
+                            } else if (option == -1)
+                                return false;
+                            else
+                                System.out.println("Selection invalid!");
+                        } while (option < 0 || option > testParameterList.size());
+                    } else {
+                        System.out.println("No parameters available");
+                        return true;
+                    }
+                } while (!testParameterList.isEmpty());
+                System.out.println(ctrl.getTestResults());
+                if (Objects.requireNonNull(Utils.readLineFromConsole("Confirm everything? (Y/N)")).equalsIgnoreCase("y"))
+                    return ctrl.changeStateToResultDone();
+                return false;
+            } catch (Exception e) {
+                System.out.println("INFO: "+ e.getLocalizedMessage());
             }
-        }while(!testParameterList.isEmpty());
-        System.out.println(ctrl.getTestResults());
-        if(Objects.requireNonNull(Utils.readLineFromConsole("Confirm everything? (Y/N)")).equalsIgnoreCase("y"))
-            return ctrl.changeStateToResultDone();
-        return false;
+        }
     }
 
     private boolean addResult(String parameterCode) {
@@ -78,10 +85,13 @@ public class RecordResultUI implements Runnable {
                 option = Utils.showAndSelectIndex(availableTestList, "Select a test:");
                 if (option >= 0 && option < availableTestList.size())
                     return availableTestList.get(option);
-                else
-                    System.out.println("Selection invalid!");
+                else if(option == -1){
+                    return null;
+                }
+                System.out.println("Selection invalid!");
             }while (option < 0 || option > availableTestList.size());
         }
+        System.out.println("INFO: There are no tests available");
         return null;
     }
 

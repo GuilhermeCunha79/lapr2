@@ -86,6 +86,16 @@ public class TypeOfTestStoreTest  {
     }
 
     @Test
+    public void testGetTypeofTestByCodeMethod(){
+        Listpc.add(pc);
+        TypeOfTest tot1 = tots.createTypeOfTest("13599", "Sangue", "urine", pc);
+        TypeOfTest tot2 = tots.createTypeOfTest("13591", "HNS", "Thoot", pc);
+        tots.saveTypeOfTest(tot1);
+        tots.saveTypeOfTest(tot2);
+        assertEquals(tot1, tots.getTestType("13599"));
+    }
+
+    @Test
     public void ensureDescriptionCanHave15Char() {
         assertNotNull(tots.createTypeOfTest("53436", "RNA remnants", "cotton swab", pc));
     }
