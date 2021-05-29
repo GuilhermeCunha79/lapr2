@@ -168,7 +168,7 @@ public class TestStore {
      */
     public boolean doValidation(List<String> testWithoutValidation) {
 
-        if (testWithoutValidation.isEmpty()) {
+        if (!testWithoutValidation.isEmpty()) {
             for (CATest test:testList) {
                 CATest test1= getTestByCode(test.getInternalCode());
                 Client client = test1.getClient();
