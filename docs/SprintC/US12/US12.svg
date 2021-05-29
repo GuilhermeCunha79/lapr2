@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="283.75px" preserveAspectRatio="none" style="width:415px;height:283px;" version="1.1" viewBox="0 0 415 283" width="415px" zoomAndPan="magnify"><defs><filter height="300%" id="f139x16bf4y8ip" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="204.2609" cy="226.7272" fill="#FEFECE" filter="url(#f139x16bf4y8ip)" rx="196.7609" ry="42.3522" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="355" x="26.7609" y="231.3878">US 012 - To record the results of a given test</text><!--MD5=[72bd50b8814dffd24ca46f995a9a7d84]
+entity cct--><ellipse cx="204.375" cy="17.5" fill="#FEFECE" filter="url(#f139x16bf4y8ip)" rx="10" ry="10" style="stroke:#A80036;stroke-width:1.875;"/><path d="M204.375,27.5 L204.375,61.25 M188.125,37.5 L220.625,37.5 M204.375,61.25 L188.125,80 M204.375,61.25 L220.625,80 " fill="none" filter="url(#f139x16bf4y8ip)" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="246.25" x="81.25" y="105.0415">Clinical Chemistry Technologist</text><!--MD5=[4a7f0408162ca4987c854f8e2e813818]
+link cct to UC12--><path d="M204.375,109.725 C204.375,131.2625 204.375,156.225 204.375,177.4625 " fill="none" id="cct-to-UC12" style="stroke:#A80036;stroke-width:1.25;"/><polygon fill="#A80036" points="204.375,183.925,209.375,172.675,204.375,177.675,199.375,172.675,204.375,183.925" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[d51d7ce493fab83e5f917ef234c00537]
+@startuml
+usecase "US 012 - To record the results of a given test" as UC12
+actor cct as "Clinical Chemistry Technologist"
+
+cct - -> (UC12)
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
