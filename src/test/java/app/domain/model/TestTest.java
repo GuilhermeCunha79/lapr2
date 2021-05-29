@@ -120,6 +120,16 @@ public class TestTest {
         new CATest("414709521158", client, typeOfTest, null, "17774");
     }
 
+    @Test
+    public void ensureThatParameterListIsNotNull() {
+        Client client = new Client(new ClientDTO("Dane", "4444444444444444", "7777744444", "4444477777", "13/07/1997", "female", "44411110123", "dane@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("66245", "01012", "550", new ParameterCategory("21225", "lklk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("00425", "rrt", "2228", new ParameterCategory("11111", "sss")));
+        new CATest("111100009324", client, typeOfTest, lparameter, "99000");
+
+    }
+
     @Test(expected = NullPointerException.class)
     public void ensureThatTypeOfTestCannotBeNull() {
         Client client = new Client(new ClientDTO("Rose", "5552227410147989", "5558887771", "5269876025", "28/01/1968", "female", "77770398565", "rose@isep.ipp.pt"));
@@ -160,15 +170,10 @@ public class TestTest {
         new CATest("232323232323", null, typeOfTest, lparameter, "95123");
     }
 
-    @Test
-    public void ensureThatClientIsNotNull() {
-        Client client = new Client(new ClientDTO("Dane", "4444444444444444", "7777744444", "4444477777", "13/07/1997", "female", "44411110123", "dane@isep.ipp.pt"));
-        TypeOfTest typeOfTest = new TypeOfTest("66245", "01012", "550", new ParameterCategory("21225", "lklk"));
-        List<Parameter> lparameter = new ArrayList<>();
-        lparameter.add(new Parameter("00425", "rrt", "2228", new ParameterCategory("11111", "sss")));
-        new CATest("111100009324", client, typeOfTest, lparameter, "99000");
 
-    }
+
+
+
 
     @Test(expected = NullPointerException.class)
     public void ensureNullTypeOfTestIsNotAccepted() {
