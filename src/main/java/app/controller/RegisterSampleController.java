@@ -9,7 +9,11 @@ import app.mappers.TestListMapper;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
+import net.sourceforge.barbecue.BarcodeImageHandler;
+import net.sourceforge.barbecue.output.OutputException;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,8 +67,10 @@ public class RegisterSampleController {
         return test.getInternalCode();
     }
 
-    public  Barcode createUPCA (String data) throws BarcodeException {
+    public  Barcode createUPCA (String data) throws BarcodeException, OutputException, IOException {
         Barcode barcode = BarcodeFactory.createUPCA(data);
+        File imgFile = new File("UPCA.jpg");
+        BarcodeImageHandler.saveJPEG(barcode, imgFile);
         return barcode ;
     }
 
