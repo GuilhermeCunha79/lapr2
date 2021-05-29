@@ -7,20 +7,18 @@ import java.util.List;
 
 public class  TestReadyToValidateMapper {
 
-    private static TestStore testStore;
+    private TestStore testStore;
 
-    public TestReadyToValidateMapper() {
+    private TestReadyToValidateMapper() {
         throw new IllegalStateException("Utility class");
     }
 
 
-    public List<String> toDtoVal(List<CATest> readyToValidate) {
+    public static List<String> toDtoVal(List<CATest> readyToValidate) {
         List<String> rtvListDto = new ArrayList<>();
         if (!readyToValidate.isEmpty()) {
             for (CATest test : readyToValidate) {
-                String code = test.getInternalCode();
-                CATest test1 = testStore.getTestByCode(code);
-                rtvListDto.add(String.format("%s | Collected at: %s | Reported at: %s |",test1.toString(), test1.getChemicalAnalysisDate(), test1.getReportDate()));
+                rtvListDto.add(String.format("%s | Collected at: %s | Reported at: %s |",test.toString(), test.getChemicalAnalysisDate(), test.getReportDate()));
             }
             return rtvListDto;
         }

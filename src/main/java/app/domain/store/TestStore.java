@@ -180,5 +180,17 @@ public class TestStore {
         }
         return false;
     }
+
+    public boolean doValidationOne(String internalCode) {
+        if (internalCode!=null) {
+                CATest test1= getTestByCode(internalCode);
+                Client client = test1.getClient();
+                String name = client.getName();
+                test1.changeStateValidationToDone();
+                SendingEmailSMS.sendEmailWithNotification(name);
+            return true;
+        }
+        return false;
+    }
 }
 

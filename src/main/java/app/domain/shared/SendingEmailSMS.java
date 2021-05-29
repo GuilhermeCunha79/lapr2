@@ -42,7 +42,7 @@ public class SendingEmailSMS {
         try {
             out = new PrintWriter(emailBox);
 
-            out.printf("Hello %s,%nYou now can acess the application to check the results of your test!", name);
+            out.printf("Hello %s,%nYou can now access the application to check the results of your test!", name);
             out.close();
         }catch(Exception e){
             System.out.println("Email not send");

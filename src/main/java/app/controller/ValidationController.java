@@ -23,20 +23,10 @@ public class ValidationController {
     }
 
 
-    public List<String> readyToValidate() {
+    public List<String> getTestWithoutValidation() {
         List<CATest> readyToValidate = testStore.getTestList();
         if (readyToValidate != null) {
-            TestReadyToValidateMapper testReady = new TestReadyToValidateMapper();
-            return testReady.toDtoVal(readyToValidate);
-        }
-        return null;
-    }
-
-    public List<String> getTestWithoutValidation() {
-        List<CATest> testWithoutValList = testStore.getTestWithoutValidation();
-        if (testWithoutValList != null) {
-            TestReadyToValidateMapper testMapper = new TestReadyToValidateMapper();
-            return testMapper.toDtoVal(testWithoutValList);
+            return TestReadyToValidateMapper.toDtoVal(readyToValidate);
         }
         return null;
     }
@@ -72,6 +62,10 @@ public class ValidationController {
 
     public boolean doValidation(List<String> testValidationList) {
         return testStore.doValidation(testValidationList);
+    }
+
+    public boolean doValidationOne(String internalCode) {
+        return testStore.doValidationOne(internalCode);
     }
 
     public void displayList(List<String> list){

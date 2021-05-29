@@ -18,20 +18,20 @@ public class ValidationUI implements Runnable {
         int optionSelected = selectOption();
         displayList(rtvListDto);
         do {
-            if (!(optionSelected == 0)) {
+            if (optionSelected != 0) {
                 if (optionSelected == 1) {
-                    repeat=ctrl.doValidation(rtvListDto);
-                }else{
-                    repeat=doValidation();
+                    repeat = ctrl.doValidation(rtvListDto);
+                } else {
+                    repeat = validateSubsetOfTests();
                 }
-                if(repeat) {
+                if (repeat) {
                     displayList(rtvListDto);
                 }
             }
-        }while(repeat &&Objects.requireNonNull(Utils.readLineFromConsole("Do you want to validate another test(s)? (Y/N)")).equalsIgnoreCase("y"));
+        } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("Do you want to validate another test(s)? (Y/N)")).equalsIgnoreCase("y"));
     }
 
-
+/*
     private boolean doValidation() {
         while (true) {
             try {
@@ -55,7 +55,7 @@ public class ValidationUI implements Runnable {
                 System.out.println(e.getMessage());
             }
         }
-    }
+    }*/
 
 
     private int selectOption() {
@@ -66,11 +66,33 @@ public class ValidationUI implements Runnable {
         System.out.println("0 - Cancel");
         do {
             optionSelected = Utils.readIntegerFromConsole("Choose an option:");
-        } while (optionSelected != 0);
+        } while (optionSelected != 1 && optionSelected != 2 && optionSelected!=0);
         return optionSelected;
     }
 
-    private void displayList(List<String>list) {
+    private void displayList(List<String> list) {
         ctrl.displayList(list);
+    }
+
+    private boolean validateSubsetOfTests() {
+        boolean testValidated = false;
+        System.out.println("Select a test you want to validate from the list above.");
+        do {
+            try {
+                int option = Utils.showAndSelectIndex(rtvListDto, "Select the tests you wish to validate:");
+                String results = ctrl.getTestByCode(rtvListDto.get(option).substring(15, 26)).toString();
+                if (option != 0 && ctrl.doValidationOne(results)) {
+                    testValidated = true;
+                    System.out.println("Validated with success");
+                } else {
+                    System.out.println("Failed. This test is already been marked to validate.");
+                }
+
+            } catch (Exception e) {
+                testValidated = false;
+            }
+        } while (Utils.confirm("Do you wish to validate another one? (S/N)"));
+
+        return testValidated;
     }
 }
