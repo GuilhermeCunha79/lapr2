@@ -1,5 +1,6 @@
 package app.ui.console;
 
+import app.controller.RecordResultController;
 import app.controller.RegisterSampleController;
 
 import app.ui.console.utils.Utils;
@@ -11,21 +12,38 @@ import java.util.Objects;
 import java.util.Scanner;
 
 
-public class RegisterSampleUI {
+public class RegisterSampleUI implements Runnable {
+
     private RegisterSampleController ctrl = new RegisterSampleController();
     static Scanner ler = new Scanner(System.in);
+    private final String labId;
 
-    public void run() {
-        this.ctrl = new RegisterSampleController();
-        if(recordSample())
-            System.out.println("Sample was succesfully registered!");
+    public RegisterSampleUI(String labId) {
+        this.labId = labId;
     }
 
+    /**
+     * This method initiates the register sample process
+     */
+    @Override
+    public void run() {
+        ctrl = new RegisterSampleController();
+        boolean repeat;
+        do {
+            repeat = recordSample();
+        } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("Register sample for another test? (Y/N)")).equalsIgnoreCase("y"));
 
+    }
+
+    /**
+     * This method is responsible to guide the user through the test selection and sample registration process
+     * @return false if its not possible to register a sample due to not having more tests
+     * needing samples, return true when there are tests still needing samples
+     */
     private boolean recordSample() {
         while (true){
             try {
-                List<String> lTestDto = ctrl.getTestWithoutSample();
+                List<String> lTestDto = ctrl.getTestWithoutSample(labId);
                 if (lTestDto != null) {
                     int option = Utils.showAndSelectIndex(lTestDto, "Select one of the following tests:");
                     String data = ctrl.getData(lTestDto.get(option).substring(15, 26));

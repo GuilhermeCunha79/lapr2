@@ -42,9 +42,10 @@ public class RegisterSampleController {
      * This method returns a list with the main information about each test available without a sample
      *
      * @return a list of Strings holding the data for each test
+     * @param labId
      */
-    public List<String> getTestWithoutSample() {
-        List<CATest> testList = testStore.getTestWithoutSample();
+    public List<String> getTestWithoutSample(String labId) {
+        List<CATest> testList = testStore.getTestWithoutSample(labId);
         if (!testList.isEmpty()) {
             TestListMapper tlm = new TestListMapper();
             return tlm.toDto(testList);
