@@ -26,6 +26,9 @@ public class Constants {
     public static final String STRING_DOC_INDEX_NUMB = "Doctor Index Number";
     public static final String STRING_NHS_CODE = "NhsCode";
     public static final String STRING_CLIENT = "Client";
+    public static final String STRING_TYPE_OF_TEST = "Type Of Test";
+    public static final String STRING_PARAMETER_LIST = "Parameter List";
+
 
     //PARAMETER DIGITS
     public static final int ADDRESS_DIGITS = 30;
