@@ -86,8 +86,8 @@ public class TestStore {
         return false;
     }
 
-
-    public List<CATest> getTestsWithoutResults() {
+//alterei aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    public List<CATest> getTestsWithoutResults(String labId) {
         System.out.println(testList.size());
         List<CATest> lTestNoResult = new ArrayList<>();
         for (CATest recordTest : testList) {

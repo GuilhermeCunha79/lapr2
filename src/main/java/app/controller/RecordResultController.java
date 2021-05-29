@@ -21,15 +21,15 @@ public class RecordResultController {
     public RecordResultController(Company company){
         this.testStore = company.getTestStore();
     }
-
-    /*public List<String> getListOfTestWithoutResult(String labId){
+//alterei aqui!!!!!!!!!!!!!!!
+    public List<String> getListOfTestWithoutResult(String labId){
         List<CATest> testList = testStore.getTestsWithoutResults(labId);
         if(!testList.isEmpty()) {
             TestListMapper tlm = new TestListMapper();
             return tlm.toDto(testList);
         }
         return null;
-    }*/
+    }
 
     public List<String> getTest(String internalCode){
         this.test = testStore.getTestByCode(internalCode);
