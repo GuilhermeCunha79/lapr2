@@ -82,7 +82,6 @@ public class CATest {
     }
 
 
-
     public void setNhsCode(String nhsCode) {
         if (nhsCode == null)
             throw new NullPointerException(Constants.STRING_NHS_CODE + Constants.STRING_NULL_EXEPT);
@@ -127,6 +126,7 @@ public class CATest {
 
     /**
      * Method to add a new parameter to parameter list
+     *
      * @param parameter Parameter object
      * @return true if parameter added with success false if not
      */
@@ -193,7 +193,6 @@ public class CATest {
     }
 
 
-
     /**
      * This method finds all the parameter test results done for this test and return them in a string
      *
@@ -216,7 +215,7 @@ public class CATest {
      * @return if it was added or not
      */
     public boolean addSample(Sample sample) {
-        if(!sampleDone) {
+        if (!sampleDone) {
             this.sampleList = (List<Sample>) sample;
             changeStateToSampleDone();
         }
@@ -292,8 +291,8 @@ public class CATest {
      */
     @Override
     public String toString() {
-        return String.format("Internal Code: %s | NHS Code: %s | Created on: %s |",
-                this.internalCode, this.nhsCode, this.createdAt);
+        return String.format("CA Test:%nNHS Code: %s%nClient: %s%nType Of Test: %s%nParameter List: %s%nLab Where Created: %s%nInternal Code: %s%n",
+        this.nhsCode, this.client, this.typeOfTest, this.parameterList, this.labWhereCreated, this.internalCode);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package app.domain.model;
 
 
+import app.domain.shared.DateTime;
 import app.mappers.dto.ClientDTO;
 import org.junit.Test;
 
@@ -163,6 +164,47 @@ public class TestTest {
         lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
         new CATest("232323232323", null, typeOfTest, lparameter, "95123");
     }
+
+
+    @Test(expected = NullPointerException.class)
+    public void ensureNullTypeOfTestIsNotAccepted() {
+        Client client = new Client(new ClientDTO("Rute", "4001301625963254", "2121989803", "0104032965", "10/05/2009", "female", "54145210147", "rute@isep.ipp.pt"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("22443", "ds", "401", new ParameterCategory("79878", "detr")));
+        new CATest("000111222333", client, null, lparameter, "30174");
+    }
+
+    @Test
+    public void addParameter() {
+
+
+    }
+
+    @Test
+    public void checkToStringMethod() {
+        Client client = new Client(new ClientDTO("Fabio", "1118011112101115", "6663206663", "7741777410", "21/08/1999", "male", "99969963210", "fabio@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("44044", "0028", "1303", new ParameterCategory("44707", "dddg"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("00700", "hyre", "7272", new ParameterCategory("99990", "sssd")));
+        CATest test1 = new CATest("001400140014", client, typeOfTest, lparameter, "77000");
+        String expected = String.format("CA Test:%nNHS Code: 001400140014%nClient: Client:%nName: Fabio%nCitizen Card Number: 1118011112101115%nNHS number: 6663206663%nTIN number: 7741777410%nBirth date: 21/08/1999%nSex: male%nPhone number: 99969963210%nEmail: fabio@isep.ipp.pt%nType Of Test: Type of Test:%nCode: 44044%nDescription: 0028%nCollecting Method: 1303%nParameter Category(ies):%nParameter Category -> Name: dddg | Code: 44707 |%n%nParameter List: [Parameter -> Code: 00700 | Name: hyre | Description: 7272]%nLab Where Created: 77000%nInternal Code: 000000000001%n");
+        assertEquals(expected, test1.toString());
+
+
+    }
+
+    @Test
+    public void ensureAddingParameterWorks() {
+        Client client = new Client(new ClientDTO("Eva", "2228889809321234", "5411211201", "7017410787", "23/11/1986", "female" , "42224324321", "eva@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("10000", "1212", "112", new ParameterCategory("99000", "dwqe"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("22222", "kkk", "11111", new ParameterCategory("66666", "uico")));
+        CATest caTest = new CATest("777807778401", client, typeOfTest, lparameter, "00123");
+        assertTrue(caTest.addParameter(new Parameter("07770", "lll", "32032", new ParameterCategory("01121", "zzz"))));
+    }
+
+    @Test
+    public void ensureThatNhsCodeAreNotTheSameInTwoTests() {}
 
     @Test
     public void testAddReportWorks(){
