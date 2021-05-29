@@ -9,12 +9,13 @@ import app.domain.model.TypeOfTest;
 import app.domain.shared.SendingEmailSMS;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TestStore {
 
     private CATest test;
-    private List<CATest> testList = new ArrayList<>();
+    private final List<CATest> testList = new ArrayList<>();
 
 
     /**
@@ -108,11 +109,11 @@ public class TestStore {
                     lTestNoSample.add(test);
             }
             if (lTestNoSample.isEmpty())
-                return null;
+                return Collections.emptyList();
             else
                 return lTestNoSample;
         } else {
-            return null;
+            return Collections.emptyList();
         }
     }
 
@@ -124,18 +125,18 @@ public class TestStore {
                     lTestNoReport.add(test);
             }
             if (lTestNoReport.isEmpty())
-                return null;
+                return Collections.emptyList();
             else
                 return lTestNoReport;
         } else {
-            return null;
+            return Collections.emptyList();
         }
     }
 
     public CATest getTestByCode(String internalCode) {
-        for (CATest test : testList) {
-            if (test.getInternalCode().equals(internalCode))
-                return test;
+        for (CATest caTest : testList) {
+            if (caTest.getInternalCode().equals(internalCode))
+                return caTest;
         }
         return null;
     }
@@ -147,16 +148,16 @@ public class TestStore {
     public List<CATest> getTestWithoutValidation() {
         List<CATest> testWithoutValidation = new ArrayList<>();
         if (!testList.isEmpty()) {
-            for (CATest test : testList) {
-                if (!test.getValidationStatus())
-                    testWithoutValidation.add(test);
+            for (CATest caTest : testList) {
+                if (!caTest.getValidationStatus())
+                    testWithoutValidation.add(caTest);
             }
             if (testWithoutValidation.isEmpty())
-                return null;
+                return Collections.emptyList();
             else
                 return testWithoutValidation;
         } else {
-            return null;
+            return Collections.emptyList();
         }
     }
 
@@ -174,9 +175,8 @@ public class TestStore {
                 String name = client.getName();
                 test.changeStateValidationToDone();
                 SendingEmailSMS.sendEmailWithNotification(name);
-                return true;
             }
-
+            return true;
         }
         return false;
     }

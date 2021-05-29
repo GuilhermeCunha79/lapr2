@@ -38,7 +38,7 @@ public class ValidationUI implements Runnable {
                     System.out.printf("Confirm that the selected tests are to validate: %s%n%s", validationDTO.get(option), results);
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
     }

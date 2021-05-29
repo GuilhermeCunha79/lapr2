@@ -11,13 +11,13 @@ import java.util.List;
 public class CATest {
     private static final int NHS_CODE = 12;
     private static int testCounter = 0;
-    private String labWhereCreated;
+    private final String labWhereCreated;
     private DateTime chemicalAnalysisDate;
     private DateTime validationDate;
-    private Client client;
+    private final Client client;
     private TypeOfTest typeOfTest;
-    private DateTime createdAt;
-    private String internalCode;
+    private final DateTime createdAt;
+    private final String internalCode;
     private String nhsCode;
     private boolean sampleDone;
     private boolean reportDone;
@@ -25,7 +25,7 @@ public class CATest {
     private boolean validationDone;
     private Report report;
     private List<Sample> sampleList = new ArrayList<>();
-    private List<TestParameter> testParametersList = new ArrayList<>();
+    private final List<TestParameter> testParametersList = new ArrayList<>();
     private List<Parameter> parameterList;
 
 
