@@ -36,6 +36,7 @@ public class CATest {
         this.typeOfTest = typeOfTest;
         this.createdAt = new DateTime();
         this.parameterList = new ArrayList<>(parameterList);
+        createTestParameterList();
         this.internalCode = generateInternalCode();
         this.client = client;
         setNhsCode(nhsCode);
@@ -43,6 +44,12 @@ public class CATest {
         setParameterList(parameterList);
     }
 
+
+    private void createTestParameterList() {
+        for (Parameter p : parameterList){
+            testParametersList.add(new TestParameter(p));
+        }
+    }
 
     private String generateInternalCode() {
         return String.format("%012d", testCounter);
@@ -234,7 +241,7 @@ public class CATest {
         TestParameter testParam = getTestParameterByCode(paramCode);
         if (testParam != null) {
             Parameter parameter = testParam.getParameter();
-            ExternalModule em = this.typeOfTest.getExternalModule();
+            ExternalModule em = this.typeOfTest.getExternalModule(paramCode);
             ReferenceValue refValue = em.getReferenceValue(parameter);
             testParam.addTestResult(value, metric, refValue);
             if (this.chemicalAnalysisDate == null)

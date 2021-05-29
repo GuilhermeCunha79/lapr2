@@ -70,7 +70,7 @@ public class CreateTestUI implements Runnable{
             do {
                 option = Utils.showAndSelectIndex(lTestTypes, "Select a test type from the list:");
                 if (option >= 0 && option < lTestTypes.size()) {
-                    ctrl.addTypeOfTest(lTestTypes.get(option).substring(1,5));
+                    ctrl.addTypeOfTest(lTestTypes.get(option).substring(1,6));
                 } else
                     System.out.println("Selection invalid!");
             } while (option < 0 || option > lTestTypes.size());

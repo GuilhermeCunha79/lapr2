@@ -40,7 +40,7 @@ public class RecordResultUI implements Runnable {
                 do {
                     option = Utils.showAndSelectIndex(testParameterList, "Select a test parameter to add result:");
                     if (option >= 0 && option < testParameterList.size()) {
-                        if (addResult(chosenTest.substring(15, 27))) {
+                        if (addResult(testParameterList.get(option).substring(19, 24))) {
                             testParameterList.remove(option);
                         }
                     } else

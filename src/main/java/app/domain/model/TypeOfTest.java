@@ -5,30 +5,34 @@ import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 
 public class TypeOfTest {
 
     static final int DESCRIPTION_LENGTH = 15;
     static final int COLLECTING_METHOD_LENGTH = 20;
-    static final String STRING_COLLECTING_METHODS="Collecting method";
+    static final String STRING_COLLECTING_METHODS = "Collecting method";
     private List<ParameterCategory> parameterCategoryList = new ArrayList<>();
     private String code;
     private String description;
     private String collectingMethod;
-    private Object ExternalModule;
 
 
     /**
      * Class Constructor with all parameters needed to create a new type of test
-     * @param code  of the type of test
-     * @param description of the type of test
+     *
+     * @param code             of the type of test
+     * @param description      of the type of test
      * @param collectingMethod of the type of test
-     * @param pc to be added to the type of test
+     * @param pc               to be added to the type of test
      */
-    public TypeOfTest(String code, String description, String collectingMethod, ParameterCategory pc){
+    public TypeOfTest(String code, String description, String collectingMethod, ParameterCategory pc) {
         setCode(code);
         setDescription(description);
         setCollectingMethod(collectingMethod);
@@ -40,21 +44,27 @@ public class TypeOfTest {
      *
      * @return a String with the Type of test code
      */
-    public String getCode() { return code; }
+    public String getCode() {
+        return code;
+    }
 
     /**
      * Method that allows other classes to access a type of test description
      *
      * @return a String with the type of test description
      */
-    public String getDescription() { return description; }
+    public String getDescription() {
+        return description;
+    }
 
     /**
      * Method that allows other classes to access a type of test collecting method
      *
      * @return a String with the type of test collecting method
      */
-    public String getCollectingMethod() { return collectingMethod; }
+    public String getCollectingMethod() {
+        return collectingMethod;
+    }
 
     /**
      * Method that verifies if acceptation criterias for a new code are met and also change a type of test code
@@ -65,6 +75,7 @@ public class TypeOfTest {
         CommonMethods.codeValidation(code);
         this.code = code;
     }
+
     /**
      * Method that verifies if acceptation criterias for a new description are met and also change a type of test description
      *
@@ -97,18 +108,38 @@ public class TypeOfTest {
 
     /**
      * Method used to add the new parameter category to the test type received by parameter
+     *
      * @param pc parameter category to be added
      * @return (in)success of the operation
      */
-    public boolean addParameterCategory(ParameterCategory pc){
-        if(pc != null)
+    public boolean addParameterCategory(ParameterCategory pc) {
+        if (pc != null)
             return this.parameterCategoryList.add(pc);
         return false;
     }
 
-    public ExternalModule getExternalModule(){
-        return (ExternalModule) ExternalModule;
+    public ExternalModule getExternalModule(String paramCode){
+        Properties props = new Properties();
+        try (InputStream in = new FileInputStream("config.properties")) {
+            props.load(in);
+            String value;
+            Class<?> oClass = null;
+            if (paramCode.equals("IgGAN")) {
+                value = props.getProperty("Company.CovidReferenceValues.adapter");
+            } else {
+                value = props.getProperty("Company.BloodReferenceValues.adapter");
+
+            }
+            oClass = Class.forName(value);
+            in.close();
+            return (ExternalModule) oClass.newInstance();
+
+        } catch (Exception e) {
+            System.out.println(e.getLocalizedMessage());
+            return null;
+        }
     }
+
     /**
      * This method returns a string with all the data of the instance of type of test that called the method
      *
@@ -118,6 +149,7 @@ public class TypeOfTest {
     public String toString() {
         return String.format("Type of Test:%nCode: %s%nDescription: %s%nCollecting Method: %s%n%s", this.code, this.description, this.collectingMethod, printCategories());
     }
+
     /**
      * Method used to check if two objects are equals or not, by comparing their attributes.
      *
@@ -139,19 +171,19 @@ public class TypeOfTest {
      *
      * @return output or String ("No Categories")
      */
-    private String printCategories(){
-        if(parameterCategoryList != null && !parameterCategoryList.isEmpty()){
+    private String printCategories() {
+        if (parameterCategoryList != null && !parameterCategoryList.isEmpty()) {
             String output = String.format("Parameter Category(ies):%n");
             for (ParameterCategory category : parameterCategoryList) {
                 output = output.concat(category.toString());
             }
             return output;
-        }else {
+        } else {
             return ("No Categories");
         }
     }
 
-    public List<ParameterCategory> getCategoryListByTheTypeOfTest(){
+    public List<ParameterCategory> getCategoryListByTheTypeOfTest() {
         return new ArrayList<>(parameterCategoryList);
     }
 
