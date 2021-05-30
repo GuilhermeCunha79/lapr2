@@ -190,7 +190,7 @@ n/a
 |  		 			     |  ... knows TestStore?	 |  Company   |  **IE:** Company knows the TestStore to which it is delegating some tasks |
 |  		             |	... validating all data? | Test | **IE:** an object knows its data|
 | 			  		 |	... validating all data? | TestStore | **IE:** knows all the Tests| 
-
+|                                                                                                                                                                              
 | Step 11 |	... knows the Parameter?| ParameterStore  | **IE:** ParameterStore knows all parameters  |
 | |	... knows the Test?| TestStore  | **IE:** TestStore knows all tests  |
 | 
