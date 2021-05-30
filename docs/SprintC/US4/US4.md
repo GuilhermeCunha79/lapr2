@@ -190,16 +190,16 @@ n/a
 |  		 			     |  ... knows TestStore?	 |  Company   |  **IE:** Company knows the TestStore to which it is delegating some tasks |
 |  		             |	... validating all data? | Test | **IE:** an object knows its data|
 | 			  		 |	... validating all data? | TestStore | **IE:** knows all the Tests| 
-| Step 11  |	|   |   |
-| Step 12 |	... knows the Parameter?| ParameterStore  | **IE:** ParameterStore knows all parameters  |
+|                                                                                                                                                                              
+| Step 11 |	... knows the Parameter?| ParameterStore  | **IE:** ParameterStore knows all parameters  |
 | |	... knows the Test?| TestStore  | **IE:** TestStore knows all tests  |
 | 
 |   |	... adding a new parameter?| Test  | **IE:** an object knows its data  |
-| Step 13  |	|  |   |
-| Step 14  |	|   |   |
-| Step 15  | ... validating all data?	| TestStore  | **IE** TestStore knows all test   |
+| Step 12  |	|  |   |
+| Step 13 |	|   |   |
+| Step 14  | ... validating all data?	| TestStore  | **IE** TestStore knows all test   |
 |   | ... saving the Test?	| TestStore  | **IE** TestStore knows all test   |
-| Step 16  |	... informing operation success?| CreateTestUI  | **IE:** is responsible for user interactions  |
+| Step 15  |	... informing operation success?| CreateTestUI  | **IE:** is responsible for user interactions  |
 ### Systematization ##
 
 
@@ -231,28 +231,114 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 
 ## 3.3. Class Diagram (CD)
-[UC4_CD](UC4_CD.svg)
+![UC4_CD](UC4_CD.svg)
 
 
 # 4. Tests
 
-**Test 1:** Check that it is not possible to create an instance of the Task class with null values.
+**Test 1:** Check that it is not possible to create an instance of the Test class with null values.
+
+                @Test(expected = NullPointerException.class)
+                public void ensureNullTestIsNotCreated() {
+                   new CATest(null, null, null, null, null);
+                }
 
 
+**Test 2:** Check that it is possible get a new Client to the existing test
 
-
-**Test 2:** Check that it is not possible to create an instance of the Task class with a reference containing less
+                @Test
+                public void checkGetClientMethod() {
+                   Client client = new Client(new ClientDTO("Emilia", "0202417845965874", "1074601020", "1212787895", "05/03/1963", "female", "91474765456", "emilia@isep.ipp.pt"));
+                   TypeOfTest typeOfTest = new TypeOfTest("00002", "7777", "666", new ParameterCategory("70104", "lkj"));
+                   List<Parameter> lparameter = new ArrayList<>();
+                   lparameter.add(new Parameter("90265", "sz", "7021", new ParameterCategory("22109", "ads")));
+                   CATest t2 = new CATest("100090000003", client, typeOfTest, lparameter, "88878");
+                   String expected = String.format("Client:%nName: Emilia%nCitizen Card Number: 0202417845965874%nNHS number: 1074601020%nTIN number: 1212787895%nBirth date: 05/03/1963%nSex: female%nPhone number: 91474765456%nEmail: emilia@isep.ipp.pt");
+                   assertEquals(expected, t2.getClient().toString());
+                }
 
 # 5. Construction (Implementation)
+        
+#Class Test
+
+               /***
+               * Constructor for CATest with all parameters
+               * @param nhsCode
+               * @param client
+               * @param typeOfTest
+               * @param parameterList
+               * @param labWhereCreated
+               */
+               public CATest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated) {
+                  testCounter++;
+                  this.labWhereCreated = labWhereCreated;
+                  setClient(client);
+                  this.typeOfTest = typeOfTest;
+                  this.createdAt = new DateTime();
+                  this.internalCode = generateInternalCode();
+                  this.client = client;
+                  setNhsCode(nhsCode);
+                  setTypeOfTest(typeOfTest);
+                  setParameterList(parameterList);
+                  createTestParameterList();
+               }
+
+## Class CreateTestController
+
+              public void createTest() {
+                 this.test = testStore.createTest(nhsCode, client, typeOfTest, pList, labId);
+              }
 
 
-## Class CreateTaskController
+             /**
+             * Method to get a client by tin
+             *
+             * @param tin object
+             * @return true if the client exist false if not
+             */
+             public String getClientByTINAndSaveNhsCode(String tin, String nhsCode) {
+                this.nhsCode = nhsCode;
+
+                this.client = cs.getClientByTIN(tin);
+                if (client != null)
+                    return client.toString();
+                else
+                    return null;
+             }
 
 
 
-## Class Organization
+## Class TestStore
 
+             /**             
+             * Method to create a new test
+             * @param nhsCode of the test
+             * @param client object of the Client
+             * @param typeOfTest object of the TestType
+             * @param lParameter object of the Parameter
+             * @return
+             */
+             public CATest createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter, String labWhereCreated) {
+                this.test = new CATest(nhsCode, client, typeOfTest, lParameter, labWhereCreated);
+                return this.test;
+             }
 
+             /**
+             * Method to validate test
+             * @param testCreated object of the test to be validated
+             * @return true if test created is valid
+             */
+            public boolean validateTest(CATest testCreated) {
+                 if (testCreated == null)
+                     return false;
+                 for (CATest test : testList) {
+                      if (test.equals(testCreated)) {
+                          System.out.println(testCreated);
+                          return false;
+                      }
+                 } 
+                 return !this.testList.contains(testCreated);
+            }
 
 
 
