@@ -8,7 +8,6 @@ import auth.UserSession;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Properties;
 
 /**
@@ -82,16 +81,7 @@ public class App {
         this.authFacade.addUserRole(Constants.ROLE_CLINICAL_CHEMISTRY_TECHNOLOGIST,Constants.ROLE_CLINICAL_CHEMISTRY_TECHNOLOGIST);
         this.authFacade.addUserRole(Constants.ROLE_MEDICAL_LAB_TECHNICIAN,Constants.ROLE_MEDICAL_LAB_TECHNICIAN);
 
-
         this.authFacade.addUserWithRole("Main Administrator", "admin@lei.sem2.pt", "123456",Constants.ROLE_ADMIN);
-        this.authFacade.addUserWithRole("Receptionist", "recep@lei.sem2.pt", "123456",Constants.ROLE_RECEPTIONIST);
-        this.authFacade.addUserWithRole("Clinical chemistry technologist", "cct@lei.sem2.pt", "123456",Constants.ROLE_CLINICAL_CHEMISTRY_TECHNOLOGIST);
-
-        this.getCompany().getParameterCategoryStore().saveParameterCategory(new ParameterCategory("12345", "Blood"));
-        this.getCompany().getParameterStore().saveParameter(new Parameter("WBC00", "WBC", "White blood count", new ParameterCategory("12345", "Blood")));
-        this.getCompany().getParameterStore().saveParameter(new Parameter("RBC00", "RBC", "Red blood count", new ParameterCategory("12345", "Blood")));
-        this.getCompany().getTypeOfTestStore().saveTypeOfTest(new TypeOfTest("09090", "blood test", "seringe", new ParameterCategory("12345", "Blood")));
-        this.getCompany().getClinicalAnalysisLaboratoryStore().saveClinicalAnalysisLaboratory(new ClinicalAnalysisLaboratory("l0001", "lab 1", "street 1", "90909090909", "8978787878"));
     }
 
     // Extracted from https://www.javaworld.com/article/2073352/core-java/core-java-simply-singleton.html?page=2
