@@ -174,11 +174,9 @@ public class TestTest {
         new CATest("000111222333", client, null, lparameter, "30174");
     }
 
-    @Test
-    public void addParameter() {
 
 
-    }
+
 
     @Test
     public void checkToStringMethod() {
@@ -204,7 +202,9 @@ public class TestTest {
     }
 
     @Test
-    public void ensureThatNhsCodeAreNotTheSameInTwoTests() {}
+    public void ensureThatNhsCodeAreNotTheSameInTwoTests() {
+
+    }
 
     @Test
     public void testAddReportWorks(){
