@@ -1,0 +1,82 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Test {
+  - Client client
+  - List parameterList
+  - Date createdAt
+  - String internalCode
+  - Report diagnosisReport
+}
+
+class Company {
+  - String designation
+  + Company(designation)
+  + getTestStore()
+}
+
+
+class TestStore {
+    - List testValidationList
+    + getTestValidationList()
+    + getTestsReadyToValidate()
+    + saveTestsValidated()
+    + getTestByCode(code)
+}
+
+class Parameter{
+- Date createdAt
+  + getCreatedAt()
+}
+
+class TestValidationController {
+  + getTestsReadyToValidate()
+  + saveTestsValidated()
+  + getTestValidationList()
+  + createTestValidation(testId)
+}
+
+
+class Report {
+  - Date createdAt
+  + getCreatedAt()
+}
+
+
+class Notification {
+  + sendEmailSMSNotification()
+}
+
+class TestReadyToValidateDTO {
+  -  String internalCode
+  - Date testCreationDate
+  - Date diagnosisReportCreationDate
+  - List dateListTestParameterResults
+  + getTestCreationDate()
+  + getDiagnosisReportCreationDate()
+  + getDateListTestParameterResults()
+  + getTestId()
+}
+
+class TestsReadyToValidateMapper {
+  + List<String>toDTO(List<CATest> listOfTestsReadyToValidate)
+}
+
+TestValidationUI ..> TestValidationController
+
+TestValidationController ..> TestStore
+TestValidationController ..> Company
+TestValidationController ..> TestReadyToValidateDTO
+TestValidationController ..> TestsReadyToValidateMapper
+TestValidationController ..> Test
+
+Company "1" -> "1" TestStore : use
+
+TestStore "1" -> "1" Test : knows
+
+Test <-- Report
+Test <-- Parameter
+
+TestStore --> Notification : send
+
+@enduml
