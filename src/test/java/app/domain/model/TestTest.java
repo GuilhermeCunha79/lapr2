@@ -190,8 +190,6 @@ public class TestTest {
         CATest test1 = new CATest("001400140014", client, typeOfTest, lparameter, "77000");
         String expected = String.format("Internal Code: 000000000004 | NHS Code: 001400140014 | Created on: %s |", new DateTime());
         assertEquals(expected, test1.toString());
-
-
     }
 
     @Test

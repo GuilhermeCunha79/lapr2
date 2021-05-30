@@ -59,23 +59,42 @@ public class CATest {
         }
     }
 
+    /***
+     * Method that generate a internal Code
+     * @return internalCode
+     */
     private String generateInternalCode() {
         return String.format("%012d", testCounter);
     }
 
-
+    /***
+     * Method that returns the creation date
+     * @return createdAt
+     */
     public DateTime getCreatedAt() {
         return this.createdAt;
     }
 
+    /***
+     *  Method that returns the type of test
+     * @return typeOfTest
+     */
     public TypeOfTest getTypeOfTest() {
         return this.typeOfTest;
     }
 
+    /***
+     * Method that returns the Client
+     * @return client
+     */
     public Client getClient() {
         return this.client;
     }
 
+    /***
+     * Method that returns the nhsCode of a test
+     * @return email
+     */
     public String getNhsCode() {
         return this.nhsCode;
     }
@@ -84,12 +103,19 @@ public class CATest {
         return new ArrayList<>(parameterList);
     }
 
+    /***
+     * Method that sets the client
+     * @param client
+     */
     public void setClient(Client client) {
         if (client == null)
             throw new NullPointerException(Constants.STRING_CLIENT + Constants.STRING_NULL_EXEPT);
     }
 
-
+    /***
+     * Method that sets the nhsCode
+     * @param nhsCode
+     */
     public void setNhsCode(String nhsCode) {
         if (nhsCode == null)
             throw new NullPointerException(Constants.STRING_NHS_CODE + Constants.STRING_NULL_EXEPT);
@@ -102,12 +128,20 @@ public class CATest {
         this.nhsCode = nhsCode;
     }
 
+    /***
+     * Method that sets the parameter
+     * @param parameterList
+     */
     public void setParameterList(List<Parameter> parameterList) {
         if (parameterList == null)
             throw new NullPointerException(Constants.STRING_PARAMETER_LIST + Constants.STRING_NULL_EXEPT);
         this.parameterList = new ArrayList<>(parameterList);
     }
 
+    /***
+     * Method that sets the type of test
+     * @param typeOfTest
+     */
     public void setTypeOfTest(TypeOfTest typeOfTest) {
         if (typeOfTest == null)
             throw new NullPointerException(Constants.STRING_CLIENT + Constants.STRING_NULL_EXEPT);
@@ -292,7 +326,13 @@ public class CATest {
         return this.validationDone;
     }
 
-
+    /***
+     * Method that adds a test parameter to a test
+     * @param paramCode
+     * @param value
+     * @param metric
+     * @return
+     */
     public boolean addTestParameterResult(String paramCode, double value, String metric) {
         TestParameter testParam = getTestParameterByCode(paramCode);
         if (testParam != null) {
@@ -328,7 +368,11 @@ public class CATest {
         return resultDone = true;
     }
 
-
+    /***
+     * Method that returns a Test Patameter by its code
+     * @param paramCode
+     * @return
+     */
     private TestParameter getTestParameterByCode(String paramCode) {
         if (!this.testParametersList.isEmpty()) {
             for (TestParameter tp : this.testParametersList) {

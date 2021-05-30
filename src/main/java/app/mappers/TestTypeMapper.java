@@ -12,7 +12,7 @@ public class TestTypeMapper {
     }
 
     /**
-     * This method converts a list of test types to a list of strings with the data from each test type to be presented in the UI
+     *
      * @param lTT list of test types
      * @return list of strings
      */
