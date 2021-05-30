@@ -9,12 +9,8 @@ public class  TestReadyToValidateMapper {
 
     private TestStore testStore;
 
-    private TestReadyToValidateMapper() {
-        throw new IllegalStateException("Utility class");
-    }
 
-
-    public static List<String> toDtoVal(List<CATest> readyToValidate) {
+    public List<String> toDtoVal(List<CATest> readyToValidate) {
         List<String> rtvListDto = new ArrayList<>();
         if (!readyToValidate.isEmpty()) {
             for (CATest test : readyToValidate) {

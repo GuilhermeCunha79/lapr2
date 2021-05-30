@@ -33,10 +33,10 @@ public class SendingEmailSMS {
     /***
      * Method that sends a email with the password
      * @param name
-     * @param name
+     * @param validatedAt
      * @throws IOException
      */
-    public static void sendEmailWithNotification(String name) {
+    public static void sendEmailWithNotification(String name, DateTime validatedAt) {
         File emailBox = new File("emailAndSMSMessages.txt");
         PrintWriter out = null;
         try {

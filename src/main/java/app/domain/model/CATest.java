@@ -3,6 +3,7 @@ package app.domain.model;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import app.domain.shared.DateTime;
+import app.domain.shared.SendingEmailSMS;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -254,13 +255,14 @@ public class CATest {
         return this.reportDone;
     }
 
-    /**
-     * This method adds a new result to a parameter tested
-     * @param paramCode of the parameter tested
-     * @param value obtained from the analysis
-     * @param metric used to measure the result
-     * @return if it was added or not
-     */
+    public boolean addValidation(CATest test) {
+        if (!validationDone) {
+            this.test = test;
+            changeStateValidationToDone();
+        }
+        return this.validationDone;
+    }
+
 
     public boolean addTestParameterResult(String paramCode, double value, String metric) {
         TestParameter testParam = getTestParameterByCode(paramCode);

@@ -24,19 +24,21 @@ public class ValidationController {
 
 
     public List<String> getTestWithoutValidation() {
-        List<CATest> readyToValidate = testStore.getTestList();
+        List<CATest> readyToValidate = testStore.getTestWithoutValidation();
         if (readyToValidate != null) {
-            return TestReadyToValidateMapper.toDtoVal(readyToValidate);
+            TestReadyToValidateMapper trv = new TestReadyToValidateMapper();
+            return trv.toDtoVal(readyToValidate);
         }
         return null;
     }
 
 
-    public String getTestByCode(String testCode){
+    public String getTestByCode(String testCode) {
         this.test = testStore.getTestByCode(testCode);
         return test.getTestResults();
     }
-//VER SE É NECESSÁRIO
+
+    //VER SE É NECESSÁRIO
     public boolean changeStateToValidate(List<String> testList) {
         if (!testList.isEmpty()) {
             for (String test : testList) {
@@ -47,6 +49,7 @@ public class ValidationController {
         }
         return false;
     }
+
 
     public boolean changeStateToValidateOne(String internalCode) {
         if (test != null) {
@@ -61,23 +64,14 @@ public class ValidationController {
         return testStore.doValidation(testValidationList);
     }
 
-    public boolean doValidationOne(String internalCode) {
-        return testStore.doValidationOne(internalCode);
-    }
 
-    public String getTestResults(String testCode){
+    public String getTestResults(String testCode) {
         this.test = testStore.getTestByCode(testCode);
         return test.getTestValidation();
     }
 
-    public boolean saveValidation(){
-        return this.test.changeStateValidationToDone();
-    }
-
-    public void displayList(List<String> list){
-        for(int i=0;i<list.size();i++){
-            System.out.println(list.get(i));
-        }
+    public boolean saveValidation() {
+        return this.test.addValidation(this.test);
     }
 
     public List<CATest> getTestList() {

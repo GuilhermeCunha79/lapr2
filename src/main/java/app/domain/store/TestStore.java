@@ -6,6 +6,7 @@ import app.domain.model.Parameter;
 import app.domain.model.TypeOfTest;
 
 
+import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
 
 import java.util.ArrayList;
@@ -133,14 +134,6 @@ public class TestStore {
         }
     }
 
-    public CATest getTestByCode(String internalCode) {
-        for (CATest caTest : testList) {
-            if (caTest.getInternalCode().equals(internalCode))
-                return caTest;
-        }
-        return null;
-    }
-
     /***
      * Saves tests that wasn't validated yet in a List
      * @return testWithoutValidation or null
@@ -161,6 +154,15 @@ public class TestStore {
         }
     }
 
+
+    public CATest getTestByCode(String internalCode) {
+        for (CATest caTest : testList) {
+            if (caTest.getInternalCode().equals(internalCode))
+                return caTest;
+        }
+        return null;
+    }
+
     /***
      * Method that makes the validation of a List of Tests
      * @param testWithoutValidation
@@ -170,12 +172,13 @@ public class TestStore {
 
         if (!testWithoutValidation.isEmpty()) {
             for (CATest test:testList) {
-                if (!test.getValidationStatus()) {
+                if (test.getValidationStatus()) {
                     CATest test1 = getTestByCode(test.getInternalCode());
                     Client client = test1.getClient();
                     String name = client.getName();
                     test.changeStateValidationToDone();
-                    SendingEmailSMS.sendEmailWithNotification(name);
+                    DateTime validatedAt= test.getValidationDate();
+                    SendingEmailSMS.sendEmailWithNotification(name,validatedAt);
                 }
             }
             return true;
@@ -189,7 +192,8 @@ public class TestStore {
                 Client client = test1.getClient();
                 String name = client.getName();
                 test1.changeStateValidationToDone();
-                SendingEmailSMS.sendEmailWithNotification(name);
+                DateTime validatedAt= test1.getValidationDate();
+                SendingEmailSMS.sendEmailWithNotification(name,validatedAt);
             return true;
         }
         return false;
