@@ -281,4 +281,19 @@ public class TestTest {
 
     }
 
+    @Test
+    public void ensureThatNHSCodeAreTheSameInTwoDifferentTests() {
+        Client cl1 = new Client(new ClientDTO("Ema", "2222254246456425", "5454323432", "1195385492", "21/01/1990", "female", "11069472764", "ema@isep.ipp.pt" ));
+        Client cl2 = new Client(new ClientDTO("Sonia", "1103928472575737", "1195737274", "8805909725", "21/10/2000",  "female", "54540194853", "sonia@isep.ipp.pt"));
+        TypeOfTest tt1 = new TypeOfTest("11051", "22019", "8071", new ParameterCategory("22000", "vvc"));
+        TypeOfTest tt2 = new TypeOfTest("09901", "009", "7670", new ParameterCategory("77097", "zzxx"));
+        List<Parameter> lp1 = new ArrayList<>();
+        lp1.add(new Parameter("99199", "bool", "257", new ParameterCategory("11444", "tyy")));
+        List<Parameter> lp2 = new ArrayList<>();
+        lp2.add(new Parameter("44400", "dfffg", "5555", new ParameterCategory("60006", "yyu")));
+        CATest cat1 = new CATest("111111111110", cl1, tt1, lp1, "09090");
+        CATest cat2 = new CATest("111111111110", cl2, tt2, lp2, "90909");
+        assertEquals(cat1, cat2);
+    }
+
 }
