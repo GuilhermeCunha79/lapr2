@@ -8,7 +8,7 @@ participant ":ValidationController" as CTRL
 participant ":Company" as C
 participant "store:TestStore" as TS
 participant "testToValidate \n :TestsReadyToValidateMapper" as TVM
-participant "testValidation:\n TestValidation" as TV
+
 participant "tst :test" as TST
 participant "ct \n : Client" as CT
 participant "EmailAndSmsMessage" as EM
@@ -43,7 +43,6 @@ activate TS
 deactivate TS
 CTRL -> TS : testValidation=createValidateTest(test)
 activate TS
-TS-> TV** : createValidateTest(test)
 deactivate TS
 
 
@@ -68,9 +67,6 @@ activate UI
     TS -> TS : changeStateToValidationDone(tst)
     activate TS
     deactivate TS
-    TS -> TV : test=getTest()
-    activate TV
-    deactivate TV
     TS -> TST : client = getClient()
     activate TST
     deactivate TST
