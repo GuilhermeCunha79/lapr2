@@ -11,14 +11,14 @@ class Report {
     -diagnosis
 }
 
-class Result {
-    -createdAt
+class TestParameterResult {
     -value
     -metric
+    -refValue
 }
 
-SpecialistDoctor"1..*" -- "*"Report : "> write"
-SpecialistDoctor"1..*" -up- "*"Result : "> checks"
+SpecialistDoctor"1..*" -- "*"Report : "> writes"
+SpecialistDoctor"1..*" -up- "*"TestParameterResult : "> checks"
 
 
 @enduml

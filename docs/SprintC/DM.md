@@ -57,9 +57,10 @@
 **Noteworthy Events**
 
 * Chemical Analysis
+* Samples collection
 * Test Request
 * Write Reports & diagnosis
-
+* Test validation
 ---
 
 **Physical Objects**
@@ -103,6 +104,7 @@
 **Other External/Collaborating Systems**
 
 * External Barcode Generator
+* External modules to get reference values for parameters
 
 ---
 
@@ -123,7 +125,6 @@
 * Lab Order
 * Citizen Card
 * Reports
-* Diagnosis
 
 ---
 
@@ -145,31 +146,38 @@
 | Receptionist                      | is an              | Employee |
 | MedicalLabTechnician              | is an              | Employee |
 | ClinicalChemistryTechnologist     | is an              | Employee |
-| MedicalLab Technician             | works at           | ClinicalAnalysisLab |
-| MedicalLab Technician             | collect            | Sample |
+| MedicalLabTechnician              | works at           | ClinicalAnalysisLab |
+| MedicalLabTechnician              | collect            | Sample |
 | LabCoordinator                    | validate           | Report |
 | SpecialistDoctor                  | write              | Report |
 | SpecialistDoctor                  | works at           | Headquarter |
+| ClinicalChemistryTechnologist     | record             | TestParameterResult |
 | ClinicalChemistryTechnologist     | works at           | ChemicalLab |
-| Receptionist                      | register new       | TestRequest |
+| LabCoordinator                    | validates          | Report |
+| LabCoordinator                    | validates          | TestParameterResult |
+| Receptionist                      | register new       | Test |
 | Receptionist                      | add                | Client |
-| Admin                             | create new         | Category |
-| TestRequest                       | originates         | Test |
-| Parameter                         | presented under    | Category |
-| Test                              | has                | Result |
+| Admin                             | create new         | ParameterCategory |
+| Admin                             | register new       | Employee |
+| Admin                             | register new       | TypeOfTest |
+| Admin                             | register new       | ClinicalAnalysisLab |
+| Admin                             | create new         | Parameter |
+| Parameter                         | presented under    | ParameterCategory |
+| Test                              | has                | TestParameter |
+| TestParameter                     | has                | TestParameterResult |
 | Test                              | has                | TypeOfTest |
 | Test                              | has                | Sample |
 | Test                              | need to analyse    | Parameter |
 ! Result                            | has                | Report   | 
 | Report                            | delivered to       | Client |
 | ChemicalLab                       | owns               | Sample |
-| Client                            | does               | TestRequest |
+| Client                            | asks for           | Test |
 
 
 ## Domain Model
 
 
-![DM.svg](DM Diagram.svg)
+![DM.svg](DM_Diagram.svg)
 
 
 

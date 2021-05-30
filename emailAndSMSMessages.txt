@@ -1,6 +1,6 @@
-Hello John,
+Hello james,
 You now can use your email and the following password to access Many Labs app: 
 
 Login data: 
-Email: john@gmail.com
-Password: btw62ihFgF
+Email: james@gmail.com
+Password: lrt7xm6fup

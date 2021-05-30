@@ -42,6 +42,7 @@
 | Linear Regression Algorithm | Algoritmo de Regressão Linear | Linear Regression Algorithm is a machine learning algorithm based on supervised learning |
 | Many Labs | Many Labs | Is an English company that has a network of clinical analysis laboratories and that wants an application to manage the clinical analyses performed in its laboratories |
 | Medical Lab Technician | Técnico de Laboratório Médico | Actor who will prepare the client for sample collection |
+| Metric | Unidade de Medida | Is a system used to measure something |
 | National Healthcare Service | Serviço Nacional de Saúde | Publicly funded healthcare system in England  that provides free or cheap medical treatment for everyone |
 | Network of laboratories | Rede de laboratórios | A number of Laboratories that are connected together so that they can share information |
 | NHS | SNS | Acronym for National Healthcare Service |

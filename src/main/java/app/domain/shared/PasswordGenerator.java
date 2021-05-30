@@ -9,8 +9,8 @@ public class PasswordGenerator {
         throw new IllegalStateException("Utility class");
     }
     /***
-     * Method that generate RANDOM
-     * @return result
+     * Method that generate RANDOM passwords
+     * @return a password
      */
     public static String generatePassword() {
         int len = 10;

@@ -15,15 +15,10 @@ class WriteReportController {
 }
 
 package Domain {
+package Model {
 class Company {
     -description
     +getTestStore()
-}
-package Store {
-class TestStore {
-    +getTestWithoutReport()
-    +getTestByCode(testCode)
-}
 }
 class Test {
     -createdAt
@@ -46,6 +41,14 @@ class Report {
     -reportText
     +registerReportDateTime()
 }
+}
+package Store {
+class TestStore {
+    +getTestWithoutReport()
+    +getTestByCode(testCode)
+}
+}
+
 package Shared {
 class DateTime {
     -date

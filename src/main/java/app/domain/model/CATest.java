@@ -312,8 +312,8 @@ public class CATest {
      */
     @Override
     public String toString() {
-        return String.format("CA Test:%nNHS Code: %s%nClient: %s%nType Of Test: %s%nParameter List: %s%nLab Where Created: %s%nInternal Code: %s%n",
-        this.nhsCode, this.client, this.typeOfTest, this.parameterList, this.labWhereCreated, this.internalCode);
+        return String.format("Internal Code: %s | NHS Code: %s | Created on: %s |",
+                this.internalCode, this.nhsCode, this.createdAt);
     }
 
     /**
