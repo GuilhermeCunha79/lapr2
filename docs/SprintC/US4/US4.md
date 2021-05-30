@@ -139,7 +139,7 @@ AC8 -- A receptionist find the client only by the tin
 ### 1.6. System Sequence Diagram (SSD)
 
 **Alternative 1**
-
+![UC4_SSD](UC4_SSD.svg)
 
 
 **Other alternatives might exist.**
@@ -151,7 +151,7 @@ AC8 -- A receptionist find the client only by the tin
 ## 2. OO Analysis
 
 ### 2.1. Relevant Domain Model Excerpt
-
+![UC4_MD](UC4_MD.svg)
 
 
 ### 2.2. Other Remarks
@@ -169,20 +169,39 @@ n/a
 | Step 1  		 |	... interacting with the actor? | CreateTestUI   |  **Pure Fabrication:** there is no reason to assign this responsibility to any other of the existing class in the Domain Model.           |
 | 		 |	... coordinating the US? | CreateTestController   |  **Controller**         |
 | Step 2		 |	|   |          |
-| Step 3		 | ... knows ClientStore?	| Company  |  **IE** Company knows the ClientStore to which is delegation some tasks        |
-| 		 | ... knows TestTypeStore?	| Company  |  **IE** Company knows the TestTypeStore to which is delegation some tasks        |
+| Step 3		 | ...transfer the data typed in the UI to the domain?	| CreateTestController |  **IE** When there is so much data to transfer, it is better to opt by using a DTO in order to reduce coupling between UI and domain        |
+| 		 | ... knows ClientStore?	| Company  |  **IE** Company knows the ClientStore to which is delegation some tasks        |
+| 		 | ... knows client?	| ClientStore  |  **IE** ClientStore knows all Clients       |
+| 	
+| 		 | ... knows the test types?	| ClinicalAnalysisLaboratory  |  **IE** a Laboratory object  knows its own data 	      |
+| 		 | ... knows the testTypeStore?	| Company  |  **IE** Company knows the TestTypeStore  to which it is delegating some tasks    |
 | Step 4		 | |   |         |
-| Step 5		 | 	|   |  TODO check this information        |
-| Step 6		 | 	|   |  TODO check this information        |
-| Step 7		 | 	|   |  TODO check this information        |
-| Step 8		 | 	|   |  TODO check this information        |
-| Step 9		 | ...saving the typed/selected data? 	| Test  |  **IE:** a Test knows its own data      |
+| Step 5		 | ...knows the the test type?	| TestTypeStore  |  **IE** TestTypeStore knows all test types         |
+| 		 | ...knows the parameter categories for the test type?	| TestType  |  **IE** an object knows its data        |
+| Step 6		 | 	|   |          |
+| Step 7		 | ...knows the ParameterStore?	|  Company | **IE**  knows the ParameterCategoryStore  to which it is delegating some tasks        |
+| 		 | ...knows the parameter category?	|  TestTypeStore | **IE**  TestTypeStore knows all parameter categories        |
+| Step 8		 | 	|   |       |
+| Step 9  |	... knows parameters?| ParameterCategory  | **IE:** ParameterCategory object knows its owns data |
+| Step 10		 | ...knows the parameter data	| Parameter  |  **IE:** a Parameter knows its own data      |
+| 		 | ...knows the ParameterStore	| Company  |  **IE:** Company knows the ParameterStore  to which it is delegating some tasks      |
+| 		 | ...saving the typed/selected data? 	| Test  |  **IE:** a Test knows its own data      |
 | 		                 |	... instantiating a new Test? | TestStore   | **Creator (R1)** and **HC+LC**: By the application of the Creator (R1) it would be the "Company". But, by applying HC + LC to the "Company", this delegates that responsibility to the "TestStore"   |
 |  		 			     |  ... knows TestStore?	 |  Company   |  **IE:** Company knows the TestStore to which it is delegating some tasks |
-|  		             |	... validating all data (local validation)? | Test | **IE:** an object knows its data|
-| 			  		 |	... validating all data (global validation)? | TestStore | **IE:** knows all the clients| 
-| 			  		 |	... saving the test? | TestStore | **IE:** Knows all tests | 
-| Step 10  |	... informing operation success?| CreateTestUI  | **IE:** is responsible for user interactions  |
+|  		             |	... validating all data? | Test | **IE:** an object knows its data|
+| 			  		 |	... validating all data? | TestStore | **IE:** knows all the Tests| 
+| Step 11  |	|   |   |
+| Step 12 |	... knows the Parameter?| ParameterStore  | **IE:** ParameterStore knows all parameters  |
+| |	... knows the Test?| TestStore  | **IE:** TestStore knows all tests  |
+| 
+|   |	... adding a new parameter?| Test  | **IE:** an object knows its data  |
+| Step 13  |	|  |   |
+| Step 14  |	|   |   |
+| Step 15  | ... validating all data?	| TestStore  | **IE** TestStore knows all test   |
+|   | ... saving the Test?	| TestStore  | **IE** TestStore knows all test   |
+| Step 16  |	... informing operation success?| CreateTestUI  | **IE:** is responsible for user interactions  |
+### Systematization ##
+
 
 ### Systematization ##
 
@@ -205,14 +224,14 @@ Other software classes (i.e. Pure Fabrication) identified:
 * TestTypeMapper
 
 ## 3.2. Sequence Diagram (SD)
-
+![UC4_SD](UC4_SD.svg)
 
 
 
 
 
 ## 3.3. Class Diagram (CD)
-
+[UC4_CD](UC4_CD.svg)
 
 
 # 4. Tests
