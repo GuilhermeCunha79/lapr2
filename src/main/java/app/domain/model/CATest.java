@@ -3,7 +3,6 @@ package app.domain.model;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import app.domain.shared.DateTime;
-import app.domain.shared.SendingEmailSMS;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -31,7 +30,14 @@ public class CATest {
     private List<Parameter> parameterList;
     private CATest test;
 
-
+    /***
+     * Constructor for CATest with all parameters
+     * @param nhsCode
+     * @param client
+     * @param typeOfTest
+     * @param parameterList
+     * @param labWhereCreated
+     */
     public CATest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated) {
         testCounter++;
         this.labWhereCreated = labWhereCreated;
@@ -108,20 +114,34 @@ public class CATest {
         this.typeOfTest = typeOfTest;
     }
 
-
+    /***
+     * This method returns where the date when the report was made
+     * @return report
+     */
     public DateTime getReportDate() {
         return this.report.getCreatedAt();
     }
 
+    /***
+     * This method returns where the date when the validation was made
+     * @return validationDate
+     */
     public DateTime getValidationDate() {
         return this.validationDate;
     }
 
-
+    /***
+     * This method returns where the date when the chemical analysis was made
+     * @return chemicalAnalysisDate
+     */
     public DateTime getChemicalAnalysisDate() {
         return this.chemicalAnalysisDate;
     }
 
+    /***
+     * This method returns where the lab was created
+     * @return labWhereCreated
+     */
     public String getLabWhereCreated() {
         return this.labWhereCreated;
     }
@@ -215,8 +235,13 @@ public class CATest {
         return results;
     }
 
+    /**
+     * This method finds all the test results validated and return them in a string
+     *
+     * @return the results available
+     */
     public String getTestValidation() {
-        String results = "\n\nTest Results: \n";
+        String results = String.format("%n%nTest Results: %n");
         if (!testReadyToVal.isEmpty()) {
             for (CATest result : testReadyToVal) {
                 results = results.concat(result.toString());
@@ -255,6 +280,12 @@ public class CATest {
         return this.reportDone;
     }
 
+    /**
+     * This method receives a Test and assigns it to the test it's related to
+     *
+     * @param test the instance of a Report
+     * @return if it was added or not
+     */
     public boolean addValidation(CATest test) {
         if (!validationDone) {
             this.test = test;
@@ -292,9 +323,13 @@ public class CATest {
         reportDone = true;
     }
 
+    /**
+     * The only purpose of this method is to change the state of the test to inform that the result is done
+     */
     public boolean changeStateToResultDone() {
         return resultDone = true;
     }
+
 
     private TestParameter getTestParameterByCode(String paramCode) {
         if (!this.testParametersList.isEmpty()) {
@@ -306,6 +341,10 @@ public class CATest {
         return null;
     }
 
+    /***
+     * This method change the state of a test to true
+     * @return true or false
+     */
     public boolean changeStateValidationToDone() {
         if (!validationDone) {
             this.validationDate = new DateTime();
