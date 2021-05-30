@@ -18,12 +18,20 @@ class Test {
     - BufferedImage qrcode;
 }
 
-class Result {
+class TestParameterResult {
     -createdAt
-    -String result
+    -value
+    -metric
+    +TestParameterResult(value, metric, refValue)
 }
 
-Employee"1..*" -- "*"Result : "> write"
+class TestParameter {
+    +getParameter()
+    +addTestResult(value, metric, refValue)
+}
+
+Employee"1..*" -- "*"TestParameterResult : "> write"
 Employee"1..*" -up- "*"Test : "> checks"
+TestParameterResult"1" -down- "1..*"TestParameter : "> of a given"
 
 @enduml
