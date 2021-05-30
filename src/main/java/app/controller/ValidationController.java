@@ -71,7 +71,7 @@ public class ValidationController {
     }
 
     public boolean saveValidation() {
-        return this.test.addValidation(this.test);
+        return this.test.addValidation();
     }
 
     public List<CATest> getTestList() {

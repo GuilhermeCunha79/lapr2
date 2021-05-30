@@ -64,7 +64,7 @@ public class MappersTest {
     @Test
     public void testReadyToValidateMapper() {
         ParameterCategory pc1 = new ParameterCategory("54321", "adaca");
-        TypeOfTest tpt = new TypeOfTest("12345", "noth", "mao",pc1);
+        TypeOfTest tpt = new TypeOfTest("12345", "noth", "mao", pc1);
         TypeOfTest tpt1 = new TypeOfTest("12345", "noteh", "mapo", pc1);
         ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt");
         Parameter p1 = new Parameter("12345", "abcd", "adsavaa", pc1);
@@ -72,15 +72,17 @@ public class MappersTest {
         List<Parameter> lp = new ArrayList<>();
         lp.add(p1);
         lp.add(p2);
-        List<CATest> cat= new ArrayList<>();
+        List<CATest> cat = new ArrayList<>();
         Client client = new Client(clDto);
         CATest ct1 = new CATest("123456789111", client, tpt, lp, "lol");
-        CATest ct2 = new CATest("123456783233", client, tpt1,lp, "ll");
+        CATest ct2 = new CATest("123456783233", client, tpt1, lp, "ll");
+        ct1.addReport(new Report("adknfajnf"));
+        ct2.addReport(new Report("adknfajnf"));
         cat.add(ct1);
         cat.add(ct2);
         List<String> expected = new ArrayList<>();
-        expected.add(String.format("Internal Code: 000000000001 | NHS Code: 123456789111 | Created on: %s | Collected at: null | Reported at: null |", new DateTime()));
-        expected.add(String.format("Internal Code: 000000000002 | NHS Code: 123456783233 | Created on: %s | Collected at: null | Reported at: null |", new DateTime()));
+        expected.add(String.format("Internal Code: 000000000001 | NHS Code: 123456789111 | Created on: %s | Collected at: null | Reported at: %s |", new DateTime(), new DateTime()));
+        expected.add(String.format("Internal Code: 000000000002 | NHS Code: 123456783233 | Created on: %s | Collected at: null | Reported at: %s |", new DateTime(), new DateTime()));
         assertEquals(expected, TestReadyToValidateMapper.toDtoVal(cat));
     }
 

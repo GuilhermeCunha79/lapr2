@@ -14,7 +14,6 @@ public class CATest {
     private final String labWhereCreated;
     private DateTime chemicalAnalysisDate;
     private DateTime validationDate;
-    private DateTime reportDate;
     private final Client client;
     private TypeOfTest typeOfTest;
     private final DateTime createdAt;
@@ -29,7 +28,7 @@ public class CATest {
     private final List<TestParameter> testParametersList = new ArrayList<>();
     private final List<CATest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
-    private CATest test;
+
 
     /***
      * Constructor for CATest with all parameters
@@ -120,7 +119,7 @@ public class CATest {
      * @return report
      */
     public DateTime getReportDate() {
-        return this.reportDate;
+        return this.report.getCreatedAt();
     }
 
     /***
@@ -284,12 +283,10 @@ public class CATest {
     /**
      * This method receives a Test and assigns it to the test it's related to
      *
-     * @param test the instance of a Report
      * @return if it was added or not
      */
-    public boolean addValidation(CATest test) {
+    public boolean addValidation() {
         if (!validationDone) {
-            this.test = test;
             changeStateValidationToDone();
         }
         return this.validationDone;
