@@ -188,7 +188,7 @@ public class TestTest {
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("00700", "hyre", "7272", new ParameterCategory("99990", "sssd")));
         CATest test1 = new CATest("001400140014", client, typeOfTest, lparameter, "77000");
-        String expected = String.format("Internal Code: 000000000004 | NHS Code: 001400140014 | Created on: %s |", new DateTime());
+        String expected = String.format("Internal Code: 000000000002 | NHS Code: 001400140014 | Created on: %s |", new DateTime());
         assertEquals(expected, test1.toString());
     }
 
@@ -234,6 +234,16 @@ public class TestTest {
     }
 
     @Test
+    public void testAddValidationWorks(){
+        Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
+        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
+        assertTrue(test.addValidation());
+    }
+
+    @Test
     public void checkReportDoneIsTrue(){
         Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
@@ -242,6 +252,17 @@ public class TestTest {
         CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
         test.addReport(new Report("afakdfbabdf"));
         assertTrue(test.getReportStatus());
+    }
+
+    @Test
+    public void checkValidationDoneIsTrue(){
+        Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
+        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
+        test.addReport(new Report("afakdfbabdf"));
+        assertTrue(test.getValidationStatus());
     }
 
     @Test
@@ -273,9 +294,22 @@ public class TestTest {
         lparameter.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
         CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
         test.addTestParameterResult("IgGAN", 0.22, "mg");
-        String expected = String.format("%n%nTest Results: %n" +
+        String expected = String.format("%n%nTest Results: %n"+
                 "- Parameter tested: Parameter -> Code: IgGAN | Name: IgGAN | Description: IgC antibodies | Results -> value: 0.220000 mg | Reference Values -> min. value: 0.000000 Index (S/C) Value | max. value: 1.400000 Index (S/C) Value %n");
         assertEquals(expected, test.getTestResults());
+
+    }
+
+    @Test
+    public void checkItsNotAllowedToValidateTheSameTestTwice(){
+        Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
+        test.addValidation();
+        String expected = String.format("Internal Code: 000000000001 | NHS Code: 341341323234 | Created on: %s | Collected at: null | Reported at: %s |", new DateTime(), new DateTime());
+        assertEquals(expected, test.getTestValidation());
 
     }
 
