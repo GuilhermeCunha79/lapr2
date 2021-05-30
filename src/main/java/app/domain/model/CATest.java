@@ -14,6 +14,7 @@ public class CATest {
     private final String labWhereCreated;
     private DateTime chemicalAnalysisDate;
     private DateTime validationDate;
+    private DateTime reportDate;
     private final Client client;
     private TypeOfTest typeOfTest;
     private final DateTime createdAt;
@@ -119,7 +120,7 @@ public class CATest {
      * @return report
      */
     public DateTime getReportDate() {
-        return this.report.getCreatedAt();
+        return this.reportDate;
     }
 
     /***

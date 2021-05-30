@@ -2,6 +2,7 @@ package app.domain.mappers;
 
 
 import app.domain.model.*;
+import app.domain.shared.DateTime;
 import app.mappers.ParameterCategoryMapper;
 import app.mappers.ParameterMapper;
 import app.mappers.TestReadyToValidateMapper;
@@ -63,8 +64,8 @@ public class MappersTest {
     @Test
     public void testReadyToValidateMapper() {
         ParameterCategory pc1 = new ParameterCategory("54321", "adaca");
-        TypeOfTest tpt = new TypeOfTest("000000000001", "noth", "mao",pc1);
-        TypeOfTest tpt1 = new TypeOfTest("000000000002", "noteh", "mapo", pc1);
+        TypeOfTest tpt = new TypeOfTest("12345", "noth", "mao",pc1);
+        TypeOfTest tpt1 = new TypeOfTest("12345", "noteh", "mapo", pc1);
         ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt");
         Parameter p1 = new Parameter("12345", "abcd", "adsavaa", pc1);
         Parameter p2 = new Parameter("45345", "adsfa", "asdfsdfsd", pc1);
@@ -73,13 +74,13 @@ public class MappersTest {
         lp.add(p2);
         List<CATest> cat= new ArrayList<>();
         Client client = new Client(clDto);
-        CATest ct1 = new CATest("123456789", client, tpt, lp, "lol");
-        CATest ct2 = new CATest("123456783", client, tpt1,lp, "ll");
+        CATest ct1 = new CATest("123456789111", client, tpt, lp, "lol");
+        CATest ct2 = new CATest("123456783233", client, tpt1,lp, "ll");
         cat.add(ct1);
         cat.add(ct2);
         List<String> expected = new ArrayList<>();
-        expected.add("Parameter -> Code: 12345 | Name: abcd | Description: adsavaa");
-        expected.add("Parameter -> Code: 45345 | Name: adsfa | Description: asdfsdfsd");
+        expected.add(String.format("Internal Code: 000000000001 | NHS Code: 123456789111 | Created on: %s | Collected at: null | Reported at: null |", new DateTime()));
+        expected.add(String.format("Internal Code: 000000000002 | NHS Code: 123456783233 | Created on: %s | Collected at: null | Reported at: null |", new DateTime()));
         assertEquals(expected, TestReadyToValidateMapper.toDtoVal(cat));
     }
 
