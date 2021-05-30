@@ -148,7 +148,7 @@ AC8 -- A receptionist find the client only by the tin
 ![UC4_SSD](UC4_SSD.svg)
 
 
-**Other alternatives might exist.**
+
 
 ### 1.7 Other Relevant Remarks
 
