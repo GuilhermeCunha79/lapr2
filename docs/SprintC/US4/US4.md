@@ -206,7 +206,7 @@ n/a
 | Step 14  | ... validating all data?	| TestStore  | **IE** TestStore knows all test   |
 |   | ... saving the Test?	| TestStore  | **IE** TestStore knows all test   |
 | Step 15  |	... informing operation success?| CreateTestUI  | **IE:** is responsible for user interactions  |
-### Systematization ##
+
 
 
 ### Systematization ##
