@@ -35,13 +35,12 @@ public class CATest {
         setClient(client);
         this.typeOfTest = typeOfTest;
         this.createdAt = new DateTime();
-        this.parameterList = new ArrayList<>(parameterList);
-        createTestParameterList();
         this.internalCode = generateInternalCode();
         this.client = client;
         setNhsCode(nhsCode);
         setTypeOfTest(typeOfTest);
         setParameterList(parameterList);
+        createTestParameterList();
     }
 
 
@@ -137,6 +136,11 @@ public class CATest {
         return false;
     }
 
+    /**
+     * This method ensures that its not possible to add the same parameter twice
+     * @param parameter to add
+     * @return if it's duplicated or not
+     */
     private boolean checkDuplications(Parameter parameter) {
         for (Parameter p : this.parameterList) {
             if (p.equals(parameter)) {
@@ -199,7 +203,7 @@ public class CATest {
      * @return the results available
      */
     public String getTestResults() {
-        String results = "\n\nTest Results: \n";
+        String results = String.format("%n%nTest Results: %n");
         if (!testParametersList.isEmpty()) {
             for (TestParameter result : testParametersList) {
                 results = results.concat(result.toString());
@@ -236,6 +240,13 @@ public class CATest {
         return this.reportDone;
     }
 
+    /**
+     * This method adds a new result to a parameter tested
+     * @param paramCode of the parameter tested
+     * @param value obtained from the analysis
+     * @param metric used to measure the result
+     * @return if it was added or not
+     */
     public boolean addTestParameterResult(String paramCode, double value, String metric) {
         TestParameter testParam = getTestParameterByCode(paramCode);
         if (testParam != null) {
@@ -264,10 +275,26 @@ public class CATest {
         reportDone = true;
     }
 
+    /**
+     * The sole purpose of this method is to change the state of the test to inform that the results are done
+     */
     public boolean changeStateToResultDone() {
         return resultDone = true;
     }
 
+    /**
+     * This method's function is to change the state of the test to validation done
+     */
+    public void changeStateValidationToDone() {
+        this.validationDate = new DateTime();
+        validationDone = true;
+    }
+
+    /**
+     * This method receives a parameter code and finds the test parameter with a parameter of the same code
+     * @param paramCode to use in the search
+     * @return the test parameter
+     */
     private TestParameter getTestParameterByCode(String paramCode) {
         if (!this.testParametersList.isEmpty()) {
             for (TestParameter tp : this.testParametersList) {
@@ -277,12 +304,6 @@ public class CATest {
         }
         return null;
     }
-
-    public void changeStateValidationToDone() {
-        this.validationDate = new DateTime();
-        validationDone = true;
-    }
-
 
     /**
      * This method returns a string with some important data about this test
@@ -295,6 +316,11 @@ public class CATest {
         this.nhsCode, this.client, this.typeOfTest, this.parameterList, this.labWhereCreated, this.internalCode);
     }
 
+    /**
+     * This method compares two tests and returns if they are the same or not
+     * @param o object to compare with
+     * @return the result of the comparison
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

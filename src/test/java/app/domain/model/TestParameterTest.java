@@ -29,7 +29,7 @@ public class TestParameterTest {
         TestParameter tp = new TestParameter(p);
         TestParameterResult tpr = new TestParameterResult(2.22, "ml", new ReferenceValue(2.22, 2.11, "ml"));
         tp.addTestResult(2.22, "ml", new ReferenceValue(2.22, 2.11, "ml"));
-        String expected = "- Parameter tested: Parameter -> Code: 42424 | Name: asdsd | Description: afdfas | Results -> value: 2.220000 ml | Reference Values -> min. value: 2.220000 ml | max. value: 2.110000 ml \n";
+        String expected = String.format("- Parameter tested: Parameter -> Code: 42424 | Name: asdsd | Description: afdfas | Results -> value: 2.220000 ml | Reference Values -> min. value: 2.220000 ml | max. value: 2.110000 ml %n");
         assertEquals(expected, tp.toString());
     }
 
