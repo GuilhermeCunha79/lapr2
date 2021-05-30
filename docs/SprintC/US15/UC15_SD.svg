@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1394px" preserveAspectRatio="none" style="width:2658px;height:1394px;" version="1.1" viewBox="0 0 2658 1394" width="2658px" zoomAndPan="magnify"><defs><filter height="300%" id="f108hfz32xe8tu" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="288.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="553.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="289.3281" style="stroke:#A80036;stroke-width:1.0;" width="10" x="553.5" y="466.125"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="498.5156" style="stroke:#A80036;stroke-width:1.0;" width="10" x="553.5" y="792.8047"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="211.4063" style="stroke:#A80036;stroke-width:1.0;" width="10" x="951.5" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="228.625" style="stroke:#A80036;stroke-width:1.0;" width="10" x="951.5" y="496.4766"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="956.5" y="659.75"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="468.1641" style="stroke:#A80036;stroke-width:1.0;" width="10" x="951.5" y="823.1563"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1214.5" y="182.6641"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1323.5" y="243.0156"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="60.7031" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1323.5" y="526.8281"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="415.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1323.5" y="853.5078"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1328.5" y="917.2109"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1562.5" y="303.3672"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1737.5" y="982.5625"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1835.5" y="1042.9141"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1910.5" y="1103.2656"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2034" y="1223.9688"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2166" y="1163.6172"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="338.0313" style="stroke:#000000;stroke-width:2.0;" width="1798.5" x="10" y="425.4219"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="393.4609" style="stroke:#000000;stroke-width:2.0;" width="962" x="1260.5" y="868.5078"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="74" x2="74" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="558.5" x2="558.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="956.5" x2="956.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1219.5" x2="1219.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1328.5" x2="1328.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1567.5" x2="1567.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1742.5" x2="1742.5" y1="607.2891" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1840.5" x2="1840.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1915.5" x2="1915.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2038.5" x2="2038.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2170.5" x2="2170.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2335.5" x2="2335.5" y1="89.6094" y2="1309.3203"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="2553.5" x2="2553.5" y1="89.6094" y2="1309.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="20" y="86.5332">Lab Coordinator</text><ellipse cx="74.5" cy="15" fill="#FEFECE" filter="url(#f108hfz32xe8tu)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M74.5,23 L74.5,50 M61.5,31 L87.5,31 M74.5,50 L61.5,65 M74.5,50 L87.5,65 " fill="none" filter="url(#f108hfz32xe8tu)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="20" y="1322.8535">Lab Coordinator</text><ellipse cx="74.5" cy="1335.9297" fill="#FEFECE" filter="url(#f108hfz32xe8tu)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M74.5,1343.9297 L74.5,1370.9297 M61.5,1351.9297 L87.5,1351.9297 M74.5,1370.9297 L61.5,1385.9297 M74.5,1370.9297 L87.5,1385.9297 " fill="none" filter="url(#f108hfz32xe8tu)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="92" x="510.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="517.5" y="74.5332">:ValidationUI</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="92" x="510.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="517.5" y="1329.8535">:ValidationUI</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="142" x="883.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="890.5" y="74.5332">:ValidationController</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="142" x="883.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="890.5" y="1329.8535">:ValidationController</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="78" x="1178.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1185.5" y="74.5332">:Company</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="78" x="1178.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1185.5" y="1329.8535">:Company</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="112" x="1270.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="1277.5" y="74.5332">store:TestStore</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="112" x="1270.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="1277.5" y="1329.8535">store:TestStore</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="214" x="1458.5" y="35.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="1518" y="56.9238">testToValidate</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196" x="1469.5" y="74.5332">:TestsReadyToValidateMapper</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="214" x="1458.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="1518" y="1329.8535">testToValidate</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196" x="1469.5" y="1347.4629">:TestsReadyToValidateMapper</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="108" x="1686.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="1696" y="1329.8535">testValidation:</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="1697.5" y="1347.4629">TestValidation</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="60" x="1808.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="1815.5" y="74.5332">tst :test</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="60" x="1808.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46" x="1815.5" y="1329.8535">tst :test</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="62" x="1882.5" y="35.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="11" x="1906" y="56.9238">ct</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44" x="1893.5" y="74.5332">: Client</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="62" x="1882.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="11" x="1906" y="1329.8535">ct</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="44" x="1893.5" y="1347.4629">: Client</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="157" x="1958.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="1965.5" y="74.5332">EmailAndSmsMessage</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="157" x="1958.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="1965.5" y="1329.8535">EmailAndSmsMessage</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="79" x="2129.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="2136.5" y="74.5332">:DateTime</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="79" x="2129.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="2136.5" y="1329.8535">:DateTime</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="223" x="2222.5" y="35.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="2267" y="56.9238">readyToValidateList:</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="2233.5" y="74.5332">List&lt;TestReadyToValidateDTO&gt;</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="223" x="2222.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="2267" y="1329.8535">readyToValidateList:</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="2233.5" y="1347.4629">List&lt;TestReadyToValidateDTO&gt;</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="185" x="2459.5" y="35.3906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="2496" y="56.9238">testValidateDTO:</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167" x="2470.5" y="74.5332">TestReadyToValidateDTO</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="185" x="2459.5" y="1308.3203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="2496" y="1329.8535">testValidateDTO:</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167" x="2470.5" y="1347.4629">TestReadyToValidateDTO</text><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="288.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="553.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="289.3281" style="stroke:#A80036;stroke-width:1.0;" width="10" x="553.5" y="466.125"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="498.5156" style="stroke:#A80036;stroke-width:1.0;" width="10" x="553.5" y="792.8047"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="211.4063" style="stroke:#A80036;stroke-width:1.0;" width="10" x="951.5" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="228.625" style="stroke:#A80036;stroke-width:1.0;" width="10" x="951.5" y="496.4766"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="956.5" y="659.75"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="468.1641" style="stroke:#A80036;stroke-width:1.0;" width="10" x="951.5" y="823.1563"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1214.5" y="182.6641"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1323.5" y="243.0156"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="60.7031" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1323.5" y="526.8281"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="415.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1323.5" y="853.5078"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1328.5" y="917.2109"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1562.5" y="303.3672"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1737.5" y="982.5625"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1835.5" y="1042.9141"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1910.5" y="1103.2656"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2034" y="1223.9688"/><rect fill="#FFFFFF" filter="url(#f108hfz32xe8tu)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="2166" y="1163.6172"/><polygon fill="#A80036" points="541.5,117.9609,551.5,121.9609,541.5,125.9609,545.5,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="74.5" x2="547.5" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="81.5" y="117.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="449" x="92.5" y="117.1045">validate work done by the clinical chemistry technologist and specialist doctor</text><polygon fill="#A80036" points="939.5,148.3125,949.5,152.3125,939.5,156.3125,943.5,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="563.5" x2="945.5" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="570.5" y="147.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="358" x="581.5" y="147.4561">readyToValidate(testRegistrationDate, caDate, diagnosisDate)</text><polygon fill="#A80036" points="1202.5,178.6641,1212.5,182.6641,1202.5,186.6641,1206.5,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="961.5" x2="1208.5" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="968.5" y="177.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="151" x="979.5" y="177.8076">testStore = getTestStore()</text><polygon fill="#A80036" points="1311.5,239.0156,1321.5,243.0156,1311.5,247.0156,1315.5,243.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="961.5" x2="1317.5" y1="243.0156" y2="243.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="968.5" y="238.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="286" x="979.5" y="238.1592">readyToValidateList = getTestsReadyToValidate()</text><polygon fill="#A80036" points="1550.5,299.3672,1560.5,303.3672,1550.5,307.3672,1554.5,303.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="961.5" x2="1556.5" y1="303.3672" y2="303.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="968.5" y="298.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="261" x="979.5" y="298.5107">readyToValidateDto = toDto(readyToValidate)</text><polygon fill="#A80036" points="574.5,359.7188,564.5,363.7188,574.5,367.7188,570.5,363.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="568.5" x2="955.5" y1="363.7188" y2="363.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="580.5" y="358.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="147" x="591.5" y="358.8623">testsReadyToValidateDto</text><polygon fill="#A80036" points="85.5,406.4219,75.5,410.4219,85.5,414.4219,81.5,410.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="79.5" x2="557.5" y1="410.4219" y2="410.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="91.5" y="397.3896">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="383" x="102.5" y="389.2139">shows the test(s) that have the test registration date, the chemical</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="356" x="106.5" y="405.5654">analysis date and the diagnosis date registered in the system</text><path d="M10,425.4219 L83,425.4219 L83,433.4219 L73,443.4219 L10,443.4219 L10,425.4219 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="338.0313" style="stroke:#000000;stroke-width:2.0;" width="1798.5" x="10" y="425.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="28" x="25" y="439.917">loop</text><polygon fill="#A80036" points="541.5,462.125,551.5,466.125,541.5,470.125,545.5,466.125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="74.5" x2="547.5" y1="466.125" y2="466.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="81.5" y="461.2686">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="98" x="92.5" y="461.2686">select the test(s)</text><polygon fill="#A80036" points="939.5,492.4766,949.5,496.4766,939.5,500.4766,943.5,496.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="563.5" x2="945.5" y1="496.4766" y2="496.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="570.5" y="491.6201">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="188" x="581.5" y="491.6201">createValidateTest(internalCode)</text><polygon fill="#A80036" points="1311.5,522.8281,1321.5,526.8281,1311.5,530.8281,1315.5,526.8281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="961.5" x2="1317.5" y1="526.8281" y2="526.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="968.5" y="521.9717">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="203" x="986.5" y="521.9717">test= getTestByCode(internalCode)</text><polygon fill="#A80036" points="1311.5,553.1797,1321.5,557.1797,1311.5,561.1797,1315.5,557.1797" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="961.5" x2="1317.5" y1="557.1797" y2="557.1797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="968.5" y="552.3232">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="225" x="986.5" y="552.3232">testValidation=createValidateTest(test)</text><polygon fill="#A80036" points="1674.5,583.5313,1684.5,587.5313,1674.5,591.5313,1678.5,587.5313" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1328.5" x2="1680.5" y1="587.5313" y2="587.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1335.5" y="582.6748">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="1353.5" y="582.6748">createValidateTest(test)</text><rect fill="#FEFECE" filter="url(#f108hfz32xe8tu)" height="49.2188" style="stroke:#A80036;stroke-width:1.5;" width="108" x="1686.5" y="565.1797"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="89" x="1696" y="586.7129">testValidation:</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="1697.5" y="604.3223">TestValidation</text><line style="stroke:#A80036;stroke-width:1.0;" x1="966.5" x2="1008.5" y1="651.75" y2="651.75"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1008.5" x2="1008.5" y1="651.75" y2="664.75"/><line style="stroke:#A80036;stroke-width:1.0;" x1="967.5" x2="1008.5" y1="664.75" y2="664.75"/><polygon fill="#A80036" points="977.5,660.75,967.5,664.75,977.5,668.75,973.5,664.75" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="973.5" y="646.8936">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="221" x="991.5" y="646.8936">testValidationList = addValidTest(test)</text><polygon fill="#A80036" points="574.5,721.1016,564.5,725.1016,574.5,729.1016,570.5,725.1016" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="568.5" x2="955.5" y1="725.1016" y2="725.1016"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="580.5" y="720.2451">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="49" x="598.5" y="720.2451">success</text><polygon fill="#A80036" points="85.5,751.4531,75.5,755.4531,85.5,759.4531,81.5,755.4531" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="79.5" x2="557.5" y1="755.4531" y2="755.4531"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="91.5" y="750.5967">15</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="96" x="109.5" y="750.5967">ask for validation</text><polygon fill="#A80036" points="541.5,788.8047,551.5,792.8047,541.5,796.8047,545.5,792.8047" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="74.5" x2="547.5" y1="792.8047" y2="792.8047"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="81.5" y="787.9482">16</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="128" x="99.5" y="787.9482">confirms the validation</text><polygon fill="#A80036" points="939.5,819.1563,949.5,823.1563,939.5,827.1563,943.5,823.1563" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="563.5" x2="945.5" y1="823.1563" y2="823.1563"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="570.5" y="818.2998">17</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="588.5" y="818.2998">saveValidation()</text><polygon fill="#A80036" points="1311.5,849.5078,1321.5,853.5078,1311.5,857.5078,1315.5,853.5078" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="961.5" x2="1317.5" y1="853.5078" y2="853.5078"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="968.5" y="848.6514">18</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="179" x="986.5" y="848.6514">doValidation(testValidationList)</text><path d="M1260.5,868.5078 L1333.5,868.5078 L1333.5,876.5078 L1323.5,886.5078 L1260.5,886.5078 L1260.5,868.5078 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="393.4609" style="stroke:#000000;stroke-width:2.0;" width="962" x="1260.5" y="868.5078"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="28" x="1275.5" y="883.0029">loop</text><line style="stroke:#A80036;stroke-width:1.0;" x1="1338.5" x2="1380.5" y1="909.2109" y2="909.2109"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1380.5" x2="1380.5" y1="909.2109" y2="922.2109"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1339.5" x2="1380.5" y1="922.2109" y2="922.2109"/><polygon fill="#A80036" points="1349.5,918.2109,1339.5,922.2109,1349.5,926.2109,1345.5,922.2109" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1345.5" y="904.3545">19</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="197" x="1363.5" y="904.3545">changeStateToValidationDone(tst)</text><polygon fill="#A80036" points="1725.5,978.5625,1735.5,982.5625,1725.5,986.5625,1729.5,982.5625" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1333.5" x2="1731.5" y1="982.5625" y2="982.5625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1340.5" y="977.7061">20</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="81" x="1358.5" y="977.7061">test=getTest()</text><polygon fill="#A80036" points="1823.5,1038.9141,1833.5,1042.9141,1823.5,1046.9141,1827.5,1042.9141" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1333.5" x2="1829.5" y1="1042.9141" y2="1042.9141"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1340.5" y="1038.0576">21</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="1358.5" y="1038.0576">client = getClient()</text><polygon fill="#A80036" points="1898.5,1099.2656,1908.5,1103.2656,1898.5,1107.2656,1902.5,1103.2656" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1333.5" x2="1904.5" y1="1103.2656" y2="1103.2656"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1340.5" y="1098.4092">22</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="100" x="1358.5" y="1098.4092">name=getName()</text><polygon fill="#A80036" points="2154,1159.6172,2164,1163.6172,2154,1167.6172,2158,1163.6172" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1333.5" x2="2160" y1="1163.6172" y2="1163.6172"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1340.5" y="1158.7607">23</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="142" x="1358.5" y="1158.7607">validatedAt = DateTime()</text><polygon fill="#A80036" points="2022,1219.9688,2032,1223.9688,2022,1227.9688,2026,1223.9688" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="1333.5" x2="2028" y1="1223.9688" y2="1223.9688"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="1340.5" y="1219.1123">24</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="192" x="1358.5" y="1219.1123">sendEmailSmsNotification(name)</text><polygon fill="#A80036" points="85.5,1287.3203,75.5,1291.3203,85.5,1295.3203,81.5,1291.3203" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="79.5" x2="557.5" y1="1291.3203" y2="1291.3203"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="91.5" y="1286.4639">25</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="271" x="109.5" y="1286.4639">saves validation and informs operation success</text><!--MD5=[290c6997be0385b0daac8fe10ae1a614]
+@startuml
+autonumber
+'hide footbox
+actor "Lab Coordinator" as LC
+
+participant ":ValidationUI" as UI
+participant ":ValidationController" as CTRL
+participant ":Company" as C
+participant "store:TestStore" as TS
+participant "testToValidate \n :TestsReadyToValidateMapper" as TVM
+participant "testValidation:\n TestValidation" as TV
+participant "tst :test" as TST
+participant "ct \n : Client" as CT
+participant "EmailAndSmsMessage" as EM
+participant ":DateTime" as DT
+participant "readyToValidateList: \n List<TestReadyToValidateDTO>" as LTVDTO
+participant "testValidateDTO: \n TestReadyToValidateDTO" as TVDTO
+
+LC -> UI : validate work done by the clinical chemistry technologist and specialist doctor
+activate UI
+    UI -> CTRL : readyToValidate(testRegistrationDate, caDate, diagnosisDate)
+    activate CTRL
+    CTRL -> C : testStore = getTestStore()
+    activate C
+    deactivate C
+    CTRL -> TS : readyToValidateList = getTestsReadyToValidate()
+    activate TS
+    deactivate TS
+    CTRL -> TVM : readyToValidateDto = toDto(readyToValidate)
+    activate TVM
+    deactivate TVM
+    deactivate TVM
+    CTRL - -> UI : testsReadyToValidateDto
+    deactivate CTRL
+    UI - -> LC : shows the test(s) that have the test registration date, the chemical\n analysis date and the diagnosis date registered in the system
+deactivate UI
+loop
+LC -> UI : select the test(s)
+activate UI
+
+UI -> CTRL : createValidateTest(internalCode)
+activate CTRL
+CTRL -> TS : test= getTestByCode(internalCode)
+activate TS
+CTRL -> TS : testValidation=createValidateTest(test)
+TS-> TV** : createValidateTest(test)
+deactivate TS
+
+
+
+CTRL -> CTRL : testValidationList = addValidTest(test)
+activate CTRL
+deactivate CTRL
+CTRL - -> UI : success
+deactivate CTRL
+
+    UI - -> LC : ask for validation
+    deactivate CTRL
+deactivate UI
+end
+LC -> UI : confirms the validation
+activate UI
+    UI -> CTRL : saveValidation()
+    activate CTRL
+    CTRL -> TS : doValidation(testValidationList)
+    loop
+    activate TS
+    TS -> TS : changeStateToValidationDone(tst)
+    activate TS
+    deactivate TS
+    TS -> TV : test=getTest()
+    activate TV
+    deactivate TV
+    TS -> TST : client = getClient()
+    activate TST
+    deactivate TST
+    TS -> CT : name=getName()
+    activate CT
+    deactivate CT
+    TS -> DT : validatedAt = DateTime()
+    activate DT
+        deactivate DT
+    TS -> EM : sendEmailSmsNotification(name)
+    activate EM
+        deactivate EM
+   end
+
+
+    deactivate TS
+
+
+UI - -> LC : saves validation and informs operation success
+deactivate C
+deactivate UI
+deactivate CTRL
+
+@enduml
+
+@startuml
+autonumber
+actor "Lab Coordinator" as LC
+
+participant ":ValidationUI" as UI
+participant ":ValidationController" as CTRL
+participant ":Company" as C
+participant "store:TestStore" as TS
+participant "testToValidate \n :TestsReadyToValidateMapper" as TVM
+participant "testValidation:\n TestValidation" as TV
+participant "tst :test" as TST
+participant "ct \n : Client" as CT
+participant "EmailAndSmsMessage" as EM
+participant ":DateTime" as DT
+participant "readyToValidateList: \n List<TestReadyToValidateDTO>" as LTVDTO
+participant "testValidateDTO: \n TestReadyToValidateDTO" as TVDTO
+
+LC -> UI : validate work done by the clinical chemistry technologist and specialist doctor
+activate UI
+    UI -> CTRL : readyToValidate(testRegistrationDate, caDate, diagnosisDate)
+    activate CTRL
+    CTRL -> C : testStore = getTestStore()
+    activate C
+    deactivate C
+    CTRL -> TS : readyToValidateList = getTestsReadyToValidate()
+    activate TS
+    deactivate TS
+    CTRL -> TVM : readyToValidateDto = toDto(readyToValidate)
+    activate TVM
+    deactivate TVM
+    deactivate TVM
+    CTRL - -> UI : testsReadyToValidateDto
+    deactivate CTRL
+    UI - -> LC : shows the test(s) that have the test registration date, the chemical\n analysis date and the diagnosis date registered in the system
+deactivate UI
+loop
+LC -> UI : select the test(s)
+activate UI
+
+UI -> CTRL : createValidateTest(internalCode)
+activate CTRL
+CTRL -> TS : test= getTestByCode(internalCode)
+activate TS
+CTRL -> TS : testValidation=createValidateTest(test)
+TS-> TV** : createValidateTest(test)
+deactivate TS
+
+
+
+CTRL -> CTRL : testValidationList = addValidTest(test)
+activate CTRL
+deactivate CTRL
+CTRL - -> UI : success
+deactivate CTRL
+
+    UI - -> LC : ask for validation
+    deactivate CTRL
+deactivate UI
+end
+LC -> UI : confirms the validation
+activate UI
+    UI -> CTRL : saveValidation()
+    activate CTRL
+    CTRL -> TS : doValidation(testValidationList)
+    loop
+    activate TS
+    TS -> TS : changeStateToValidationDone(tst)
+    activate TS
+    deactivate TS
+    TS -> TV : test=getTest()
+    activate TV
+    deactivate TV
+    TS -> TST : client = getClient()
+    activate TST
+    deactivate TST
+    TS -> CT : name=getName()
+    activate CT
+    deactivate CT
+    TS -> DT : validatedAt = DateTime()
+    activate DT
+        deactivate DT
+    TS -> EM : sendEmailSmsNotification(name)
+    activate EM
+        deactivate EM
+   end
+
+
+    deactivate TS
+
+
+UI - -> LC : saves validation and informs operation success
+deactivate C
+deactivate UI
+deactivate CTRL
+
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
