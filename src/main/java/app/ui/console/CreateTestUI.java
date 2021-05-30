@@ -44,11 +44,11 @@ public class CreateTestUI implements Runnable {
                     return false;
                 }
                 testTypeSelection();
-                if (parameterSelection())
+                if (parameterSelection()) {
                     ctrl.createTest();
-                if (Objects.requireNonNull(Utils.readLineFromConsole("Save test? (Y/N)")).equalsIgnoreCase("Y"))
-                    return ctrl.saveTest();
-                else
+                    if (Objects.requireNonNull(Utils.readLineFromConsole("Save test? (Y/N)")).equalsIgnoreCase("Y"))
+                        return ctrl.saveTest();
+                }else
                     return false;
             } catch (Exception e) {
                 System.out.println(e.getLocalizedMessage());

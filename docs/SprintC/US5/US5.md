@@ -172,11 +172,128 @@ Other software classes (i.e. Pure Fabrication) identified:
 # 5. Construction (Implementation)
 
 
-## Class CreateTaskController
+## Class RegisterSampleController
+
+    public class RegisterSampleController {
+
+    private TestStore testStore;
+
+    private CATest test;
+
+    private Sample sample;
+
+    /**
+     * This constructor finds the instance of the company being used by the app
+     */
+    public RegisterSampleController() {
+        this(App.getInstance().getCompany());
+    }
+
+    /**
+     * This constructor finds the testStore used by the company
+     */
+    public RegisterSampleController(Company company) {
+        this.testStore = company.getTestStore();
+    }
+
+    /**
+     * This method returns a list with the main information about each test available without a sample
+     *
+     * @return a list of Strings holding the data for each test
+     */
+    public List<String> getTestWithoutSample() {
+        List<CATest> lTestNoSample = testStore.getTestWithoutSample();
+        if (lTestNoSample != null) {
+            TestListMapper tlm = new TestListMapper();
+            return tlm.toDto(lTestNoSample);
+        }
+        return null;
+    }
 
 
 
-## Class Organization
+    /**
+     * This method receives an internal code and finds the test that has it from the test store, then, returns all of its test codes
+     * @param testCode internal code to be used
+     * @return all the parameter tested results
+     */
+    public String getData(String testCode){
+        this.test = testStore.getTestByCode(testCode);
+        return test.getInternalCode();
+    }
+
+
+    /**
+     * This method  uses the internal code to generate the bar code
+     * @param data internal code to be used
+     * @return gerated barcod
+     * @throws OutputException prevents error
+     * @throws IOException prevents error
+     */
+    public  Barcode createUPCA (String data) throws  OutputException, IOException {
+        Barcode barcode = null;
+        try {
+            barcode = BarcodeFactory.createUPCA(data);
+        } catch (BarcodeException e) {
+            e.printStackTrace();
+        }
+        File imgFile = new File("UPCA.jpg");
+        BarcodeImageHandler.saveJPEG(barcode, imgFile);
+        return barcode ;
+    }
+
+    /**
+     * This method turns the Arraylist received to
+     * @param sampleList list to be added
+     * @return sample
+     */
+    public Sample createSample(ArrayList sampleList) {
+        this.sample = new Sample(sampleList);
+        return sample;
+    }
+
+    /**
+     * When everything is confirmed by the user, this method saves the samples created as an attribute of its test
+     */
+    public boolean addSample(){
+        return this.test.addSample(this.sample);
+    }
+
+
+}
+
+
+
+
+
+## Class Sample
+
+    public class Sample {
+    private List<Sample> sampleList ;
+
+    /**
+     * creates a list of class sample list
+     * @param sampleList
+     */
+    public Sample(ArrayList sampleList) {
+        this.sampleList = new ArrayList<>(sampleList);
+    }
+
+    /**
+     * method to get the sample list
+     * @return sampleList
+     */
+    public List<Sample> getSampleList() { return sampleList; }
+
+    /**
+     * to String method to show the
+     * @return a String
+     */
+    @Override
+    public String toString() {
+        return "Sample:"+sampleList;
+    }
+    }
 
 
 
@@ -184,7 +301,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 # 6. Integration and Demo
 
-* A new option on the Reception menu options was added.
+* A new option on the  menu options was added.
 
 
 # 7. Observations

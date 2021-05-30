@@ -68,13 +68,17 @@ public class RegisterSampleController {
     /**
      * This method  uses the internal code to generate the bar code
      * @param data internal code to be used
-     * @return gerated barcode
-     * @throws BarcodeException prevents error
+     * @return gerated barcod
      * @throws OutputException prevents error
      * @throws IOException prevents error
      */
-    public  Barcode createUPCA (String data) throws BarcodeException, OutputException, IOException {
-        Barcode barcode = BarcodeFactory.createUPCA(data);
+    public  Barcode createUPCA (String data) throws  OutputException, IOException {
+        Barcode barcode = null;
+        try {
+            barcode = BarcodeFactory.createUPCA(data);
+        } catch (BarcodeException e) {
+            e.printStackTrace();
+        }
         File imgFile = new File("UPCA.jpg");
         BarcodeImageHandler.saveJPEG(barcode, imgFile);
         return barcode ;
