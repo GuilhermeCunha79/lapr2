@@ -37,6 +37,13 @@ public class TestTest {
         new CATest("", client, typeOfTest, lparameter, "35410");
     }
 
+    @Test(expected = NullPointerException.class)
+    public void ensureParameterListCannotBeNull() {
+        Client client = new Client(new ClientDTO("Rafa", "7874789568987458", "3652563652", "4587896589", "12/11/2012", "male", "77889966554", "sandro@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("47854", "323", "566", new ParameterCategory("12934", "Gomes"));
+        new CATest("123133131231", client, typeOfTest, null, "23432");
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void ensureNhsCodeMustHaveAlphanumericChar() {
         Client client = new Client(new ClientDTO("Rafa", "7874789568987458", "3652563652", "4587896589", "12/11/2012", "male", "77889966554", "sandro@isep.ipp.pt"));
@@ -152,8 +159,8 @@ public class TestTest {
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("33231", "uiy", "090", new ParameterCategory("55900", "fmds")));
         CATest t5 = new CATest("002150021456", client, typeOfTest, lparameter, "77065");
-        String expected = String.format("77065");
-        assertEquals(expected, t5.getLabWhereCreated().toString());
+        String expected = "77065";
+        assertEquals(expected, t5.getLabWhereCreated());
     }
 
 
@@ -174,10 +181,6 @@ public class TestTest {
         new CATest("000111222333", client, null, lparameter, "30174");
     }
 
-
-
-
-
     @Test
     public void checkToStringMethod() {
         Client client = new Client(new ClientDTO("Fabio", "1118011112101115", "6663206663", "7741777410", "21/08/1999", "male", "99969963210", "fabio@isep.ipp.pt"));
@@ -185,7 +188,7 @@ public class TestTest {
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("00700", "hyre", "7272", new ParameterCategory("99990", "sssd")));
         CATest test1 = new CATest("001400140014", client, typeOfTest, lparameter, "77000");
-        String expected = String.format("CA Test:%nNHS Code: 001400140014%nClient: Client:%nName: Fabio%nCitizen Card Number: 1118011112101115%nNHS number: 6663206663%nTIN number: 7741777410%nBirth date: 21/08/1999%nSex: male%nPhone number: 99969963210%nEmail: fabio@isep.ipp.pt%nType Of Test: Type of Test:%nCode: 44044%nDescription: 0028%nCollecting Method: 1303%nParameter Category(ies):%nParameter Category -> Name: dddg | Code: 44707 |%n%nParameter List: [Parameter -> Code: 00700 | Name: hyre | Description: 7272]%nLab Where Created: 77000%nInternal Code: 000000000001%n");
+        String expected = String.format("CA Test:%nNHS Code: 001400140014%nClient: Client:%nName: Fabio%nCitizen Card Number: 1118011112101115%nNHS number: 6663206663%nTIN number: 7741777410%nBirth date: 21/08/1999%nSex: male%nPhone number: 99969963210%nEmail: fabio@isep.ipp.pt%nType Of Test: Type of Test:%nCode: 44044%nDescription: 0028%nCollecting Method: 1303%nParameter Category(ies):%nParameter Category -> Name: dddg | Code: 44707 |%n%nParameter List: [Parameter -> Code: 00700 | Name: hyre | Description: 7272]%nLab Where Created: 77000%nInternal Code: 000000000002%n");
         assertEquals(expected, test1.toString());
 
 
@@ -202,8 +205,24 @@ public class TestTest {
     }
 
     @Test
-    public void ensureThatNhsCodeAreNotTheSameInTwoTests() {
+    public void ensureAddingSameParameterDoesntWorks() {
+        Client client = new Client(new ClientDTO("Eva", "2228889809321234", "5411211201", "7017410787", "23/11/1986", "female" , "42224324321", "eva@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("10000", "1212", "112", new ParameterCategory("99000", "dwqe"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("22222", "kkk", "11111", new ParameterCategory("66666", "uico")));
+        CATest caTest = new CATest("777807778401", client, typeOfTest, lparameter, "00123");
+        caTest.addParameter(new Parameter("07770", "lll", "32032", new ParameterCategory("01121", "zzz")));
+        assertFalse(caTest.addParameter(new Parameter("07770", "lll", "32032", new ParameterCategory("01121", "zzz"))));
+    }
 
+    @Test
+    public void ensureThatNhsCodeAreNotTheSameInTwoTests() {
+        Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
+        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
+        assertTrue(test.addReport(new Report("afakdfbabdf")));
     }
 
     @Test
@@ -225,6 +244,41 @@ public class TestTest {
         CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
         test.addReport(new Report("afakdfbabdf"));
         assertTrue(test.getReportStatus());
+    }
+
+    @Test
+    public void checkAddTestParameterResultMethod(){
+        Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
+        assertTrue(test.addTestParameterResult("IgGAN", 0.22, "mg"));
+    }
+
+    @Test
+    public void checkAddTestParameterResultDoesntWorkWhenTheTestParameterIsntFound(){
+        Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
+        assertFalse(test.addTestParameterResult("98909", 0.22, "mg"));
+    }
+
+
+   @Test
+    public void checkItsNotAllowedToRegisterAResultForTheSameParameterTwice(){
+        Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
+        TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001");
+        test.addTestParameterResult("IgGAN", 0.22, "mg");
+        String expected = String.format("%n%nTest Results: %n" +
+                "- Parameter tested: Parameter -> Code: IgGAN | Name: IgGAN | Description: IgC antibodies | Results -> value: 0.220000 mg | Reference Values -> min. value: 0.000000 Index (S/C) Value | max. value: 1.400000 Index (S/C) Value %n");
+        assertEquals(expected, test.getTestResults());
+
     }
 
 }

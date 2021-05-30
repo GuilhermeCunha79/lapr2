@@ -37,13 +37,12 @@ public class CATest {
         setClient(client);
         this.typeOfTest = typeOfTest;
         this.createdAt = new DateTime();
-        this.parameterList = new ArrayList<>(parameterList);
-        createTestParameterList();
         this.internalCode = generateInternalCode();
         this.client = client;
         setNhsCode(nhsCode);
         setTypeOfTest(typeOfTest);
         setParameterList(parameterList);
+        createTestParameterList();
     }
 
 
@@ -139,6 +138,11 @@ public class CATest {
         return false;
     }
 
+    /**
+     * This method ensures that its not possible to add the same parameter twice
+     * @param parameter to add
+     * @return if it's duplicated or not
+     */
     private boolean checkDuplications(Parameter parameter) {
         for (Parameter p : this.parameterList) {
             if (p.equals(parameter)) {
@@ -201,7 +205,7 @@ public class CATest {
      * @return the results available
      */
     public String getTestResults() {
-        String results = "\n\nTest Results: \n";
+        String results = String.format("%n%nTest Results: %n");
         if (!testParametersList.isEmpty()) {
             for (TestParameter result : testParametersList) {
                 results = results.concat(result.toString());
@@ -250,6 +254,13 @@ public class CATest {
         return this.reportDone;
     }
 
+    /**
+     * This method adds a new result to a parameter tested
+     * @param paramCode of the parameter tested
+     * @param value obtained from the analysis
+     * @param metric used to measure the result
+     * @return if it was added or not
+     */
 
     public boolean addTestParameterResult(String paramCode, double value, String metric) {
         TestParameter testParam = getTestParameterByCode(paramCode);
@@ -313,6 +324,11 @@ public class CATest {
                 this.internalCode, this.nhsCode, this.createdAt);
     }
 
+    /**
+     * This method compares two tests and returns if they are the same or not
+     * @param o object to compare with
+     * @return the result of the comparison
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -45,6 +45,6 @@ public class TestParameter {
      */
     @Override
     public String toString() {
-        return String.format("- Parameter tested: %s | %s \n", parameter, testParameterResult);
+        return String.format("- Parameter tested: %s | %s %n", parameter, testParameterResult);
     }
 }
