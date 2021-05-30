@@ -80,12 +80,12 @@ public class App {
         this.authFacade.addUserRole(Constants.ROLE_CLIENT,Constants.ROLE_CLIENT);
         this.authFacade.addUserRole(Constants.ROLE_SPECIALIST_DOCTOR,Constants.ROLE_SPECIALIST_DOCTOR);
         this.authFacade.addUserRole(Constants.ROLE_CLINICAL_CHEMISTRY_TECHNOLOGIST,Constants.ROLE_CLINICAL_CHEMISTRY_TECHNOLOGIST);
+        this.authFacade.addUserRole(Constants.ROLE_MEDICAL_LAB_TECHNICIAN,Constants.ROLE_MEDICAL_LAB_TECHNICIAN);
+
 
         this.authFacade.addUserWithRole("Main Administrator", "admin@lei.sem2.pt", "123456",Constants.ROLE_ADMIN);
         this.authFacade.addUserWithRole("Receptionist", "recep@lei.sem2.pt", "123456",Constants.ROLE_RECEPTIONIST);
         this.authFacade.addUserWithRole("Clinical chemistry technologist", "cct@lei.sem2.pt", "123456",Constants.ROLE_CLINICAL_CHEMISTRY_TECHNOLOGIST);
-        this.authFacade.addUserWithRole("Lab Coordinator", "lab@lei.sem2.pt", "123456",Constants.ROLE_LAB_COORDINATOR);
-        this.authFacade.addUserWithRole("Specialist doctor", "sp@lei.sem2.pt", "123456",Constants.ROLE_SPECIALIST_DOCTOR);
 
         this.getCompany().getParameterCategoryStore().saveParameterCategory(new ParameterCategory("12345", "Blood"));
         this.getCompany().getParameterStore().saveParameter(new Parameter("WBC00", "WBC", "White blood count", new ParameterCategory("12345", "Blood")));

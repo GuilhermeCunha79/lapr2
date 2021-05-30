@@ -188,7 +188,7 @@ public class TestTest {
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("00700", "hyre", "7272", new ParameterCategory("99990", "sssd")));
         CATest test1 = new CATest("001400140014", client, typeOfTest, lparameter, "77000");
-        String expected = String.format("CA Test:%nNHS Code: 001400140014%nClient: Client:%nName: Fabio%nCitizen Card Number: 1118011112101115%nNHS number: 6663206663%nTIN number: 7741777410%nBirth date: 21/08/1999%nSex: male%nPhone number: 99969963210%nEmail: fabio@isep.ipp.pt%nType Of Test: Type of Test:%nCode: 44044%nDescription: 0028%nCollecting Method: 1303%nParameter Category(ies):%nParameter Category -> Name: dddg | Code: 44707 |%n%nParameter List: [Parameter -> Code: 00700 | Name: hyre | Description: 7272]%nLab Where Created: 77000%nInternal Code: 000000000002%n");
+        String expected = String.format("Internal Code: 000000000002 | NHS Code: 001400140014 | Created on: %s |", new DateTime());
         assertEquals(expected, test1.toString());
 
 

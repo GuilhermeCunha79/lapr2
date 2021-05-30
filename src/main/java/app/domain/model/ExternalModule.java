@@ -2,5 +2,5 @@ package app.domain.model;
 
 public interface ExternalModule {
 
-    public ReferenceValue getReferenceValue(Parameter parameter);
+    ReferenceValue getReferenceValue(Parameter parameter);
 }

@@ -1,10 +1,14 @@
 package app.domain.model;
 
 import com.example1.ExternalModule3API;
-import com.example2.EMRefValue;
-import com.example2.ExternalModule2API;
 
 public class ExternalModuleAdapter2 implements ExternalModule{
+
+    /**
+     * Adapter for the external module 2
+     * @param parameter used to get the reference values
+     * @return the reference values
+     */
     @Override
     public ReferenceValue getReferenceValue(Parameter parameter) {
         ExternalModule3API em3 = new ExternalModule3API();

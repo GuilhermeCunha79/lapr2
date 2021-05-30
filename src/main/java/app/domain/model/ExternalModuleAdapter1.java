@@ -4,6 +4,12 @@ import com.example2.EMRefValue;
 import com.example2.ExternalModule2API;
 
 public class ExternalModuleAdapter1 implements ExternalModule{
+
+    /**
+     * Adapter for the external module 1
+     * @param parameter used to get the reference values
+     * @return the reference values
+     */
     @Override
     public ReferenceValue getReferenceValue(Parameter parameter) {
         ExternalModule2API em2 = new ExternalModule2API();
