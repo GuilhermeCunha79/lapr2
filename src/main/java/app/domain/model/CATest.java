@@ -26,7 +26,9 @@ public class CATest {
     private Report report;
     private List<Sample> sampleList = new ArrayList<>();
     private final List<TestParameter> testParametersList = new ArrayList<>();
+    private final List<CATest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
+    private CATest test;
 
 
     public CATest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated) {
@@ -208,6 +210,18 @@ public class CATest {
         return results;
     }
 
+    public String getTestValidation() {
+        String results = "\n\nTest Results: \n";
+        if (!testReadyToVal.isEmpty()) {
+            for (CATest result : testReadyToVal) {
+                results = results.concat(result.toString());
+            }
+        }
+        return results;
+    }
+
+
+
     /**
      * This method receives a Sample and assigns it to the test it's related to
      *
@@ -235,6 +249,7 @@ public class CATest {
         }
         return this.reportDone;
     }
+
 
     public boolean addTestParameterResult(String paramCode, double value, String metric) {
         TestParameter testParam = getTestParameterByCode(paramCode);
@@ -278,9 +293,12 @@ public class CATest {
         return null;
     }
 
-    public void changeStateValidationToDone() {
-        this.validationDate = new DateTime();
-        validationDone = true;
+    public boolean changeStateValidationToDone() {
+        if (!validationDone) {
+            this.validationDate = new DateTime();
+            return validationDone = true;
+        }
+        return false;
     }
 
 
@@ -291,8 +309,8 @@ public class CATest {
      */
     @Override
     public String toString() {
-        return String.format("CA Test:%nNHS Code: %s%nClient: %s%nType Of Test: %s%nParameter List: %s%nLab Where Created: %s%nInternal Code: %s%n",
-        this.nhsCode, this.client, this.typeOfTest, this.parameterList, this.labWhereCreated, this.internalCode);
+        return String.format("Internal Code: %s | NHS Code: %s | Created on: %s |",
+                this.internalCode, this.nhsCode, this.createdAt);
     }
 
     @Override

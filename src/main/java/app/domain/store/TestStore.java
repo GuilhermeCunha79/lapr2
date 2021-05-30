@@ -170,11 +170,13 @@ public class TestStore {
 
         if (!testWithoutValidation.isEmpty()) {
             for (CATest test:testList) {
-                CATest test1= getTestByCode(test.getInternalCode());
-                Client client = test1.getClient();
-                String name = client.getName();
-                test.changeStateValidationToDone();
-                SendingEmailSMS.sendEmailWithNotification(name);
+                if (!test.getValidationStatus()) {
+                    CATest test1 = getTestByCode(test.getInternalCode());
+                    Client client = test1.getClient();
+                    String name = client.getName();
+                    test.changeStateValidationToDone();
+                    SendingEmailSMS.sendEmailWithNotification(name);
+                }
             }
             return true;
         }

@@ -31,19 +31,16 @@ public class ValidationController {
         return null;
     }
 
-    public CATest getTestByCode(String internalCode) {
-        for (CATest test : testValidationList) {
-            if (test.getInternalCode().equals(internalCode))
-                return test;
-        }
-        return null;
-    }
 
+    public String getTestByCode(String testCode){
+        this.test = testStore.getTestByCode(testCode);
+        return test.getTestResults();
+    }
 //VER SE É NECESSÁRIO
     public boolean changeStateToValidate(List<String> testList) {
         if (!testList.isEmpty()) {
             for (String test : testList) {
-                this.test = getTestByCode(test.substring(15, 27));
+                //this.test = getTestByCode(test.substring(15, 27));
                 this.test.changeStateValidationToDone();
             }
             return true;
@@ -53,7 +50,7 @@ public class ValidationController {
 
     public boolean changeStateToValidateOne(String internalCode) {
         if (test != null) {
-            this.test = getTestByCode(internalCode);
+            //this.test = getTestByCode(internalCode);
             this.test.changeStateValidationToDone();
             return true;
         }
@@ -66,6 +63,15 @@ public class ValidationController {
 
     public boolean doValidationOne(String internalCode) {
         return testStore.doValidationOne(internalCode);
+    }
+
+    public String getTestResults(String testCode){
+        this.test = testStore.getTestByCode(testCode);
+        return test.getTestValidation();
+    }
+
+    public boolean saveValidation(){
+        return this.test.changeStateValidationToDone();
     }
 
     public void displayList(List<String> list){
