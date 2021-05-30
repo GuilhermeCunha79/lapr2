@@ -11,7 +11,7 @@ import java.util.List;
 public class ValidationController {
 
     private TestStore testStore;
-    private List<CATest> testValidationList = new ArrayList<>();
+    private final List<CATest> testValidationList = new ArrayList<>();
     private CATest test;
 
     public ValidationController() {
@@ -32,6 +32,15 @@ public class ValidationController {
         return null;
     }
 
+
+    public String getTestResults(String testCode) {
+        this.test = testStore.getTestByCode(testCode);
+        return test.getTestValidation();
+    }
+
+    public boolean saveValidation() {
+        return this.test.addValidation();
+    }
 
     public String getTestByCode(String testCode) {
         this.test = testStore.getTestByCode(testCode);
@@ -63,17 +72,6 @@ public class ValidationController {
     public boolean doValidation(List<String> testValidationList) {
         return testStore.doValidation(testValidationList);
     }
-
-
-    public String getTestResults(String testCode) {
-        this.test = testStore.getTestByCode(testCode);
-        return test.getTestValidation();
-    }
-
-    public boolean saveValidation() {
-        return this.test.addValidation();
-    }
-
     public List<CATest> getTestList() {
         return App.getInstance().getCompany().getTestStore().getTestList();
     }

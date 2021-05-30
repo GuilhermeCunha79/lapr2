@@ -71,7 +71,7 @@ public class TestStore {
      * @param test object test to be added
      * @return
      */
-    private boolean addTest(CATest test) {
+    public boolean addTest(CATest test) {
         return this.testList.add(test);
     }
 
@@ -154,7 +154,11 @@ public class TestStore {
         }
     }
 
-
+    /***
+     * Method that returns a CATest by its code
+     * @param internalCode
+     * @return caTest or null
+     */
     public CATest getTestByCode(String internalCode) {
         for (CATest caTest : testList) {
             if (caTest.getInternalCode().equals(internalCode))
@@ -186,6 +190,11 @@ public class TestStore {
         return false;
     }
 
+    /***
+     *
+     * @param internalCode
+     * @return
+     */
     public boolean doValidationOne(String internalCode) {
         if (internalCode!=null) {
                 CATest test1= getTestByCode(internalCode);
