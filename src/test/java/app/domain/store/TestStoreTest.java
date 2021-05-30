@@ -78,6 +78,17 @@ public class TestStoreTest {
 
     }
 
+    @Test
+    public void addParameter() {
+
+        Client c1 = new Client(new ClientDTO("Wilson", "2222222222222222", "2222220000", "0000009909", "01/01/2001", "male","09091111110", "wilson@isep.ipp.pt"));
+        TypeOfTest t1 = new TypeOfTest("11202", "33433", "009", new ParameterCategory("11111", "cmb"));
+        List<Parameter> param1 = new ArrayList<>();
+        Parameter param2 = new Parameter("19249", "nam", "33", new ParameterCategory("12942", "llfc"));
+        ts.createTest("333234543456",c1, t1, param1, "77101");
+        assertFalse(ts.addParameter(param2));
+    }
+
 
 
 
