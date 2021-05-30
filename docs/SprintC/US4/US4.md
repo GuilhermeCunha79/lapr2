@@ -97,11 +97,17 @@ NHS code: 12 alphanumeric characters.
 
 
 AC1 -- a test can have only one client
+
 AC2 -- a test can have only one type of test
+
 AC3 -- NHS code must have 12 alphanumeric characters.
+
 AC5 -- NHS code must be unique for each type of test
+
 AC6 -- Internal code must have 12 digit sequential number and generally automatic
+
 AC7 -- A type of test can have one or more categories
+
 AC8 -- A receptionist find the client only by the tin
 
 ### 1.4. Found out Dependencies
