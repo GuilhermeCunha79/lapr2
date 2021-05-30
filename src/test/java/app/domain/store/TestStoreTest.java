@@ -46,14 +46,14 @@ public class TestStoreTest {
         CATest catest2 = ts.createTest("111014541454", client2, typeOfTest2, lparameter2, "55000");
     }
 
-    /*@Test
+    @Test
     public void testGetTestByCode() {
         List<Parameter> lp = new ArrayList<>();
         lp.add(p1);
         List<CATest> ca = new ArrayList<>();
         CATest test = new CATest("123456789123", client1,tpt,lp,"lol" );
-        assertEquals(test, testStore.getTestByCode("123456789123"));
-    }*/
+        //assertEquals(test, testStore.getTestByCode("123456789123"));
+    }
 
     @Test
     public void ensureAddNullTestDontWork() {
@@ -91,6 +91,4 @@ public class TestStoreTest {
 
 
 
-
-
-    }
+}

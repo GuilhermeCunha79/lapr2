@@ -42,4 +42,37 @@ public class ValidationController {
         return this.test.addValidation();
     }
 
+    public String getTestByCode(String testCode) {
+        this.test = testStore.getTestByCode(testCode);
+        return test.getTestResults();
+    }
+
+    //VER SE É NECESSÁRIO
+    public boolean changeStateToValidate(List<String> testList) {
+        if (!testList.isEmpty()) {
+            for (String test : testList) {
+                //this.test = getTestByCode(test.substring(15, 27));
+                this.test.changeStateValidationToDone();
+            }
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean changeStateToValidateOne(String internalCode) {
+        if (test != null) {
+            //this.test = getTestByCode(internalCode);
+            this.test.changeStateValidationToDone();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean doValidation(List<String> testValidationList) {
+        return testStore.doValidation(testValidationList);
+    }
+    public List<CATest> getTestList() {
+        return App.getInstance().getCompany().getTestStore().getTestList();
+    }
 }

@@ -22,8 +22,9 @@ public class ValidationControllerTest extends TestCase {
     TypeOfTest tpt = new TypeOfTest("12345", "noth", "mao",pc1);
     ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt");
     Client client1 = new Client(clDto);
+    List<Parameter> lp = new ArrayList<>();
     Parameter p1 = new Parameter("12345", "abcd", "adsavaa", pc1);
-
+    CATest ct1 = new CATest("123456789111", client, tpt, lp, "lol");
     @Test
     public void testReadyToValidate() {
     }
@@ -33,22 +34,14 @@ public class ValidationControllerTest extends TestCase {
     }
 
     @Test
-    public void testGetTestByCode() {
-        List<Parameter> lp = new ArrayList<>();
-        lp.add(p1);
-        List<CATest> ca = new ArrayList<>();
-            CATest test = new CATest("123456789111", client1,tpt,lp,"lol" );
-            ca.add(test);
-            assertEquals(test, store.getTestByCode("123456789123"));
+    public void testGetTestResults() {
+       // assertEquals();
     }
 
-
-    @Test
-    public void testGetTestResults(){
-
-    }
     @Test
     public void testTestWithoutValidation() {
+        List<Parameter> lp = new ArrayList<>();
+        lp.add(p1);
         Assert.assertNotNull(ctrl.getTestWithoutValidation());
     }
 
@@ -62,10 +55,6 @@ public class ValidationControllerTest extends TestCase {
 
     @Test
     public void testDoValidation() {
-    }
-
-    @Test
-    public void testDisplayList() {
     }
 
     @Test
