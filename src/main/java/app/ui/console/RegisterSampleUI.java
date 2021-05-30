@@ -2,6 +2,7 @@ package app.ui.console;
 
 import app.controller.RegisterSampleController;
 
+
 import app.ui.console.utils.Utils;
 import net.sourceforge.barbecue.Barcode;
 
@@ -41,10 +42,10 @@ public class RegisterSampleUI implements Runnable {
     private boolean recordSample() {
         while (true){
             try {
-                List<String> lTestDto = ctrl.getTestWithoutSample(labId);
+                List<String> lTestDto = ctrl.getTestWithoutSample();
                 if (lTestDto != null) {
                     int option = Utils.showAndSelectIndex(lTestDto, "Select one of the following tests:");
-                    String data = ctrl.getData(lTestDto.get(option).substring(15, 26));
+                    String data = ctrl.getData(lTestDto.get(option).substring(15, 27));
                     System.out.println(data);
                     int n = Utils.readIntegerFromConsole("Write the number of samples below:");
                     List<Barcode> sampleList = new ArrayList<>(n);

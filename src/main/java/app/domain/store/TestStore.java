@@ -102,11 +102,11 @@ public class TestStore {
             return lTestNoResult;
     }
 
-    public List<CATest> getTestWithoutSample(String labId) {
+    public List<CATest> getTestWithoutSample() {
         List<CATest> lTestNoSample = new ArrayList<>();
         if (!testList.isEmpty()) {
             for (CATest test : testList) {
-                if (!test.getReportStatus())
+                if (!test.getSampleStatus())
                     lTestNoSample.add(test);
             }
             if (lTestNoSample.isEmpty())

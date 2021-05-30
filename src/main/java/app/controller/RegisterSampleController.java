@@ -42,16 +42,17 @@ public class RegisterSampleController {
      * This method returns a list with the main information about each test available without a sample
      *
      * @return a list of Strings holding the data for each test
-     * @param labId
      */
-    public List<String> getTestWithoutSample(String labId) {
-        List<CATest> testList = testStore.getTestWithoutSample(labId);
-        if (!testList.isEmpty()) {
+    public List<String> getTestWithoutSample() {
+        List<CATest> lTestNoSample = testStore.getTestWithoutSample();
+        if (lTestNoSample != null) {
             TestListMapper tlm = new TestListMapper();
-            return tlm.toDto(testList);
+            return tlm.toDto(lTestNoSample);
         }
         return null;
     }
+
+
 
     /**
      * This method receives an internal code and finds the test that has it from the test store, then, returns all of its test codes
@@ -62,6 +63,7 @@ public class RegisterSampleController {
         this.test = testStore.getTestByCode(testCode);
         return test.getInternalCode();
     }
+
 
     /**
      * This method  uses the internal code to generate the bar code

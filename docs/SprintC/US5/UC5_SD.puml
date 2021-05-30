@@ -8,12 +8,12 @@ participant ":RegisterSampleUI" as UI
 participant ":RegisterSampleController" as CTRL
 participant "comp\n:Company" as COMP
 
-participant "sampleStore: SampleStore" as SSTORE
+
+participant "Barcode" as B
 
 participant "testStore: TestStore" as TSTORE
 
 participant "sample\n:Sample" as SAMPLE
-participant "sampleDto: SampleDto" as SAMPLEDTO
 participant "testMap:TestMapper" as TMAPPER
 
 activate Mlt
@@ -58,45 +58,59 @@ activate Mlt
         deactivate TSTORE
         deactivate CTRL
 
-        UI --> Mlt: print select test and ask the number of samples (n)
+        UI --> Mlt: print select test and ask the number of samples (data,n)
 
     deactivate UI
 
-    Mlt -> UI : input number of samples(n)
+    Mlt -> UI : input number of samples(data)
 
     activate UI
-
-        UI -> CTRL : generateSample(n)
+        UI->UI : createSampleList(n)
+        loop until number of barcodes is equal to n
+        UI -> CTRL : createUPCA(data)
         activate CTRL
-        CTRL -> SAMPLE : generateSample(n)
+        CTRL -> B : createUPCA(data)
+        activate B
+        B --> CTRL : addToSampleList(UPCA)
+        deactivate B
+        CTRL --> UI : addToSampleList(UPCA)
+        deactivate CTRL
+        end
+
+        UI -> CTRL : createSample(sampleList)
+        activate CTRL
+        CTRL -> SAMPLE : createSample(sampleList)
         activate SAMPLE
+        SAMPLE--> CTRL:Sample(sampleList)
         deactivate SAMPLE
+        CTRL--> UI:Sample(sampleList)
         deactivate CTRL
 
-        UI --> Mlt: print all data (array) and ask for confirmation
+
+        UI --> Mlt: print all data (sampleList) and ask for confirmation
 
     deactivate UI
 
 Mlt -> UI :  confirms the data
 
     activate UI
-         UI -> CTRL : saveSample(array)
+         UI -> CTRL : addSample(sampleList)
          activate CTRL
-         CTRL -> SSTORE : saveSample(array)
-           activate SSTORE
-           SSTORE -> SSTORE : validateSample(array)
-           SSTORE -> SSTORE : addSample(array)
+         CTRL -> TSTORE : addSample(sampleList)
+           activate TSTORE
+           TSTORE -> TSTORE : validateSample(sampleList)
+           TSTORE -> TSTORE : addSample(sampleList)
 
-           SSTORE --> CTRL : Sample added
+           TSTORE --> CTRL : Sample added
 
-         deactivate SSTORE
+         deactivate TSTORE
 
           CTRL --> UI: result
          deactivate CTRL
 
-         UI -> CTRL : setSample(array)
+         UI -> CTRL : setSample(sampleList)
          activate CTRL
-         CTRL -> TSTORE : setSample(array)
+         CTRL -> TSTORE : setSample(sampleList)
          activate TSTORE
          deactivate TSTORE
 

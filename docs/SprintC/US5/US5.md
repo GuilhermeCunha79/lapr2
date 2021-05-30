@@ -127,8 +127,8 @@ n/a
 | Step 5		 | ... receives the number of Samples ?	| Sample  |   **IE**  object created in step 1 has its own data.   |
 | Step 6		 | ...knowing the task categories to show? |  RegisterSampleController | **IE** Sample Categories are defined by the RegisterSampleController. |
 | Step 7		|	... validating all data (local validation)? | Sample | **IE** owns its data.| 
-| 			  		 |	... validating all data (global validation)? | SampleStore| **IE** knows all its samples.| 
-| 			  		 |	... saving the created sample? | SampleStore | **IE** owns all its sample.|
+| 			  		 |	... validating all data (global validation)? | TestStore| **IE** knows all its samples.| 
+| 			  		 |	... saving the created sample? | TestStore | **IE** owns all its sample.|
 |                     |... setting the samples? | TestStore | 
 | Step 8		 | ... informing operation success?| RegisterSampleUI  | **IE** is responsible for user interactions.  | 
 

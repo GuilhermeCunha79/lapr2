@@ -4,6 +4,10 @@
 skinparam classAttributeIconSize 0
 left to right direction
 
+class Barcode{
+ +generateUPCA
+}
+
 class TestStore {
   + getTestList()
   + getTestById(test)
@@ -19,7 +23,6 @@ class Test {
 class Company {
   -String designation
   + Company(designation)
-  + getSampleStore()
   + getTestStore()
 }
 
@@ -40,12 +43,12 @@ RegisterSampleUI ..> RegisterSampleController
 RegisterSampleController ..> Company
 RegisterSampleController ..> Sample
 RegisterTestController ..> TestMapper
+RegisterSampleController ..> Barcode
 RegisterTestController ..> TestDto
 TestMapper ..> Test
 TestMapper ..> TestDto
 
 Company "1" -> "1" TestStore : use
-Company "1" -> "1" SampleStore : use
-SampleStore"1" -> "*" Sample : knows
+TestStore"1" -> "*" Sample : knows
 TestMapper"1"->"*" TestStore : access
 @enduml

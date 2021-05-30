@@ -1,6 +1,6 @@
-Hello james,
+Hello carl,
 You now can use your email and the following password to access Many Labs app: 
 
 Login data: 
-Email: james@gmail.com
-Password: lrt7xm6fup
+Email: mlt@lei.sem2.pt
+Password: VBtzz7EQD1
