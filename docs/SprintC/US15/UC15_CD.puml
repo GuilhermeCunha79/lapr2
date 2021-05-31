@@ -1,12 +1,27 @@
 @startuml
 skinparam classAttributeIconSize 0
-
+package Controller {
+class ValidationController {
+  + getTestsWithoutValidation()
+  + saveValidation()
+  + getTestValidationList()
+  +getTestResults(code)
+  +doValidation(testValidationList)
+}
+}
+package Mappers {
+class TestsReadyToValidateMapper {
+  + List<String>toDTO(List<CATest> listOfTestsReadyToValidate)
+}
+}
+package Domain {
+package Model {
 class Test {
   - Client client
   - List parameterList
   - Date createdAt
   - String internalCode
-  - Report diagnosisReport
+  - Report report
 }
 
 class Company {
@@ -14,8 +29,17 @@ class Company {
   + Company(designation)
   + getTestStore()
 }
+class Parameter{
+- Date createdAt
+  + getCreatedAt()
+}
+class Report {
+  - Date createdAt
+  + getCreatedAt()
+}
 
-
+}
+package Store {
 class TestStore {
     - List testValidationList
     + getTestValidationList()
@@ -23,53 +47,29 @@ class TestStore {
     + saveTestsValidated()
     + getTestByCode(code)
 }
-
-class Parameter{
-- Date createdAt
-  + getCreatedAt()
 }
 
-class TestValidationController {
-  + getTestsReadyToValidate()
-  + saveTestsValidated()
-  + getTestValidationList()
-  + createTestValidation(testId)
 }
-
-
-class Report {
-  - Date createdAt
-  + getCreatedAt()
-}
-
-
+package Shared {
 class Notification {
-  + sendEmailSMSNotification()
+   + sendEmailSMSNotification(name)
+ }
+ }
+package UI {
+class ValidationUI{
+}
 }
 
-class TestReadyToValidateDTO {
-  -  String internalCode
-  - Date testCreationDate
-  - Date diagnosisReportCreationDate
-  - List dateListTestParameterResults
-  + getTestCreationDate()
-  + getReportCreationDate()
-  + getDateListTestParameterResults()
-  + getTestId()
-}
 
-class TestsReadyToValidateMapper {
-  + List<String>toDTO(List<CATest> listOfTestsReadyToValidate)
-}
 
-TestValidationUI ..> TestValidationController
 
-TestValidationController ..> TestStore
-TestValidationController ..> Company
-TestValidationController ..> TestReadyToValidateDTO
-TestValidationController ..> TestsReadyToValidateMapper
-TestValidationController ..> Test
+ValidationUI ..> ValidationController
 
+ValidationController ..> TestStore
+ValidationController ..> Company
+ValidationController .up.> TestsReadyToValidateMapper
+ValidationController ..> Test
+Company "1" -> "*"Test :perform
 Company "1" -> "1" TestStore : use
 
 TestStore "1" -> "1" Test : knows
