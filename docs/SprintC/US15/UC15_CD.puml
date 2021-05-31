@@ -16,12 +16,14 @@ class TestsReadyToValidateMapper {
 }
 package Domain {
 package Model {
-class Test {
+class CATest {
   - Client client
   - List parameterList
   - Date createdAt
   - String internalCode
   - Report report
+  + addValidation()
+  +changeStateValidationToDone()
 }
 
 class Company {
@@ -68,14 +70,14 @@ ValidationUI ..> ValidationController
 ValidationController ..> TestStore
 ValidationController ..> Company
 ValidationController .up.> TestsReadyToValidateMapper
-ValidationController ..> Test
-Company "1" -> "*"Test :perform
+ValidationController ..> CATest
+Company "1" -> "*"CATest :perform
 Company "1" -> "1" TestStore : use
 
-TestStore "1" -> "1" Test : knows
+TestStore "1" -> "1" CATest : knows
 
-Test <-- Report
-Test <-- Parameter
+    CATest <-- Report
+CATest <-- Parameter
 
 TestStore --> Notification : send
 
