@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor Client as CLT
+participant ":System" as SYS
+
+CLT-> SYS : change personal data
+activate SYS
+SYS-->CLT : shows the registration form with the previous data\n and ask to select the type of data to change
+deactivate SYS
+loop
+CLT -> SYS : select the type of data that is to validate\n(ex. nhs number, tin number, ect)
+activate SYS
+SYS-->CLT : shows the type of data registered before
+deactivate SYS
+CLT-> SYS : writes the changes that he wants
+activate SYS
+SYS--> CLT : shows the date and asks for confirmation
+deactivate SYS
+CLT->SYS : confirms the data
+activate SYS
+SYS-->CLT : informs operation success
+deactivate SYS
+end
+
+
+@enduml

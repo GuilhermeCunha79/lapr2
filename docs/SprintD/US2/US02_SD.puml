@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor Client as CLT
+participant ":ClientUI" as UI
+participant ":ChangeClientDataController" as CTRL
+participant ":ClientStore" as STR
+participant Client
+
+CLT -> UI : change personal data
+activate UI
+UI-> CLT : shows the registration form with the previous data \n and ask to select the type of data to change
+
+UI-> CTRL : getClient(email)
+
+activate CTRL
+deactivate CTRL
+deactivate UI
+
+
+
+loop
+CLT -> UI : select the type of data that is to validate\n(ex. nhs number, tin number, ect)
+activate UI
+UI-> CLT : shows the type of data registered before
+deactivate UI
+
+CLT -> UI : writes the changes that he wants
+activate UI
+UI-> CLT : shows the date and asks for confirmation
+deactivate UI
+
+CLT -> UI : confirms the data
+activate UI
+UI-> CLT : informs operation success
+deactivate UI
+end
+
+@enduml

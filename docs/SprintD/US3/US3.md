@@ -125,7 +125,7 @@ n/a
 | Step 1                 |	... interacting with the actor? | RegisterClientUI   |  **Pure Fabrication:** there is no reason to assign this responsibility to any existing class in the Domain Model           |
 | 			  		     |	... coordinating the US? | RegisterClientController | **Controller**                             |
 | Step 2                 |							 |             |                              |
-| Step 3                 |	...transfer the data typed in the UI to the domain? | ClientDto | **DTO:** When there is so much data to transfer, it is better to opt by using a DTO in order to reduce coupling between UI and domain |
+| Step 3                 |	...transfer the data typed in the UI to the domain? | RegisterClientController | **DTO:** When there is so much data to transfer, it is better to opt by using a DTO in order to reduce coupling between UI and domain |
 |                        |	...saving the typed data? | Client  | **IE:** a client knows its own data 						 |             |                              |
 | 		                 |	... instantiating a new Client? | ClientStore   | **Creator (R1)** and **HC+LC**: By the application of the Creator (R1) it would be the "Company". But, by applying HC + LC to the "Company", this delegates that responsibility to the "ClientStore"   |
 |  		 			     |  ... knows ClientStore?	 |  Company   |  **IE:** Company knows the ClientStore to which it is delegating some tasks |
