@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Company -- "1"Client :> knows
+Client"0..1" -- "1"User :> becomes
+
+class Client{
+-name
+-citizenCardNumber
+-nhsNumber
+-tinNumber
+-birthDate
+-sex
+-phoneNumber
+-email
+}
+
+class Company{
+-designation
+}
+
+class User{
+-name
+-email
+-password
+}
+@enduml

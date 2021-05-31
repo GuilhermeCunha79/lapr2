@@ -1,0 +1,100 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+class CreateTestUI {
+}
+
+
+class ClientStore {
++ getClientThroughCitizenCardNumber(citizenCardNumber)
+}
+
+
+class Company {
+- designation
++ getClientStore()
++ getParameterStore()
++ getTestTypeStore()
+}
+
+
+
+class CreateTestController {
+  + getClientByTINAndSaveNhsCode(tin, nhsCode)
+  + getTypeOfTestList()
+  + addTypeOfTest(code)
+  + getParameterList()
+  + addParameter(code)
+  + createTest()
+  + saveTest()
+
+}
+
+
+class TestStore {
+    + createTest(client, typeOfTest, parameter, nhsCode)
+    + validateTest(test)
+    + saveTest(test)
+    + addTest(test)
+}
+
+class TestTypeMapper {
+    +toDTO(testTypeList)
+}
+
+class ParameterMapper {
+  +toDTO(parameterList)
+}
+
+
+class TypeOfTest {
+  + getCategoryListByTheTypeOfTest()
+}
+
+class TypeOfTestStore {
+  + getTypeOfTestByCode(code)
+}
+
+
+class ParameterStore {
+  + getParameterByCode(code)
+  + getParameterListByTheCategory(category)
+}
+
+class CATest {
+  + create(client, typeOfTest, parameter, nhsCode)
+}
+
+
+
+CreateTestUI ..> CreateTestController
+
+CreateTestController ..> Company
+
+Company "1" --> "1" TestStore : use
+Company "1" --> "1" ClientStore : use
+Company "1" --> "1" TypeOfTestStore : use
+Company "1" --> "1" ParameterStore : use
+
+CreateTestController ..> CATest
+CreateTestController ..> TestStore
+CreateTestController ..> TypeOfTestStore
+CreateTestController ..> ClientStore
+CreateTestController ..> ParameterStore
+CreateTestController ..> ParameterMapper
+CreateTestController ..> TypeOfTest
+CreateTestController ..> TestTypeMapper
+
+TestStore --> CATest
+
+
+
+@enduml
+
+
+
+
+
+
+

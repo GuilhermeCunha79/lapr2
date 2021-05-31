@@ -1,0 +1,93 @@
+@startuml
+autonumber
+'hide footbox
+actor "Lab Coordinator" as LC
+
+participant ":ValidationUI" as UI
+participant ":ValidationController" as CTRL
+participant ":Company" as C
+participant "store:TestStore" as TS
+participant "testToValidate \n :TestsReadyToValidateMapper" as TVM
+
+participant "tst :test" as TST
+participant "ct \n : Client" as CT
+participant "EmailAndSmsMessage" as EM
+participant ":DateTime" as DT
+
+LC -> UI : validate work done by the clinical chemistry technologist and specialist doctor
+activate UI
+    UI -> CTRL : readyToValidate()
+    activate CTRL
+    CTRL -> C : testStore = getTestStore()
+    activate C
+    deactivate C
+    CTRL -> TS : readyToValidate = getTestsReadyToValidate()
+    activate TS
+    deactivate TS
+    CTRL -> TVM : readyToValidateDto = toDtoVal(readyToValidate)
+    activate TVM
+    deactivate TVM
+    deactivate TVM
+    CTRL --> UI : testsReadyToValidateDto
+    deactivate CTRL
+    UI --> LC : shows the test(s) that have the test registration date, the chemical\n analysis date and the diagnosis date registered in the system
+deactivate UI
+loop
+LC -> UI : select the test(s)
+activate UI
+
+UI -> CTRL : createValidateTest(internalCode)
+activate CTRL
+CTRL -> TS : test= getTestByCode(internalCode)
+activate TS
+deactivate TS
+CTRL -> TS : testValidation=createValidateTest(test)
+activate TS
+deactivate TS
+
+
+
+CTRL -> CTRL : testValidationList = addValidTest(testValidation)
+activate CTRL
+deactivate CTRL
+CTRL --> UI : success
+deactivate CTRL
+
+    UI --> LC : ask for validation
+    deactivate CTRL
+deactivate UI
+end
+LC -> UI : confirms the validation
+activate UI
+    UI -> CTRL : saveValidation()
+    activate CTRL
+    CTRL -> TS : doValidation(testValidationList)
+    loop
+    activate TS
+    TS -> TS : changeStateToValidationDone(tst)
+    activate TS
+    deactivate TS
+    TS -> TST : client = getClient()
+    activate TST
+    deactivate TST
+    TS -> CT : name=getName()
+    activate CT
+    deactivate CT
+    TS -> DT : validatedAt = DateTime()
+    activate DT
+        deactivate DT
+    TS -> EM : sendEmailSmsNotification(name)
+    activate EM
+        deactivate EM
+   end
+
+
+    deactivate TS
+
+
+UI --> LC : saves validation and informs operation success
+deactivate C
+deactivate UI
+deactivate CTRL
+
+@enduml

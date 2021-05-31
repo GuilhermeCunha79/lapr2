@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant ":Test" as T
+participant ":TestParameter" as TP
+participant "tot : TypeOfTest" as ToT
+participant "em : External Module" as EM
+participant "param : Parameter"
+participant "refValue : ReferenceValue" as RV
+participant "testResult : TestParameterResult" as TPR
+
+[o-> T : addParameterTestResult(parameterCode, value, metric)
+activate T
+    T -> T : testParam = getTestParameterByCode(parameterCode)
+    activate T
+    deactivate T
+    T -> TP : param = getParameter()
+    activate TP
+    deactivate TP
+    T -> ToT : em = getExternalModule()
+    activate ToT
+    deactivate ToT
+    T -> EM : refValue = getReferenceValues(param)
+    activate EM
+        EM -> EM : getReferenceValues(param)
+        EM -> RV** : create(minValue, maxValue, metric)
+    deactivate EM
+    T -> TP : addResult(result, metric, refValue)
+    activate TP
+        TP -> TPR** : create(result, metric, refValue)
+    deactivate TP
+deactivate T
+@enduml

@@ -1,0 +1,84 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+skinparam classAttributeIconSize 0
+
+class RegisterClientUI{
+}
+
+class RegisterClientController
+{
+    +newClient(clientDto)
+    +saveClient()
+}
+
+class Client{
+	-name
+	-citizenCardNumber
+    -nhsNumber
+    -tinNumber
+    -birthDate
+    -sex
+    -phoneNumber
+    -email
+    +client(clientDto)
+    +getEmail()
+    +getName()
+}
+
+class Company{
+-name
+-location
++getClientStore()
+}
+
+class ClientStore{
++newClient(clientDto)
++validateClient(client)
++saveClient(client)
+-checkDuplicates(client)
+-addClient(client)
+-sendEmail(client, pwd)
+-generatePassword()
+}
+
+class ClientDto{
++getName()
++getCitizenCardNumber()
++getNhsNumber()
++getTinNumber()
++getBirthDate()
++getPhoneNumber()
++getSex()
++getEmail()
+
+}
+
+class EmailNotification{
++sendPassword(name, email, pwd)
+}
+
+class PasswordGenerator{
++generatePassword()
+}
+
+class AuthFacade{
++existsUser(email)
++addUserWithRole(name, email, pwd, "CLIENT")
+}
+
+
+RegisterClientUI ..> RegisterClientController
+RegisterClientUI ..> ClientDto
+RegisterClientController ..> Company
+RegisterClientController ..> ClientDto
+RegisterClientController ..> ClientStore
+RegisterClientController ..> Client
+Client ..> ClientDto
+Company"1" -> "1"ClientStore : uses
+ClientStore"1" --> "*"Client :> knows
+ClientStore ..> ClientDto
+ClientStore ..> AuthFacade
+ClientStore ..> PasswordGenerator
+ClientStore ..> EmailNotification
+
+@enduml

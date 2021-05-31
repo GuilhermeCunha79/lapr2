@@ -1,0 +1,28 @@
+@startuml
+autonumber
+actor "Clinical Chemistry Technologist" as CCT
+
+activate CCT
+CCT -> ":System" : asks for a test
+activate ":System"
+":System" --> CCT : shows tests list and ask to select one
+deactivate ":System"
+
+CCT -> ":System" : delivers the barcode to the application
+activate ":System"
+":System" --> CCT : shows the information of the test
+deactivate ":System"
+
+CCT -> ":System" : Makes the result of the given test
+activate ":System"
+":System" --> CCT : shows all data and requests for confirmation
+deactivate ":System"
+
+CCT -> ":System" : confirms the result
+activate ":System"
+":System" --> CCT : informs operation success
+deactivate ":System"
+
+deactivate CCT
+
+@enduml

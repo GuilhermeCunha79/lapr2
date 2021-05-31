@@ -1,0 +1,39 @@
+@startuml
+autonumber
+actor "Receptionist" as RE
+
+
+RE -> ":System" : Creation of a new test
+activate ":System"
+":System" --> RE : Asks for client TIN and Nhs Code of the Test
+deactivate ":System"
+RE -> ":System" : Introduces TIN and Nhs Code
+activate ":System"
+":System" --> RE : shows the client Data and asks for confirmation
+deactivate ":System"
+RE -> ":System" : confirm the client
+activate ":System"
+":System" --> RE : Shows type of test list
+
+deactivate ":System"
+RE -> ":System" : Selects a type of test
+activate ":System"
+":System" --> RE : Shows parameter list
+loop
+RE -> ":System" : Selects a parameter
+deactivate ":System"
+":System" --> RE : Parameter added
+activate ":System"
+end
+":System" --> RE : Show parameter selected and asks for confirmation
+deactivate ":System"
+
+
+
+RE -> ":System" : Confirms the parameters
+activate ":System"
+":System" --> RE : Shows all data and requests confirmation
+RE -> ":System" : Confirms the data
+":System" --> RE : Informs operation success
+
+@enduml

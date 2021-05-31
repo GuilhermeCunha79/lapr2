@@ -1,0 +1,84 @@
+@startuml
+skinparam classAttributeIconSize 0
+package Controller {
+class ValidationController {
+  + getTestsWithoutValidation()
+  + saveValidation()
+  + getTestValidationList()
+  +getTestResults(code)
+  +doValidation(testValidationList)
+}
+}
+package Mappers {
+class TestsReadyToValidateMapper {
+  + List<String>toDTO(List<CATest> listOfTestsReadyToValidate)
+}
+}
+package Domain {
+package Model {
+class CATest {
+  - Client client
+  - List parameterList
+  - Date createdAt
+  - String internalCode
+  - Report report
+  + addValidation()
+  +changeStateValidationToDone()
+}
+
+class Company {
+  - String designation
+  + Company(designation)
+  + getTestStore()
+}
+class Parameter{
+- Date createdAt
+  + getCreatedAt()
+}
+class Report {
+  - Date createdAt
+  + getCreatedAt()
+}
+
+}
+package Store {
+class TestStore {
+    - List testValidationList
+    + getTestValidationList()
+    + getTestsReadyToValidate()
+    + saveTestsValidated()
+    + getTestByCode(code)
+}
+}
+
+}
+package Shared {
+class Notification {
+   + sendEmailSMSNotification(name)
+ }
+ }
+package UI {
+class ValidationUI{
+}
+}
+
+
+
+
+ValidationUI ..> ValidationController
+
+ValidationController ..> TestStore
+ValidationController ..> Company
+ValidationController .up.> TestsReadyToValidateMapper
+ValidationController ..> CATest
+Company "1" -> "*"CATest :perform
+Company "1" -> "1" TestStore : use
+
+TestStore "1" -> "1" CATest : knows
+
+    CATest <-- Report
+CATest <-- Parameter
+
+TestStore --> Notification : send
+
+@enduml

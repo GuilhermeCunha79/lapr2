@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="487px" preserveAspectRatio="none" style="width:140px;height:487px;" version="1.1" viewBox="0 0 140 487" width="140px" zoomAndPan="magnify"><defs><filter height="300%" id="f1pc7gej3wx4zx" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[02e4b9b7573f1156f41e60aa5b4e25a4]
+class Company--><rect codeLine="17" fill="#FEFECE" filter="url(#f1pc7gej3wx4zx)" height="61.8359" id="Company" style="stroke:#A80036;stroke-width:1.5;" width="85" x="23" y="7"/><ellipse cx="38" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M40,19.5 Q40.2031,19 40.4375,18.75 Q40.6719,18.5 40.9375,18.5 Q41.4063,18.5 41.7031,18.7813 Q42,19.0625 42,19.7188 L42,21.2813 Q42,21.9375 41.7188,22.2188 Q41.4375,22.5 41,22.5 Q40.6094,22.5 40.3594,22.3281 Q40.1094,22.1563 40,21.7031 Q39.9531,21.3906 39.7813,21.2188 Q39.4688,20.8906 38.9063,20.7031 Q38.3438,20.5 37.7813,20.5 Q37.0781,20.5 36.4844,20.7813 Q35.9063,21.0625 35.4531,21.6875 Q35,22.3125 35,23.1719 L35,24.0938 Q35,25.125 35.8438,25.8125 Q36.6875,26.5 38.1875,26.5 Q39.0781,26.5 39.7031,26.2969 Q40.0625,26.1875 40.4688,25.8281 Q40.7344,25.625 40.875,25.5625 Q41.0156,25.5 41.1875,25.5 Q41.5156,25.5 41.75,25.7656 Q42,26.0156 42,26.375 Q42,26.7188 41.6563,27.125 Q41.1563,27.7188 40.3594,28.0469 Q39.3125,28.5 38.0313,28.5 Q36.5313,28.5 35.3281,27.9063 Q34.3594,27.4375 33.6719,26.4219 Q33,25.4063 33,24.2031 L33,23.1094 Q33,21.8594 33.5938,20.7656 Q34.2031,19.6719 35.25,19.0938 Q36.3125,18.5 37.5,18.5 Q38.2188,18.5 38.8438,18.75 Q39.4688,19 40,19.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="53" x="52" y="27.9102">Company</text><line style="stroke:#A80036;stroke-width:1.5;" x1="24" x2="107" y1="39" y2="39"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="31" y="47"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="43" y="54.4189">designation</text><line style="stroke:#A80036;stroke-width:1.5;" x1="24" x2="107" y1="60.8359" y2="60.8359"/><!--MD5=[ed6624c6556d5e7b1bd23032162d20b7]
+class Client--><rect codeLine="6" fill="#FEFECE" filter="url(#f1pc7gej3wx4zx)" height="158.6875" id="Client" style="stroke:#A80036;stroke-width:1.5;" width="117" x="7" y="147"/><ellipse cx="45.85" cy="163" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M47.85,159.5 Q48.0531,159 48.2875,158.75 Q48.5219,158.5 48.7875,158.5 Q49.2563,158.5 49.5531,158.7813 Q49.85,159.0625 49.85,159.7188 L49.85,161.2813 Q49.85,161.9375 49.5688,162.2188 Q49.2875,162.5 48.85,162.5 Q48.4594,162.5 48.2094,162.3281 Q47.9594,162.1563 47.85,161.7031 Q47.8031,161.3906 47.6313,161.2188 Q47.3188,160.8906 46.7563,160.7031 Q46.1938,160.5 45.6313,160.5 Q44.9281,160.5 44.3344,160.7813 Q43.7563,161.0625 43.3031,161.6875 Q42.85,162.3125 42.85,163.1719 L42.85,164.0938 Q42.85,165.125 43.6938,165.8125 Q44.5375,166.5 46.0375,166.5 Q46.9281,166.5 47.5531,166.2969 Q47.9125,166.1875 48.3188,165.8281 Q48.5844,165.625 48.725,165.5625 Q48.8656,165.5 49.0375,165.5 Q49.3656,165.5 49.6,165.7656 Q49.85,166.0156 49.85,166.375 Q49.85,166.7188 49.5063,167.125 Q49.0063,167.7188 48.2094,168.0469 Q47.1625,168.5 45.8813,168.5 Q44.3813,168.5 43.1781,167.9063 Q42.2094,167.4375 41.5219,166.4219 Q40.85,165.4063 40.85,164.2031 L40.85,163.1094 Q40.85,161.8594 41.4438,160.7656 Q42.0531,159.6719 43.1,159.0938 Q44.1625,158.5 45.35,158.5 Q46.0688,158.5 46.6938,158.75 Q47.3188,159 47.85,159.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="32" x="65.15" y="167.9102">Client</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="123" y1="179" y2="179"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="187"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="26" x="27" y="194.4189">name</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="200.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="91" x="27" y="208.2549">citizenCardNumber</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="214.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="27" y="222.0908">nhsNumber</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="228.5078"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="48" x="27" y="235.9268">tinNumber</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="242.3438"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="43" x="27" y="249.7627">birthDate</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="256.1797"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="18" x="27" y="263.5986">sex</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="270.0156"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="67" x="27" y="277.4346">phoneNumber</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="283.8516"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="24" x="27" y="291.2705">email</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="123" y1="297.6875" y2="297.6875"/><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><rect codeLine="21" fill="#FEFECE" filter="url(#f1pc7gej3wx4zx)" height="89.5078" id="User" style="stroke:#A80036;stroke-width:1.5;" width="76" x="27.5" y="384"/><ellipse cx="50.15" cy="400" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M52.15,396.5 Q52.3531,396 52.5875,395.75 Q52.8219,395.5 53.0875,395.5 Q53.5563,395.5 53.8531,395.7813 Q54.15,396.0625 54.15,396.7188 L54.15,398.2813 Q54.15,398.9375 53.8688,399.2188 Q53.5875,399.5 53.15,399.5 Q52.7594,399.5 52.5094,399.3281 Q52.2594,399.1563 52.15,398.7031 Q52.1031,398.3906 51.9313,398.2188 Q51.6188,397.8906 51.0563,397.7031 Q50.4938,397.5 49.9313,397.5 Q49.2281,397.5 48.6344,397.7813 Q48.0563,398.0625 47.6031,398.6875 Q47.15,399.3125 47.15,400.1719 L47.15,401.0938 Q47.15,402.125 47.9938,402.8125 Q48.8375,403.5 50.3375,403.5 Q51.2281,403.5 51.8531,403.2969 Q52.2125,403.1875 52.6188,402.8281 Q52.8844,402.625 53.025,402.5625 Q53.1656,402.5 53.3375,402.5 Q53.6656,402.5 53.9,402.7656 Q54.15,403.0156 54.15,403.375 Q54.15,403.7188 53.8063,404.125 Q53.3063,404.7188 52.5094,405.0469 Q51.4625,405.5 50.1813,405.5 Q48.6813,405.5 47.4781,404.9063 Q46.5094,404.4375 45.8219,403.4219 Q45.15,402.4063 45.15,401.2031 L45.15,400.1094 Q45.15,398.8594 45.7438,397.7656 Q46.3531,396.6719 47.4,396.0938 Q48.4625,395.5 49.65,395.5 Q50.3688,395.5 50.9938,395.75 Q51.6188,396 52.15,396.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="27" x="65.85" y="404.9102">User</text><line style="stroke:#A80036;stroke-width:1.5;" x1="28.5" x2="102.5" y1="416" y2="416"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="35.5" y="424"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="26" x="47.5" y="431.4189">name</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="35.5" y="437.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="24" x="47.5" y="445.2549">email</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="35.5" y="451.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="50" x="47.5" y="459.0908">password</text><line style="stroke:#A80036;stroke-width:1.5;" x1="28.5" x2="102.5" y1="465.5078" y2="465.5078"/><!--MD5=[6eee883fdf517d3604e8bd0f2058e9aa]
+link Company to Client--><path codeLine="3" d="M65.5,69.38 C65.5,90.44 65.5,119.5 65.5,146.84 " fill="none" id="Company-Client" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="70.5,113.1758,73.4389,104.1307,67.5611,104.1307,70.5,113.1758" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="37" x="79.5" y="113.4951">knows</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="58.1664" y="136.0117">1</text><!--MD5=[9a8dc34b38f85b9f3fcdb440f4bffc6a]
+link Client to User--><path codeLine="4" d="M65.5,306.17 C65.5,332.61 65.5,361.15 65.5,383.96 " fill="none" id="Client-User" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#000000" points="70.5,350.1758,73.4389,341.1307,67.5611,341.1307,70.5,350.1758" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="79.5" y="350.4951">becomes</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="22" x="42.5547" y="327.2278">0..1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="57.9422" y="373.0691">1</text><!--MD5=[d80cb01f0420ba091672735ecf6787aa]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+Company - - "1"Client :> knows
+Client"0..1" - - "1"User :> becomes
+
+class Client{
+-name
+-citizenCardNumber
+-nhsNumber
+-tinNumber
+-birthDate
+-sex
+-phoneNumber
+-email
+}
+
+class Company{
+-designation
+}
+
+class User{
+-name
+-email
+-password
+}
+@enduml
+
+@startuml
+
+Company - - "1"Client :> knows
+Client"0..1" - - "1"User :> becomes
+
+class Client{
+-name
+-citizenCardNumber
+-nhsNumber
+-tinNumber
+-birthDate
+-sex
+-phoneNumber
+-email
+}
+
+class Company{
+-designation
+}
+
+class User{
+-name
+-email
+-password
+}
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

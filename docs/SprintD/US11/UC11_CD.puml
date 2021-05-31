@@ -1,0 +1,37 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class CreateParameterCategoryUI{
+}
+
+class CreateParameterCategoryController
+{
+    +createNewParameterCategory(code, name)
+    +saveParameterCategory()
+}
+
+class ParameterCategory{
+    -code
+    -name
+    +ParameterCategory(code, name)
+}
+
+class Company{
+	-designation
+	+getParameterCategoryStore()
+}
+
+class ParameterCategoryStore{
+    +createParameterCategory(code, name)
+    +validateParameterCategory(pc)
+    +saveParameterCategory(pc)
+    +addParameterCategory()
+}
+
+CreateParameterCategoryUI ..> CreateParameterCategoryController
+CreateParameterCategoryController .right.> Company
+Company"1" --> "1"ParameterCategoryStore : uses
+ParameterCategoryStore"1" -left-> "*"ParameterCategory : stores
+CreateParameterCategoryController ..> ParameterCategory
+CreateParameterCategoryController ..> ParameterCategoryStore
+@enduml

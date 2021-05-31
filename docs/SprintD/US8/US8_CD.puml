@@ -1,0 +1,56 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class RegisterNewClinicalAnalysisUI{
+}
+
+class RegisterNewClinicalAnalysisController
+{
+    +registerNewClinicalAnalysisLaboratory(name, phoneNumber, laboratoryID, tinNumber, address)
+    +saveClinicalAnalysisLaboratory()
+    +addTestType(ttId)
+}
+
+class ClinicalAnalysisLaboratory{
+    -name
+    -phoneNumber
+    -laboratoryID
+    -tinNumber
+    -address
+    -typeOfTestList
+    +ClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber)
+    +addTestType(tt)
+}
+
+class Company{
+	-description
+	+getClinicalAnalysisLaboratoryStore()
+	+getTestTypeStore()
+}
+
+class ClinicalAnalysisLaboratoryStore{
+    + validateClinicalAnalysisLaboratory(cal)
+    + registerClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber)
+    + saveClinicalAnalysisLaboratory(cal)
+    - addClinicalAnalysisLaboratory(cal)
+}
+
+class TestTypeStore{
+    +getTestTypeList()
+    +getTestType(ttId)
+}
+
+class TestTypeMapper {
+    +toDto(lTT)
+}
+
+RegisterNewClinicalAnalysisUI ..> RegisterNewClinicalAnalysisController
+RegisterNewClinicalAnalysisController .right.> Company
+Company"1" -up-> "1"TestTypeStore : uses
+Company"1" --> "1"ClinicalAnalysisLaboratoryStore : uses
+ClinicalAnalysisLaboratoryStore"1" -left-> "*"ClinicalAnalysisLaboratory : store
+RegisterNewClinicalAnalysisController .left.> TestTypeMapper
+RegisterNewClinicalAnalysisController ..> ClinicalAnalysisLaboratory
+RegisterNewClinicalAnalysisController ..> ClinicalAnalysisLaboratoryStore
+RegisterNewClinicalAnalysisController .up.> TestTypeStore
+@enduml

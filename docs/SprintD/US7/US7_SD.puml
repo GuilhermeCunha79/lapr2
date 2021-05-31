@@ -1,0 +1,180 @@
+@startuml
+autonumber
+
+actor "Administrator" as ADMIN
+
+participant ":RegisterEmployeeUI" as UI
+participant ":RegisterEmployeeController" as CTRL
+participant ":Company" as COMP
+participant ":EmployeeStore" as EMPS
+participant ":Employee" as EMP
+participant ":SpecialistDoctor" as SpDoc
+participant ":EmpDto" as EDTO
+participant ":UserRoleStore" as ORS
+participant ":AuthFacade" as AF
+participant ":UserRole" as UR
+
+
+
+
+ADMIN -> UI : Register a employee
+
+activate UI
+UI --> ADMIN : asks data (roleId, name, address, phoneNumber, email, soc)
+deactivate UI
+ADMIN -> UI : inserts requested data
+activate UI
+UI -> CTRL : isSpecialistDoctor(empRole)
+activate CTRL
+CTRL -> COMP : empStore = getEmployeeStore()
+    activate COMP
+    deactivate COMP
+    CTRL -> EMPS : isSpecialistDoctor(role)
+    activate EMPS
+    deactivate EMPS
+    CTRL --> UI : true or false
+    deactivate CTRL
+
+alt is a specialist doctor
+
+UI --> ADMIN : asks for doctor index number
+ADMIN -> UI : introduces doctor index number
+
+UI -> CTRL : newSpecialistDoctor(empDto)
+activate CTRL
+
+        CTRL -> EMPS : emp = newSpecialistDoctor(empDto)
+        activate EMPS
+            EMPS -> ORS : role = getRolebyId(roleId)
+        activate ORS
+        deactivate ORS
+
+        EMPS -> SpDoc : createSpecialistDoctor(empDto)
+        activate SpDoc
+            SpDoc -> EDTO : role = getRole()
+            activate EDTO
+            deactivate EDTO
+            SpDoc -> EDTO : name = getName()
+            activate EDTO
+            deactivate EDTO
+            SpDoc -> EDTO : address = getAddress()
+            activate EDTO
+            deactivate EDTO
+            SpDoc -> EDTO : phoneNumber = getPhoneNumber()
+            activate EDTO
+            deactivate EDTO
+            SpDoc -> EDTO : email = getEmail()
+            activate EDTO
+            deactivate EDTO
+            SpDoc -> EDTO : soc = getSoc()
+            activate EDTO
+            deactivate EDTO
+            SpDoc -> EDTO : doctorIndexNumber = getDoctorIndexNumber()
+            activate EDTO
+            deactivate EDTO
+        deactivate SpDoc
+        deactivate EMPS
+        deactivate CTRL
+
+else is not a specialist doctor
+
+UI -> CTRL : newEmployee(empDto)
+activate CTRL
+        CTRL -> EMPS : emp = newEmployee(empDto)
+                activate EMPS
+                    EMPS -> ORS : role = getRolebyId(roleId)
+                activate ORS
+                deactivate ORS
+        EMPS -> EMP : createEmployee(empDto)
+        activate EMP
+        EMP -> EDTO : role = getRole()
+        activate EDTO
+        deactivate EDTO
+        EMP -> EDTO : name = getName()
+        activate EDTO
+        deactivate EDTO
+        EMP -> EDTO : address = getAddress()
+        activate EDTO
+        deactivate EDTO
+        EMP -> EDTO : phoneNumber = getPhoneNumber()
+        activate EDTO
+        deactivate EDTO
+        EMP -> EDTO : email = getEmail()
+        activate EDTO
+        deactivate EDTO
+        EMP -> EDTO : soc = getSoc()
+        activate EDTO
+        deactivate EDTO
+        deactivate EMP
+
+        deactivate EMPS
+        end alt
+        CTRL -> EMPS : validateEmployee(emp)
+        activate EMPS
+        CTRL -> CTRL : addEmployeeRole(empDto)
+        activate CTRL
+        deactivate CTRL
+
+            EMPS -> EMP : email = getEmail()
+            activate EMP
+            deactivate EMP
+            EMPS -> AF : existUser(email)
+            activate AF
+            deactivate AF
+            EMPS -> EMPS : checkDuplicates(emp)
+            activate EMPS
+            deactivate EMPS
+        deactivate EMPS
+    deactivate CTRL
+
+    UI --> ADMIN : Validates the data and asks for confirmation
+
+deactivate UI
+
+ADMIN -> UI : Confirms the data
+activate UI
+    UI -> CTRL : saveEmployee()
+activate CTRL
+    CTRL -> EMPS : saveEmployee(emp)
+activate EMPS
+
+            EMPS -> EMP : email = getEmail()
+            activate EMP
+            deactivate EMP
+    EMPS -> EMPS : validateEmployee(emp)
+    activate EMPS
+    EMPS -> AF : existUser(email)
+    activate AF
+    deactivate AF
+    deactivate EMPS
+                EMPS -> EMP : email = getName()
+                activate EMP
+                deactivate EMP
+                EMPS -> EMP : role = getRole()
+                activate EMP
+                deactivate EMP
+
+                EMPS -> UR : roleDesc = getDescription()
+                activate UR
+                deactivate UR
+                EMPS -> EMPS : pwd = generatePassword()
+                activate EMPS
+                deactivate EMPS
+                EMPS -> AF : addUserWithRole(name, email, pwd, roleDesc)
+                activate AF
+                deactivate AF
+
+    EMPS -> EMPS : addEmployee(emp)
+    activate EMPS
+    deactivate EMPS
+    EMPS -> EMPS : sendEmail(emp, pwd)
+    activate EMPS
+    deactivate EMPS
+    deactivate EMPS
+deactivate CTRL
+UI --> ADMIN : Saves data and informs success of operation
+
+deactivate UI
+
+
+@enduml

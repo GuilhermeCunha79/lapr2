@@ -1,0 +1,37 @@
+@startuml
+
+hide methods
+
+class Employee {
+    - Role clinicalChemistryTechnologist
+}
+
+class Test {
+    - createdAt
+    - DateTime createdAt;
+    - String internalCode;
+    - String nhsCode;
+    - boolean reportDone;
+    - boolean resultDone;
+    - Report report;
+    - Result result;
+    - BufferedImage qrcode;
+}
+
+class TestParameterResult {
+    -createdAt
+    -value
+    -metric
+    +TestParameterResult(value, metric, refValue)
+}
+
+class TestParameter {
+    +getParameter()
+    +addTestResult(value, metric, refValue)
+}
+
+Employee"1..*" -- "*"TestParameterResult : "> write"
+Employee"1..*" -up- "*"Test : "> checks"
+TestParameterResult"1" -down- "1..*"TestParameter : "> of a given"
+
+@enduml

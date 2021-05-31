@@ -1,0 +1,82 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Specialist Doctor" as SD
+participant ":WriteReportUI" as UI
+participant ":WriteReportController" as CTRL
+participant ":Company" as COMP
+participant ":Test" as T
+participant ":Report" as RPRT
+participant ":TestParameterResult" as RSLT
+participant ":TestStore" as TS
+participant ":TestListMapper" as TLM
+participant ":DateTime" as DT
+
+SD -> UI : Write a report for a test
+activate UI
+loop while the user wants to write another report\n or there are still tests ready to receive a report
+
+UI -> CTRL : lTestDto = getTestWithoutReport()
+    activate CTRL
+        CTRL -> COMP : testStore = getTestStore()
+        activate COMP
+        deactivate COMP
+        CTRL -> TS : lTestNoReport = getTestWithoutReport()
+        activate TS
+        deactivate TS
+        CTRL -> TLM : lTestNoReportDto = toDto(lTestNoReport)
+        activate TLM
+        deactivate TLM
+    deactivate CTRL
+UI --> SD : ask to select one test ready \n to receive a report from the list
+deactivate UI
+SD -> UI : selects the test
+activate UI
+UI -> CTRL : getTestResults(testCode)
+    activate CTRL
+        CTRL -> TS : selectedTest = getTestByCode(testCode)
+        activate TS
+        deactivate TS
+        CTRL -> T : getTestResults(selectedTest)
+        activate T
+            T -> RSLT : toString()
+            activate RSLT
+            deactivate RSLT
+        deactivate T
+    deactivate CTRL
+UI --> SD : show results available for the chosen test
+deactivate UI
+SD -> UI : writes the report
+activate UI
+UI -> CTRL : newReport(text)
+    activate CTRL
+        CTRL -> RPRT : report = createReport(text)
+        activate RPRT
+        deactivate RPRT
+    deactivate CTRL
+UI --> SD : validates the report and asks to confirm data
+deactivate UI
+SD -> UI : confirms report
+activate UI
+UI -> CTRL : saveReport()
+    activate CTRL
+        CTRL -> T : addReport(report)
+        activate T
+            T -> T : changeStateToReportDone()
+            activate T
+                T -> RPRT : registerReportDateTime()
+                activate RPRT
+                    RPRT -> DT : createdAt = registerCurrentDateTime()
+                    activate DT
+                    deactivate DT
+                deactivate RPRT
+            deactivate T
+        deactivate T
+    deactivate CTRL
+UI --> SD : informs that the report was saved successfully
+deactivate UI
+end loop
+
+@enduml

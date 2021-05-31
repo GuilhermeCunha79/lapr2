@@ -1,0 +1,30 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADMIN
+
+participant ":System" as SYSTEM
+
+ADMIN -> SYSTEM : Initiate register Employee process
+activate SYSTEM
+SYSTEM --> ADMIN : ask to select the employee role
+
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : selects role from list
+activate SYSTEM
+SYSTEM --> ADMIN : request necessary data (name, address, phoneNumber, email, soc)
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : inserts data
+activate SYSTEM
+SYSTEM --> ADMIN : presents data and asks for confirmation
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : confirms data
+activate SYSTEM
+SYSTEM --> ADMIN : informs success of the registration
+deactivate SYSTEM
+
+
+@enduml

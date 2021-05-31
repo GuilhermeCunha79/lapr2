@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+hide methods
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+class ClinicalAnalysisLaboratory{
+-laboratoryID
+}
+
+
+class TypeOfTest{
+-code
+-description
+-collectionMethod
+}
+
+class ChemicalLaboratory{
+}
+
+class Laboratory{
+-name
+-address
+-phoneNumber
+-taxIdentificationNumber
+}
+
+
+Company"1" -- "*"TypeOfTest:> conducts
+Company"1" -- "*"ClinicalAnalysisLaboratory:> owns
+Company"1" -- "0..1" ChemicalLaboratory:> owns
+ChemicalLaboratory --|> Laboratory
+ClinicalAnalysisLaboratory --|> Laboratory
+ClinicalAnalysisLaboratory "*" -left- "*" TypeOfTest:> performs
+@enduml
+

@@ -1,0 +1,22 @@
+@startuml
+
+hide methods
+
+skinparam classAttributeIconSize 0
+
+
+class Company {
+  -designation
+}
+
+class ParameterCategory{
+    -code
+    -name
+}
+
+Company"1" -- "*"ParameterCategory :> adopts
+
+
+
+
+@enduml

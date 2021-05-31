@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="403.75px" preserveAspectRatio="none" style="width:361px;height:403px;" version="1.1" viewBox="0 0 361 403" width="361.25px" zoomAndPan="magnify"><defs><filter height="300%" id="f1fbwolk0teet7" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><ellipse cx="177.5729" cy="212.3896" fill="#FEFECE" filter="url(#f1fbwolk0teet7)" rx="125.0729" ry="28.0146" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="201.25" x="76.9479" y="217.0502">UC4 - Register a new test</text><!--MD5=[c379f63bf4dce4781374740e142de8a3]
+entity recep--><ellipse cx="177.5" cy="17.5" fill="#FEFECE" filter="url(#f1fbwolk0teet7)" rx="10" ry="10" style="stroke:#A80036;stroke-width:1.875;"/><path d="M177.5,27.5 L177.5,61.25 M161.25,37.5 L193.75,37.5 M177.5,61.25 L161.25,80 M177.5,61.25 L193.75,80 " fill="none" filter="url(#f1fbwolk0teet7)" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="97.5" x="128.75" y="105.0415">Receptionist</text><ellipse cx="177.4968" cy="352.6244" fill="#FEFECE" filter="url(#f1fbwolk0teet7)" rx="169.9968" ry="36.9994" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="298.75" x="28.1218" y="357.285">To be performed to a registered client</text><!--MD5=[2c8f2961939ce86742a3d87b24bf8867]
+link recep to UC4--><path d="M177.5,109.525 C177.5,131.95 177.5,157.6875 177.5,177.6625 " fill="none" id="recep-to-UC4" style="stroke:#A80036;stroke-width:1.25;"/><polygon fill="#A80036" points="177.5,184.2,182.5,172.95,177.5,177.95,172.5,172.95,177.5,184.2" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[089f961dadd5b8f621bdd7c94fff8d1a]
+link UC4 to To be performed to a registered client--><path d="M177.5,240.9125 C177.5,260.2125 177.5,286.5 177.5,308.575 " fill="none" id="UC4-to-To be performed to a registered client" style="stroke:#A80036;stroke-width:1.25;"/><polygon fill="#A80036" points="177.5,315.275,182.5,304.025,177.5,309.025,172.5,304.025,177.5,315.275" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[b7ccda9388085020ba6e92163771bbb6]
+@startuml
+usecase "UC4 - Register a new test" as UC4
+actor recep as "Receptionist"
+recep - -> (UC4)
+(UC4) - -> (To be performed to a registered client)
+
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Medical lab technician" as Mlt
+
+activate Mlt
+Mlt--> ":System" : start the registration of the sample(s)
+activate ":System"
+":System"--> Mlt : print the list of tests without registered sample(s)
+deactivate ":System"
+Mlt --> ":System" : select test
+activate ":System"
+":System"--> Mlt : print select test and ask the number of samples (int)
+deactivate ":System"
+Mlt --> ":System" : input the number of samples (int)
+activate ":System"
+":System" --> Mlt : print all data (UPC) and ask for confirmation
+deactivate ":System"
+Mlt -> ":System" :  confirms the data
+activate ":System"
+":System" --> Mlt : informs operation success
+deactivate ":System"
+
+deactivate Mlt
+@enduml

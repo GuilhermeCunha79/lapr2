@@ -1,0 +1,6 @@
+@startuml
+usecase "US 012 - To record the results of a given test" as UC12
+actor cct as "Clinical Chemistry Technologist"
+
+cct --> (UC12)
+@enduml

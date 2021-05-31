@@ -1,0 +1,55 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+class Company {
+ -designation
+}
+
+class Test {
+  - nhsCode
+  - internalCode
+  - createdAT
+ }
+
+class TypeOfTest {
+  -code
+  -description
+  -collectingMethod
+}
+
+
+
+class Client {
+  - name
+  - citizenCardNumber
+  - nhsNumber
+  - birthDate
+  - sex
+  - tin
+  - phoneNumber
+  - email
+}
+
+class Parameter {
+-name
+-code
+-description
+}
+
+class ParameterCategory {
+-code
+-name
+}
+
+
+Company "1" -- "*" Test : performs >
+Test "*" -- "1" TypeOfTest: is of >
+Test "1..*" -- "1" Client: requested by >
+Parameter "1..*" -- "1" ParameterCategory: presented under >
+Parameter "1..*" --> "1" Test : has >
+TypeOfTest "1" --> "1..*" ParameterCategory :  has
+Company "1" --> "1..*" Client : knows
+
+@enduml

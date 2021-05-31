@@ -1,0 +1,214 @@
+
+@startuml
+autonumber
+actor "Receptionist" as REC
+
+participant ":CreateTestUI" as UI
+participant ":CreateTestController" as CTRL
+participant "comp\n:Company" as COMP
+
+participant "testStore: TestStore" as TSTORE
+
+participant "store: ClientStore" as CSTORE
+
+participant "TypeOfTest" as TT
+
+participant "testTypeStore: TypeOfTestStore" as TTSTORE
+
+participant "test\n:CATest" as TEST
+
+
+participant "testTypeMap:TestTypeMapper" as TMAPPER
+
+participant "parameterMap:ParameterMapper" as PMAPPER
+participant "storeParameter: ParameterStore" as PSTORE
+
+activate REC
+REC -> UI : Creation of a new test
+activate UI
+UI --> REC :Asks for client TIN and Nhs Code of the Test
+
+deactivate UI
+REC -> UI : Introduces TIN and Nhs Code
+activate UI
+UI -> CTRL : getClientByTINAndSaveNhsCode(tin, nhsCode)
+activate CTRL
+
+
+
+
+CTRL -> COMP : clientStore = getClientStore()
+activate COMP
+deactivate COMP
+CTRL -> CSTORE :client = getClientByTIN(tin)
+activate CSTORE
+deactivate CSTORE
+
+UI --> REC : shows the client Data and asks for confirmation
+deactivate UI
+REC -> UI : confirm the client
+activate UI
+
+
+
+deactivate CTRL
+UI ->  CTRL : listOfTypeOfTests = getTypeOfTestList()
+activate CTRL
+
+
+
+
+
+
+
+deactivate TSTORE
+deactivate TEST
+
+
+
+CTRL -> COMP : testTypeStore = getTestTypeStore()
+activate COMP
+deactivate COMP
+
+
+CTRL -> TMAPPER : toDTO(testTypeList)
+
+activate TMAPPER
+
+
+TMAPPER --> CTRL : listTestTypeDto
+deactivate TMAPPER
+CTRL --> UI : listTestTypeDto
+deactivate CTRL
+UI --> REC: Shows type of test list
+deactivate CTRL
+deactivate UI
+
+REC -> UI : Selects a type of test
+activate UI
+
+UI -> CTRL : addTypeOfTest(code)
+activate CTRL
+CTRL -> TTSTORE : testType = getTypeOfTestByCode(code)
+activate TTSTORE
+deactivate TTSTORE
+deactivate CTRL
+
+UI -> CTRL : getParameterList()
+activate CTRL
+
+deactivate TSTORE
+deactivate TEST
+
+
+
+CTRL -> TT : categoryList = getCategoryListByTheTypeOfTest()
+activate TT
+deactivate TT
+
+
+
+CTRL -> COMP : parameterStore = getParameterStore()
+activate COMP
+deactivate COMP
+
+
+CTRL -> PSTORE : parameterList = getParameterListByTheCategory(category)
+activate PSTORE
+deactivate PSTORE
+
+CTRL -> PMAPPER : listParameterDTO = toDTO(parameterList)
+activate PMAPPER
+deactivate PMAPPER
+
+deactivate CTRL
+
+
+UI --> REC : Shows parameter list
+deactivate UI
+loop
+REC -> UI :  Selects a parameter
+activate UI
+UI -> CTRL : addParameter(code)
+activate CTRL
+CTRL -> PSTORE : parameter = getParameterByCode(code)
+activate PSTORE
+deactivate PSTORE
+
+
+
+CTRL --> UI : Parameter added
+deactivate CTRL
+
+UI --> REC : Parameter added
+end loop
+
+UI --> REC : Show parameter selected and asks for confirmation
+deactivate UI
+
+REC -> UI : Confirms the parameters
+activate UI
+
+UI -> CTRL : createTest()
+
+
+
+
+activate CTRL
+CTRL -> TSTORE : test = createTest(client, typeOfTest, parameter, nhsCode)
+
+activate TSTORE
+  TSTORE -> TEST** : create(client, typeOfTest, parameter, nhsCode)
+  activate TEST
+
+
+deactivate TEST
+
+
+
+
+deactivate TSTORE
+  CTRL -> TSTORE : validateTest(test)
+activate TSTORE
+deactivate TSTORE
+deactivate CTRL
+
+
+
+UI --> REC : Shows all data and requests confirmation
+deactivate UI
+deactivate CTRL
+  REC -> UI : Confirms the data
+activate UI
+  UI -> CTRL : saveTest()
+activate CTRL
+
+
+  CTRL -> TSTORE : saveTest(test)
+
+
+  activate TSTORE
+  TSTORE -> TSTORE : validateTest(test)
+  activate TSTORE
+  deactivate TSTORE
+  TSTORE -> TSTORE : addTest(test)
+activate TSTORE
+deactivate TSTORE
+
+
+
+deactivate TSTORE
+
+deactivate CTRL
+
+UI --> REC : Informs operation success
+deactivate COMP
+deactivate CTRL
+deactivate UI
+deactivate REC
+deactivate TTSTORE
+@enduml
+
+
+
+

@@ -1,0 +1,27 @@
+@startuml
+autonumber
+'hide footbox
+actor "Administrator" as ADMIN
+
+participant ":System" as SYSTEM
+
+ADMIN -> SYSTEM : Create New Parameter
+activate SYSTEM
+SYSTEM --> ADMIN : Requests necessary data (shortName, description, code)
+deactivate SYSTEM
+
+ADMIN -> SYSTEM : Inserts the data
+activate SYSTEM
+SYSTEM --> ADMIN : Shows all categories and ask to select one
+deactivate SYSTEM
+ADMIN -> SYSTEM : Selects one category
+activate SYSTEM
+SYSTEM --> ADMIN : Presents data and asks for confirmation
+deactivate SYSTEM
+ADMIN -> SYSTEM : Confirms the data
+activate SYSTEM
+SYSTEM --> ADMIN : Tell the user that the parameter has been created
+deactivate SYSTEM
+
+
+@enduml

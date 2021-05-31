@@ -1,0 +1,24 @@
+@startuml
+
+hide methods
+
+class SpecialistDoctor {
+    - doctorIndexNumber
+}
+
+class Report {
+    -createdAt
+    -diagnosis
+}
+
+class TestParameterResult {
+    -value
+    -metric
+    -refValue
+}
+
+SpecialistDoctor"1..*" -- "*"Report : "> writes"
+SpecialistDoctor"1..*" -up- "*"TestParameterResult : "> checks"
+
+
+@enduml

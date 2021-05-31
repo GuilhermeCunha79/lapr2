@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+hide methods
+skinparam classAttributeIconSize 0
+
+Company"1" -- "*"TypeOfTest:> conducts
+Company"1" -left- "*"ParameterCategory : "> adopts"
+TypeOfTest"*" -- "1"ParameterCategory : "> has a"
+
+class TypeOfTest{
+-code
+-description
+-collecting method
+}
+
+class Company{
+-designation
+}
+
+class ParameterCategory{
+    -code
+    -name
+}
+@enduml

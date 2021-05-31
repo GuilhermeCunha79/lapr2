@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Receptionist" as RECEP
+
+participant ":System" as SYSTEM
+
+RECEP -> SYSTEM : register a new client
+activate SYSTEM
+SYSTEM --> RECEP : request mandatory data (name, Citizen Card number, NHS number,\n TIN number, birth date, phone number, email) and optional data (sex)
+deactivate SYSTEM
+
+RECEP -> SYSTEM : insert the data
+activate SYSTEM
+SYSTEM --> RECEP : shows the data and request a confirmation
+deactivate SYSTEM
+
+RECEP -> SYSTEM : confirms the data
+activate SYSTEM
+SYSTEM --> RECEP : informs operation success
+deactivate SYSTEM
+
+@enduml

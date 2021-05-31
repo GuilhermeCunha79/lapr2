@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="570px" preserveAspectRatio="none" style="width:916px;height:570px;" version="1.1" viewBox="0 0 916 570" width="916.25px" zoomAndPan="magnify"><defs><filter height="300%" id="fyhbcs19jmbpd" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fyhbcs19jmbpd)" height="37.5" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="396.25" y="220.3418"/><rect fill="#FFFFFF" filter="url(#fyhbcs19jmbpd)" height="37.5" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="606.25" y="408.2324"/><rect fill="#FFFFFF" filter="url(#fyhbcs19jmbpd)" height="286.2695" style="stroke:#000000;stroke-width:2.5;" width="862.5" x="36.25" y="169.4629"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="141.25" x2="141.25" y1="52.0117" y2="514.9219"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="402.5" x2="402.5" y1="52.0117" y2="514.9219"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="612.5" x2="612.5" y1="144.082" y2="514.9219"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="807.5" x2="807.5" y1="363.6621" y2="514.9219"/><rect fill="#FEFECE" filter="url(#fyhbcs19jmbpd)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="180" x="48.75" y="6.25"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="162.5" x="57.5" y="33.1665">testMap:TestMapper</text><rect fill="#FEFECE" filter="url(#fyhbcs19jmbpd)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="180" x="48.75" y="513.6719"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="162.5" x="57.5" y="540.5884">testMap:TestMapper</text><rect fill="#FEFECE" filter="url(#fyhbcs19jmbpd)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="180" x="310" y="6.25"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="162.5" x="318.75" y="33.1665">storeTest: TestStore</text><rect fill="#FEFECE" filter="url(#fyhbcs19jmbpd)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="180" x="310" y="513.6719"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="162.5" x="318.75" y="540.5884">storeTest: TestStore</text><rect fill="#FEFECE" filter="url(#fyhbcs19jmbpd)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="205" x="507.5" y="513.6719"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="187.5" x="516.25" y="540.5884">TestDto : List&lt;TestDto&gt;</text><rect fill="#FEFECE" filter="url(#fyhbcs19jmbpd)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="151.25" x="730" y="513.6719"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="133.75" x="738.75" y="540.5884">objDTO: TestDto</text><rect fill="#FFFFFF" filter="url(#fyhbcs19jmbpd)" height="37.5" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="396.25" y="220.3418"/><rect fill="#FFFFFF" filter="url(#fyhbcs19jmbpd)" height="37.5" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="606.25" y="408.2324"/><ellipse cx="9.375" cy="91.5137" rx="5" ry="5" style="stroke:#A80036;stroke-width:1.875;fill:none;"/><polygon fill="#A80036" points="126.25,87.4512,138.75,92.4512,126.25,97.4512,131.25,92.4512" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="15" x2="133.75" y1="92.4512" y2="92.4512"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="18.75" y="86.3806">1</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="87.5" x="32.5" y="86.3806">toDTO(Test)</text><polygon fill="#A80036" points="492.5,125.3906,505,130.3906,492.5,135.3906,497.5,130.3906" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="141.25" x2="500" y1="130.3906" y2="130.3906"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="150" y="124.3201">2</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="55" x="163.75" y="124.3201">create()</text><rect fill="#FEFECE" filter="url(#fyhbcs19jmbpd)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="205" x="507.5" y="102.4512"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="187.5" x="516.25" y="129.3677">TestDto : List&lt;TestDto&gt;</text><path d="M36.25,169.4629 L127.5,169.4629 L127.5,179.4629 L115,191.9629 L36.25,191.9629 L36.25,169.4629 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.25;"/><rect fill="none" height="286.2695" style="stroke:#000000;stroke-width:2.5;" width="862.5" x="36.25" y="169.4629"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="35" x="55" y="187.5818">loop</text><text fill="#000000" font-family="sans-serif" font-size="13.75" font-weight="bold" lengthAdjust="spacing" textLength="192.5" x="146.25" y="186.2366">[For each object in TestList]</text><polygon fill="#A80036" points="381.25,215.3418,393.75,220.3418,381.25,225.3418,386.25,220.3418" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="141.25" x2="388.75" y1="220.3418" y2="220.3418"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="150" y="214.2712">3</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="176.25" x="163.75" y="214.2712">TestObj = getTestById(i)</text><line style="stroke:#A80036;stroke-width:1.25;" x1="141.25" x2="193.75" y1="295.7813" y2="295.7813"/><line style="stroke:#A80036;stroke-width:1.25;" x1="193.75" x2="193.75" y1="295.7813" y2="312.0313"/><line style="stroke:#A80036;stroke-width:1.25;" x1="142.5" x2="193.75" y1="312.0313" y2="312.0313"/><polygon fill="#A80036" points="155,307.0313,142.5,312.0313,155,317.0313,150,312.0313" style="stroke:#A80036;stroke-width:1.25;"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="150" y="289.7107">4</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="230" x="163.75" y="289.7107">objDto = toDTO(TypeOfTestObj)</text><polygon fill="#A80036" points="715,344.9707,727.5,349.9707,715,354.9707,720,349.9707" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="141.25" x2="722.5" y1="349.9707" y2="349.9707"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="150" y="343.9001">5</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="90" x="163.75" y="343.9001">create(code)</text><rect fill="#FEFECE" filter="url(#fyhbcs19jmbpd)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="151.25" x="730" y="322.0313"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="133.75" x="738.75" y="348.9478">objDTO: TestDto</text><polygon fill="#A80036" points="591.25,403.2324,603.75,408.2324,591.25,413.2324,596.25,408.2324" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="141.25" x2="598.75" y1="408.2324" y2="408.2324"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="150" y="402.1619">6</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="82.5" x="163.75" y="402.1619">add(objDto)</text><polygon fill="#A80036" points="13.75,487.4219,1.25,492.4219,13.75,497.4219,8.75,492.4219" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="6.25" x2="140" y1="492.4219" y2="492.4219"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="21.25" y="486.3513">7</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="77.5" x="35" y="486.3513">listTestDto</text><!--MD5=[6179023f2484bcca6ca88e41e04a83e8]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant "testMap:TestMapper" as TMAPPER
+participant "storeTest: TestStore" as TSTORE
+participant "TestDto : List<TestDto>" as TLIST
+participant "objDTO: TestDto" as TDTO
+
+
+[o-> TMAPPER : toDTO(Test)
+TMAPPER -> TLIST**: create()
+
+loop For each object in TestList
+
+TMAPPER -> TSTORE : TestObj = getTestById(i)
+activate TSTORE
+deactivate TSTORE
+TMAPPER -> TMAPPER : objDto = toDTO(TypeOfTestObj)
+TMAPPER -> TDTO** : create(code)
+TMAPPER -> TLIST : add(objDto)
+activate TLIST
+deactivate TLIST
+
+end
+
+<- - TMAPPER : listTestDto
+@enduml
+
+@startuml
+
+autonumber
+
+participant "testMap:TestMapper" as TMAPPER
+participant "storeTest: TestStore" as TSTORE
+participant "TestDto : List<TestDto>" as TLIST
+participant "objDTO: TestDto" as TDTO
+
+
+[o-> TMAPPER : toDTO(Test)
+TMAPPER -> TLIST**: create()
+
+loop For each object in TestList
+
+TMAPPER -> TSTORE : TestObj = getTestById(i)
+activate TSTORE
+deactivate TSTORE
+TMAPPER -> TMAPPER : objDto = toDTO(TypeOfTestObj)
+TMAPPER -> TDTO** : create(code)
+TMAPPER -> TLIST : add(objDto)
+activate TLIST
+deactivate TLIST
+
+end
+
+<- - TMAPPER : listTestDto
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
