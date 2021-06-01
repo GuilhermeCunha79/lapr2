@@ -38,8 +38,8 @@ public class ValidationController {
         return test.getTestValidation();
     }
 
-    public boolean saveValidation() {
-        return this.test.addValidation();
+    public boolean saveValidation(String internalCode) {
+        return testStore.doValidationOne(internalCode);
     }
 
     public String getTestByCode(String testCode) {
@@ -47,27 +47,6 @@ public class ValidationController {
         return test.getTestResults();
     }
 
-    //VER SE É NECESSÁRIO
-    public boolean changeStateToValidate(List<String> testList) {
-        if (!testList.isEmpty()) {
-            for (String test : testList) {
-                //this.test = getTestByCode(test.substring(15, 27));
-                this.test.changeStateValidationToDone();
-            }
-            return true;
-        }
-        return false;
-    }
-
-
-    public boolean changeStateToValidateOne(String internalCode) {
-        if (test != null) {
-            //this.test = getTestByCode(internalCode);
-            this.test.changeStateValidationToDone();
-            return true;
-        }
-        return false;
-    }
 
     public boolean doValidation(List<String> testValidationList) {
         return testStore.doValidation(testValidationList);

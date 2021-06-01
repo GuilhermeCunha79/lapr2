@@ -16,7 +16,7 @@ participant ":DateTime" as DT
 
 LC -> UI : validate work done by the clinical chemistry technologist and specialist doctor
 activate UI
-    UI -> CTRL : readyToValidate()
+    UI -> CTRL : getTestWithoutValidation()
     activate CTRL
     CTRL -> C : testStore = getTestStore()
     activate C

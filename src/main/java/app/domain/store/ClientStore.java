@@ -3,10 +3,13 @@ package app.domain.store;
 import app.controller.App;
 
 
+import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import app.mappers.dto.ClientDTO;
 import app.domain.model.Client;
 import app.domain.shared.SendingEmailSMS;
+import auth.UserSession;
+import auth.domain.model.Email;
 
 
 import java.io.*;
@@ -55,6 +58,23 @@ public class ClientStore {
         return false;
     }
 
+
+
+
+    /***
+     * This method validates the client received and adds it to the Client store by calling the method addClient
+     * @param client
+     * @return if it was successfully added to the store (true or false)
+     */
+    public boolean saveChanges(Client client) {
+        if (client != null) {
+            validateClient(client);
+                return true;
+            }
+        return false;
+    }
+
+
     private void serializeStore() {
         try{
             FileOutputStream out = new FileOutputStream("data\\clients.dat");
@@ -86,6 +106,8 @@ public class ClientStore {
         String email = client.getEmail();
         return !App.getInstance().getCompany().getAuthFacade().existsUser(email) && !checkDuplicate(client);
     }
+
+
 
     private boolean checkDuplicate(Client client) {
         for (Client clt : clientList) {
@@ -125,22 +147,22 @@ public class ClientStore {
         }
         return null;
     }
-
+/*
     /***
      * This method return a client by find his email
-     * @param email
      * @return client
-     */
-    public Client getClientByEmail(String email) {
-        if (email != null && !email.isEmpty()) {
-            for (Client client : clientList) {
-                if (client.getEmail().equals(email))
-                    return client;
-            }
+
+    public Client getClientByEmail() {
+        Email email= UserSession.getUserId();
+        assert email != null;
+        String email1= email.getEmail();
+        for (Client client : clientList) {
+            if (client.getEmail().equals(email1))
+                return client;
         }
         return null;
     }
-
+*/
 
 
 }

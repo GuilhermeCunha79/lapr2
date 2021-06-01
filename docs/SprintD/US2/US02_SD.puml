@@ -2,12 +2,12 @@
 'https://plantuml.com/sequence-diagram
 
 actor Client as CLT
-participant ":ClientUI" as UI
+participant "ct:ClientUI" as UI
 participant ":ChangeClientDataController" as CTRL
 participant ":Company" as COMP
-participant ":ClientStore" as STR
-participant ":Email" as EM
+participant "store:ClientStore" as STR
 participant ":Client" as CL
+participant ":Email" as EM
 participant ":UserSession" as US
 
 CLT -> UI : change personal data
@@ -17,15 +17,18 @@ activate CTRL
 CTRL-> COMP : store=getClientStore()
 activate COMP
 deactivate COMP
-CTRL->STR : getClientByEmail()
+CTRL->STR : client = getClientByEmail()
 activate STR
 STR -> US : id = getUserId()
 activate US
 deactivate US
 
+
 STR->EM: email = getEmail()
 activate EM
 deactivate EM
+deactivate STR
+
 
 deactivate STR
 
@@ -58,40 +61,98 @@ deactivate UI
 
 CLT -> UI : writes the changes that he wants
 activate UI
-UI-> CTRL : setData(client)
+UI-> CTRL : changeData(client)
 activate CTRL
-CTRL->STR :setClientData(client)
-deactivate CTRL
 
+CTRL->STR :changeClientName(client)
 activate STR
 STR->CL : name=setName()
 activate CL
 deactivate CL
+deactivate STR
+
+
+CTRL->STR :changeClientCitizenCardNumber(client)
+activate STR
 STR->CL : citizenCardNumber=setCitizenCardNumber()
 activate CL
 deactivate CL
+deactivate STR
+
+CTRL->STR :changeNhsNumber(client)
+activate STR
 STR->CL : nhsNumber=setNhsNumber()
 activate CL
 deactivate CL
+deactivate STR
+
+CTRL->STR :changeTinNumber(client)
+activate STR
 STR->CL : tinNumber=setTinNumber()
 activate CL
 deactivate CL
+deactivate STR
+
+CTRL->STR :changeBirthDate(client)
+activate STR
 STR->CL : birthDate=setBirthDate()
 activate CL
 deactivate CL
+deactivate STR
+
+CTRL->STR :changePhoneNumber(client)
+activate STR
 STR->CL : phoneNumber=setPhoneNumber()
 activate CL
 deactivate CL
+deactivate STR
+
+CTRL->STR :changeEmail(client)
+activate STR
 STR->CL : email=setEmail()
 activate CL
 deactivate CL
 deactivate STR
-UI--> CLT : shows the date and asks for confirmation
+
+CTRL->STR :changePassword(client)
+activate STR
+STR->CL : password=setPassword()
+activate CL
+deactivate CL
+deactivate STR
+
+
+UI--> CLT : shows the updated registration form and asks for confirmation
 deactivate UI
+CTRL -> STR : validateClient(client)
+
+        activate STR
+        STR -> CL : email=getEmail()
+        activate CL
+        deactivate CL
+        STR -> AF : b = existsUser(email)
+        activate AF
+        deactivate AF
+        STR -> STR : checkDuplicates(client)
+        activate STR
+        deactivate STR
+        deactivate STR
+        deactivate CTRL
+
 
 
 CLT -> UI : confirms the data
 activate UI
+UI-> CTRL : saveChanges()
+activate CTRL
+CTRL-> STR : saveChanges(client)
+activate STR
+STR->STR : validateClient(client)
+activate STR
+deactivate STR
+deactivate STR
+deactivate CTRL
+
 UI--> CLT : informs operation success
 deactivate UI
 end
