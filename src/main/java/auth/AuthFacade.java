@@ -83,6 +83,10 @@ public class AuthFacade {
         return this.roles;
     }
 
+    public UserStore getUsers(){
+        return this.users;
+    }
+
     public void doLogout()
     {
         this.userSession.doLogout();

@@ -9,6 +9,7 @@ import app.domain.model.Client;
 import app.domain.shared.SendingEmailSMS;
 
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import static app.domain.shared.PasswordGenerator.generatePassword;
 
 public class ClientStore {
 
-    private final List<Client> clientList = new ArrayList();
+    private List<Client> clientList = new ArrayList<>();
 
 
     /***
@@ -26,6 +27,10 @@ public class ClientStore {
      */
     public Client newClient(ClientDTO dto) {
         return new Client(dto);
+    }
+
+    public void setClientList(List<Client> lClient){
+        this.clientList = new ArrayList<>(lClient);
     }
 
 
@@ -42,10 +47,24 @@ public class ClientStore {
             if (validateClient(client)) {
                 App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
                 sendEmail(client, pwd);
-                return addClient(client);
+                addClient(client);
+                serializeStore();
+                return true;
             }
         }
         return false;
+    }
+
+    private void serializeStore() {
+        try{
+            FileOutputStream out = new FileOutputStream("data\\clients.dat");
+            ObjectOutputStream outputStream = new ObjectOutputStream(out);
+            outputStream.writeObject(this.clientList);
+            outputStream.close();
+            out.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     /***

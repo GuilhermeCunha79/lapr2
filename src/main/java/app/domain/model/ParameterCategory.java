@@ -4,7 +4,9 @@ import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
-public class ParameterCategory {
+import java.io.Serializable;
+
+public class ParameterCategory implements Serializable {
 
     private static final int NAME_LENGTH = 10;
 

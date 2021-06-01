@@ -4,6 +4,8 @@ import app.mappers.dto.ClientDTO;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +17,7 @@ import java.util.Objects;
 /***
  * Client Class
  */
-public class Client  {
+public class Client  implements Serializable {
 
     private String name;
     private String citizenCardNumber;

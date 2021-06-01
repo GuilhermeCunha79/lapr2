@@ -9,6 +9,9 @@ import app.domain.model.TypeOfTest;
 import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +19,7 @@ import java.util.List;
 public class TestStore {
 
     private CATest test;
-    private final List<CATest> testList = new ArrayList<>();
+    private List<CATest> testList = new ArrayList<>();
 
 
     /**
@@ -26,6 +29,10 @@ public class TestStore {
      */
     public boolean addParameter(Parameter parameter) {
         return this.test.addParameter(parameter);
+    }
+
+    public void setTestList(List<CATest> testList){
+        this.testList = new ArrayList<>(testList);
     }
 
     /**
@@ -83,9 +90,23 @@ public class TestStore {
      */
     public boolean saveTest(CATest test) {
         if(validateTest(test)) {
-            return addTest(test);
+            addTest(test);
+            serializeStore();
+            return true;
         }
         return false;
+    }
+
+    private void serializeStore() {
+        try{
+            FileOutputStream out = new FileOutputStream("data\\test.dat");
+            ObjectOutputStream outputStream = new ObjectOutputStream(out);
+            outputStream.writeObject(this.testList);
+            outputStream.close();
+            out.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 

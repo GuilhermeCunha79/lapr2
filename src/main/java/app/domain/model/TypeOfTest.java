@@ -8,12 +8,13 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 
-public class TypeOfTest {
+public class TypeOfTest implements Serializable {
 
     static final int DESCRIPTION_LENGTH = 15;
     static final int COLLECTING_METHOD_LENGTH = 20;

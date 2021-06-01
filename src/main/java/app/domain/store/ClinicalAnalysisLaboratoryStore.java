@@ -2,23 +2,27 @@ package app.domain.store;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ClinicalAnalysisLaboratoryStore {
+public class ClinicalAnalysisLaboratoryStore implements Serializable {
 
 
-    private final List<ClinicalAnalysisLaboratory> laboratoryList = new ArrayList<>();
+    private List<ClinicalAnalysisLaboratory> laboratoryList = new ArrayList<>();
 
     /**
      * Method that receives parameters from the associated controller to create a new clinical analysis laboratory
      *
-     * @param name           of the clinical analysis laboratory
-     * @param phoneNumber    of the clinical analysis laboratory
-     * @param laboratoryID   of the clinical analysis laboratory
-     * @param tinNumber      of the clinical analysis laboratory
-     * @param address        of the clinical analysis laboratory
+     * @param name         of the clinical analysis laboratory
+     * @param phoneNumber  of the clinical analysis laboratory
+     * @param laboratoryID of the clinical analysis laboratory
+     * @param tinNumber    of the clinical analysis laboratory
+     * @param address      of the clinical analysis laboratory
      * @return the parameter clinical analysis laboratory
      */
     public ClinicalAnalysisLaboratory registerClinicalAnalysisLaboratory(String laboratoryID, String name, String address, String phoneNumber, String tinNumber) {
@@ -33,9 +37,23 @@ public class ClinicalAnalysisLaboratoryStore {
      */
     public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal) {
         if (cal != null && validateClinicalAnalysisLaboratory(cal)) {
-            return addClinicalAnalysisLaboratory(cal);
+            addClinicalAnalysisLaboratory(cal);
+            serializeStore();
+            return true;
         }
         return false;
+    }
+
+    private void serializeStore() {
+        try{
+            FileOutputStream out = new FileOutputStream("data\\calab.dat");
+            ObjectOutputStream outputStream = new ObjectOutputStream(out);
+            outputStream.writeObject(this.laboratoryList);
+            outputStream.close();
+            out.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -46,7 +64,7 @@ public class ClinicalAnalysisLaboratoryStore {
      */
 
     private boolean addClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal) {
-            return this.laboratoryList.add(cal);
+        return this.laboratoryList.add(cal);
     }
 
     /**
@@ -75,4 +93,7 @@ public class ClinicalAnalysisLaboratoryStore {
         return new ArrayList<>(laboratoryList);
     }
 
+    public void setCALabList(List<ClinicalAnalysisLaboratory> lCALabs) {
+        this.laboratoryList = new ArrayList<>(lCALabs);
+    }
 }

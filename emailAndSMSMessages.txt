@@ -1,6 +1,6 @@
-Hello maria,
+Hello James,
 You now can use your email and the following password to access Many Labs app: 
 
 Login data: 
-Email: maria@isep.pt
-Password: p8k2SxDxE5
+Email: james@gmail.com
+Password: pCof8ccxmQ

@@ -1,6 +1,8 @@
 package app.domain.model;
 
-public class TestParameter {
+import java.io.Serializable;
+
+public class TestParameter implements Serializable {
 
     private Parameter parameter;
     private TestParameterResult testParameterResult;
