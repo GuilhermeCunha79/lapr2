@@ -10,12 +10,15 @@ import app.mappers.dto.EmpDto;
 import auth.domain.model.UserRole;
 import auth.domain.store.UserRoleStore;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeStore {
 
-    private final List<Employee> employeeList = new ArrayList<>();
+    private List<Employee> employeeList = new ArrayList<>();
 
     /**
      * Method that receives information from the associated controller to create a new employee with data received from a dto
@@ -35,6 +38,10 @@ public class EmployeeStore {
      */
     public SpecialistDoctor newSpecialistDoctor(EmpDto empDto) {
         return new SpecialistDoctor(empDto);
+    }
+
+    public void setEmployeeList(List<Employee> employeeList){
+        this.employeeList = new ArrayList<>(employeeList);
     }
 
     public boolean isSpecialistDoctor(String roleId) {
@@ -89,11 +96,24 @@ public class EmployeeStore {
             App.getInstance().getCompany().getAuthFacade().addUserWithRole(emp.getName(), emp.getEmail(), pwd, roleDesc);
             addEmployee(emp);
             SendingEmailSMS.sendEmailWithPassword(emp.getName(), emp.getEmail(), pwd);
+            serializeStore();
             return true;
 
         }
         return false;
 
+    }
+
+    private void serializeStore() {
+        try{
+            FileOutputStream out = new FileOutputStream("data\\employee.dat");
+            ObjectOutputStream outputStream = new ObjectOutputStream(out);
+            outputStream.writeObject(this.employeeList);
+            outputStream.close();
+            out.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     /**

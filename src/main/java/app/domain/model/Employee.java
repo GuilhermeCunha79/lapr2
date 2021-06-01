@@ -6,11 +6,13 @@ import app.mappers.dto.EmpDto;
 import auth.domain.model.UserRole;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
+
 
 /**
  * Employee class
  */
-public class Employee {
+public class Employee implements Serializable {
     static final String STRING_ROLE = "Role";
     static final String STRING_SOC = "SOC Number";
     static final int MAX_CHAR_SOC = 4;

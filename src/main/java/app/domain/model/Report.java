@@ -4,7 +4,9 @@ import app.domain.shared.CommonMethods;
 import app.domain.shared.DateTime;
 import org.apache.commons.lang3.StringUtils;
 
-public class Report {
+import java.io.Serializable;
+
+public class Report implements Serializable {
 
     private DateTime createdAt;
     private String reportText;

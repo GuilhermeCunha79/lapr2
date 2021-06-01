@@ -4,9 +4,10 @@ import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Parameter {
+public class Parameter implements Serializable {
 
     private String code;
     private String shortName;

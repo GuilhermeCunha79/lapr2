@@ -5,7 +5,9 @@ import app.domain.shared.Constants;
 import app.mappers.dto.EmpDto;
 import org.apache.commons.lang3.StringUtils;
 
-public class SpecialistDoctor extends Employee {
+import java.io.Serializable;
+
+public class SpecialistDoctor extends Employee implements Serializable {
 
     private String doctorIndexNumber;
 

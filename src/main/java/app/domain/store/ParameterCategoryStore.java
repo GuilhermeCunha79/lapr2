@@ -2,12 +2,15 @@ package app.domain.store;
 
 import app.domain.model.ParameterCategory;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParameterCategoryStore {
 
-    private List<ParameterCategory> parameterCategoryList = new ArrayList();
+    private List<ParameterCategory> parameterCategoryList = new ArrayList<>();
 
 
     /**
@@ -21,6 +24,9 @@ public class ParameterCategoryStore {
         return new ParameterCategory(code, name);
     }
 
+    public void setParameterCategoryList(List<ParameterCategory> pcList){
+        this.parameterCategoryList = new ArrayList<>(pcList);
+    }
     /**
      * Method that returns a parameter category from the list with the same code as the one received by parameter
      *
@@ -43,11 +49,25 @@ public class ParameterCategoryStore {
      */
     public boolean saveParameterCategory(ParameterCategory pc) {
         if (validateParameterCategory(pc)) {
-            return addParameterCategory(pc);
+            if(addParameterCategory(pc)){
+                serializeStore();
+                return true;
+            }
         }
         return false;
     }
 
+    private void serializeStore() {
+        try{
+            FileOutputStream out = new FileOutputStream("data\\pcat.dat");
+            ObjectOutputStream outputStream = new ObjectOutputStream(out);
+            outputStream.writeObject(this.parameterCategoryList);
+            outputStream.close();
+            out.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
     /**
      * Method responsible to add a new parameter category to the list when asked by the saveParameterCategory method
      *

@@ -3,19 +3,22 @@
 
 left to right direction
 
-:Scheduler: --> (UC1 - Generate Daily Reports)
-:Scheduler: --> (UC2 - Company Performance Evaluation)
+:Client: --> (UC1 - Access the application to view the\nresults of the tests I have performed)
+:Client: --> (UC2 - Update my personal data)
 :Receptionist: --> (UC3 - Register new Client)
 :Receptionist: --> (UC4 -  Register a test to be performed\n to a registered client)
 :Lab Technician: --> (UC5 -  Record the samples collected in \n the scope of a given test)
-:Client: --> (UC6 - Check his medical tests results)
 :Admin: --> (UC7 - Add new employee to the system)
 :Admin: --> (UC8 - Add new clinical analysis labs to the system)
 :Admin: --> (UC9 - Add new types of tests to the system)
 :Admin: --> (UC10 - Add new parameters to the system)
 :Admin: --> (UC11 - Add new parameter category to the system)
+:Admin: --> (UC18 - Send the Covid-19 report to the NHS at any time)
 :Clinical Chemistry Technologist: --> (UC12 - Record the results of a given test)
+:Clinical Chemistry Technologist: --> (UC13 - Consult the historical tests performed\n by a particular client and to be able to check tests details/results)
 :Specialist Doctor: --> (UC14 - Make the diagnosis \n and write a report for a given test)
 :Lab Coordinator: --> (UC15 - Validate the work done by the clinical chemistry \n technologist and specialist doctor.)
-
+:Lab Coordinator: --> (UC16 - Have an overview of all the tests performed\nby Many Labs and analyse the overall performance of the company)
+:Lab Coordinator: --> (UC17 - Import clinical tests from a CSV file)
+:Scheduler: --> (US19 - Send to the NHS daily reports of Covid-19)
 @enduml

@@ -5,7 +5,15 @@ import auth.AuthFacade;
 import app.domain.store.ClientStore;
 import app.domain.store.ParameterCategoryStore;
 import app.domain.store.ParameterStore;
+import auth.domain.model.User;
 import org.apache.commons.lang3.StringUtils;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -14,16 +22,16 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class Company {
 
-    private final String designation;
-    private final AuthFacade authFacade;
+    private String designation;
+    private AuthFacade authFacade;
 
-    private final TypeOfTestStore totStore = new TypeOfTestStore();
-    private final ClientStore clientStore = new ClientStore();
-    private final ParameterCategoryStore pcStore = new ParameterCategoryStore();
-    private final ParameterStore pStore = new ParameterStore();
-    private final ClinicalAnalysisLaboratoryStore calStore = new ClinicalAnalysisLaboratoryStore();
-    private final EmployeeStore empStore = new EmployeeStore();
-    private final TestStore testStore = new TestStore();
+    private TypeOfTestStore totStore = new TypeOfTestStore();
+    private ClientStore clientStore = new ClientStore();
+    private ParameterCategoryStore pcStore = new ParameterCategoryStore();
+    private ParameterStore pStore = new ParameterStore();
+    private ClinicalAnalysisLaboratoryStore calStore = new ClinicalAnalysisLaboratoryStore();
+    private EmployeeStore empStore = new EmployeeStore();
+    private TestStore testStore = new TestStore();
 
     /**
      * Constructor of the company class assigning a designation to it
@@ -36,6 +44,119 @@ public class Company {
 
         this.designation = designation;
         this.authFacade = new AuthFacade();
+
+        setEmpStore();
+        setPCategoryStore();
+        setParameterStore();
+        setTotStore();
+        setCALabStore();
+        setClientStore();
+        setTestStore();
+        setUserStore();
+    }
+
+    private void setUserStore() {
+        try{
+            FileInputStream input = new FileInputStream("data\\user.dat");
+            ObjectInputStream in = new ObjectInputStream(input);
+            Set<User> userList = new HashSet<>((Set<User>) in.readObject());
+            this.authFacade.getUsers().setStore(userList);
+            in.close();
+            input.close();
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setClientStore() {
+        try{
+            FileInputStream input = new FileInputStream("data\\clients.dat");
+            ObjectInputStream in = new ObjectInputStream(input);
+            List<Client> lClient = (List<Client>) in.readObject();
+            this.clientStore.setClientList(lClient);
+            in.close();
+            input.close();
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setCALabStore() {
+        try{
+            FileInputStream input = new FileInputStream("data\\calab.dat");
+            ObjectInputStream in = new ObjectInputStream(input);
+            List<ClinicalAnalysisLaboratory> lCALab = (List<ClinicalAnalysisLaboratory>) in.readObject();
+            this.calStore.setCALabList(lCALab);
+            in.close();
+            input.close();
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setEmpStore() {
+        try{
+            FileInputStream input = new FileInputStream("data\\employee.dat");
+            ObjectInputStream in = new ObjectInputStream(input);
+            List<Employee> lEmployee = (List<Employee>) in.readObject();
+            this.empStore.setEmployeeList(lEmployee);
+            in.close();
+            input.close();
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setPCategoryStore() {
+        try{
+            FileInputStream input = new FileInputStream("data\\pcat.dat");
+            ObjectInputStream in = new ObjectInputStream(input);
+            List<ParameterCategory> lPCategory = (List<ParameterCategory>) in.readObject();
+            this.pcStore.setParameterCategoryList(lPCategory);
+            in.close();
+            input.close();
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setParameterStore() {
+        try{
+            FileInputStream input = new FileInputStream("data\\param.dat");
+            ObjectInputStream in = new ObjectInputStream(input);
+            List<Parameter> lParameter = (List<Parameter>) in.readObject();
+            this.pStore.setParameterList(lParameter);
+            in.close();
+            input.close();
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setTestStore() {
+        try{
+            FileInputStream input = new FileInputStream("data\\test.dat");
+            ObjectInputStream in = new ObjectInputStream(input);
+            List<CATest> lTest = (List<CATest>) in.readObject();
+            this.testStore.setTestList(lTest);
+            in.close();
+            input.close();
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void setTotStore() {
+        try{
+            FileInputStream input = new FileInputStream("data\\tot.dat");
+            ObjectInputStream in = new ObjectInputStream(input);
+            List<TypeOfTest> lTestType = (List<TypeOfTest>) in.readObject();
+            this.totStore.setTypeOfTestList(lTestType);
+            in.close();
+            input.close();
+        }catch (IOException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
     /**

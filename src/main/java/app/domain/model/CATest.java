@@ -5,10 +5,11 @@ import app.domain.shared.Constants;
 import app.domain.shared.DateTime;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CATest {
+public class CATest implements Serializable {
     private static final int NHS_CODE = 12;
     private static int testCounter = 0;
     private final String labWhereCreated;
@@ -419,6 +420,4 @@ public class CATest {
         CATest test = (CATest) o;
         return internalCode.equals(test.internalCode) || nhsCode.equals(test.nhsCode);
     }
-
-
 }

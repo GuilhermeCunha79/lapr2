@@ -1,6 +1,8 @@
 package app.domain.model;
 
-public class TestParameterResult {
+import java.io.Serializable;
+
+public class TestParameterResult implements Serializable {
 
     private double value;
     private String metric;

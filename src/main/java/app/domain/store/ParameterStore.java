@@ -4,12 +4,15 @@ import app.controller.App;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParameterStore {
 
-    private List<Parameter> parameterList = new ArrayList();
+    private List<Parameter> parameterList = new ArrayList<>();
 
     /**
      * Method that receives parameters from the associated controller to create a new parameter
@@ -26,6 +29,10 @@ public class ParameterStore {
         return new Parameter(code, shortName, description, pc);
     }
 
+    public void setParameterList(List<Parameter> parameterList){
+        this.parameterList = new ArrayList<>(parameterList);
+    }
+
     /**
      * This method validates the parameter received and adds it to the Parameter store by calling the method addParameter
      *
@@ -34,9 +41,23 @@ public class ParameterStore {
      */
     public boolean saveParameter(Parameter p) {
         if (p != null && validateParameter(p)) {
-            return addParameter(p);
+            addParameter(p);
+            serializeStore();
+            return true;
         }
         return false;
+    }
+
+    private void serializeStore() {
+        try{
+            FileOutputStream out = new FileOutputStream("data\\param.dat");
+            ObjectOutputStream outputStream = new ObjectOutputStream(out);
+            outputStream.writeObject(this.parameterList);
+            outputStream.close();
+            out.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     /**

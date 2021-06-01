@@ -3,12 +3,15 @@ package app.domain.store;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TypeOfTest;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TypeOfTestStore {
 
-    private final List<TypeOfTest> typeOfTestList = new ArrayList<>();
+    private List<TypeOfTest> typeOfTestList = new ArrayList<>();
 
     /**
      * Method that receives type of test from the associated controller to create a new type of test
@@ -22,6 +25,9 @@ public class TypeOfTestStore {
         return new TypeOfTest(code, description, collectingMethod, pc);
     }
 
+    public void setTypeOfTestList(List<TypeOfTest> totList){
+        this.typeOfTestList = new ArrayList<>(totList);
+    }
     /**
      * This method validates the type of test received and adds it to the Type of Test store by calling the method addTypeOfTest
      * @param tot type of test that will be added
@@ -29,9 +35,24 @@ public class TypeOfTestStore {
      */
     public boolean saveTypeOfTest(TypeOfTest tot){
         if(validateTypeOfTest(tot)){
-           return addTypeOfTest(tot);
+           if(addTypeOfTest(tot)){
+               serializeStore();
+               return true;
+           }
         }
         return false;
+    }
+
+    private void serializeStore() {
+        try{
+            FileOutputStream out = new FileOutputStream("data\\tot.dat");
+            ObjectOutputStream outputStream = new ObjectOutputStream(out);
+            outputStream.writeObject(this.typeOfTestList);
+            outputStream.close();
+            out.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 

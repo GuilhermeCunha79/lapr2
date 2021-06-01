@@ -4,6 +4,7 @@ import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +14,7 @@ import java.util.Objects;
  * ClinicalAnalysisLaboratoryClass
  */
 
-public class ClinicalAnalysisLaboratory {
+public class ClinicalAnalysisLaboratory implements Serializable {
 
 
     static final int MAX_CHAR_NAME = 20;
@@ -61,7 +62,7 @@ public class ClinicalAnalysisLaboratory {
 
     /***
      * Method to get the Clinical Analysis Laboratory name
-     * @return return he Clinical Analysis Laboratory name
+     * @return return the Clinical Analysis Laboratory name
      */
     public String getName() {
         return this.name;
