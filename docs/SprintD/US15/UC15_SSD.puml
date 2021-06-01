@@ -15,11 +15,11 @@ deactivate SYSTEM
 loop
 LABC -> SYSTEM : select the test(s) and validate
 activate SYSTEM
-end
+
 
 SYSTEM --> LABC : ask for validation
 deactivate SYSTEM
-
+end
 LABC -> SYSTEM : confirms the validation
 activate SYSTEM
 SYSTEM --> LABC : informs operation success

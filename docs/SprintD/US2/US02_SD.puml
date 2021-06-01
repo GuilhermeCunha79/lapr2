@@ -6,25 +6,34 @@ participant ":ClientUI" as UI
 participant ":ChangeClientDataController" as CTRL
 participant ":Company" as COMP
 participant ":ClientStore" as STR
+participant ":Email" as EM
 participant ":Client" as CL
-participant ":ClientDTO" as CLDTO
-participant ":AuthFacade" as AF
+participant ":UserSession" as US
 
 CLT -> UI : change personal data
 activate UI
-UI-> CTRL : getClientByEmail(email)
+UI-> CTRL : getClientByEmail()
 activate CTRL
 CTRL-> COMP : store=getClientStore()
 activate COMP
 deactivate COMP
-CTRL->STR : getUserId()
-
+CTRL->STR : getClientByEmail()
 activate STR
-deactivate CTRL
-STR->CL: email=getEmail()
-activate CL
-deactivate CL
+STR -> US : id = getUserId()
+activate US
+deactivate US
+
+STR->EM: email = getEmail()
+activate EM
+deactivate EM
+
 deactivate STR
+
+
+deactivate CTRL
+
+
+
 UI--> CLT : shows the registration form with the previous data \n and ask to select the type of data to change
 
 
@@ -49,52 +58,34 @@ deactivate UI
 
 CLT -> UI : writes the changes that he wants
 activate UI
-UI-> CTRL : setData(clientDto)
+UI-> CTRL : setData(client)
 activate CTRL
-CTRL->STR :client = setClientData(clientDto)
-
-activate STR
-
-STR->CL : update(clientDto)
-activate CL
-deactivate STR
-CL->CLDTO : name=setName()
-activate CLDTO
-deactivate CLDTO
-CL->CLDTO : citizenCardNumber=setCitizenCardNumber()
-activate CLDTO
-deactivate CLDTO
-CL->CLDTO: nhsNumber=setNhsNumber()
-activate CLDTO
-deactivate CLDTO
-CL->CLDTO : tinNumber=setTinNumber()
-activate CLDTO
-deactivate CLDTO
-CL->CLDTO : birthDate=setBirthDate()
-activate CLDTO
-deactivate CLDTO
-CL->CLDTO : phoneNumber=setPhoneNumber()
-activate CLDTO
-deactivate CLDTO
-CL->CLDTO : email=setEmail()
-activate CLDTO
-deactivate CLDTO
-deactivate CL
-
-CTRL -> STR: validateClient(client)
-        activate STR
-        STR -> CL : email=getEmail()
-        activate CL
-        deactivate CL
-        STR -> AF : b = existsUser(email)
-        activate AF
-        deactivate AF
-        STR -> STR : checkDuplicates(client)
-        activate STR
-        deactivate STR
-        deactivate STR
+CTRL->STR :setClientData(client)
 deactivate CTRL
 
+activate STR
+STR->CL : name=setName()
+activate CL
+deactivate CL
+STR->CL : citizenCardNumber=setCitizenCardNumber()
+activate CL
+deactivate CL
+STR->CL : nhsNumber=setNhsNumber()
+activate CL
+deactivate CL
+STR->CL : tinNumber=setTinNumber()
+activate CL
+deactivate CL
+STR->CL : birthDate=setBirthDate()
+activate CL
+deactivate CL
+STR->CL : phoneNumber=setPhoneNumber()
+activate CL
+deactivate CL
+STR->CL : email=setEmail()
+activate CL
+deactivate CL
+deactivate STR
 UI--> CLT : shows the date and asks for confirmation
 deactivate UI
 
