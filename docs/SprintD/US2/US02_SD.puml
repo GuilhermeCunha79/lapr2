@@ -4,35 +4,104 @@
 actor Client as CLT
 participant ":ClientUI" as UI
 participant ":ChangeClientDataController" as CTRL
+participant ":Company" as COMP
 participant ":ClientStore" as STR
-participant Client
+participant ":Client" as CL
+participant ":ClientDTO" as CLDTO
+participant ":AuthFacade" as AF
 
 CLT -> UI : change personal data
 activate UI
-UI-> CLT : shows the registration form with the previous data \n and ask to select the type of data to change
-
-UI-> CTRL : getClient(email)
-
+UI-> CTRL : getClientByEmail(email)
 activate CTRL
+CTRL-> COMP : store=getClientStore()
+activate COMP
+deactivate COMP
+CTRL->STR : getUserId()
+
+activate STR
 deactivate CTRL
+STR->CL: email=getEmail()
+activate CL
+deactivate CL
+deactivate STR
+UI--> CLT : shows the registration form with the previous data \n and ask to select the type of data to change
+
+
 deactivate UI
+
+
+
+
+
 
 
 
 loop
 CLT -> UI : select the type of data that is to validate\n(ex. nhs number, tin number, ect)
 activate UI
-UI-> CLT : shows the type of data registered before
+UI-> CTRL : showData(client)
+activate CTRL
+deactivate CTRL
+UI--> CLT : shows the type of data registered before
+
 deactivate UI
 
 CLT -> UI : writes the changes that he wants
 activate UI
-UI-> CLT : shows the date and asks for confirmation
+UI-> CTRL : setData(clientDto)
+activate CTRL
+CTRL->STR :client = setClientData(clientDto)
+
+activate STR
+
+STR->CL : update(clientDto)
+activate CL
+deactivate STR
+CL->CLDTO : name=setName()
+activate CLDTO
+deactivate CLDTO
+CL->CLDTO : citizenCardNumber=setCitizenCardNumber()
+activate CLDTO
+deactivate CLDTO
+CL->CLDTO: nhsNumber=setNhsNumber()
+activate CLDTO
+deactivate CLDTO
+CL->CLDTO : tinNumber=setTinNumber()
+activate CLDTO
+deactivate CLDTO
+CL->CLDTO : birthDate=setBirthDate()
+activate CLDTO
+deactivate CLDTO
+CL->CLDTO : phoneNumber=setPhoneNumber()
+activate CLDTO
+deactivate CLDTO
+CL->CLDTO : email=setEmail()
+activate CLDTO
+deactivate CLDTO
+deactivate CL
+
+CTRL -> STR: validateClient(client)
+        activate STR
+        STR -> CL : email=getEmail()
+        activate CL
+        deactivate CL
+        STR -> AF : b = existsUser(email)
+        activate AF
+        deactivate AF
+        STR -> STR : checkDuplicates(client)
+        activate STR
+        deactivate STR
+        deactivate STR
+deactivate CTRL
+
+UI--> CLT : shows the date and asks for confirmation
 deactivate UI
+
 
 CLT -> UI : confirms the data
 activate UI
-UI-> CLT : informs operation success
+UI--> CLT : informs operation success
 deactivate UI
 end
 

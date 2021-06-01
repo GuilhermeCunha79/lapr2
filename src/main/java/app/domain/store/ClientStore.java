@@ -107,5 +107,22 @@ public class ClientStore {
         return null;
     }
 
+    /***
+     * This method return a client by find his email
+     * @param email
+     * @return client
+     */
+    public Client getClientByEmail(String email) {
+        if (email != null && !email.isEmpty()) {
+            for (Client client : clientList) {
+                if (client.getEmail().equals(email))
+                    return client;
+            }
+        }
+        return null;
+    }
+
+
+
 }
 

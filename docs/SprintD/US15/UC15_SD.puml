@@ -64,9 +64,9 @@ activate UI
     CTRL -> TS : doValidation(testValidationList)
     loop
     activate TS
-    TS -> TS : changeStateToValidationDone(tst)
-    activate TS
-    deactivate TS
+    TS -> TST : changeStateToValidationDone(tst)
+    activate TST
+    deactivate TST
     TS -> TST : client = getClient()
     activate TST
     deactivate TST

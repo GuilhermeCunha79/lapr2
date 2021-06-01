@@ -15,38 +15,25 @@ As an organization employee, I want to create a new task in order to be further 
 
 **From the specifications document:**
 
->	Each task is characterized by having a unique reference per organization, a designation, an informal and a technical description, an estimated duration and cost as well as the its classifying task category. 
-
-
->	As long as it is not published, access to the task is exclusive to the employees of the respective organization. 
 
 
 
 **From the client clarifications:**
 
-> **Question:** Which is the unit of measurement used to estimate duration?
->  
-> **Answer:** Duration is estimated in days.
-
--
-
-> **Question:** Monetary data is expressed in any particular currency?
->  
-> **Answer:** Monetary data (e.g. estimated cost of a task) is indicated in POTs (virtual currency internal to the platform).
 
 
 ### 1.3. Acceptance Criteria
 
 
-* **AC1:** All required fiels must be filled in.
-* **AC2:** Task reference must have at least 5 alphanumeric chars.
-* **AC3:** When creating a task with an already existing reference, the system must reject such operation and the user must have the change to modify the typed reference.
+* **AC1:** 
+* **AC2:** 
+* **AC3:** 
 
 
 ### 1.4. Found out Dependencies
 
 
-* There is a dependency to "US003 Create a task category" since at least a task category must exist to classify the task being created.
+* There is a dependency to "US03 - Register a new Client", because in order to modify the Client data that Client must be registered in the system.
 
 
 ### 1.5 Input and Output Data
@@ -55,32 +42,23 @@ As an organization employee, I want to create a new task in order to be further 
 **Input Data:**
 
 * Typed data:
-	* a reference, 
-	* a designation, 
-	* an informal description
-	* a technical description
-	* an estimated duration
-	* an estimated cost
+	* personal changes
+
 	
 * Selected data:
-	* Classifying task category 
-
-
+	*  
+	
 **Output Data:**
 
-* List of existing task categories
+* Modification of a Client Data
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
 
-**Alternative 1**
-
-![US006_SSD](US006_SSD.svg)
 
 
-**Alternative 2**
+![US02_SSD](US02_SSD.svg)
 
-![US006_SSD_v2](US006_SSD_v2.svg)
 
 
 **Other alternatives might exist.**
