@@ -18,7 +18,7 @@ public class ClientChangesUI implements Runnable {
         if(option!=-1) {
             if (option == 0) {
                 String cltName = Utils.readLineFromConsole("Introduce the new name: ");
-                ctrl.changeCitizenCardNumber(ctrl.getClientByEmail(), cltName);
+                ctrl.changeName(ctrl.getClientByEmail(), cltName);
             }
             if (option == 1) {
                 String cltCct = Utils.readLineFromConsole("Introduce the new Citizen Card Number: ");
@@ -54,18 +54,20 @@ public class ClientChangesUI implements Runnable {
             ctrl.changePassword(ctrl.getClientByEmail(), cltPassword);
         }*/
 
-            System.out.println("Do you want to do another changes?");
-            if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("n")) {
+            System.out.println("Do you confirm this change?");
+            if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
                 if (ctrl.saveClient())
                     ctrl.showData(ctrl.getClientByEmail());
-                System.out.println("Validation Saved!");
                 return true;
+            }else{
+                System.out.println("This change is not permitted");
+                return false;
             }
         }
 
 
         } catch (Exception e) {
-            System.out.println("Something went wrong.");
+            System.out.println(e.getMessage());
         }
         return false;
     }
@@ -89,7 +91,7 @@ public class ClientChangesUI implements Runnable {
         boolean repeat;
         do {
             repeat = clientChanges();
-        } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("Do you want to do another validation? (Y/N)")).equalsIgnoreCase("y"));
+        } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("\nDo you want to do another changes? (Y/N)")).equalsIgnoreCase("y"));
         if (repeat)
             System.out.println("\n\nChanges saved successfully!");
     }
