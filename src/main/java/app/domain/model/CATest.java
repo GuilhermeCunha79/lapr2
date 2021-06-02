@@ -25,7 +25,8 @@ public class CATest implements Serializable {
     private boolean resultDone;
     private boolean validationDone;
     private Report report;
-    private List<Sample> sampleList = new ArrayList<>();
+
+    private List<Sample> sampleList=new ArrayList<>();
     private final List<TestParameter> testParametersList = new ArrayList<>();
     private final List<CATest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
@@ -285,8 +286,6 @@ public class CATest implements Serializable {
         return results;
     }
 
-
-
     /**
      * This method receives a Sample and assigns it to the test it's related to
      *
@@ -294,11 +293,24 @@ public class CATest implements Serializable {
      * @return if it was added or not
      */
     public boolean addSample(Sample sample) {
-        if (!sampleDone) {
-            this.sampleList = (List<Sample>) sample;
-            changeStateToSampleDone();
+        if (!this.sampleList.isEmpty() && checkDuplications(sample)) {
+            return sampleList.add(sample);
         }
         return this.sampleDone;
+    }
+
+    /**
+     * This method ensures that its not possible to add the same parameter twice
+     * @param sample to add
+     * @return if it's duplicated or not
+     */
+    private boolean checkDuplications(Sample sample) {
+        for (Sample s : this.sampleList) {
+            if (s.equals(sample)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

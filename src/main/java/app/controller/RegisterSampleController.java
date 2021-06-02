@@ -13,10 +13,11 @@ import net.sourceforge.barbecue.output.OutputException;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterSampleController {
+
+
 
     private TestStore testStore;
 
@@ -67,30 +68,26 @@ public class RegisterSampleController {
 
     /**
      * This method  uses the internal code to generate the bar code
-     * @param data internal code to be used
+     * @param code internal code to be used
      * @return gerated barcod
      * @throws OutputException prevents error
      * @throws IOException prevents error
      */
-    public  Barcode createUPCA (String data) throws  OutputException, IOException {
-        Barcode barcode = null;
-        try {
-            barcode = BarcodeFactory.createUPCA(data);
-        } catch (BarcodeException e) {
-            e.printStackTrace();
-        }
-        File imgFile = new File("UPCA.jpg");
+    public static String createUPCA (String code) throws OutputException, IOException, BarcodeException {
+        Barcode barcode = BarcodeFactory.createUPCA(code);
+        barcode.setPreferredBarHeight(100);
+        File imgFile = new File(String.format("Barcode_%s.jpg",code));
         BarcodeImageHandler.saveJPEG(barcode, imgFile);
-        return barcode ;
+        return barcode.getData();
     }
 
     /**
      * This method turns the Arraylist received to
-     * @param sampleList list to be added
+     * @param barcode
      * @return sample
      */
-    public Sample createSample(ArrayList sampleList) {
-        this.sample = new Sample(sampleList);
+    public Sample createSample(String barcode) {
+        this.sample = new Sample(barcode);
         return sample;
     }
 
@@ -100,6 +97,7 @@ public class RegisterSampleController {
     public boolean addSample(){
         return this.test.addSample(this.sample);
     }
+
 
 
 }
