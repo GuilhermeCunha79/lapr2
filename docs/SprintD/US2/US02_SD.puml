@@ -9,6 +9,7 @@ participant "store:ClientStore" as STR
 participant ":Client" as CL
 participant ":Email" as EM
 participant ":UserSession" as US
+participant ":AuthFacade" as AF
 
 CLT -> UI : change personal data
 activate UI
@@ -19,6 +20,9 @@ activate COMP
 deactivate COMP
 CTRL->STR : client = getClientByEmail()
 activate STR
+STR-> AF :emailUser=getCurrentSession()
+activate AF
+deactivate AF
 STR -> US : id = getUserId()
 activate US
 deactivate US
@@ -64,7 +68,7 @@ activate UI
 UI-> CTRL : changeData(client)
 activate CTRL
 
-CTRL->STR :changeClientName(client)
+CTRL->STR :changeName(client)
 activate STR
 STR->CL : name=setName()
 activate CL
@@ -72,7 +76,7 @@ deactivate CL
 deactivate STR
 
 
-CTRL->STR :changeClientCitizenCardNumber(client)
+CTRL->STR :changeCitizenCardNumber(client)
 activate STR
 STR->CL : citizenCardNumber=setCitizenCardNumber()
 activate CL

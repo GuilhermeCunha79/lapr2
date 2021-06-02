@@ -22,7 +22,7 @@ public class ClientStore {
 
     private List<Client> clientList = new ArrayList<>();
 
-
+private Client client;
     /***
      * Method that receives parameters from the associated controller to create a new client
      * @param dto
@@ -58,19 +58,15 @@ public class ClientStore {
         return false;
     }
 
-
-
-
-    /***
-     * This method validates the client received and adds it to the Client store by calling the method addClient
-     * @param client
-     * @return if it was successfully added to the store (true or false)
-     */
     public boolean saveChanges(Client client) {
         if (client != null) {
-            validateClient(client);
+            String name = client.getName();
+            if (validateClient(client)) {
+                sendEmailWithChanges(name);
+                serializeStore();
                 return true;
             }
+        }
         return false;
     }
 
@@ -125,6 +121,12 @@ public class ClientStore {
         }
     }
 
+    private void sendEmailWithChanges(String name) {
+        if (name != null) {
+            SendingEmailSMS.sendEmailWithChanges(name);
+        }
+    }
+
     /***
      * This method return a copy of the Parameter List for other classes that need and can access it
      * @return List of clients
@@ -147,14 +149,14 @@ public class ClientStore {
         }
         return null;
     }
-/*
+
     /***
      * This method return a client by find his email
      * @return client
+    */
 
     public Client getClientByEmail() {
-        Email email= UserSession.getUserId();
-        assert email != null;
+        Email email=App.getInstance().getCompany().getAuthFacade().getCurrentUserSession().getUserId();
         String email1= email.getEmail();
         for (Client client : clientList) {
             if (client.getEmail().equals(email1))
@@ -162,7 +164,30 @@ public class ClientStore {
         }
         return null;
     }
-*/
+
+    public void changeName(Client client, String name){
+        client.setName(name);
+    }
+    public void changeCitizenCardNumber(Client client, String citizenCardNumber){
+        client.setCitizenCardNumber(citizenCardNumber);
+    }
+    public void changeEmail(Client client, String email){
+        client.setEmail(email);
+    }
+    public void changeNhsNumber(Client client, String nhsNumber){
+        client.setNhsNumber(nhsNumber);
+    }
+    public void changeTinNumber(Client client, String tinNumber){
+        client.setTinNumber(tinNumber);
+    }
+    public void changeBirthDate(Client client, String birthDate){
+        client.setBirthDate(birthDate);
+    }
+
+    public void changePhoneNumber(Client client, String phoneNumber){
+        client.setPhoneNumber(phoneNumber);
+    }
+
 
 
 }

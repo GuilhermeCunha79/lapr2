@@ -42,7 +42,7 @@ public class SendingEmailSMS {
         try {
             out = new PrintWriter(emailBox);
 
-            out.printf("Hello %s,%nYou can now access the application to check the results of your test!", name);
+            out.printf("Hello %s,%nYou can now access the application to check the results of your test! %s", name,validatedAt);
             out.close();
         }catch(Exception e){
             System.out.println("Email not send");
@@ -54,6 +54,26 @@ public class SendingEmailSMS {
     }
 
 
+    /***
+     * Method that sends a email with the password
+     * @param name
+     * @throws IOException
+     */
+    public static void sendEmailWithChanges(String name) {
+        File emailBox = new File("emailAndSMSMessages.txt");
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(emailBox);
+
+            out.printf("Hello %s,%n Your data has been changed with success!", name);
+        }catch(Exception e){
+            System.out.println("Email not send");
+        }finally {
+            if(out != null)
+                out.close();
+        }
+
+    }
 }
 
 
