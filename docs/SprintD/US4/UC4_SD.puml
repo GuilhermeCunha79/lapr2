@@ -155,10 +155,10 @@ UI -> CTRL : createTest()
 
 
 activate CTRL
-CTRL -> TSTORE : test = createTest(client, typeOfTest, parameter, nhsCode, labWhereCreated)
+CTRL -> TSTORE : test = createTest(nhsCode, client, typeOfTest, parameterList, labWhereCreated)
 
 activate TSTORE
-  TSTORE -> TEST** : create(client, typeOfTest, parameter, nhsCode, labWhereCreated)
+  TSTORE -> TEST** : create(nhsCode, client, typeOfTest, parameterList, labWhereCreated)
   activate TEST
 
 

@@ -15,9 +15,9 @@ CLIENT -> SYSTEM : Choose the test
 activate SYSTEM
 SYSTEM --> CLIENT : Shows the result of the test
 deactivate SYSTEM
-end
+
 CLIENT -> SYSTEM : Confirms all data
 activate SYSTEM
 SYSTEM --> CLIENT : Informs operation success
-
+end
 @enduml
