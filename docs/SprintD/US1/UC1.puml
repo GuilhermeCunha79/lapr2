@@ -1,0 +1,5 @@
+@startuml
+usecase "UC4 - Access the application to view the results of tests who have performed" as UC4
+actor client as "Client"
+client --> (UC4)
+@enduml

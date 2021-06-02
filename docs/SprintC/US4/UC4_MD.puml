@@ -10,7 +10,7 @@ class Company {
 class Test {
   - nhsCode
   - internalCode
-  - createdAT
+  - createdAt
  }
 
 class TypeOfTest {

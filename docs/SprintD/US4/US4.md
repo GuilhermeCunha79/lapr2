@@ -191,16 +191,16 @@ n/a
 | Step 9  |	... knows parameters?| ParameterCategory  | **IE:** ParameterCategory object knows its owns data |
 | Step 10		 | ...knows the parameter data	| Parameter  |  **IE:** a Parameter knows its own data      |
 | 		 | ...knows the ParameterStore	| Company  |  **IE:** Company knows the ParameterStore  to which it is delegating some tasks      |
-| 		 | ...saving the typed/selected data? 	| Test  |  **IE:** a Test knows its own data      |
+| 		 | ...saving the typed/selected data? 	| ClinicalAnalysisTest  |  **IE:** a Test knows its own data      |
 | 		                 |	... instantiating a new Test? | TestStore   | **Creator (R1)** and **HC+LC**: By the application of the Creator (R1) it would be the "Company". But, by applying HC + LC to the "Company", this delegates that responsibility to the "TestStore"   |
 |  		 			     |  ... knows TestStore?	 |  Company   |  **IE:** Company knows the TestStore to which it is delegating some tasks |
-|  		             |	... validating all data? | Test | **IE:** an object knows its data|
+|  		             |	... validating all data? | ClinicalAnalysisTest | **IE:** an object knows its data|
 | 			  		 |	... validating all data? | TestStore | **IE:** knows all the Tests| 
 |                                                                                                                                                                              
 | Step 11 |	... knows the Parameter?| ParameterStore  | **IE:** ParameterStore knows all parameters  |
 | |	... knows the Test?| TestStore  | **IE:** TestStore knows all tests  |
 | 
-|   |	... adding a new parameter?| Test  | **IE:** an object knows its data  |
+|   |	... adding a new parameter?| ClinicalAnalysisTest  | **IE:** an object knows its data  |
 | Step 12  |	|  |   |
 | Step 13 |	|   |   |
 | Step 14  | ... validating all data?	| TestStore  | **IE** TestStore knows all test   |
@@ -215,7 +215,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
 
 * Company
-* CATest
+* ClinicalAnalysisTest
 * TypeOfTest
 
 Other software classes (i.e. Pure Fabrication) identified:

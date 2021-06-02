@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+hide methods
+skinparam classAttributeIconSize 0
+
+class Company{
+-designation
+}
+
+class Client {
+-name
+-citizenCardNumber
+-nhsNumber
+-tinNumber
+-birthDate
+-sex
+-phoneNumber
+-email
+}
+
+class ClinicalAnalysisTest {
+- nhsCode
+- client
+- typeOfTest
+- parameterList
+- labWhereCreated
+
+}
+Company"1" -- "*"Client :> knows
+Client"*" -- "1..*" ClinicalAnalysisTest :> access
+Company "1" -- "*" ClinicalAnalysisTest :> owns
+@enduml
+

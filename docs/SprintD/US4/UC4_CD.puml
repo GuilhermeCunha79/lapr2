@@ -7,7 +7,7 @@ class CreateTestUI {
 
 
 class ClientStore {
-+ getClientThroughCitizenCardNumber(citizenCardNumber)
++ getClientByTIN(tin)
 }
 
 
@@ -62,8 +62,8 @@ class ParameterStore {
   + getParameterListByTheCategory(category)
 }
 
-class CATest {
-  + create(client, typeOfTest, parameter, nhsCode)
+class ClinicalAnalysisTest {
+  + create(nhsCode,client, typeOfTest, parameterList, labWhereCreated)
 }
 
 
@@ -77,7 +77,7 @@ Company "1" --> "1" ClientStore : use
 Company "1" --> "1" TypeOfTestStore : use
 Company "1" --> "1" ParameterStore : use
 
-CreateTestController ..> CATest
+CreateTestController ..> ClinicalAnalysisTest
 CreateTestController ..> TestStore
 CreateTestController ..> TypeOfTestStore
 CreateTestController ..> ClientStore
@@ -86,7 +86,7 @@ CreateTestController ..> ParameterMapper
 CreateTestController ..> TypeOfTest
 CreateTestController ..> TestTypeMapper
 
-TestStore --> CATest
+TestStore --> ClinicalAnalysisTest
 
 
 

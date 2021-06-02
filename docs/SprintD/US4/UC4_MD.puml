@@ -7,10 +7,12 @@ class Company {
  -designation
 }
 
-class Test {
+class ClinicalAnalysisTest {
   - nhsCode
-  - internalCode
-  - createdAT
+  - client
+  - typeOfTest
+  - parameterList
+  - labWhereCreated
  }
 
 class TypeOfTest {
@@ -44,11 +46,11 @@ class ParameterCategory {
 }
 
 
-Company "1" -- "*" Test : performs >
-Test "*" -- "1" TypeOfTest: is of >
-Test "1..*" -- "1" Client: requested by >
+Company "1" -- "*" ClinicalAnalysisTest : performs >
+ClinicalAnalysisTest "*" -- "1" TypeOfTest: is of >
+ClinicalAnalysisTest "1..*" -- "1" Client: requested by >
 Parameter "1..*" -- "1" ParameterCategory: presented under >
-Parameter "1..*" --> "1" Test : has >
+Parameter "1..*" --> "1" ClinicalAnalysisTest : has >
 TypeOfTest "1" --> "1..*" ParameterCategory :  has
 Company "1" --> "1..*" Client : knows
 

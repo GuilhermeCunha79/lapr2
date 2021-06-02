@@ -1,0 +1,23 @@
+@startuml
+autonumber
+'hide footbox
+actor "Client" as CLIENT
+
+participant ":System" as SYSTEM
+
+CLIENT -> SYSTEM : Asks to see the tests who have performed
+activate SYSTEM
+
+SYSTEM --> CLIENT : Shows the type of test list with the results of each one who have performed
+deactivate SYSTEM
+loop
+CLIENT -> SYSTEM : Choose the test
+activate SYSTEM
+SYSTEM --> CLIENT : Shows the result of the test
+deactivate SYSTEM
+
+CLIENT -> SYSTEM : Confirms all data
+activate SYSTEM
+SYSTEM --> CLIENT : Informs operation success
+end
+@enduml
