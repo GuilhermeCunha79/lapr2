@@ -1,3 +1,4 @@
+/*
 package app.domain.store;
 
 import app.domain.model.Parameter;
@@ -18,10 +19,12 @@ public class ParameterStoreTest {
     List<ParameterCategory> pcList = new ArrayList<>();
 
 
-    /**
+    */
+/**
      * Creates a category to be used in other tests that need it
      *
-     */
+     *//*
+
     @Before
     public void createCategoryList(){
         ParameterCategory pc2 = pcs.createParameterCategory("12345", "hemograms");
@@ -33,9 +36,11 @@ public class ParameterStoreTest {
         pcList.add(pc2);
     }
 
-    /**
+    */
+/**
      * Verify that it is not possible to add the same parameter twice(saveParameter method)
-     */
+     *//*
+
     @Test
     public void ensureCannotAddSameParameterTwice(){
         Parameter p1 = ps.createParameter("12345", "Cells", "Whatever", "12345");
@@ -44,9 +49,11 @@ public class ParameterStoreTest {
         assertFalse(ps.saveParameter(p2));
     }
 
-    /**
+    */
+/**
      * Ensures that it is possible to add two different parameters to the system
-     */
+     *//*
+
 
     @Test
     public void ensureAdd2differentParametersWorks(){
@@ -55,17 +62,21 @@ public class ParameterStoreTest {
         ps.saveParameter(p1);
         assertTrue(ps.saveParameter(p2));
     }
-    /**
+    */
+/**
      * Verify that it is not possible to add a null parameter
-     */
+     *//*
+
     @Test
     public void ensureAddNullParameterDontWork(){
         assertFalse(ps.saveParameter(null));
     }
 
-    /**
+    */
+/**
      * Verify that it is getParameterList method works as intended
-     */
+     *//*
+
     @Test
     public void testGetCategoryListMethod(){
         Parameter p1 = ps.createParameter("12327", "Covid", "add description", "12345");
@@ -84,6 +95,7 @@ public class ParameterStoreTest {
         assertEquals(p1, ps.getParameterByCode("12327"));
     }
 
+*/
 /*    @Test
     public void testGetParameterListByCategoryGetNullMethod(){
         Parameter p1 = ps.createParameter("12327", "Covid", "add description", "34232");
@@ -94,7 +106,8 @@ public class ParameterStoreTest {
         pList.add(p1);
         pList.add(p2);
         assertEquals(pList, ps.getParameterListByTheCategory(pcList));
-    }*/
+    }*//*
+
 
     @Test
     public void testGetParameterByCodeMethod(){
@@ -118,4 +131,4 @@ public class ParameterStoreTest {
         assertNull(ps.getParameterByCode("23232"));
     }
 
-}
+}*/

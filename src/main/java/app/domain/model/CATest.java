@@ -11,7 +11,6 @@ import java.util.List;
 
 public class CATest implements Serializable {
     private static final int NHS_CODE = 12;
-    private static int testCounter = 0;
     private final String labWhereCreated;
     private DateTime chemicalAnalysisDate;
     private DateTime validationDate;
@@ -39,13 +38,12 @@ public class CATest implements Serializable {
      * @param parameterList
      * @param labWhereCreated
      */
-    public CATest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated) {
-        testCounter++;
+    public CATest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated, int testCount) {
         this.labWhereCreated = labWhereCreated;
         setClient(client);
         this.typeOfTest = typeOfTest;
         this.createdAt = new DateTime();
-        this.internalCode = generateInternalCode();
+        this.internalCode = generateInternalCode(testCount);
         this.client = client;
         setNhsCode(nhsCode);
         setTypeOfTest(typeOfTest);
@@ -64,7 +62,7 @@ public class CATest implements Serializable {
      * Method that generate a internal Code
      * @return internalCode
      */
-    private String generateInternalCode() {
+    private String generateInternalCode(int testCounter) {
         return String.format("%012d", testCounter);
     }
 

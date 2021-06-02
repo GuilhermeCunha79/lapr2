@@ -25,7 +25,7 @@ public class CreateTestControllerTest {
         Client client1 = new Client(clDto);
         List<Parameter> lp = new ArrayList<>();
         Parameter p1 = new Parameter("12345", "abcd", "adsavaa", pc);
-        CATest ct1 = new CATest("123456789111", client, tpt1, lp, "lol");
+        CATest ct1 = new CATest("123456789111", client, tpt1, lp, "lol", 1);
 
 
 

@@ -44,7 +44,7 @@ public class TestStore {
      * @return
      */
     public CATest createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter, String labWhereCreated) {
-        this.test = new CATest(nhsCode, client, typeOfTest, lParameter, labWhereCreated);
+        this.test = new CATest(nhsCode, client, typeOfTest, lParameter, labWhereCreated, this.testList.size()+1);
         return this.test;
     }
 

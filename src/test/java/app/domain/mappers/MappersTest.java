@@ -74,15 +74,15 @@ public class MappersTest {
         lp.add(p2);
         List<CATest> cat = new ArrayList<>();
         Client client = new Client(clDto);
-        CATest ct1 = new CATest("123456789111", client, tpt, lp, "lol");
-        CATest ct2 = new CATest("123456783233", client, tpt1, lp, "ll");
+        CATest ct1 = new CATest("123456789111", client, tpt, lp, "lol", 2);
+        CATest ct2 = new CATest("123456783233", client, tpt1, lp, "ll", 3);
         ct1.addReport(new Report("adknfajnf"));
         ct2.addReport(new Report("adknfajnf"));
         cat.add(ct1);
         cat.add(ct2);
         List<String> expected = new ArrayList<>();
-        expected.add(String.format("Internal Code: 000000000001 | NHS Code: 123456789111 | Created on: %s | Collected at: null | Reported at: %s |", new DateTime(), new DateTime()));
-        expected.add(String.format("Internal Code: 000000000002 | NHS Code: 123456783233 | Created on: %s | Collected at: null | Reported at: %s |", new DateTime(), new DateTime()));
+        expected.add(String.format("Internal Code: 000000000002 | NHS Code: 123456789111 | Created on: %s | Collected at: null | Reported at: %s |", new DateTime(), new DateTime()));
+        expected.add(String.format("Internal Code: 000000000003 | NHS Code: 123456783233 | Created on: %s | Collected at: null | Reported at: %s |", new DateTime(), new DateTime()));
         assertEquals(expected, TestReadyToValidateMapper.toDtoVal(cat));
     }
 
