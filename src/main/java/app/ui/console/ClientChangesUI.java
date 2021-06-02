@@ -15,41 +15,41 @@ public class ClientChangesUI implements Runnable {
         ctrl.showData(ctrl.getClientByEmail());
         int option = dataOptions();
         try {
-        if(option!=0) {
-            if (option == 2) {
+        if(option!=-1) {
+            if (option == 0) {
                 String cltName = Utils.readLineFromConsole("Introduce the new name: ");
                 ctrl.changeCitizenCardNumber(ctrl.getClientByEmail(), cltName);
             }
-            if (option == 3) {
+            if (option == 1) {
                 String cltCct = Utils.readLineFromConsole("Introduce the new Citizen Card Number: ");
                 ctrl.changeCitizenCardNumber(ctrl.getClientByEmail(), cltCct);
             }
-            if (option == 4) {
+            if (option == 2) {
                 String cltNhs = Utils.readLineFromConsole("Introduce the new NHS Number: ");
                 ctrl.changeNhsNumber(ctrl.getClientByEmail(), cltNhs);
             }
-            if (option == 5) {
+            if (option == 3) {
                 String cltTin = Utils.readLineFromConsole("Introduce the new TIN Number: ");
                 ctrl.changeTinNumber(ctrl.getClientByEmail(), cltTin);
             }
 
-            if (option == 6) {
+            if (option == 4) {
                 String cltBirthDate = Utils.readLineFromConsole("Introduce the Birth Date: ");
                 ctrl.changeBirthDate(ctrl.getClientByEmail(), cltBirthDate);
             }
 
-            if (option == 7) {
+            if (option == 5) {
                 String cltPhoneNumber = Utils.readLineFromConsole("Introduce the new Phone Number: ");
                 ctrl.changePhoneNumber(ctrl.getClientByEmail(), cltPhoneNumber);
             }
 
-            if (option == 8) {
+            if (option == 6) {
                 String cltEmail = Utils.readLineFromConsole("Introduce the new Email: ");
                 ctrl.changeEmail(ctrl.getClientByEmail(), cltEmail);
             }
 
             /*
-        if (option == 9) {
+        if (option == 7) {
             String cltPassword = Utils.readLineFromConsole("Introduce the new Password: ");
             ctrl.changePassword(ctrl.getClientByEmail(), cltPassword);
         }*/
