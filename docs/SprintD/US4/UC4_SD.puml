@@ -15,7 +15,7 @@ participant "TypeOfTest" as TT
 
 participant "testTypeStore: TypeOfTestStore" as TTSTORE
 
-participant "test\n:CATest" as TEST
+participant "catest\n:ClinicalAnalysisTest" as TEST
 
 
 participant "testTypeMap:TestTypeMapper" as TMAPPER
@@ -155,10 +155,10 @@ UI -> CTRL : createTest()
 
 
 activate CTRL
-CTRL -> TSTORE : test = createTest(client, typeOfTest, parameter, nhsCode)
+CTRL -> TSTORE : test = createTest(client, typeOfTest, parameter, nhsCode, labWhereCreated)
 
 activate TSTORE
-  TSTORE -> TEST** : create(client, typeOfTest, parameter, nhsCode)
+  TSTORE -> TEST** : create(client, typeOfTest, parameter, nhsCode, labWhereCreated)
   activate TEST
 
 

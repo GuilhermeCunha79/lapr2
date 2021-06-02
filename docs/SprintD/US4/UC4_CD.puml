@@ -62,8 +62,8 @@ class ParameterStore {
   + getParameterListByTheCategory(category)
 }
 
-class CATest {
-  + create(client, typeOfTest, parameter, nhsCode)
+class ClinicalAnalysisTest {
+  + create(client, typeOfTest, parameter, nhsCode, labWhereCreated)
 }
 
 
