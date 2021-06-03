@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static app.domain.shared.PasswordGenerator.generatePassword;
-import static app.domain.shared.SendingEmailSMS.sendEmailWithChanges;
 
 public class ClientStore {
 
@@ -61,9 +60,9 @@ public class ClientStore {
 
     public boolean saveChanges(Client client) {
         if (client != null) {
-            String name = client.getName();
+            //String name = client.getName();
             if (validateClient(client)) {
-                sendEmailWithChanges(name);
+                //sendEmailWithChanges(name);
                 serializeStore();
                 return true;
             }
