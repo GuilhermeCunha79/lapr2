@@ -22,7 +22,7 @@ public class TestParameterTest {
         tp.addTestResult(2.22, "ml", new ReferenceValue(2.22, 2.11, "ml"));
         assertEquals(tpr.toString(), tp.getTestParameterResult().toString());
     }
-
+/*
     @Test
     public void testToStringMethod(){
         Parameter p = new Parameter("42424", "asdsd", "afdfas", new ParameterCategory("34314", "qweqeq"));
@@ -31,7 +31,7 @@ public class TestParameterTest {
         tp.addTestResult(2.22, "ml", new ReferenceValue(2.22, 2.11, "ml"));
         String expected = String.format("- Parameter tested: Parameter -> Code: 42424 | Name: asdsd | Description: afdfas | Results -> value: 2.220000 ml | Reference Values -> min. value: 2.220000 ml | max. value: 2.110000 ml %n");
         assertEquals(expected, tp.toString());
-    }
+    }*/
 
 
 }

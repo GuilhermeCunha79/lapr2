@@ -16,7 +16,7 @@ public class ChangeClientDataControllerTest {
     @Test
     public void testShowData() {
 
-        String expected = String.format("Client:%nName: Tomás%nCitizen Card Number: 1234567890123455%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/2000%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt");
+        String expected = String.format("%nClient:%nName: Tomás%nCitizen Card Number: 1234567890123455%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/2000%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt%n%n");
         assertEquals(expected, ctrl.showData(client));
     }
 
