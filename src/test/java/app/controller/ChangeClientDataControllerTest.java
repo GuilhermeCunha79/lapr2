@@ -76,7 +76,10 @@ public class ChangeClientDataControllerTest {
         assertEquals(expected, client.getEmail());
     }
 
-
+    @Test
+    public void testSaveNullChanges() {
+        assertFalse(ctrl.saveChanges());
+    }
 
 
 }

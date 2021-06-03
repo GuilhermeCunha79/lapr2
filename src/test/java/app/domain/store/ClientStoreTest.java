@@ -1,4 +1,4 @@
-package app.domain.store;
+/*package app.domain.store;
 
 import app.mappers.dto.ClientDTO;
 import app.domain.model.Client;
@@ -52,4 +52,4 @@ public class ClientStoreTest {
 
         assertTrue(cls.saveClient(ct01));
     }
-}
+}*/
