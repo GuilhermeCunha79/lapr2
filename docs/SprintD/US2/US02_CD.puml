@@ -1,0 +1,71 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class ClientChangesUI{
+}
+
+class ChangeClientDataController
+{
+    +getClientByEmail()
+    +showData(client)
+    +changeName(client,name)
+    +changeCitizenCardNumber(client,citizenCardNumber)
+    +changeNhsNumber(client,nhsNumber)
+    +changeTinNumber(client,tinNumber)
+    +changeBirthDate(client,birthDate)
+    +changePhoneNumber(client,phoneNumber)
+    +changeEmail(client,email)
+    +saveClient()
+}
+
+class UserSession{
++getUserId
+}
+
+class Client{
+	-name
+	-citizenCardNumber
+    -nhsNumber
+    -tinNumber
+    -birthDate
+    -sex
+    -phoneNumber
+    -email
+    +client(clientDto)
+    +getEmail()
+    +getName()
+}
+
+class Company{
+-name
+-location
++getClientStore()
+}
+
+class ClientStore{
++saveChanges(client)
++validateClient(client)
++getClientByEmail()
++changeName(client,name)
++changeCitizenCardNumber(client,citizenCardNumber)
++changeNhsNumber(client,nhsNumber)
++changeTinNumber(client,tinNumber)
++changeBirthDate(client,birthDate)
++changePhoneNumber(client,phoneNumber)
+}
+
+class AuthFacade{
++getCurrentSession()
+}
+
+ClientChangesUI ..> ChangeClientDataController
+ChangeClientDataController ..> Client
+ChangeClientDataController ..> ClientStore
+ChangeClientDataController ..> Company
+Company"1" -> "1"ClientStore : uses
+ClientStore ..> AuthFacade
+ClientStore ..> UserSession
+ClientStore"1" --> "*"Client :> knows
+
+
+@enduml

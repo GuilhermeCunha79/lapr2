@@ -22,8 +22,12 @@ public class ChangeClientDataController {
         return this.ct = this.ctStore.getClientByEmail();
     }
 
-    public void showData(Client client) {
-        System.out.println(client.toString());
+    public boolean showData(Client client) {
+        if(client!=null){
+            System.out.println(client);
+            return true;
+        }
+        return false;
     }
 
 
