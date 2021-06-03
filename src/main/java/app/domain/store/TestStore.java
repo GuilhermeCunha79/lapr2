@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TestStore {
+public class TestStore implements Serializable {
 
     private CATest test;
     private List<CATest> testList = new ArrayList<>();
