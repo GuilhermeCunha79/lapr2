@@ -56,7 +56,7 @@ public class ClientChangesUI implements Runnable {
 
             System.out.println("Do you confirm this change?");
             if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
-                if (ctrl.saveClient())
+                if (ctrl.saveChanges())
                     ctrl.showData(ctrl.getClientByEmail());
                 return true;
             }else{

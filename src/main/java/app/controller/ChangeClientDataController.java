@@ -22,12 +22,8 @@ public class ChangeClientDataController {
         return this.ct = this.ctStore.getClientByEmail();
     }
 
-    public boolean showData(Client client) {
-        if(client!=null){
-            System.out.println(client);
-            return true;
-        }
-        return false;
+    public String showData(Client client) {
+            return client.toString();
     }
 
 
@@ -60,7 +56,7 @@ public class ChangeClientDataController {
     }
 
 
-    public boolean saveClient() {
+    public boolean saveChanges() {
         return this.ctStore.saveChanges(ct);
     }
 
