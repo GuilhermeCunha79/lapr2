@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static app.domain.shared.PasswordGenerator.generatePassword;
+import static app.domain.shared.SendingEmailSMS.sendEmailWithChanges;
 
 public class ClientStore {
 
@@ -38,12 +39,21 @@ public class ClientStore {
             String email = client.getEmail();
             String name = client.getName();
             String pwd = generatePassword();
-            if (validateClient(client)) {
+            if (clientList.size()==0) {
                 App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
                 sendEmail(client, pwd);
                 addClient(client);
                 serializeStore();
                 return true;
+            } else {
+                if (validateClient(client)) {
+                    App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
+                    sendEmail(client, pwd);
+                    addClient(client);
+                    serializeStore();
+                    return true;
+                }
+                return false;
             }
         }
         return false;
@@ -51,12 +61,13 @@ public class ClientStore {
 
     public boolean saveChanges(Client client) {
         if (client != null) {
-            //String name = client.getName();
+            String name = client.getName();
             if (validateClient(client)) {
-                //sendEmailWithChanges(name);
+                sendEmailWithChanges(name);
                 serializeStore();
                 return true;
             }
+            return true;
         }
         return false;
     }

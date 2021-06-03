@@ -12,11 +12,12 @@ import app.domain.shared.SendingEmailSMS;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class TestStore {
+public class TestStore implements Serializable {
 
     private CATest test;
     private List<CATest> testList = new ArrayList<>();
@@ -120,7 +121,7 @@ public class TestStore {
                 lTestNoResult.add(recordTest);
         }
         if (lTestNoResult.isEmpty())
-            return null;
+            return Collections.emptyList();
         else
             return lTestNoResult;
     }
@@ -128,9 +129,9 @@ public class TestStore {
     public List<CATest> getTestWithoutSample() {
         List<CATest> lTestNoSample = new ArrayList<>();
         if (!testList.isEmpty()) {
-            for (CATest test : testList) {
-                if (!test.getSampleStatus())
-                    lTestNoSample.add(test);
+            for (CATest caTest : testList) {
+                if (!caTest.getSampleStatus())
+                    lTestNoSample.add(caTest);
             }
             if (lTestNoSample.isEmpty())
                 return Collections.emptyList();
@@ -144,9 +145,9 @@ public class TestStore {
     public List<CATest> getTestWithoutReport() {
         List<CATest> lTestNoReport = new ArrayList<>();
         if (!testList.isEmpty()) {
-            for (CATest test : testList) {
-                if (!test.getReportStatus())
-                    lTestNoReport.add(test);
+            for (CATest caTest : testList) {
+                if (!caTest.getReportStatus())
+                    lTestNoReport.add(caTest);
             }
             if (lTestNoReport.isEmpty())
                 return Collections.emptyList();
@@ -197,13 +198,13 @@ public class TestStore {
      */
     public boolean doValidation(List<String> testWithoutValidation) {
         if (!testWithoutValidation.isEmpty()) {
-            for (CATest test:testList) {
-                if (!test.getValidationStatus()) {
-                    CATest test1 = getTestByCode(test.getInternalCode());
+            for (CATest caTest:testList) {
+                if (!caTest.getValidationStatus()) {
+                    CATest test1 = getTestByCode(caTest.getInternalCode());
                     Client client = test1.getClient();
                     String name = client.getName();
-                    test.changeStateValidationToDone();
-                    DateTime validatedAt= test.getValidationDate();
+                    caTest.changeStateValidationToDone();
+                    DateTime validatedAt= caTest.getValidationDate();
                     SendingEmailSMS.sendEmailWithNotification(name,validatedAt);
                 }
             }

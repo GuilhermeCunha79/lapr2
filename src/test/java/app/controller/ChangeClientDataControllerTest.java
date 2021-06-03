@@ -23,10 +23,8 @@ public class ChangeClientDataControllerTest {
     /*@Test
     public void testGetClientByEmail(){
         String email="tomas@isep.ipp.pt";
-        client.getEmail();
-        ctrl.getClientByEmail();
-        client.ge
-        assertEquals(email,);
+
+        assertEquals(client,ctrl.getClientByEmail());
     }*/
 
     @Test
@@ -78,10 +76,7 @@ public class ChangeClientDataControllerTest {
         assertEquals(expected, client.getEmail());
     }
 
-    @Test
-    public void testSaveNullChanges() {
-        assertFalse(ctrl.saveChanges());
-    }
+
 
 
 }
