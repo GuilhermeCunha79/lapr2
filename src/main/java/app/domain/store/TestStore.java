@@ -9,13 +9,12 @@ import app.domain.model.TypeOfTest;
 import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import static app.domain.shared.CommonMethods.serializeStore;
 
 public class TestStore implements Serializable {
 
@@ -92,24 +91,10 @@ public class TestStore implements Serializable {
     public boolean saveTest(CATest test) {
         if(validateTest(test)) {
             addTest(test);
-            serializeStore();
+            serializeStore(this.testList, "data\\test.dat");
             return true;
         }
         return false;
-    }
-
-
-
-    private void serializeStore() {
-        try{
-            FileOutputStream out = new FileOutputStream("data\\test.dat");
-            ObjectOutputStream outputStream = new ObjectOutputStream(out);
-            outputStream.writeObject(this.testList);
-            outputStream.close();
-            out.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
     }
 
 

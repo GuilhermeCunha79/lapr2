@@ -2,11 +2,10 @@ package app.domain.store;
 
 import app.domain.model.ParameterCategory;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import static app.domain.shared.CommonMethods.serializeStore;
 
 public class ParameterCategoryStore {
 
@@ -50,24 +49,13 @@ public class ParameterCategoryStore {
     public boolean saveParameterCategory(ParameterCategory pc) {
         if (validateParameterCategory(pc)) {
             if(addParameterCategory(pc)){
-                serializeStore();
+                serializeStore(this.parameterCategoryList, "data\\pcat.dat");
                 return true;
             }
         }
         return false;
     }
 
-    private void serializeStore() {
-        try{
-            FileOutputStream out = new FileOutputStream("data\\pcat.dat");
-            ObjectOutputStream outputStream = new ObjectOutputStream(out);
-            outputStream.writeObject(this.parameterCategoryList);
-            outputStream.close();
-            out.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
     /**
      * Method responsible to add a new parameter category to the list when asked by the saveParameterCategory method
      *

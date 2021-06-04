@@ -1,4 +1,4 @@
-/*package app.domain.store;
+package app.domain.store;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
 import app.domain.model.Parameter;
@@ -53,7 +53,7 @@ public class ClinicalAnalysisLaboratoryStoreTest {
         c.saveClinicalAnalysisLaboratory(c2);
         assertTrue(c.getClinicalAnalysisLaboratoryList().contains(c1) && c.getClinicalAnalysisLaboratoryList().contains(c2));
     }
-}*/
+}
 
 
 
