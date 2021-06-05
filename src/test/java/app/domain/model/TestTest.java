@@ -285,7 +285,7 @@ public class TestTest {
         assertFalse(test.addTestParameterResult("98909", 0.22, "mg"));
     }
 
-    /*
+/*
        @Test
         public void checkItsNotAllowedToRegisterAResultForTheSameParameterTwice(){
             Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt"));
@@ -307,12 +307,13 @@ public class TestTest {
             List<Parameter> lparameter = new ArrayList<>();
             lparameter.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
             CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001", 29);
-            test.addValidation();
-            String expected = String.format("Internal Code: 000000000029 | NHS Code: 341341323234 | Created on: %s | Collected at: null | Reported at: %s |", new DateTime(), new DateTime());
+            test.addTestParameterResult("IgGAN", 0.22, "mg");
+            test.getTestValidation();
+            String expected = String.format("%n%nTest Results: %nInternal Code: 000000000029 | NHS Code: 341341323234 | Created on: %s | Collected at: null | Reported at: %s |", new DateTime(), new DateTime());
             assertEquals(expected, test.getTestValidation());
 
-        }
-    */
+        }*/
+
     @Test
     public void ensureThatNHSCodeAreTheSameInTwoDifferentTests() {
         Client cl1 = new Client(new ClientDTO("Ema", "2222254246456425", "5454323432", "1195385492", "21/01/1990", "female", "11069472764", "ema@isep.ipp.pt" ));

@@ -28,6 +28,8 @@ public class CATest implements Serializable {
     private final List<CATest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
     private List<Sample> sampleList;
+    private Report reportText;
+
 
 
     /***
@@ -405,6 +407,8 @@ public class CATest implements Serializable {
         return String.format("Internal Code: %s | NHS Code: %s | Created on: %s |",
                 this.internalCode, this.nhsCode, this.createdAt);
     }
+
+
 
     /**
      * This method compares two tests and returns if they are the same or not
