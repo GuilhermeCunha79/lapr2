@@ -9,6 +9,7 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
 
     private RegisterNewClinicalAnalysisLaboratoryController ctrl;
 
+
     /**
      * First method to be called when this UI is instantiated
      */

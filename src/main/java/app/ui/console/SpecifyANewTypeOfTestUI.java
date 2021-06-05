@@ -12,6 +12,7 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
     private SpecifyANewTypeOfTestController ctrl;
 
 
+
     /**
      * First method to run when this UI is instantiated
      */

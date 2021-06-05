@@ -8,6 +8,7 @@ import java.util.List;
 public class ReceptionistUI implements Runnable {
 
     @Override
+
     public void run() {
         String labID = Utils.selectLab();
         if(labID != null) {

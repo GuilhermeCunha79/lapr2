@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class ShowTextUI implements Runnable{
 
+
     private String text;
     public ShowTextUI(String text)
     {

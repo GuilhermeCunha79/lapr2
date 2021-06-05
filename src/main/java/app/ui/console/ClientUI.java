@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ClientUI implements Runnable {
 
+
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();

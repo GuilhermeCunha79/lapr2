@@ -11,6 +11,7 @@ import java.util.List;
 
 
 
+
 public class RegisterSampleUI implements Runnable {
 
     private RegisterSampleController ctrl = new RegisterSampleController();

@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 public class SendingEmailSMS {
 
+
     private static final String EMAIL_NOT_SENT_MESSAGE = "Email not sent";
 
     private SendingEmailSMS() {

@@ -12,6 +12,7 @@ public class RecordResultUI implements Runnable {
     private RecordResultController ctrl;
 
 
+
     private final String labId;
 
     public RecordResultUI(String labId) {

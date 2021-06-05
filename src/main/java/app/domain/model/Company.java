@@ -22,6 +22,7 @@ import java.util.Set;
  */
 public class Company {
 
+
     private String designation;
     private AuthFacade authFacade;
 

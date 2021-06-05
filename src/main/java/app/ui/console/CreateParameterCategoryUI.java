@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public class CreateParameterCategoryUI implements Runnable {
 
+
     private CreateParameterCategoryController ctrl;
 
     /**

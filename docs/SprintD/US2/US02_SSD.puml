@@ -13,9 +13,9 @@ deactivate SYS
 loop
 CLT -> SYS : select the type of data that is to validate\n(ex. nhs number, tin number, ect)
 activate SYS
-SYS-->CLT : shows the type of data registered before
+SYS-->CLT : asks for the new selected data
 deactivate SYS
-CLT-> SYS : writes the changes that he wants
+CLT-> SYS : writes the changes
 activate SYS
 SYS--> CLT : shows the date and asks for confirmation
 deactivate SYS

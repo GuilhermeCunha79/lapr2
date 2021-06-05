@@ -72,6 +72,7 @@ public class ValidationUI implements Runnable {
                             Utils.printToConsole("Validation Saved!");
                         return true;
                     }
+
                 } else {
                     Utils.printToConsole("\nNo more tests need validation!");
                     return false;

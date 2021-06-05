@@ -10,6 +10,7 @@ public class RegisterEmployeeUI implements Runnable {
 
     private RegisterEmployeeController ctrl;
 
+
     @Override
     public void run() {
         this.ctrl = new RegisterEmployeeController();

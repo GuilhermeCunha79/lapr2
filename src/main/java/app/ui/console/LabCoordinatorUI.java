@@ -7,6 +7,7 @@ import java.util.List;
 
 public class LabCoordinatorUI implements Runnable{
 
+
     /**
      * Method that implements the options that appear in the lab coordinator UI
      */

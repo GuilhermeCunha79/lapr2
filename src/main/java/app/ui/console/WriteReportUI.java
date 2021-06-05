@@ -21,6 +21,7 @@ public class WriteReportUI implements Runnable {
         } while (repeat && Utils.confirm("Write another report? (Y or N)"));
     }
 
+
     /**
      * This method is responsible to guide the user through the test selection and report creation process
      *

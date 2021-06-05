@@ -19,7 +19,7 @@ class ChangeClientDataController
 }
 
 class UserSession{
-+getUserId
++getUserId()
 }
 
 class Client{

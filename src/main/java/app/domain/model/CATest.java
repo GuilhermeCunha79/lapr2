@@ -24,10 +24,10 @@ public class CATest implements Serializable {
     private boolean resultDone;
     private boolean validationDone;
     private Report report;
-    private List<Sample> sampleList = new ArrayList<>();
     private final List<TestParameter> testParametersList = new ArrayList<>();
     private final List<CATest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
+    private List<Sample> sampleList;
 
 
     /***

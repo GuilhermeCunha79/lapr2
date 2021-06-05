@@ -10,6 +10,7 @@ public class RegisterANewClientUI implements Runnable {
 
     private RegisterClientController ctrl;
 
+
     @Override
     public void run() {
         ctrl = new RegisterClientController();

@@ -9,6 +9,7 @@ public class MedicalLabTechnicianUI implements Runnable {
     /**
      * Method that implements the options that appear in the medical lab technician UI
      */
+
     @Override
     public void run() {
         String labID = Utils.selectLab();
