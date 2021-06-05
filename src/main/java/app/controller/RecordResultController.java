@@ -2,7 +2,7 @@ package app.controller;
 
 
 import app.domain.model.Company;
-import app.domain.model.CATest;
+import app.domain.model.ClinicalTest;
 import app.domain.store.TestStore;
 import app.mappers.ParameterMapper;
 import app.mappers.TestListMapper;
@@ -12,7 +12,7 @@ import java.util.List;
 public class RecordResultController {
 
     private final TestStore testStore;
-    private CATest test;
+    private ClinicalTest test;
 
     /**
      * Constructor that gets the instance of the company being used
@@ -35,7 +35,7 @@ public class RecordResultController {
      * @return a list with the tests that matches the requirements
      */
     public List<String> getListOfTestWithoutResult(String labId){
-        List<CATest> testList = testStore.getTestsWithoutResults(labId);
+        List<ClinicalTest> testList = testStore.getTestsWithoutResults(labId);
         if(testList!=null && !testList.isEmpty()) {
             TestListMapper tlm = new TestListMapper();
             return tlm.toDto(testList);

@@ -4,7 +4,6 @@ import app.controller.WriteReportController;
 import app.ui.console.utils.Utils;
 
 import java.util.List;
-import java.util.Objects;
 
 public class WriteReportUI implements Runnable {
 

@@ -5,7 +5,6 @@ import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ValidationUI implements Runnable {
     private final ValidationController ctrl = new ValidationController();
@@ -30,7 +29,7 @@ public class ValidationUI implements Runnable {
         List<String> testList = ctrl.getTestWithoutValidation();
         try {
             for(String test : testList){
-                System.out.println(test);
+                Utils.printToConsole(test);
             }
             if (Utils.confirm("Confirm validation? (Y or N)")) {
                 if (ctrl.doValidation(testList))

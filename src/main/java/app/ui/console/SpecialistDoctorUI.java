@@ -13,7 +13,7 @@ public class SpecialistDoctorUI implements Runnable{
      */
     @Override
     public void run() {
-        List<MenuItem> options = new ArrayList<MenuItem>();
+        List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Write reports", new WriteReportUI()));
 
         int option = 0;

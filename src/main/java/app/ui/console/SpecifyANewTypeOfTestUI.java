@@ -39,7 +39,7 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
             try {
                 String code = Utils.readLineFromConsole("Introduce type of test code: ");
                 String description = Utils.readLineFromConsole("Introduce type of test description: ");
-                String collectingMethod = Utils.readLineFromConsole("Introduce type of test colecting method: ");
+                String collectingMethod = Utils.readLineFromConsole("Introduce type of test collecting method: ");
 
                 List<String> categoryDisplayList = ctrl.getCategoryList();
                 if (categoryDisplayList.isEmpty()) {

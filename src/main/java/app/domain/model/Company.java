@@ -61,7 +61,7 @@ public class Company {
     private void setUserStore() {
         try (FileInputStream input = new FileInputStream("data\\user.dat"); ObjectInputStream in = new ObjectInputStream(input)){
             Set<User> userList = new HashSet<>((Set<User>) in.readObject());
-            //this.authFacade.getUsers().setStore(userList);
+            this.authFacade.getUsers().setStore(userList);
         }catch (IOException | ClassNotFoundException e){
             e.getLocalizedMessage();
         }
@@ -114,7 +114,7 @@ public class Company {
 
     private void setTestStore() {
         try (FileInputStream input = new FileInputStream("data\\test.dat"); ObjectInputStream in = new ObjectInputStream(input)){
-            List<CATest> lTest = (List<CATest>) in.readObject();
+            List<ClinicalTest> lTest = (List<ClinicalTest>) in.readObject();
             this.testStore.setTestList(lTest);
         }catch (IOException | ClassNotFoundException e){
             e.getLocalizedMessage();

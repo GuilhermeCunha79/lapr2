@@ -1,6 +1,5 @@
 package app.ui.console;
 
-import app.mappers.CalListMapper;
 import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ public class CCTechnologistUI implements Runnable {
     @Override
     public void run() {
         String labID = Utils.selectLab();
-        List<MenuItem> options = new ArrayList<MenuItem>();
+        List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Record test results", new RecordResultUI(labID)));
 
         int option = 0;

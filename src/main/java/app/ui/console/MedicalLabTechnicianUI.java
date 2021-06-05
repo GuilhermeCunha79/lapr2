@@ -13,7 +13,7 @@ public class MedicalLabTechnicianUI implements Runnable {
     @Override
     public void run() {
         String labID = Utils.selectLab();
-        List<MenuItem> options = new ArrayList<MenuItem>();
+        List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Record samples", new RegisterSampleUI(labID)));
 
         int option = 0;

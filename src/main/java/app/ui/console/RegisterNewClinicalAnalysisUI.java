@@ -3,7 +3,6 @@ package app.ui.console;
 import app.controller.RegisterNewClinicalAnalysisLaboratoryController;
 import app.ui.console.utils.Utils;
 import java.util.List;
-import java.util.Objects;
 
 public class RegisterNewClinicalAnalysisUI implements Runnable {
 

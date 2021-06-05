@@ -3,8 +3,6 @@ package app.ui.console;
 import app.controller.CreateParameterCategoryController;
 import app.ui.console.utils.Utils;
 
-import java.util.Objects;
-
 public class CreateParameterCategoryUI implements Runnable {
 
 

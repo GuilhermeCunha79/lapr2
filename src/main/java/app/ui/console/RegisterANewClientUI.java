@@ -4,8 +4,6 @@ import app.controller.RegisterClientController;
 import app.mappers.dto.ClientDTO;
 import app.ui.console.utils.Utils;
 
-import java.util.Objects;
-
 public class RegisterANewClientUI implements Runnable {
 
     private RegisterClientController ctrl;

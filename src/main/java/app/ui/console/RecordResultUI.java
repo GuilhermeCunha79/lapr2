@@ -25,7 +25,7 @@ public class RecordResultUI implements Runnable {
         boolean repeat;
         do {
             repeat = recordResults();
-        } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("Record results for another test? (Y/N)")).equalsIgnoreCase("y"));
+        } while (repeat && Utils.confirm("Record results for another test? (Y/N)"));
 
     }
 

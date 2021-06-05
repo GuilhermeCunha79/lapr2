@@ -26,8 +26,8 @@ public class TestStoreTest {
         TypeOfTest typeOfTest = new TypeOfTest("40026", "10121", "639", new ParameterCategory("77007", "ji"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("66767", "qb", "191919", new ParameterCategory("00177", "fff")));
-        CATest caTest = testStore.createTest("110121202021", client, typeOfTest, lparameter, "11919");
-        testStore.saveTest(caTest);
+        ClinicalTest clinicalTest = testStore.createTest("110121202021", client, typeOfTest, lparameter, "11919");
+        testStore.saveTest(clinicalTest);
     }
 
     TestStore ts = new TestStore();
@@ -42,16 +42,16 @@ public class TestStoreTest {
         lparameter1.add(new Parameter("11711", "aza", "44", new ParameterCategory("88770", "kkj")));
         List<Parameter> lparameter2 = new ArrayList<>();
         lparameter2.add(new Parameter("11711", "aza", "44", new ParameterCategory("88770", "kkj")));
-        CATest catest1 = ts.createTest("111014541454", client1, typeOfTest1, lparameter1, "55000");
-        CATest catest2 = ts.createTest("111014541454", client2, typeOfTest2, lparameter2, "55000");
+        ClinicalTest catest1 = ts.createTest("111014541454", client1, typeOfTest1, lparameter1, "55000");
+        ClinicalTest catest2 = ts.createTest("111014541454", client2, typeOfTest2, lparameter2, "55000");
     }
 
     @Test
     public void testGetTestByCode() {
         List<Parameter> lp = new ArrayList<>();
         lp.add(p1);
-        List<CATest> ca = new ArrayList<>();
-        CATest test = new CATest("123456789123", client1,tpt,lp,"lol", 2);
+        List<ClinicalTest> ca = new ArrayList<>();
+        ClinicalTest test = new ClinicalTest("123456789123", client1,tpt,lp,"lol", 2);
         //assertEquals(test, testStore.getTestByCode("123456789123"));
     }
 
@@ -70,8 +70,8 @@ public class TestStoreTest {
         listP1.add(new Parameter("77071", "fdssc", "451", new ParameterCategory("44200", "gssp")));
         List<Parameter> listP2 = new ArrayList<>();
         listP2.add(new Parameter("33333", "hhy", "880", new ParameterCategory("77770", "aaasd")));
-        CATest ctest1 = ts.createTest("443234424442", client1, typeOfTest1, listP1, "33444");
-        CATest ctest2 = ts.createTest("565650909012", client2, typeOfTest2, listP2, "44300");
+        ClinicalTest ctest1 = ts.createTest("443234424442", client1, typeOfTest1, listP1, "33444");
+        ClinicalTest ctest2 = ts.createTest("565650909012", client2, typeOfTest2, listP2, "44300");
         ts.saveTest(ctest1);
         ts.saveTest(ctest2);
         assertTrue(ts.getTestList().contains(ctest1) && ts.getTestList().contains(ctest2));

@@ -7,9 +7,6 @@ import app.domain.shared.SendingEmailSMS;
 import app.mappers.dto.ClientDTO;
 import auth.domain.model.Email;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package app.domain.store;
 
-import app.domain.model.CATest;
+import app.domain.model.ClinicalTest;
 import app.domain.model.Client;
 import app.domain.model.Parameter;
 import app.domain.model.TypeOfTest;
@@ -8,6 +8,7 @@ import app.domain.model.TypeOfTest;
 
 import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
+import app.ui.console.utils.Utils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,8 +19,8 @@ import static app.domain.shared.CommonMethods.serializeStore;
 
 public class TestStore implements Serializable {
 
-    private CATest test;
-    private List<CATest> testList = new ArrayList<>();
+    private ClinicalTest test;
+    private List<ClinicalTest> testList = new ArrayList<>();
 
 
     /**
@@ -31,7 +32,7 @@ public class TestStore implements Serializable {
         return this.test.addParameter(parameter);
     }
 
-    public void setTestList(List<CATest> testList){
+    public void setTestList(List<ClinicalTest> testList){
         this.testList = new ArrayList<>(testList);
     }
 
@@ -43,8 +44,8 @@ public class TestStore implements Serializable {
      * @param lParameter object of the Parameter
      * @return
      */
-    public CATest createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter, String labWhereCreated) {
-        this.test = new CATest(nhsCode, client, typeOfTest, lParameter, labWhereCreated, this.testList.size()+1);
+    public ClinicalTest createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter, String labWhereCreated) {
+        this.test = new ClinicalTest(nhsCode, client, typeOfTest, lParameter, labWhereCreated, this.testList.size()+1);
         return this.test;
     }
 
@@ -52,7 +53,7 @@ public class TestStore implements Serializable {
      * Method  to get the type of tests list
      * @return List<Test>
      */
-    public List<CATest> getTestList() {
+    public List<ClinicalTest> getTestList() {
         return new ArrayList<>(this.testList);
     }
 
@@ -61,12 +62,12 @@ public class TestStore implements Serializable {
      * @param testCreated object of the test to be validated
      * @return true if test created is valid
      */
-    public boolean validateTest(CATest testCreated) {
+    public boolean validateTest(ClinicalTest testCreated) {
         if (testCreated == null)
             return false;
-        for (CATest test : testList) {
+        for (ClinicalTest test : testList) {
             if (test.equals(testCreated)) {
-                System.out.println(testCreated);
+                Utils.printToConsole(testCreated.toString());
                 return false;
             }
         }
@@ -78,7 +79,7 @@ public class TestStore implements Serializable {
      * @param test object test to be added
      * @return
      */
-    public boolean addTest(CATest test) {
+    public boolean addTest(ClinicalTest test) {
         return this.testList.add(test);
     }
 
@@ -88,7 +89,7 @@ public class TestStore implements Serializable {
      * @param test object test to be saved
      * @return true if added with success, false if not
      */
-    public boolean saveTest(CATest test) {
+    public boolean saveTest(ClinicalTest test) {
         if(validateTest(test)) {
             addTest(test);
             serializeStore(this.testList, "data\\test.dat");
@@ -98,10 +99,9 @@ public class TestStore implements Serializable {
     }
 
 
-    public List<CATest> getTestsWithoutResults(String labId) {
-        System.out.println(testList.size());
-        List<CATest> lTestNoResult = new ArrayList<>();
-        for (CATest recordTest : testList) {
+    public List<ClinicalTest> getTestsWithoutResults(String labId) {
+        List<ClinicalTest> lTestNoResult = new ArrayList<>();
+        for (ClinicalTest recordTest : testList) {
             if (!recordTest.getResultStatus() && recordTest.getLabWhereCreated().equals(labId))
                 lTestNoResult.add(recordTest);
         }
@@ -111,12 +111,12 @@ public class TestStore implements Serializable {
             return lTestNoResult;
     }
 
-    public List<CATest> getTestWithoutSample() {
-        List<CATest> lTestNoSample = new ArrayList<>();
+    public List<ClinicalTest> getTestWithoutSample() {
+        List<ClinicalTest> lTestNoSample = new ArrayList<>();
         if (!testList.isEmpty()) {
-            for (CATest caTest : testList) {
-                if (!caTest.getSampleStatus())
-                    lTestNoSample.add(caTest);
+            for (ClinicalTest clinicalTest : testList) {
+                if (!clinicalTest.getSampleStatus())
+                    lTestNoSample.add(clinicalTest);
             }
             if (lTestNoSample.isEmpty())
                 return Collections.emptyList();
@@ -127,12 +127,12 @@ public class TestStore implements Serializable {
         }
     }
 
-    public List<CATest> getTestWithoutReport() {
-        List<CATest> lTestNoReport = new ArrayList<>();
+    public List<ClinicalTest> getTestWithoutReport() {
+        List<ClinicalTest> lTestNoReport = new ArrayList<>();
         if (!testList.isEmpty()) {
-            for (CATest caTest : testList) {
-                if (!caTest.getReportStatus())
-                    lTestNoReport.add(caTest);
+            for (ClinicalTest clinicalTest : testList) {
+                if (!clinicalTest.getReportStatus())
+                    lTestNoReport.add(clinicalTest);
             }
             if (lTestNoReport.isEmpty())
                 return Collections.emptyList();
@@ -147,12 +147,12 @@ public class TestStore implements Serializable {
      * Saves tests that wasn't validated yet in a List
      * @return testWithoutValidation or null
      */
-    public List<CATest> getTestWithoutValidation() {
-        List<CATest> testWithoutValidation = new ArrayList<>();
+    public List<ClinicalTest> getTestWithoutValidation() {
+        List<ClinicalTest> testWithoutValidation = new ArrayList<>();
         if (!testList.isEmpty()) {
-            for (CATest caTest : testList) {
-                if (!caTest.getValidationStatus())
-                    testWithoutValidation.add(caTest);
+            for (ClinicalTest clinicalTest : testList) {
+                if (!clinicalTest.getValidationStatus())
+                    testWithoutValidation.add(clinicalTest);
             }
             if (testWithoutValidation.isEmpty())
                 return Collections.emptyList();
@@ -168,10 +168,10 @@ public class TestStore implements Serializable {
      * @param internalCode
      * @return caTest or null
      */
-    public CATest getTestByCode(String internalCode) {
-        for (CATest caTest : testList) {
-            if (caTest.getInternalCode().equals(internalCode))
-                return caTest;
+    public ClinicalTest getTestByCode(String internalCode) {
+        for (ClinicalTest clinicalTest : testList) {
+            if (clinicalTest.getInternalCode().equals(internalCode))
+                return clinicalTest;
         }
         return null;
     }
@@ -183,13 +183,13 @@ public class TestStore implements Serializable {
      */
     public boolean doValidation(List<String> testWithoutValidation) {
         if (!testWithoutValidation.isEmpty()) {
-            for (CATest caTest:testList) {
-                if (!caTest.getValidationStatus()) {
-                    CATest test1 = getTestByCode(caTest.getInternalCode());
+            for (ClinicalTest clinicalTest :testList) {
+                if (!clinicalTest.getValidationStatus()) {
+                    ClinicalTest test1 = getTestByCode(clinicalTest.getInternalCode());
                     Client client = test1.getClient();
                     String name = client.getName();
-                    caTest.changeStateValidationToDone();
-                    DateTime validatedAt= caTest.getValidationDate();
+                    clinicalTest.changeStateValidationToDone();
+                    DateTime validatedAt= clinicalTest.getValidationDate();
                     SendingEmailSMS.sendEmailWithNotification(name,validatedAt);
                 }
             }
@@ -205,7 +205,7 @@ public class TestStore implements Serializable {
      */
     public boolean doValidationOne(String internalCode) {
         if (internalCode!=null) {
-                CATest test1= getTestByCode(internalCode);
+                ClinicalTest test1= getTestByCode(internalCode);
                 Client client = test1.getClient();
                 String name = client.getName();
                 test1.changeStateValidationToDone();
