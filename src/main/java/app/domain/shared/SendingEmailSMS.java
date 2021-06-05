@@ -12,6 +12,7 @@ public class SendingEmailSMS {
     private SendingEmailSMS() {
         throw new IllegalStateException("Utility class");
     }
+
     /***
      * Method that sends a email with the password
      * @param name
@@ -40,11 +41,11 @@ public class SendingEmailSMS {
 
     }
 
-/*
+
     /***
      * Method that sends a email informing that the changes done to the client's profile have been saved successfully
      * @param name
-
+     */
     public static void sendEmailWithChanges(String name) {
         try (PrintWriter out = new PrintWriter(emailBox)) {
             out.printf("Hello %s,%n Your personal data has been changed with success!", name);
@@ -52,7 +53,7 @@ public class SendingEmailSMS {
             System.out.println(EMAIL_NOT_SENT_MESSAGE);
         }
 
-    }*/
+    }
 }
 
 

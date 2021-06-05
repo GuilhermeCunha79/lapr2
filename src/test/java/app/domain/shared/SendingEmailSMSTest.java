@@ -1,6 +1,5 @@
 package app.domain.shared;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;
@@ -10,9 +9,9 @@ public class SendingEmailSMSTest {
 
     @Test(expected = InvocationTargetException.class)
     public void testConstructor() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        Constructor<SendingEmailSMS> c = SendingEmailSMS.class.getDeclaredConstructor();
-        c.setAccessible(true);
-        c.newInstance();
+        Constructor<SendingEmailSMS> z = SendingEmailSMS.class.getDeclaredConstructor();
+        z.setAccessible(true);
+        z.newInstance();
     }
 
 }
