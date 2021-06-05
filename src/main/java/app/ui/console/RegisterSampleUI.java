@@ -8,7 +8,6 @@ import net.sourceforge.barbecue.Barcode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 
@@ -30,7 +29,7 @@ public class RegisterSampleUI implements Runnable {
         boolean repeat;
         do {
             repeat = recordSample();
-        } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("Register sample for another test? (Y/N)")).equalsIgnoreCase("y"));
+        } while (repeat && Utils.confirm("Register sample for another test? (Y/N)"));
 
     }
 
@@ -46,27 +45,27 @@ public class RegisterSampleUI implements Runnable {
                 if (lTestDto != null) {
                     int option = Utils.showAndSelectIndex(lTestDto, "Select one of the following tests:");
                     String data = ctrl.getData(lTestDto.get(option).substring(15, 27));
-                    System.out.println(data);
+                    Utils.printToConsole(data);
                     int n = Utils.readIntegerFromConsole("Write the number of samples below:");
                     List<Barcode> sampleList = new ArrayList<>(n);
                     while (sampleList.isEmpty()) {
-                       Barcode barcode =ctrl.createUPCA(data);
+                        Barcode barcode =ctrl.createUPCA(data);
                         sampleList.add(barcode);
                     }
-                    System.out.printf("Confirm Sample for Test: %s%n%nYour samples: %n%s", lTestDto.get(option),sampleList);
-                    if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
+                    Utils.confirm(String.format("Confirm Sample for Test: %s%n%nYour samples: %n%s", lTestDto.get(option),sampleList));
+                    if (Utils.confirm("Y or N")) {
                         ctrl.createSample((ArrayList) sampleList);
                         if(ctrl.addSample())
-                            System.out.println("INFO: Samples Saved.");
+                            Utils.printToConsole("INFO: Samples Saved.");
                         return true;
                     }
                 } else {
-                    System.out.println("\nINFO: No tests needing samples are available.");
+                    Utils.printToConsole("\nINFO: No tests needing samples are available.");
                     return false;
                 }
                 return true;
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                Utils.printToConsole(e.getMessage());
             }
         }
     }

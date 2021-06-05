@@ -19,29 +19,29 @@ public class ValidationUI implements Runnable {
         } else if (validationProcess == 1) {
             do {
                 repeat = validationProcess();
-            } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("Do you want to do another validation? (Y/N)")).equalsIgnoreCase("y"));
+            } while (repeat && Utils.confirm("Do you want to do another validation? (Y or N)"));
         } else {
-            System.out.println("INFO: Invalid option");
+            Utils.printToConsole("INFO: Invalid option");
         }
     }
 
     private void validateAllTests() {
-        System.out.println("These tests are going to be validated:");
+        Utils.printToConsole("These tests are going to be validated:");
         List<String> testList = ctrl.getTestWithoutValidation();
         try {
             for(String test : testList){
                 System.out.println(test);
             }
-            if (Objects.requireNonNull(Utils.readLineFromConsole("Confirm validation? (Y/N)")).equalsIgnoreCase("y")) {
+            if (Utils.confirm("Confirm validation? (Y or N)")) {
                 if (ctrl.doValidation(testList))
-                    System.out.println("INFO: All tests were successfully validated");
+                    Utils.printToConsole("INFO: All tests were successfully validated");
                 else
-                    System.out.println("INFO: Something wrong happen");
+                    Utils.printToConsole("INFO: Something wrong happened");
             } else {
-                System.out.println("INFO: Validation aborted");
+                Utils.printToConsole("INFO: Validation aborted");
             }
         }catch(Exception e){
-            System.out.println(e.getLocalizedMessage());
+            Utils.printToConsole("INFO: " + e.getLocalizedMessage());
         }
     }
 
@@ -65,20 +65,20 @@ public class ValidationUI implements Runnable {
                 if (rtvListDto != null) {
                     int option = Utils.showAndSelectIndex(rtvListDto, "Select one of the following tests:");
                     String results = ctrl.getTestResults(rtvListDto.get(option).substring(15, 27));
-                    System.out.println(results);
-                    System.out.printf("Confirm the tests to validate: %n%s%n", rtvListDto.get(option));
-                    if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
+                    Utils.printToConsole(results);
+                    Utils.printToConsole(String.format("Confirm the tests to validate: %n%s%n", rtvListDto.get(option)));
+                    if (Utils.confirm("Y or N")) {
                         if (ctrl.saveValidation(results) )
-                            System.out.println("Validation Saved!");
+                            Utils.printToConsole("Validation Saved!");
                         return true;
                     }
                 } else {
-                    System.out.println("%n No more tests need validation!");
+                    Utils.printToConsole("\nNo more tests need validation!");
                     return false;
                 }
                 return true;
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                Utils.printToConsole("INFO: " + e.getMessage());
             }
         }
     }

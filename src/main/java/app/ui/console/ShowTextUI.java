@@ -1,5 +1,6 @@
 package app.ui.console;
 
+import app.ui.console.utils.Utils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -18,8 +19,8 @@ public class ShowTextUI implements Runnable{
     }
     public void run()
     {
-        System.out.println("\n");
-        System.out.println(this.text);
-        System.out.println("\n");
+        Utils.printToConsole("\n");
+        Utils.printToConsole(this.text);
+        Utils.printToConsole("\n");
     }
 }

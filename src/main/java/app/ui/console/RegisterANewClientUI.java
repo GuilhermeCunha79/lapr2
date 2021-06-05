@@ -16,7 +16,7 @@ public class RegisterANewClientUI implements Runnable {
 
         boolean cltCreated = registerClient();
         if (cltCreated)
-            System.out.println("\n\nClient successfully registered!");
+            Utils.printToConsole("\nClient successfully registered!");
     }
 
     public boolean registerClient() {
@@ -33,23 +33,23 @@ public class RegisterANewClientUI implements Runnable {
                 ClientDTO dto = new ClientDTO(cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail);
                 boolean created = ctrl.newClient(dto);
                 if (created) {
-                    System.out.printf("\nConfirm the client data: %nName: %s%nCitizen Card Number: %s%nNHS Number: %s%nTIN Number: %s%nDate of Birth: %s%nSex: %s%nPhone Number: %s%nEmail: %s%n", cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail);
+                    Utils.printToConsole(String.format("\nConfirm the client data: %nName: %s%nCitizen Card Number: %s%nNHS Number: %s%nTIN Number: %s%nDate of Birth: %s%nSex: %s%nPhone Number: %s%nEmail: %s%n", cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail));
 
-                    if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
+                    if (Utils.confirm("Y or N")) {
                         return ctrl.saveClient();
 
                     } else {
-                        System.out.println("\nOperation cancelled");
+                        Utils.printToConsole("\nOperation cancelled");
                         return false;
                     }
                 }
-                System.out.println("Client already exists!");
+                Utils.printToConsole("Client already exists!");
                 return false;
 
             } catch (Exception e) {
-                System.out.println();
+                Utils.printToConsole("");
 
-                System.out.println(e.getLocalizedMessage());
+                Utils.printToConsole("INFO: " + e.getLocalizedMessage());
             }
         } while (true);
 

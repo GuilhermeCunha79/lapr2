@@ -21,7 +21,7 @@ public class CreateNewParameterUI implements Runnable{
         boolean created = createParameter();
 
         if (created){
-            System.out.println("Parameter Created!");
+            Utils.printToConsole("Parameter Created!");
         }
     }
 
@@ -39,7 +39,7 @@ public class CreateNewParameterUI implements Runnable{
 
                 List<String> categoryList = ctrl.getAllParameterCategories();
                 if(categoryList.isEmpty()) {
-                    System.out.println("%nThere is no parameter categories in the system.%nPlease create one first!");
+                    Utils.printToConsole("\nThere is no parameter categories in the system.%nPlease create one first!");
                 }else {
                     System.out.println();
                     List<String> displayCatList = new ArrayList<>(categoryList);
@@ -51,12 +51,12 @@ public class CreateNewParameterUI implements Runnable{
                         return false;
                     boolean created = ctrl.createNewParameter(code, name, description, categoryId);
                     if (created) {
-                        System.out.printf("\nConfirm parameter: \nName: %s\nCode: %s\nDescription: %s\nCategory: %s", name, code, description, categoryId);
-                        if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
+                        Utils.printToConsole(String.format("%nConfirm parameter: %nName: %s%nCode: %s%nDescription: %s%nCategory: %s", name, code, description, categoryId));
+                        if (Utils.confirm("Y or N")) {
                             done = true;
                             return ctrl.saveParameter();
                         }else {
-                            System.out.println("\nOperation cancelled");
+                            Utils.printToConsole("\nOperation cancelled");
                             return false;
                         }
                     }

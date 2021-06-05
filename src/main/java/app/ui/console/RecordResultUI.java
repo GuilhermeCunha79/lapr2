@@ -47,25 +47,25 @@ public class RecordResultUI implements Runnable {
                             } else if (option == -1)
                                 return false;
                             else
-                                System.out.println("Selection invalid!");
+                                Utils.printToConsole("Selection invalid!");
                         } while (option < 0 || option > testParameterList.size());
                     } else {
-                        System.out.println("No parameters available");
+                        Utils.printToConsole("No parameters available");
                         return true;
                     }
                 } while (!testParameterList.isEmpty());
-                System.out.println(ctrl.getTestResults());
-                if (Objects.requireNonNull(Utils.readLineFromConsole("Confirm everything? (Y/N)")).equalsIgnoreCase("y"))
+                Utils.printToConsole(ctrl.getTestResults());
+                if (Utils.confirm("Confirm everything? (Y/N)"))
                     return ctrl.changeStateToResultDone();
                 return false;
             } catch (Exception e) {
-                System.out.println("INFO: "+ e.getLocalizedMessage());
+                Utils.printToConsole("INFO: "+ e.getLocalizedMessage());
             }
         }
     }
 
     private boolean addResult(String parameterCode) {
-        System.out.println("To add a result to the parameter tested, enter de following data:");
+        Utils.printToConsole("To add a result to the parameter tested, enter de following data:");
         do {
             try {
                 double value = Utils.readDoubleFromConsole("Enter value:");
@@ -88,10 +88,10 @@ public class RecordResultUI implements Runnable {
                 else if(option == -1){
                     return null;
                 }
-                System.out.println("Selection invalid!");
+                Utils.printToConsole("Selection invalid!");
             }while (option < 0 || option > availableTestList.size());
         }
-        System.out.println("INFO: There are no tests available");
+        Utils.printToConsole("INFO: There are no tests available");
         return null;
     }
 

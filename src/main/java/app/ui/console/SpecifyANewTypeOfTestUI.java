@@ -22,9 +22,9 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
         boolean created = createTypeOfTest();
 
         if (created) {
-            System.out.println("Type of test was created!");
+            Utils.printToConsole("Type of test was created!");
         } else {
-            System.out.println("Operation failed");
+            Utils.printToConsole("Operation failed");
         }
     }
 
@@ -34,7 +34,6 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
      * @return if the type of test was created or not
      */
     private boolean createTypeOfTest() {
-        boolean done = false;
         do {
             try {
                 String code = Utils.readLineFromConsole("Introduce type of test code: ");
@@ -43,18 +42,17 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
 
                 List<String> categoryDisplayList = ctrl.getCategoryList();
                 if (categoryDisplayList.isEmpty()) {
-                    System.out.println("\nThere is no parameter categories in the system.\nPlease create one first!");
+                    Utils.printToConsole("\nThere is no parameter categories in the system.\nPlease create one first!");
                     return false;
                 } else {
-                    System.out.println();
+                    Utils.printToConsole("");
                     int option = Utils.showAndSelectIndex(categoryDisplayList, "Choose Category:");
                     if (option != -1) {
                         String selectedCategory = categoryDisplayList.get(option);
                         ctrl.createANewTypeOfTest(code, description, collectingMethod, selectedCategory.substring(42, 47));
                         categoryDisplayList.remove(option);
                     }
-                    String addMorePC = Utils.readLineFromConsole("Add another category? (Y/N)");
-                    while (addMorePC != null && addMorePC.equalsIgnoreCase("y") && !categoryDisplayList.isEmpty()) {
+                    while (Utils.confirm("Add another category? (Y or N)")) {
                         option = Utils.showAndSelectIndex(categoryDisplayList, "Choose Category:");
                         if (option != -1) {
                             String selectedCategory = categoryDisplayList.get(option);
@@ -62,14 +60,12 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
                             categoryDisplayList.remove(option);
                         }
                     }
-                    done = true;
                     return ctrl.saveTypeOfTest();
                 }
             } catch (Exception e) {
-                System.out.println(e.getLocalizedMessage());
+                Utils.printToConsole(e.getLocalizedMessage());
             }
-        } while (!done);
-        return false;
+        } while (true);
     }
 }
 
