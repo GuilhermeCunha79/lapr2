@@ -16,6 +16,7 @@ import static app.domain.shared.PasswordGenerator.generatePassword;
 public class ClientStore {
 
     private List<Client> clientList = new ArrayList<>();
+    private final String DATA_PATH = "data\\clients.dat";
 
     /***
      * Method that receives parameters from the associated controller to create a new client
@@ -40,14 +41,14 @@ public class ClientStore {
                 App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
                 sendEmail(client, pwd);
                 addClient(client);
-                serializeStore(this.clientList, "data\\clients.dat");
+                serializeStore(this.clientList, DATA_PATH);
                 return true;
             } else {
                 if (validateClient(client)) {
                     App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
                     sendEmail(client, pwd);
                     addClient(client);
-                    serializeStore(this.clientList, "data\\clients.dat");
+                    serializeStore(this.clientList, DATA_PATH);
                     return true;
                 }
                 return false;
@@ -61,7 +62,7 @@ public class ClientStore {
             //String name = client.getName();
             if (validateClient(client)) {
                 //sendEmailWithChanges(name);
-                serializeStore(this.clientList, "data\\clients.dat");
+                serializeStore(this.clientList, DATA_PATH);
                 return true;
             }
             return true;

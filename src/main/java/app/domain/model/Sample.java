@@ -21,7 +21,7 @@ public class Sample implements Serializable {
      * method to get the sample list
      * @return sampleList
      */
-    public List<Sample> getSampleList() { return sampleList; }
+    public List<Sample> getSampleList() { return new ArrayList<>(sampleList); }
 
     /**
      * to String method to show the

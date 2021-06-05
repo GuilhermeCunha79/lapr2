@@ -47,7 +47,7 @@ public class CreateParameterCategoryUI implements Runnable {
             }
             catch (Exception e){
                 Utils.printToConsole("");
-                System.out.println(e.getLocalizedMessage());
+                Utils.printToConsole("INFO: " + e.getLocalizedMessage());
             }
         }while(!done);
         return false;

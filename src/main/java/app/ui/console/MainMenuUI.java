@@ -18,7 +18,7 @@ public class MainMenuUI {
     {
     }
 
-    public void run() throws IOException
+    public void run()
     {
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Do Login", new AuthUI()));

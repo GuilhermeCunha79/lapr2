@@ -25,7 +25,7 @@ public class CommonMethods {
         try (FileOutputStream out = new FileOutputStream(path); ObjectOutputStream outputStream = new ObjectOutputStream(out)) {
             outputStream.writeObject(list);
         } catch (IOException e) {
-            e.printStackTrace();
+            e.getLocalizedMessage();
         }
     }
 

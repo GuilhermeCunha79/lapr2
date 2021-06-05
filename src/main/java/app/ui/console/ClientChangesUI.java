@@ -5,7 +5,6 @@ import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ClientChangesUI implements Runnable {
     private final ChangeClientDataController ctrl = new ChangeClientDataController();
