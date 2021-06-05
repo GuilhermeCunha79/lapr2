@@ -1,4 +1,4 @@
-/*
+
 package app.controller;
 
 import app.domain.model.*;
@@ -15,16 +15,32 @@ import java.util.List;
 public class ValidationControllerTest extends TestCase {
 
     ValidationController ctrl= new ValidationController();
+    CreateTestController ctrl1= new CreateTestController();
 
-    private TestStore store;
 
-    ParameterCategory pc1 = new ParameterCategory("54321", "adaca");
-    TypeOfTest tpt = new TypeOfTest("12345", "noth", "mao",pc1);
-    ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt");
-    Client client1 = new Client(clDto);
-    List<Parameter> lp = new ArrayList<>();
-    Parameter p1 = new Parameter("12345", "abcd", "adsavaa", pc1);
-    CATest ct1 = new CATest("123456789111", client1, tpt, lp, "lol", 2);
 
+
+
+@Test
+    public void testGetTestWithoutValidationMethodWhenThereAreNoTests() {
+        Assert.assertNotNull(ctrl.getTestWithoutValidation());
+    }
+/*
+    @Test
+    public void testGetTestWithoutValidation(){
+
+    }
+
+    @Test
+    public void testSaveValidation(){
+
+    assertTrue(ctrl.saveValidation(ct1.getInternalCode()));
+    }
+
+    @Test
+    public void testGetTestByCode(){
+    String code= "123456789111";
+
+    assertEquals(ct1,ctrl.getTestByCode(code));
+    }*/
 }
-*/
