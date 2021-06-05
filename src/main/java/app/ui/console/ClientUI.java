@@ -10,7 +10,7 @@ public class ClientUI implements Runnable {
 
     @Override
     public void run() {
-        List<MenuItem> options = new ArrayList<MenuItem>();
+        List<MenuItem> options = new ArrayList<>();
        // options.add(new MenuItem("Check tests results", new ()));
         options.add(new MenuItem("Change personal data", new ClientChangesUI()));
 

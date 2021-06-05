@@ -4,9 +4,15 @@ import app.controller.App;
 import app.domain.model.ClinicalAnalysisLaboratory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CalListMapper {
+
+    public CalListMapper() {
+        throw new IllegalStateException("Utility class");
+    }
+
 
     /**
      * This method converts a list of C.A. labs to a list of strings with the data from each lab to be used in the UI
@@ -22,6 +28,6 @@ public class CalListMapper {
             }
             return calListDto;
         }
-        return null;
+        return Collections.emptyList();
     }
 }

@@ -22,14 +22,10 @@ public class CommonMethods {
     }
 
     public static void serializeStore(List<?> list, String path) {
-        try{
-            FileOutputStream out = new FileOutputStream("data\\pcat.dat");
-            ObjectOutputStream outputStream = new ObjectOutputStream(out);
+        try (FileOutputStream out = new FileOutputStream(path); ObjectOutputStream outputStream = new ObjectOutputStream(out)) {
             outputStream.writeObject(list);
-            outputStream.close();
-            out.close();
-        }catch (IOException e){
-            e.printStackTrace();
+        } catch (IOException e) {
+            e.getLocalizedMessage();
         }
     }
 

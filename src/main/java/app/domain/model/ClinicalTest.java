@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CATest implements Serializable {
+public class ClinicalTest implements Serializable {
     private static final int NHS_CODE = 12;
     private final String labWhereCreated;
     private DateTime chemicalAnalysisDate;
@@ -25,7 +25,7 @@ public class CATest implements Serializable {
     private boolean validationDone;
     private Report report;
     private final List<TestParameter> testParametersList = new ArrayList<>();
-    private final List<CATest> testReadyToVal = new ArrayList<>();
+    private final List<ClinicalTest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
     private List<Sample> sampleList;
     private Report reportText;
@@ -40,7 +40,7 @@ public class CATest implements Serializable {
      * @param parameterList
      * @param labWhereCreated
      */
-    public CATest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated, int testCount) {
+    public ClinicalTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated, int testCount) {
         this.labWhereCreated = labWhereCreated;
         setClient(client);
         this.typeOfTest = typeOfTest;
@@ -278,7 +278,7 @@ public class CATest implements Serializable {
     public String getTestValidation() {
         String results = String.format("%n%nTest Results: %n");
         if (!testReadyToVal.isEmpty()) {
-            for (CATest result : testReadyToVal) {
+            for (ClinicalTest result : testReadyToVal) {
                 results = results.concat(result.toString());
             }
         }
@@ -419,7 +419,7 @@ public class CATest implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CATest test = (CATest) o;
+        ClinicalTest test = (ClinicalTest) o;
         return internalCode.equals(test.internalCode) || nhsCode.equals(test.nhsCode);
     }
 }

@@ -13,7 +13,7 @@ public class Sample implements Serializable {
      * creates a list of class sample list
      * @param sampleList
      */
-    public Sample(ArrayList sampleList) {
+    public Sample(List<Sample> sampleList) {
         this.sampleList = new ArrayList<>(sampleList);
     }
 
@@ -21,7 +21,7 @@ public class Sample implements Serializable {
      * method to get the sample list
      * @return sampleList
      */
-    public List<Sample> getSampleList() { return sampleList; }
+    public List<Sample> getSampleList() { return new ArrayList<>(sampleList); }
 
     /**
      * to String method to show the

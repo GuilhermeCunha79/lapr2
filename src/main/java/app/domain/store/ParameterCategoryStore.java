@@ -23,9 +23,10 @@ public class ParameterCategoryStore {
         return new ParameterCategory(code, name);
     }
 
-    public void setParameterCategoryList(List<ParameterCategory> pcList){
+    public void setParameterCategoryList(List<ParameterCategory> pcList) {
         this.parameterCategoryList = new ArrayList<>(pcList);
     }
+
     /**
      * Method that returns a parameter category from the list with the same code as the one received by parameter
      *
@@ -47,11 +48,9 @@ public class ParameterCategoryStore {
      * @return if it was successfully added to the store (true or false)
      */
     public boolean saveParameterCategory(ParameterCategory pc) {
-        if (validateParameterCategory(pc)) {
-            if(addParameterCategory(pc)){
-                serializeStore(this.parameterCategoryList, "data\\pcat.dat");
-                return true;
-            }
+        if (validateParameterCategory(pc) && addParameterCategory(pc)) {
+            serializeStore(this.parameterCategoryList, "data\\pcat.dat");
+            return true;
         }
         return false;
     }

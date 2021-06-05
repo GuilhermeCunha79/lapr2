@@ -4,7 +4,6 @@ import app.controller.WriteReportController;
 import app.ui.console.utils.Utils;
 
 import java.util.List;
-import java.util.Objects;
 
 public class WriteReportUI implements Runnable {
 
@@ -35,7 +34,7 @@ public class WriteReportUI implements Runnable {
                 if (lTestDto != null) {
                     int option = Utils.showAndSelectIndex(lTestDto, "Select one of the following tests:");
                     String results = ctrl.getTestResults(lTestDto.get(option).substring(15, 27));
-                    System.out.println(results);
+                    Utils.printToConsole(results);
                     String report = Utils.readLineFromConsole("Write report below:");
                     ctrl.newReport(report);
                     Utils.printToConsole(String.format("Confirm report for Test: %s%n%s%nYour report: %n%s", lTestDto.get(option), results, report));

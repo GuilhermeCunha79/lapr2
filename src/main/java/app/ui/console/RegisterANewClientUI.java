@@ -4,8 +4,6 @@ import app.controller.RegisterClientController;
 import app.mappers.dto.ClientDTO;
 import app.ui.console.utils.Utils;
 
-import java.util.Objects;
-
 public class RegisterANewClientUI implements Runnable {
 
     private RegisterClientController ctrl;
@@ -34,7 +32,7 @@ public class RegisterANewClientUI implements Runnable {
                 ClientDTO dto = new ClientDTO(cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail);
                 boolean created = ctrl.newClient(dto);
                 if (created) {
-                    Utils.printToConsole(String.format("\nConfirm the client data: %nName: %s%nCitizen Card Number: %s%nNHS Number: %s%nTIN Number: %s%nDate of Birth: %s%nSex: %s%nPhone Number: %s%nEmail: %s%n", cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail));
+                    Utils.printToConsole(String.format("%nConfirm the client data: %nName: %s%nCitizen Card Number: %s%nNHS Number: %s%nTIN Number: %s%nDate of Birth: %s%nSex: %s%nPhone Number: %s%nEmail: %s%n", cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail));
 
                     if (Utils.confirm("Y or N")) {
                         return ctrl.saveClient();
@@ -48,9 +46,7 @@ public class RegisterANewClientUI implements Runnable {
                 return false;
 
             } catch (Exception e) {
-                Utils.printToConsole("");
-
-                Utils.printToConsole("INFO: " + e.getLocalizedMessage());
+                Utils.printToConsole("\nINFO: " + e.getLocalizedMessage());
             }
         } while (true);
 

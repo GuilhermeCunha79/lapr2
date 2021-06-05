@@ -2,11 +2,11 @@ package app.domain.model;
 
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
+import app.ui.console.utils.Utils;
 import org.apache.commons.lang3.StringUtils;
 
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -124,7 +124,7 @@ public class TypeOfTest implements Serializable {
         try (InputStream in = new FileInputStream("config.properties")) {
             props.load(in);
             String value;
-            Class<?> oClass = null;
+            Class<?> oClass;
             if (paramCode.equals("IgGAN")) {
                 value = props.getProperty("Company.CovidReferenceValues.adapter");
             } else {
@@ -132,11 +132,9 @@ public class TypeOfTest implements Serializable {
 
             }
             oClass = Class.forName(value);
-            in.close();
             return (ExternalModule) oClass.newInstance();
-
         } catch (Exception e) {
-            System.out.println(e.getLocalizedMessage());
+            Utils.printToConsole(e.getLocalizedMessage());
             return null;
         }
     }

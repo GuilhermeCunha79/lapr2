@@ -215,7 +215,7 @@ public class Client  implements Serializable {
             throw new NullPointerException("Sex" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(sex))
             this.sex=ClientDTO.SEX_BY_OMISSION;
-        if (!StringUtils.isBlank(sex) && !(sex.equalsIgnoreCase("male")|| sex.equalsIgnoreCase("female")))
+        if (!StringUtils.isBlank(sex) && !(sex.equalsIgnoreCase(SEX_MALE)|| sex.equalsIgnoreCase(SEX_FEMALE)))
             throw new IllegalArgumentException("Sex must be Male or Female.");
         this.sex = sex;
     }

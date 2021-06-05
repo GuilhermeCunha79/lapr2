@@ -5,7 +5,6 @@ import app.ui.console.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class ClientChangesUI implements Runnable {
     private final ChangeClientDataController ctrl = new ChangeClientDataController();
@@ -54,20 +53,20 @@ public class ClientChangesUI implements Runnable {
             ctrl.changePassword(ctrl.getClientByEmail(), cltPassword);
         }*/
 
-            System.out.println("Do you confirm this change?");
-            if (Objects.requireNonNull(Utils.readLineFromConsole("Y or N:")).equalsIgnoreCase("y")) {
+            Utils.printToConsole("Do you confirm this change?");
+            if (Utils.confirm("Y or N")) {
                 if (ctrl.saveChanges())
                     ctrl.showData(ctrl.getClientByEmail());
                 return true;
             }else{
-                System.out.println("This change is not permitted");
+                Utils.printToConsole("This change is not permitted");
                 return false;
             }
         }
 
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Utils.printToConsole(e.getMessage());
         }
         return false;
     }
@@ -91,9 +90,9 @@ public class ClientChangesUI implements Runnable {
         boolean repeat;
         do {
             repeat = clientChanges();
-        } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("\nDo you want to do another changes? (Y/N)")).equalsIgnoreCase("y"));
+        } while (repeat && Utils.confirm("\nDo you want to do another changes? (Y/N)"));
         if (repeat)
-            System.out.println("\n\nChanges saved successfully!");
+            Utils.printToConsole("\n\nChanges saved successfully!");
     }
 
 }

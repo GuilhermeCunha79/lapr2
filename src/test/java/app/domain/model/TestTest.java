@@ -16,7 +16,7 @@ public class TestTest {
 
     @Test(expected = NullPointerException.class)
     public void ensureNullTestIsNotCreated() {
-        new CATest(null, null, null, null, null, 0);
+        new ClinicalTest(null, null, null, null, null, 0);
     }
 
     @Test(expected = NullPointerException.class)
@@ -25,7 +25,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("12345", "33", "56", new ParameterCategory("12334", "Rui"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("34567", "Tiago", "87", new ParameterCategory("12334", "Raul")));
-        new CATest(null, client, typeOfTest, lparameter, "23432", 1);
+        new ClinicalTest(null, client, typeOfTest, lparameter, "23432", 1);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -34,14 +34,14 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("11002", "998", "1", new ParameterCategory("47586", "cat"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("63254", "par", "des", new ParameterCategory("01298", "catt")));
-        new CATest("", client, typeOfTest, lparameter, "35410", 2);
+        new ClinicalTest("", client, typeOfTest, lparameter, "35410", 2);
     }
 
     @Test(expected = NullPointerException.class)
     public void ensureParameterListCannotBeNull() {
         Client client = new Client(new ClientDTO("Rafa", "7874789568987458", "3652563652", "4587896589", "12/11/2012", "male", "77889966554", "sandro@isep.ipp.pt"));
         TypeOfTest typeOfTest = new TypeOfTest("47854", "323", "566", new ParameterCategory("12934", "Gomes"));
-        new CATest("123133131231", client, typeOfTest, null, "23432", 3);
+        new ClinicalTest("123133131231", client, typeOfTest, null, "23432", 3);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -50,7 +50,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("47854", "323", "566", new ParameterCategory("12934", "Gomes"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("52541", "Tomas", "887", new ParameterCategory("12734", "Raimundo")));
-        new CATest("212@w2@-ji45", client, typeOfTest, lparameter, "23432",4);
+        new ClinicalTest("212@w2@-ji45", client, typeOfTest, lparameter, "23432",4);
     }
 
     @Test()
@@ -59,7 +59,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("74747", "20", "2", new ParameterCategory("47474", "pc"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("41474", "pa", "de", new ParameterCategory("10132", "cp")));
-        new CATest("123abc123abc", client, typeOfTest, lparameter, "47897", 5);
+        new ClinicalTest("123abc123abc", client, typeOfTest, lparameter, "47897", 5);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -68,7 +68,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("35748", "10", "8", new ParameterCategory("56104", "tr"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("20203", "gr", "2", new ParameterCategory("71935", "saw")));
-        new CATest("1222227222222", client, typeOfTest, lparameter, "73020", 6);
+        new ClinicalTest("1222227222222", client, typeOfTest, lparameter, "73020", 6);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -77,7 +77,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("82585", "0", "9", new ParameterCategory("70010", "de"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("44465", "jos", "sw", new ParameterCategory("89874", "cr")));
-        new CATest("2", client, typeOfTest, lparameter, "70302", 7);
+        new ClinicalTest("2", client, typeOfTest, lparameter, "70302", 7);
     }
 
     @Test
@@ -86,7 +86,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("71217", "358", "121", new ParameterCategory("21987", "hop"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("03000", "fr", "2097", new ParameterCategory("11121", "wwe")));
-        CATest t1 = new CATest("741474147985", client, typeOfTest, lparameter, "01097", 8);
+        ClinicalTest t1 = new ClinicalTest("741474147985", client, typeOfTest, lparameter, "01097", 8);
         String expected = String.format("Type of Test:%nCode: 71217%nDescription: 358%nCollecting Method: 121%nParameter Category(ies):%nParameter Category -> Name: hop | Code: 21987 |%n");
         assertEquals(expected, t1.getTypeOfTest().toString());
     }
@@ -98,7 +98,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("00002", "7777", "666", new ParameterCategory("70104", "lkj"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("90265", "sz", "7021", new ParameterCategory("22109", "ads")));
-        CATest t2 = new CATest("100090000003", client, typeOfTest, lparameter, "88878",9);
+        ClinicalTest t2 = new ClinicalTest("100090000003", client, typeOfTest, lparameter, "88878",9);
         String expected = String.format("%nClient:%nName: Emilia%nCitizen Card Number: 0202417845965874%nNHS number: 1074601020%nTIN number: 1212787895%nBirth date: 05/03/1963%nSex: female%nPhone number: 91474765456%nEmail: emilia@isep.ipp.pt%n%n");
         assertEquals(expected, t2.getClient().toString());
     }
@@ -110,7 +110,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("10000", "678483", "21212", new ParameterCategory("77775", "deg"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("33245", "wqp", "20202", new ParameterCategory("77891", "fgh")));
-        CATest t3 = new CATest("447474799555", client, typeOfTest, lparameter, "10022", 10);
+        ClinicalTest t3 = new ClinicalTest("447474799555", client, typeOfTest, lparameter, "10022", 10);
         String expected = String.format("447474799555");
         assertEquals(expected, t3.getNhsCode().toString());
     }
@@ -119,7 +119,7 @@ public class TestTest {
     public void ensureThatParameterListCannotBeNull() {
         Client client = new Client(new ClientDTO("Mary", "1144770011447744", "1212565671", "0009434309", "12/05/1955", "female", "41425023697", "mary@isep.ipp.pt"));
         TypeOfTest typeOfTest = new TypeOfTest("01902", "3547", "4443", new ParameterCategory("41560", "free"));
-        new CATest("414709521158", client, typeOfTest, null, "17774", 11);
+        new ClinicalTest("414709521158", client, typeOfTest, null, "17774", 11);
     }
 
     @Test
@@ -128,7 +128,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("66245", "01012", "550", new ParameterCategory("21225", "lklk"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("00425", "rrt", "2228", new ParameterCategory("11111", "sss")));
-        new CATest("111100009324", client, typeOfTest, lparameter, "99000", 12);
+        new ClinicalTest("111100009324", client, typeOfTest, lparameter, "99000", 12);
 
     }
 
@@ -137,7 +137,7 @@ public class TestTest {
         Client client = new Client(new ClientDTO("Rose", "5552227410147989", "5558887771", "5269876025", "28/01/1968", "female", "77770398565", "rose@isep.ipp.pt"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("09092", "hgh", "769", new ParameterCategory("88323", "ery")));
-        new CATest("447450008965", client, null, lparameter, "99999", 13);
+        new ClinicalTest("447450008965", client, null, lparameter, "99999", 13);
     }
 
 
@@ -147,7 +147,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("66352", "8410", "200", new ParameterCategory("66664", "wqer"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("20256", "rcb", "77", new ParameterCategory("00196", "çl")));
-        CATest t4 = new CATest("774740747897", client, typeOfTest, lparameter, "11090", 14);
+        ClinicalTest t4 = new ClinicalTest("774740747897", client, typeOfTest, lparameter, "11090", 14);
         String expected = String.format("[Parameter -> Code: 20256 | Name: rcb | Description: 77]");
         assertEquals(expected, t4.getParameterList().toString());
     }
@@ -158,7 +158,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("99202", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("33231", "uiy", "090", new ParameterCategory("55900", "fmds")));
-        CATest t5 = new CATest("002150021456", client, typeOfTest, lparameter, "77065", 15);
+        ClinicalTest t5 = new ClinicalTest("002150021456", client, typeOfTest, lparameter, "77065", 15);
         String expected = "77065";
         assertEquals(expected, t5.getLabWhereCreated());
     }
@@ -169,7 +169,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("12121", "98", "78", new ParameterCategory("12121", "Saul"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
-        new CATest("232323232323", null, typeOfTest, lparameter, "95123", 16);
+        new ClinicalTest("232323232323", null, typeOfTest, lparameter, "95123", 16);
     }
 
 
@@ -178,7 +178,7 @@ public class TestTest {
         Client client = new Client(new ClientDTO("Rute", "4001301625963254", "2121989803", "0104032965", "10/05/2009", "female", "54145210147", "rute@isep.ipp.pt"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("22443", "ds", "401", new ParameterCategory("79878", "detr")));
-        new CATest("000111222333", client, null, lparameter, "30174", 17);
+        new ClinicalTest("000111222333", client, null, lparameter, "30174", 17);
     }
 
     @Test
@@ -187,7 +187,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("44044", "0028", "1303", new ParameterCategory("44707", "dddg"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("00700", "hyre", "7272", new ParameterCategory("99990", "sssd")));
-        CATest test1 = new CATest("001400140014", client, typeOfTest, lparameter, "77000", 18);
+        ClinicalTest test1 = new ClinicalTest("001400140014", client, typeOfTest, lparameter, "77000", 18);
         String expected = String.format("Internal Code: 000000000018 | NHS Code: 001400140014 | Created on: %s |", new DateTime());
         assertEquals(expected, test1.toString());
     }
@@ -198,8 +198,8 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("10000", "1212", "112", new ParameterCategory("99000", "dwqe"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("22222", "kkk", "11111", new ParameterCategory("66666", "uico")));
-        CATest caTest = new CATest("777807778401", client, typeOfTest, lparameter, "00123", 19);
-        assertTrue(caTest.addParameter(new Parameter("07770", "lll", "32032", new ParameterCategory("01121", "zzz"))));
+        ClinicalTest clinicalTest = new ClinicalTest("777807778401", client, typeOfTest, lparameter, "00123", 19);
+        assertTrue(clinicalTest.addParameter(new Parameter("07770", "lll", "32032", new ParameterCategory("01121", "zzz"))));
     }
 
     @Test
@@ -208,9 +208,9 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("10000", "1212", "112", new ParameterCategory("99000", "dwqe"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("22222", "kkk", "11111", new ParameterCategory("66666", "uico")));
-        CATest caTest = new CATest("777807778401", client, typeOfTest, lparameter, "00123", 20);
-        caTest.addParameter(new Parameter("07770", "lll", "32032", new ParameterCategory("01121", "zzz")));
-        assertFalse(caTest.addParameter(new Parameter("07770", "lll", "32032", new ParameterCategory("01121", "zzz"))));
+        ClinicalTest clinicalTest = new ClinicalTest("777807778401", client, typeOfTest, lparameter, "00123", 20);
+        clinicalTest.addParameter(new Parameter("07770", "lll", "32032", new ParameterCategory("01121", "zzz")));
+        assertFalse(clinicalTest.addParameter(new Parameter("07770", "lll", "32032", new ParameterCategory("01121", "zzz"))));
     }
 
     @Test
@@ -219,7 +219,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
-        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001", 21);
+        ClinicalTest test = new ClinicalTest("341341323234", client, typeOfTest, lparameter, "l0001", 21);
         assertTrue(test.addReport(new Report("afakdfbabdf")));
     }
 
@@ -229,7 +229,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
-        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001", 22);
+        ClinicalTest test = new ClinicalTest("341341323234", client, typeOfTest, lparameter, "l0001", 22);
         assertTrue(test.addReport(new Report("afakdfbabdf")));
     }
 
@@ -239,7 +239,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
-        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001", 23);
+        ClinicalTest test = new ClinicalTest("341341323234", client, typeOfTest, lparameter, "l0001", 23);
         assertTrue(test.addValidation());
     }
 
@@ -249,7 +249,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
-        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001", 24);
+        ClinicalTest test = new ClinicalTest("341341323234", client, typeOfTest, lparameter, "l0001", 24);
         test.addReport(new Report("afakdfbabdf"));
         assertTrue(test.getReportStatus());
     }
@@ -260,7 +260,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("74147", "Ana", "96", new ParameterCategory("41456", "Sergio")));
-        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001", 25);
+        ClinicalTest test = new ClinicalTest("341341323234", client, typeOfTest, lparameter, "l0001", 25);
         test.addReport(new Report("afakdfbabdf"));
         assertFalse(test.getValidationStatus());
     }
@@ -271,7 +271,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
-        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001", 26);
+        ClinicalTest test = new ClinicalTest("341341323234", client, typeOfTest, lparameter, "l0001", 26);
         assertTrue(test.addTestParameterResult("IgGAN", 0.22, "mg"));
     }
 
@@ -281,7 +281,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
-        CATest test = new CATest("341341323234", client, typeOfTest, lparameter, "l0001", 27);
+        ClinicalTest test = new ClinicalTest("341341323234", client, typeOfTest, lparameter, "l0001", 27);
         assertFalse(test.addTestParameterResult("98909", 0.22, "mg"));
     }
 
@@ -324,8 +324,8 @@ public class TestTest {
         lp1.add(new Parameter("99199", "bool", "257", new ParameterCategory("11444", "tyy")));
         List<Parameter> lp2 = new ArrayList<>();
         lp2.add(new Parameter("44400", "dfffg", "5555", new ParameterCategory("60006", "yyu")));
-        CATest cat1 = new CATest("111111111110", cl1, tt1, lp1, "09090", 30);
-        CATest cat2 = new CATest("111111111110", cl2, tt2, lp2, "90909", 30);
+        ClinicalTest cat1 = new ClinicalTest("111111111110", cl1, tt1, lp1, "09090", 30);
+        ClinicalTest cat2 = new ClinicalTest("111111111110", cl2, tt2, lp2, "90909", 30);
         assertEquals(cat1, cat2);
     }
 

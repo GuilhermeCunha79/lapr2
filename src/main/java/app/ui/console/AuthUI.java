@@ -32,7 +32,7 @@ public class AuthUI implements Runnable{
             List<UserRoleDTO> roles = this.ctrl.getUserRoles();
             if ( (roles == null) || (roles.isEmpty()) )
             {
-                System.out.println("User has not any role assigned.");
+                Utils.printToConsole("User has not any role assigned.");
             }
             else
             {
@@ -44,7 +44,7 @@ public class AuthUI implements Runnable{
                 }
                 else
                 {
-                    System.out.println("User did not select a role.");
+                    Utils.printToConsole("User did not select a role.");
                 }
             }
         }
@@ -67,7 +67,7 @@ public class AuthUI implements Runnable{
 
     private boolean doLogin()
     {
-        System.out.println("\nLogin UI:");
+        Utils.printToConsole("\nLogin UI:");
 
         int maxAttempts = 3;
         boolean success = false;
@@ -80,7 +80,7 @@ public class AuthUI implements Runnable{
             success = ctrl.doLogin(id, pwd);
             if (!success)
             {
-                System.out.println("Invalid UserId and/or Password. \n You have  " + maxAttempts + " more attempt(s).");
+                Utils.printToConsole("Invalid UserId and/or Password. \n You have  " + maxAttempts + " more attempt(s).");
             }
 
         } while (!success && maxAttempts > 0);
@@ -104,7 +104,7 @@ public class AuthUI implements Runnable{
                 item.run();
         }
         if (!found)
-            System.out.println("There is no UI for users with role '" + role.getDescription() + "'");
+            Utils.printToConsole("There is no UI for users with role '" + role.getDescription() + "'");
     }
 
     private UserRoleDTO selectsRole(List<UserRoleDTO> roles)

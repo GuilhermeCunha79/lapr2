@@ -2,7 +2,7 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.Sample;
-import app.domain.model.CATest;
+import app.domain.model.ClinicalTest;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
 import net.sourceforge.barbecue.Barcode;
@@ -13,14 +13,13 @@ import net.sourceforge.barbecue.output.OutputException;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RegisterSampleController {
 
     private TestStore testStore;
 
-    private CATest test;
+    private ClinicalTest test;
 
     private Sample sample;
 
@@ -44,7 +43,7 @@ public class RegisterSampleController {
      * @return a list of Strings holding the data for each test
      */
     public List<String> getTestWithoutSample() {
-        List<CATest> lTestNoSample = testStore.getTestWithoutSample();
+        List<ClinicalTest> lTestNoSample = testStore.getTestWithoutSample();
         if (lTestNoSample != null) {
             TestListMapper tlm = new TestListMapper();
             return tlm.toDto(lTestNoSample);
@@ -89,7 +88,7 @@ public class RegisterSampleController {
      * @param sampleList list to be added
      * @return sample
      */
-    public Sample createSample(ArrayList sampleList) {
+    public Sample createSample(List<Sample> sampleList) {
         this.sample = new Sample(sampleList);
         return sample;
     }

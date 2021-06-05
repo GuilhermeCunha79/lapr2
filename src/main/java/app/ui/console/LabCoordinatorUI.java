@@ -13,7 +13,7 @@ public class LabCoordinatorUI implements Runnable{
      */
     @Override
     public void run() {
-        List<MenuItem> options = new ArrayList<MenuItem>();
+        List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Test Validation", new ValidationUI()));
 
         int option;

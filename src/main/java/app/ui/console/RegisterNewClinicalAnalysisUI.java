@@ -3,7 +3,6 @@ package app.ui.console;
 import app.controller.RegisterNewClinicalAnalysisLaboratoryController;
 import app.ui.console.utils.Utils;
 import java.util.List;
-import java.util.Objects;
 
 public class RegisterNewClinicalAnalysisUI implements Runnable {
 
@@ -67,8 +66,8 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
                     Utils.printToConsole("\nFailed to add new clinical analysis laboratory");
                 }
             } catch (Exception e) {
-                
-                System.out.println(e.getLocalizedMessage());
+
+                Utils.printToConsole("INFO: "+ e.getLocalizedMessage());
             }
 
         } while (true);

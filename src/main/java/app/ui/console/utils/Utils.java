@@ -18,7 +18,7 @@ public class Utils {
 
     public static String readLineFromConsole(String prompt) {
         try {
-            System.out.println("\n" + prompt);
+            Utils.printToConsole("\n" + prompt);
 
             InputStreamReader converter = new InputStreamReader(System.in);
             BufferedReader in = new BufferedReader(converter);
@@ -98,13 +98,13 @@ public class Utils {
     }
 
     public static void showList(List list, String header) {
-        System.out.println(header);
+        Utils.printToConsole(header);
 
         int index = 0;
         for (Object o : list) {
             index++;
 
-            System.out.println(index + ". " + o.toString());
+            Utils.printToConsole(index + ". " + o.toString());
         }
         Utils.printToConsole("");
         Utils.printToConsole("0 - Cancel");

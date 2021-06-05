@@ -5,7 +5,6 @@ import app.controller.RecordResultController;
 import app.ui.console.utils.Utils;
 
 import java.util.List;
-import java.util.Objects;
 
 public class RecordResultUI implements Runnable {
 
@@ -25,7 +24,7 @@ public class RecordResultUI implements Runnable {
         boolean repeat;
         do {
             repeat = recordResults();
-        } while (repeat && Objects.requireNonNull(Utils.readLineFromConsole("Record results for another test? (Y/N)")).equalsIgnoreCase("y"));
+        } while (repeat && Utils.confirm("Record results for another test? (Y/N)"));
 
     }
 
@@ -73,7 +72,7 @@ public class RecordResultUI implements Runnable {
                 String metric = Utils.readLineFromConsole("Enter metric:");
                 return ctrl.addParameterTestResult(parameterCode, value, metric);
             }catch (Exception e){
-                System.out.println(e.getMessage());
+                Utils.printToConsole("INFO: "+ e.getLocalizedMessage());
             }
         }while(true);
     }

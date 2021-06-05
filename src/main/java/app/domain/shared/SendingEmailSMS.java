@@ -1,5 +1,7 @@
 package app.domain.shared;
 
+import app.ui.console.utils.Utils;
+
 import java.io.File;
 import java.io.PrintWriter;
 
@@ -22,7 +24,7 @@ public class SendingEmailSMS {
         try (PrintWriter out = new PrintWriter(emailBox)) {
             out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%nLogin data: %nEmail: %s%nPassword: %s", name, email, password);
         } catch (Exception e) {
-            System.out.println(EMAIL_NOT_SENT_MESSAGE);
+            Utils.printToConsole(EMAIL_NOT_SENT_MESSAGE);
         }
 
     }
@@ -36,7 +38,7 @@ public class SendingEmailSMS {
         try (PrintWriter out = new PrintWriter(emailBox)) {
             out.printf("Hello %s,%nYou can now access the application to check the results of your test! %s", name, validatedAt);
         } catch (Exception e) {
-            System.out.println(EMAIL_NOT_SENT_MESSAGE);
+            Utils.printToConsole(EMAIL_NOT_SENT_MESSAGE);
         }
 
     }
@@ -50,7 +52,7 @@ public class SendingEmailSMS {
         try (PrintWriter out = new PrintWriter(emailBox)) {
             out.printf("Hello %s,%n Your personal data has been changed with success!", name);
         } catch (Exception e) {
-            System.out.println(EMAIL_NOT_SENT_MESSAGE);
+            Utils.printToConsole(EMAIL_NOT_SENT_MESSAGE);
         }
 
     }
