@@ -45,6 +45,7 @@ public class Company {
         this.designation = designation;
         this.authFacade = new AuthFacade();
 
+
         setEmpStore();
         setPCategoryStore();
         setParameterStore();
@@ -53,6 +54,7 @@ public class Company {
         setClientStore();
         setTestStore();
         setUserStore();
+
     }
 
     private void setUserStore() {

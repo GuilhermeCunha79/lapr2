@@ -13,6 +13,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import static app.domain.shared.CommonMethods.serializeStore;
 import static app.domain.shared.PasswordGenerator.generatePassword;
 
 public class ClientStore {
@@ -42,14 +43,14 @@ public class ClientStore {
                 App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
                 sendEmail(client, pwd);
                 addClient(client);
-                serializeStore();
+                serializeStore(this.clientList, "data\\clients.dat");
                 return true;
             } else {
                 if (validateClient(client)) {
                     App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
                     sendEmail(client, pwd);
                     addClient(client);
-                    serializeStore();
+                    serializeStore(this.clientList, "data\\clients.dat");
                     return true;
                 }
                 return false;
@@ -63,24 +64,12 @@ public class ClientStore {
             //String name = client.getName();
             if (validateClient(client)) {
                 //sendEmailWithChanges(name);
-                serializeStore();
+                serializeStore(this.clientList, "data\\clients.dat");
                 return true;
             }
             return true;
         }
         return false;
-    }
-
-    private void serializeStore() {
-        try {
-            FileOutputStream out = new FileOutputStream("data\\clients.dat");
-            ObjectOutputStream outputStream = new ObjectOutputStream(out);
-            outputStream.writeObject(this.clientList);
-            outputStream.close();
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /***
@@ -102,6 +91,7 @@ public class ClientStore {
         String email = client.getEmail();
         return !App.getInstance().getCompany().getAuthFacade().existsUser(email) && !checkDuplicate(client);
     }
+
 
     private boolean checkDuplicate(Client client) {
         for (Client clt : clientList) {

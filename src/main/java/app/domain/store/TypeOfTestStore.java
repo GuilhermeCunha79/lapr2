@@ -3,11 +3,10 @@ package app.domain.store;
 import app.domain.model.ParameterCategory;
 import app.domain.model.TypeOfTest;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import static app.domain.shared.CommonMethods.serializeStore;
 
 public class TypeOfTestStore {
 
@@ -36,24 +35,13 @@ public class TypeOfTestStore {
     public boolean saveTypeOfTest(TypeOfTest tot){
         if(validateTypeOfTest(tot)){
            if(addTypeOfTest(tot)){
-               serializeStore();
+               serializeStore(typeOfTestList, "data\\tot.dat");
                return true;
            }
         }
         return false;
     }
 
-    private void serializeStore() {
-        try{
-            FileOutputStream out = new FileOutputStream("data\\tot.dat");
-            ObjectOutputStream outputStream = new ObjectOutputStream(out);
-            outputStream.writeObject(this.typeOfTestList);
-            outputStream.close();
-            out.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
 
 
     /**

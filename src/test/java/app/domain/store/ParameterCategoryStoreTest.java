@@ -1,4 +1,4 @@
-/*
+
 package app.domain.store;
 
 import app.domain.model.ParameterCategory;
@@ -11,7 +11,7 @@ public class ParameterCategoryStoreTest {
 
     ParameterCategoryStore pcs = new ParameterCategoryStore();
 
-    */
+
 /**
      * Checks that it is not possible to add the same parameter category twice
      *//*
@@ -23,10 +23,10 @@ public class ParameterCategoryStoreTest {
         pcs.saveParameterCategory(pc1);
         assertFalse(pcs.saveParameterCategory(pc2));
     }
-    */
+
 /**
      * Checks that it is possible to add two different parameter category
-     *//*
+     */
 
     @Test
     public void ensureAdd2differentCategoryWorks(){
@@ -35,19 +35,19 @@ public class ParameterCategoryStoreTest {
         pcs.saveParameterCategory(pc1);
         assertTrue(pcs.saveParameterCategory(pc2));
     }
-    */
+
 /**
      * Checks that it is not possible to add a null parameter category
-     *//*
+     */
 
     @Test
     public void ensureAddNullCategoryDontWork(){
         assertFalse(pcs.saveParameterCategory(null));
     }
-    */
+
 /**
      * Verify that it is getParameterCategoryList method works as intended
-     *//*
+     */
 
     @Test
     public void testGetCategoryListMethod(){
@@ -66,4 +66,4 @@ public class ParameterCategoryStoreTest {
     }
 
 
-}*/
+}
