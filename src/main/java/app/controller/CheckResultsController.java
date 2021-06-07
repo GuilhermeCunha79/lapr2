@@ -15,7 +15,6 @@ public class CheckResultsController {
     private final ClientStore ctStore;
     private final TestStore tstStore;
     private Client ct;
-    private ClinicalTest tst;
 
     public CheckResultsController() {
         this(App.getInstance().getCompany());
@@ -25,14 +24,12 @@ public class CheckResultsController {
         this.ctStore = company.getClientStore();
         this.tstStore = company.getTestStore();
         this.ct = null;
-        this.tst=null;
     }
 
     public List<String> showClients() {
         List<Client> listClients = ctStore.getClientList();
         if(listClients != null) {
-            ClientMapper tlm = new ClientMapper();
-            return tlm.toDTOClient(listClients);
+            return ClientMapper.toDTOClient(listClients);
         }
         return null;
     }
@@ -42,8 +39,7 @@ public class CheckResultsController {
         this.ct=ctStore.getClientByTIN(tinNumber);
         List<ClinicalTest> lTestNoReport = tstStore.getClientTests(ct);
         if(lTestNoReport != null) {
-            TestsFinalizedMapper tlm = new TestsFinalizedMapper();
-            return tlm.toDtoFin(lTestNoReport);
+            return TestsFinalizedMapper.toDtoFin(lTestNoReport);
         }
         return null;
     }
