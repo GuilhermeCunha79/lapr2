@@ -67,7 +67,7 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test
     public void ensurePhoneNumberMustHave11Digits() {
-        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("13243", "advasdv", "asdsav", "98978989188", "9897889188"));
+        assertTrue(ctrl.registerNewClinicalAnalysisLaboratory("54237", "advasdv", "asdsav", "78657475450", "9897889188"));
     }
 
     @Test(expected = IllegalArgumentException.class)

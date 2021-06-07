@@ -9,9 +9,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CATest implements Serializable {
+public class ClinicalTest implements Serializable {
     private static final int NHS_CODE = 12;
-    private static int testCounter = 0;
     private final String labWhereCreated;
     private DateTime chemicalAnalysisDate;
     private DateTime validationDate;
@@ -25,11 +24,12 @@ public class CATest implements Serializable {
     private boolean resultDone;
     private boolean validationDone;
     private Report report;
-
-    private List<Sample> sampleList=new ArrayList<>();
     private final List<TestParameter> testParametersList = new ArrayList<>();
-    private final List<CATest> testReadyToVal = new ArrayList<>();
+    private final List<ClinicalTest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
+    private List<ClinicalTest> testClient;
+    private List<Sample> sampleList;
+
 
 
     /***
@@ -40,13 +40,12 @@ public class CATest implements Serializable {
      * @param parameterList
      * @param labWhereCreated
      */
-    public CATest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated) {
-        testCounter++;
+    public ClinicalTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> parameterList, String labWhereCreated, int testCount) {
         this.labWhereCreated = labWhereCreated;
         setClient(client);
         this.typeOfTest = typeOfTest;
         this.createdAt = new DateTime();
-        this.internalCode = generateInternalCode();
+        this.internalCode = generateInternalCode(testCount);
         this.client = client;
         setNhsCode(nhsCode);
         setTypeOfTest(typeOfTest);
@@ -65,7 +64,7 @@ public class CATest implements Serializable {
      * Method that generate a internal Code
      * @return internalCode
      */
-    private String generateInternalCode() {
+    private String generateInternalCode(int testCounter) {
         return String.format("%012d", testCounter);
     }
 
@@ -101,8 +100,16 @@ public class CATest implements Serializable {
         return this.nhsCode;
     }
 
+    public Report getReportText() {
+        return this.report;
+    }
+
     public List<Parameter> getParameterList() {
         return new ArrayList<>(parameterList);
+    }
+
+    public List<ClinicalTest> getTestClient() {
+        return new ArrayList<>(testClient);
     }
 
     /***
@@ -279,12 +286,24 @@ public class CATest implements Serializable {
     public String getTestValidation() {
         String results = String.format("%n%nTest Results: %n");
         if (!testReadyToVal.isEmpty()) {
-            for (CATest result : testReadyToVal) {
+            for (ClinicalTest result : testReadyToVal) {
                 results = results.concat(result.toString());
             }
         }
         return results;
     }
+
+    public String getClientTests() {
+        String results = String.format("%n%nTests made and details: %n");
+        if (!testClient.isEmpty()) {
+            for (ClinicalTest result : testClient) {
+                results = results.concat(result.toString());
+            }
+        }
+        return results;
+    }
+
+
 
     /**
      * This method receives a Sample and assigns it to the test it's related to
@@ -293,24 +312,11 @@ public class CATest implements Serializable {
      * @return if it was added or not
      */
     public boolean addSample(Sample sample) {
-        if (!this.sampleList.isEmpty() && checkDuplications(sample)) {
-            return sampleList.add(sample);
+        if (!sampleDone) {
+            this.sampleList = (List<Sample>) sample;
+            changeStateToSampleDone();
         }
         return this.sampleDone;
-    }
-
-    /**
-     * This method ensures that its not possible to add the same parameter twice
-     * @param sample to add
-     * @return if it's duplicated or not
-     */
-    private boolean checkDuplications(Sample sample) {
-        for (Sample s : this.sampleList) {
-            if (s.equals(sample)) {
-                return false;
-            }
-        }
-        return true;
     }
 
     /**
@@ -420,6 +426,8 @@ public class CATest implements Serializable {
                 this.internalCode, this.nhsCode, this.createdAt);
     }
 
+
+
     /**
      * This method compares two tests and returns if they are the same or not
      * @param o object to compare with
@@ -429,7 +437,7 @@ public class CATest implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CATest test = (CATest) o;
+        ClinicalTest test = (ClinicalTest) o;
         return internalCode.equals(test.internalCode) || nhsCode.equals(test.nhsCode);
     }
 }

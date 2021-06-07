@@ -19,7 +19,7 @@ public class CreateTestController {
 
     private String nhsCode;
     private String labId;
-    private CATest test;
+    private ClinicalTest test;
     private TypeOfTest typeOfTest;
     private Parameter parameter;
     private Client client;

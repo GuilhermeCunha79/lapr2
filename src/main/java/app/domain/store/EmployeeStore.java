@@ -10,11 +10,10 @@ import app.mappers.dto.EmpDto;
 import auth.domain.model.UserRole;
 import auth.domain.store.UserRoleStore;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import static app.domain.shared.CommonMethods.serializeStore;
 
 public class EmployeeStore {
 
@@ -96,24 +95,12 @@ public class EmployeeStore {
             App.getInstance().getCompany().getAuthFacade().addUserWithRole(emp.getName(), emp.getEmail(), pwd, roleDesc);
             addEmployee(emp);
             SendingEmailSMS.sendEmailWithPassword(emp.getName(), emp.getEmail(), pwd);
-            serializeStore();
+            serializeStore(this.employeeList, "data\\employee.dat");
             return true;
 
         }
         return false;
 
-    }
-
-    private void serializeStore() {
-        try{
-            FileOutputStream out = new FileOutputStream("data\\employee.dat");
-            ObjectOutputStream outputStream = new ObjectOutputStream(out);
-            outputStream.writeObject(this.employeeList);
-            outputStream.close();
-            out.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
     }
 
     /**

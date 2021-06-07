@@ -10,11 +10,12 @@ public class RegisterEmployeeUI implements Runnable {
 
     private RegisterEmployeeController ctrl;
 
+
     @Override
     public void run() {
         this.ctrl = new RegisterEmployeeController();
         if (registerEmployee())
-            System.out.println("Employee was succesfully registered!");
+            Utils.printToConsole("Employee was successfully registered!");
     }
 
     public boolean registerEmployee() {
@@ -33,20 +34,15 @@ public class RegisterEmployeeUI implements Runnable {
                 state = ctrl.newEmployee(new EmpDto(empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
 
                 if (state) {
-                    String answer = Utils.readLineFromConsole(String.format("%nConfirm the employee data: %nCompany Role: %s%nName: %s%nAddress: %s%nPhone Number: %s%nEmail: %s%nSOC: %s%n(Y/N)", empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc));
-                    while (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
-                        answer = Utils.readLineFromConsole("Answer not valid! Use (Y/N)");
-
-                    }
-                    if (answer.equalsIgnoreCase("Y")) {
+                    if (Utils.confirm(String.format("%nConfirm the employee data: %nCompany Role: %s%nName: %s%nAddress: %s%nPhone Number: %s%nEmail: %s%nSOC: %s%n(Y/N)", empRole, empName, empAddress, empPhoneNumber, empEmail, empSoc))) {
                         return ctrl.saveEmployee();
                     }
                 } else {
-                    System.out.println("Employee is invalid!");
+                    Utils.printToConsole("Employee is invalid!");
                     return false;
                 }
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+               Utils.printToConsole("INFO: " + e.getMessage());
             }
         } while (!state);
         return false;

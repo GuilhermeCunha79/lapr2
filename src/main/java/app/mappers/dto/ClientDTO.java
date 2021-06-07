@@ -36,6 +36,7 @@ public class ClientDTO {
 
 
 
+
     /***
      * Method that returns the name of the Client
      * @return name

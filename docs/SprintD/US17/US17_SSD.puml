@@ -1,0 +1,17 @@
+@startuml
+
+autonumber
+
+actor "Lab Coordinator" as LC
+participant ":System" as SYSTEM
+
+LC -> SYSTEM : needs to import clinical tests from CSV file
+activate SYSTEM
+SYSTEM --> LC : ask for the CSV file system path
+deactivate SYSTEM
+LC -> SYSTEM : enters file path
+activate SYSTEM
+SYSTEM --> LC : informs (in)success of the operation
+deactivate SYSTEM
+
+@enduml

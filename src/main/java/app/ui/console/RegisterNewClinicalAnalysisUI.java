@@ -3,11 +3,11 @@ package app.ui.console;
 import app.controller.RegisterNewClinicalAnalysisLaboratoryController;
 import app.ui.console.utils.Utils;
 import java.util.List;
-import java.util.Objects;
 
 public class RegisterNewClinicalAnalysisUI implements Runnable {
 
     private RegisterNewClinicalAnalysisLaboratoryController ctrl;
+
 
     /**
      * First method to be called when this UI is instantiated
@@ -15,12 +15,12 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
     public void run() {
         ctrl = new RegisterNewClinicalAnalysisLaboratoryController();
 
-        System.out.println("Register new clinical analysis laboratory:\nEnter the following data.");
+        Utils.printToConsole("Register new clinical analysis laboratory:\nEnter the following data.");
 
         if (registerCALab())
-            System.out.println("\nClinical analysis laboratory added to the system");
+            Utils.printToConsole("\nClinical analysis laboratory added to the system");
         else
-            System.out.println("\nClinical analysis laboratory not added to the system");
+            Utils.printToConsole("\nClinical analysis laboratory not added to the system");
     }
 
     /**
@@ -29,7 +29,6 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
      * @return if the lab was registered or not
      */
     private boolean registerCALab() {
-        boolean done = false;
         do {
             try {
                 String labID = Utils.readLineFromConsole("Enter laboratory ID: ");
@@ -41,7 +40,7 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
                 if (ctrl.registerNewClinicalAnalysisLaboratory(labID, name, address, phoneNumber, tinNumber)) {
                     List<String> ttListDisplay = ctrl.listOfTypeOfTests();
                     if (ttListDisplay.isEmpty()) {
-                        System.out.println("There are no test types in the system, please create at least one first.");
+                        Utils.printToConsole("There are no test types in the system, please create at least one first.");
                         return false;
                     } else {
                         int option = Utils.showAndSelectIndex(ttListDisplay, "\nSelect one type of test:");
@@ -49,30 +48,28 @@ public class RegisterNewClinicalAnalysisUI implements Runnable {
                             String tOfTestSelected = ttListDisplay.get(option);
                             ctrl.addTestType(tOfTestSelected.substring(1, 6));
                             ttListDisplay.remove(option);
-                            if (Objects.requireNonNull(Utils.readLineFromConsole("Add another type of test: (Y or N)")).equalsIgnoreCase("y"))
+                            if (Utils.confirm("Add another type of test: (Y or N)"))
                                 option = Utils.showAndSelectIndex(ttListDisplay, "Select another type of test: ");
                             else
                                 option = -1;
                         }
-                        System.out.println("\nConfirm laboratory data:");
-                        System.out.printf("ID: %s%nName: %s%nTIN number: %s%nAddress: %s%nPhone number: %s%n", labID, name, tinNumber, address, phoneNumber);
-                        if (Objects.requireNonNull(Utils.readLineFromConsole("(Y/N):")).equalsIgnoreCase("y")) {
-                            done = true;
+                        Utils.printToConsole("\nConfirm laboratory data:");
+                        Utils.printToConsole(String.format("Lab ID: %s%nName: %s%nTIN number: %s%nAddress: %s%nPhone number: %s%n", labID, name, tinNumber, address, phoneNumber));
+                        if (Utils.confirm("Y or N")) {
                             return ctrl.saveClinicalAnalysisLaboratory();
                         } else {
-                            System.out.println("\nOperation cancelled!");
+                            Utils.printToConsole("\nOperation cancelled!");
                             return false;
                         }
                     }
                 }else{
-                    System.out.println("\nFailed to add new clinical analysis laboratory");
+                    Utils.printToConsole("\nFailed to add new clinical analysis laboratory");
                 }
             } catch (Exception e) {
-                
-                System.out.println(e.getLocalizedMessage());
+
+                Utils.printToConsole("INFO: "+ e.getLocalizedMessage());
             }
 
-        } while (!done);
-        return false;
+        } while (true);
     }
 }

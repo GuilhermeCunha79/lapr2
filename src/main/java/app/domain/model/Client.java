@@ -11,6 +11,8 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -35,6 +37,8 @@ public class Client  implements Serializable {
     static final String STRING_NHS_NUMBER = "NHS Number";
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
+
+    private final List<Client> clientList = new ArrayList<>();
 
     /***
      * Complete constructor for class Client
@@ -215,7 +219,7 @@ public class Client  implements Serializable {
             throw new NullPointerException("Sex" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(sex))
             this.sex=ClientDTO.SEX_BY_OMISSION;
-        if (!StringUtils.isBlank(sex) && !(sex.equalsIgnoreCase("male")|| sex.equalsIgnoreCase("female")))
+        if (!StringUtils.isBlank(sex) && !(sex.equalsIgnoreCase(SEX_MALE)|| sex.equalsIgnoreCase(SEX_FEMALE)))
             throw new IllegalArgumentException("Sex must be Male or Female.");
         this.sex = sex;
     }
@@ -254,10 +258,27 @@ public class Client  implements Serializable {
         this.email = email;
     }
 
+    public List<Client> getClientResults() {
+        String clients = String.format("%n%nClients Results: %n");
+        if (!clientList.isEmpty()) {
+            for (Client ct : clientList) {
+                clients = clients.concat(ct.toString());
+                clientList.add(ct);
+            }
+        }
+        return clientList;
+    }
+/*
+    private void addClient() {
+        for (ClientDTO ct : clientList){
+            clientList.add(new ClientDTO(ct));
+        }
+    }*/
+
 
     @Override
     public String toString() {
-        return String.format("Client:%nName: %s%nCitizen Card Number: %s%nNHS number: %s%nTIN number: %s%nBirth date: %s%nSex: %s%nPhone number: %s%nEmail: %s",
+        return String.format("%nClient:%nName: %s%nCitizen Card Number: %s%nNHS number: %s%nTIN number: %s%nBirth date: %s%nSex: %s%nPhone number: %s%nEmail: %s%n%n",
                 this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email);
     }
 

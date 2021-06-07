@@ -4,9 +4,9 @@ import app.controller.CreateTestController;
 import app.ui.console.utils.Utils;
 
 import java.util.List;
-import java.util.Objects;
 
 public class CreateTestUI implements Runnable {
+
 
     private CreateTestController ctrl;
     private final String labId;
@@ -27,9 +27,9 @@ public class CreateTestUI implements Runnable {
         ctrl = new CreateTestController();
         ctrl.setLabId(labId);
         if (createTestProcess()) {
-            System.out.println("Test created and saved successfully.");
+            Utils.printToConsole("Test created and saved successfully.");
         } else {
-            System.out.println("Test creation failed.");
+            Utils.printToConsole("Test creation failed.");
         }
     }
 
@@ -46,12 +46,12 @@ public class CreateTestUI implements Runnable {
                 testTypeSelection();
                 if (parameterSelection()) {
                     ctrl.createTest();
-                    if (Objects.requireNonNull(Utils.readLineFromConsole("Save test? (Y/N)")).equalsIgnoreCase("Y"))
+                    if (Utils.confirm("Save Test? (Y or N)"))
                         return ctrl.saveTest();
                 }else
                     return false;
             } catch (Exception e) {
-                System.out.println(e.getLocalizedMessage());
+                Utils.printToConsole(e.getLocalizedMessage());
             }
         }
     }
@@ -70,15 +70,15 @@ public class CreateTestUI implements Runnable {
                 if (option >= 0 && option < lParameters.size()) {
                     ctrl.addParameter(lParameters.get(option).substring(19, 24));
                     lParameters.remove(option);
-                    if (!lParameters.isEmpty() && Objects.requireNonNull(Utils.readLineFromConsole("Add another parameter: (Y/N)")).equalsIgnoreCase("Y") )
+                    if (!lParameters.isEmpty() && Utils.confirm("Add another parameter: (Y/N)"))
                         addAnother = true;
                 } else {
-                    System.out.println("Selection invalid!");
+                    Utils.printToConsole("Selection invalid!");
                     return false;
                 }
             } while (!lParameters.isEmpty() && option > lParameters.size() || addAnother);
         } else {
-            System.out.println("No parameters available");
+            Utils.printToConsole("No parameters available");
             return false;
         }
         return true;
@@ -95,10 +95,10 @@ public class CreateTestUI implements Runnable {
                 if (option >= 0 && option < lTestTypes.size()) {
                     ctrl.addTypeOfTest(lTestTypes.get(option).substring(1, 6));
                 } else
-                    System.out.println("Selection invalid!");
+                    Utils.printToConsole("Selection invalid!");
             } while (option < 0 || option > lTestTypes.size());
         } else {
-            System.out.println("No test types available");
+            Utils.printToConsole("No test types available");
         }
     }
 
@@ -113,12 +113,12 @@ public class CreateTestUI implements Runnable {
             String clientTin = Utils.readLineFromConsole("Insert client's Tax Identification Number (TIN):");
             String client = ctrl.getClientByTINAndSaveNhsCode(clientTin, nhsCode);
             if (client == null) {
-                System.out.println("\nINFO: There is no client registered with this TIN\n\n");
+                Utils.printToConsole("\nINFO: There is no client registered with this TIN\n\n");
                 return null;
             } else {
-                if (Objects.requireNonNull(Utils.readLineFromConsole(String.format("Is the client correct?%n%s%n(Y/N)%n", client))).equalsIgnoreCase("Y"))
+                if (Utils.confirm(String.format("Is the client correct?%n%s%n(Y or N)%n", client)))
                     return clientTin;
-                else if (Objects.requireNonNull(Utils.readLineFromConsole("Try another TIN? (Y/N)")).equalsIgnoreCase("Y"))
+                else if (Utils.confirm("Try another TIN? (Y or N)"))
                     repeat = true;
             }
         } while (!repeat);

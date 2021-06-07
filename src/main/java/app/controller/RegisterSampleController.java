@@ -2,7 +2,7 @@ package app.controller;
 
 import app.domain.model.Company;
 import app.domain.model.Sample;
-import app.domain.model.CATest;
+import app.domain.model.ClinicalTest;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
 import net.sourceforge.barbecue.Barcode;
@@ -17,11 +17,9 @@ import java.util.List;
 
 public class RegisterSampleController {
 
-
-
     private TestStore testStore;
 
-    private CATest test;
+    private ClinicalTest test;
 
     private Sample sample;
 
@@ -45,7 +43,7 @@ public class RegisterSampleController {
      * @return a list of Strings holding the data for each test
      */
     public List<String> getTestWithoutSample() {
-        List<CATest> lTestNoSample = testStore.getTestWithoutSample();
+        List<ClinicalTest> lTestNoSample = testStore.getTestWithoutSample();
         if (lTestNoSample != null) {
             TestListMapper tlm = new TestListMapper();
             return tlm.toDto(lTestNoSample);
@@ -68,26 +66,30 @@ public class RegisterSampleController {
 
     /**
      * This method  uses the internal code to generate the bar code
-     * @param code internal code to be used
+     * @param data internal code to be used
      * @return gerated barcod
      * @throws OutputException prevents error
      * @throws IOException prevents error
      */
-    public static String createUPCA (String code) throws OutputException, IOException, BarcodeException {
-        Barcode barcode = BarcodeFactory.createUPCA(code);
-        barcode.setPreferredBarHeight(100);
-        File imgFile = new File(String.format("Barcode_%s.jpg",code));
+    public  Barcode createUPCA (String data) throws  OutputException, IOException {
+        Barcode barcode = null;
+        try {
+            barcode = BarcodeFactory.createUPCA(data);
+        } catch (BarcodeException e) {
+            e.printStackTrace();
+        }
+        File imgFile = new File("UPCA.jpg");
         BarcodeImageHandler.saveJPEG(barcode, imgFile);
-        return barcode.getData();
+        return barcode ;
     }
 
     /**
      * This method turns the Arraylist received to
-     * @param barcode
+     * @param sampleList list to be added
      * @return sample
      */
-    public Sample createSample(String barcode) {
-        this.sample = new Sample(barcode);
+    public Sample createSample(List<Sample> sampleList) {
+        this.sample = new Sample(sampleList);
         return sample;
     }
 
@@ -97,7 +99,6 @@ public class RegisterSampleController {
     public boolean addSample(){
         return this.test.addSample(this.sample);
     }
-
 
 
 }

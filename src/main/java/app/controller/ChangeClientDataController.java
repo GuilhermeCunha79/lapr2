@@ -17,22 +17,48 @@ public class ChangeClientDataController {
         this.ctStore = company.getClientStore();
         this.ct = null;
     }
-/*
-    public Client getClientByEmail(){
+
+    public Client getClientByEmail() {
         return this.ct = this.ctStore.getClientByEmail();
-    }*/
+    }
 
-    public void showData(Client client){
-        System.out.println(client.toString());
+    public String showData(Client client) {
+            return client.toString();
     }
 
 
-    public void saveChanges(){
-
+    public void changeName(Client client, String name) {
+        this.ctStore.changeName(client, name);
     }
 
-    public boolean saveClient() {
-        return this.ctStore.saveClient(ct);
+    public void changeCitizenCardNumber(Client client, String name) {
+        this.ctStore.changeCitizenCardNumber(client, name);
+    }
+
+    public void changeNhsNumber(Client client, String name) {
+        this.ctStore.changeNhsNumber(client, name);
+    }
+
+    public void changeTinNumber(Client client, String name) {
+        this.ctStore.changeTinNumber(client, name);
+    }
+
+    public void changeBirthDate(Client client, String name) {
+        this.ctStore.changeBirthDate(client, name);
+    }
+
+    public void changePhoneNumber(Client client, String name) {
+        this.ctStore.changePhoneNumber(client, name);
+    }
+
+    public void changeEmail(Client client, String name) {
+        this.ctStore.changeEmail(client, name);
+    }
+
+
+    public boolean saveChanges() {
+        return this.ctStore.saveChanges(ct);
     }
 
 }
+

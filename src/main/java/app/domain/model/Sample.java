@@ -1,46 +1,27 @@
 package app.domain.model;
 
 
-
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class Sample implements Serializable  {
-    private String code;
-
-    private static final int CODE_LENGTH = 11;
+public class Sample implements Serializable {
+    private List<Sample> sampleList ;
 
     /**
      * creates a list of class sample list
-     * @param code
+     * @param sampleList
      */
-    public Sample(String code) {
-       setCode(code);
+    public Sample(List<Sample> sampleList) {
+        this.sampleList = new ArrayList<>(sampleList);
     }
 
     /**
      * method to get the sample list
      * @return sampleList
      */
-    public String getCode() {
-        return code;
-    }
-
-    /**
-     * This method sets the report text and also validates is own content
-     * @param code to set
-     */
-    public void setCode(String code) {
-        if(code == null)
-            throw new NullPointerException();
-        if(StringUtils.isBlank(code))
-            throw new IllegalArgumentException("Code cannot be empty");
-        if(code.length() != CODE_LENGTH)
-            throw new IllegalArgumentException("Code can only 11 characters.");
-        this.code = code;
-    }
+    public List<Sample> getSampleList() { return new ArrayList<>(sampleList); }
 
     /**
      * to String method to show the
@@ -48,7 +29,7 @@ public class Sample implements Serializable  {
      */
     @Override
     public String toString() {
-        return String.format("Sample: %s",code);
+        return "Sample:"+sampleList;
     }
 }
 

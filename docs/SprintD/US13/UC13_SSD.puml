@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Clinical Chemistry Technologist" as CCT
+
+participant ":System" as SYS
+
+CCT-> SYS : check results
+activate SYS
+SYS --> CCT : show an option to select the ordering of the clients(TIN or name)
+deactivate SYS
+CCT-> SYS : selects an option
+activate SYS
+loop
+SYS-->CCT : show the Many Labs clients ordered by the\n selected option and ask to select a client
+deactivate SYS
+CCT->SYS : selects the client in order to check the historical\n tests performed and tests details/results
+activate SYS
+SYS-->CCT : shows the historical tests performed and tests details/results
+end
+@enduml

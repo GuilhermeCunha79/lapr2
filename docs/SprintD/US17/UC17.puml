@@ -1,0 +1,8 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+:Lab Coordinator: as LC
+
+LC -down-> (UC17 - Import clinical tests from an CSV file)
+
+@enduml

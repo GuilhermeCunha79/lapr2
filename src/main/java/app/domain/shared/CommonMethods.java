@@ -3,6 +3,9 @@ package app.domain.shared;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -16,6 +19,14 @@ public class CommonMethods {
 
     private CommonMethods() {
         throw new IllegalStateException("Utility class");
+    }
+
+    public static void serializeStore(List<?> list, String path) {
+        try (FileOutputStream out = new FileOutputStream(path); ObjectOutputStream outputStream = new ObjectOutputStream(out)) {
+            outputStream.writeObject(list);
+        } catch (IOException e) {
+            e.getLocalizedMessage();
+        }
     }
 
     /***

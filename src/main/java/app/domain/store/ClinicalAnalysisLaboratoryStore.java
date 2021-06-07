@@ -2,12 +2,11 @@ package app.domain.store;
 
 import app.domain.model.ClinicalAnalysisLaboratory;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import static app.domain.shared.CommonMethods.serializeStore;
 
 
 public class ClinicalAnalysisLaboratoryStore implements Serializable {
@@ -38,23 +37,12 @@ public class ClinicalAnalysisLaboratoryStore implements Serializable {
     public boolean saveClinicalAnalysisLaboratory(ClinicalAnalysisLaboratory cal) {
         if (cal != null && validateClinicalAnalysisLaboratory(cal)) {
             addClinicalAnalysisLaboratory(cal);
-            serializeStore();
+            serializeStore(this.laboratoryList, "data\\calab.dat");
             return true;
         }
         return false;
     }
 
-    private void serializeStore() {
-        try{
-            FileOutputStream out = new FileOutputStream("data\\calab.dat");
-            ObjectOutputStream outputStream = new ObjectOutputStream(out);
-            outputStream.writeObject(this.laboratoryList);
-            outputStream.close();
-            out.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Method responsible to add a new clinical analysis laboratory to the list when asked by the saveClinicalAnalysisLaboratory method

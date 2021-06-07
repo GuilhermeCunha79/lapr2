@@ -22,6 +22,7 @@ import java.util.Set;
  */
 public class Company {
 
+
     private String designation;
     private AuthFacade authFacade;
 
@@ -45,6 +46,7 @@ public class Company {
         this.designation = designation;
         this.authFacade = new AuthFacade();
 
+
         setEmpStore();
         setPCategoryStore();
         setParameterStore();
@@ -53,109 +55,78 @@ public class Company {
         setClientStore();
         setTestStore();
         setUserStore();
+
     }
 
     private void setUserStore() {
-        try{
-            FileInputStream input = new FileInputStream("data\\user.dat");
-            ObjectInputStream in = new ObjectInputStream(input);
+        try (FileInputStream input = new FileInputStream("data\\user.dat"); ObjectInputStream in = new ObjectInputStream(input)){
             Set<User> userList = new HashSet<>((Set<User>) in.readObject());
-            this.authFacade.getUsers().setStore(userList);
-            in.close();
-            input.close();
+            //this.authFacade.getUsers().setStore(userList);
         }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+            e.getLocalizedMessage();
         }
     }
 
     private void setClientStore() {
-        try{
-            FileInputStream input = new FileInputStream("data\\clients.dat");
-            ObjectInputStream in = new ObjectInputStream(input);
+        try (FileInputStream input = new FileInputStream("data\\clients.dat"); ObjectInputStream in = new ObjectInputStream(input)) {
             List<Client> lClient = (List<Client>) in.readObject();
             this.clientStore.setClientList(lClient);
-            in.close();
-            input.close();
-        }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+        } catch (IOException | ClassNotFoundException e) {
+            e.getLocalizedMessage();
         }
     }
 
     private void setCALabStore() {
-        try{
-            FileInputStream input = new FileInputStream("data\\calab.dat");
-            ObjectInputStream in = new ObjectInputStream(input);
+        try (FileInputStream input = new FileInputStream("data\\calab.dat"); ObjectInputStream in = new ObjectInputStream(input)){
             List<ClinicalAnalysisLaboratory> lCALab = (List<ClinicalAnalysisLaboratory>) in.readObject();
             this.calStore.setCALabList(lCALab);
-            in.close();
-            input.close();
         }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+            e.getLocalizedMessage();
         }
     }
 
     private void setEmpStore() {
-        try{
-            FileInputStream input = new FileInputStream("data\\employee.dat");
-            ObjectInputStream in = new ObjectInputStream(input);
+        try (FileInputStream input = new FileInputStream("data\\employee.dat"); ObjectInputStream in = new ObjectInputStream(input)){
             List<Employee> lEmployee = (List<Employee>) in.readObject();
             this.empStore.setEmployeeList(lEmployee);
-            in.close();
-            input.close();
         }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+            e.getLocalizedMessage();
         }
     }
 
     private void setPCategoryStore() {
-        try{
-            FileInputStream input = new FileInputStream("data\\pcat.dat");
-            ObjectInputStream in = new ObjectInputStream(input);
+        try (FileInputStream input = new FileInputStream("data\\pcat.dat"); ObjectInputStream in = new ObjectInputStream(input)){
             List<ParameterCategory> lPCategory = (List<ParameterCategory>) in.readObject();
             this.pcStore.setParameterCategoryList(lPCategory);
-            in.close();
-            input.close();
         }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+            e.getLocalizedMessage();
         }
     }
 
     private void setParameterStore() {
-        try{
-            FileInputStream input = new FileInputStream("data\\param.dat");
-            ObjectInputStream in = new ObjectInputStream(input);
+        try (FileInputStream input = new FileInputStream("data\\param.dat"); ObjectInputStream in = new ObjectInputStream(input)){
             List<Parameter> lParameter = (List<Parameter>) in.readObject();
             this.pStore.setParameterList(lParameter);
-            in.close();
-            input.close();
         }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+            e.getLocalizedMessage();
         }
     }
 
     private void setTestStore() {
-        try{
-            FileInputStream input = new FileInputStream("data\\test.dat");
-            ObjectInputStream in = new ObjectInputStream(input);
-            List<CATest> lTest = (List<CATest>) in.readObject();
+        try (FileInputStream input = new FileInputStream("data\\test.dat"); ObjectInputStream in = new ObjectInputStream(input)){
+            List<ClinicalTest> lTest = (List<ClinicalTest>) in.readObject();
             this.testStore.setTestList(lTest);
-            in.close();
-            input.close();
         }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+            e.getLocalizedMessage();
         }
     }
 
     private void setTotStore() {
-        try{
-            FileInputStream input = new FileInputStream("data\\tot.dat");
-            ObjectInputStream in = new ObjectInputStream(input);
+        try (FileInputStream input = new FileInputStream("data\\tot.dat"); ObjectInputStream in = new ObjectInputStream(input)){
             List<TypeOfTest> lTestType = (List<TypeOfTest>) in.readObject();
             this.totStore.setTypeOfTestList(lTestType);
-            in.close();
-            input.close();
         }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+            e.getLocalizedMessage();
         }
     }
 

@@ -1,27 +1,22 @@
 package app.domain.store;
 
 import app.controller.App;
-
-
-import app.domain.shared.CommonMethods;
-import app.domain.shared.Constants;
-import app.mappers.dto.ClientDTO;
 import app.domain.model.Client;
+import app.domain.shared.Constants;
 import app.domain.shared.SendingEmailSMS;
-import auth.UserSession;
+import app.mappers.dto.ClientDTO;
 import auth.domain.model.Email;
 
-
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static app.domain.shared.CommonMethods.serializeStore;
 import static app.domain.shared.PasswordGenerator.generatePassword;
 
 public class ClientStore {
 
     private List<Client> clientList = new ArrayList<>();
-
+    private final String DATA_PATH = "data\\clients.dat";
 
     /***
      * Method that receives parameters from the associated controller to create a new client
@@ -31,11 +26,6 @@ public class ClientStore {
     public Client newClient(ClientDTO dto) {
         return new Client(dto);
     }
-
-    public void setClientList(List<Client> lClient){
-        this.clientList = new ArrayList<>(lClient);
-    }
-
 
     /***
      * This method validates the client received and adds it to the Parameter store by calling the method addClient
@@ -47,44 +37,37 @@ public class ClientStore {
             String email = client.getEmail();
             String name = client.getName();
             String pwd = generatePassword();
-            if (validateClient(client)) {
+            if (clientList.size()==0) {
                 App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
                 sendEmail(client, pwd);
                 addClient(client);
-                serializeStore();
+                serializeStore(this.clientList, DATA_PATH);
                 return true;
+            } else {
+                if (validateClient(client)) {
+                    App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
+                    sendEmail(client, pwd);
+                    addClient(client);
+                    serializeStore(this.clientList, DATA_PATH);
+                    return true;
+                }
+                return false;
             }
         }
         return false;
     }
 
-
-
-
-    /***
-     * This method validates the client received and adds it to the Client store by calling the method addClient
-     * @param client
-     * @return if it was successfully added to the store (true or false)
-     */
     public boolean saveChanges(Client client) {
         if (client != null) {
-            validateClient(client);
+            //String name = client.getName();
+            if (validateClient(client)) {
+                //sendEmailWithChanges(name);
+                serializeStore(this.clientList, DATA_PATH);
                 return true;
             }
-        return false;
-    }
-
-
-    private void serializeStore() {
-        try{
-            FileOutputStream out = new FileOutputStream("data\\clients.dat");
-            ObjectOutputStream outputStream = new ObjectOutputStream(out);
-            outputStream.writeObject(this.clientList);
-            outputStream.close();
-            out.close();
-        }catch (IOException e){
-            e.printStackTrace();
+            return true;
         }
+        return false;
     }
 
     /***
@@ -106,7 +89,6 @@ public class ClientStore {
         String email = client.getEmail();
         return !App.getInstance().getCompany().getAuthFacade().existsUser(email) && !checkDuplicate(client);
     }
-
 
 
     private boolean checkDuplicate(Client client) {
@@ -133,6 +115,16 @@ public class ClientStore {
         return new ArrayList<>(clientList);
     }
 
+    /*private void sendEmailWithChanges(String name) {
+        if (name != null) {
+            SendingEmailSMS.sendEmailWithChanges(name);
+        }
+    }*/
+
+    public void setClientList(List<Client> lClient) {
+        this.clientList = new ArrayList<>(lClient);
+    }
+
     /***
      * This method return a client by find his TIN
      * @param tin
@@ -147,22 +139,52 @@ public class ClientStore {
         }
         return null;
     }
-/*
+    
+
+
+
     /***
      * This method return a client by find his email
      * @return client
+     */
 
     public Client getClientByEmail() {
-        Email email= UserSession.getUserId();
-        assert email != null;
-        String email1= email.getEmail();
+        Email email = App.getInstance().getCompany().getAuthFacade().getCurrentUserSession().getUserId();
+        String email1 = email.getEmail();
         for (Client client : clientList) {
             if (client.getEmail().equals(email1))
                 return client;
         }
         return null;
     }
-*/
+
+    public void changeName(Client client, String name) {
+        client.setName(name);
+    }
+
+    public void changeCitizenCardNumber(Client client, String citizenCardNumber) {
+        client.setCitizenCardNumber(citizenCardNumber);
+    }
+
+    public void changeEmail(Client client, String email) {
+        client.setEmail(email);
+    }
+
+    public void changeNhsNumber(Client client, String nhsNumber) {
+        client.setNhsNumber(nhsNumber);
+    }
+
+    public void changeTinNumber(Client client, String tinNumber) {
+        client.setTinNumber(tinNumber);
+    }
+
+    public void changeBirthDate(Client client, String birthDate) {
+        client.setBirthDate(birthDate);
+    }
+
+    public void changePhoneNumber(Client client, String phoneNumber) {
+        client.setPhoneNumber(phoneNumber);
+    }
 
 
 }

@@ -2,13 +2,14 @@
 'https://plantuml.com/sequence-diagram
 
 actor Client as CLT
-participant "ct:ClientUI" as UI
+participant ":ClientChangesUI" as UI
 participant ":ChangeClientDataController" as CTRL
 participant ":Company" as COMP
 participant "store:ClientStore" as STR
-participant ":Client" as CL
+participant "ct:Client" as CL
 participant ":Email" as EM
 participant ":UserSession" as US
+participant ":AuthFacade" as AF
 
 CLT -> UI : change personal data
 activate UI
@@ -19,6 +20,9 @@ activate COMP
 deactivate COMP
 CTRL->STR : client = getClientByEmail()
 activate STR
+STR-> AF :emailUser=getCurrentSession()
+activate AF
+deactivate AF
 STR -> US : id = getUserId()
 activate US
 deactivate US
@@ -54,6 +58,9 @@ CLT -> UI : select the type of data that is to validate\n(ex. nhs number, tin nu
 activate UI
 UI-> CTRL : showData(client)
 activate CTRL
+CTRL->CL : toString()
+activate CL
+deactivate CL
 deactivate CTRL
 UI--> CLT : shows the type of data registered before
 
@@ -64,7 +71,7 @@ activate UI
 UI-> CTRL : changeData(client)
 activate CTRL
 
-CTRL->STR :changeClientName(client)
+CTRL->STR :changeName(client)
 activate STR
 STR->CL : name=setName()
 activate CL
@@ -72,7 +79,7 @@ deactivate CL
 deactivate STR
 
 
-CTRL->STR :changeClientCitizenCardNumber(client)
+CTRL->STR :changeCitizenCardNumber(client)
 activate STR
 STR->CL : citizenCardNumber=setCitizenCardNumber()
 activate CL

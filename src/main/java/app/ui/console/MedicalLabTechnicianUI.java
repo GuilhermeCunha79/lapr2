@@ -9,15 +9,16 @@ public class MedicalLabTechnicianUI implements Runnable {
     /**
      * Method that implements the options that appear in the medical lab technician UI
      */
+
     @Override
     public void run() {
         String labID = Utils.selectLab();
-        List<MenuItem> options = new ArrayList<MenuItem>();
-        options.add(new MenuItem("Record record samples", (Runnable) new RegisterSampleUI(labID)));
+        List<MenuItem> options = new ArrayList<>();
+        options.add(new MenuItem("Record samples", new RegisterSampleUI(labID)));
 
         int option = 0;
         do {
-            option = Utils.showAndSelectIndex(options, "\n\nReceptionist Menu");
+            option = Utils.showAndSelectIndex(options, "\n\nMedical Lab Technician Menu");
 
             if ((option >= 0) && (option < options.size())) {
                 options.get(option).run();

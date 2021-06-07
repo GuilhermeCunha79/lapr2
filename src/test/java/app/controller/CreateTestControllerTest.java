@@ -3,16 +3,13 @@ package app.controller;
 import app.domain.model.*;
 import app.domain.store.TestStore;
 import app.mappers.dto.ClientDTO;
-import junit.framework.TestCase;
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateTestControllerTest {
 
-    ArrayList<CATest> ListTest = new ArrayList<>();
+    ArrayList<ClinicalTest> ListTest = new ArrayList<>();
 
     CreateTestController ctt = new CreateTestController();
 
@@ -25,7 +22,7 @@ public class CreateTestControllerTest {
         Client client1 = new Client(clDto);
         List<Parameter> lp = new ArrayList<>();
         Parameter p1 = new Parameter("12345", "abcd", "adsavaa", pc);
-        CATest ct1 = new CATest("123456789111", client, tpt1, lp, "lol");
+        ClinicalTest ct1 = new ClinicalTest("123456789111", client, tpt1, lp, "lol", 1);
 
 
 

@@ -18,7 +18,7 @@ public class Utils {
 
     public static String readLineFromConsole(String prompt) {
         try {
-            System.out.println("\n" + prompt);
+            Utils.printToConsole("\n" + prompt);
 
             InputStreamReader converter = new InputStreamReader(System.in);
             BufferedReader in = new BufferedReader(converter);
@@ -74,13 +74,17 @@ public class Utils {
         } while (true);
     }
 
+    public static void printToConsole(String message){
+        System.out.printf("%s%n",message);
+    }
+
     public static boolean confirm(String message) {
         String input;
         do {
             input = Utils.readLineFromConsole("\n" + message + "\n");
-        } while (!input.equalsIgnoreCase("s") && !input.equalsIgnoreCase("n"));
+        } while (!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n"));
 
-        return input.equalsIgnoreCase("s");
+        return input.equalsIgnoreCase("y");
     }
 
     public static Object showAndSelectOne(List list, String header) {
@@ -94,16 +98,16 @@ public class Utils {
     }
 
     public static void showList(List list, String header) {
-        System.out.println(header);
+        Utils.printToConsole(header);
 
         int index = 0;
         for (Object o : list) {
             index++;
 
-            System.out.println(index + ". " + o.toString());
+            Utils.printToConsole(index + ". " + o.toString());
         }
-        System.out.println("");
-        System.out.println("0 - Cancel");
+        Utils.printToConsole("");
+        Utils.printToConsole("0 - Cancel");
     }
 
     public static Object selectsObject(List list) {
@@ -145,7 +149,7 @@ public class Utils {
 
             } while (option != -1);
         }
-        System.out.println("INFO: There are no labs in the system");
+        Utils.printToConsole("INFO: There are no labs in the system");
         return null;
     }
 }

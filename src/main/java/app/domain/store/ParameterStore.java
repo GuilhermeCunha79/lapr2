@@ -4,11 +4,10 @@ import app.controller.App;
 import app.domain.model.Parameter;
 import app.domain.model.ParameterCategory;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import static app.domain.shared.CommonMethods.serializeStore;
 
 public class ParameterStore {
 
@@ -42,22 +41,10 @@ public class ParameterStore {
     public boolean saveParameter(Parameter p) {
         if (p != null && validateParameter(p)) {
             addParameter(p);
-            serializeStore();
+            serializeStore(this.parameterList, "data\\param.dat");
             return true;
         }
         return false;
-    }
-
-    private void serializeStore() {
-        try{
-            FileOutputStream out = new FileOutputStream("data\\param.dat");
-            ObjectOutputStream outputStream = new ObjectOutputStream(out);
-            outputStream.writeObject(this.parameterList);
-            outputStream.close();
-            out.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
     }
 
     /**

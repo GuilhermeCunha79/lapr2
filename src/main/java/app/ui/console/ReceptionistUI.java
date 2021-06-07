@@ -8,10 +8,11 @@ import java.util.List;
 public class ReceptionistUI implements Runnable {
 
     @Override
+
     public void run() {
         String labID = Utils.selectLab();
         if(labID != null) {
-            List<MenuItem> options = new ArrayList<MenuItem>();
+            List<MenuItem> options = new ArrayList<>();
             options.add(new MenuItem("Add new client", new RegisterANewClientUI()));
             options.add(new MenuItem("Create new test", new CreateTestUI(labID)));
 
