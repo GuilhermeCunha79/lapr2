@@ -12,6 +12,7 @@ public class CCTechnologistUI implements Runnable {
         String labID = Utils.selectLab();
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Record test results", new RecordResultUI(labID)));
+        options.add(new MenuItem("Check the historical tests performed and tests details/results", new CheckResultsUI()));
 
         int option = 0;
         do {

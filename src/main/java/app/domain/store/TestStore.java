@@ -1,11 +1,9 @@
 package app.domain.store;
 
-import app.domain.model.ClinicalTest;
 import app.domain.model.Client;
+import app.domain.model.ClinicalTest;
 import app.domain.model.Parameter;
 import app.domain.model.TypeOfTest;
-
-
 import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
 import app.ui.console.utils.Utils;
@@ -25,6 +23,7 @@ public class TestStore implements Serializable {
 
     /**
      * Method to add a parameter to test
+     *
      * @param parameter parameter object to be added
      * @return true if added with success
      */
@@ -32,33 +31,36 @@ public class TestStore implements Serializable {
         return this.test.addParameter(parameter);
     }
 
-    public void setTestList(List<ClinicalTest> testList){
-        this.testList = new ArrayList<>(testList);
-    }
-
     /**
      * Method to create a new test
-     * @param nhsCode of the test
-     * @param client object of the Client
+     *
+     * @param nhsCode    of the test
+     * @param client     object of the Client
      * @param typeOfTest object of the TestType
      * @param lParameter object of the Parameter
      * @return
      */
     public ClinicalTest createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter, String labWhereCreated) {
-        this.test = new ClinicalTest(nhsCode, client, typeOfTest, lParameter, labWhereCreated, this.testList.size()+1);
+        this.test = new ClinicalTest(nhsCode, client, typeOfTest, lParameter, labWhereCreated, this.testList.size() + 1);
         return this.test;
     }
 
     /**
      * Method  to get the type of tests list
+     *
      * @return List<Test>
      */
     public List<ClinicalTest> getTestList() {
         return new ArrayList<>(this.testList);
     }
 
+    public void setTestList(List<ClinicalTest> testList) {
+        this.testList = new ArrayList<>(testList);
+    }
+
     /**
      * Method to validate test
+     *
      * @param testCreated object of the test to be validated
      * @return true if test created is valid
      */
@@ -76,6 +78,7 @@ public class TestStore implements Serializable {
 
     /**
      * Method to add a test to the list of the types of test
+     *
      * @param test object test to be added
      * @return
      */
@@ -86,11 +89,12 @@ public class TestStore implements Serializable {
 
     /**
      * Method to save a test object
+     *
      * @param test object test to be saved
      * @return true if added with success, false if not
      */
     public boolean saveTest(ClinicalTest test) {
-        if(validateTest(test)) {
+        if (validateTest(test)) {
             addTest(test);
             serializeStore(this.testList, "data\\test.dat");
             return true;
@@ -164,6 +168,26 @@ public class TestStore implements Serializable {
     }
 
     /***
+     * Saves tests that wasn't validated yet in a List
+     * @return testWithoutValidation or null
+     */
+    public List<ClinicalTest> getTestFinalizated() {
+        List<ClinicalTest> testsFinalizated = new ArrayList<>();
+        if (!testList.isEmpty()) {
+            for (ClinicalTest clinicalTest : testList) {
+                if (!clinicalTest.getValidationStatus())
+                    testsFinalizated.add(clinicalTest);
+            }
+            if (testsFinalizated.isEmpty())
+                return Collections.emptyList();
+            else
+                return testsFinalizated;
+        } else {
+            return Collections.emptyList();
+        }
+    }
+
+    /***
      * Method that returns a CATest by its code
      * @param internalCode
      * @return caTest or null
@@ -183,14 +207,14 @@ public class TestStore implements Serializable {
      */
     public boolean doValidation(List<String> testWithoutValidation) {
         if (!testWithoutValidation.isEmpty()) {
-            for (ClinicalTest clinicalTest :testList) {
+            for (ClinicalTest clinicalTest : testList) {
                 if (!clinicalTest.getValidationStatus()) {
                     ClinicalTest test1 = getTestByCode(clinicalTest.getInternalCode());
                     Client client = test1.getClient();
                     String name = client.getName();
                     clinicalTest.changeStateValidationToDone();
-                    DateTime validatedAt= clinicalTest.getValidationDate();
-                    SendingEmailSMS.sendEmailWithNotification(name,validatedAt);
+                    DateTime validatedAt = clinicalTest.getValidationDate();
+                    SendingEmailSMS.sendEmailWithNotification(name, validatedAt);
                 }
             }
             return true;
@@ -204,16 +228,35 @@ public class TestStore implements Serializable {
      * @return
      */
     public boolean doValidationOne(String internalCode) {
-        if (internalCode!=null) {
-                ClinicalTest test1= getTestByCode(internalCode);
-                Client client = test1.getClient();
-                String name = client.getName();
-                test1.changeStateValidationToDone();
-                DateTime validatedAt= test1.getValidationDate();
-                SendingEmailSMS.sendEmailWithNotification(name,validatedAt);
+        if (internalCode != null) {
+            ClinicalTest test1 = getTestByCode(internalCode);
+            Client client = test1.getClient();
+            String name = client.getName();
+            test1.changeStateValidationToDone();
+            DateTime validatedAt = test1.getValidationDate();
+            SendingEmailSMS.sendEmailWithNotification(name, validatedAt);
             return true;
         }
         return false;
     }
+
+    public List<ClinicalTest> getClientTests(Client client) {
+        List<ClinicalTest> clientTests = new ArrayList<>();
+        if (client != null) {
+            for (ClinicalTest caTest : testList) {
+                if (caTest.getValidationStatus()) {
+                    if (caTest.getClient().equals(client))
+                        clientTests.add(caTest);
+                }
+            }
+            if (clientTests.isEmpty())
+                return Collections.emptyList();
+            else
+                return clientTests;
+        } else {
+            return Collections.emptyList();
+        }
+    }
 }
+
 

@@ -139,6 +139,9 @@ public class ClientStore {
         }
         return null;
     }
+    
+
+
 
     /***
      * This method return a client by find his email

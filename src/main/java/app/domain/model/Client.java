@@ -11,6 +11,8 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -35,6 +37,8 @@ public class Client  implements Serializable {
     static final String STRING_NHS_NUMBER = "NHS Number";
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
+
+    private final List<Client> clientList = new ArrayList<>();
 
     /***
      * Complete constructor for class Client
@@ -253,6 +257,22 @@ public class Client  implements Serializable {
         CommonMethods.emailValidation(email);
         this.email = email;
     }
+
+    public String getClientResults() {
+        String clients = String.format("%n%nClients Results: %n");
+        if (!clientList.isEmpty()) {
+            for (Client ct : clientList) {
+                clients = clients.concat(ct.toString());
+            }
+        }
+        return clients;
+    }
+/*
+    private void addClient() {
+        for (ClientDTO ct : clientList){
+            clientList.add(new ClientDTO(ct));
+        }
+    }*/
 
 
     @Override

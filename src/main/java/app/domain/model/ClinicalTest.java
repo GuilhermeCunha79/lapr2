@@ -27,8 +27,8 @@ public class ClinicalTest implements Serializable {
     private final List<TestParameter> testParametersList = new ArrayList<>();
     private final List<ClinicalTest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
+    private List<ClinicalTest> testClient;
     private List<Sample> sampleList;
-    private Report reportText;
 
 
 
@@ -100,8 +100,16 @@ public class ClinicalTest implements Serializable {
         return this.nhsCode;
     }
 
+    public Report getReportText() {
+        return this.report;
+    }
+
     public List<Parameter> getParameterList() {
         return new ArrayList<>(parameterList);
+    }
+
+    public List<ClinicalTest> getTestClient() {
+        return new ArrayList<>(testClient);
     }
 
     /***
@@ -279,6 +287,16 @@ public class ClinicalTest implements Serializable {
         String results = String.format("%n%nTest Results: %n");
         if (!testReadyToVal.isEmpty()) {
             for (ClinicalTest result : testReadyToVal) {
+                results = results.concat(result.toString());
+            }
+        }
+        return results;
+    }
+
+    public String getClientTests() {
+        String results = String.format("%n%nTests made and details: %n");
+        if (!testClient.isEmpty()) {
+            for (ClinicalTest result : testClient) {
                 results = results.concat(result.toString());
             }
         }
