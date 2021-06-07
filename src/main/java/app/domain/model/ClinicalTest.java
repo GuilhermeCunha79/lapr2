@@ -100,8 +100,8 @@ public class ClinicalTest implements Serializable {
         return this.nhsCode;
     }
 
-    public Report getReportText() {
-        return this.report;
+    public String getReportText() {
+        return this.report.getReportText();
     }
 
     public List<Parameter> getParameterList() {
