@@ -37,7 +37,7 @@ deactivate UI
 
 CCT->UI : selects the client in order to check the historical\n tests performed and tests details/results
 activate UI
-UI-> CTRL : showTestDetails(client)
+UI-> CTRL : showTestDetails(tin)
 activate CTRL
 CTRL->COMP :testStore = getTestStore()
 activate COMP
