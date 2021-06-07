@@ -6,8 +6,7 @@ import app.domain.model.Company;
 import app.domain.store.ClientStore;
 import app.domain.store.TestStore;
 import app.mappers.ClientMapper;
-import app.mappers.TestsFinalizatedMapper;
-
+import app.mappers.TestsFinalizedMapper;
 
 import java.util.List;
 
@@ -39,25 +38,16 @@ public class CheckResultsController {
     }
 
 
-
-    /**
-     * This method returns a list with the main information about each test available without a report
-     * @return a list of Strings holding the data for each test
-     */
-    public List<String> getTestsFinalizated(Client client){
-        List<ClinicalTest> lTestNoReport = tstStore.getClientTests(client);
+    public List<String> getTestsFinalizated(String tinNumber){
+        this.ct=ctStore.getClientByTIN(tinNumber);
+        List<ClinicalTest> lTestNoReport = tstStore.getClientTests(ct);
         if(lTestNoReport != null) {
-            TestsFinalizatedMapper tlm = new TestsFinalizatedMapper();
+            TestsFinalizedMapper tlm = new TestsFinalizedMapper();
             return tlm.toDtoFin(lTestNoReport);
         }
         return null;
     }
 
-    public String getClientList(String tinNumber){
-        this.ct=ctStore.getClientByTIN(tinNumber);
-        return ct.getClientResults();
-
-    }
 
 
 

@@ -1,11 +1,11 @@
 package app.ui.console;
 
-import app.controller.CheckResultsController;
+        import app.controller.CheckResultsController;
 
 
-import app.ui.console.utils.Utils;
+        import app.ui.console.utils.Utils;
 
-import java.util.List;
+        import java.util.List;
 
 public class CheckResultsUI implements Runnable {
 
@@ -17,7 +17,7 @@ public class CheckResultsUI implements Runnable {
         boolean repeat;
         do {
             repeat = checkProcess();
-        } while (repeat && Utils.confirm("Check another client test details? (Y or N)"));
+        } while (repeat && Utils.confirm("Do you wish to check another client test details? (Y or N)"));
     }
 
     private boolean checkProcess() {
@@ -27,11 +27,11 @@ public class CheckResultsUI implements Runnable {
                 if (lClientDto != null) {
                     int option = Utils.showAndSelectIndex(lClientDto, "Select one of the following clients:");
                     System.out.println(lClientDto);
-                    String results = ctrl.getClientList(lClientDto.get(option).substring(lClientDto.get(option).lastIndexOf("TIN Number: ")+1,lClientDto.get(option).lastIndexOf("TIN Number: ")+10));
-                    Utils.printToConsole(results);
-                        return true;
-                    }
-                    return false;
+                    List<String> results = ctrl.getTestsFinalizated(lClientDto.get(option).substring(lClientDto.get(option).lastIndexOf("TIN Number: ")+1,lClientDto.get(option).lastIndexOf("TIN Number: ")+10));
+                    Utils.showList(results, "Tests done by this client and it's details:");
+                    return true;
+                }
+                return false;
             } catch (Exception e) {
                 Utils.printToConsole("INFO: " + e.getMessage());
             }

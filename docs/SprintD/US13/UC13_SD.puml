@@ -22,7 +22,7 @@ CCT->UI : selects an option
 activate UI
 UI-> CTRL : showClients()
 activate CTRL
-CTRL-> COMP : clientStore=getClientList
+CTRL-> COMP : clientStore = getClientStore()
 activate COMP
 deactivate COMP
 CTRL-> CF : sortedTestList=sortClientList(clientStore)
@@ -37,6 +37,18 @@ deactivate UI
 
 CCT->UI : selects the client in order to check the historical\n tests performed and tests details/results
 activate UI
+UI-> CTRL : showTestDetails(client)
+activate CTRL
+CTRL->COMP :testStore = getTestStore()
+activate COMP
+deactivate COMP
+CTRL-> CS : client=getClientByTin(tin)
+activate CS
+deactivate CS
+CTRL->TS : getClientTests(client)
+activate TS
+deactivate TS
+deactivate CTRL
 
 UI-->CCT:shows the historical tests performed and tests details/results
 

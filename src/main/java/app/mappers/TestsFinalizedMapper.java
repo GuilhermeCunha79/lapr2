@@ -5,12 +5,7 @@ import app.domain.model.ClinicalTest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestsFinalizatedMapper {
-
-    public TestsFinalizatedMapper() {
-        throw new IllegalStateException("Utility class");
-    }
-
+public class TestsFinalizedMapper {
 
     /***
      * This method converts a list of test types to a list of strings with the data from each test to be presented in the UI

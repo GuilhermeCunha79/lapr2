@@ -258,14 +258,15 @@ public class Client  implements Serializable {
         this.email = email;
     }
 
-    public String getClientResults() {
+    public List<Client> getClientResults() {
         String clients = String.format("%n%nClients Results: %n");
         if (!clientList.isEmpty()) {
             for (Client ct : clientList) {
                 clients = clients.concat(ct.toString());
+                clientList.add(ct);
             }
         }
-        return clients;
+        return clientList;
     }
 /*
     private void addClient() {
