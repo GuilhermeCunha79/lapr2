@@ -27,7 +27,7 @@ public class CheckResultsUI implements Runnable {
                 if (lClientDto != null) {
                     int option = Utils.showAndSelectIndex(lClientDto, "Select one of the following clients:");
                     System.out.println(lClientDto);
-                    List<String> results = ctrl.getTestsFinalizated(lClientDto.get(option).substring(lClientDto.get(option).lastIndexOf("TIN Number: ")+1,lClientDto.get(option).lastIndexOf("TIN Number: ")+10));
+                    List<String> results = ctrl.showTestDetails(lClientDto.get(option).substring(lClientDto.get(option).lastIndexOf("TIN Number: ")+1,lClientDto.get(option).lastIndexOf("TIN Number: ")+10));
                     Utils.showList(results, "Tests done by this client and it's details:");
                     return true;
                 }

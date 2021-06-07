@@ -34,9 +34,8 @@ public class CheckResultsController {
         return null;
     }
 
-
-    public List<String> getTestsFinalizated(String tinNumber){
-        this.ct=ctStore.getClientByTIN(tinNumber);
+    public List<String> showTestDetails(String tin){
+        this.ct=ctStore.getClientByTIN(tin);
         List<ClinicalTest> lTestNoReport = tstStore.getClientTests(ct);
         if(lTestNoReport != null) {
             return TestsFinalizedMapper.toDtoFin(lTestNoReport);
