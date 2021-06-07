@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.DevelopersUI">
+   <top>
+      <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="The developers" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Segoe UI Bold" size="47.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="150.0" />
+         </BorderPane.margin>
+      </Text>
+   </top>
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="André Santos - 1201534@isep.ipp.pt ">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Francisco Malheiro - 1201485@isep.ipp.pt ">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Guilherme Cunha - 1201506@isep.ipp.pt ">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="João Martins - 1201539@isep.ipp.pt ">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedro Moreira - 1191526@isep.ipp.pt">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
+            </Text>
+            <Button fx:id="mainMenuBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showUIScreen" prefHeight="45.0" prefWidth="320.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Return" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="60.0" right="60.0" top="40.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="200.0" top="100.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
