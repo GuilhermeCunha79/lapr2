@@ -9,9 +9,19 @@ import java.util.List;
 public class ClientChangesUI implements Runnable {
     private final ChangeClientDataController ctrl = new ChangeClientDataController();
 
+    @Override
+    public void run() {
+        boolean repeat;
+        do {
+            repeat = clientChanges();
+        } while (repeat && Utils.confirm("\nDo you want to do another changes? (Y/N)"));
+        if (repeat)
+            Utils.printToConsole("\n\nChanges saved successfully!");
+    }
 
     public boolean clientChanges() {
-        ctrl.showData(ctrl.getClientByEmail());
+        Utils.printToConsole(ctrl.showData(ctrl.getClientByEmail()));
+
         int option = dataOptions();
         try {
         if(option!=-1) {
@@ -42,24 +52,20 @@ public class ClientChangesUI implements Runnable {
                 ctrl.changePhoneNumber(ctrl.getClientByEmail(), cltPhoneNumber);
             }
 
-            if (option == 6) {
+            /*if (option == 6) {
                 String cltEmail = Utils.readLineFromConsole("Introduce the new Email: ");
                 ctrl.changeEmail(ctrl.getClientByEmail(), cltEmail);
-            }
+            }*/
 
-            /*
-        if (option == 7) {
-            String cltPassword = Utils.readLineFromConsole("Introduce the new Password: ");
-            ctrl.changePassword(ctrl.getClientByEmail(), cltPassword);
-        }*/
 
-            Utils.printToConsole("Do you confirm this change?");
+            Utils.printToConsole("\nDo you confirm this change?");
             if (Utils.confirm("Y or N")) {
-                if (ctrl.saveChanges())
-                    ctrl.showData(ctrl.getClientByEmail());
-                return true;
+                if (ctrl.saveChanges()){
+                    System.out.println("Changes made");
+                    return true;
+                }
             }else{
-                Utils.printToConsole("This change is not permitted");
+                Utils.printToConsole("Change aborted!");
                 return false;
             }
         }
@@ -74,25 +80,17 @@ public class ClientChangesUI implements Runnable {
 
     private int dataOptions() {
         List<String> options = new ArrayList<>();
-        options.add("Name");
+        options.add("\nName");
         options.add("Citizen Card Number");
         options.add("NHS Number");
         options.add("TIN Number");
         options.add("Birth Date");
         options.add("Phone Number");
         options.add("Email");
-        options.add("Password");
+
         return Utils.showAndSelectIndex(options, "Select the data that you want to change:");
     }
 
-    @Override
-    public void run() {
-        boolean repeat;
-        do {
-            repeat = clientChanges();
-        } while (repeat && Utils.confirm("\nDo you want to do another changes? (Y/N)"));
-        if (repeat)
-            Utils.printToConsole("\n\nChanges saved successfully!");
-    }
+
 
 }

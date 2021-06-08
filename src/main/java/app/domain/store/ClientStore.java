@@ -59,13 +59,14 @@ public class ClientStore {
 
     public boolean saveChanges(Client client) {
         if (client != null) {
+            //client = getClientByNewEmail(client.getEmail());
             //String name = client.getName();
-            if (validateClient(client)) {
+            if (checkDuplicate(client)) {
                 //sendEmailWithChanges(name);
                 serializeStore(this.clientList, DATA_PATH);
                 return true;
             }
-            return true;
+            return false;
         }
         return false;
     }
@@ -157,6 +158,14 @@ public class ClientStore {
         }
         return null;
     }
+/*
+    public Client getClientByNewEmail(String email) {
+        for (Client client : clientList) {
+            if (client.getEmail().equals(email))
+                return client;
+        }
+        return null;
+    }*/
 
     public void changeName(Client client, String name) {
         client.setName(name);
@@ -166,9 +175,9 @@ public class ClientStore {
         client.setCitizenCardNumber(citizenCardNumber);
     }
 
-    public void changeEmail(Client client, String email) {
+    /*public void changeEmail(Client client, String email) {
         client.setEmail(email);
-    }
+    }*/
 
     public void changeNhsNumber(Client client, String nhsNumber) {
         client.setNhsNumber(nhsNumber);
