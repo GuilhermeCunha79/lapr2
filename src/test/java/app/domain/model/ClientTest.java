@@ -81,7 +81,16 @@ public class ClientTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotBeBlank() {
-        ClientDTO dto = new ClientDTO("To<más", "1234567890123456", "1234567891", "1234567890", "23/12/2010", "male", "12345678901", "tomas@isep.ipp.pt");
+        ClientDTO dto = new ClientDTO("", "1234567890123456", "1234567891", "1234567890", "23/12/2010", "male", "12345678901", "tomas@isep.ipp.pt");
+        new Client(dto);
+    }
+
+    /**
+     * Tests with sex blank
+     */
+    @Test
+    public void ensureThatSexIsNotBlank() {
+        ClientDTO dto = new ClientDTO("Tomas", "1234567890123456", "1234567891", "1234567890", "23/12/2010", "", "12345678901", "tomas@isep.ipp.pt");
         new Client(dto);
     }
 

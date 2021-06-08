@@ -3,9 +3,7 @@ package app.domain.mappers;
 
 import app.domain.model.*;
 import app.domain.shared.DateTime;
-import app.mappers.ParameterCategoryMapper;
-import app.mappers.ParameterMapper;
-import app.mappers.TestReadyToValidateMapper;
+import app.mappers.*;
 import app.mappers.dto.ClientDTO;
 import org.junit.Test;
 
@@ -86,5 +84,42 @@ public class MappersTest {
         assertEquals(expected, TestReadyToValidateMapper.toDtoVal(cat));
     }
 
+    @Test(expected = AssertionError.class)
+    public void testTestsFinalizedMapper() {
+        ParameterCategory pc1 = new ParameterCategory("54321", "adaca");
+        TypeOfTest tpt = new TypeOfTest("12345", "noth", "mao", pc1);
+        TypeOfTest tpt1 = new TypeOfTest("12345", "noteh", "mapo", pc1);
+        ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt");
+        Parameter p1 = new Parameter("12345", "abcd", "adsavaa", pc1);
+        Parameter p2 = new Parameter("45345", "adsfa", "asdfsdfsd", pc1);
+        List<Parameter> lp = new ArrayList<>();
+        lp.add(p1);
+        lp.add(p2);
+        List<ClinicalTest> cat = new ArrayList<>();
+        Client client = new Client(clDto);
+        ClinicalTest ct1 = new ClinicalTest("123456789111", client, tpt, lp, "lol", 2);
+        ClinicalTest ct2 = new ClinicalTest("123456783233", client, tpt1, lp, "ll", 3);
+        cat.add(ct1);
+        cat.add(ct2);
+        ct1.addReport(new Report("adknfajnf"));
+        ct2.addReport(new Report("adknfajnf"));
+        ct1.addValidation();
+        ct2.addValidation();
+        List<String> expected = new ArrayList<>();
+        expected.add(String.format("Internal Code: 000000000002 | NHS Code: 123456789111 | Created on: %s | Collected at: null | Validated at: %s | Reported at: %s | %n | Report: adknfajnf |%n", new DateTime(), new DateTime(), new DateTime()));
+        expected.add(String.format("Internal Code: 000000000003 | NHS Code: 123456783233 | Created on: %s | Collected at: null | Validated at: %s | Reported at: %s | %n | Report: adknfajnf |%n", new DateTime(), new DateTime(), new DateTime()));
+        assertEquals(expected, TestsFinalizedMapper.toDtoFin(cat));
+    }
+
+    @Test
+    public void testClientMapper(){
+        ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt");
+        Client client = new Client(clDto);
+        List<Client> cat = new ArrayList<>();
+        cat.add(client);
+        List<String> expected = new ArrayList<>();
+        expected.add(String.format("%nClient:%nName: maria%nCitizen Card Number: 1234567890123456%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/2002%nSex: male%nPhone number: 12345678901%nEmail: gui@isep.pt%n%n"));
+        assertEquals(expected, ClientMapper.toDTOClient(cat));
+    }
 
 }

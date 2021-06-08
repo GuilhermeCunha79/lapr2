@@ -69,7 +69,6 @@ public class TestStore implements Serializable {
             return false;
         for (ClinicalTest test : testList) {
             if (test.equals(testCreated)) {
-                Utils.printToConsole(testCreated.toString());
                 return false;
             }
         }
