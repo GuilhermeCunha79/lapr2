@@ -61,7 +61,7 @@ public class ClientStore {
         if (client != null) {
             //client = getClientByNewEmail(client.getEmail());
             //String name = client.getName();
-            if (checkDuplicate(client)) {
+            if (!checkDuplicate(client)) {
                 //sendEmailWithChanges(name);
                 serializeStore(this.clientList, DATA_PATH);
                 return true;
@@ -92,7 +92,7 @@ public class ClientStore {
     }
 
 
-    private boolean checkDuplicate(Client client) {
+    public boolean checkDuplicate(Client client) {
         for (Client clt : clientList) {
             if (clt.equals(client))
                 return true;
@@ -191,8 +191,13 @@ public class ClientStore {
         client.setBirthDate(birthDate);
     }
 
-    public void changePhoneNumber(Client client, String phoneNumber) {
+    public boolean changePhoneNumber(Client client, String phoneNumber) {
+        for (Client client1 : clientList){
+            if (client1.getPhoneNumber().equals(phoneNumber))
+                return false;
+        }
         client.setPhoneNumber(phoneNumber);
+        return true;
     }
 
 

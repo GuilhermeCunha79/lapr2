@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 
-
-
 /***
  * Common Methods Class
  */
@@ -69,10 +67,14 @@ public class CommonMethods {
                 "A-Z]{2,7}$";
 
         Pattern pat = Pattern.compile(emailRegex);
+
+
         if (email == null)
             throw new NullPointerException("No email inserted");
         if (StringUtils.isBlank(email))
             throw new IllegalArgumentException("No email introduced");
+
+
         return pat.matcher(email).matches();
     }
 
@@ -180,7 +182,6 @@ public class CommonMethods {
             throw new IllegalArgumentException(Constants.STRING_ADDRESS + Constants.NON_ALPHANUM_EXEPT);
 
     }
-
 
 
     /***

@@ -29,10 +29,12 @@ public class RegisterANewClientUI implements Runnable {
                 String cltSex = Utils.readLineFromConsole("Introduce client's sex: ");
                 String cltPhoneNumber = Utils.readLineFromConsole("Introduce client's phone number: ");
                 String cltEmail = Utils.readLineFromConsole("Introduce client's email: ");
-                ClientDTO dto = new ClientDTO(cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail);
+                String cltAddress = Utils.readLineFromConsole("Introduce client's address: ");
+
+                ClientDTO dto = new ClientDTO(cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail, cltAddress);
                 boolean created = ctrl.newClient(dto);
                 if (created) {
-                    Utils.printToConsole(String.format("%nConfirm the client data: %nName: %s%nCitizen Card Number: %s%nNHS Number: %s%nTIN Number: %s%nDate of Birth: %s%nSex: %s%nPhone Number: %s%nEmail: %s%n", cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail));
+                    Utils.printToConsole(String.format("%nConfirm the client data: %nName: %s%nCitizen Card Number: %s%nNHS Number: %s%nTIN Number: %s%nDate of Birth: %s%nSex: %s%nPhone Number: %s%nEmail: %s%nAddress: %s%n", cltName, cltCitizenCardNumber, cltNhs, cltTin, cltDateOfBirth, cltSex, cltPhoneNumber, cltEmail, cltAddress));
 
                     if (Utils.confirm("Y or N")) {
                         return ctrl.saveClient();

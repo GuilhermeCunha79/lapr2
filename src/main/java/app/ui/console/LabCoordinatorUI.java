@@ -15,6 +15,8 @@ public class LabCoordinatorUI implements Runnable{
     public void run() {
         List<MenuItem> options = new ArrayList<>();
         options.add(new MenuItem("Test Validation", new ValidationUI()));
+        options.add(new MenuItem("Import Tests from CSV file", new ImportTestFromCsvUI()));
+
 
         int option;
         do
