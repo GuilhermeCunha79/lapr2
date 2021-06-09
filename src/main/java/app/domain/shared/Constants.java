@@ -39,6 +39,7 @@ public class Constants {
     public static final int CHAR_NAME_EMPLOYEE_CLIENT = 35;
 
     //PARAMETER MAX DIGITS
+    public static final String STRING_NOT_MORE_THAN_15 = " cannot have more than 15 characters.";
     public static final String STRING_NOT_MORE_THAN_10 = " cannot have more than 10 characters.";
     public static final String STRING_NOT_MORE_THAN_20 = " cannot have more than 20 characters.";
     public static final String STRING_NOT_MORE_THAN_30 = " cannot have more than 30 characters.";

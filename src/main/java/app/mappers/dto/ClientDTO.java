@@ -9,32 +9,33 @@ public class ClientDTO {
     private final String sex;
     private final String phoneNumber;
     private final String email;
+    private final String address;
 
     public static final String SEX_BY_OMISSION = "Not defined";
 
-    public ClientDTO(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String sex, String phoneNumber, String email) {
-        this.name=name;
-        this.citizenCardNumber=citizenCardNumber;
-        this.nhsNumber=nhsNumber;
-        this.tinNumber=tinNumber;
-        this.birthDate=birthDate;
-        this.sex=sex;
-        this.phoneNumber=phoneNumber;
-        this.email=email;
+    public ClientDTO(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String sex, String phoneNumber, String email, String address) {
+        this.name = name;
+        this.citizenCardNumber = citizenCardNumber;
+        this.nhsNumber = nhsNumber;
+        this.tinNumber = tinNumber;
+        this.birthDate = birthDate;
+        this.sex = sex;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
     }
 
-    public ClientDTO(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String phoneNumber, String email) {
-        this.name=name;
-        this.citizenCardNumber=citizenCardNumber;
-        this.nhsNumber=nhsNumber;
-        this.tinNumber=tinNumber;
-        this.birthDate=birthDate;
-        this.sex=SEX_BY_OMISSION;
-        this.phoneNumber=phoneNumber;
-        this.email=email;
+    public ClientDTO(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String phoneNumber, String email, String address) {
+        this.name = name;
+        this.citizenCardNumber = citizenCardNumber;
+        this.nhsNumber = nhsNumber;
+        this.tinNumber = tinNumber;
+        this.birthDate = birthDate;
+        this.sex = SEX_BY_OMISSION;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
     }
-
-
 
 
     /***
@@ -101,9 +102,19 @@ public class ClientDTO {
         return this.email;
     }
 
+    /***
+     * Method that returns the address of the Client
+     * @return address
+     */
+    public String getAddress() {
+        return this.address;
+    }
+
     @Override
     public String toString() {
-        return String.format("Client:%nName: %s%nCitizen Card Number: %s%nNHS number: %s%nTIN number: %s%nBirth date: %s%nSex: %s%nPhone number: %s%nEmail: %s",
-                this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email);
+        return String.format("Client:%nName: %s%nCitizen Card Number: %s%nNHS number: %s%nTIN number: %s%nBirth date: %s%nSex: %s%nPhone number: %s%nEmail: %s%nAddress: %s%n",
+                this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email, this.address);
     }
+
+
 }

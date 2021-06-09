@@ -68,13 +68,13 @@ public class ChangeClientDataControllerTest {
         String expected = "23456543212";
         assertEquals(expected, client.getPhoneNumber());
     }
-
+/*
     @Test
     public void testChangeEmail() {
         ctrl.changeEmail(client, "ola@isep.ipp.pt");
         String expected = "ola@isep.ipp.pt";
         assertEquals(expected, client.getEmail());
-    }
+    }*/
 
     @Test
     public void testSaveNullChanges() {

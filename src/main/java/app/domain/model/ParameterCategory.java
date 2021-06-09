@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class ParameterCategory implements Serializable {
 
-    private static final int NAME_LENGTH = 10;
+    private static final int NAME_LENGTH = 15;
 
     private String code;
     private String name;
@@ -64,7 +64,7 @@ public class ParameterCategory implements Serializable {
         if (StringUtils.isBlank(name))
             throw new IllegalArgumentException(Constants.STRING_SHORT_NAME + Constants.STRING_BLANK_EXEPT);
         if (name.length() > NAME_LENGTH)
-            throw new IllegalArgumentException(Constants.STRING_SHORT_NAME + Constants.STRING_NOT_MORE_THAN_10);
+            throw new IllegalArgumentException(Constants.STRING_SHORT_NAME + Constants.STRING_NOT_MORE_THAN_15);
         this.name = name;
     }
 

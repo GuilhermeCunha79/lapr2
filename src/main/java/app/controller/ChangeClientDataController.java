@@ -21,6 +21,10 @@ public class ChangeClientDataController {
     public Client getClientByEmail() {
         return this.ct = this.ctStore.getClientByEmail();
     }
+/*
+    public Client getClientByNewEmail() {
+        return this.ct = this.ctStore.getClientByNewEmail(ct.getEmail());
+    }*/
 
     public String showData(Client client) {
             return client.toString();
@@ -33,27 +37,31 @@ public class ChangeClientDataController {
 
     public void changeCitizenCardNumber(Client client, String name) {
         this.ctStore.changeCitizenCardNumber(client, name);
+        this.ctStore.checkDuplicate(getClientByEmail());
     }
 
     public void changeNhsNumber(Client client, String name) {
         this.ctStore.changeNhsNumber(client, name);
+        this.ctStore.checkDuplicate(getClientByEmail());
     }
 
     public void changeTinNumber(Client client, String name) {
         this.ctStore.changeTinNumber(client, name);
+        this.ctStore.checkDuplicate(getClientByEmail());
     }
 
     public void changeBirthDate(Client client, String name) {
         this.ctStore.changeBirthDate(client, name);
     }
 
-    public void changePhoneNumber(Client client, String name) {
-        this.ctStore.changePhoneNumber(client, name);
-    }
+    public boolean changePhoneNumber(Client client, String name) {
+        return this.ctStore.changePhoneNumber(client, name);
 
+    }
+/*
     public void changeEmail(Client client, String name) {
         this.ctStore.changeEmail(client, name);
-    }
+    }*/
 
 
     public boolean saveChanges() {

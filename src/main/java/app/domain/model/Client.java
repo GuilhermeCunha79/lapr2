@@ -29,12 +29,14 @@ public class Client  implements Serializable {
     private String sex;
     private String phoneNumber;
     private String email;
+    private String address;
 
     static final int CITIZEN_CARD_DIGITS = 16;
     static final int NHS_MAX_CHAR=10;
     static final int MAX_AGE = 150;
     static final String STRING_CITIZEN_CARD_NUMBER= "Citizen Card Number";
     static final String STRING_NHS_NUMBER = "NHS Number";
+    static final String STRING_ADDRESS = "Address";
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
 
@@ -52,7 +54,10 @@ public class Client  implements Serializable {
         setSex(dto.getSex());
         setPhoneNumber(dto.getPhoneNumber());
         setEmail(dto.getEmail());
+        setAddress(dto.getAddress());
     }
+
+
 
     /***
      * Method that returns the age of the client "at this moment"
@@ -202,6 +207,14 @@ public class Client  implements Serializable {
         this.birthDate = birthDate;
     }
 
+    private void setAddress(String address) {
+        if (address == null)
+            throw new NullPointerException(STRING_ADDRESS + Constants.STRING_NULL_EXEPT);
+        if (StringUtils.isBlank(address))
+            throw new IllegalArgumentException(STRING_ADDRESS + Constants.STRING_BLANK_EXEPT);
+        this.address = address;
+    }
+
     /***
      * Method that returns the sex of the Client
      * @return sex
@@ -215,11 +228,9 @@ public class Client  implements Serializable {
      * @param sex
      */
     public void setSex(String sex) {
-        if (sex == null)
-            throw new NullPointerException("Sex" + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(sex))
+        if (sex == null || StringUtils.isBlank(sex))
             this.sex=ClientDTO.SEX_BY_OMISSION;
-        if (!StringUtils.isBlank(sex) && !(sex.equalsIgnoreCase(SEX_MALE)|| sex.equalsIgnoreCase(SEX_FEMALE)))
+        if (!StringUtils.isBlank(sex) && !(sex.equalsIgnoreCase(SEX_MALE)|| sex.equalsIgnoreCase(SEX_FEMALE) || sex.equalsIgnoreCase("Not Defined")))
             throw new IllegalArgumentException("Sex must be Male or Female.");
         this.sex = sex;
     }
@@ -278,8 +289,8 @@ public class Client  implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("%nClient:%nName: %s%nCitizen Card Number: %s%nNHS number: %s%nTIN number: %s%nBirth date: %s%nSex: %s%nPhone number: %s%nEmail: %s%n%n",
-                this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email);
+        return String.format("%nClient:%nName: %s%nCitizen Card Number: %s%nNHS number: %s%nTIN number: %s%nBirth date: %s%nSex: %s%nPhone number: %s%nEmail: %s%nAddress: %s%n",
+                this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email, this.address);
     }
 
     @Override

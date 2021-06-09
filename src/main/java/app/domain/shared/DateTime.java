@@ -41,6 +41,7 @@ public class DateTime implements Serializable{
     public void setTime(){
         this.time = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm"));
     }
+
     /**
      * This toString method returns the date and time stored in this instance
      * @return the date and time
