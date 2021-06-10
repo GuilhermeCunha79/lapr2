@@ -50,14 +50,14 @@ public class SpecifyANewTypeOfTestUI implements Runnable {
                     int option = Utils.showAndSelectIndex(categoryDisplayList, "Choose Category:");
                     if (option != -1) {
                         String selectedCategory = categoryDisplayList.get(option);
-                        ctrl.createANewTypeOfTest(code, description, collectingMethod, selectedCategory.substring(42, 47));
+                        ctrl.createANewTypeOfTest(code, description, collectingMethod, selectedCategory.substring(28, 33));
                         categoryDisplayList.remove(option);
                     }
                     while (Utils.confirm("Add another category? (Y or N)")) {
                         option = Utils.showAndSelectIndex(categoryDisplayList, "Choose Category:");
                         if (option != -1) {
                             String selectedCategory = categoryDisplayList.get(option);
-                            ctrl.addCategory(selectedCategory.substring(1, 6));
+                            ctrl.addCategory(selectedCategory.substring(28, 33));
                             categoryDisplayList.remove(option);
                         }
                     }

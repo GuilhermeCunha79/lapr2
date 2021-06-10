@@ -45,7 +45,7 @@ public class CreateNewParameterUI implements Runnable{
                     int option = Utils.showAndSelectIndex(displayCatList, "Choose Category");
                     String categoryId;
                     if(option != -1)
-                        categoryId = categoryList.get(option).substring(42,47);
+                        categoryId = categoryList.get(option).substring(28,33);
                     else
                         return false;
                     boolean created = ctrl.createNewParameter(code, name, description, categoryId);

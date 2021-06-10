@@ -18,10 +18,13 @@ public class ParameterMapper {
      */
     public static List<String> toDto(List<Parameter>lP) {
         List<String> totListDto = new ArrayList<>();
-        for(Parameter parameter:lP){
-            totListDto.add(parameter.toString());
+        if(lP!=null && !lP.isEmpty()) {
+            for (Parameter parameter : lP) {
+                totListDto.add(parameter.toString());
+            }
+            return totListDto;
         }
-        return totListDto;
+        return null;
     }
 }
 

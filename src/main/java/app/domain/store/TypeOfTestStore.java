@@ -87,6 +87,14 @@ public class TypeOfTestStore {
         return null;
     }
 
+    public TypeOfTest getTestTypeByDescription(String description) {
+        for (TypeOfTest typeOfTest : typeOfTestList) {
+            if (typeOfTest.getDescription().equals(description))
+                return typeOfTest;
+        }
+        return null;
+    }
+
     /**
      * This method return a copy of the Type of Test List for other classes that need and can access it
      *

@@ -75,7 +75,7 @@ public class ParameterCategory implements Serializable {
      */
     @Override
     public String toString() {
-        return String.format("Parameter Category -> Name: %s | Code: %s |%n", this.name, this.code);
+        return String.format("Parameter Category -> Code: %s | Name: %s |%n", this.code, this.name);
     }
 
     /**

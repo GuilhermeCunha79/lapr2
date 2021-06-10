@@ -37,8 +37,7 @@ public class RecordResultController {
     public List<String> getListOfTestWithoutResult(String labId){
         List<ClinicalTest> testList = testStore.getTestsWithoutResults(labId);
         if(testList!=null && !testList.isEmpty()) {
-            TestListMapper tlm = new TestListMapper();
-            return tlm.toDto(testList);
+            return TestListMapper.toDto(testList);
         }
         return null;
     }

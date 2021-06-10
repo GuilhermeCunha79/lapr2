@@ -26,8 +26,7 @@ public class ValidationController {
     public List<String> getTestWithoutValidation() {
         List<ClinicalTest> readyToValidate = testStore.getTestWithoutValidation();
         if (readyToValidate != null) {
-            TestReadyToValidateMapper trv = new TestReadyToValidateMapper();
-            return trv.toDtoVal(readyToValidate);
+            return TestReadyToValidateMapper.toDtoVal(readyToValidate);
         }
         return null;
     }

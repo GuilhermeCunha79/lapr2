@@ -1,0 +1,107 @@
+@startuml
+
+autonumber
+
+actor "Lab Coordinator" as LC
+participant ":ImportTestFromCsvUI" as UI
+participant ":ImportTestFromCsvController" as CTRL
+participant ":Company" as COMP
+participant ":TestStore" as TS
+participant ":ClientStore" as CS
+participant ":Client" as C
+participant ":TypeOfTestStore" as TTS
+participant ":ClientDTO" as CDTO
+participant ":TypeOfTest" as TT
+participant ":ParameterStore" as PS
+participant ":ClinicalTestDto" as TDTO
+participant ":ClinicalTest" as CT
+
+
+
+
+LC -> UI : needs to import clinical tests from CSV file
+activate UI
+UI --> LC : ask for the CSV file system path
+deactivate UI
+LC -> UI : enters file path
+activate UI
+UI -> CTRL : searchCsvFile()
+activate CTRL
+CTRL -> COMP : getTestStore()
+activate COMP
+deactivate COMP
+CTRL -> COMP : getClientStore()
+activate COMP
+deactivate COMP
+CTRL -> COMP : getClinicalAnalysisLaboratoryStore()
+activate COMP
+deactivate COMP
+CTRL -> COMP : getTypeOfTestStore()
+activate COMP
+deactivate COMP
+CTRL -> COMP : getParameterStore()
+activate COMP
+deactivate COMP
+deactivate CTRL
+UI -> CTRL : createTestFromCsvFile()
+loop while there are more lines in the file
+activate CTRL
+CTRL -> CTRL : lab = checkLab(labId)
+activate CTRL
+deactivate CTRL
+CTRL -> CTRL : client = registerClient(clientData)
+activate CTRL
+CTRL -> CDTO** : clientDTO = createClientDTO(name, citizenCardNumber, nhsNumber, tin, birthDate, phoneNumber, email, address)
+CTRL -> C** : client = newClient(clientDTO)
+opt if client doesn't exist
+CTRL -> CS : saveClient(client)
+activate CS
+deactivate CS
+else if client exist
+CTRL -> CS : getClientByTIN(tin)
+activate CS
+deactivate CS
+end opt
+deactivate CTRL
+CTRL -> CTRL : test = createTest(testData, client, labId)
+activate CTRL
+CTRL -> TTS : clinicalTestType = getTestTypeByDescription(description)
+activate TTS
+deactivate TTS
+CTRL -> CTRL : getParameterList(testData)
+activate CTRL
+loop for each parameter/parameter category of the test
+CTRL -> TT : lPC = getCategoryListByTheTypeOfTest()
+activate TT
+deactivate TT
+CTRL -> CTRL : checkCategoryExist(categoryName, lPC)
+activate CTRL
+deactivate CTRL
+CTRL -> PS : parameter = getParameterByCode(code)
+activate PS
+deactivate PS
+end
+deactivate CTRL
+CTRL -> TDTO** : testDto = createClinicalTestDTO(nhsCode, client, typeOfTest, parameterList, labWhereCreated, registDateHour, chemicalDateHour, sDoctorDateHour, validationDateHour)
+CTRL -> TS : createTestWithDates(testDto)
+activate TS
+TS -> CT** : create(testDto, testCount)
+deactivate TS
+deactivate CTRL
+CTRL -> TS : saveTest(test)
+activate TS
+deactivate TS
+CTRL -> CTRL : addParameterResults(test, testData)
+activate CTRL
+deactivate CTRL
+CTRL -> CT : addTestParameterResult(parameterCode, value, metric)
+activate CT
+deactivate CT
+end
+CTRL --> UI : ok
+deactivate CTRL
+
+UI --> LC : informs (in)success of the operation
+deactivate UI
+
+@enduml

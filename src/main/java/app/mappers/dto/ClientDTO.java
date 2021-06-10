@@ -25,11 +25,11 @@ public class ClientDTO {
         this.address = address;
     }
 
-    public ClientDTO(String name, String citizenCardNumber, String nhsNumber, String tinNumber, String birthDate, String phoneNumber, String email, String address) {
+    public ClientDTO(String name, String citizenCardNumber, String nhsNumber, String tin, String birthDate, String phoneNumber, String email, String address) {
         this.name = name;
         this.citizenCardNumber = citizenCardNumber;
         this.nhsNumber = nhsNumber;
-        this.tinNumber = tinNumber;
+        this.tinNumber = tin;
         this.birthDate = birthDate;
         this.sex = SEX_BY_OMISSION;
         this.phoneNumber = phoneNumber;

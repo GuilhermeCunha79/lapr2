@@ -17,7 +17,7 @@ public class TestListMapper {
      * @param lTestNoReport list of tests
      * @return list of strings
      */
-    public List<String> toDto(List<ClinicalTest> lTestNoReport){
+    public static List<String> toDto(List<ClinicalTest> lTestNoReport){
         List<String> testListNoReportDto = new ArrayList<>();
         for(ClinicalTest test : lTestNoReport){
             testListNoReportDto.add(test.toString());
