@@ -35,23 +35,24 @@ public class ChangeClientDataController {
         this.ctStore.changeName(client, name);
     }
 
-    public void changeCitizenCardNumber(Client client, String name) {
-        this.ctStore.changeCitizenCardNumber(client, name);
-        this.ctStore.checkDuplicate(getClientByEmail());
+    public boolean changeCitizenCardNumber(Client client, String name) {
+        return this.ctStore.changeCitizenCardNumber(client, name);
     }
 
-    public void changeNhsNumber(Client client, String name) {
-        this.ctStore.changeNhsNumber(client, name);
-        this.ctStore.checkDuplicate(getClientByEmail());
+    public boolean changeNhsNumber(Client client, String name) {
+        return  this.ctStore.changeNhsNumber(client, name);
     }
 
-    public void changeTinNumber(Client client, String name) {
-        this.ctStore.changeTinNumber(client, name);
-        this.ctStore.checkDuplicate(getClientByEmail());
+    public boolean changeTinNumber(Client client, String name) {
+       return this.ctStore.changeTinNumber(client, name);
     }
 
     public void changeBirthDate(Client client, String name) {
         this.ctStore.changeBirthDate(client, name);
+    }
+
+    public void changeSex(Client client, String name) {
+        this.ctStore.changeSex(client, name);
     }
 
     public boolean changePhoneNumber(Client client, String name) {

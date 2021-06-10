@@ -171,24 +171,43 @@ public class ClientStore {
         client.setName(name);
     }
 
-    public void changeCitizenCardNumber(Client client, String citizenCardNumber) {
+    public boolean changeCitizenCardNumber(Client client, String citizenCardNumber) {
+        for (Client client1 : clientList){
+            if (client1.getCitizenCardNumber().equals(citizenCardNumber))
+                return false;
+        }
         client.setCitizenCardNumber(citizenCardNumber);
+        return true;
     }
 
     /*public void changeEmail(Client client, String email) {
         client.setEmail(email);
     }*/
 
-    public void changeNhsNumber(Client client, String nhsNumber) {
+    public boolean changeNhsNumber(Client client, String nhsNumber) {
+        for (Client client1 : clientList){
+            if (client1.getNhsNumber().equals(nhsNumber))
+                return false;
+        }
         client.setNhsNumber(nhsNumber);
+        return true;
     }
 
-    public void changeTinNumber(Client client, String tinNumber) {
+    public boolean changeTinNumber(Client client, String tinNumber) {
+        for (Client client1 : clientList){
+            if (client1.getTinNumber().equals(tinNumber))
+                return false;
+        }
         client.setTinNumber(tinNumber);
+        return true;
     }
 
     public void changeBirthDate(Client client, String birthDate) {
         client.setBirthDate(birthDate);
+    }
+
+    public void changeSex(Client client, String sex) {
+        client.setSex(sex);
     }
 
     public boolean changePhoneNumber(Client client, String phoneNumber) {
@@ -199,7 +218,5 @@ public class ClientStore {
         client.setPhoneNumber(phoneNumber);
         return true;
     }
-
-
 }
 
