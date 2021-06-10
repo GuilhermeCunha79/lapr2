@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Administrator" as Ad
+participant "SendReport:UI" as UI
+participant ":SendReportController" as CTRL
+participant "comp\n:Company" as COMP
+
+
+participant "NHS" as  N
+
+participant "testStore: TestStore" as TSTORE
+
+participant "RegressionModel" as SAMPLE
+participant "testMap:TestMapper" as TMAPPER
+
+activate Ad
+Ad--> UI : start the report
+activate ":System"
+":System"--> Ad : Ask for to select the time measure(days or weeks)
+deactivate ":System"
+Ad --> ":System" : select measure
+activate ":System"
+":System"--> Ad : Ask for the interval of time
+deactivate ":System"
+Ad --> ":System" : imput the interval of time
+activate ":System"
+":System" --> Ad : Ask if want a simple or complex
+deactivate ":System"
+Ad -> ":System" : select one of the options
+activate ":System"
+":System" --> Ad : Ask (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
+deactivate ":System"
+Ad -> ":System" : select one of the options
+activate ":System"
+":System" --> Ad : Ask to fill the values of the variables
+deactivate ":System"
+Ad -> ":System" : Fill variables values
+activate ":System"
+":System" --> Ad : Show the report and with the regression model and ask for confirmation
+deactivate ":System"
+Ad -> ":System" :  confirms the data
+activate ":System"
+":System" --> Ad : informs operation success and sent to the NHS
+deactivate ":System"
+
+deactivate Ad
+@enduml
