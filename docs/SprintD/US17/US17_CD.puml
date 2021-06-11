@@ -1,0 +1,130 @@
+@startuml
+
+package UI {
+class ImportTestFromCsvUI {
+
+}
+}
+
+package Controller {
+class ImportTestFromCsvController {
+    +searchCsvFile()
+    +createTestFromCsvFile()
+    -checkLabId(labId)
+    -registerClient(clientData)
+    -createTest(testData, client, labId)
+    -getParameterList(testData)
+    -checkCategoryExist(categoryName, lPC)
+    -addParameterResults(test, testData)
+}
+}
+
+package Domain {
+package Model {
+
+class Company {
+    -description
+    +getTestStore()
+    +newClient()
+    +getClientStore()
+    +getClinicalAnalysisLaboratory()
+    +getTypeOfTestStore()
+    +getParameterStore()
+}
+class ClinicalTest {
+    +create(testDto, testCount)
+}
+class Client {
+    -name
+    -citizenCardNumber
+    -nhsNumber
+    -tin
+    -birthdate
+    -phoneNumber
+    -sex
+    -email
+    -address
+    +create(clientDto)
+}
+class TypeOfTest {
+    -code
+    -description
+    -collectingMethod
+    -parameterCategoryList
+    +getCategoryListByTheTypeOfTest()
+}
+}
+package Store {
+class TestStore {
+    +createTestWithDates(testDto)
+    +saveTest(test)
+}
+class ParameterStore {
+    +getParameterByCode(code)
+}
+class ClientStore {
+    +saveClient(client)
+    +getClientByTIN(tin)
+}
+class TypeOfTestStore {
+    +getTestTypeByDescription()
+}
+class ClinicalAnalysisLaboratoryStore {
+    +checkLabId(labId)
+}
+}
+}
+
+
+package Mappers {
+package dto {
+class ClientDTO {
+    +getName()
+    +getCitizenCardNumber()
+    +getNhsNumber()
+    +getTin()
+    +getBirthdate()
+    +getPhoneNumber()
+    +getSex()
+    +getEmail()
+    +getAddress()
+}
+class ClinicalTestDto {
+    +getNhsCode()
+    +getClient()
+    +getTypeOfTest()
+    +getParameterList()
+    +getLabWhereCreated()
+    +getRegistDateHour()
+    +getChemicalDateHour()
+    +getSDoctorDateHour()
+    +getValidationDateHour()
+}
+}
+}
+
+ImportTestFromCsvUI ..> ImportTestFromCsvController
+ImportTestFromCsvController ..> Company
+ImportTestFromCsvController ..> ClientDTO
+ImportTestFromCsvController ..> ClientStore
+ImportTestFromCsvController ..> TypeOfTestStore
+ImportTestFromCsvController ..> TypeOfTest
+ImportTestFromCsvController ..> ParameterStore
+ImportTestFromCsvController ..> TestStore
+ImportTestFromCsvController ..> ClinicalTest
+ClientStore"1" --> "*"Client : stores
+TestStore"1" --> "*"ClinicalTest : stores
+TypeOfTestStore"1" --> "*"TypeOfTest : stores
+
+Company"1" --> "1"TestStore : uses
+Company"1" --> "1"ParameterStore : uses
+Company"1" --> "1"TypeOfTestStore : uses
+Company"1" --> "1"ClientStore: uses
+Company"1" --> "1"ClinicalAnalysisLaboratoryStore: uses
+Company"1" --> "*"Client : knows
+Company"1" --> "*"ClinicalTest : performs
+Company"1" --> "*"TypeOfTest : conducts
+Client .up.> ClientDTO
+ClinicalTest .up.> ClinicalTestDto
+
+@enduml

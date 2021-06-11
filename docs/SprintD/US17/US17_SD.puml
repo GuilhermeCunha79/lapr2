@@ -13,8 +13,9 @@ participant ":TypeOfTestStore" as TTS
 participant ":ClientDTO" as CDTO
 participant ":TypeOfTest" as TT
 participant ":ParameterStore" as PS
-participant ":ClinicalTestDto" as TDTO
 participant ":ClinicalTest" as CT
+participant ":ClinicalTestDto" as TDTO
+participant ":ClinicalAnalysisStore" as LS
 
 
 
@@ -48,11 +49,43 @@ loop while there are more lines in the file
 activate CTRL
 CTRL -> CTRL : lab = checkLab(labId)
 activate CTRL
+CTRL -> LS : checkLab(labId)
+activate LS
+deactivate LS
 deactivate CTRL
 CTRL -> CTRL : client = registerClient(clientData)
 activate CTRL
 CTRL -> CDTO** : clientDTO = createClientDTO(name, citizenCardNumber, nhsNumber, tin, birthDate, phoneNumber, email, address)
-CTRL -> C** : client = newClient(clientDTO)
+CTRL -> CS : client = newClient(clientDTO)
+activate CS
+CS -> C** : newClient(dto)
+activate C
+C -> CDTO : getName()
+activate CDTO
+deactivate CDTO
+C -> CDTO : getCitizenCardNumber()
+activate CDTO
+deactivate CDTO
+C -> CDTO : getNhsNumber()
+activate CDTO
+deactivate CDTO
+C -> CDTO : getTin()
+activate CDTO
+deactivate CDTO
+C -> CDTO : getBirthdate()
+activate CDTO
+deactivate CDTO
+C -> CDTO : getPhoneNumber()
+activate CDTO
+deactivate CDTO
+C -> CDTO : getEmail()
+activate CDTO
+deactivate CDTO
+C -> CDTO : getAddress()
+activate CDTO
+deactivate CDTO
+deactivate C
+deactivate CS
 opt if client doesn't exist
 CTRL -> CS : saveClient(client)
 activate CS
@@ -86,6 +119,35 @@ CTRL -> TDTO** : testDto = createClinicalTestDTO(nhsCode, client, typeOfTest, pa
 CTRL -> TS : createTestWithDates(testDto)
 activate TS
 TS -> CT** : create(testDto, testCount)
+activate CT
+CT -> TDTO : getNhsCode()
+activate TDTO
+deactivate TDTO
+CT -> TDTO : getClient()
+activate TDTO
+deactivate TDTO
+CT -> TDTO : getTypeOfTest()
+activate TDTO
+deactivate TDTO
+CT -> TDTO : getParameterList()
+activate TDTO
+deactivate TDTO
+CT -> TDTO : getLabWhereCreated()
+activate TDTO
+deactivate TDTO
+CT -> TDTO : getRegistDateHour()
+activate TDTO
+deactivate TDTO
+CT -> TDTO : getChemicalDateHour()
+activate TDTO
+deactivate TDTO
+CT -> TDTO : getSDoctorDateHour()
+activate TDTO
+deactivate TDTO
+CT -> TDTO : getValidationDateHour()
+activate TDTO
+deactivate TDTO
+deactivate CT
 deactivate TS
 deactivate CTRL
 CTRL -> TS : saveTest(test)

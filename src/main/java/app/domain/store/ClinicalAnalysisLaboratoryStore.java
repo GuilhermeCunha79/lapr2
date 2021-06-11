@@ -81,6 +81,14 @@ public class ClinicalAnalysisLaboratoryStore implements Serializable {
         return new ArrayList<>(laboratoryList);
     }
 
+    public ClinicalAnalysisLaboratory checkLab(String labId) {
+        for (ClinicalAnalysisLaboratory lab : laboratoryList) {
+            if (lab.getLaboratoryID().equals(labId))
+                return lab;
+        }
+        return null;
+    }
+
     public void setCALabList(List<ClinicalAnalysisLaboratory> lCALabs) {
         this.laboratoryList = new ArrayList<>(lCALabs);
     }
