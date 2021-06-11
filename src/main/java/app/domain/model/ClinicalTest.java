@@ -3,6 +3,7 @@ package app.domain.model;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
 import app.domain.shared.DateTime;
+import app.mappers.dto.ClinicalTestDto;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -11,25 +12,26 @@ import java.util.List;
 
 public class ClinicalTest implements Serializable {
     private static final int NHS_CODE = 12;
-    private final String labWhereCreated;
+    private String labWhereCreated;
+    private DateTime createdAt;
     private DateTime chemicalAnalysisDate;
     private DateTime validationDate;
-    private final Client client;
+    private Client client;
     private TypeOfTest typeOfTest;
-    private final DateTime createdAt;
-    private final String internalCode;
+    private String internalCode;
     private String nhsCode;
+
     private boolean sampleDone;
     private boolean reportDone;
     private boolean resultDone;
     private boolean validationDone;
+
     private Report report;
-    private final List<TestParameter> testParametersList = new ArrayList<>();
-    private final List<ClinicalTest> testReadyToVal = new ArrayList<>();
+    private List<TestParameter> testParametersList = new ArrayList<>();
+    private List<ClinicalTest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
     private List<ClinicalTest> testClient;
     private List<Sample> sampleList;
-
 
 
     /***
@@ -46,16 +48,39 @@ public class ClinicalTest implements Serializable {
         this.typeOfTest = typeOfTest;
         this.createdAt = new DateTime();
         this.internalCode = generateInternalCode(testCount);
-        this.client = client;
         setNhsCode(nhsCode);
         setTypeOfTest(typeOfTest);
         setParameterList(parameterList);
         createTestParameterList();
     }
 
+    /**
+     * Complete constructor for when a test is created via an CSV file
+     * @param testDto with all the test data
+     * @param testCount number of tests already registered in the system
+     */
+    public ClinicalTest(ClinicalTestDto testDto, int testCount) {
+        this.labWhereCreated = testDto.getLabWhereCreated();
+        setClient(testDto.getClient());
+        this.typeOfTest = testDto.getTypeOfTest();
+        this.createdAt = testDto.getRegistDateHour();
+        this.sampleDone = true;
+        this.chemicalAnalysisDate = testDto.getChemicalDateHour();
+        this.resultDone = true;
+        this.report = new Report(testDto.getsDoctorDateHour());
+        this.reportDone = true;
+        this.validationDate = testDto.getValidationDateHour();
+        this.validationDone = true;
+        this.internalCode = generateInternalCode(testCount);
+        setNhsCode(testDto.getNhsCode());
+        setTypeOfTest(testDto.getTypeOfTest());
+        setParameterList(testDto.getParameterList());
+        createTestParameterList();
+    }
+
 
     private void createTestParameterList() {
-        for (Parameter p : parameterList){
+        for (Parameter p : parameterList) {
             testParametersList.add(new TestParameter(p));
         }
     }
@@ -119,6 +144,7 @@ public class ClinicalTest implements Serializable {
     public void setClient(Client client) {
         if (client == null)
             throw new NullPointerException(Constants.STRING_CLIENT + Constants.STRING_NULL_EXEPT);
+        this.client = client;
     }
 
     /***
@@ -204,6 +230,7 @@ public class ClinicalTest implements Serializable {
 
     /**
      * This method ensures that its not possible to add the same parameter twice
+     *
      * @param parameter to add
      * @return if it's duplicated or not
      */
@@ -302,7 +329,6 @@ public class ClinicalTest implements Serializable {
         }
         return results;
     }
-
 
 
     /**
@@ -427,9 +453,9 @@ public class ClinicalTest implements Serializable {
     }
 
 
-
     /**
      * This method compares two tests and returns if they are the same or not
+     *
      * @param o object to compare with
      * @return the result of the comparison
      */

@@ -7,11 +7,6 @@ import static org.junit.Assert.*;
 
 public class ReportTest {
 
-    @Test(expected = NullPointerException.class)
-    public void ensureItsNotPossibleToAddNullReportText(){
-        new Report(null);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void ensureItsNotPossibleToAddBlankReportText(){
         new Report("");

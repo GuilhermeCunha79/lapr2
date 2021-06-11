@@ -6,6 +6,7 @@ import app.domain.model.Parameter;
 import app.domain.model.TypeOfTest;
 import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
+import app.mappers.dto.ClinicalTestDto;
 import app.ui.console.utils.Utils;
 
 import java.io.Serializable;
@@ -42,6 +43,16 @@ public class TestStore implements Serializable {
      */
     public ClinicalTest createTest(String nhsCode, Client client, TypeOfTest typeOfTest, List<Parameter> lParameter, String labWhereCreated) {
         this.test = new ClinicalTest(nhsCode, client, typeOfTest, lParameter, labWhereCreated, this.testList.size() + 1);
+        return this.test;
+    }
+
+    /**
+     * Method to create tests from a csv file as they already come with all the dates/hours and results
+     * @param dto
+     * @return
+     */
+    public ClinicalTest createTestWithDates (ClinicalTestDto dto) {
+        this.test = new ClinicalTest(dto, testList.size()+1);
         return this.test;
     }
 
@@ -134,7 +145,7 @@ public class TestStore implements Serializable {
         List<ClinicalTest> lTestNoReport = new ArrayList<>();
         if (!testList.isEmpty()) {
             for (ClinicalTest clinicalTest : testList) {
-                if (!clinicalTest.getReportStatus())
+                if (!clinicalTest.getReportStatus() && !clinicalTest.getResultStatus())
                     lTestNoReport.add(clinicalTest);
             }
             if (lTestNoReport.isEmpty())
