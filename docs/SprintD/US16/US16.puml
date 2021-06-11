@@ -1,0 +1,6 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+:Lab Coordinator: --> (UC16 - Have an overview of all the tests\n performed by Many Labs and analyse the overall\n performance of the company)
+
+@enduml

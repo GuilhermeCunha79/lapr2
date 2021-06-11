@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="311.25px" preserveAspectRatio="none" style="width:552px;height:311px;background:#FFFFFF;" version="1.1" viewBox="0 0 552 311" width="552.5px" zoomAndPan="magnify"><defs><filter height="300%" id="f9ffau2tfwe1a" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[c34910b5b5d0153d9876ce005d1b0a8f]
+entity Lab Coordinator--><ellipse cx="272.5" cy="17.5" fill="#FEFECE" filter="url(#f9ffau2tfwe1a)" rx="10" ry="10" style="stroke:#A80036;stroke-width:1.875;"/><path d="M272.5,27.5 L272.5,61.25 M256.25,37.5 L288.75,37.5 M272.5,61.25 L256.25,80 M272.5,61.25 L288.75,80 " fill="none" filter="url(#f9ffau2tfwe1a)" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="128.75" x="208.125" y="105.0415">Lab Coordinator</text><ellipse cx="272.5166" cy="240.3783" fill="#FEFECE" filter="url(#f9ffau2tfwe1a)" rx="265.0166" ry="56.0033" style="stroke:#A80036;stroke-width:1.875;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="313.75" x="115.6416" y="223.0273">UC16 - Have an overview of all the tests</text><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="385" x="82.5166" y="245.039">performed by Many Labs and analyse the overall</text><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="226.25" x="161.8916" y="267.0507">performance of the company</text><!--MD5=[857f8a28dee1492fbd197497a4ba3c04]
+link Lab Coordinator to UC16 - Have an overview of all the tests\n performed by Many Labs and analyse the overall\n performance of the company--><path d="M272.5,109.55 C272.5,130.6375 272.5,155.3 272.5,177.4375 " fill="none" id="Lab Coordinator-to-UC16 - Have an overview of all the tests\n performed by Many Labs and analyse the overall\n performance of the company" style="stroke:#A80036;stroke-width:1.25;"/><polygon fill="#A80036" points="272.5,184.2125,277.5,172.9625,272.5,177.9625,267.5,172.9625,272.5,184.2125" style="stroke:#A80036;stroke-width:1.25;"/><!--MD5=[f859c16bd3b3eedffa17fcb2ca81cdcf]
+@startuml
+'https://plantuml.com/use-case-diagram
+
+:Lab Coordinator: - -> (UC16 - Have an overview of all the tests\n performed by Many Labs and analyse the overall\n performance of the company)
+
+@enduml
+
+@startuml
+
+:Lab Coordinator: - -> (UC16 - Have an overview of all the tests\n performed by Many Labs and analyse the overall\n performance of the company)
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 13:40:07 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

@@ -1,0 +1,31 @@
+@startuml
+hide methods
+
+class Company {
+    -description
+}
+
+class ClinicalTest {
+    -labWereCreated
+    -internalCode
+    -nhsCode
+}
+
+class Performance {
+    -labWereCreated
+    -internalCode
+    -nhsCode
+}
+
+class DateTime {
+    -date
+    -time
+}
+
+
+Company"1" -- "*"ClinicalTest : > performs
+ClinicalTest"1" -- "*"Performance : < checks tests
+Performance"1" -- "*"DateTime : > has interval of
+
+
+@enduml
