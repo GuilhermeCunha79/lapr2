@@ -35,7 +35,7 @@ public class Performance {
     }
 
     public List<List<ClinicalTest>> intervalTime(List<ClinicalTest> clinicalTests, DateTime initialDate, DateTime endDate) {
-        Date initialIntervalDate = new Date(initialDate.getDate());
+        Date initialIntervalDate;
         Date backupInitialIntervalDate = new Date(initialDate.getDate());
         Date endIntervalDate = new Date(initialDate.getDate());
         Date initialIntervalTime = new Date(initialDate.getTime());
@@ -50,9 +50,9 @@ public class Performance {
         for (initialIntervalDate = new Date(initialDate.getDate());
              initialIntervalDate.before(endIntervalDate);
              initialIntervalDate.setDate(initialIntervalDate.getDay() + 1)) {
-            for (initialIntervalTime = new Date(initialDate.getTime());
+            for (initialIntervalTime = new Date(initialIntervalTime.getTime());
                  initialIntervalTime.before(endWorkingDay);
-                 initialIntervalTime.setTime(initialIntervalDate.getMinutes() + 30)) {
+                 initialIntervalTime.setTime(initialIntervalTime.getMinutes() + 30)) {
 
                 actualHour = new Date("08:00");
                 if (backupInitialIntervalDate != initialIntervalDate && initialIntervalDate != endIntervalDate) {
@@ -76,64 +76,22 @@ public class Performance {
 
     public GraphicsContext bruteForceAlgorithm(List<ClinicalTest> clinicalTests, DateTime inicialDate, DateTime endDate) {
 
-        intervalTime(clinicalTests, inicialDate, endDate);
+        List<List<ClinicalTest>> sortedClinicalTests= intervalTime(clinicalTests, inicialDate, endDate);
 
-        for (int i = 0; i <= intervalTime.size() - 3; i++) {
-            for (int j = i + 1; j <= intervalTime.size() - 2; ) {
-                for (int k = i + 2; k <= intervalTime.size() - 1; ) {
-                    for (int l = i + 3; l <= intervalTime.size(); ) {
-                        possibleBestPerformance.clear();
-                        possibleSum = 0;
+        for(List<ClinicalTest> list : sortedClinicalTests) {
+            possibleSum = 0;
+            possibleBestPerformance.clear();
 
-                        if (bestPerformance.isEmpty()) {
-                            bestPerformance.add(clinicalTests.get(i));
-                            bestPerformance.add(clinicalTests.get(j));
-                            bestPerformance.add(clinicalTests.get(k));
-                            bestPerformance.add(clinicalTests.get(l));
+            for (ClinicalTest test : list){
 
-                            if (clinicalTests.get(i).getValidationStatus()) {
-                                bestSum++;
-                            }
+                if(test.getValidationStatus()){
+                    possibleBestPerformance.add(test);
+                    possibleSum++;
+                }
 
-                            if (clinicalTests.get(j).getValidationStatus()) {
-                                bestSum++;
-                            }
-
-                            if (clinicalTests.get(k).getValidationStatus()) {
-                                bestSum++;
-                            }
-
-                            if (clinicalTests.get(l).getValidationStatus()) {
-                                bestSum++;
-                            }
-                        }
-                        possibleBestPerformance.add(clinicalTests.get(i));
-                        possibleBestPerformance.add(clinicalTests.get(j));
-                        possibleBestPerformance.add(clinicalTests.get(k));
-                        possibleBestPerformance.add(clinicalTests.get(l));
-
-                        if (clinicalTests.get(i).getValidationStatus()) {
-                            possibleSum++;
-                        }
-
-                        if (clinicalTests.get(j).getValidationStatus()) {
-                            possibleSum++;
-                        }
-
-                        if (clinicalTests.get(k).getValidationStatus()) {
-                            possibleSum++;
-                        }
-
-                        if (clinicalTests.get(l).getValidationStatus()) {
-                            possibleSum++;
-                        }
-
-                        if (bestSum < possibleSum) {
-                            bestPerformance = possibleBestPerformance;
-                            bestSum = possibleSum;
-                        }
-
-                    }
+                if(bestSum<possibleSum){
+                    bestSum = possibleSum;
+                    bestPerformance = possibleBestPerformance;
                 }
             }
         }
