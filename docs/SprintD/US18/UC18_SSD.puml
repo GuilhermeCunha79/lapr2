@@ -15,11 +15,7 @@ activate ":System"
 deactivate ":System"
 Ad --> ":System" : imput the interval of time
 activate ":System"
-":System" --> Ad : Ask if want a simple or complex
-deactivate ":System"
-Ad -> ":System" : select one of the options
-activate ":System"
-":System" --> Ad : Ask (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
+":System" --> Ad : Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
 deactivate ":System"
 Ad -> ":System" : select one of the options
 activate ":System"
