@@ -1,0 +1,81 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+hide methods
+
+class Administrator
+
+
+class ClinicalTest {
+    -labWereCreated
+    -internalCode
+    -nhsCode
+}
+
+class Client {
+    -name
+    -nhsNumber
+    -tin
+    -citizenCardNumber
+    -birthdate
+    -sex
+    -phoneNumber
+    -email
+}
+
+class DateTime {
+    -date
+    -time
+}
+
+class TestParameter{
+}
+
+class Parameter {
+    -shortName
+    -code
+    -description
+}
+
+class TestParameterResult {
+    -value
+    -metric
+}
+
+class ReferenceValue {
+    -maxValue
+    -minValue
+    -metric
+}
+
+class Company {
+    -description
+}
+
+class TypeOfTest {
+    -code
+    -description
+    -collectingMethod
+}
+
+Company"1" -- "*"ClinicalTest : > performs
+Company"1" -- "*"Client : > knows
+ClinicalTest"*" -left- "*"TestParameter : > request analysis of
+TestParameter"1" -- "0..1"TestParameterResult : > contains
+TestParameterResult"1" -right- "1"ReferenceValue : > has
+ClinicalTest"1" -right- "1"DateTime : > validated at
+ClinicalTest"1" -right- "1"DateTime : > results recorded at
+ClinicalTest"1" -right- "1"DateTime : > report saved at
+ClinicalTest"1" -right- "1"DateTime : > created at
+ClinicalTest"1" -right- "1"DateTime : > report send at
+TestParameter"1" -up- "1"Parameter : > analyses
+ClinicalTest"1..*" -up- "*"Client : < asks for
+Company"1" -- "*"Parameter : > capable of analysing
+ClinicalTest"*" -- "1"TypeOfTest : > is of
+Company"1" -- "*"TypeOfTest : > conducts
+Administrator"1" -- "1"ClinicalTest : > Get result
+Administrator"1" -- "1"Client : > Get birthdate
+
+
+
+@enduml

@@ -4,47 +4,44 @@
 autonumber
 
 actor "Administrator" as Ad
-participant "SendReport:UI" as UI
+participant ":SendReportUI" as UI
 participant ":SendReportController" as CTRL
 participant "comp\n:Company" as COMP
 
 
-participant "NHS" as  N
+
 
 participant "testStore: TestStore" as TSTORE
 
 participant "RegressionModel" as SAMPLE
 participant "testMap:TestMapper" as TMAPPER
-
+participant "NHS" as  N
 activate Ad
 Ad--> UI : start the report
-activate ":System"
-":System"--> Ad : Ask for to select the time measure(days or weeks)
-deactivate ":System"
-Ad --> ":System" : select measure
-activate ":System"
-":System"--> Ad : Ask for the interval of time
-deactivate ":System"
-Ad --> ":System" : imput the interval of time
-activate ":System"
-":System" --> Ad : Ask if want a simple or complex
-deactivate ":System"
-Ad -> ":System" : select one of the options
-activate ":System"
-":System" --> Ad : Ask (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
-deactivate ":System"
-Ad -> ":System" : select one of the options
-activate ":System"
-":System" --> Ad : Ask to fill the values of the variables
-deactivate ":System"
-Ad -> ":System" : Fill variables values
-activate ":System"
-":System" --> Ad : Show the report and with the regression model and ask for confirmation
-deactivate ":System"
-Ad -> ":System" :  confirms the data
-activate ":System"
-":System" --> Ad : informs operation success and sent to the NHS
-deactivate ":System"
+activate "UI"
+
+"UI"--> Ad : Ask for to select the time measure(days or weeks)
+deactivate "UI"
+Ad --> "UI" : select measure
+activate "UI"
+"UI"--> Ad : Ask for the interval of time
+deactivate "UI"
+Ad --> "UI" : imput the interval of time
+activate "UI"
+"UI" --> Ad : Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
+deactivate "UI"
+Ad -> "UI" : select the options of the options
+activate "UI"
+"UI" --> Ad : Ask to fill the values of the variables
+deactivate "UI"
+Ad -> "UI" : Fill variables values
+activate "UI"
+"UI" --> Ad : Show the report and with the regression model and ask for confirmation
+deactivate "UI"
+Ad -> "UI" :  confirms the data
+activate "UI"
+"UI" --> Ad : informs operation success and sent to the NHS
+deactivate "UI"
 
 deactivate Ad
 @enduml
