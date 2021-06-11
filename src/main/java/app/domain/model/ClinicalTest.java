@@ -8,9 +8,10 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-public class ClinicalTest implements Serializable {
+public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
     private static final int NHS_CODE = 12;
     private String labWhereCreated;
     private DateTime createdAt;
@@ -438,6 +439,15 @@ public class ClinicalTest implements Serializable {
             return validationDone = true;
         }
         return false;
+    }
+
+    @Override
+    public int compareTo(ClinicalTest o1) {
+        Date thisDate = new Date(this.getValidationDate().toString());
+        Date o1Date = new Date(o1.getValidationDate().toString());
+        if (o1Date == null || thisDate == null)
+            return 0;
+        return o1Date.compareTo(thisDate);
     }
 
 
