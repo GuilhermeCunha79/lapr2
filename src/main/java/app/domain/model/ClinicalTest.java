@@ -445,8 +445,6 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
     public int compareTo(ClinicalTest o1) {
         Date thisDate = new Date(this.getValidationDate().toString());
         Date o1Date = new Date(o1.getValidationDate().toString());
-        if (o1Date == null || thisDate == null)
-            return 0;
         return o1Date.compareTo(thisDate);
     }
 
