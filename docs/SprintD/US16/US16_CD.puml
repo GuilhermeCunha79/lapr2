@@ -7,11 +7,7 @@ class PerformanceUI{
 }
 package Controller {
 class PerformanceController {
-  + getTestsWithoutValidation()
-  + saveValidation()
-  + getTestValidationList()
-  +getTestResults(code)
-  +doValidation(testValidationList)
+  + newPerformance()
 }
 }
 

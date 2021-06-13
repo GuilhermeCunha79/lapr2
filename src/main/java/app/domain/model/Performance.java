@@ -19,6 +19,10 @@ public class Performance {
     private int bestSum = 0;
     private int possibleSum = 0;
 
+    public Performance(DateTime inicialDate, DateTime endDate) {
+        this.statistic = bruteForceAlgorithm(inicialDate, endDate);
+    }
+
     public Performance() {
 
     }
