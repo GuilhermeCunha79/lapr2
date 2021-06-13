@@ -1,0 +1,71 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package UI {
+class PerformanceUI{
+}
+}
+package Controller {
+class PerformanceController {
+  + getTestsWithoutValidation()
+  + saveValidation()
+  + getTestValidationList()
+  +getTestResults(code)
+  +doValidation(testValidationList)
+}
+}
+
+package Domain {
+package Model {
+class ClinicalTest {
+  - Client client
+  - List parameterList
+  - Date createdAt
+  - String internalCode
+  - Report report
+  + addValidation()
+  +changeStateValidationToDone()
+}
+
+class Company {
+  - String designation
+  + Company(designation)
+  + getTestStore()
+}
+
+class Performance {
+  +intervalTime(List<ClinicalTest> clinicalTests,\n DateTime initialDate, DateTime endDate)
+  +bruteForceAlgorithm(List<ClinicalTest> clinicalTests,\n DateTime inicialDate, DateTime endDate)
+}
+
+class Parameter{
+- Date createdAt
+  + getCreatedAt()
+}
+class Report {
+  - Date createdAt
+  + getCreatedAt()
+}
+
+}
+package Store {
+class PerformanceStore {
+    + savePerformances()
+    + getPerformanceByDate(date)
+}
+}
+
+}
+
+PerformanceUI ..> PerformanceController
+
+PerformanceController ..> PerformanceStore
+PerformanceController ..> Company
+PerformanceController ..> ClinicalTest
+Company "1" -> "*"ClinicalTest :perform
+Performance "1" -> "1" PerformanceStore : use
+
+ClinicalTest <-- Report
+ClinicalTest <-- Parameter
+
+@enduml

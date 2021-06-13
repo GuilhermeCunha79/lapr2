@@ -3,6 +3,7 @@ package app.domain.model;//This file is an example on how to use the benchmark
 
 
 import app.domain.shared.DateTime;
+import app.domain.store.TestStore;
 import com.isep.mdis.Sum;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -74,7 +75,10 @@ public class Performance {
     }
 
 
-    public GraphicsContext bruteForceAlgorithm(List<ClinicalTest> clinicalTests, DateTime inicialDate, DateTime endDate) {
+    public GraphicsContext bruteForceAlgorithm(DateTime inicialDate, DateTime endDate) {
+        TestStore tStore = new TestStore();
+
+        List<ClinicalTest> clinicalTests = tStore.getTestList();
 
         List<List<ClinicalTest>> sortedClinicalTests= intervalTime(clinicalTests, inicialDate, endDate);
 

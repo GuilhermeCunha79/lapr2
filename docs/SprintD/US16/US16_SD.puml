@@ -1,0 +1,39 @@
+@startuml
+autonumber
+'hide footbox
+actor "Lab Coordinator" as LC
+
+participant ":PerformanceUI" as UI
+participant ":PerformanceController" as CTRL
+participant ":Performance" as P
+participant "store:ClinicalTestStore" as CTS
+participant "store:PerformanceStore" as PS
+
+
+LC -> UI : wants to generate and view the statistics of a certain period
+activate UI
+    UI -> CTRL : see the methods available to make the requested operation
+    activate CTRL
+    deactivate CTRL
+    CTRL --> UI : returns the methods
+
+    deactivate CTRL
+    UI --> LC : shows the available options of methods \n and asks the lab coordinator to pick one
+deactivate UI
+LC -> UI : select the algorithm method
+activate UI
+LC <-- UI : asks for the beginning date and\n the end date of the desired interval time
+    UI->CTRL : newPerformance (beginTime, endTime)
+    activate CTRL
+    deactivate CTRL
+    CTRL->P : bruteforceAlgorithm (beginTime, endTime)
+    activate P
+    P->CTS: getTestList()
+    P->P : intervalTime(clinicalTests, inicialDate, endDate)
+
+    P -> PS : savePerformance()
+    deactivate P
+
+UI --> LC : shows the statistics and overall performance on the interval time
+deactivate UI
+@enduml
