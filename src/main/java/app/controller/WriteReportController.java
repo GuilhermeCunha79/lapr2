@@ -35,9 +35,8 @@ public class WriteReportController {
      */
     public List<String> getTestWithoutReport(){
         List<ClinicalTest> lTestNoReport = testStore.getTestWithoutReport();
-        if(lTestNoReport != null) {
-            TestListMapper tlm = new TestListMapper();
-            return tlm.toDto(lTestNoReport);
+        if(!lTestNoReport.isEmpty()) {
+            return TestListMapper.toDto(lTestNoReport);
         }
         return null;
     }

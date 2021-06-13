@@ -44,8 +44,8 @@ public class ParameterCategoryTest {
      * Tests for name's acceptance criteria
      */
     @Test(expected = IllegalArgumentException.class)
-    public void ensureNameCannotHaveMoreThan10Char() {
-        new ParameterCategory("12012", "hemograms12");
+    public void ensureNameCannotHaveMoreThan15Char() {
+        new ParameterCategory("12012", "hemograms1221441");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -96,7 +96,7 @@ public class ParameterCategoryTest {
     @Test
     public void checkToStringMethod(){
         ParameterCategory pc = new ParameterCategory("12012", "hemograms");
-        String expected = String.format("Parameter Category -> Name: hemograms | Code: 12012 |%n");
+        String expected = String.format("Parameter Category -> Code: 12012 | Name: hemograms |%n");
         assertEquals(expected, pc.toString());
     }
 

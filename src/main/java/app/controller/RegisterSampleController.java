@@ -44,9 +44,8 @@ public class RegisterSampleController {
      */
     public List<String> getTestWithoutSample() {
         List<ClinicalTest> lTestNoSample = testStore.getTestWithoutSample();
-        if (lTestNoSample != null) {
-            TestListMapper tlm = new TestListMapper();
-            return tlm.toDto(lTestNoSample);
+        if (!lTestNoSample.isEmpty()) {
+            return TestListMapper.toDto(lTestNoSample);
         }
         return null;
     }

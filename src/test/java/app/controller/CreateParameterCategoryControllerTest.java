@@ -44,8 +44,8 @@ public class CreateParameterCategoryControllerTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureNameCannotHaveMoreThan10Char() {
-        ctrl.createNewParameterCategory("12012", "hemograms12");
+    public void ensureNameCannotHaveMoreThan15Char() {
+        ctrl.createNewParameterCategory("12012", "hemogr8ams176572");
     }
 
     @Test

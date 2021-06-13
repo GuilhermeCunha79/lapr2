@@ -10,8 +10,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class MappersTest {
 
@@ -23,8 +22,8 @@ public class MappersTest {
         lpc.add(pc);
         lpc.add(pc2);
         List<String> expected = new ArrayList<>();
-        expected.add(String.format("Parameter Category -> Name: abcd | Code: 12345 |%n"));
-        expected.add(String.format("Parameter Category -> Name: adaca | Code: 54321 |%n"));
+        expected.add(String.format("Parameter Category -> Code: 12345 | Name: abcd |%n"));
+        expected.add(String.format("Parameter Category -> Code: 54321 | Name: adaca |%n"));
         assertEquals(expected, ParameterCategoryMapper.toDTO(lpc));
     }
 
@@ -56,7 +55,7 @@ public class MappersTest {
     @Test
     public void testMapperWithoutParameters() {
         List<Parameter> lp = new ArrayList<>();
-        assertNotNull(ParameterMapper.toDto(lp));
+        assertNull(ParameterMapper.toDto(lp));
     }
 
     @Test
@@ -64,7 +63,7 @@ public class MappersTest {
         ParameterCategory pc1 = new ParameterCategory("54321", "adaca");
         TypeOfTest tpt = new TypeOfTest("12345", "noth", "mao", pc1);
         TypeOfTest tpt1 = new TypeOfTest("12345", "noteh", "mapo", pc1);
-        ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt");
+        ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt", "street 32");
         Parameter p1 = new Parameter("12345", "abcd", "adsavaa", pc1);
         Parameter p2 = new Parameter("45345", "adsfa", "asdfsdfsd", pc1);
         List<Parameter> lp = new ArrayList<>();
@@ -89,7 +88,7 @@ public class MappersTest {
         ParameterCategory pc1 = new ParameterCategory("54321", "adaca");
         TypeOfTest tpt = new TypeOfTest("12345", "noth", "mao", pc1);
         TypeOfTest tpt1 = new TypeOfTest("12345", "noteh", "mapo", pc1);
-        ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt");
+        ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt", "street 0");
         Parameter p1 = new Parameter("12345", "abcd", "adsavaa", pc1);
         Parameter p2 = new Parameter("45345", "adsfa", "asdfsdfsd", pc1);
         List<Parameter> lp = new ArrayList<>();
@@ -113,12 +112,12 @@ public class MappersTest {
 
     @Test
     public void testClientMapper(){
-        ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt");
+        ClientDTO clDto = new ClientDTO("maria", "1234567890123456", "1234567890", "1234567890", "23/12/2002", "male", "12345678901", "gui@isep.pt", "street 43");
         Client client = new Client(clDto);
         List<Client> cat = new ArrayList<>();
         cat.add(client);
         List<String> expected = new ArrayList<>();
-        expected.add(String.format("%nClient:%nName: maria%nCitizen Card Number: 1234567890123456%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/2002%nSex: male%nPhone number: 12345678901%nEmail: gui@isep.pt%n%n"));
+        expected.add(String.format("%nClient:%nName: maria%nCitizen Card Number: 1234567890123456%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/2002%nSex: male%nPhone number: 12345678901%nEmail: gui@isep.pt%nAddress: street 43%n"));
         assertEquals(expected, ClientMapper.toDTOClient(cat));
     }
 

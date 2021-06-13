@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #EFF1F3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.AdminMenuUI">
+   <center>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="200.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="newPCategoryBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#startPCategoryCreationUI" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Add new parameter category" textFill="#575757" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="newParameterBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#startParameterCreationUI" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Add new parameter" textFill="#575757">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="newTestTypeBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#startNewTestTypeCreationUI" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Create new test type" textFill="#575757">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="newCALabBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#startNewCALabCreationUI" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Register new clinical analysis laboratory" textFill="#575757">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="newEmployeeBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#startNewEmployeeRegistrationUI" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Register new employee" textFill="#575757">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Not Assigned" textFill="#575757">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="mainMenuBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnToLoginUI" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Main Menu" textFill="WHITE" VBox.vgrow="NEVER">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="50.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <top>
+      <Label contentDisplay="CENTER" prefHeight="57.0" prefWidth="452.0" text="Administrator Menu" textAlignment="CENTER" textFill="#575757" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="70.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="Segoe UI Bold" size="47.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>

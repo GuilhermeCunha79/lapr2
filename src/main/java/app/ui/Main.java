@@ -1,36 +1,47 @@
 package app.ui;
 
-import app.ui.console.MainMenuUI;
+
+import app.ui.gui.LoginUI;
+import javafx.animation.PauseTransition;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
+
+
 /**
- *
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
-public class Main {
+public class Main extends Application {
 
-    public static void main(String[] args)
-    {
+    private Stage stage;
 
-        try
-        {
+    public static void main(String[] args) {
+        /*try {
             MainMenuUI menu = new MainMenuUI();
 
             menu.run();
-        }
-        catch( Exception e )
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-
-         /*
+        }*/
         launch(args);
-        */
     }
-/*
-    @Override
+
+    public Stage getStage() {
+        return stage;
+    }
+
     public void start(Stage stage) {
+        this.stage = stage;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LoadingScreen.fxml"));
             Parent root = loader.load();
@@ -38,13 +49,13 @@ public class Main {
             Scene scene = new Scene(root);
             //scene.getStylesheets().add("/styles/Styles.css");
 
-            stage.setTitle("Many Labs");
-            stage.setScene(scene);
+            this.stage.setTitle("Many Labs");
+            this.stage.setScene(scene);
 
             stage.setOnCloseRequest(event -> {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
-                alert.setTitle("App");
+                alert.setTitle("Many Labs");
                 alert.setHeaderText("Action Confirmation");
                 alert.setContentText("Sure you want to exit?");
 
@@ -55,21 +66,43 @@ public class Main {
                     event.consume();
                 }
             });
-            stage.show();
+            this.stage.show();
+            PauseTransition delay = new PauseTransition(Duration.seconds(3));
+            delay.setOnFinished(event -> {
+                try {
+                    LoginUI loginUI = (LoginUI) changeStageContent("/fxml/LoginScreen.fxml");
+                    loginUI.setMainApp(this);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+            delay.play();
         } catch (IOException e) {
             errorAlert(e).show();
         }
     }
 
-    private Alert errorAlert(Exception e) {
+    public Initializable changeStageContent(String fxml)  {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            this.stage.setScene(scene);
+            return loader.getController();
+        } catch (IOException e) {
+            errorAlert(e).show();
+            return null;
+        }
+    }
+
+
+    public Alert errorAlert(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
 
-        alert.setTitle("App");
+        alert.setTitle("Many Labs");
         alert.setHeaderText("App launch error.");
         alert.setContentText(e.getMessage());
 
         return alert;
     }
-
- */
 }

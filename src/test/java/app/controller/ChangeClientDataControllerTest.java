@@ -10,13 +10,13 @@ import static org.junit.Assert.*;
 public class ChangeClientDataControllerTest {
 
     ChangeClientDataController ctrl = new ChangeClientDataController();
-    ClientDTO dto = new ClientDTO("Tomás", "1234567890123455", "1234567890", "1234567890", "23/12/2000", "male", "12345678901", "tomas@isep.ipp.pt");
+    ClientDTO dto = new ClientDTO("Tomás", "1234567890123455", "1234567890", "1234567890", "23/12/2000", "male", "12345678901", "tomas@isep.ipp.pt", "street 21");
     Client client = new Client(dto);
 
     @Test
     public void testShowData() {
 
-        String expected = String.format("%nClient:%nName: Tomás%nCitizen Card Number: 1234567890123455%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/2000%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt%n%n");
+        String expected = String.format("%nClient:%nName: Tomás%nCitizen Card Number: 1234567890123455%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/2000%nSex: male%nPhone number: 12345678901%nEmail: tomas@isep.ipp.pt%nAddress: street 21%n");
         assertEquals(expected, ctrl.showData(client));
     }
 

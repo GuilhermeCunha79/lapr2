@@ -4,7 +4,7 @@ import app.controller.RegisterNewClinicalAnalysisLaboratoryController;
 import app.ui.console.utils.Utils;
 import java.util.List;
 
-public class RegisterNewClinicalAnalysisUI implements Runnable {
+public class RegisterNewClinicalAnalysisLabUI implements Runnable {
 
     private RegisterNewClinicalAnalysisLaboratoryController ctrl;
 
