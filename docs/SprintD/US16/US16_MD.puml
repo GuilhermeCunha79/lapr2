@@ -12,9 +12,7 @@ class ClinicalTest {
 }
 
 class Performance {
-    -labWereCreated
-    -internalCode
-    -nhsCode
+    -GraphicsContext graphic
 }
 
 class DateTime {
