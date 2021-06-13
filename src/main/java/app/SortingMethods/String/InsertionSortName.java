@@ -1,7 +1,6 @@
 package app.SortingMethods.String;
 
 import app.domain.model.Client;
-//import app.mappers.dto.ClientDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +51,20 @@ public class InsertionSortName {
                 arr3.add(client6);
 
                 sorter.displaySortedList(arr3);
+
+                public void displaySortedList(List<Client> clientList) {
+
+        String[] sorted = insertionSort(clientList);
+        List<Client> arr3 = new ArrayList<>();
+        for (String name : sorted) {
+            for (Client client1 : clientList) {
+                if (name.equals(client1.getName())) {
+                    arr3.add(client1);
+                }
+            }
+        }
+        CommonMethods.printList(arr3);
+    }
             }*/
 
     private static String[] fillArray(List<Client> clientList) {
@@ -64,19 +77,6 @@ public class InsertionSortName {
         return strings.toArray(array);
     }
 
-    public void displaySortedList(List<Client> clientList) {
-
-        String[] sorted = insertionSort(clientList);
-        List<Client> arr3 = new ArrayList<>();
-        for (String name : sorted) {
-            for (Client client1 : clientList) {
-                if (name.equals(client1.getName())) {
-                    arr3.add(client1);
-                }
-            }
-        }
-        System.out.println(arr3);
-    }
 
 }
 

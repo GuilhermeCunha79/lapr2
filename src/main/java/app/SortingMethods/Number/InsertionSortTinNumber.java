@@ -1,6 +1,7 @@
 package app.SortingMethods.Number;
 
 import app.domain.model.Client;
+import app.domain.shared.CommonMethods;
 //import app.mappers.dto.ClientDTO;
 
 import java.util.ArrayList;
@@ -51,6 +52,20 @@ public class InsertionSortTinNumber {
         arr3.add(client6);
 
         sorter.displaySortedList(arr3);
+
+         public void displaySortedList(List<Client> clientList) {
+
+        String[] sorted = insertionSort(clientList);
+        List<Client> arr3 = new ArrayList<>();
+        for (String name : sorted) {
+            for (Client client1 : clientList) {
+                if (name.equals(client1.getTinNumber())) {
+                    arr3.add(client1);
+                }
+            }
+        }
+        CommonMethods.printList(arr3);
+    }
     }*/
 
     private static String[] fillArray(List<Client> clientList) {
@@ -63,19 +78,9 @@ public class InsertionSortTinNumber {
         return strings.toArray(array);
     }
 
-    public void displaySortedList(List<Client> clientList) {
 
-        String[] sorted = insertionSort(clientList);
-        List<Client> arr3 = new ArrayList<>();
-        for (String name : sorted) {
-            for (Client client1 : clientList) {
-                if (name.equals(client1.getTinNumber())) {
-                    arr3.add(client1);
-                }
-            }
-        }
-        System.out.println(arr3);
-    }
+
+
 
 }
 

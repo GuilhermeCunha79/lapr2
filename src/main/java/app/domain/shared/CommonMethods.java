@@ -1,6 +1,7 @@
 package app.domain.shared;
 
 
+import app.domain.model.Client;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileOutputStream;
@@ -195,5 +196,15 @@ public class CommonMethods {
             throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_BLANK_EXEPT);
         if ((!checkIfStringJustHaveNumbers(tinNumber) || tinNumber.length() != Constants.NHS_TIN_NUMBER_DIGITS))
             throw new IllegalArgumentException(Constants.STRING_TIN_NUMBER + Constants.STRING_NOT_MORE_THAN_10);
+    }
+
+    /***
+     * Prints a given List
+     * @param list
+     */
+    public static void printList(List<Client> list){
+        for(int i=0;i<list.size();i++){
+            System.out.println(list.get(i));
+        }
     }
 }

@@ -1,6 +1,7 @@
 package app.SortingMethods.String;
 
 import app.domain.model.Client;
+import app.domain.shared.CommonMethods;
 //import app.mappers.dto.ClientDTO;
 
 import java.util.ArrayList;
@@ -49,7 +50,19 @@ public class BubbleSortName {
 
         sorter.displaySortedList(arr3);
 
+   public void displaySortedList(List<Client> clientList) {
 
+        String[] sorted = bubbleSort(clientList);
+        List<Client> arr3 = new ArrayList<>();
+        for (String name : sorted) {
+            for (Client client1 : clientList) {
+                if (name.equals(client1.getName())) {
+                    arr3.add(client1);
+                }
+            }
+        }
+        CommonMethods.printList(arr3);
+    }
     }*/
 
     public static String[] bubbleSort(List<Client> clientList) {
@@ -68,17 +81,7 @@ public class BubbleSortName {
         return a;
     }
 
-    public void displaySortedList(List<Client> clientList) {
 
-        String[] sorted = bubbleSort(clientList);
-        List<Client> arr3 = new ArrayList<>();
-        for (String name : sorted) {
-            for (Client client1 : clientList) {
-                if (name.equals(client1.getName())) {
-                    arr3.add(client1);
-                }
-            }
-        }
-        System.out.println(arr3);
-    }
+
+
 }
