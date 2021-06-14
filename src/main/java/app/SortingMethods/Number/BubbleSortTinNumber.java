@@ -1,11 +1,8 @@
 package app.SortingMethods.Number;
 
 import app.domain.model.Client;
-import app.domain.shared.CommonMethods;
-//import app.mappers.dto.ClientDTO;
 
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -69,7 +66,7 @@ public class BubbleSortTinNumber {
     }*/
 
     public static String[] bubbleSort(List<Client> clientList) {
-        String[]a= fillArray(clientList);
+        String[] a = fillArray(clientList);
         String temp;
         for (int j = 0; j < a.length; j++) {
             for (int i = j + 1; i < a.length; i++) {

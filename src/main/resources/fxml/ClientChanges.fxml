@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -9,301 +12,296 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane style="-fx-background-color: #EFF1F3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Change your Data" wrappingWidth="407.5109558105469" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="Segoe UI Bold" size="47.0" />
-         </font>
-         <BorderPane.margin>
-            <Insets top="30.0" />
-         </BorderPane.margin>
-      </Text>
-   </top>
-   <center>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-         <children>
-            <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" VBox.vgrow="ALWAYS">
-               <VBox.margin>
-                  <Insets left="320.0" top="20.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Segoe UI Bold" size="12.0" />
-               </font>
-            </Text>
-            <HBox prefHeight="49.0" prefWidth="1366.0">
-               <children>
-                  <TextField disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="590.0" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="-300.0">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <font>
+<BorderPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #EFF1F3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.ChangePersonalDataUI">
+    <top>
+        <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Change your Data" textAlignment="CENTER" wrappingWidth="407.5109558105469" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="Segoe UI Bold" size="47.0" />
+            </font>
+            <BorderPane.margin>
+                <Insets bottom="20.0" top="30.0" />
+            </BorderPane.margin>
+        </Text>
+    </top>
+    <center>
+        <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="200.0" prefWidth="700.0" BorderPane.alignment="CENTER">
+            <children>
+                <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                    <font>
                         <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" onMouseDragReleased="#setName" style="-fx-background-color: white; -fx-background-radius: 10;" text="Change" textAlignment="CENTER" translateX="-300.0">
-                     <font>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="nameTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                            <HBox.margin>
+                                <Insets bottom="20.0" right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btnChangeName" mnemonicParsing="false" onAction="#enableTextFieldName" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizen Card Number">
+                    <font>
                         <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets left="600.0" />
-               </padding>
-            </HBox>
-            <Text fill="#575757" layoutX="330.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citizen Card Number (CCT)">
-               <font>
-                  <Font name="Segoe UI Bold" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="320.0" />
-               </VBox.margin>
-            </Text>
-            <HBox layoutX="10.0" layoutY="46.0" prefHeight="49.0" prefWidth="1366.0">
-               <children>
-                  <TextField disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="590.0" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="-300.0">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <font>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="ccTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btnChangeCC" mnemonicParsing="false" onAction="#enableTextFieldCC" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="National Healthcare Service (NHS)">
+                    <font>
                         <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10;" text="Change" textAlignment="CENTER" translateX="-300.0">
-                     <font>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="nhsTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                            <HBox.margin>
+                                <Insets bottom="20.0" right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btnChangeNHS" mnemonicParsing="false" onAction="#enableTextFieldNHS" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax Identification Number (TIN)">
+                    <font>
                         <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets left="600.0" />
-               </padding>
-            </HBox>
-            <Text fill="#575757" layoutX="330.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="National Healthcare Service (NHS)">
-               <font>
-                  <Font name="Segoe UI Bold" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="320.0" />
-               </VBox.margin>
-            </Text>
-            <HBox layoutX="10.0" layoutY="45.0" prefHeight="50.0" prefWidth="1366.0">
-               <children>
-                  <TextField disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="590.0" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="-300.0">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <font>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="tinTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                            <HBox.margin>
+                                <Insets bottom="20.0" right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btnChangeTIN" mnemonicParsing="false" onAction="#enableTextFieldTIN" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Sex">
+                    <font>
                         <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10;" text="Change" textAlignment="CENTER" translateX="-300.0">
-                     <font>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <ComboBox fx:id="sexComboBox" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="561.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </ComboBox>
+                        <Button fx:id="btnChangeSex" mnemonicParsing="false" onAction="#enableTextFieldSex" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Birth Date (dd/mm/yyyy)">
+                    <font>
                         <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets left="600.0" />
-               </padding>
-            </HBox>
-            <Text fill="#575757" layoutX="10.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tax Identification Number (TIN)">
-               <font>
-                  <Font name="Segoe UI Bold" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="320.0" />
-               </VBox.margin>
-            </Text>
-            <HBox layoutX="10.0" layoutY="254.0" prefHeight="50.0" prefWidth="1366.0">
-               <children>
-                  <TextField disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="590.0" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="-300.0">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <font>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="birthDateTxt" disable="true" editable="false" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                            <HBox.margin>
+                                <Insets bottom="20.0" right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btnChangeBirthDate" mnemonicParsing="false" onAction="#enableTextFieldBirthDate" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number">
+                    <font>
                         <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10;" text="Change" textAlignment="CENTER" translateX="-300.0">
-                     <font>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="phoneNumberTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                            <HBox.margin>
+                                <Insets bottom="20.0" right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btnChangePhoneNumber" mnemonicParsing="false" onAction="#enableTextFieldPhoneNumber" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+                    <font>
                         <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets left="600.0" />
-               </padding>
-            </HBox>
-            <Text fill="#575757" layoutX="330.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birth Date (DD/MM/YYYY)">
-               <font>
-                  <Font name="Segoe UI Bold" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="320.0" />
-               </VBox.margin>
-            </Text>
-            <HBox layoutX="10.0" layoutY="303.0" prefHeight="50.0" prefWidth="1366.0">
-               <children>
-                  <TextField disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="590.0" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="-300.0">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <font>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="emailTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                            <HBox.margin>
+                                <Insets bottom="20.0" right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btnChangeEmail" mnemonicParsing="false" onAction="#enableTextFieldEmail" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </HBox>
+                <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+                    <font>
                         <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Button contentDisplay="CENTER" mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10;" text="Change" textAlignment="CENTER" translateX="-300.0">
-                     <font>
-                        <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets left="600.0" />
-               </padding>
-            </HBox>
-            <Text fill="#575757" layoutX="10.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sex ">
-               <font>
-                  <Font name="Segoe UI Bold" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="320.0" />
-               </VBox.margin>
-            </Text>
-            <HBox layoutX="10.0" layoutY="389.0" prefHeight="50.0" prefWidth="1366.0">
-               <children>
-                  <TextField disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="590.0" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="-300.0">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10;" text="Change" textAlignment="CENTER" translateX="-300.0">
-                     <font>
-                        <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets left="600.0" />
-               </padding>
-            </HBox>
-            <Text fill="#575757" layoutX="10.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number">
-               <font>
-                  <Font name="Segoe UI Bold" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="320.0" />
-               </VBox.margin>
-            </Text>
-            <HBox layoutX="10.0" layoutY="475.0" prefHeight="50.0" prefWidth="1366.0">
-               <children>
-                  <TextField disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="590.0" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="-300.0">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10;" text="Change" textAlignment="CENTER" translateX="-300.0">
-                     <font>
-                        <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets left="600.0" />
-               </padding>
-            </HBox>
-            <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
-               <font>
-                  <Font name="Segoe UI Bold" size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="320.0" />
-               </VBox.margin>
-            </Text>
-            <HBox layoutX="10.0" layoutY="374.0" prefHeight="50.0" prefWidth="1366.0">
-               <children>
-                  <TextField disable="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="590.0" style="-fx-background-color: white; -fx-background-radius: 10;" translateX="-300.0">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: white; -fx-background-radius: 10;" text="Change" textAlignment="CENTER" translateX="-300.0">
-                     <font>
-                        <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets left="600.0" />
-               </padding>
-            </HBox>
-            <HBox prefHeight="70.0" prefWidth="1366.0">
-               <padding>
-                  <Insets left="600.0" />
-               </padding>
-               <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" style="-fx-background-color: #A1A1A1; -fx-background-radius: 10;" text="Cancel" textFill="WHITE" translateX="-300.0">
-                     <font>
-                        <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Change" textAlignment="CENTER" textFill="WHITE" translateX="-300.0">
-                     <font>
-                        <Font name="Segoe UI Bold" size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets left="50.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-         <BorderPane.margin>
-            <Insets left="200.0" right="200.0" />
-         </BorderPane.margin>
-      </VBox>
-   </center>
+                    </font>
+                    <VBox.margin>
+                        <Insets left="20.0" />
+                    </VBox.margin>
+                </Text>
+                <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="addressTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                            <HBox.margin>
+                                <Insets bottom="20.0" right="20.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="btnChangeAddress" mnemonicParsing="false" onAction="#enableTextFieldAddress" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="-20.0" />
+                    </VBox.margin>
+                </HBox>
+                <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                        <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancelBtn" prefHeight="40.0" prefWidth="119.0" style="-fx-background-color: #A1A1A1; -fx-background-radius: 10;" text="Cancel" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <Button fx:id="btnConfirm" mnemonicParsing="false" onAction="#confirmData" prefHeight="40.0" prefWidth="119.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Confirm" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI Bold" size="14.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </buttons>
+                    <VBox.margin>
+                        <Insets right="250.0" top="40.0" />
+                    </VBox.margin>
+                </ButtonBar>
+            </children>
+        </VBox>
+    </center>
 </BorderPane>

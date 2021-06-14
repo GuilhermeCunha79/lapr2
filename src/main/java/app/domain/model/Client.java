@@ -207,12 +207,16 @@ public class Client  implements Serializable {
         this.birthDate = birthDate;
     }
 
-    private void setAddress(String address) {
+    public void setAddress(String address) {
         if (address == null)
             throw new NullPointerException(STRING_ADDRESS + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(address))
             throw new IllegalArgumentException(STRING_ADDRESS + Constants.STRING_BLANK_EXEPT);
         this.address = address;
+    }
+
+    public String getAddress(){
+        return address;
     }
 
     /***

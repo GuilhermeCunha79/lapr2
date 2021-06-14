@@ -59,10 +59,51 @@ public class ChangeClientDataController {
         return this.ctStore.changePhoneNumber(client, name);
 
     }
-/*
-    public void changeEmail(Client client, String name) {
-        this.ctStore.changeEmail(client, name);
-    }*/
+
+    public boolean changeEmail(Client client, String name) {
+        return this.ctStore.changeEmail(client, name);
+    }
+
+    public boolean changeAddress(Client client, String name) {
+        return this.ctStore.changeAddress(client, name);
+    }
+
+    public String getName(){
+        return this.ct.getName();
+    }
+
+    public String getCitizenCardNumber(){
+        return this.ct.getCitizenCardNumber();
+    }
+
+    public String getNhs(){
+        return this.ct.getNhsNumber();
+    }
+
+    public String getTin(){
+        return this.ct.getTinNumber();
+    }
+
+    public String getSex(){
+        return this.ct.getSex();
+    }
+
+    public String getBirthDate(){
+        return this.ct.getBirthDate();
+    }
+
+    public String getPhoneNumber(){
+        return this.ct.getPhoneNumber();
+    }
+
+    public String getEmail(){
+        return this.ct.getEmail();
+    }
+    public String getAddress(){
+        return this.ct.getAddress();
+    }
+
+
 
 
     public boolean saveChanges() {

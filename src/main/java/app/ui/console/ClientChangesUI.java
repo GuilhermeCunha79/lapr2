@@ -67,11 +67,19 @@ public class ClientChangesUI implements Runnable {
 
                     break;
                 }
+                case 7: {
+                    String cltEmail = Utils.readLineFromConsole("Introduce the new Email: ");
+                    ctrl.changeEmail(ctrl.getClientByEmail(), cltEmail);
+                    break;
+                }
+
+                case 8: {
+                    String cltAddress = Utils.readLineFromConsole("Introduce the new Address: ");
+                    ctrl.changeAddress(ctrl.getClientByEmail(), cltAddress);
+                    break;
+                }
+
             }
-            /*if (option == 6) {
-                String cltEmail = Utils.readLineFromConsole("Introduce the new Email: ");
-                ctrl.changeEmail(ctrl.getClientByEmail(), cltEmail);
-            }*/
 
         } catch (Exception e) {
             Utils.printToConsole(e.getMessage());
@@ -94,7 +102,7 @@ public class ClientChangesUI implements Runnable {
         return Utils.showAndSelectIndex(options, "Select the data that you want to change:");
     }
 
-    public boolean saveChanges(){
+    public boolean saveChanges() {
         Utils.printToConsole("\nDo you confirm this change?");
         if (Utils.confirm("Y or N")) {
             if (ctrl.saveChanges()) {

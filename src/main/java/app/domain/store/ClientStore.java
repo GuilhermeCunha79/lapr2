@@ -180,9 +180,23 @@ public class ClientStore {
         return true;
     }
 
-    /*public void changeEmail(Client client, String email) {
+    public boolean changeEmail(Client client, String email) {
+        for (Client client1 : clientList){
+            if (client1.getEmail().equals(email))
+                return false;
+        }
         client.setEmail(email);
-    }*/
+        return true;
+    }
+
+    public boolean changeAddress(Client client, String address) {
+        for (Client client1 : clientList){
+            if (client1.getAddress().equals(address))
+                return false;
+        }
+        client.setAddress(address);
+        return true;
+    }
 
     public boolean changeNhsNumber(Client client, String nhsNumber) {
         for (Client client1 : clientList){

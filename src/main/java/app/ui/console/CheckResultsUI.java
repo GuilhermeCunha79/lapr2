@@ -1,10 +1,7 @@
 package app.ui.console;
 
         import app.controller.CheckResultsController;
-
-
         import app.ui.console.utils.Utils;
-
         import java.util.List;
 
 public class CheckResultsUI implements Runnable {

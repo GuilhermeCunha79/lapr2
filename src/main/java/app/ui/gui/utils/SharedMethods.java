@@ -23,4 +23,16 @@ public class SharedMethods {
 
         alert.show();
     }
+
+    public static void notificationAlert(String message, String headerText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        alert.setTitle("Many Labs");
+        alert.setHeaderText(headerText);
+        alert.setContentText(message);
+
+        alert.show();
+    }
+
+
 }
