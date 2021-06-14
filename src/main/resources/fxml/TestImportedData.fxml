@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #EFF1F3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.TestImportedDataUI">
+   <top>
+      <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Summary" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Segoe UI Bold" size="24.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </Text>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="43.0" prefWidth="1366.0">
+               <children>
+                  <AnchorPane prefHeight="23.0" prefWidth="652.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fill="#575757" layoutX="1.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tests Added" wrappingWidth="80.828125" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="23.0" prefWidth="650.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Tests Failed" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="425.0" prefWidth="1326.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <SplitPane dividerPositions="0.5" layoutX="295.0" layoutY="115.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="659.0">
+                           <children>
+                              <TextArea fx:id="testsAddedTxtField" editable="false" layoutX="230.0" layoutY="109.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <TextArea fx:id="testsFailedTxtField" editable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Segoe UI" size="14.0" />
+                                 </font>
+                              </TextArea>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+            <HBox prefHeight="43.0" prefWidth="1366.0">
+               <children>
+                  <AnchorPane prefHeight="23.0" prefWidth="652.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fx:id="addedTotalText" fill="#575757" layoutX="1.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" wrappingWidth="80.828125" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="23.0" prefWidth="650.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text fx:id="failedTotalText" fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Total:" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <Button fx:id="okBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#okButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="OK" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="70.0" />
+         </BorderPane.margin>
+         <font>
+            <Font name="Segoe UI Bold" size="14.0" />
+         </font>
+      </Button>
+   </bottom>
+</BorderPane>

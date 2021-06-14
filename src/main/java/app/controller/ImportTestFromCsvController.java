@@ -60,27 +60,14 @@ public class ImportTestFromCsvController {
     }
 
     /**
-     * The purpose of this method is to get and open a file to read its content down the line
-     * @param filePath of the file
-     * @return if the path and the file are valid
-     */
-    public boolean searchCsvFile(String filePath) {
-        try {
-            this.br = new BufferedReader(new FileReader(filePath));
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    /**
      * This method is responsible for creating new tests from a csv file with the help of other methods
      * @return
      */
-    public boolean createTestFromCsvFile() {
+    public boolean createTestFromCsvFile(String path) {
         String line;
         String divider = ";";
         try {
+            br = new BufferedReader(new FileReader(path));
             line = this.br.readLine();
             this.firstLine = line.split(divider);
             while ((line = this.br.readLine()) != null) {
@@ -100,7 +87,7 @@ public class ImportTestFromCsvController {
                         }
                     }
                 }
-                testsFailed.add("Test with NHS Code " + testData[1] + "was not imported");
+                testsFailed.add("Test with NHS Code " + testData[1] + " was not imported");
             }
             this.br.close();
             return true;

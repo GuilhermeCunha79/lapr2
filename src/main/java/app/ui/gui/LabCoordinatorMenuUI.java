@@ -3,7 +3,6 @@ package app.ui.gui;
 import app.controller.App;
 import app.ui.Main;
 import app.ui.console.ValidationUI;
-import app.ui.console.WriteReportUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,7 +41,8 @@ public class LabCoordinatorMenuUI implements Initializable {
 
     @FXML
     private void importTestFromCsvFile(ActionEvent actionEvent){
-
+        ImportTestFromCsvFileUI importTestFromCsvFileUI = (ImportTestFromCsvFileUI) this.mainApp.changeStageContent("/fxml/AddTestFromCSVFile.fxml");
+        importTestFromCsvFileUI.setMainApp(this.mainApp);
     }
 
     @FXML

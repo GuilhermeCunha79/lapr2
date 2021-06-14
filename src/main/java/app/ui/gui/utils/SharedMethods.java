@@ -9,7 +9,7 @@ public class SharedMethods {
 
         alert.setTitle("Many Labs");
         alert.setHeaderText(headerText);
-        alert.setContentText(e.getMessage());
+        alert.setContentText(e.getLocalizedMessage());
 
         alert.show();
     }
