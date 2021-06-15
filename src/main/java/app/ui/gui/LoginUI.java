@@ -106,6 +106,11 @@ public class LoginUI implements Initializable {
                 LabCoordinatorMenuUI labCoordinatorMenuUI = (LabCoordinatorMenuUI) this.mainApp.changeStageContent("/fxml/LabCoordinatorMenu.fxml");
                 labCoordinatorMenuUI.setMainApp(mainApp);
                 break;
+
+            case Constants.ROLE_CLIENT:
+                ClientUI clientUI = (ClientUI) this.mainApp.changeStageContent("/fxml/ClientMenu.fxml");
+                clientUI.setMainApp(mainApp);
+                break;
         }
     }
 
