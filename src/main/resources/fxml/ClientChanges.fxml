@@ -237,14 +237,6 @@
                                 <Insets bottom="20.0" right="20.0" />
                             </HBox.margin>
                         </TextField>
-                        <Button fx:id="btnChangeEmail" mnemonicParsing="false" onAction="#enableTextFieldEmail" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
-                            <font>
-                                <Font name="Segoe UI Bold" size="14.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
                     </children>
                     <VBox.margin>
                         <Insets bottom="10.0" />

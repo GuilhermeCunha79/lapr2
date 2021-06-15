@@ -17,6 +17,9 @@ public class ClientUI implements Initializable {
     @FXML
     private Button changeDataBtn;
 
+    public void setMainApp(Main mainApp) {
+        this.mainApp = mainApp;
+    }
 
     @FXML
     private void changePersonalDataUI(ActionEvent actionEvent) {
@@ -32,9 +35,6 @@ public class ClientUI implements Initializable {
         loginUI.setMainApp(this.mainApp);
     }
 
-    public void setMainApp(Main mainApp) {
-        this.mainApp = mainApp;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
