@@ -1,82 +1,136 @@
 @startuml
 autonumber
 'hide footbox
-actor "Administrador" as ADMIN
+actor "Client" as CLIENT
 
-participant ":RegisterNewClinicalAnalysisUI" as UI
-participant ":RegisterNewClinicalAnalysis\nRegisterNewClinicalAnalysisController" as CTRL
-participant ":Company" as comp
-participant "store: ClinicalAnalysisLaboratoryStore " as cals
-participant "cal:ClinicalAnalysisLaboratory" as cal
-participant "tts:TestTypeStore" as tts
-participant "ttm:TestTypeMapper" as ttm
+participant ":ViewTestResultUI" as UI
+participant ":ViewTestResultController" as CTRL
+participant ":Company" as COMP
+participant "store:ClientStore" as STR
+participant "store:TestStore" as TTS
+participant ":ClinicalTest" as T
+participant ":Report" as R
+participant ":Email" as EM
+participant ":UserSession" as US
+participant ":AuthFacade" as AF
 
-activate ADMIN
-ADMIN -> UI : Register a New Clinical Analysis Laboratory
+
+CLIENT -> UI: Log in the client account
 activate UI
-UI --> ADMIN : request necessary credentials(laboratoryID, name, address, phoneNumber, tinNumber)
-deactivate UI
-ADMIN -> UI : types requested data
-activate UI
-    UI -> CTRL : registerNewClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber, )
-    activate CTRL
-        CTRL -> comp : calStore = getClinicalAnalysisLaboratoryStore()
-        activate comp
-        deactivate comp
-        CTRL -> cals : cal = registerClinicalAnalysisLaboratory(laboratoryID, name, address, phoneNumber, tinNumber)
-        activate cals
-            cals --> cal** : register(laboratoryID, name, address, phoneNumber, tinNumber)
-        deactivate cals
-        CTRL -> cals : validateClinicalAnalysisLaboratory(cal)
-        activate cals
-        deactivate cals
-    deactivate CTRL
-    UI -> CTRL : lTTdto = getTestTypesList()
-    activate CTRL
-        CTRL -> comp : ttStore = getTestTypeStore()
-        activate comp
-        deactivate comp
-        CTRL -> tts : lTT = getTestTypesList()
-        activate tts
-        deactivate tts
-        CTRL -> ttm : lTTdto = toDto(lTT)
-        activate ttm
-        deactivate ttm
-    deactivate CTRL
-    UI --> ADMIN : show all test types available to be selected
-deactivate UI
-loop for all intended test types
-ADMIN -> UI : select one test type
-activate UI
-UI -> CTRL : addTestType(ttId)
+
+UI -> CTRL: getClientByEmail()
 activate CTRL
-CTRL -> tts : tt = getTestType(ttId)
-activate tts
-deactivate tts
-CTRL -> cal : addTestType(tt)
-activate cal
-deactivate cal
-CTRL --> UI : done
+deactivate UI
+
+CTRL-> COMP : store=getClientStore()
+activate COMP
+deactivate COMP
+CTRL->STR : client = getClientByEmail()
+activate STR
+STR-> AF :emailUser=getCurrentSession()
+activate AF
+deactivate AF
+STR -> US : id = getUserId()
+activate US
+deactivate US
 deactivate CTRL
-UI --> ADMIN : added with success
-end loop
-UI --> ADMIN : presents all data and asks for confirmation
-deactivate UI
-ADMIN -> UI : confirms data
+
+
+
+STR->EM: email = getEmail()
+activate EM
+deactivate EM
+deactivate STR
+deactivate STR
+
+UI --> CLIENT: Authentication Response
 activate UI
-    UI -> CTRL : saveClinicalAnalysisLaboratory()
-    activate CTRL
-        CTRL -> cals : saveClinicalAnalysisLaboratory(cal)
-        activate cals
-            cals -> cals : validateClinicalAnalysisLaboratory(cal)
-            activate cals
-            deactivate cals
-            cals -> cals : addClinicalAnalysisLaboratory(cal)
-            activate cals
-            deactivate cals
-        deactivate cals
-    deactivate CTRL
-    UI --> ADMIN : informs operation success
 deactivate UI
+
+
+
+CLIENT -> UI: See the list of tests who have performed ordered by the registration date
+activate UI
+deactivate UI
+
+
+
+
+UI -> CTRL: showClientTestsOrderedByRegistrationDate()
+activate UI
+deactivate UI
+activate CTRL
+deactivate CTRL
+
+CTRL -> COMP: store=getTestStore()
+activate CTRL
+deactivate CTRL
+activate COMP
+deactivate COMP
+
+CTRL -> TTS: getClientTestsOrderedByRegistrationDate()
+activate CTRL
+deactivate CTRL
+activate TTS
+deactivate TTS
+
+
+UI --> CLIENT: Shows the test list who have performed ordered by the registration date
+
+loop
+CLIENT -> UI: Choose the test you want to see and your respective results
+activate UI
+deactivate UI
+
+UI -> CTRL: getTestSelected(nhsCode)
+activate UI
+deactivate UI
+activate CTRL
+deactivate CTRL
+
+CTRL -> TTS: getTestByNhsCode(nhsCode)
+activate CTRL
+deactivate CTRL
+activate TTS
+deactivate TTS
+
+UI -> CTRL: showTestResults()
+activate UI
+deactivate UI
+activate CTRL
+deactivate CTRL
+
+CTRL -> T: getTestResults()
+activate CTRL
+deactivate CTRL
+activate T
+deactivate T
+
+UI -> CTRL: showReportText()
+activate UI
+deactivate UI
+activate CTRL
+deactivate CTRL
+
+CTRL -> T : getReportText()
+activate CTRL
+deactivate CTRL
+activate T
+T -> R : getReportText()
+activate R
+deactivate R
+deactivate T
+UI --> CLIENT: Shows the result of the chosen test
+activate UI
+deactivate UI
+
+CLIENT -> UI: Confirms all data
+activate UI
+deactivate UI
+
+
+
+UI --> CLIENT: Informs operation success
+end
 
 @enduml
