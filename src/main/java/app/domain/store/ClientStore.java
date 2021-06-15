@@ -16,7 +16,7 @@ import static app.domain.shared.PasswordGenerator.generatePassword;
 public class ClientStore {
 
     private List<Client> clientList = new ArrayList<>();
-    private final String DATA_PATH = "data\\clients.dat";
+    static final String DATA_PATH = "data\\clients.dat";
 
     /***
      * Method that receives parameters from the associated controller to create a new client

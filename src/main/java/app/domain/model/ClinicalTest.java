@@ -411,7 +411,8 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
      * The only purpose of this method is to change the state of the test to inform that the result is done
      */
     public boolean changeStateToResultDone() {
-        return resultDone = true;
+        resultDone = true;
+        return true;
     }
 
     /***

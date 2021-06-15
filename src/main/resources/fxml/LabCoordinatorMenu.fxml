@@ -34,7 +34,7 @@
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="mainMenuBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnToLoginUI" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Main Menu" textFill="WHITE" VBox.vgrow="NEVER">
+            <Button fx:id="logoutBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnToLoginUI" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Logout" textFill="WHITE" VBox.vgrow="NEVER">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>

@@ -7,7 +7,6 @@ import app.domain.model.TypeOfTest;
 import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
 import app.mappers.dto.ClinicalTestDto;
-import app.ui.console.utils.Utils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -78,8 +77,8 @@ public class TestStore implements Serializable {
     public boolean validateTest(ClinicalTest testCreated) {
         if (testCreated == null)
             return false;
-        for (ClinicalTest test : testList) {
-            if (test.equals(testCreated)) {
+        for (ClinicalTest ctest : testList) {
+            if (ctest.equals(testCreated)) {
                 return false;
             }
         }

@@ -33,11 +33,6 @@ public class MappersTest {
         assertNotNull(ParameterCategoryMapper.toDTO(lpc));
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void testConstructorMapper() {
-        new ParameterCategoryMapper();
-    }
-
     @Test
     public void testParameterMapper() {
         ParameterCategory pc1 = new ParameterCategory("54321", "adaca");

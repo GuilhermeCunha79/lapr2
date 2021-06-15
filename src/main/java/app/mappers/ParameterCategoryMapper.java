@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ParameterCategoryMapper {
 
-    public ParameterCategoryMapper() {
+    private ParameterCategoryMapper() {
         throw new IllegalStateException("Utility class");
     }
 

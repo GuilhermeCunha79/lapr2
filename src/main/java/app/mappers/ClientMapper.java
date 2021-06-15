@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ClientMapper {
 
-    public ClientMapper() {
+    private ClientMapper() {
         throw new IllegalStateException("Utility class");
     }
 

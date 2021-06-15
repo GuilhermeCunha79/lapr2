@@ -24,15 +24,10 @@ import java.io.IOException;
 public class Main extends Application {
 
     private Stage stage;
+    static final String MANY_LABS = "Many Labs";
 
     public static void main(String[] args) {
-        /*try {
-            MainMenuUI menu = new MainMenuUI();
 
-            menu.run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
         launch(args);
     }
 
@@ -47,15 +42,14 @@ public class Main extends Application {
             Parent root = loader.load();
 
             Scene scene = new Scene(root);
-            //scene.getStylesheets().add("/styles/Styles.css");
 
-            this.stage.setTitle("Many Labs");
+            this.stage.setTitle(MANY_LABS);
             this.stage.setScene(scene);
 
             stage.setOnCloseRequest(event -> {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
-                alert.setTitle("Many Labs");
+                alert.setTitle(MANY_LABS);
                 alert.setHeaderText("Action Confirmation");
                 alert.setContentText("Sure you want to exit?");
 
@@ -99,7 +93,7 @@ public class Main extends Application {
     public Alert errorAlert(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
 
-        alert.setTitle("Many Labs");
+        alert.setTitle(MANY_LABS);
         alert.setHeaderText("App launch error.");
         alert.setContentText(e.getMessage());
 

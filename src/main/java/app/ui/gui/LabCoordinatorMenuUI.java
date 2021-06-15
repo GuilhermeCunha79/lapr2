@@ -22,7 +22,7 @@ public class LabCoordinatorMenuUI implements Initializable {
     private Button importTestsCsvFileBtn;
 
     @FXML
-    private Button mainMenuBtn;
+    private Button logoutBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

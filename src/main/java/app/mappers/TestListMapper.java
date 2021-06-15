@@ -7,7 +7,7 @@ import java.util.List;
 
 public class TestListMapper {
 
-    public TestListMapper() {
+    private TestListMapper() {
         throw new IllegalStateException("Utility class");
     }
 
