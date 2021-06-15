@@ -42,10 +42,10 @@ public class ViewTestResultController {
         this.ct = ctStore.getClientByEmail();
         return this.clinicalTest.getTestResults();
     }
-
+/*
     public Report showReportText() {
 
-    }
+    }*/
 
 
 }

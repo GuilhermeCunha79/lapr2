@@ -34,26 +34,6 @@ public class ChangeClientDataControllerTest {
         assertEquals(expected, client.getName());
     }
 
-    @Test
-    public void testCitizenCardNumber() {
-        ctrl.changeCitizenCardNumber(client, "1234565432345678");
-        String expected = "1234565432345678";
-        assertEquals(expected, client.getCitizenCardNumber());
-    }
-
-    @Test
-    public void testNhsNumber() {
-        ctrl.changeNhsNumber(client, "1232123456");
-        String expected = "1232123456";
-        assertEquals(expected, client.getNhsNumber());
-    }
-
-    @Test
-    public void testChangeTinNumber() {
-        ctrl.changeTinNumber(client, "1232123456");
-        String expected = "1232123456";
-        assertEquals(expected, client.getTinNumber());
-    }
 
     @Test
     public void testChangeBirthDate() {
@@ -68,13 +48,6 @@ public class ChangeClientDataControllerTest {
         String expected = "23456543212";
         assertEquals(expected, client.getPhoneNumber());
     }
-/*
-    @Test
-    public void testChangeEmail() {
-        ctrl.changeEmail(client, "ola@isep.ipp.pt");
-        String expected = "ola@isep.ipp.pt";
-        assertEquals(expected, client.getEmail());
-    }*/
 
     @Test
     public void testSaveNullChanges() {

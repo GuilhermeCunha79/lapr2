@@ -199,10 +199,20 @@ public class CommonMethods {
     }
 
     /***
-     * Prints a given List
+     * Prints a given List<Client>
      * @param list
      */
     public static void printList(List<Client> list){
+        for(int i=0;i<list.size();i++){
+            System.out.println(list.get(i));
+        }
+    }
+
+    /***
+     * Prints a given List<String>
+     * @param list
+     */
+    public static void printListString(List<String> list){
         for(int i=0;i<list.size();i++){
             System.out.println(list.get(i));
         }

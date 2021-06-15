@@ -12,8 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Test Results/Details" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -25,79 +24,78 @@
       </Text>
    </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="615.0" prefWidth="1236.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="500.0" prefWidth="1162.0">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1162.0">
                <children>
-                  <TextArea disable="true" editable="false" layoutX="157.0" layoutY="41.0" prefHeight="574.0" prefWidth="898.0" />
-                  <ScrollBar layoutX="157.0" layoutY="601.0" prefHeight="14.0" prefWidth="898.0" visibleAmount="40.0" />
-                  <Text fill="#575757" layoutX="157.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients List">
+                  <TextArea fx:id="textAreaClients" disable="true" editable="false" layoutX="84.0" layoutY="41.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="559.0" prefWidth="1003.0" AnchorPane.rightAnchor="46.0" />
+                  <ScrollBar layoutY="586.0" prefHeight="14.0" prefWidth="1003.0" visibleAmount="40.0" AnchorPane.rightAnchor="46.0" />
+                  <Text fill="#575757" layoutX="20.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients List">
                      <font>
                         <Font name="Segoe UI Bold" size="18.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="619.0" prefWidth="365.0">
+            <VBox prefHeight="568.0" prefWidth="301.0" translateX="-10.0">
                <children>
-                  <VBox layoutY="38.0" prefHeight="589.0" prefWidth="235.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order Clients List by:" wrappingWidth="143.0625">
-                           <font>
-                              <Font name="Segoe UI Bold" size="14.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: #2AF598;" text="Name" textFill="WHITE">
-                           <font>
-                              <Font name="Segoe UI Bold" size="14.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: #2AF598;" text="TIN" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets bottom="160.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="Segoe UI Bold" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="183.0" style="-fx-background-radius: 10; -fx-background-color: #14C9CB;" text="Check test results/details" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets bottom="210.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="Segoe UI Bold" size="14.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #08B3E5; -fx-background-radius: 10;" text="Lab Coordinator Menu" textFill="WHITE">
-                           <font>
-                              <Font name="Segoe UI Bold" size="14.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </VBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order Clients List by:" wrappingWidth="143.0625">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="19.0" top="2.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Button fx:id="btnNameSort" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: #2AF598;" text="Name" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnTINSort" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: #2AF598;" text="TIN" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="160.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnCheckResults" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 10; -fx-background-color: #14C9CB;" text="Check test results/details" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="177.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnLabCoordinatorMenu" mnemonicParsing="false" onAction="#clinicalChemistryTechnologistMenu" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #08B3E5; -fx-background-radius: 10;" text="Lab Coordinator Menu" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
-            </AnchorPane>
+               <HBox.margin>
+                  <Insets top="47.0" />
+               </HBox.margin>
+            </VBox>
          </children>
       </HBox>
    </center>

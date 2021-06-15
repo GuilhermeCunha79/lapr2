@@ -38,7 +38,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="historicalTestsBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Check the historical tests performed and tests details/results" textFill="#575757">
+            <Button fx:id="historicalTestsBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#checkResultsUI" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Check the historical tests performed and tests details/results" textFill="#575757">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>

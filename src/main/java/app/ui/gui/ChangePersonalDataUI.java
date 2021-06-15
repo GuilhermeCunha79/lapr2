@@ -11,14 +11,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-
-import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static app.domain.shared.CommonMethods.serializeStore;
 
 public class ChangePersonalDataUI implements Initializable {
 
