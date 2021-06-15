@@ -71,63 +71,34 @@ activate UI
 UI-> CTRL : changeData(client)
 activate CTRL
 
-CTRL->STR :changeName(client)
+CTRL->STR :changeName(client, name)
 activate STR
 STR->CL : name=setName()
 activate CL
 deactivate CL
 deactivate STR
 
-
-CTRL->STR :changeCitizenCardNumber(client)
+CTRL->STR :changeSex(client, sex)
 activate STR
-STR->CL : citizenCardNumber=setCitizenCardNumber()
+STR->CL : sex=setSex()
 activate CL
 deactivate CL
 deactivate STR
 
-CTRL->STR :changeNhsNumber(client)
-activate STR
-STR->CL : nhsNumber=setNhsNumber()
-activate CL
-deactivate CL
-deactivate STR
 
-CTRL->STR :changeTinNumber(client)
-activate STR
-STR->CL : tinNumber=setTinNumber()
-activate CL
-deactivate CL
-deactivate STR
-
-CTRL->STR :changeBirthDate(client)
-activate STR
-STR->CL : birthDate=setBirthDate()
-activate CL
-deactivate CL
-deactivate STR
-
-CTRL->STR :changePhoneNumber(client)
+CTRL->STR :changePhoneNumber(client, phoneNumber)
 activate STR
 STR->CL : phoneNumber=setPhoneNumber()
 activate CL
 deactivate CL
 deactivate STR
 
-CTRL->STR :changeEmail(client)
+CTRL->STR :changeAddress(client, address)
 activate STR
-STR->CL : email=setEmail()
+STR->CL : address=setAddress()
 activate CL
 deactivate CL
 deactivate STR
-
-CTRL->STR :changePassword(client)
-activate STR
-STR->CL : password=setPassword()
-activate CL
-deactivate CL
-deactivate STR
-
 
 UI--> CLT : shows the updated registration form and asks for confirmation
 deactivate UI

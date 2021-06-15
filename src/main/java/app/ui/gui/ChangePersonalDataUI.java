@@ -31,25 +31,10 @@ public class ChangePersonalDataUI implements Initializable {
     private Button btnChangeName;
 
     @FXML
-    private Button btnChangeCC;
-
-    @FXML
-    private Button btnChangeNHS;
-
-    @FXML
-    private Button btnChangeTIN;
-
-    @FXML
-    private Button btnChangeBirthDate;
-
-    @FXML
     private Button btnChangePhoneNumber;
 
     @FXML
     private Button btnChangeSex;
-
-    @FXML
-    private Button btnChangeEmail;
 
     @FXML
     private Button btnChangeAddress;
@@ -122,25 +107,6 @@ public class ChangePersonalDataUI implements Initializable {
         nameTxt.setEditable(true);
     }
 
-
-    @FXML
-    private void enableTextFieldCC(ActionEvent actionEvent) {
-        ccTxt.setDisable(false);
-        ccTxt.setEditable(true);
-    }
-
-    @FXML
-    private void enableTextFieldNHS(ActionEvent actionEvent) {
-        nhsTxt.setDisable(false);
-        nhsTxt.setEditable(true);
-    }
-
-    @FXML
-    private void enableTextFieldTIN(ActionEvent actionEvent) {
-        tinTxt.setDisable(false);
-        tinTxt.setEditable(true);
-    }
-
     @FXML
     private void enableTextFieldSex(ActionEvent actionEvent) {
         sexComboBox.setDisable(false);
@@ -148,21 +114,9 @@ public class ChangePersonalDataUI implements Initializable {
     }
 
     @FXML
-    private void enableTextFieldBirthDate(ActionEvent actionEvent) {
-        birthDateTxt.setDisable(false);
-        birthDateTxt.setEditable(true);
-    }
-
-    @FXML
     private void enableTextFieldPhoneNumber(ActionEvent actionEvent) {
         phoneNumberTxt.setDisable(false);
         phoneNumberTxt.setEditable(true);
-    }
-
-    @FXML
-    private void enableTextFieldEmail(ActionEvent actionEvent) {
-        emailTxt.setDisable(false);
-        emailTxt.setEditable(true);
     }
 
     @FXML
@@ -175,13 +129,8 @@ public class ChangePersonalDataUI implements Initializable {
     @FXML
     private void confirmData(ActionEvent actionEvent) {
         ctrl.changeName(ctrl.getClientByEmail(), nameTxt.getText());
-        ctrl.changeCitizenCardNumber(ctrl.getClientByEmail(), ccTxt.getText());
-        ctrl.changeNhsNumber(ctrl.getClientByEmail(), nhsTxt.getText());
-        ctrl.changeTinNumber(ctrl.getClientByEmail(), tinTxt.getText());
-        ctrl.changeBirthDate(ctrl.getClientByEmail(), birthDateTxt.getText());
         ctrl.changePhoneNumber(ctrl.getClientByEmail(), phoneNumberTxt.getText());
         ctrl.changeSex(ctrl.getClientByEmail(), (String) sexComboBox.getValue());
-        ctrl.changeEmail(ctrl.getClientByEmail(), emailTxt.getText());
         ctrl.changeAddress(ctrl.getClientByEmail(), addressTxt.getText());
         ctrl.saveChanges();
         SharedMethods.notificationAlert("Your data has been updated with success!", "Data Changed");

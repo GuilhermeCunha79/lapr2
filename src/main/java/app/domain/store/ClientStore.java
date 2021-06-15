@@ -1,8 +1,9 @@
 package app.domain.store;
 
 import app.controller.App;
-import app.domain.model.Client;
+import app.domain.model.*;
 import app.domain.shared.Constants;
+import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
 import app.mappers.dto.ClientDTO;
 import auth.domain.model.Email;
@@ -15,8 +16,10 @@ import static app.domain.shared.PasswordGenerator.generatePassword;
 
 public class ClientStore {
 
-    private List<Client> clientList = new ArrayList<>();
     static final String DATA_PATH = "data\\clients.dat";
+    private List<Client> clientList = new ArrayList<>();
+
+    private Client client;
 
     /***
      * Method that receives parameters from the associated controller to create a new client
@@ -37,7 +40,7 @@ public class ClientStore {
             String email = client.getEmail();
             String name = client.getName();
             String pwd = generatePassword();
-            if (clientList.size()==0) {
+            if (clientList.size() == 0) {
                 App.getInstance().getCompany().getAuthFacade().addUserWithRole(name, email, pwd, Constants.ROLE_CLIENT);
                 sendEmail(client, pwd);
                 addClient(client);
@@ -57,12 +60,19 @@ public class ClientStore {
         return false;
     }
 
+
+    /***
+     * Method responsible for saving the changes made and serialize them
+     * @param client
+     * @return true or false
+     */
     public boolean saveChanges(Client client) {
         if (client != null) {
-                serializeStore(this.clientList, DATA_PATH);
-                return true;
-            }
-            return false;
+            sendEmailWithChanges(client);
+            serializeStore(this.clientList, DATA_PATH);
+            return true;
+        }
+        return false;
     }
 
     /***
@@ -85,7 +95,11 @@ public class ClientStore {
         return !App.getInstance().getCompany().getAuthFacade().existsUser(email) && !checkDuplicate(client);
     }
 
-
+    /***
+     * Method that checks if two clients are equals
+     * @param client
+     * @return true or false
+     */
     public boolean checkDuplicate(Client client) {
         for (Client clt : clientList) {
             if (clt.equals(client))
@@ -94,11 +108,28 @@ public class ClientStore {
         return false;
     }
 
+
+    /***
+     * Method that is responsible to send an email to the client with his password, name and email
+     * @param client
+     * @param pwd
+     */
     private void sendEmail(Client client, String pwd) {
         String name = client.getName();
         String email = client.getEmail();
         if (name != null) {
             SendingEmailSMS.sendEmailWithPassword(name, email, pwd);
+        }
+    }
+
+    /***
+     * Method that is responsible to send an email to the client with his password, name and email
+     * @param client
+     */
+    private void sendEmailWithChanges(Client client) {
+        String name = client.getName();
+        if (name != null) {
+            SendingEmailSMS.sendEmailWithChanges(name);
         }
     }
 
@@ -110,12 +141,10 @@ public class ClientStore {
         return new ArrayList<>(clientList);
     }
 
-    /*private void sendEmailWithChanges(String name) {
-        if (name != null) {
-            SendingEmailSMS.sendEmailWithChanges(name);
-        }
-    }*/
-
+    /***
+     * This method sets  the client list
+     * @param lClient
+     */
     public void setClientList(List<Client> lClient) {
         this.clientList = new ArrayList<>(lClient);
     }
@@ -134,13 +163,11 @@ public class ClientStore {
         }
         return null;
     }
-    
-
 
 
     /***
      * This method return a client by find his email
-     * @return client
+     * @return client or null
      */
 
     public Client getClientByEmail() {
@@ -153,30 +180,24 @@ public class ClientStore {
         return null;
     }
 
+    /***
+     * Method that sets the client's name with a new one
+     * @param client
+     * @param name
+     */
     public void changeName(Client client, String name) {
         client.setName(name);
     }
 
-    public boolean changeCitizenCardNumber(Client client, String citizenCardNumber) {
-        for (Client client1 : clientList){
-            if (client1.getCitizenCardNumber().equals(citizenCardNumber))
-                return false;
-        }
-        client.setCitizenCardNumber(citizenCardNumber);
-        return true;
-    }
 
-    public boolean changeEmail(Client client, String email) {
-        for (Client client1 : clientList){
-            if (client1.getEmail().equals(email))
-                return false;
-        }
-        client.setEmail(email);
-        return true;
-    }
-
+    /***
+     * Method that sets the client's address with a new one
+     * @param client
+     * @param address
+     * @return
+     */
     public boolean changeAddress(Client client, String address) {
-        for (Client client1 : clientList){
+        for (Client client1 : clientList) {
             if (client1.getAddress().equals(address))
                 return false;
         }
@@ -184,39 +205,38 @@ public class ClientStore {
         return true;
     }
 
-    public boolean changeNhsNumber(Client client, String nhsNumber) {
-        for (Client client1 : clientList){
-            if (client1.getNhsNumber().equals(nhsNumber))
-                return false;
-        }
-        client.setNhsNumber(nhsNumber);
-        return true;
-    }
-
-    public boolean changeTinNumber(Client client, String tinNumber) {
-        for (Client client1 : clientList){
-            if (client1.getTinNumber().equals(tinNumber))
-                return false;
-        }
-        client.setTinNumber(tinNumber);
-        return true;
-    }
-
+    /***
+     * Method that sets the client's birth date with a new one
+     * @param client
+     * @param birthDate
+     */
     public void changeBirthDate(Client client, String birthDate) {
         client.setBirthDate(birthDate);
     }
 
+    /***
+     * Method that sets the client's sex with a new one
+     * @param client
+     * @param sex
+     */
     public void changeSex(Client client, String sex) {
         client.setSex(sex);
     }
 
+    /***
+     * Method that sets the client's phone number with a new one
+     * @param client
+     * @param phoneNumber
+     * @return
+     */
     public boolean changePhoneNumber(Client client, String phoneNumber) {
-        for (Client client1 : clientList){
+        for (Client client1 : clientList) {
             if (client1.getPhoneNumber().equals(phoneNumber))
                 return false;
         }
         client.setPhoneNumber(phoneNumber);
         return true;
     }
+
 }
 
