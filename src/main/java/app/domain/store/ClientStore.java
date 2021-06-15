@@ -16,7 +16,7 @@ import static app.domain.shared.PasswordGenerator.generatePassword;
 public class ClientStore {
 
     private List<Client> clientList = new ArrayList<>();
-    private final String DATA_PATH = "data\\clients.dat";
+    static final String DATA_PATH = "data\\clients.dat";
 
     /***
      * Method that receives parameters from the associated controller to create a new client
@@ -59,16 +59,10 @@ public class ClientStore {
 
     public boolean saveChanges(Client client) {
         if (client != null) {
-            //client = getClientByNewEmail(client.getEmail());
-            //String name = client.getName();
-            if (!checkDuplicate(client)) {
-                //sendEmailWithChanges(name);
                 serializeStore(this.clientList, DATA_PATH);
                 return true;
             }
             return false;
-        }
-        return false;
     }
 
     /***
@@ -158,14 +152,6 @@ public class ClientStore {
         }
         return null;
     }
-/*
-    public Client getClientByNewEmail(String email) {
-        for (Client client : clientList) {
-            if (client.getEmail().equals(email))
-                return client;
-        }
-        return null;
-    }*/
 
     public void changeName(Client client, String name) {
         client.setName(name);

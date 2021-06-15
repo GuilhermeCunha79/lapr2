@@ -18,6 +18,9 @@
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
             </Text>
             <ComboBox fx:id="labComboBox" prefHeight="40.0" prefWidth="500.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                <VBox.margin>
@@ -35,7 +38,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="mainMenuBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnToLoginUI" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Main Menu" textFill="WHITE" VBox.vgrow="NEVER">
+            <Button fx:id="mainMenuBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnToLoginUI" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Logout" textFill="WHITE" VBox.vgrow="NEVER">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>

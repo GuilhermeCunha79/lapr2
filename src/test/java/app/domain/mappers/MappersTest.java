@@ -8,6 +8,7 @@ import app.mappers.dto.ClientDTO;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -33,11 +34,6 @@ public class MappersTest {
         assertNotNull(ParameterCategoryMapper.toDTO(lpc));
     }
 
-    @Test(expected = IllegalStateException.class)
-    public void testConstructorMapper() {
-        new ParameterCategoryMapper();
-    }
-
     @Test
     public void testParameterMapper() {
         ParameterCategory pc1 = new ParameterCategory("54321", "adaca");
@@ -55,7 +51,7 @@ public class MappersTest {
     @Test
     public void testMapperWithoutParameters() {
         List<Parameter> lp = new ArrayList<>();
-        assertNull(ParameterMapper.toDto(lp));
+        assertEquals(ParameterMapper.toDto(lp), Collections.emptyList());
     }
 
     @Test

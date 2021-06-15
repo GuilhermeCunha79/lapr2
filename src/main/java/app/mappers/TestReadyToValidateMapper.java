@@ -6,7 +6,7 @@ import java.util.List;
 
 public class  TestReadyToValidateMapper {
 
-    public TestReadyToValidateMapper() {
+    private TestReadyToValidateMapper() {
         throw new IllegalStateException("Utility class");
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CalListMapper {
 
-    public CalListMapper() {
+    private CalListMapper() {
         throw new IllegalStateException("Utility class");
     }
 

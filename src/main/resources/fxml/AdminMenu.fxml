@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #EFF1F3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.AdminMenuUI">
    <center>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="200.0" prefWidth="441.0" BorderPane.alignment="CENTER">
@@ -79,7 +78,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="mainMenuBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnToLoginUI" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Main Menu" textFill="WHITE" VBox.vgrow="NEVER">
+            <Button fx:id="mainMenuBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#returnToLoginUI" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Logout" textFill="WHITE" VBox.vgrow="NEVER">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>

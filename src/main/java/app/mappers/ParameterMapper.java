@@ -3,6 +3,7 @@ package app.mappers;
 import app.domain.model.Parameter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ParameterMapper {
@@ -25,7 +26,7 @@ public class ParameterMapper {
             }
             return totListDto;
         }
-        return null;
+        return Collections.emptyList();
     }
 }
 
