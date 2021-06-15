@@ -1,9 +1,6 @@
 package app.domain.store;
 
-import app.domain.model.Client;
-import app.domain.model.ClinicalTest;
-import app.domain.model.Parameter;
-import app.domain.model.TypeOfTest;
+import app.domain.model.*;
 import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
 import app.mappers.dto.ClinicalTestDto;
@@ -47,11 +44,12 @@ public class TestStore implements Serializable {
 
     /**
      * Method to create tests from a csv file as they already come with all the dates/hours and results
+     *
      * @param dto
      * @return
      */
-    public ClinicalTest createTestWithDates (ClinicalTestDto dto) {
-        this.test = new ClinicalTest(dto, testList.size()+1);
+    public ClinicalTest createTestWithDates(ClinicalTestDto dto) {
+        this.test = new ClinicalTest(dto, testList.size() + 1);
         return this.test;
     }
 
@@ -266,6 +264,25 @@ public class TestStore implements Serializable {
             return Collections.emptyList();
         }
     }
+
+    /***
+     * Method that returns a CATest by its nhsCode
+     * @param nhsCode
+     * @return caTest or null
+     */
+    public ClinicalTest getTestByNhsCode(String nhsCode) {
+        for (ClinicalTest clinicalTest : testList) {
+            if (clinicalTest.getNhsCode().equals(nhsCode))
+                return clinicalTest;
+        }
+        return null;
+    }
 }
+
+
+
+
+
+
 
 

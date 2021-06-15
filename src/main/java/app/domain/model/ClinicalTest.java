@@ -33,7 +33,7 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
     private List<Parameter> parameterList;
     private List<ClinicalTest> testClient;
     private List<Sample> sampleList;
-
+    private String laboratoryId;
 
     /***
      * Constructor for CATest with all parameters
@@ -291,6 +291,8 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
     }
 
 
+
+
     /**
      * This method finds all the parameter test results done for this test and return them in a string
      *
@@ -305,6 +307,11 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
         }
         return results;
     }
+
+
+
+
+
 
     /**
      * This method finds all the test results validated and return them in a string
@@ -321,15 +328,6 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
         return results;
     }
 
-    public String getClientTests() {
-        String results = String.format("%n%nTests made and details: %n");
-        if (!testClient.isEmpty()) {
-            for (ClinicalTest result : testClient) {
-                results = results.concat(result.toString());
-            }
-        }
-        return results;
-    }
 
 
     /**
@@ -441,14 +439,14 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
         }
         return false;
     }
-
+/*
     @Override
     public int compareTo(ClinicalTest o1) {
         Date thisDate = new Date(this.getValidationDate().toString());
         Date o1Date = new Date(o1.getValidationDate().toString());
         return o1Date.compareTo(thisDate);
     }
-
+*/
 
     /**
      * This method returns a string with some important data about this test
@@ -475,4 +473,12 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
         ClinicalTest test = (ClinicalTest) o;
         return internalCode.equals(test.internalCode) || nhsCode.equals(test.nhsCode);
     }
+
+    @Override
+    public int compareTo(ClinicalTest test) {
+        if (getCreatedAt() == null || test.getCreatedAt() == null)
+            return 0;
+        return getCreatedAt().compareTo(test.getCreatedAt());
+    }
 }
+

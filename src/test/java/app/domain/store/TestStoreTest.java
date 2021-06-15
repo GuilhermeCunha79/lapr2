@@ -57,6 +57,16 @@ public class TestStoreTest {
     }
 
     @Test
+    public void testGetTestByNhsCode() {
+        List<Parameter> lp = new ArrayList<>();
+        lp.add(p1);
+        List<ClinicalTest> ca = new ArrayList<>();
+        ClinicalTest test = new ClinicalTest("123456789123", client1,tpt,lp,"lol", 2);
+        testStore.saveTest(test);
+        assertEquals(test.toString(), testStore.getTestByNhsCode(test.getNhsCode()).toString());
+    }
+
+    @Test
     public void ensureAddNullTestDontWork() {
         assertFalse(ts.saveTest(null));
     }
