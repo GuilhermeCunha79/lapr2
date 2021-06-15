@@ -7,14 +7,16 @@ import app.domain.store.TestStore;
 import com.isep.mdis.Sum;
 import javafx.scene.canvas.GraphicsContext;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Performance {
     private GraphicsContext statistic;
 
     private List<ClinicalTest> bestPerformance = new ArrayList<>();
+    private List<ClinicalTest> possibleBestPerformance = new ArrayList<>();
     private final List<ClinicalTest> intervalTime = new ArrayList<>();
-    private final List<ClinicalTest> possibleBestPerformance = new ArrayList<>();
 
     private int bestSum = 0;
     private int possibleSum = 0;
@@ -40,35 +42,52 @@ public class Performance {
     }
 
     public List<List<ClinicalTest>> intervalTime(List<ClinicalTest> clinicalTests, DateTime initialDate, DateTime endDate) {
-        Date initialIntervalDate;
-        Date backupInitialIntervalDate = new Date(initialDate.getDate());
-        Date endIntervalDate = new Date(initialDate.getDate());
-        Date initialIntervalTime = new Date(initialDate.getTime());
-        Date endIntervalTime = new Date(initialDate.getTime());
-        Date initialWorkingDay = new Date("08:00");
-        Date endWorkingDay = new Date("20:00");
-        Date actualHour;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withLocale(Locale.FRENCH);
+        String inicialTime = initialDate.getDate() + " " + initialDate.getTime();
+        String endTime = endDate.getDate() + " " + endDate.getTime();
+
+        LocalDateTime initialDateTime;
+        LocalDateTime endDateTime = LocalDateTime.parse(endTime, formatter);
+
+        LocalDateTime backupInitialDateTime;
+        LocalDateTime backupEndDateTime = LocalDateTime.parse(endTime, formatter);
+        Date endIntervalDate = new Date();
+        endIntervalDate.parse(initialDate.getDate());
+
+        DateTime backupInitialDate = initialDate;
+        DateTime backupEndDate = endDate;
+
+        LocalDateTime actualHour;
+
         List<List<ClinicalTest>> intervalTimeChosen = new ArrayList<>();
 
         Collections.sort(clinicalTests);
 
-        for (initialIntervalDate = new Date(initialDate.getDate());
-             initialIntervalDate.before(endIntervalDate);
-             initialIntervalDate.setDate(initialIntervalDate.getDay() + 1)) {
-            for (initialIntervalTime = new Date(initialIntervalTime.getTime());
-                 initialIntervalTime.before(endWorkingDay);
-                 initialIntervalTime.setTime(initialIntervalTime.getMinutes() + 30)) {
+        for (initialDateTime = LocalDateTime.parse(inicialTime, formatter);
+             initialDateTime.isBefore(endDateTime);
+             initialDateTime.plusDays(1)) {
 
-                actualHour = new Date("08:00");
-                if (backupInitialIntervalDate != initialIntervalDate && initialIntervalDate != endIntervalDate) {
-                    while (actualHour.after(initialWorkingDay) && actualHour.before(endWorkingDay)) {
+            for (backupInitialDateTime = LocalDateTime.parse(inicialTime, formatter);
+                 backupInitialDateTime.isBefore(backupEndDateTime);
+                 backupInitialDateTime.plusMinutes(30)) {
+
+                String begin = initialDate.getDate() + " " + "08:00";
+                String end = endDate.getDate() + " " + "20:00";
+                LocalDateTime beginLocalDate = LocalDateTime.parse(begin, formatter);
+                LocalDateTime endLocalDate = LocalDateTime.parse(end, formatter);
+                actualHour = LocalDateTime.parse(begin,formatter);
+
+                if (backupInitialDateTime != backupInitialDateTime && backupInitialDateTime != endLocalDate) {
+                    while (actualHour.isAfter(beginLocalDate) && actualHour.isBefore(endLocalDate)) {
                         for (ClinicalTest test : clinicalTests) {
-                            Date testDate = new Date(test.getValidationDate().toString());
-                            if (initialIntervalTime.before(testDate) && endWorkingDay.after(testDate)){
+                            String actualTest = test.getValidationDate().getDate() + " " + test.getValidationDate().getTime();
+                            LocalDateTime testDate = LocalDateTime.parse(actualTest, formatter);
+                            if (backupInitialDateTime.isBefore(testDate) && endLocalDate.isAfter(testDate)){
                                 intervalTime.add(test);
                             }
                         }
-                        actualHour.setTime(actualHour.getMinutes() + 30);
+                        actualHour.plusMinutes(30);
 
                     }
                 }

@@ -5,19 +5,25 @@ actor "Client" as CLIENT
 
 participant ":System" as SYSTEM
 
-CLIENT -> SYSTEM : Asks to see the tests who have performed
+CLIENT -> SYSTEM : Log in the client account
 activate SYSTEM
 
-SYSTEM --> CLIENT : Shows the type of test list with the results of each one who have performed
+SYSTEM --> CLIENT : Authentication Response
+deactivate SYSTEM
+
+CLIENT -> SYSTEM : See the list of tests who have performed ordered by the registration date
+activate SYSTEM
+SYSTEM --> CLIENT : Shows the test list who have performed ordered by the registration date
 deactivate SYSTEM
 loop
-CLIENT -> SYSTEM : Choose the test
+CLIENT -> SYSTEM : Choose the test you want to see and your respective results
 activate SYSTEM
-SYSTEM --> CLIENT : Shows the result of the test
+SYSTEM --> CLIENT : Shows the result of the chosen test
 deactivate SYSTEM
-
 CLIENT -> SYSTEM : Confirms all data
 activate SYSTEM
 SYSTEM --> CLIENT : Informs operation success
+deactivate SYSTEM
 end
+
 @enduml
