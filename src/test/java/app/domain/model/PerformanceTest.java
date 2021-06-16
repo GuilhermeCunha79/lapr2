@@ -1,4 +1,4 @@
-package app.domain.model;
+/*package app.domain.model;
 
 import app.domain.shared.DateTime;
 import org.junit.Test;
@@ -20,4 +20,4 @@ public class PerformanceTest {
     @Test
     public void testBruteForceAlgorithm() {
     }
-}
+}*/
