@@ -3,18 +3,18 @@ package app.domain.model;
 import app.mappers.dto.ClientDTO;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
+import app.ui.console.utils.Utils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.*;
 
 /***
  * Client Class
@@ -207,6 +207,10 @@ public class Client  implements Serializable {
         this.birthDate = birthDate;
     }
 
+    /***
+     * Method that sets the address of the Client
+     * @param address
+     */
     public void setAddress(String address) {
         if (address == null)
             throw new NullPointerException(STRING_ADDRESS + Constants.STRING_NULL_EXEPT);
@@ -283,20 +287,41 @@ public class Client  implements Serializable {
         }
         return clientList;
     }
-/*
-    private void addClient() {
-        for (ClientDTO ct : clientList){
-            clientList.add(new ClientDTO(ct));
+
+    public Class<?> getSortingMethod(String type){
+        Properties props = new Properties();
+        try (InputStream in = new FileInputStream("config.properties")) {
+            props.load(in);
+            String sort;
+            if (type.equalsIgnoreCase("name")) {
+                sort = props.getProperty("Company.BubbleSortName");
+            } else {
+                sort = props.getProperty("Company.BubbleSortTinNumber");
+
+            }
+            return Class.forName(sort);
+        } catch (Exception e) {
+            Utils.printToConsole(e.getLocalizedMessage());
+            return null;
         }
-    }*/
+    }
 
 
+    /***
+     * Method that returns a String with the Client information
+     * @return
+     */
     @Override
     public String toString() {
         return String.format("%nClient:%nName: %s%nCitizen Card Number: %s%nNHS number: %s%nTIN number: %s%nBirth date: %s%nSex: %s%nPhone number: %s%nEmail: %s%nAddress: %s%n",
                 this.name, this.citizenCardNumber, this.nhsNumber, this.tinNumber, this.birthDate, this.sex, this.phoneNumber, this.email, this.address);
     }
 
+    /***
+     * This method check if two different clients are same data
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

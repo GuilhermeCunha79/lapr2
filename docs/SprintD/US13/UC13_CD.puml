@@ -1,11 +1,83 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+skinparam classAttributeIconSize 0
+package Controller {
+class CheckResultsController {
 
-autonumber
+}
+}
+package Mappers {
+class ClientMapper {
+  + List<String>toDTO(List<Client> listClient)
+}
+class TestFinalizedMapper {
+  + List<String>toDTO(List<ClinicalTest> lTestsDone)
+}
+}
+package Domain {
+package Model {
+class CATest {
+  - Client client
+  - List parameterList
+  - Date createdAt
+  - String internalCode
+  - Report report
+}
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+class Company {
+  - String designation
+  + Company(designation)
+  + getTestStore()
+  +getClientStore
+  }
+  class Client{
+  -name
+  -citizenCardNumber
+  -nhsNumber
+  -tinNumber
+  -birthDate
+  -sex
+  -phoneNumber
+  -email
+}
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+}
+package Store {
+class TestStore {
+    +getClientTests(client)
+
+}
+class ClientStore{
+    +getClientByEmail()
+    +getClientByTIN(tin)
+    +getClientList()
+}
+}
+
+}
+
+package UI {
+class CheckTestsResultsUI{
+}
+}
+
+
+
+
+CheckTestsResultsUI ..> CheckResultsController
+
+CheckResultsController ..> TestStore
+CheckResultsController ..> ClientStore
+CheckResultsController ..> Company
+CheckResultsController .up.> TestFinalizedMapper
+CheckResultsController .up.> ClientMapper
+CheckResultsController ..> CATest
+Company "1" -> "*"CATest :perform
+Company "1" -> "1" TestStore : use
+
+TestStore "1" -> "1" CATest : knows
+ClientStore "1" -> "1" Client : knows
+
+
+
+
 @enduml

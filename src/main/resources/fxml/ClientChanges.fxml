@@ -64,19 +64,11 @@
                 </Text>
                 <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
                     <children>
-                        <TextField fx:id="ccTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                        <TextField fx:id="ccTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="718.0" style="-fx-background-radius: 10; -fx-background-color: white;">
                             <HBox.margin>
-                                <Insets right="20.0" />
+                                <Insets />
                             </HBox.margin>
                         </TextField>
-                        <Button fx:id="btnChangeCC" mnemonicParsing="false" onAction="#enableTextFieldCC" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
-                            <font>
-                                <Font name="Segoe UI Bold" size="14.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
                     </children>
                     <VBox.margin>
                         <Insets bottom="10.0" />
@@ -92,19 +84,11 @@
                 </Text>
                 <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
                     <children>
-                        <TextField fx:id="nhsTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                        <TextField fx:id="nhsTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="749.0" style="-fx-background-radius: 10; -fx-background-color: white;">
                             <HBox.margin>
-                                <Insets bottom="20.0" right="20.0" />
+                                <Insets bottom="20.0" />
                             </HBox.margin>
                         </TextField>
-                        <Button fx:id="btnChangeNHS" mnemonicParsing="false" onAction="#enableTextFieldNHS" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
-                            <font>
-                                <Font name="Segoe UI Bold" size="14.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
                     </children>
                     <VBox.margin>
                         <Insets bottom="10.0" />
@@ -120,19 +104,11 @@
                 </Text>
                 <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
                     <children>
-                        <TextField fx:id="tinTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                        <TextField fx:id="tinTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="827.0" style="-fx-background-radius: 10; -fx-background-color: white;">
                             <HBox.margin>
-                                <Insets bottom="20.0" right="20.0" />
+                                <Insets bottom="20.0" />
                             </HBox.margin>
                         </TextField>
-                        <Button fx:id="btnChangeTIN" mnemonicParsing="false" onAction="#enableTextFieldTIN" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
-                            <font>
-                                <Font name="Segoe UI Bold" size="14.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
                     </children>
                     <VBox.margin>
                         <Insets bottom="10.0" />
@@ -176,19 +152,11 @@
                 </Text>
                 <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
                     <children>
-                        <TextField fx:id="birthDateTxt" disable="true" editable="false" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                        <TextField fx:id="birthDateTxt" disable="true" editable="false" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="791.0" style="-fx-background-radius: 10; -fx-background-color: white;">
                             <HBox.margin>
-                                <Insets bottom="20.0" right="20.0" />
+                                <Insets bottom="20.0" />
                             </HBox.margin>
                         </TextField>
-                        <Button fx:id="btnChangeBirthDate" mnemonicParsing="false" onAction="#enableTextFieldBirthDate" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: white;" text="Change" textFill="#575757">
-                            <font>
-                                <Font name="Segoe UI Bold" size="14.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
                     </children>
                     <VBox.margin>
                         <Insets bottom="10.0" />
@@ -232,9 +200,9 @@
                 </Text>
                 <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0">
                     <children>
-                        <TextField fx:id="emailTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="561.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+                        <TextField fx:id="emailTxt" disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" prefWidth="808.0" style="-fx-background-radius: 10; -fx-background-color: white;">
                             <HBox.margin>
-                                <Insets bottom="20.0" right="20.0" />
+                                <Insets bottom="20.0" />
                             </HBox.margin>
                         </TextField>
                     </children>

@@ -199,7 +199,7 @@ public class CommonMethods {
     }
 
     /***
-     * Prints a given List
+     * Prints a given List<Client>
      * @param list
      */
     public static void printList(List<Client> list){
@@ -207,4 +207,5 @@ public class CommonMethods {
             System.out.println(list.get(i));
         }
     }
+
 }

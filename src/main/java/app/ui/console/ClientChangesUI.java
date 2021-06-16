@@ -30,50 +30,22 @@ public class ClientChangesUI implements Runnable {
                     ctrl.changeName(ctrl.getClientByEmail(), cltName);
                     break;
                 }
+
                 case 1: {
-                    String cltCct = Utils.readLineFromConsole("Introduce the new Citizen Card Number: ");
-                    if (!ctrl.changeCitizenCardNumber(ctrl.getClientByEmail(), cltCct) || saveChanges())
-                        Utils.printToConsole("\nINFO: This CCT number belongs to another client!");
-                    break;
-                }
-                case 2: {
-                    String cltNhs = Utils.readLineFromConsole("Introduce the new NHS Number: ");
-                    if (!ctrl.changeNhsNumber(ctrl.getClientByEmail(), cltNhs) || saveChanges())
-                        Utils.printToConsole("\nINFO: This NHS number belongs to another client!");
-                    break;
-                }
-                case 3: {
-                    String cltTin = Utils.readLineFromConsole("Introduce the new TIN Number: ");
-                    if (!ctrl.changeTinNumber(ctrl.getClientByEmail(), cltTin) || saveChanges())
-                        Utils.printToConsole("\nINFO: This TIN belongs to another client!");
-                }
-
-                case 4: {
-                    String cltBirthDate = Utils.readLineFromConsole("Introduce the new Birth Date: ");
-                    ctrl.changeBirthDate(ctrl.getClientByEmail(), cltBirthDate);
-                    break;
-                }
-
-                case 5: {
                     String cltSex = Utils.readLineFromConsole("Introduce the Sex: ");
                     ctrl.changeSex(ctrl.getClientByEmail(), cltSex);
                     break;
                 }
 
-                case 6: {
+                case 2: {
                     String cltPhoneNumber = Utils.readLineFromConsole("Introduce the new Phone Number: ");
                     if (!ctrl.changePhoneNumber(ctrl.getClientByEmail(), cltPhoneNumber) || saveChanges())
                         Utils.printToConsole("\nINFO: Phone number belongs to another client!");
 
                     break;
                 }
-                case 7: {
-                    String cltEmail = Utils.readLineFromConsole("Introduce the new Email: ");
-                    ctrl.changeEmail(ctrl.getClientByEmail(), cltEmail);
-                    break;
-                }
 
-                case 8: {
+                case 3: {
                     String cltAddress = Utils.readLineFromConsole("Introduce the new Address: ");
                     ctrl.changeAddress(ctrl.getClientByEmail(), cltAddress);
                     break;
@@ -91,13 +63,9 @@ public class ClientChangesUI implements Runnable {
     private int dataOptions() {
         List<String> options = new ArrayList<>();
         options.add("Name");
-        options.add("Citizen Card Number");
-        options.add("NHS Number");
-        options.add("TIN Number");
         options.add("Birth Date");
         options.add("Sex");
         options.add("Phone Number");
-        options.add("Email");
 
         return Utils.showAndSelectIndex(options, "Select the data that you want to change:");
     }

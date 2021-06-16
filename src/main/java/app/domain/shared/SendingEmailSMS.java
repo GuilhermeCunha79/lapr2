@@ -22,7 +22,7 @@ public class SendingEmailSMS {
      */
     public static void sendEmailWithPassword(String name, String email, String password) {
         try (PrintWriter out = new PrintWriter(emailBox)) {
-            out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%nLogin data: %nEmail: %s%nPassword: %s", name, email, password);
+            out.printf("Hello %s,%nYou now can use your email and the following password to access Many Labs app: %n%nLogin data: %nEmail: %s%nPassword: %s%n%nMany Labs ©", name, email, password);
         } catch (Exception e) {
             Utils.printToConsole(EMAIL_NOT_SENT_MESSAGE);
         }
@@ -36,7 +36,7 @@ public class SendingEmailSMS {
      */
     public static void sendEmailWithNotification(String name, DateTime validatedAt) {
         try (PrintWriter out = new PrintWriter(emailBox)) {
-            out.printf("Hello %s,%nYou can now access the application to check the results of your test! %s", name, validatedAt);
+            out.printf("Hello %s,%nYou can now access the application to check the results of your test! %s%n%nMany Labs ©", name, validatedAt);
         } catch (Exception e) {
             Utils.printToConsole(EMAIL_NOT_SENT_MESSAGE);
         }
@@ -50,7 +50,7 @@ public class SendingEmailSMS {
      */
     public static void sendEmailWithChanges(String name) {
         try (PrintWriter out = new PrintWriter(emailBox)) {
-            out.printf("Hello %s,%n Your personal data has been changed with success!", name);
+            out.printf("Hello %s,%n%nYour personal data has been changed with success! %n%nMany Labs ©", name);
         } catch (Exception e) {
             Utils.printToConsole(EMAIL_NOT_SENT_MESSAGE);
         }

@@ -35,18 +35,6 @@ public class ChangeClientDataController {
         this.ctStore.changeName(client, name);
     }
 
-    public boolean changeCitizenCardNumber(Client client, String name) {
-        return this.ctStore.changeCitizenCardNumber(client, name);
-    }
-
-    public boolean changeNhsNumber(Client client, String name) {
-        return  this.ctStore.changeNhsNumber(client, name);
-    }
-
-    public boolean changeTinNumber(Client client, String name) {
-       return this.ctStore.changeTinNumber(client, name);
-    }
-
     public void changeBirthDate(Client client, String name) {
         this.ctStore.changeBirthDate(client, name);
     }
@@ -58,10 +46,6 @@ public class ChangeClientDataController {
     public boolean changePhoneNumber(Client client, String name) {
         return this.ctStore.changePhoneNumber(client, name);
 
-    }
-
-    public boolean changeEmail(Client client, String name) {
-        return this.ctStore.changeEmail(client, name);
     }
 
     public boolean changeAddress(Client client, String name) {

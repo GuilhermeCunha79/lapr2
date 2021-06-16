@@ -9,7 +9,7 @@ participant ":CheckResultsController" as CTRL
 participant ":Company" as COMP
 participant ":TestStore" as TS
 participant ":ClientStore" as CS
-participant ":ConfigurationFile" as CF
+
 
 
 CCT->UI : check results
@@ -25,9 +25,9 @@ activate CTRL
 CTRL-> COMP : clientStore = getClientStore()
 activate COMP
 deactivate COMP
-CTRL-> CF : sortedTestList=sortClientList(clientStore)
-activate CF
-deactivate CF
+CTRL-> CS : sortedTestList=sortClientList(clientStore)
+activate CS
+deactivate CS
 deactivate CTRL
 
 loop
