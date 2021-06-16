@@ -277,7 +277,7 @@ public class Client  implements Serializable {
         this.email = email;
     }
 
-    public List<Client> getClientResults() {
+    /*public List<Client> getClientResults() {
         String clients = String.format("%n%nClients Results: %n");
         if (!clientList.isEmpty()) {
             for (Client ct : clientList) {
@@ -286,20 +286,21 @@ public class Client  implements Serializable {
             }
         }
         return clientList;
-    }
+    }*/
 
-    public Class<?> getSortingMethod(String type){
+    public Sorting getSortingMethod(String type){
         Properties props = new Properties();
         try (InputStream in = new FileInputStream("config.properties")) {
             props.load(in);
             String sort;
+            Class<?> oClass;
             if (type.equalsIgnoreCase("name")) {
                 sort = props.getProperty("Company.BubbleSortName");
             } else {
                 sort = props.getProperty("Company.BubbleSortTinNumber");
-
             }
-            return Class.forName(sort);
+            oClass = Class.forName(sort);
+            return (Sorting) oClass.newInstance();
         } catch (Exception e) {
             Utils.printToConsole(e.getLocalizedMessage());
             return null;

@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import static app.domain.model.Client.calculateAge;
@@ -82,6 +84,24 @@ public class ClientTest {
     @Test(expected = IllegalArgumentException.class)
     public void ensureNameCannotBeBlank() {
         ClientDTO dto = new ClientDTO("To<más", "1234567890123456", "1234567891", "1234567890", "23/12/2010", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
+        new Client(dto);
+    }
+
+    /**
+     * Tests with address blank
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureAddressCannotBeBlank() {
+        ClientDTO dto = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2010", "male", "12345678901", "tomas@isep.ipp.pt", "");
+        new Client(dto);
+    }
+
+    /**
+     * Tests with address blank
+     */
+    @Test(expected = NullPointerException.class)
+    public void ensureAddressCannotBeNull() {
+        ClientDTO dto = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2010", "male", "12345678901", "tomas@isep.ipp.pt", null);
         new Client(dto);
     }
 
@@ -181,6 +201,15 @@ public class ClientTest {
     @Test(expected = IllegalArgumentException.class)
     public void ensureThatSexOnlyAcceptMaleFemale() {
         ClientDTO dto = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "madeira", "12345678901", "tomas@isep.ipp.pt", "street 1");
+        new Client(dto);
+    }
+
+    /**
+     * Tests acceptance criteria of sex
+     */
+    @Test
+    public void ensureThatSexCannotBeNull() {
+        ClientDTO dto = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", null, "12345678901", "tomas@isep.ipp.pt", "street 1");
         new Client(dto);
     }
 
@@ -621,6 +650,28 @@ public class ClientTest {
         ct1.setEmail("tomasmiguel@isep.ipp.pt");
         String expected = "tomasmiguel@isep.ipp.pt";
         assertEquals(expected, ct1.getEmail());
+    }
+
+    /**
+     * Test of getAddress method, of class Client.
+     */
+    @Test
+    public void checkGetAddress() {
+        ClientDTO ct01 = new ClientDTO("Tomás", "1234567890123456", "1234567890", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
+        String expected = "street 1";
+        assertEquals(expected, ct01.getAddress());
+    }
+
+    /**
+     * Test of setAddress method, of class Client.
+     */
+    @Test
+    public void checkSetAddress() {
+        ClientDTO ct01 = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
+        Client ct1 = new Client(ct01);
+        ct1.setAddress("street 53");
+        String expected = "street 53";
+        assertEquals(expected, ct1.getAddress());
     }
 
     /**

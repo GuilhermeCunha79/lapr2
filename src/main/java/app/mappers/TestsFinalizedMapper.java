@@ -19,7 +19,7 @@ public class TestsFinalizedMapper {
         List<String> rtvListDto = new ArrayList<>();
 
         for (ClinicalTest test : lTestsDone) {
-            rtvListDto.add(String.format("%s Collected at: %s | Reported at: %s | Validated at: %s | %n | Report: %s |%n",test.toString(), test.getChemicalAnalysisDate(), test.getReportDate(), test.getValidationDate(), test.getReportText()));
+            rtvListDto.add(String.format("%s Collected at: %s | Reported at: %s | Validated at: %s | %n | Test Results: %s %n| Report: %s |%n",test.toString(), test.getChemicalAnalysisDate(), test.getReportDate(), test.getValidationDate(),test.getTestResults(), test.getReportText()));
         }
         return rtvListDto;
     }

@@ -1,7 +1,7 @@
 package app.SortingMethods.String;
 
 import app.domain.model.Client;
-import app.domain.shared.CommonMethods;
+
 //import app.mappers.dto.ClientDTO;
 
 import java.util.ArrayList;
@@ -65,7 +65,7 @@ public class BubbleSortName {
     }
     }*/
 
-    public static String[] bubbleSort(List<Client> clientList) {
+    public String[] bubbleSort(List<Client> clientList) {
         String[] a = fillArray(clientList);
         String temp;
         for (int j = 0; j < a.length; j++) {

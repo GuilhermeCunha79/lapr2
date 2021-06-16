@@ -13,13 +13,13 @@ import java.util.List;
 
 public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
     private static final int NHS_CODE = 12;
-    private String labWhereCreated;
-    private DateTime createdAt;
+    private final String labWhereCreated;
+    private final DateTime createdAt;
     private DateTime chemicalAnalysisDate;
     private DateTime validationDate;
     private Client client;
     private TypeOfTest typeOfTest;
-    private String internalCode;
+    private final String internalCode;
     private String nhsCode;
 
     private boolean sampleDone;
@@ -28,8 +28,8 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
     private boolean validationDone;
 
     private Report report;
-    private List<TestParameter> testParametersList = new ArrayList<>();
-    private List<ClinicalTest> testReadyToVal = new ArrayList<>();
+    private final List<TestParameter> testParametersList = new ArrayList<>();
+    private final List<ClinicalTest> testReadyToVal = new ArrayList<>();
     private List<Parameter> parameterList;
     private List<ClinicalTest> testClient;
     private List<Sample> sampleList;

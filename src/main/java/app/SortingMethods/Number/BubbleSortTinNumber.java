@@ -9,8 +9,7 @@ import java.util.Objects;
 
 public class BubbleSortTinNumber {
 
-
-    private static String[] fillArray(List<Client> clientList) {
+    private String[] fillArray(List<Client> clientList) {
         List<String> strings = new ArrayList<>(clientList.size());
         for (Client object : clientList) {
             strings.add(Objects.toString(object.getTinNumber(), null));
@@ -65,7 +64,7 @@ public class BubbleSortTinNumber {
         CommonMethods.printList(arr3);
     }*/
 
-    public static String[] bubbleSort(List<Client> clientList) {
+    public String[] bubbleSort(List<Client> clientList) {
         String[] a = fillArray(clientList);
         String temp;
         for (int j = 0; j < a.length; j++) {
