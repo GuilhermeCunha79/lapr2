@@ -2,24 +2,24 @@ package app.domain.model;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
 public class SimpleRegressionModel {
 
     private int numberOfDays;
     private final List<Date> datesList;
     private List <Float>independentVariables ;
     private List<Float> testWhitPositiveCases;
-    private List<Float> predictedValuesList;
-    private List <String> trustIntervalsList;
+    private final List<Float> predictedValuesList;
+    private final List <String> trustIntervalsList;
 
 
-    public SimpleRegressionModel(List<Date> datesList,List<Float> testWhitPositiveCasesList ,List <Float>independentVariables,List<Float> predictedValuesList,List <String> trustIntervalsList,int numberOfDays) {
+    public SimpleRegressionModel(List<Date> datesList, List<Float> testWhitPositiveCasesList , List <Float>independentVariables, List<Float> predictedValuesList, List <String> trustIntervalsList, int numberOfDays) {
         this.datesList = datesList;
         this.testWhitPositiveCases = testWhitPositiveCasesList;
         this.predictedValuesList=setPredictedValuesList(testWhitPositiveCases,independentVariables,predictedValuesList,numberOfDays);
-        this.trustIntervalsList=setTrustIntervalsList(testWhitPositiveCases,predictedValuesList,trustIntervalsList);
+        this.trustIntervalsList=setTrustIntervalsList(testWhitPositiveCases,this.predictedValuesList,trustIntervalsList);
     }
 
     public int getNumberOfDays() {
@@ -52,15 +52,33 @@ public class SimpleRegressionModel {
 
     @Override
     public String toString() {
-        String dates =datesList.toString();
-        String depVariable = testWhitPositiveCases.toString();
-        String predicValue = predictedValuesList.toString();
-        String interval = trustIntervalsList.toString();
-        return String.format("Date %s " +
-                        "Number of OBSERVED positive cases %s " +
-                        "Number of ESTIMATED positive cases %s " +
-                        "95 percent intervals %s"
-                ,dates,depVariable,predicValue,interval);
+        String[] columns= new String[] { "Date ", " Number of OBSERVED positive cases " ," Number of ESTIMATED positive cases "," 95% intervals ",};
+        String[][] table = tableCreation(columns);
+        return Arrays.deepToString(table);
+    }
+
+    private String[][] tableCreation(String[] columns) {
+        String[][] table = new String[datesList.size()+1][columns.length];
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table.length; j++) {
+                if (i==0){
+                    table[i][0]=columns[0];
+                    table[i][1]=columns[1];
+                    table[i][2]=columns[2];
+                    table[i][3]=columns[3];
+                }else{
+                    String date= String.valueOf(datesList.get(i-1));
+                    String opc= String.valueOf(testWhitPositiveCases.get(i-1));
+                    String epc= String.valueOf(predictedValuesList.get(i-1));
+                    String ti= String.valueOf(trustIntervalsList.get(i-1));
+                    table[i][0]=date;
+                    table[i][1]=opc;
+                    table[i][2]=epc;
+                    table[i][3]=ti;
+                }
+            }
+        }
+        return table;
     }
 
     public List<String> getTrustIntervalsList() {

@@ -23,6 +23,10 @@ public class Sample implements Serializable {
      */
     public List<Sample> getSampleList() { return new ArrayList<>(sampleList); }
 
+    public void setSampleList(List<Sample> sampleList) {
+        this.sampleList = sampleList;
+    }
+
     /**
      * to String method to show the
      * @return a String

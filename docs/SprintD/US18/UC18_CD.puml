@@ -1,0 +1,70 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+package UI {
+class SendNHSReportUI {
+}
+}
+
+package Controller {
+class SendNHSReportController {
+    +getTestFinalized()
+    +getTestResults(testCode)
+    +newReport(text)
+    +saveReport()
+    +sendReport()
+}
+}
+
+package Domain {
+package Model {
+class Company {
+    -description
+    +getTestStore()
+}
+
+class TestParameterResult {
+    -createdAt
+    -value
+    -metric
+    +toString()
+}
+
+class RegressionModel {
+    -createdAt
+    -
+    +registerReportDateTime()
+}
+}
+package Store {
+class TestStore {
+    +getTestWithoutReport()
+    +getTestByCode(testCode)
+}
+}
+
+package Shared {
+class DateTime {
+    -date
+    -time
+    +registerCurrentDateTime()
+}
+}
+}
+
+package Mappers {
+class TestListMapper {
+    +toDto(lTestNoReport)
+}
+}
+
+SendNHSReportUI .right.> SendNHSReportController
+SendNHSReportController ..> Company
+SendNHSReportController ..> DateTime
+SendNHSReportController ..> TestParameterResult
+SendNHSReportController ..> TestStore
+SendNHSReportController .right.> TestListMapper
+SendNHSReportController ..> RegressionModel
+Company"1" -left-> "1"TestStore : "uses"
+
+@enduml

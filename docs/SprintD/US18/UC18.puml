@@ -1,0 +1,8 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+usecase "UC18 -  Send report to NHS " as UC18
+actor admin as "Administrator"
+
+admin --> (UC18)
+@enduml
