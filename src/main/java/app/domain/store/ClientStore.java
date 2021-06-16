@@ -3,7 +3,6 @@ package app.domain.store;
 import app.controller.App;
 import app.domain.model.*;
 import app.domain.shared.Constants;
-import app.domain.shared.DateTime;
 import app.domain.shared.SendingEmailSMS;
 import app.mappers.dto.ClientDTO;
 import auth.domain.model.Email;
@@ -18,6 +17,8 @@ public class ClientStore {
 
     static final String DATA_PATH = "data\\clients.dat";
     private List<Client> clientList = new ArrayList<>();
+
+    private Client client;
 
     /***
      * Method that receives parameters from the associated controller to create a new client
@@ -235,6 +236,16 @@ public class ClientStore {
         client.setPhoneNumber(phoneNumber);
         return true;
     }
+/*
+    public boolean addTestParameterResult(String type) {
+        List<Client> clientList = getClientList();
+        if (clientList != null) {
+            Sorting list = this.client.getSortingMethod(type);
+            String[] algo= list.getSortedList(clientList);
 
+            return true;
+        }
+        return false;
+    }*/
 }
 

@@ -288,6 +288,7 @@ public class Client  implements Serializable {
         return clientList;
     }*/
 
+    /*
     public Sorting getSortingMethod(String type){
         Properties props = new Properties();
         try (InputStream in = new FileInputStream("config.properties")) {
@@ -305,7 +306,7 @@ public class Client  implements Serializable {
             Utils.printToConsole(e.getLocalizedMessage());
             return null;
         }
-    }
+    }*/
 
 
     /***

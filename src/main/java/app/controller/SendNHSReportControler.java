@@ -33,18 +33,18 @@ public class SendNHSReportControler {
 
 
 
-
+/*
     /**
      * This method returns a list with the main information about each test available without a report
      * @return a list of Strings holding the data for each test
-     */
+
     public List<ClinicalTest> getFinalisedTest(){
         List<ClinicalTest> FinalisedTest = testStore.getTestFinalizated();
         if(!FinalisedTest.isEmpty()) {
             return TestListMapper.toDto(FinalisedTest);
         }
         return FinalisedTest;
-    }
+    }*/
 
 
 
