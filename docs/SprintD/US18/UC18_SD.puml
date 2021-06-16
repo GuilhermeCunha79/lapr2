@@ -17,17 +17,21 @@ participant "RegressionModel" as SAMPLE
 participant "testMap:TestMapper" as TMAPPER
 participant "NHS" as  N
 activate Ad
-Ad--> UI : start the report
-activate "UI"
 
+Ad-> UI : start the report
+activate "UI"
 "UI"--> Ad : Ask for to select the time measure(days or weeks)
 deactivate "UI"
-Ad --> "UI" : select measure
+Ad -> "UI" : select measure
 activate "UI"
 "UI"--> Ad : Ask for the interval of time
 deactivate "UI"
-Ad --> "UI" : imput the interval of time
+Ad -> "UI" : imput the interval of time
 activate "UI"
+    "UI"->"CTRL" : getCovidTest()
+    activate CTRL
+        CTRL -> COMP : getTestStore()
+    deactivate CTRL
 "UI" --> Ad : Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
 deactivate "UI"
 Ad -> "UI" : select the options of the options
