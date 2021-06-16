@@ -112,7 +112,7 @@ public class TestTest {
         lparameter.add(new Parameter("33245", "wqp", "20202", new ParameterCategory("77891", "fgh")));
         ClinicalTest t3 = new ClinicalTest("447474799555", client, typeOfTest, lparameter, "10022", 10);
         String expected = String.format("447474799555");
-        assertEquals(expected, t3.getNhsCode().toString());
+        assertEquals(expected, t3.getNhsCode());
     }
 
     @Test(expected = NullPointerException.class)

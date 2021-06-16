@@ -330,6 +330,15 @@ public class ClientTest {
     }
 
     /**
+     * Tests if birthDate is wrong, first constructor
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void checkClientIsYoungerThan150years() {
+        ClientDTO dto = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/1500", "Male", "12345678901", "tomas1@isep.ipp.pt", "street 1");
+        new Client(dto);
+    }
+
+    /**
      * Tests if birthDate is wrong, second constructor
      */
     @Test(expected = IllegalArgumentException.class)
@@ -485,6 +494,7 @@ public class ClientTest {
         String expected = "Tomás";
         assertEquals(expected, ct01.getName());
     }
+
 
     /**
      * Test of setName method, of class Client.
