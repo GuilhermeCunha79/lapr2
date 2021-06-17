@@ -26,7 +26,6 @@ public class Performance {
     }
 
     public Performance() {
-
     }
 
 
@@ -34,7 +33,6 @@ public class Performance {
         int[] example = new int[]{29, -32, -9, -25, 44, 12, -61, 51, -9, 44, 74, 4};
         int[] result = Sum.Max(example);
         System.out.println(Arrays.toString(result)); // should print [51, -9, 44, 74, 4]
-
     }
 
     public GraphicsContext getStatistic() {
@@ -43,17 +41,15 @@ public class Performance {
 
     public List<List<ClinicalTest>> intervalTime(List<ClinicalTest> clinicalTests, DateTime initialDate, DateTime endDate) {
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withLocale(Locale.FRENCH);
+        var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withLocale(Locale.FRENCH);
         String inicialTime = initialDate.getDate() + " " + initialDate.getTime();
         String endTime = endDate.getDate() + " " + endDate.getTime();
 
         LocalDateTime initialDateTime;
-        LocalDateTime endDateTime = LocalDateTime.parse(endTime, formatter);
+        var endDateTime = LocalDateTime.parse(endTime, formatter);
 
         LocalDateTime backupInitialDateTime;
-        LocalDateTime backupEndDateTime = LocalDateTime.parse(endTime, formatter);
-        Date endIntervalDate = new Date();
-        endIntervalDate.parse(initialDate.getDate());
+        var backupEndDateTime = LocalDateTime.parse(endTime, formatter);
 
         DateTime backupInitialDate = initialDate;
         DateTime backupEndDate = endDate;
@@ -88,7 +84,6 @@ public class Performance {
                             }
                         }
                         actualHour.plusMinutes(30);
-
                     }
                 }
                 intervalTimeChosen.add(intervalTime);
