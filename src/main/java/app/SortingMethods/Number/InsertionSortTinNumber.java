@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class InsertionSortTinNumber {
 
-    public static String[] insertionSort(List<Client> clientList) {
+    public String[] insertionSort(List<Client> clientList) {
         String[] array = fillArray(clientList);
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = i + 1; j > 0; j--) {
