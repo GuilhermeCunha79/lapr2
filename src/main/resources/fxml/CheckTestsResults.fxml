@@ -47,7 +47,7 @@
                         <Insets bottom="19.0" top="2.0" />
                      </VBox.margin>
                   </Text>
-                  <Button fx:id="btnNameSort" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: #2AF598;" text="Name" textFill="WHITE">
+                  <Button fx:id="btnNameSort" maxWidth="-Infinity" mnemonicParsing="false" onAction="#orderListByName" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: #2AF598;" text="Name" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="14.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnTINSort" mnemonicParsing="false" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: #2AF598;" text="TIN" textFill="WHITE">
+                  <Button fx:id="btnTINSort" mnemonicParsing="false" onAction="#orderListByTIN" prefHeight="40.0" prefWidth="119.0" style="-fx-background-radius: 10; -fx-background-color: #2AF598;" text="TIN" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="160.0" />
                      </VBox.margin>

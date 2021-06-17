@@ -7,8 +7,7 @@ import java.util.List;
 public class SortingAdapterName implements Sorting{
 
     @Override
-    public String[] getSortedList(List<Client> clientList) {
-
-        return new BubbleSortName().bubbleSort(clientList);
+    public List<Client> getSortedList(List<Client> clientList) {
+        return new BubbleSortName().orderedList(clientList);
     }
 }

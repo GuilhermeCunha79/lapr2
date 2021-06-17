@@ -8,6 +8,11 @@ import java.util.Objects;
 
 public class InsertionSortName {
 
+    /***
+     * Method responsible for sorting the client list using insertion sort
+     * @param clientList
+     * @return array
+     */
     public String[] insertionSort(List<Client> clientList) {
         String[] array = fillArray(clientList);
         for (int i = 0; i < array.length - 1; i++) {
@@ -22,38 +27,12 @@ public class InsertionSortName {
         return array;
     }
 
-/*
-            public static void main (String[]args)
-            {
-                InsertionSortName sorter = new InsertionSortName();
-                List<Client> arr3 = new ArrayList<>();
-
-
-                ClientDTO dto8 = new ClientDTO("zebreu", "1234567890123456", "1234567891", "1234567890", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt", "street");
-                Client client8 = new Client(dto8);
-                arr3.add(client8);
-                ClientDTO dto = new ClientDTO("ana maria", "1234567890123456", "1234567891", "1234567890", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt", "street");
-                Client client = new Client(dto);
-                arr3.add(client);
-                ClientDTO dto4 = new ClientDTO("ana ana", "1234567890123456", "1234567891", "1111111111", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt", "street");
-                Client client4 = new Client(dto4);
-                arr3.add(client4);
-
-
-                ClientDTO dto1 = new ClientDTO("ana joana", "1234567890123456", "1234567891", "2121212121", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt", "street");
-                Client client1 = new Client(dto1);
-                arr3.add(client1);
-                ClientDTO dto9 = new ClientDTO("filipe", "1234567890123456", "1234567891", "4321234567", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt", "street");
-                Client client9 = new Client(dto9);
-                arr3.add(client9);
-                ClientDTO dto6 = new ClientDTO("Eduardo", "1234567890123456", "1234567891", "0123456789", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt", "street");
-                Client client6 = new Client(dto6);
-                arr3.add(client6);
-
-                sorter.displaySortedList(arr3);
-
-                public void displaySortedList(List<Client> clientList) {
-
+    /***
+     * Method that order a client list by name using bubble sort algorithm
+     * @param clientList
+     * @return arr3
+     */
+    public List<Client> orderedList(List<Client> clientList) {
         String[] sorted = insertionSort(clientList);
         List<Client> arr3 = new ArrayList<>();
         for (String name : sorted) {
@@ -63,10 +42,14 @@ public class InsertionSortName {
                 }
             }
         }
-        CommonMethods.printList(arr3);
+        return arr3;
     }
-            }*/
 
+    /***
+     * Method that fills an string array with a list of client's name
+     * @param clientList
+     * @return filled string array
+     */
     private String[] fillArray(List<Client> clientList) {
         List<String> strings = new ArrayList<>(clientList.size());
         for (Client object : clientList) {
@@ -76,7 +59,6 @@ public class InsertionSortName {
 
         return strings.toArray(array);
     }
-
 
 }
 

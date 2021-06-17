@@ -3,8 +3,11 @@ package app.domain.model;
 import app.mappers.dto.ClientDTO;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
+import app.ui.console.utils.Utils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
@@ -36,6 +39,8 @@ public class Client  implements Serializable {
     static final String STRING_ADDRESS = "Address";
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
+
+
 
     /***
      * Complete constructor for class Client
@@ -283,7 +288,7 @@ public class Client  implements Serializable {
         return clientList;
     }*/
 
-    /*
+
     public Sorting getSortingMethod(String type){
         Properties props = new Properties();
         try (InputStream in = new FileInputStream("config.properties")) {
@@ -301,7 +306,7 @@ public class Client  implements Serializable {
             Utils.printToConsole(e.getLocalizedMessage());
             return null;
         }
-    }*/
+    }
 
 
     /***

@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Sorting {
 
-    String[] getSortedList(List<Client> clientList);
+    List<Client> getSortedList(List<Client> clientList);
 }

@@ -15,7 +15,7 @@ public class ClientMapper {
     public static List<String> toDTOClient (List<Client> listClient){
         List<String> clientList = new ArrayList<>();
         for (Client ct : listClient){
-            clientList.add(ct.toString());
+            clientList.add(String.format("Name: %s | Citizen Card Number: %s | NHS number: %s | TIN number: %s | Birth date: %s | Sex: %s | Phone number: %s | Email: %s | Address: %s %n", ct.getName(),ct.getCitizenCardNumber(),ct.getNhsNumber(),ct.getTinNumber(),ct.getBirthDate(),ct.getSex(),ct.getPhoneNumber(),ct.getEmail(),ct.getAddress()));
         }
         return clientList;
     }
