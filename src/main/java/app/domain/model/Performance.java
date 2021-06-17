@@ -14,12 +14,11 @@ import java.util.*;
 public class Performance {
     private GraphicsContext statistic;
 
-    private List<ClinicalTest> bestPerformance = new ArrayList<>();
-    private List<ClinicalTest> possibleBestPerformance = new ArrayList<>();
+    private List<ClinicalTest> bestPerformance;
+    private List<ClinicalTest> possibleBestPerformance;
     private final List<ClinicalTest> intervalTime = new ArrayList<>();
 
     private int bestSum = 0;
-    private int possibleSum = 0;
 
     public Performance(DateTime inicialDate, DateTime endDate) {
         this.statistic = bruteForceAlgorithm(inicialDate, endDate);
@@ -29,10 +28,10 @@ public class Performance {
     }
 
 
-    public static void main(String[] args) {
-        int[] example = new int[]{29, -32, -9, -25, 44, 12, -61, 51, -9, 44, 74, 4};
+    public String subsequenceMaxSum() {
+        var example = new int[]{29, -32, -9, -25, 44, 12, -61, 51, -9, 44, 74, 4};
         int[] result = Sum.Max(example);
-        System.out.println(Arrays.toString(result)); // should print [51, -9, 44, 74, 4]
+        return Arrays.toString(result); // should print [51, -9, 44, 74, 4]
     }
 
     public GraphicsContext getStatistic() {
@@ -51,8 +50,6 @@ public class Performance {
         LocalDateTime backupInitialDateTime;
         var backupEndDateTime = LocalDateTime.parse(endTime, formatter);
 
-        DateTime backupInitialDate = initialDate;
-        DateTime backupEndDate = endDate;
 
         LocalDateTime actualHour;
 
@@ -62,28 +59,28 @@ public class Performance {
 
         for (initialDateTime = LocalDateTime.parse(inicialTime, formatter);
              initialDateTime.isBefore(endDateTime);
-             initialDateTime.plusDays(1)) {
+             initialDateTime = initialDateTime.plusDays(1)) {
 
             for (backupInitialDateTime = LocalDateTime.parse(inicialTime, formatter);
                  backupInitialDateTime.isBefore(backupEndDateTime);
-                 backupInitialDateTime.plusMinutes(30)) {
+                 backupInitialDateTime = backupInitialDateTime.plusMinutes(30)) {
 
-                String begin = initialDate.getDate() + " " + "08:00";
-                String end = endDate.getDate() + " " + "20:00";
-                LocalDateTime beginLocalDate = LocalDateTime.parse(begin, formatter);
-                LocalDateTime endLocalDate = LocalDateTime.parse(end, formatter);
+                var begin = initialDate.getDate() + " " + "08:00";
+                var end = endDate.getDate() + " " + "20:00";
+                var beginLocalDate = LocalDateTime.parse(begin, formatter);
+                var endLocalDate = LocalDateTime.parse(end, formatter);
                 actualHour = LocalDateTime.parse(begin,formatter);
 
-                if (backupInitialDateTime != backupInitialDateTime && backupInitialDateTime != endLocalDate) {
+                if (backupInitialDateTime != initialDateTime && backupInitialDateTime != endLocalDate) {
                     while (actualHour.isAfter(beginLocalDate) && actualHour.isBefore(endLocalDate)) {
                         for (ClinicalTest test : clinicalTests) {
-                            String actualTest = test.getValidationDate().getDate() + " " + test.getValidationDate().getTime();
-                            LocalDateTime testDate = LocalDateTime.parse(actualTest, formatter);
+                            var actualTest = test.getValidationDate().getDate() + " " + test.getValidationDate().getTime();
+                            var testDate = LocalDateTime.parse(actualTest, formatter);
                             if (backupInitialDateTime.isBefore(testDate) && endLocalDate.isAfter(testDate)){
                                 intervalTime.add(test);
                             }
                         }
-                        actualHour.plusMinutes(30);
+                        actualHour = actualHour.plusMinutes(30);
                     }
                 }
                 intervalTimeChosen.add(intervalTime);
@@ -101,7 +98,7 @@ public class Performance {
         List<List<ClinicalTest>> sortedClinicalTests= intervalTime(clinicalTests, inicialDate, endDate);
 
         for(List<ClinicalTest> list : sortedClinicalTests) {
-            possibleSum = 0;
+            int possibleSum = 0;
             possibleBestPerformance.clear();
 
             for (ClinicalTest test : list){
@@ -111,7 +108,7 @@ public class Performance {
                     possibleSum++;
                 }
 
-                if(bestSum<possibleSum){
+                if(bestSum< possibleSum){
                     bestSum = possibleSum;
                     bestPerformance = possibleBestPerformance;
                 }
