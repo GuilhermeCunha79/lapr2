@@ -40,8 +40,6 @@ public class Client  implements Serializable {
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
 
-    private final List<Client> clientList = new ArrayList<>();
-
     /***
      * Complete constructor for class Client
      */

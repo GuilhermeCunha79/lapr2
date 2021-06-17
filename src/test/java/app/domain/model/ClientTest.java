@@ -5,13 +5,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import static app.domain.model.Client.calculateAge;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class ClientTest {
 
@@ -493,6 +490,15 @@ public class ClientTest {
         ClientDTO ct01 = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
         String expected = "Tomás";
         assertEquals(expected, ct01.getName());
+    }
+
+    /**
+     * Test of getName method with name null, of class Client.
+     */
+    @Test
+    public void checkGetNameNull() {
+        ClientDTO ct01 = new ClientDTO(null, "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
+        assertNull(ct01.getName());
     }
 
 
