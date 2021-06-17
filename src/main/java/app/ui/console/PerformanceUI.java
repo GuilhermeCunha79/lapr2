@@ -30,10 +30,10 @@ public class PerformanceUI implements Runnable {
 
 
                 try {
-                    if (ctrl.newPerformance(begin, end)) state = ctrl.newPerformance(begin, end);
+                    if (ctrl.newPerformance(begin, end)) state = true;
 
                     else {
-                        Utils.printToConsole("The performance cannot be produced. Sorry :(");
+                        Utils.printToConsole("Sorry, but the performance cannot be produced.");
                         return false;
                     }
                 } catch (Exception e) {
