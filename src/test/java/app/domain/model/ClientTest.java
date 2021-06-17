@@ -492,15 +492,6 @@ public class ClientTest {
         assertEquals(expected, ct01.getName());
     }
 
-    /**
-     * Test of getName method with name null, of class Client.
-     */
-    @Test
-    public void checkGetNameNull() {
-        ClientDTO ct01 = new ClientDTO(null, "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
-        assertNull(ct01.getName());
-    }
-
 
     /**
      * Test of setName method, of class Client.
