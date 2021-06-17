@@ -8,6 +8,7 @@ import app.mappers.dto.ClientDTO;
 import auth.domain.model.Email;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static app.domain.shared.CommonMethods.serializeStore;
@@ -19,7 +20,6 @@ public class ClientStore {
     private List<Client> clientList = new ArrayList<>();
 
     private Client client;
-
     /***
      * Method that receives parameters from the associated controller to create a new client
      * @param dto
@@ -236,16 +236,14 @@ public class ClientStore {
         client.setPhoneNumber(phoneNumber);
         return true;
     }
-/*
-    public boolean addTestParameterResult(String type) {
+
+    public List<Client> getSortedList(String type) {
         List<Client> clientList = getClientList();
         if (clientList != null) {
             Sorting list = this.client.getSortingMethod(type);
-            String[] algo= list.getSortedList(clientList);
-
-            return true;
+            return list.getSortedList(clientList);
         }
-        return false;
-    }*/
+        return null;
+    }
 }
 

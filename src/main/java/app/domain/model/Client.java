@@ -40,7 +40,7 @@ public class Client  implements Serializable {
     static final String SEX_MALE = "male";
     static final String SEX_FEMALE = "female";
 
-    private final List<Client> clientList = new ArrayList<>();
+
 
     /***
      * Complete constructor for class Client
@@ -288,7 +288,7 @@ public class Client  implements Serializable {
         return clientList;
     }*/
 
-    /*
+
     public Sorting getSortingMethod(String type){
         Properties props = new Properties();
         try (InputStream in = new FileInputStream("config.properties")) {
@@ -306,7 +306,7 @@ public class Client  implements Serializable {
             Utils.printToConsole(e.getLocalizedMessage());
             return null;
         }
-    }*/
+    }
 
 
     /***

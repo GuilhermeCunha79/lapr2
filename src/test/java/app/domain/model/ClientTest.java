@@ -5,13 +5,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import static app.domain.model.Client.calculateAge;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class ClientTest {
 

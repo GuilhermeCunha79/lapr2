@@ -57,9 +57,8 @@ public class ClinicalChemistryTechnologistMenuUI implements Initializable {
 
     @FXML
     private void checkResultsUI(ActionEvent actionEvent){
-        App.getInstance().doLogout();
-        LoginUI loginUI = (LoginUI) this.mainApp.changeStageContent("/fxml/CheckTestsResults.fxml");
-        loginUI.setMainApp(this.mainApp);
+        CheckTestsResultsUI checkTestsResultsUI = (CheckTestsResultsUI) this.mainApp.changeStageContent("/fxml/CheckTestsResults.fxml");
+        checkTestsResultsUI.setMainApp(this.mainApp);
     }
 
     @FXML

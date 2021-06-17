@@ -113,7 +113,7 @@ public class MappersTest {
         List<Client> cat = new ArrayList<>();
         cat.add(client);
         List<String> expected = new ArrayList<>();
-        expected.add(String.format("%nClient:%nName: maria%nCitizen Card Number: 1234567890123456%nNHS number: 1234567890%nTIN number: 1234567890%nBirth date: 23/12/2002%nSex: male%nPhone number: 12345678901%nEmail: gui@isep.pt%nAddress: street 43%n"));
+        expected.add(String.format("Name: maria | Citizen Card Number: 1234567890123456 | NHS number: 1234567890 | TIN number: 1234567890 | Birth date: 23/12/2002 | Sex: male | Phone number: 12345678901 | Email: gui@isep.pt | Address: street 43 %n"));
         assertEquals(expected, ClientMapper.toDTOClient(cat));
     }
 

@@ -34,6 +34,14 @@ public class CheckResultsController {
         return null;
     }
 
+    public List<String> showOrderedClients(String type){
+        List<Client> orderedClients= ctStore.getSortedList(type);
+        if(orderedClients != null) {
+            return ClientMapper.toDTOClient(orderedClients);
+        }
+        return null;
+    }
+
     public List<String> showTestDetails(String tin){
         this.ct=ctStore.getClientByTIN(tin);
         List<ClinicalTest> lTestNoReport = tstStore.getClientTests(ct);
