@@ -1,6 +1,7 @@
 package app.domain.model;
 
 import app.domain.store.*;
+import app.ui.console.utils.Utils;
 import auth.AuthFacade;
 import app.domain.store.ClientStore;
 import app.domain.store.ParameterCategoryStore;
@@ -10,9 +11,11 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 
@@ -127,6 +130,25 @@ public class Company {
             this.totStore.setTypeOfTestList(lTestType);
         }catch (IOException | ClassNotFoundException e){
             e.getLocalizedMessage();
+        }
+    }
+
+    public Sorting getSortingMethod(String type){
+        Properties props = new Properties();
+        try (InputStream in = new FileInputStream("config.properties")) {
+            props.load(in);
+            String sort;
+            Class<?> oClass;
+            if (type.equalsIgnoreCase("name")) {
+                sort = props.getProperty("Company.NameSortingMethod");
+            } else {
+                sort = props.getProperty("Company.TinNumberSortingMethod");
+            }
+            oClass = Class.forName(sort);
+            return (Sorting) oClass.newInstance();
+        } catch (Exception e) {
+            Utils.printToConsole(e.getLocalizedMessage());
+            return null;
         }
     }
 

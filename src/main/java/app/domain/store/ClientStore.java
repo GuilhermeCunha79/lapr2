@@ -236,14 +236,5 @@ public class ClientStore {
         client.setPhoneNumber(phoneNumber);
         return true;
     }
-
-    public List<Client> getSortedList(String type) {
-        List<Client> clientList = getClientList();
-        if (clientList != null) {
-            Sorting list = this.client.getSortingMethod(type);
-            return list.getSortedList(clientList);
-        }
-        return null;
-    }
 }
 

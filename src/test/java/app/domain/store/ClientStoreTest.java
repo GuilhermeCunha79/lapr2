@@ -6,7 +6,9 @@ import auth.domain.model.Email;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -110,6 +112,7 @@ public class ClientStoreTest {
         assertTrue(cls.changePhoneNumber(ct02, "12345679901"));
 
     }
+
 
 
 /*

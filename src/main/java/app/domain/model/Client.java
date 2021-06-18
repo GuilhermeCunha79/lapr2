@@ -289,26 +289,6 @@ public class Client  implements Serializable {
     }*/
 
 
-    public Sorting getSortingMethod(String type){
-        Properties props = new Properties();
-        try (InputStream in = new FileInputStream("config.properties")) {
-            props.load(in);
-            String sort;
-            Class<?> oClass;
-            if (type.equalsIgnoreCase("name")) {
-                sort = props.getProperty("Company.BubbleSortName");
-            } else {
-                sort = props.getProperty("Company.BubbleSortTinNumber");
-            }
-            oClass = Class.forName(sort);
-            return (Sorting) oClass.newInstance();
-        } catch (Exception e) {
-            Utils.printToConsole(e.getLocalizedMessage());
-            return null;
-        }
-    }
-
-
     /***
      * Method that returns a String with the Client information
      * @return
