@@ -3,6 +3,8 @@ package app.controller;
 import app.domain.model.Client;
 import app.domain.model.ClinicalTest;
 import app.domain.model.Company;
+import app.domain.model.Sorting;
+import app.domain.shared.CommonMethods;
 import app.domain.store.ClientStore;
 import app.domain.store.TestStore;
 import app.mappers.ClientMapper;
@@ -15,6 +17,10 @@ public class CheckResultsController {
     private final ClientStore ctStore;
     private final TestStore tstStore;
     private Client ct;
+    private final Company company;
+    private Sorting sorting;
+
+
 
     public CheckResultsController() {
         this(App.getInstance().getCompany());
@@ -23,6 +29,7 @@ public class CheckResultsController {
     public CheckResultsController(Company company) {
         this.ctStore = company.getClientStore();
         this.tstStore = company.getTestStore();
+        this.company = App.getInstance().getCompany();
         this.ct = null;
     }
 
@@ -35,9 +42,11 @@ public class CheckResultsController {
     }
 
     public List<String> showOrderedClients(String type){
-        List<Client> orderedClients= ctStore.getSortedList(type);
-        if(orderedClients != null) {
-            return ClientMapper.toDTOClient(orderedClients);
+        List<Client> listClients = ctStore.getClientList();
+        this.sorting= this.company.getSortingMethod(type);
+        List<Client> clients=this.sorting.getSortedList(listClients);
+        if (clients!=null){
+            return ClientMapper.toDTOClient(clients);
         }
         return null;
     }

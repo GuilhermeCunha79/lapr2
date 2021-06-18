@@ -14,7 +14,7 @@
             <Font name="Segoe UI Bold" size="47.0" />
          </font>
          <BorderPane.margin>
-            <Insets top="150.0" />
+            <Insets bottom="90.0" top="150.0" />
          </BorderPane.margin>
       </Text>
    </top>
@@ -26,7 +26,7 @@
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="10.0" left="30.0" />
                </VBox.margin>
             </Text>
             <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Francisco Malheiro - 1201485@isep.ipp.pt ">
@@ -34,7 +34,7 @@
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="10.0" left="30.0" />
                </VBox.margin>
             </Text>
             <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Guilherme Cunha - 1201506@isep.ipp.pt ">
@@ -42,7 +42,7 @@
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="10.0" left="30.0" />
                </VBox.margin>
             </Text>
             <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="João Martins - 1201539@isep.ipp.pt ">
@@ -50,7 +50,7 @@
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" />
+                  <Insets bottom="10.0" left="30.0" />
                </VBox.margin>
             </Text>
             <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedro Moreira - 1191526@isep.ipp.pt">
@@ -58,7 +58,7 @@
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="40.0" />
+                  <Insets left="30.0" />
                </VBox.margin>
             </Text>
             <Button fx:id="mainMenuBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showUIScreen" prefHeight="45.0" prefWidth="320.0" style="-fx-background-color: #0088FF; -fx-background-radius: 10;" text="Return" textFill="WHITE">

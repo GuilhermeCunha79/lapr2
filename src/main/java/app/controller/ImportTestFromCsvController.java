@@ -33,6 +33,7 @@ public class ImportTestFromCsvController {
 
     /**
      * Main constructor of this controller used to get all the needed store instances being used by the system
+     *
      * @param company
      */
     public ImportTestFromCsvController(Company company) {
@@ -45,6 +46,7 @@ public class ImportTestFromCsvController {
 
     /**
      * Get method for the temporary list of added tests via a CSV file
+     *
      * @return
      */
     public List<String> getTestsAddedList() {
@@ -53,6 +55,7 @@ public class ImportTestFromCsvController {
 
     /**
      * Get method for the temporary list of failed tests created via a CSV file
+     *
      * @return
      */
     public List<String> getTestsFailedList() {
@@ -61,6 +64,7 @@ public class ImportTestFromCsvController {
 
     /**
      * This method is responsible for creating new tests from a csv file with the help of other methods
+     *
      * @return
      */
     public boolean createTestFromCsvFile(String path) {
@@ -98,6 +102,7 @@ public class ImportTestFromCsvController {
 
     /**
      * This method adds test parameter results to a test by getting the values from a CSV file
+     *
      * @param test
      * @param testData
      * @return if all the parameters received results or not
@@ -113,6 +118,7 @@ public class ImportTestFromCsvController {
 
     /**
      * This method creates the test and returns it
+     *
      * @param testData
      * @param client
      * @param labID
@@ -133,6 +139,7 @@ public class ImportTestFromCsvController {
 
     /**
      * This method creates a parameter list based of the data available for each test in the csv file
+     *
      * @param testData
      * @return the list of parameters
      */
@@ -153,6 +160,7 @@ public class ImportTestFromCsvController {
 
     /**
      * This method converts the Dates and hours found in the csv file as strings to a DateTime object
+     *
      * @param dateTime
      * @return the new DateTime object instance
      */
@@ -163,13 +171,14 @@ public class ImportTestFromCsvController {
 
     /**
      * This method checks if it can find one specific parameter category in a list of Parameter categories received by parameter
+     *
      * @param categoryName
      * @param lPC
      * @return if the parameter category exists or not in the given list
      */
     private boolean checkCategoryExist(String categoryName, List<ParameterCategory> lPC) {
         for (ParameterCategory pc : lPC) {
-            if (pc.getName().equals(categoryName))
+            if (pc.getName().equalsIgnoreCase(categoryName))
                 return true;
         }
         return false;
@@ -177,6 +186,7 @@ public class ImportTestFromCsvController {
 
     /**
      * This method with the help of the lab store, checks if a specific labID exists in the system
+     *
      * @param labId
      * @return if there is a clinical analysis laboratory with the given LabID in the system
      */
@@ -187,6 +197,7 @@ public class ImportTestFromCsvController {
     /**
      * The sole purpose of this method is create a new client based of data available
      * in the csv file and return it. In case the client is already registered in the system returns the client.
+     *
      * @param clientData
      * @return the client
      */
@@ -209,6 +220,7 @@ public class ImportTestFromCsvController {
 
     /**
      * This method returns the column number where the its name is the same as the keyword received by parameter
+     *
      * @param keyword
      * @return
      */
@@ -222,6 +234,7 @@ public class ImportTestFromCsvController {
 
     /**
      * This method receives a column number and returns the respective name of the column
+     *
      * @param column
      * @return
      */

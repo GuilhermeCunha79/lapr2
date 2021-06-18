@@ -35,7 +35,7 @@ public class CreateParameterCategoryControllerTest {
 
     @Test
     public void ensureCodeWith5CharIsAccepted() {
-        assertTrue(ctrl.createNewParameterCategory("12112", "hemogram"));
+        assertTrue(ctrl.createNewParameterCategory("12192", "hemogram"));
     }
 
     @Test(expected = IllegalArgumentException.class)
