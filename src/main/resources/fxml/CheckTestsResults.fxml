@@ -78,7 +78,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnLabCoordinatorMenu" mnemonicParsing="false" onAction="#clinicalChemistryTechnologistMenu" prefHeight="40.0" prefWidth="172.0" style="-fx-background-color: #08B3E5; -fx-background-radius: 10;" text="Lab Coordinator Menu" textFill="WHITE">
+                  <Button fx:id="btnLabCoordinatorMenu" mnemonicParsing="false" onAction="#clinicalChemistryTechnologistMenu" prefHeight="40.0" prefWidth="182.0" style="-fx-background-color: #08B3E5; -fx-background-radius: 10;" text="Lab Coordinator Menu" textFill="WHITE">
                      <font>
                         <Font name="Segoe UI Bold" size="14.0" />
                      </font>
