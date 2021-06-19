@@ -209,6 +209,21 @@ public class TestStore implements Serializable {
     }
 
     /***
+     * Method that returns a CATest by its code
+     * @param nhsCode
+     * @return caTest or null
+     */
+
+    public ClinicalTest getTestByNhsCode(String nhsCode) {
+        for (ClinicalTest clinicalTest : testList) {
+            if (clinicalTest.getInternalCode().equals(nhsCode))
+                return clinicalTest;
+        }
+        return null;
+    }
+
+
+    /***
      * Method that makes the validation of a List of Tests
      * @param testWithoutValidation
      * @return true or false

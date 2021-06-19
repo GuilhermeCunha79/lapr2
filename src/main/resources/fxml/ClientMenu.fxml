@@ -34,7 +34,7 @@
                         <Insets bottom="50.0" />
                     </VBox.margin>
                 </Button>
-            <Button maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="View test results" textFill="#575757">
+            <Button fx:id="viewTestResultsBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#viewTestResultsUI" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="View test results" textFill="#575757" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>

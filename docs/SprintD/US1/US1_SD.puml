@@ -81,19 +81,19 @@ CLIENT -> UI: Choose the test you want to see and your respective results
 activate UI
 deactivate UI
 
-UI -> CTRL: showTestSelected(internalCode)
+UI -> CTRL: showTestSelected(nhsCode)
 activate UI
 deactivate UI
 activate CTRL
 deactivate CTRL
 
-CTRL -> TTS: getTestByCode(internalCode)
+CTRL -> TTS: getTestByNhsCode(nhsCode)
 activate CTRL
 deactivate CTRL
 activate TTS
 deactivate TTS
 
-UI -> CTRL: showTestResults(internalCode)
+UI -> CTRL: showTestResults()
 activate UI
 deactivate UI
 activate CTRL

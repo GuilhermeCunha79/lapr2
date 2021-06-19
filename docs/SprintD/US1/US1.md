@@ -59,7 +59,7 @@ The client tests must be shown ordered from the most recent to the oldest one. T
 
 
 **Selected data**
-* internalCode
+* nhsCode
 
 
 **Output Data:**
@@ -71,10 +71,8 @@ The client tests must be shown ordered from the most recent to the oldest one. T
 * n/a.
 
 ## 2. OO Analysis
-
 ### 2.1. Relevant Domain Model Excerpt
 ![UC1_MD](UC1_MD.svg)
-
 
 ### 2.2. Other Remarks
 
@@ -120,10 +118,8 @@ Other software classes (i.e. Pure Fabrication) identified:
 ![UC1_SD](UC1_SD.svg)
 
 
-
 ## 3.3. Class Diagram (CD)
-![UC1_CD](UC1_SSD.svg)
-
+![UC1_CD](UC1_CD.svg)
 
 # 4. Tests
 #STORE
@@ -137,7 +133,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         assertEquals(test.toString(), testStore.getTestByCode(test.getInternalCode()).toString());
     }
 
-#CONTROLLER
+
 
 
 # 6. Integration and Demo
