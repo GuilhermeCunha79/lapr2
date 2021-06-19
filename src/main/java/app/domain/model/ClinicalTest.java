@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
+public class ClinicalTest implements Serializable, Comparable<ClinicalTest> {
     private static final int NHS_CODE = 12;
     private final String labWhereCreated;
     private final DateTime createdAt;
@@ -21,6 +21,7 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
     private TypeOfTest typeOfTest;
     private final String internalCode;
     private String nhsCode;
+    private String test;
 
     private boolean sampleDone;
     private boolean reportDone;
@@ -128,6 +129,10 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
 
     public String getReportText() {
         return this.report.getReportText();
+    }
+
+    public String getTest() {
+        return this.test;
     }
 
     public List<Parameter> getParameterList() {
@@ -313,6 +318,9 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
 
 
 
+
+
+
     /**
      * This method finds all the test results validated and return them in a string
      *
@@ -480,5 +488,6 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest>{
             return 0;
         return getCreatedAt().compareTo(test.getCreatedAt());
     }
+
 }
 

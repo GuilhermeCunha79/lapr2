@@ -13,7 +13,7 @@ deactivate SYSTEM
 
 CLIENT -> SYSTEM : See the list of tests who have performed ordered by the registration date
 activate SYSTEM
-SYSTEM --> CLIENT : Shows the test list who have performed ordered by the registration date
+SYSTEM --> CLIENT : Shows the validated test list who have performed ordered by the registration date
 deactivate SYSTEM
 loop
 CLIENT -> SYSTEM : Choose the test you want to see and your respective results

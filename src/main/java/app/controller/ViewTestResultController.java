@@ -6,6 +6,10 @@ import app.domain.model.Report;
 import app.domain.store.ClientStore;
 import app.domain.model.Company;
 import app.domain.store.TestStore;
+import app.mappers.TestListMapper;
+import auth.domain.model.Email;
+
+import java.util.List;
 
 
 public class ViewTestResultController {
@@ -33,26 +37,38 @@ public class ViewTestResultController {
         return this.ct = this.ctStore.getClientByEmail();
     }
 
-    public ClinicalTest getTestSelected(String nhsCode) {
-        return this.clinicalTest = this.testStore.getTestByNhsCode(nhsCode);
+
+
+    public List<String> showClientTestsValidatedAndOrderedByRegistrationDate(Client client) {
+        List<ClinicalTest> testListOrderedAndValidated = testStore.getClientTestsValidatedAndOrderedByRegistrationDate(client);
+        if (testListOrderedAndValidated != null) {
+            return TestListMapper.toDto(testListOrderedAndValidated);
+        }
+        return null;
+    }
+    /**
+     * This method receives an internal code and finds the test that has it from the test store
+     * @param internalCode to be used
+     * @return returns the specify test associated to the client
+     */
+
+    public String showTestSelected(String internalCode) {
+        this.clinicalTest = testStore.getTestByCode(internalCode);
+        if (clinicalTest != null)
+            return clinicalTest.toString();
+        else
+            return null;
     }
 
-
-    public String showTestResults() {
-        this.ct = ctStore.getClientByEmail();
-        return this.clinicalTest.getTestResults();
+    /**
+     * This method receives an internal code and finds the test that has it from the test store, then, returns all of its test results
+     * @param internalCode to be used
+     * @return all the parameter tested results of the client
+     */
+    public String getTestResults(String internalCode) {
+        this.clinicalTest = testStore.getTestByCode(internalCode);
+        return clinicalTest.getTestResults();
     }
-/*
-    public Report showReportText() {
-
-    }*/
 
 
 }
-
-
-
-
-
-
-

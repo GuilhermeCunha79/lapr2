@@ -1,5 +1,59 @@
 @startuml
 skinparam classAttributeIconSize 0
 
+class ViewTestResultUI {
+}
+
+class ViewTestResultController {
++getClientByEmail()
++showClientTestsValidatedAndOrderedByRegistrationDate()
++showTestSelected(internalCode)
++showTestResults(internalCode)
+}
+
+class Company {
++getClientStore()
++getTestStore()
+}
+
+class ClientStore {
++getClientByEmail()
+}
+
+class TestStore {
++getClientTestsValidatedAndOrderedByRegistrationDate()
++getTestByCode(internalCode)
+}
+
+class ClinicalTest {
++getTestResults()
+}
+
+
+class Email {
++getEmail()
+}
+
+class UserSession {
++getUserId()
+}
+
+class AuthFacade {
++getCurrentSession()
+}
+
+ViewTestResultUI ..> ViewTestResultController
+ViewTestResultController ..> Company
+ViewTestResultController ..> ClientStore
+ViewTestResultController ..> TestStore
+ViewTestResultController ..>  ClinicalTest
+
+
+Company"1" -> "1"ClientStore : uses
+Company"1" -> "1"TestStore : uses
+ClientStore ..> AuthFacade
+ClientStore ..> UserSession
+ClientStore ..> Email
+
 
 @enduml

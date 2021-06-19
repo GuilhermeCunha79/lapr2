@@ -1,11 +1,15 @@
 package app.mappers;
 
+import app.domain.model.Client;
 import app.domain.model.ClinicalTest;
+import app.domain.store.TestStore;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestListMapper {
+
+
 
     private TestListMapper() {
         throw new IllegalStateException("Utility class");
