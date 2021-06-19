@@ -7,6 +7,7 @@ import app.mappers.dto.ClinicalTestDto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -265,17 +266,15 @@ public class TestStore implements Serializable {
         }
     }
 
-    /***
-     * Method that returns a CATest by its nhsCode
-     * @param nhsCode
-     * @return caTest or null
-     */
-    public ClinicalTest getTestByNhsCode(String nhsCode) {
-        for (ClinicalTest clinicalTest : testList) {
-            if (clinicalTest.getNhsCode().equals(nhsCode))
-                return clinicalTest;
-        }
-        return null;
+
+
+    public List<ClinicalTest> getClientTestsValidatedAndOrderedByRegistrationDate(Client client) {
+        List<ClinicalTest> clientTests = new ArrayList<>();
+        for (ClinicalTest clinicalTest: testList)
+        if (clinicalTest.getClient().equals(client) && clinicalTest.getValidationStatus())
+            clientTests.add(clinicalTest);
+        Collections.sort(clientTests);
+        return clientTests;
     }
 }
 

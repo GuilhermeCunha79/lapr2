@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
@@ -69,27 +70,18 @@ public class DateTime implements Serializable {
     }
 
     public int compareTo(DateTime createdAt) {
-        Time thisTime = Time.valueOf(time);
-        Time anotherTime = Time.valueOf(createdAt.getTime());
-
-        Date thisDate = Date.valueOf(date);
-        Date anotherDate = Date.valueOf(createdAt.getDate());
-        if (thisDate.compareTo(anotherDate) > 0) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(date + " " + time, formatter);
+        LocalDateTime anotherDateTime = LocalDateTime.parse(createdAt.getDate() + " " + createdAt.getTime(), formatter);
+        if (dateTime.isAfter(anotherDateTime)) {
             return 1;
         }
-        if (thisDate.compareTo(anotherDate) < 0) {
+        if (dateTime.isBefore(anotherDateTime)) {
 
             {
                 return -1;
             }
         }
-        if (thisDate.compareTo(anotherDate) == 0) {
-            if (thisTime.compareTo(anotherTime) > 0)
-                return 1;
-            if (thisTime.compareTo(anotherTime) < 0)
-                return -1;
-        }
-
         return 0;
     }
 }

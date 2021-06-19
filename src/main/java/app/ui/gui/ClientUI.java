@@ -29,6 +29,12 @@ public class ClientUI implements Initializable {
     }
 
     @FXML
+    private void viewTestResultsUI(ActionEvent actionEvent) {
+        ViewTestResultsUI viewTestResultsUI = (ViewTestResultsUI) this.mainApp.changeStageContent("/fxml/ViewTestResults.fxml");
+        viewTestResultsUI.setMainApp(this.mainApp);
+    }
+
+    @FXML
     private void returnToLoginUI(ActionEvent actionEvent) {
         App.getInstance().doLogout();
         LoginUI loginUI = (LoginUI) this.mainApp.changeStageContent("/fxml/LoginScreen.fxml");

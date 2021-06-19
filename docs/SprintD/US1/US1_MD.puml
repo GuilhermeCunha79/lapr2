@@ -26,13 +26,13 @@ class ClinicalAnalysisTest {
 - labWhereCreated
 }
 
-class Report {
-- createdAt
-- reportText
-}
+
+
 Company"1" -- "*"Client :> knows
-Client"1" -- "1..*" Report :> access
+
 Company "1" -- "*" ClinicalAnalysisTest :> owns
 Client "1" -- "1..*" ClinicalAnalysisTest :> belongs
+Client "1" -- "1..*" ClinicalAnalysisTest :> access
+
 @enduml
 
