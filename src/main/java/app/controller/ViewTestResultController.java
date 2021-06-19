@@ -7,6 +7,7 @@ import app.domain.store.ClientStore;
 import app.domain.model.Company;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
+import app.mappers.TestsFinalizedMapper;
 import auth.domain.model.Email;
 
 import java.util.List;
@@ -47,13 +48,13 @@ public class ViewTestResultController {
         return null;
     }
     /**
-     * This method receives an internal code and finds the test that has it from the test store
-     * @param internalCode to be used
+     * This method receives an nhs code and finds the test that has it from the test store
+     * @param nhsCode to be used
      * @return returns the specify test associated to the client
      */
 
-    public String showTestSelected(String internalCode) {
-        this.clinicalTest = testStore.getTestByCode(internalCode);
+    public String showTestSelected(String nhsCode) {
+        this.clinicalTest = testStore.getTestByNhsCode(nhsCode);
         if (clinicalTest != null)
             return clinicalTest.toString();
         else
@@ -61,14 +62,18 @@ public class ViewTestResultController {
     }
 
     /**
-     * This method receives an internal code and finds the test that has it from the test store, then, returns all of its test results
-     * @param internalCode to be used
+     * This method receives an  and finds the test that has it from the test store, then, returns all of its test results
+     * @param
      * @return all the parameter tested results of the client
      */
-    public String getTestResults(String internalCode) {
-        this.clinicalTest = testStore.getTestByCode(internalCode);
-        return clinicalTest.getTestResults();
+    public List<String> showTestResults(){
+        this.ct=ctStore.getClientByEmail();
+        List<ClinicalTest> lTestResults = testStore.getClientTestsValidatedAndOrderedByRegistrationDate(ct);
+        if(lTestResults != null) {
+            return TestsFinalizedMapper.toDtoFin(lTestResults);
+        }
+        return null;
     }
-
-
 }
+
+

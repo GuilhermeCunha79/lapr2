@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class NewWindowClientTestsUI implements Initializable {
+public class WindohWithTestResultsListUI implements Initializable {
 
     private Main mainApp;
 
@@ -30,18 +30,20 @@ public class NewWindowClientTestsUI implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
-    public void setTextArea(List<String> list) {
-        for(String results : list){
-            testsList.getItems().add(results);
+    public void setTextA(List<String> list) {
+        for(String testResults : list){
+            testsList.getItems().add(testResults);
         }
     }
 
+        public void setText(String string) {
+            testsList.getItems().add(string);
+        }
 
     @FXML
     public void back(ActionEvent actionEvent){
-        CheckTestsResultsUI checkTestsResultsUI = (CheckTestsResultsUI) this.mainApp.changeStageContent("/fxml/CheckTestsResults.fxml");
-        checkTestsResultsUI.setMainApp(this.mainApp);
-
+        ViewTestResultsUI viewTestResultsUI = (ViewTestResultsUI) this.mainApp.changeStageContent("/fxml/ViewTestResults.fxml");
+        viewTestResultsUI.setMainApp(this.mainApp);
     }
 }
 

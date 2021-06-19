@@ -45,10 +45,6 @@ public class ViewTestResultsUI implements Initializable {
                 List<String> lClientTestsDto = ctrl.showClientTestsValidatedAndOrderedByRegistrationDate(ctrl.getClientByEmail());
                 for (String test: lClientTestsDto){
                     listViewTests.getItems().add(test);
-                    /*
-                    List<String> lClientTestDto = ctrl.showTestSelected(App.getInstance().getCompany().getTestStore().getTestByCode());
-*/
-
                 }
 
             }
@@ -56,7 +52,13 @@ public class ViewTestResultsUI implements Initializable {
         }
     }
 
+    public void viewTestResults() {
+        WindohWithTestResultsListUI windohWithTestResultsListUI = (WindohWithTestResultsListUI) this.mainApp.changeStageContent("/fxml/ClientTestResultsList.fxml");
+        windohWithTestResultsListUI.setMainApp(this.mainApp);
+        windohWithTestResultsListUI.setText(ctrl.showTestSelected(listViewTests.getSelectionModel().getSelectedItem().substring(listViewTests.getSelectionModel().getSelectedItem().lastIndexOf("NHS Code: ")+1,listViewTests.getSelectionModel().getSelectedItem().lastIndexOf("NHS Code: ")+10)));
+        windohWithTestResultsListUI.setTextA(ctrl.showTestResults());
 
+    }
 
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
@@ -70,4 +72,3 @@ public class ViewTestResultsUI implements Initializable {
 
 
 }
-

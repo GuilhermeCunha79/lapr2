@@ -7,8 +7,8 @@ class ViewTestResultUI {
 class ViewTestResultController {
 +getClientByEmail()
 +showClientTestsValidatedAndOrderedByRegistrationDate()
-+showTestSelected(internalCode)
-+showTestResults(internalCode)
++showTestSelected(nhsCode)
++showTestResults()
 }
 
 class Company {
@@ -22,7 +22,7 @@ class ClientStore {
 
 class TestStore {
 +getClientTestsValidatedAndOrderedByRegistrationDate()
-+getTestByCode(internalCode)
++getTestByCode(nhsCode)
 }
 
 class ClinicalTest {

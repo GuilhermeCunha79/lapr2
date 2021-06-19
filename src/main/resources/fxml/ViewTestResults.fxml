@@ -40,7 +40,7 @@
                   <Insets top="47.0" />
                </HBox.margin>
                <children>
-                  <Button fx:id="btnViewTestResults" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" style="-fx-background-color: #14C9CB; -fx-background-radius: 10;" text="View Test Results" textFill="#fafaf8">
+                  <Button fx:id="btnViewTestResults" mnemonicParsing="false" onAction="#viewTestResults" prefHeight="40.0" prefWidth="185.0" style="-fx-background-color: #14C9CB; -fx-background-radius: 10;" text="View Test Results" textFill="#fafaf8">
                      <font>
                         <Font name="Segoe UI Bold" size="14.0" />
                      </font>

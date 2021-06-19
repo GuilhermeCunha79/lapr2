@@ -32,7 +32,7 @@ public class Constants {
 
 
     //PARAMETER DIGITS
-    public static final int ADDRESS_DIGITS = 30;
+    public static final int ADDRESS_DIGITS = 90;
     public static final int CODE_DIGITS = 5;
     public static final int PHONE_NUMBER_DIGITS = 11;
     public static final int NHS_TIN_NUMBER_DIGITS = 10;

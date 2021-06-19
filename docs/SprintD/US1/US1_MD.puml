@@ -32,7 +32,8 @@ Company"1" -- "*"Client :> knows
 
 Company "1" -- "*" ClinicalAnalysisTest :> owns
 Client "1" -- "1..*" ClinicalAnalysisTest :> belongs
-Client "1" -- "1..*" ClinicalAnalysisTest :> access
+Client "1" -- "1" TestStore :> access
+ClinicalAnalysisTest "1" -- "*" TestStore :> knows
 
 @enduml
 

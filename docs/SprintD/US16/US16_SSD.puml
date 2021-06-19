@@ -13,7 +13,7 @@ LC -> SYSTEM : chooses the method
 activate SYSTEM
 SYSTEM --> LC : ask for the interval of time
 deactivate SYSTEM
-LC -> SYSTEM : enters the date
+LC -> SYSTEM : enters the desired interval
 activate SYSTEM
 SYSTEM --> LC : shows the performance of the company
 deactivate SYSTEM
