@@ -212,10 +212,7 @@ public class Client  implements Serializable {
      * @param address
      */
     public void setAddress(String address) {
-        if (address == null)
-            throw new NullPointerException(STRING_ADDRESS + Constants.STRING_NULL_EXEPT);
-        if (StringUtils.isBlank(address))
-            throw new IllegalArgumentException(STRING_ADDRESS + Constants.STRING_BLANK_EXEPT);
+        CommonMethods.addressValidation(address);
         this.address = address;
     }
 

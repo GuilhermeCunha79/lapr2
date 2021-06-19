@@ -1,16 +1,14 @@
 package app.ui.gui;
 
 import app.controller.CheckResultsController;
-import app.domain.model.Client;
-import app.domain.shared.CommonMethods;
 import app.ui.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -49,8 +47,9 @@ public class CheckTestsResultsUI implements Initializable {
     }
 
     @FXML
-    public void orderListByName(){
+    public void orderListByName(ActionEvent actionEvent){
         String type= "name";
+        listViewClients.getItems().clear();
         List<String> lClientDto = ctrl.showOrderedClients(type);
         for(String client : lClientDto){
             listViewClients.getItems().add(client);
@@ -58,8 +57,9 @@ public class CheckTestsResultsUI implements Initializable {
     }
 
     @FXML
-    public void orderListByTIN(){
+    public void orderListByTIN(ActionEvent actionEvent){
         String type= "tin";
+        listViewClients.getItems().clear();
         List<String> lClientDto = ctrl.showOrderedClients(type);
         for(String client : lClientDto){
             listViewClients.getItems().add(client);
@@ -67,13 +67,17 @@ public class CheckTestsResultsUI implements Initializable {
     }
 
     @FXML
-    public void checkTestResults(){
-
+    public void checkTestResults(ActionEvent actionEvent){
+        NewWindowClientTestsUI newWindowClientTestsUI = (NewWindowClientTestsUI) this.mainApp.changeStageContent("/fxml/WindowWithTestList.fxml");
+        newWindowClientTestsUI.setMainApp(this.mainApp);
+        newWindowClientTestsUI.setTextArea(ctrl.showTestDetails(listViewClients.getSelectionModel().getSelectedItem().substring(listViewClients.getSelectionModel().getSelectedItem().lastIndexOf("TIN Number: ")+1,listViewClients.getSelectionModel().getSelectedItem().lastIndexOf("TIN Number: ")+10)));
     }
 
     @FXML
-    public void clinicalChemistryTechnologistMenu(){
-        CheckTestsResultsUI checkTestsResultsUI = (CheckTestsResultsUI) this.mainApp.changeStageContent("/fxml/ClinicalChemistryTechnologistMenu.fxml");
-        checkTestsResultsUI.setMainApp(this.mainApp);
+    public void clinicalChemistryTechnologistMenu(ActionEvent actionEvent){
+        ClinicalChemistryTechnologistMenuUI clinicalChemistryTechnologistMenuUI = (ClinicalChemistryTechnologistMenuUI) this.mainApp.changeStageContent("/fxml/ClinicalChemistryTechnologistMenu.fxml");
+        clinicalChemistryTechnologistMenuUI.setMainApp(this.mainApp);
     }
+
+
 }

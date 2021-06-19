@@ -59,8 +59,4 @@ public class CheckResultsController {
         }
         return null;
     }
-
-
-
-
 }

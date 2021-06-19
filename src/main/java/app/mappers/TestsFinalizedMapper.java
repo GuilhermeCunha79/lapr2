@@ -11,7 +11,7 @@ public class TestsFinalizedMapper {
         throw new IllegalStateException("Utility Class");
     }
     /***
-     * This method converts a list of test types to a list of strings with the data from each test to be presented in the UI
+     * This method converts a list of tests to a list of strings with the data from each test to be presented in the UI
      * @param lTestsDone
      * @return
      */

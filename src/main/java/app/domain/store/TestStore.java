@@ -143,7 +143,7 @@ public class TestStore implements Serializable {
         List<ClinicalTest> lTestNoReport = new ArrayList<>();
         if (!testList.isEmpty()) {
             for (ClinicalTest clinicalTest : testList) {
-                if (!clinicalTest.getReportStatus() && !clinicalTest.getResultStatus())
+                if (!clinicalTest.getReportStatus())
                     lTestNoReport.add(clinicalTest);
             }
             if (lTestNoReport.isEmpty())

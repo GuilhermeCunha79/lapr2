@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ImportTestFromCsvFileUI implements Initializable {
@@ -39,6 +40,7 @@ public class ImportTestFromCsvFileUI implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ctrl = new ImportTestFromCsvController();
     }
+
 
     @FXML
     private void openFileFinder(ActionEvent actionEvent) {
