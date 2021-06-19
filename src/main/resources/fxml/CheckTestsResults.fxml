@@ -27,7 +27,7 @@
          <children>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1162.0">
                <children>
-                  <ListView disable="true" layoutY="41.0" prefHeight="558.0" prefWidth="1004.0" style="-fx-background-radius: 5;" />
+                  <ListView fx:id="listViewClients" layoutY="41.0" prefHeight="558.0" prefWidth="1004.0" style="-fx-background-radius: 5;" />
                   <Text fill="#575757" layoutX="20.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients List">
                      <font>
                         <Font name="Segoe UI Bold" size="18.0" />
@@ -37,7 +37,7 @@
             </AnchorPane>
             <VBox prefHeight="568.0" prefWidth="301.0" translateX="-10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order Clients List by:" wrappingWidth="143.0625">
+                  <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Clients List by:" wrappingWidth="143.0625">
                      <font>
                         <Font name="Segoe UI Bold" size="14.0" />
                      </font>
@@ -67,7 +67,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnCheckResults" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 10; -fx-background-color: #14C9CB;" text="Check test results/details" textFill="WHITE">
+                  <Button fx:id="btnCheckResults" mnemonicParsing="false" onAction="#checkTestResults" prefHeight="40.0" prefWidth="185.0" style="-fx-background-radius: 10; -fx-background-color: #14C9CB;" text="Check tests performed" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="177.0" />
                      </VBox.margin>

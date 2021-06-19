@@ -26,16 +26,16 @@ import java.util.Set;
 public class Company {
 
 
-    private String designation;
-    private AuthFacade authFacade;
+    private final String designation;
+    private final AuthFacade authFacade;
 
-    private TypeOfTestStore totStore = new TypeOfTestStore();
-    private ClientStore clientStore = new ClientStore();
-    private ParameterCategoryStore pcStore = new ParameterCategoryStore();
-    private ParameterStore pStore = new ParameterStore();
-    private ClinicalAnalysisLaboratoryStore calStore = new ClinicalAnalysisLaboratoryStore();
-    private EmployeeStore empStore = new EmployeeStore();
-    private TestStore testStore = new TestStore();
+    private final TypeOfTestStore totStore = new TypeOfTestStore();
+    private final ClientStore clientStore = new ClientStore();
+    private final ParameterCategoryStore pcStore = new ParameterCategoryStore();
+    private final ParameterStore pStore = new ParameterStore();
+    private final ClinicalAnalysisLaboratoryStore calStore = new ClinicalAnalysisLaboratoryStore();
+    private final EmployeeStore empStore = new EmployeeStore();
+    private final TestStore testStore = new TestStore();
 
     /**
      * Constructor of the company class assigning a designation to it
