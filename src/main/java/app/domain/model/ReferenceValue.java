@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class ReferenceValue implements Serializable {
 
-    private double minValue;
-    private double maxValue;
-    private String metric;
+    private final double minValue;
+    private final double maxValue;
+    private final String metric;
 
     /**
      * Reference value constructor, receives a minimum value, a maximum value and the metric

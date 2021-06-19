@@ -3,11 +3,10 @@ package app.domain.model;
 import app.mappers.dto.ClientDTO;
 import app.domain.shared.CommonMethods;
 import app.domain.shared.Constants;
-import app.ui.console.utils.Utils;
+
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
@@ -193,7 +192,7 @@ public class Client  implements Serializable {
      * @param birthDate
      */
     public void setBirthDate(String birthDate) {
-        LocalDate date = LocalDate.now();
+        var date = LocalDate.now();
         if (birthDate == null)
             throw new NullPointerException("Birth Date" + Constants.STRING_NULL_EXEPT);
         if (StringUtils.isBlank(birthDate))
