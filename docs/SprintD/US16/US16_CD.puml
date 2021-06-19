@@ -31,7 +31,7 @@ class Company {
 
 class Performance {
   +intervalTime(List<ClinicalTest> clinicalTests,\n DateTime initialDate, DateTime endDate)
-  +bruteForceAlgorithm(List<ClinicalTest> clinicalTests,\n DateTime inicialDate, DateTime endDate)
+  +bruteForceAlgorithm(DateTime inicialDate, DateTime endDate)
 }
 
 class Parameter{
@@ -58,8 +58,8 @@ PerformanceUI ..> PerformanceController
 PerformanceController ..> PerformanceStore
 PerformanceController ..> Company
 PerformanceController ..> ClinicalTest
-Company "1" -> "*"ClinicalTest :perform
-Performance "1" -> "1" PerformanceStore : use
+Company "1" -> "*"ClinicalTest : performs
+Performance "1" -> "1" PerformanceStore : uses
 
 ClinicalTest <-- Report
 ClinicalTest <-- Parameter

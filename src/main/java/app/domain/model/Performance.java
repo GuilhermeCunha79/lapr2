@@ -108,7 +108,7 @@ public class Performance {
                     possibleSum++;
                 }
 
-                if(bestSum< possibleSum){
+                if(bestSum < possibleSum){
                     bestSum = possibleSum;
                     bestPerformance = possibleBestPerformance;
                 }
