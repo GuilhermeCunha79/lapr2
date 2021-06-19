@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor ":Scheduler" as S
+participant ":System" as SYS
+
+S -> SYS : asks for the time of day to send the report
+activate SYS
+SYS --> S : tells the time of day
+deactivate SYS
+loop every day at X o'clock
+S -> SYS : needs to create the report
+activate SYS
+deactivate SYS
+end loop
+
+@enduml

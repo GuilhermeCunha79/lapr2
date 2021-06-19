@@ -399,6 +399,10 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest> {
         return false;
     }
 
+    public List<TestParameter> getTestParametersList() {
+        return testParametersList;
+    }
+
     /**
      * The only purpose of this method is to change the state of the test to inform that the sample is done
      */

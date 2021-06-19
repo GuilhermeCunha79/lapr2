@@ -8,7 +8,6 @@ import app.mappers.dto.ClientDTO;
 import auth.domain.model.Email;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static app.domain.shared.CommonMethods.serializeStore;
