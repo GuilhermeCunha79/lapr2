@@ -30,7 +30,6 @@ public class ChangeClientDataController {
             return client.toString();
     }
 
-
     public void changeName(Client client, String name) {
         this.ctStore.changeName(client, name);
     }
@@ -48,8 +47,8 @@ public class ChangeClientDataController {
 
     }
 
-    public boolean changeAddress(Client client, String name) {
-        return this.ctStore.changeAddress(client, name);
+    public void changeAddress(Client client, String name) {
+        this.ctStore.changeAddress(client, name);
     }
 
     public String getName(){

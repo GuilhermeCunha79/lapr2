@@ -195,13 +195,8 @@ public class ClientStore {
      * @param address
      * @return
      */
-    public boolean changeAddress(Client client, String address) {
-        for (Client client1 : clientList) {
-            if (client1.getAddress().equals(address))
-                return false;
-        }
+    public void changeAddress(Client client, String address) {
         client.setAddress(address);
-        return true;
     }
 
     /***
