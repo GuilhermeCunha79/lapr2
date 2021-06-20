@@ -1,8 +1,12 @@
 package app.domain.store;
 
+import app.domain.model.ClinicalTest;
 import app.domain.model.Performance;
 import app.domain.shared.DateTime;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.chart.LineChart;
+
+import java.util.List;
 
 
 public class PerformanceStore {
@@ -23,7 +27,7 @@ public class PerformanceStore {
      * @return
      */
     public boolean validatePerformance(Performance performance) {
-        GraphicsContext context = performance.getStatistic();
+        LineChart context = performance.getStatistic();
         return (context != null);
     }
 }
