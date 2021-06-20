@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1406.25px" preserveAspectRatio="none" style="width:2793px;height:1406px;" version="1.1" viewBox="0 0 2793 1406" width="2793.75px" zoomAndPan="magnify"><defs><filter height="300%" id="f72qcyc1r1dc4" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="1152.7441" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="55.625" y="124.5117"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="803.7891" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1126.875" y="190.3906"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="93.3789" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1126.875" y="1032.1191"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="113.8184" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1126.875" y="1163.4375"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="737.9102" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1845.625" y="228.3301"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="17.5" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1845.625" y="1070.0586"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1845.625" y="1201.377"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="151.7578" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="2073.125" y="304.209"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="37.5" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="2227.5" y="493.9063"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="60.8789" style="stroke:#000000;stroke-width:2.5;" width="597.5" x="1739.375" y="588.0957"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="60.8789" style="stroke:#000000;stroke-width:2.5;" width="597.5" x="1739.375" y="704.4141"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="98.8184" style="stroke:#000000;stroke-width:2.5;" width="813.75" x="1739.375" y="858.6719"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="61.25" x2="61.25" y1="112.0117" y2="1299.7559"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="1133.125" x2="1133.125" y1="112.0117" y2="1299.7559"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="1851.875" x2="1851.875" y1="112.0117" y2="1299.7559"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="2079.375" x2="2079.375" y1="112.0117" y2="1299.7559"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="2233.125" x2="2233.125" y1="112.0117" y2="1299.7559"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="2438.125" x2="2438.125" y1="112.0117" y2="1299.7559"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="2633.125" x2="2633.125" y1="112.0117" y2="1299.7559"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="2753.125" x2="2753.125" y1="112.0117" y2="1299.7559"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="103.75" x="6.25" y="108.1665">Administrator</text><ellipse cx="61.875" cy="18.75" fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" rx="10" ry="10" style="stroke:#A80036;stroke-width:2.5;"/><path d="M61.875,28.75 L61.875,62.5 M45.625,38.75 L78.125,38.75 M61.875,62.5 L45.625,81.25 M61.875,62.5 L78.125,81.25 " fill="none" filter="url(#f72qcyc1r1dc4)" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="103.75" x="6.25" y="1316.6724">Administrator</text><ellipse cx="61.875" cy="1333.0176" fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" rx="10" ry="10" style="stroke:#A80036;stroke-width:2.5;"/><path d="M61.875,1343.0176 L61.875,1376.7676 M45.625,1353.0176 L78.125,1353.0176 M61.875,1376.7676 L45.625,1395.5176 M61.875,1376.7676 L78.125,1395.5176 " fill="none" filter="url(#f72qcyc1r1dc4)" style="stroke:#A80036;stroke-width:2.5;"/><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="132.5" x="1064.375" y="66.25"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="115" x="1073.125" y="93.1665">:SendReportUI</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="132.5" x="1064.375" y="1298.5059"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="115" x="1073.125" y="1325.4224">:SendReportUI</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="195" x="1751.875" y="66.25"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="177.5" x="1760.625" y="93.1665">:SendReportController</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="195" x="1751.875" y="1298.5059"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="177.5" x="1760.625" y="1325.4224">:SendReportController</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="61.5234" style="stroke:#A80036;stroke-width:1.875;" width="97.5" x="2028.125" y="44.2383"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="42.5" x="2055.625" y="71.1548">comp</text><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="80" x="2036.875" y="93.1665">:Company</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="61.5234" style="stroke:#A80036;stroke-width:1.875;" width="97.5" x="2028.125" y="1298.5059"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="42.5" x="2055.625" y="1325.4224">comp</text><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="80" x="2036.875" y="1347.4341">:Company</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="176.25" x="2143.125" y="66.25"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="158.75" x="2151.875" y="93.1665">testStore: TestStore</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="176.25" x="2143.125" y="1298.5059"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="158.75" x="2151.875" y="1325.4224">testStore: TestStore</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="198.75" x="2336.875" y="66.25"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="181.25" x="2345.625" y="93.1665">clientStore: ClientStore</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="198.75" x="2336.875" y="1298.5059"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="181.25" x="2345.625" y="1325.4224">clientStore: ClientStore</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="155" x="2553.125" y="66.25"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="137.5" x="2561.875" y="93.1665">RegressionModel</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="155" x="2553.125" y="1298.5059"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="137.5" x="2561.875" y="1325.4224">RegressionModel</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="51.25" x="2725.625" y="66.25"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="33.75" x="2734.375" y="93.1665">NHS</text><rect fill="#FEFECE" filter="url(#f72qcyc1r1dc4)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="51.25" x="2725.625" y="1298.5059"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="33.75" x="2734.375" y="1325.4224">NHS</text><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="1152.7441" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="55.625" y="124.5117"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="803.7891" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1126.875" y="190.3906"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="93.3789" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1126.875" y="1032.1191"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="113.8184" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1126.875" y="1163.4375"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="737.9102" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1845.625" y="228.3301"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="17.5" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1845.625" y="1070.0586"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1845.625" y="1201.377"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="151.7578" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="2073.125" y="304.209"/><rect fill="#FFFFFF" filter="url(#f72qcyc1r1dc4)" height="37.5" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="2227.5" y="493.9063"/><polygon fill="#A80036" points="81.875,147.4512,69.375,152.4512,81.875,157.4512,76.875,152.4512" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="74.375" x2="1131.875" y1="152.4512" y2="152.4512"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="187.5" x="89.375" y="146.3806">Ask for the interval of time</text><polygon fill="#A80036" points="1111.875,185.3906,1124.375,190.3906,1111.875,195.3906,1116.875,190.3906" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="68.125" x2="1119.375" y1="190.3906" y2="190.3906"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="176.25" x="76.875" y="184.3201">imput the interval of time</text><polygon fill="#A80036" points="1830.625,223.3301,1843.125,228.3301,1830.625,233.3301,1835.625,228.3301" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1139.375" x2="1838.125" y1="228.3301" y2="228.3301"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="223.75" x="1148.125" y="222.2595">getDateList(startDate;endDate)</text><polygon fill="#A80036" points="1830.625,261.2695,1843.125,266.2695,1830.625,271.2695,1835.625,266.2695" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1139.375" x2="1838.125" y1="266.2695" y2="266.2695"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="155" x="1148.125" y="260.199">getFinalisedTestList()</text><polygon fill="#A80036" points="2058.125,299.209,2070.625,304.209,2058.125,309.209,2063.125,304.209" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2065.625" y1="304.209" y2="304.209"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="102.5" x="1866.875" y="298.1384">getTestStore()</text><polygon fill="#A80036" points="2058.125,337.1484,2070.625,342.1484,2058.125,347.1484,2063.125,342.1484" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2065.625" y1="342.1484" y2="342.1484"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="66.25" x="1866.875" y="336.0779">getDate()</text><polygon fill="#A80036" points="2058.125,375.0879,2070.625,380.0879,2058.125,385.0879,2063.125,380.0879" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2065.625" y1="380.0879" y2="380.0879"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="112.5" x="1866.875" y="374.0173">getClientStore()</text><polygon fill="#A80036" points="2058.125,413.0273,2070.625,418.0273,2058.125,423.0273,2063.125,418.0273" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2065.625" y1="418.0273" y2="418.0273"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="138.75" x="1866.875" y="411.9568">getTestParameter()</text><polygon fill="#A80036" points="2064.375,450.9668,2076.875,455.9668,2064.375,460.9668,2069.375,455.9668" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2071.875" y1="455.9668" y2="455.9668"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="185" x="1866.875" y="449.8962">getTestParameterResult()</text><polygon fill="#A80036" points="2212.5,488.9063,2225,493.9063,2212.5,498.9063,2217.5,493.9063" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2220" y1="493.9063" y2="493.9063"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="155" x="1866.875" y="487.8357">getFinalisedTestList()</text><polygon fill="#A80036" points="1830.625,564.3457,1843.125,569.3457,1830.625,574.3457,1835.625,569.3457" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1139.375" x2="1838.125" y1="569.3457" y2="569.3457"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="128.75" x="1148.125" y="563.2751">getTestCovidList()</text><path d="M1739.375,588.0957 L1830.625,588.0957 L1830.625,598.0957 L1818.125,610.5957 L1739.375,610.5957 L1739.375,588.0957 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.25;"/><rect fill="none" height="60.8789" style="stroke:#000000;stroke-width:2.5;" width="597.5" x="1739.375" y="588.0957"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="35" x="1758.125" y="606.2146">loop</text><polygon fill="#A80036" points="2218.75,633.9746,2231.25,638.9746,2218.75,643.9746,2223.75,638.9746" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2226.25" y1="638.9746" y2="638.9746"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="187.5" x="1866.875" y="632.9041">getTest getTestParameter</text><polygon fill="#A80036" points="1830.625,680.6641,1843.125,685.6641,1830.625,690.6641,1835.625,685.6641" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1139.375" x2="1838.125" y1="685.6641" y2="685.6641"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="146.25" x="1148.125" y="679.5935">getPositiveTestList()</text><path d="M1739.375,704.4141 L1830.625,704.4141 L1830.625,714.4141 L1818.125,726.9141 L1739.375,726.9141 L1739.375,704.4141 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.25;"/><rect fill="none" height="60.8789" style="stroke:#000000;stroke-width:2.5;" width="597.5" x="1739.375" y="704.4141"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="35" x="1758.125" y="722.533">loop</text><polygon fill="#A80036" points="2218.75,750.293,2231.25,755.293,2218.75,760.293,2223.75,755.293" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2226.25" y1="755.293" y2="755.293"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="175" x="1866.875" y="749.2224">getTestParameterResult</text><polygon fill="#A80036" points="1830.625,796.9824,1843.125,801.9824,1830.625,806.9824,1835.625,801.9824" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1139.375" x2="1838.125" y1="801.9824" y2="801.9824"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="162.5" x="1148.125" y="795.9119">getNumberOfTestList()</text><polygon fill="#A80036" points="1830.625,834.9219,1843.125,839.9219,1830.625,844.9219,1835.625,839.9219" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1139.375" x2="1838.125" y1="839.9219" y2="839.9219"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="122.5" x="1148.125" y="833.8513">getMainAgeList()</text><path d="M1739.375,858.6719 L1830.625,858.6719 L1830.625,868.6719 L1818.125,881.1719 L1739.375,881.1719 L1739.375,858.6719 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.25;"/><rect fill="none" height="98.8184" style="stroke:#000000;stroke-width:2.5;" width="813.75" x="1739.375" y="858.6719"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="35" x="1758.125" y="876.7908">loop</text><polygon fill="#A80036" points="2218.75,904.5508,2231.25,909.5508,2218.75,914.5508,2223.75,909.5508" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2226.25" y1="909.5508" y2="909.5508"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="63.75" x="1866.875" y="903.4802">getClient</text><polygon fill="#A80036" points="2423.75,942.4902,2436.25,947.4902,2423.75,952.4902,2428.75,947.4902" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1858.125" x2="2431.25" y1="947.4902" y2="947.4902"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="131.25" x="1866.875" y="941.4197">getClientBirthDate</text><polygon fill="#A80036" points="81.875,989.1797,69.375,994.1797,81.875,999.1797,76.875,994.1797" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="74.375" x2="1131.875" y1="994.1797" y2="994.1797"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="1028.75" x="89.375" y="988.1091">Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)</text><polygon fill="#A80036" points="1111.875,1027.1191,1124.375,1032.1191,1111.875,1037.1191,1116.875,1032.1191" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="68.125" x2="1119.375" y1="1032.1191" y2="1032.1191"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="177.5" x="76.875" y="1026.0486">select one of the options</text><polygon fill="#A80036" points="1830.625,1065.0586,1843.125,1070.0586,1830.625,1075.0586,1835.625,1070.0586" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1139.375" x2="1838.125" y1="1070.0586" y2="1070.0586"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="682.5" x="1148.125" y="1063.988">Create RegressionModel (trustLevel,dateList,positiveCasesList,numberOfTestList,mainAgeList)</text><polygon fill="#A80036" points="2618.125,1082.5586,2630.625,1087.5586,2618.125,1092.5586,2623.125,1087.5586" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1851.875" x2="2625.625" y1="1087.5586" y2="1087.5586"/><polygon fill="#A80036" points="81.875,1120.498,69.375,1125.498,81.875,1130.498,76.875,1125.498" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="74.375" x2="1131.875" y1="1125.498" y2="1125.498"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="512.5" x="89.375" y="1119.4275">Show the report and with the regression model and ask for confirmation</text><polygon fill="#A80036" points="1111.875,1158.4375,1124.375,1163.4375,1111.875,1168.4375,1116.875,1163.4375" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="68.125" x2="1119.375" y1="1163.4375" y2="1163.4375"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="277.5" x="76.875" y="1157.3669">confirms the data and sent to the NHS</text><polygon fill="#A80036" points="1830.625,1196.377,1843.125,1201.377,1830.625,1206.377,1835.625,1201.377" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1139.375" x2="1838.125" y1="1201.377" y2="1201.377"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="190" x="1148.125" y="1195.3064">SendReport(String Report)</text><polygon fill="#A80036" points="2738.75,1234.3164,2751.25,1239.3164,2738.75,1244.3164,2743.75,1239.3164" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="1851.875" x2="2746.25" y1="1239.3164" y2="1239.3164"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="187.5" x="1860.625" y="1233.2458">sendReport(String Report)</text><polygon fill="#A80036" points="75.625,1272.2559,63.125,1277.2559,75.625,1282.2559,70.625,1277.2559" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="68.125" x2="1131.875" y1="1277.2559" y2="1277.2559"/><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="190" x="83.125" y="1271.1853">informs operation success</text><!--MD5=[c6682a05c6baf31c1ed6710a704dc364]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Administrator" as Ad
+participant ":SendReportUI" as UI
+participant ":SendReportController" as CTRL
+participant "comp\n:Company" as COMP
+
+
+
+
+participant "testStore: TestStore" as TS
+participant "clientStore: ClientStore" as CS
+participant "RegressionModel" as Reg
+participant "NHS" as  N
+
+
+activate Ad
+"UI"- -> Ad : Ask for the interval of time
+deactivate "UI"
+Ad -> "UI" : imput the interval of time
+activate "UI"
+    "UI"->"CTRL" : getDateList(startDate;endDate)
+    activate CTRL
+    "UI"->"CTRL" : getFinalisedTestList()
+        CTRL -> COMP : getTestStore()
+        activate COMP
+        CTRL -> COMP : getDate()
+        CTRL -> COMP : getClientStore()
+        CTRL -> COMP : getTestParameter()
+        CTRL -> COMP : getTestParameterResult()
+        deactivate COMP
+        CTRL -> TS :getFinalisedTestList()
+        activate TS
+        deactivate TS
+        UI-> CTRL: getTestCovidList()
+        loop
+            CTRL -> TS : getTest getTestParameter
+        end loop
+        UI-> CTRL: getPositiveTestList()
+        loop
+            CTRL -> TS : getTestParameterResult
+        end loop
+        UI-> CTRL: getNumberOfTestList()
+        UI -> CTRL: getMainAgeList()
+        loop
+            CTRL -> TS : getClient
+            CTRL -> CS :getClientBirthDate
+        end loop
+    deactivate CTRL
+"UI" - -> Ad : Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
+deactivate "UI"
+Ad -> "UI" : select one of the options
+activate "UI"
+    UI-> CTRL : Create RegressionModel (trustLevel,dateList,positiveCasesList,numberOfTestList,mainAgeList)
+    activate CTRL
+     CTRL->Reg
+    deactivate CTRL
+"UI" - -> Ad : Show the report and with the regression model and ask for confirmation
+deactivate "UI"
+Ad -> "UI" :  confirms the data and sent to the NHS
+activate "UI"
+UI-> CTRL : SendReport(String Report)
+    activate CTRL
+     CTRL->N : sendReport(String Report)
+    deactivate CTRL
+"UI" - -> Ad : informs operation success
+deactivate "UI"
+
+deactivate Ad
+
+
+
+@enduml
+
+@startuml
+
+actor "Administrator" as Ad
+participant ":SendReportUI" as UI
+participant ":SendReportController" as CTRL
+participant "comp\n:Company" as COMP
+
+
+
+
+participant "testStore: TestStore" as TS
+participant "clientStore: ClientStore" as CS
+participant "RegressionModel" as Reg
+participant "NHS" as  N
+
+
+activate Ad
+"UI"- -> Ad : Ask for the interval of time
+deactivate "UI"
+Ad -> "UI" : imput the interval of time
+activate "UI"
+    "UI"->"CTRL" : getDateList(startDate;endDate)
+    activate CTRL
+    "UI"->"CTRL" : getFinalisedTestList()
+        CTRL -> COMP : getTestStore()
+        activate COMP
+        CTRL -> COMP : getDate()
+        CTRL -> COMP : getClientStore()
+        CTRL -> COMP : getTestParameter()
+        CTRL -> COMP : getTestParameterResult()
+        deactivate COMP
+        CTRL -> TS :getFinalisedTestList()
+        activate TS
+        deactivate TS
+        UI-> CTRL: getTestCovidList()
+        loop
+            CTRL -> TS : getTest getTestParameter
+        end loop
+        UI-> CTRL: getPositiveTestList()
+        loop
+            CTRL -> TS : getTestParameterResult
+        end loop
+        UI-> CTRL: getNumberOfTestList()
+        UI -> CTRL: getMainAgeList()
+        loop
+            CTRL -> TS : getClient
+            CTRL -> CS :getClientBirthDate
+        end loop
+    deactivate CTRL
+"UI" - -> Ad : Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
+deactivate "UI"
+Ad -> "UI" : select one of the options
+activate "UI"
+    UI-> CTRL : Create RegressionModel (trustLevel,dateList,positiveCasesList,numberOfTestList,mainAgeList)
+    activate CTRL
+     CTRL->Reg
+    deactivate CTRL
+"UI" - -> Ad : Show the report and with the regression model and ask for confirmation
+deactivate "UI"
+Ad -> "UI" :  confirms the data and sent to the NHS
+activate "UI"
+UI-> CTRL : SendReport(String Report)
+    activate CTRL
+     CTRL->N : sendReport(String Report)
+    deactivate CTRL
+"UI" - -> Ad : informs operation success
+deactivate "UI"
+
+deactivate Ad
+
+
+
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
