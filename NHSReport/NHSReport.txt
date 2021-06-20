@@ -8,19 +8,19 @@ R = NaN
 //
 Hypothesis tests for regression coefficients
 HO:b=0 (a=0) H1: b<>0 (a<>0)
-For ^B0 the null hypothesis is accepted because NaN < -3.182446
-For ^B1 the null hypothesis is accepted because NaN < -3.182446
-For ^B2 the null hypothesis is accepted because NaN < -3.182446
+For ^B0 the null hypothesis is accepted because NaN < -2.228139
+For ^B1 the null hypothesis is accepted because NaN < -2.228139
+For ^B2 the null hypothesis is accepted because NaN < -2.228139
 //
 Significance model with anova
 H0: b=0  H1:b<>0 
              df        SS                  MS                   F
 Regression   2               NaN                NaN                 NaN
-Residual     3               NaN                NaN
-Total        5            0.0000
+Residual    10               NaN                NaN
+Total       12            0.0000
 
 Decision: f
-NaN < f0.0500,(2,3)=0.0522
+NaN < f0.05,(2,10)=0.0516
 Accept H0
 The regression model is not significant
 
@@ -32,3 +32,10 @@ Date           Number of OBSERVED positive cases          Number of ESTIMATED po
 25/03/2021                   0                                           NaN                             NaN-NaN
 26/03/2021                   0                                           NaN                             NaN-NaN
 27/03/2021                   0                                           NaN                             NaN-NaN
+29/03/2021                   0                                           NaN                             NaN-NaN
+30/03/2021                   0                                           NaN                             NaN-NaN
+31/03/2021                   0                                           NaN                             NaN-NaN
+01/04/2021                   0                                           NaN                             NaN-NaN
+02/04/2021                   0                                           NaN                             NaN-NaN
+03/04/2021                   0                                           NaN                             NaN-NaN
+05/04/2021                   0                                           NaN                             NaN-NaN

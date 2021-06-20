@@ -23,7 +23,7 @@
          <children>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1162.0">
                <children>
-                  <TextArea disable="true" editable="false" layoutX="29.0" layoutY="42.0" prefHeight="577.0" prefWidth="1015.0" />
+                  <TextArea fx:id="testsList" editable="false" layoutX="29.0" layoutY="42.0" prefHeight="577.0" prefWidth="1015.0" />
                   <Text fill="#575757" layoutX="-11.0" layoutY="6.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tests List" translateX="60.0" translateY="30.0">
                      <font>
                         <Font name="Segoe UI Bold" size="18.0" />

@@ -32,7 +32,6 @@ public class Main extends Application {
             new Scheduler();
             launch(args);
         }catch(Exception e){
-            e.printStackTrace();
         }
 
     }

@@ -55,7 +55,7 @@ The client tests must be shown ordered from the most recent to the oldest one. T
 
 
 **Input Data:**
-* view the results of the test
+* view the results, and the report of the test
 
 
 **Selected data**
@@ -66,14 +66,15 @@ The client tests must be shown ordered from the most recent to the oldest one. T
 * (In)Success of the operation
 
 ### 1.6. System Sequence Diagram (SSD)
-![UC1_SSD](UC1_SSD.svg)
+![US1_SSD](US1_SSD.svg)
 
 ### 1.7 Other Relevant Remarks
 * n/a.
 
 ## 2. OO Analysis
 ### 2.1. Relevant Domain Model Excerpt
-![UC1_MD](UC1_MD.svg)
+![US1_MD](US1_MD.svg)
+
 ### 2.2. Other Remarks
 
 n/a

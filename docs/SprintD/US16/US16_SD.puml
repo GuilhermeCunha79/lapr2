@@ -12,17 +12,12 @@ participant "store:PerformanceStore" as PS
 
 LC -> UI : wants to generate and view the statistics of a certain period
 activate UI
-    UI -> CTRL : see the methods available to make the requested operation
-    activate CTRL
-    deactivate CTRL
-    CTRL --> UI : returns the methods
+LC <-- UI : asks for the beginning date and\n the end date of the desired interval time
 
     deactivate CTRL
-    UI --> LC : shows the available options of methods \n and asks the lab coordinator to pick one
 deactivate UI
-LC -> UI : select the algorithm method
+LC -> UI : Inserts the desired interval time
 activate UI
-LC <-- UI : asks for the beginning date and\n the end date of the desired interval time
     UI->CTRL : newPerformance (beginTime, endTime)
     activate CTRL
     deactivate CTRL
@@ -34,6 +29,6 @@ LC <-- UI : asks for the beginning date and\n the end date of the desired interv
     P -> PS : savePerformance()
     deactivate P
 
-UI --> LC : shows the statistics and overall performance on the interval time
+UI --> LC : shows the statistics and overall performance of the chosen interval time
 deactivate UI
 @enduml

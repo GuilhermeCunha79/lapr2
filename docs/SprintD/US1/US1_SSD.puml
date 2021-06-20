@@ -11,7 +11,7 @@ activate SYSTEM
 SYSTEM --> CLIENT : Authentication Response
 deactivate SYSTEM
 
-CLIENT -> SYSTEM : See the list of tests who have performed ordered by the registration date
+CLIENT -> SYSTEM : See the list of  validated tests who have performed ordered by the registration date
 activate SYSTEM
 SYSTEM --> CLIENT : Shows the validated test list who have performed ordered by the registration date
 deactivate SYSTEM
