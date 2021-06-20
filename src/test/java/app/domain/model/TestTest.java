@@ -5,7 +5,6 @@ import app.domain.shared.DateTime;
 import app.mappers.dto.ClientDTO;
 import org.junit.Test;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +49,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("47854", "323", "566", new ParameterCategory("12934", "Gomes"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("52541", "Tomas", "887", new ParameterCategory("12734", "Raimundo")));
-        new ClinicalTest("212@w2@-ji45", client, typeOfTest, lparameter, "23432",4);
+        new ClinicalTest("212@w2@-ji45", client, typeOfTest, lparameter, "23432", 4);
     }
 
     @Test()
@@ -98,7 +97,7 @@ public class TestTest {
         TypeOfTest typeOfTest = new TypeOfTest("00002", "7777", "666", new ParameterCategory("70104", "lkj"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("90265", "sz", "7021", new ParameterCategory("22109", "ads")));
-        ClinicalTest t2 = new ClinicalTest("100090000003", client, typeOfTest, lparameter, "88878",9);
+        ClinicalTest t2 = new ClinicalTest("100090000003", client, typeOfTest, lparameter, "88878", 9);
         String expected = String.format("%nClient:%nName: Emilia%nCitizen Card Number: 0202417845965874%nNHS number: 1074601020%nTIN number: 1212787895%nBirth date: 05/03/1963%nSex: female%nPhone number: 91474765456%nEmail: emilia@isep.ipp.pt%nAddress: street 8%n");
         assertEquals(expected, t2.getClient().toString());
     }
@@ -194,7 +193,7 @@ public class TestTest {
 
     @Test
     public void ensureAddingParameterWorks() {
-        Client client = new Client(new ClientDTO("Eva", "2228889809321234", "5411211201", "7017410787", "23/11/1986", "female" , "42224324321", "eva@isep.ipp.pt", "street"));
+        Client client = new Client(new ClientDTO("Eva", "2228889809321234", "5411211201", "7017410787", "23/11/1986", "female", "42224324321", "eva@isep.ipp.pt", "street"));
         TypeOfTest typeOfTest = new TypeOfTest("10000", "1212", "112", new ParameterCategory("99000", "dwqe"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("22222", "kkk", "11111", new ParameterCategory("66666", "uico")));
@@ -204,7 +203,7 @@ public class TestTest {
 
     @Test
     public void ensureAddingSameParameterDoesntWorks() {
-        Client client = new Client(new ClientDTO("Eva", "2228889809321234", "5411211201", "7017410787", "23/11/1986", "female" , "42224324321", "eva@isep.ipp.pt", "street"));
+        Client client = new Client(new ClientDTO("Eva", "2228889809321234", "5411211201", "7017410787", "23/11/1986", "female", "42224324321", "eva@isep.ipp.pt", "street"));
         TypeOfTest typeOfTest = new TypeOfTest("10000", "1212", "112", new ParameterCategory("99000", "dwqe"));
         List<Parameter> lparameter = new ArrayList<>();
         lparameter.add(new Parameter("22222", "kkk", "11111", new ParameterCategory("66666", "uico")));
@@ -224,7 +223,7 @@ public class TestTest {
     }
 
     @Test
-    public void testAddReportWorks(){
+    public void testAddReportWorks() {
         Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
@@ -234,7 +233,7 @@ public class TestTest {
     }
 
     @Test
-    public void testAddValidationWorks(){
+    public void testAddValidationWorks() {
         Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
@@ -244,7 +243,7 @@ public class TestTest {
     }
 
     @Test
-    public void checkReportDoneIsTrue(){
+    public void checkReportDoneIsTrue() {
         Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
@@ -255,7 +254,7 @@ public class TestTest {
     }
 
     @Test
-    public void checkValidationDoneIsTrue(){
+    public void checkValidationDoneIsTrue() {
         Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
@@ -266,7 +265,7 @@ public class TestTest {
     }
 
     @Test
-    public void checkAddTestParameterResultMethod(){
+    public void checkAddTestParameterResultMethod() {
         Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
@@ -276,7 +275,7 @@ public class TestTest {
     }
 
     @Test
-    public void checkAddTestParameterResultDoesntWorkWhenTheTestParameterIsntFound(){
+    public void checkAddTestParameterResultDoesntWorkWhenTheTestParameterIsntFound() {
         Client client = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
         TypeOfTest typeOfTest = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
         List<Parameter> lparameter = new ArrayList<>();
@@ -317,7 +316,7 @@ public class TestTest {
     @Test
     public void ensureThatNHSCodeAreTheSameInTwoDifferentTests() {
         Client cl1 = new Client(new ClientDTO("Ema", "2222254246456425", "5454323432", "1195385492", "21/01/1990", "female", "11069472764", "ema@isep.ipp.pt", "street"));
-        Client cl2 = new Client(new ClientDTO("Sonia", "1103928472575737", "1195737274", "8805909725", "21/10/2000",  "female", "54540194853", "sonia@isep.ipp.pt", "street"));
+        Client cl2 = new Client(new ClientDTO("Sonia", "1103928472575737", "1195737274", "8805909725", "21/10/2000", "female", "54540194853", "sonia@isep.ipp.pt", "street"));
         TypeOfTest tt1 = new TypeOfTest("11051", "22019", "8071", new ParameterCategory("22000", "vvc"));
         TypeOfTest tt2 = new TypeOfTest("09901", "009", "7670", new ParameterCategory("77097", "zzxx"));
         List<Parameter> lp1 = new ArrayList<>();
@@ -329,4 +328,97 @@ public class TestTest {
         assertEquals(cat1, cat2);
     }
 
+    @Test
+    public void equalsTest() {
+        Client client = new Client(new ClientDTO("Guilherme", "4323456765063635", "9996665558", "2145412223", "24/05/2003", "male", "91891889158", "guilherme@isep.ipp.pt", "street2"));
+        TypeOfTest typeOfTest = new TypeOfTest("11002", "998", "1", new ParameterCategory("47586", "cat"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("63254", "par", "des", new ParameterCategory("01298", "catt")));
+        ClinicalTest clinicalTest = new ClinicalTest("233331312312", client, typeOfTest, lparameter, "35410", 2);
+        Client client1 = new Client(new ClientDTO("Guilherme", "4323456765063635", "9996665558", "2145412223", "24/05/2003", "male", "91891889158", "guilherme@isep.ipp.pt", "street2"));
+        TypeOfTest typeOfTest1 = new TypeOfTest("11002", "998", "1", new ParameterCategory("47586", "cat"));
+        List<Parameter> lparameter1 = new ArrayList<>();
+        lparameter.add(new Parameter("63254", "par", "des", new ParameterCategory("01298", "catt")));
+        ClinicalTest clinicalTest1 = new ClinicalTest("121332121212", client1, typeOfTest1, lparameter1, "35410", 2);
+        assertTrue(clinicalTest.equals(clinicalTest1));
+    }
+
+    @Test
+    public void equalsFalseTest() {
+        Client client = new Client(new ClientDTO("Guilherme", "4323422765063635", "9996665558", "2145412223", "24/05/2003", "male", "91891889158", "guilherme@isep.ipp.pt", "street2"));
+        TypeOfTest typeOfTest = new TypeOfTest("11002", "998", "1", new ParameterCategory("47586", "cat"));
+        List<Parameter> lparameter = new ArrayList<>();
+        lparameter.add(new Parameter("63254", "par", "des", new ParameterCategory("01298", "catt")));
+        ClinicalTest clinicalTest = new ClinicalTest("233331312312", client, typeOfTest, lparameter, "35410", 2);
+        Client client2 = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter2 = new ArrayList<>();
+        lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
+        assertFalse(clinicalTest.equals(test2));
+    }
+
+    @Test
+    public void changeValidationState() {
+        Client client2 = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter2 = new ArrayList<>();
+        lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
+        boolean expected = test2.changeStateValidationToDone();
+        assertTrue(expected);
+    }
+
+    @Test
+    public void changeResultState() {
+        Client client2 = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter2 = new ArrayList<>();
+        lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
+        boolean expected = test2.changeStateToResultDone();
+        assertTrue(expected);
+    }
+
+    @Test
+    public void getNhsCodeTest() {
+        Client client2 = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter2 = new ArrayList<>();
+        lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
+        String expected = "341341323234";
+        assertEquals(expected, test2.getNhsCode());
+    }
+
+    @Test
+    public void getClientTest() {
+        Client client2 = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter2 = new ArrayList<>();
+        lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
+        assertEquals(client2, test2.getClient());
+    }
+
+    @Test
+    public void getTypeOfTestTest() {
+        Client client2 = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter2 = new ArrayList<>();
+        lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
+        assertEquals(typeOfTest2, test2.getTypeOfTest());
+    }
+
+
+    @Test
+    public void getParameterList() {
+        Client client2 = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter2 = new ArrayList<>();
+        lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
+        assertEquals(lparameter2, test2.getParameterList());
+    }
 }
