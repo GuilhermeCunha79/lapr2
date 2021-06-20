@@ -24,6 +24,9 @@ public class LabCoordinatorMenuUI implements Initializable {
     @FXML
     private Button logoutBtn;
 
+    @FXML
+    private Button doPerformanceEvaluationBtn;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -43,6 +46,12 @@ public class LabCoordinatorMenuUI implements Initializable {
     private void importTestFromCsvFile(ActionEvent actionEvent){
         ImportTestFromCsvFileUI importTestFromCsvFileUI = (ImportTestFromCsvFileUI) this.mainApp.changeStageContent("/fxml/AddTestFromCSVFile.fxml");
         importTestFromCsvFileUI.setMainApp(this.mainApp);
+    }
+
+    @FXML
+    private void doPerformanceEvaluation(ActionEvent actionEvent){
+        PerformanceUI performanceUI = (PerformanceUI) this.mainApp.changeStageContent("/fxml/PerformanceScreen.fxml");
+        performanceUI.setMainApp(this.mainApp);
     }
 
     @FXML

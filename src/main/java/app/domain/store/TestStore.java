@@ -83,7 +83,7 @@ public class TestStore implements Serializable {
                 return false;
             }
         }
-        return !this.testList.contains(testCreated);
+        return true;
     }
 
     /**

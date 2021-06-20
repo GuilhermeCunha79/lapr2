@@ -31,6 +31,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="doPerformanceEvaluationBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#doPerformanceEvaluation" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Performance Evaluation" textFill="#575757">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <VBox.margin>
                   <Insets bottom="50.0" />
                </VBox.margin>
             </Button>
