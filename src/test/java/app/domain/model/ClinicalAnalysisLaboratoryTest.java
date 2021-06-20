@@ -106,8 +106,8 @@ public class ClinicalAnalysisLaboratoryTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureThatAddressCannotHaveMoreThan30Chars() {
-        new ClinicalAnalysisLaboratory("a1234","Joao Santos", "Avenida Nova do Aldeiro 3455 Lourosa", "01234567890", "0123456789" );
+    public void ensureThatAddressCannotHaveMoreThan90Chars() {
+        new ClinicalAnalysisLaboratory("a1234","Joao Santos", "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss", "01234567890", "0123456789" );
     }
 
     @Test(expected = IllegalArgumentException.class)

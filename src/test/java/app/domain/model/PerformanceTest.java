@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PerformanceTest {
-
+/*
     @Test
     public void testGetStatistic() {
         ClinicalAnalysisLaboratory lab = new ClinicalAnalysisLaboratory("001LR", "Ola", "Address", "12345678911", "1234567891");
@@ -47,7 +47,7 @@ public class PerformanceTest {
         Performance performance = new Performance();
         performance.bruteForceAlgorithm(new DateTime("16/04/2020","08:00"), new DateTime("17/06/2020", "20:00"));
         assertNotNull(performance.getStatistic());
-    }
+    }*/
 
     @Test
     public void testIntervalTime() {
