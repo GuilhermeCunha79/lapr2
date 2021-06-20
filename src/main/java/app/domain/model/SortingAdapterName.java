@@ -10,10 +10,7 @@ public class SortingAdapterName implements Sorting{
 
     @Override
     public List<Client> getSortedList(List<Client> clientList) {
-        long start = System.currentTimeMillis();
-        List<Client> client= new BubbleSortName().orderedList(clientList);
-        String time = String.format("%d",System.currentTimeMillis()-start);
-        Utils.printToConsole(time);
-        return client;
+         List<Client> clients = new BubbleSortName().orderedList(clientList);
+         return clients;
     }
 }

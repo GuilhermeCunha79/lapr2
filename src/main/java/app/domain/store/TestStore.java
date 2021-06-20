@@ -176,26 +176,6 @@ public class TestStore implements Serializable {
     }
 
     /***
-     * Saves tests that wasn't validated yet in a List
-     * @return testWithoutValidation or null
-     */
-    public List<ClinicalTest> getTestFinalizated() {
-        List<ClinicalTest> testsFinalizated = new ArrayList<>();
-        if (!testList.isEmpty()) {
-            for (ClinicalTest clinicalTest : testList) {
-                if (!clinicalTest.getValidationStatus())
-                    testsFinalizated.add(clinicalTest);
-            }
-            if (testsFinalizated.isEmpty())
-                return Collections.emptyList();
-            else
-                return testsFinalizated;
-        } else {
-            return Collections.emptyList();
-        }
-    }
-
-    /***
      * Method that returns a CATest by its code
      * @param internalCode
      * @return caTest or null

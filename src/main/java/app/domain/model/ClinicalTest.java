@@ -451,14 +451,6 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest> {
         }
         return false;
     }
-/*
-    @Override
-    public int compareTo(ClinicalTest o1) {
-        Date thisDate = new Date(this.getValidationDate().toString());
-        Date o1Date = new Date(o1.getValidationDate().toString());
-        return o1Date.compareTo(thisDate);
-    }
-*/
 
     /**
      * This method returns a string with some important data about this test

@@ -111,4 +111,12 @@ public class ParameterStoreTest {
         assertNull(ps.getParameterByCode("23232"));
     }
 
+    @Test
+    public void testGetParameterListByTheCategory() {
+        Parameter p1 = ps.createParameter("12345", "Covid", "add description", "12345");
+        Parameter p2 = ps.createParameter("12321", "Covid-19", "no description", "12345");
+        ps.saveParameter(p1);
+        ps.saveParameter(p2);
+        assertEquals(p1.getCategory().getCode(), ps.getParameterListByTheCategory(pcList).get(0).getCode());
+    }
 }

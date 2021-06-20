@@ -9,10 +9,7 @@ public class SortingAdapterTIN implements Sorting{
 
     @Override
     public List<Client> getSortedList(List<Client> clientList){
-        long start = System.currentTimeMillis();
-        List<Client> client= new BubbleSortTinNumber().orderedList(clientList);
-        String time = String.format("%d",System.currentTimeMillis()-start);
-        Utils.printToConsole(time);
-        return client;
+        List<Client> orderedList = new BubbleSortTinNumber().orderedList(clientList);
+        return orderedList;
     }
 }

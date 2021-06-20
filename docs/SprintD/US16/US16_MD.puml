@@ -20,9 +20,14 @@ class DateTime {
     -time
 }
 
+class PerformanceStore {
+
+}
+
 
 Company"1" -- "*"ClinicalTest : > performs
 ClinicalTest"1" -- "*"Performance : < checks tests
+Performance"1..*" -- "1"PerformanceStore : < saves
 Performance"1" -- "*"DateTime : > has interval of
 
 

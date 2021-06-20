@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class ReferenceValue implements Serializable {
 
-    private double minValue;
-    private double maxValue;
-    private String metric;
+    private final double minValue;
+    private final double maxValue;
+    private final String metric;
 
     /**
      * Reference value constructor, receives a minimum value, a maximum value and the metric
@@ -26,6 +26,7 @@ public class ReferenceValue implements Serializable {
      */
     @Override
     public String toString() {
-        return String.format("Reference Values -> min. value: %f %s | max. value: %f %s", minValue, metric, maxValue, metric);
+        String string = String.format("Reference Values -> min. value: %f %s | max. value: %f %s", minValue, metric, maxValue, metric);
+        return string;
     }
 }

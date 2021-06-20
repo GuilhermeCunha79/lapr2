@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class TestParameterResult implements Serializable {
 
-    private double value;
-    private String metric;
-    private ReferenceValue refValue;
+    private final double value;
+    private final String metric;
+    private final ReferenceValue refValue;
 
     /**
      * Constructor of this class
@@ -26,6 +26,7 @@ public class TestParameterResult implements Serializable {
      */
     @Override
     public String toString() {
-        return String.format("Results -> value: %f %s | %s", value, metric, refValue.toString());
+        String retorno = String.format("Results -> value: %f %s | %s", value, metric, refValue.toString());
+        return retorno;
     }
 }

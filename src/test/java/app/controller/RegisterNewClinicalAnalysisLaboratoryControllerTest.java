@@ -137,7 +137,7 @@ public class RegisterNewClinicalAnalysisLaboratoryControllerTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void ensureAddressCannotHaveMoreThan30Char() {
-        ctrl.registerNewClinicalAnalysisLaboratory("13412", "dasfasdfa", "aaadfasdasdasdsgasdasgsdgsd2aafasf", "86513451455", "1231313213");
+        ctrl.registerNewClinicalAnalysisLaboratory("13412", "dasfasdfa", "aaadfasdasdasdsgasdasggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggsdgsd2aafasf", "86513451455", "1231313213");
     }
 
     @Test

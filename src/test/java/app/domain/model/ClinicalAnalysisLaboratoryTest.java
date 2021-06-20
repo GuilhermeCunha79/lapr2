@@ -1,12 +1,21 @@
 package app.domain.model;
 
 
+import app.domain.store.ParameterCategoryStore;
+import app.domain.store.ParameterStore;
+import app.mappers.dto.ClientDTO;
+import app.mappers.dto.ClinicalTestDto;
 import org.junit.Test;
+
+import java.lang.reflect.Type;
 
 import static org.junit.Assert.*;
 
 
 public class ClinicalAnalysisLaboratoryTest {
+
+    ParameterCategory pc = new ParameterCategory("34567", "Src");
+
 
     @Test(expected = NullPointerException.class)
     public void ensureNullClinicalAnalysisLaboratoryIsNotCreated() {
@@ -106,8 +115,8 @@ public class ClinicalAnalysisLaboratoryTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void ensureThatAddressCannotHaveMoreThan30Chars() {
-        new ClinicalAnalysisLaboratory("a1234","Joao Santos", "Avenida Nova do Aldeiro 3455 Lourosa", "01234567890", "0123456789" );
+    public void ensureThatAddressCannotHaveMoreThan90Chars() {
+        new ClinicalAnalysisLaboratory("a1234","Joao Santos", "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss", "01234567890", "0123456789" );
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -254,6 +263,7 @@ public class ClinicalAnalysisLaboratoryTest {
         ClinicalAnalysisLaboratory cal2 = new ClinicalAnalysisLaboratory("a2121", "Lab3", "RuaMirandela45", "11223998741", "5477612987");
         assertEquals(cal, cal2);
     }
+
 }
 
 

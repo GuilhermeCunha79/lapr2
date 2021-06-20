@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 
 
 import java.net.URL;
@@ -17,7 +18,7 @@ public class NewWindowClientTestsUI implements Initializable {
     private Main mainApp;
 
     @FXML
-    private ListView testsList;
+    private TextArea testsList;
 
     @FXML
     private Button btnBack;
@@ -31,9 +32,7 @@ public class NewWindowClientTestsUI implements Initializable {
     }
 
     public void setTextArea(List<String> list) {
-        for(String results : list){
-            testsList.getItems().add(results);
-        }
+        testsList.setText(convertStringListToString(list));
     }
 
 
@@ -42,6 +41,14 @@ public class NewWindowClientTestsUI implements Initializable {
         CheckTestsResultsUI checkTestsResultsUI = (CheckTestsResultsUI) this.mainApp.changeStageContent("/fxml/CheckTestsResults.fxml");
         checkTestsResultsUI.setMainApp(this.mainApp);
 
+    }
+
+    public String convertStringListToString(List<String> list) {
+        String result = "";
+        for (String str : list) {
+            result = result.concat(str + "\n");
+        }
+        return result;
     }
 }
 
