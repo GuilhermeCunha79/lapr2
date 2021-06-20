@@ -35,7 +35,6 @@ public class NewWindowClientTestsUI implements Initializable {
         testsList.setText(convertStringListToString(list));
     }
 
-
     @FXML
     public void back(ActionEvent actionEvent){
         CheckTestsResultsUI checkTestsResultsUI = (CheckTestsResultsUI) this.mainApp.changeStageContent("/fxml/CheckTestsResults.fxml");
