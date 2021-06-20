@@ -31,10 +31,6 @@ public class ViewTestResultsUI implements Initializable {
     private ListView<String> listViewTests;
 
 
-
-
-
-
     public void initialize(URL url, ResourceBundle resourceBundle) {
         verifyClientRoleWithAllTests();
     }
@@ -53,7 +49,7 @@ public class ViewTestResultsUI implements Initializable {
     }
 
     public void viewTestResults() {
-        WindohWithTestResultsListUI windohWithTestResultsListUI = (WindohWithTestResultsListUI) this.mainApp.changeStageContent("/fxml/ClientTestResultsList.fxml");
+        WindowWithTestResultsListUI windohWithTestResultsListUI = (WindowWithTestResultsListUI) this.mainApp.changeStageContent("/fxml/ClientTestResultsList.fxml");
         windohWithTestResultsListUI.setMainApp(this.mainApp);
         windohWithTestResultsListUI.setText(ctrl.showTestSelected(listViewTests.getSelectionModel().getSelectedItem().substring(listViewTests.getSelectionModel().getSelectedItem().lastIndexOf("NHS Code: ")+1,listViewTests.getSelectionModel().getSelectedItem().lastIndexOf("NHS Code: ")+10)));
         windohWithTestResultsListUI.setTextA(ctrl.showTestResultsAndReport());

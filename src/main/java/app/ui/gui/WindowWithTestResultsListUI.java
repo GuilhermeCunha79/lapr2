@@ -12,12 +12,12 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class WindohWithTestResultsListUI implements Initializable {
+public class WindowWithTestResultsListUI implements Initializable {
 
     private Main mainApp;
 
     @FXML
-    private ListView testsList;
+    private ListView<String>testsList;
 
     @FXML
     private Button btnBack;
