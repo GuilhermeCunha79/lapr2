@@ -14,6 +14,7 @@ public class AuthControllerTest {
     public void getUserRoles() {
     }
 
+
     @Test
     public void doLogout() {
     }
