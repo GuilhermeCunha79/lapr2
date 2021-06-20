@@ -137,7 +137,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         List<ClinicalTest> ca = new ArrayList<>();
         ClinicalTest test = new ClinicalTest("123456789123", client1,tpt,lp,"lol", 2);
         testStore.saveTest(test);
-        assertEquals(test.toString(), testStore.getTestByCode(test.getInternalCode()).toString());
+        assertEquals(test.toString(), testStore.getTestByCode(test.getTestByNhsCode()).toString());
     }
 
 
