@@ -67,6 +67,7 @@ public class ClientStoreTest {
        assertEquals(ct01,cls.getClientByTIN(tin));
    }
 
+
    @Test
     public void changeNameTest(){
        ClientDTO dto = new ClientDTO("Tomás", "1234567899123456","1239567890","1234567890","23/12/2002","male","12345679901","tomas@isep.ipp.pt", "street 3");

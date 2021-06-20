@@ -127,7 +127,7 @@ public class SimpleLinearRegression {
         double t = tCalculator(ic, valuesY);
         if (Math.abs(tObs) > t)
             return String.format("\nt_obs = %.2f\nDecision:\nThe null hypothesis is rejected because %f > %f%n", tObs, Math.abs(tObs), t);
-        return String.format("The null hypothesis is accepted because %f < %f%n", Math.abs(tObs), t);
+        return String.format("\nt_obs = %.2f\nDecision:\nThe null hypothesis is accepted because %f < %f%n", tObs, Math.abs(tObs), t);
     }
 
     private double tCalculator(double ic, double[] yMatrix) {

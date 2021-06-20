@@ -67,7 +67,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Not Assigned" textFill="#575757">
+            <Button fx:id="sendNhsReportBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#sendNhsReportUI" prefHeight="40.0" prefWidth="687.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Send NHS report" textFill="#575757">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>

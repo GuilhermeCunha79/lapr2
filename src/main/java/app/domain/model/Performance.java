@@ -91,7 +91,6 @@ public class Performance {
         return intervalTimeChosen;
     }
 
-
     public LineChart bruteForceAlgorithm(DateTime inicialDate, DateTime endDate) {
         TestStore tStore = new TestStore();
 
@@ -127,8 +126,8 @@ public class Performance {
                     if(bestSum < possibleSum){
                         bestSum = possibleSum;
                         bestPerformance = possibleBestPerformance;
-                        }
                     }
+                }
                 series.getData().add(new XYChart.Data(test.getValidationDate().getDate(), possibleSum));
             }
         }
@@ -137,4 +136,7 @@ public class Performance {
 
         return lineChart;
     }
+
+
+
 }

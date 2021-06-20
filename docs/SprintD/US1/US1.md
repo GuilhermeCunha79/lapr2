@@ -124,8 +124,12 @@ Other software classes (i.e. Pure Fabrication) identified:
 ## 3.3. Class Diagram (CD)
 ![UC1_CD](UC1_CD.svg)
 
-# 4. Tests
+## 4. Tests
+
+
 #STORE
+   
+
     @Test
     public void testGetTestByCode() {
         List<Parameter> lp = new ArrayList<>();
@@ -133,7 +137,7 @@ Other software classes (i.e. Pure Fabrication) identified:
         List<ClinicalTest> ca = new ArrayList<>();
         ClinicalTest test = new ClinicalTest("123456789123", client1,tpt,lp,"lol", 2);
         testStore.saveTest(test);
-        assertEquals(test.toString(), testStore.getTestByCode(test.getInternalCode()).toString());
+        assertEquals(test.toString(), testStore.getTestByCode(test.getTestByNhsCode()).toString());
     }
 
 

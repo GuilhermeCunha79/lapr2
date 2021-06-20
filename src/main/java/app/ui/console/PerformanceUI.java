@@ -1,4 +1,4 @@
-package app.ui.console;
+/*package app.ui.console;
 
 import app.controller.PerformanceController;
 import app.domain.shared.DateTime;
@@ -45,4 +45,4 @@ public class PerformanceUI implements Runnable {
         return false;
 
     }
-}
+}*/

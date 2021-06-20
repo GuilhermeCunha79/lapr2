@@ -18,7 +18,6 @@ public class ClientStore {
     static final String DATA_PATH = "data\\clients.dat";
     private List<Client> clientList = new ArrayList<>();
 
-    private Client client;
     /***
      * Method that receives parameters from the associated controller to create a new client
      * @param dto
