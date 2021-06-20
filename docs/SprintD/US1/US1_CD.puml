@@ -8,7 +8,7 @@ class ViewTestResultController {
 +getClientByEmail()
 +showClientTestsValidatedAndOrderedByRegistrationDate()
 +showTestSelected(nhsCode)
-+showTestResults()
++showTestResultsAndReport()
 }
 
 class Company {
@@ -22,11 +22,16 @@ class ClientStore {
 
 class TestStore {
 +getClientTestsValidatedAndOrderedByRegistrationDate()
-+getTestByCode(nhsCode)
++getTestByNhsCode(nhsCode)
 }
 
 class ClinicalTest {
 +getTestResults()
++getReportText()
+}
+
+class Report {
++getReportText()
 }
 
 
@@ -54,6 +59,6 @@ Company"1" -> "1"TestStore : uses
 ClientStore ..> AuthFacade
 ClientStore ..> UserSession
 ClientStore ..> Email
-
+ClinicalTest ..> Report: knows
 
 @enduml

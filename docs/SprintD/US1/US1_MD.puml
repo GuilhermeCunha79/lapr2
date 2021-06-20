@@ -25,15 +25,23 @@ class ClinicalAnalysisTest {
 - parameterList
 - labWhereCreated
 }
+class Report {
+- createdAt
+- reportText
+}
 
 
 
 Company"1" -- "*"Client :> knows
 
 Company "1" -- "*" ClinicalAnalysisTest :> owns
+Company "1" -- "1" Report :> owns
 Client "1" -- "1..*" ClinicalAnalysisTest :> belongs
 Client "1" -- "1" TestStore :> access
 ClinicalAnalysisTest "1" -- "*" TestStore :> knows
+ClinicalAnalysisTest "1" -- "1..*" Report :> knows
+Client "1" -- "1..*" Report :> knows
+
 
 @enduml
 

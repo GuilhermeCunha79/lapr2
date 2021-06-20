@@ -16,9 +16,9 @@ activate SYSTEM
 SYSTEM --> CLIENT : Shows the validated test list who have performed ordered by the registration date
 deactivate SYSTEM
 loop
-CLIENT -> SYSTEM : Choose the test you want to see and your respective results
+CLIENT -> SYSTEM : Choose the test you want to see and your respective results and report
 activate SYSTEM
-SYSTEM --> CLIENT : Shows the result of the chosen test
+SYSTEM --> CLIENT : Shows the result of the chosen test and your report
 deactivate SYSTEM
 CLIENT -> SYSTEM : Confirms all data
 activate SYSTEM

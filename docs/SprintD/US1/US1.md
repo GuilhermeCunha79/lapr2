@@ -67,13 +67,13 @@ The client tests must be shown ordered from the most recent to the oldest one. T
 
 ### 1.6. System Sequence Diagram (SSD)
 ![UC1_SSD](UC1_SSD.svg)
+
 ### 1.7 Other Relevant Remarks
 * n/a.
 
 ## 2. OO Analysis
 ### 2.1. Relevant Domain Model Excerpt
 ![UC1_MD](UC1_MD.svg)
-
 ### 2.2. Other Remarks
 
 n/a
@@ -92,7 +92,8 @@ n/a
 | 		 | ...knows the TestStore? | Company | IE: Company knows all its stores|
 | Step 4 | ... get the client? | ClientStore | **IE:** Knows all clients|		| 				|						 |
 | Step 5 | ... get the selected test? | TestStore | **IE** TestStore knows all client tests
-| Step 6 | ...get the results of the tests? | ClinicalTest | Creator: ClinicalTest will knows all the tests who have performed by the clients |
+| Step 6 | ... get the results of the tests? | ClinicalTest | Creator: ClinicalTest will knows all the tests who have performed by the clients |
+|        | ... get the report of the tests?  | Report       | Creator: Report will knows all the tests who have performed by the clients |
 | Step 7 | ...confirm all the parameters | Client | IE: knows its own data and also knows each acceptance criteria |
 | Step 8 | ...informing success of the operation? | ViewTestResultUI | It's always responsible for user interaction |
 
@@ -103,6 +104,7 @@ According to the taken rationale, the conceptual classes promoted to software cl
 
 * Company
 * ClinicalTest
+* Report
 
 
 Other software classes (i.e. Pure Fabrication) identified:
@@ -116,6 +118,7 @@ Other software classes (i.e. Pure Fabrication) identified:
 
 ## 3.2. Sequence Diagram (SD)
 ![UC1_SD](UC1_SD.svg)
+
 
 
 ## 3.3. Class Diagram (CD)

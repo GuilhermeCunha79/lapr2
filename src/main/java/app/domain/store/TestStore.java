@@ -234,7 +234,7 @@ public class TestStore implements Serializable {
 
     public ClinicalTest getTestByNhsCode(String nhsCode) {
         for (ClinicalTest clinicalTest : testList) {
-            if (clinicalTest.getInternalCode().equals(nhsCode))
+            if (clinicalTest.getNhsCode().equals(nhsCode))
                 return clinicalTest;
         }
         return null;

@@ -9,6 +9,7 @@ participant ":Company" as COMP
 participant "store:ClientStore" as STR
 participant "store:TestStore" as TTS
 participant ":ClinicalTest" as T
+participant ":Report" as R
 participant ":Email" as EM
 participant ":UserSession" as US
 participant ":AuthFacade" as AF
@@ -77,7 +78,7 @@ deactivate TTS
 UI --> CLIENT: Shows the validated test list who have performed ordered by the registration date
 
 loop
-CLIENT -> UI: Choose the test you want to see and your respective results
+CLIENT -> UI: Choose the test you want to see and your respective results and report
 activate UI
 deactivate UI
 
@@ -93,7 +94,7 @@ deactivate CTRL
 activate TTS
 deactivate TTS
 
-UI -> CTRL: showTestResults()
+UI -> CTRL: showTestResultsAndReport()
 activate UI
 deactivate UI
 activate CTRL
@@ -106,8 +107,21 @@ activate T
 deactivate T
 
 
+CTRL -> T: getReportText()
+activate CTRL
+deactivate CTRL
+activate T
+deactivate T
 
-UI --> CLIENT: Shows the result of the chosen test
+T -> R: getReportText()
+activate T
+deactivate T
+activate R
+deactivate R
+
+
+
+UI --> CLIENT: Shows the result of the chosen test and your report
 activate UI
 deactivate UI
 

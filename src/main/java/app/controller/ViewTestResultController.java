@@ -66,11 +66,11 @@ public class ViewTestResultController {
      * @param
      * @return all the parameter tested results of the client
      */
-    public List<String> showTestResults(){
+    public List<String> showTestResultsAndReport(){
         this.ct=ctStore.getClientByEmail();
-        List<ClinicalTest> lTestResults = testStore.getClientTestsValidatedAndOrderedByRegistrationDate(ct);
-        if(lTestResults != null) {
-            return TestsFinalizedMapper.toDtoFin(lTestResults);
+        List<ClinicalTest> lTestResultsAndReport = testStore.getClientTestsValidatedAndOrderedByRegistrationDate(ct);
+        if(lTestResultsAndReport != null) {
+            return TestsFinalizedMapper.toDtoFin(lTestResultsAndReport);
         }
         return null;
     }
