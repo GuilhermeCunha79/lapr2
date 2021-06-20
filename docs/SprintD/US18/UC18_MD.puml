@@ -22,16 +22,16 @@ class Company {
     -description
 }
 
-class TypeOfTest {
+class Parameter {
+    -shortName
     -code
     -description
-    -collectingMethod
 }
 
 Administrator"1" -- "*"Company : > works
 Administrator"1"--"*"NHSReport : > makes
 Administrator"1"--"*"DateTime : > selects
 DateTime"1"--"*"NHSReport : > of
-NHSReport"1"--"*"TypeOfTest : > is for Covid
-TypeOfTest"1"--"*"ClinicalTest : > of
+NHSReport"1"--"*"Parameter: > is for Covid
+Parameter"1"--"*"ClinicalTest : > of
 @enduml
