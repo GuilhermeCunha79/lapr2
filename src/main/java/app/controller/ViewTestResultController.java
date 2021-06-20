@@ -8,8 +8,6 @@ import app.domain.model.Company;
 import app.domain.store.TestStore;
 import app.mappers.TestListMapper;
 import app.mappers.TestsFinalizedMapper;
-import auth.domain.model.Email;
-
 import java.util.List;
 
 
