@@ -6,14 +6,15 @@ autonumber
 actor ":Scheduler" as S
 participant ":System" as SYS
 
-S -> SYS : asks for the time of day to send the report
-activate SYS
-SYS --> S : tells the time of day
-deactivate SYS
-loop every day at X o'clock
-S -> SYS : needs to create the report
+
+S --> SYS : initiate task
 activate SYS
 deactivate SYS
-end loop
+S --> SYS : create timer
+activate SYS
+deactivate SYS
+S -> SYS : schedule task
+activate SYS
+deactivate SYS
 
 @enduml

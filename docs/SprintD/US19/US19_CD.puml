@@ -1,0 +1,112 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package scheduler{
+class Scheduler{
+    +Scheduler()
+}
+class SendDailyNhsReportTask {
+    +run()
+}
+}
+
+
+package controller {
+class DailyNHSReportController {
+    +DailyNHSReportController()
+    -sendDailyNhsReportSLR(testStore)
+    -sendDailyNhsReportMLR(testStore)
+    -createListOfDates(firstDate, lastDate)
+    -getValuesFromConfigFile(propertyName)
+}
+}
+
+package UI {
+class Main {
+    +main()
+}
+}
+
+
+
+package Domain{
+package Model{
+class Company {
+    +getTestStore()
+}
+class SimpleLinearRegression {
+    +SimpleLinearRegression(lDates, valuesX, valuesY, ic)
+    +getR2()
+    -calculateR2Adjusted()
+    -calculateR2()
+    -createEquation(aValue, bValue)
+    -calculateBValue()
+    -calculateAValue()
+    -calculateSxy(valuesX, valuesY)
+    -calculateS(values, mean)
+    -calculateMean(values)
+    -s2calculate()
+    -tHypothesis()
+    -tCalculator(ic, yMatrix)
+    -predictionTable()
+    -getConfidenceInterval(i, prevision)
+    -getDate(i)
+    -doPrevision(i)
+    -calculateST()
+    -calculateSR()
+    +toString()
+}
+
+class MultipleLinearRegression {
+    +MultipleLinearRegression(lDates, yData, x1Data, x2Data, ic)
+    -calculateR2Adjusted()
+    -arrayToMatrixConverter(array)
+    -HypothesisTestTObs(bn)
+    -getStdErrorB(bn, matrix)
+    -t0Calculator(bnValue, stdErrorBnValue)
+    -tCalculator(ic, yMatrix)
+    -fHypothesis()
+    -matrixMultiplierByNumber(matrix, number)
+    -calculateR2()
+    -calculateSqt()
+    -calculateSqe()
+    -averageYdata()
+    -createStringRegressionModel()
+    -calculateRegressionModel()
+    -matricesMultiplier3NByN3(matrix1, matrix2)
+    -matricesMultiplier3NbyN1matrixN1, matrix3N)
+    -matrixConcat(matrix1, matrix2)
+    -transposeMatrix(originalMatrix)
+    -transposeMatrixNby1(originalMatrix)
+    -invert(a)
+    -gaussian(a, index)
+    -predictionTable()
+    -convertArray1DToMatrix(array)
+    -getConfidenceInterval(i)
+    -doPrevision(i)
+    +toString()
+}
+}
+package Store {
+class TestStore {
+    +getMeanAgesForClientWithCovidForEachDayOfList(listDates)
+    +getCovidTestCountForEachDayOfList(listDates)
+    +getPositiveTestsForEachDayOfList(listDates)
+}
+}
+}
+
+
+
+Main ..> Scheduler
+Scheduler ..> SendDailyNhsReportTask
+SendDailyNhsReportTask ..> DailyNHSReportController
+DailyNHSReportController ..> TestStore
+DailyNHSReportController ..> MultipleLinearRegression
+Company <.. DailyNHSReportController
+Company"1" -> "*"TestStore : uses
+DailyNHSReportController ..> SimpleLinearRegression
+
+
+
+@enduml

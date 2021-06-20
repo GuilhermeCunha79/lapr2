@@ -1,7 +1,9 @@
 package app.ui;
 
+import app.scheduler.Scheduler;
 
 import app.ui.gui.LoginUI;
+
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +19,6 @@ import javafx.util.Duration;
 import java.io.IOException;
 
 
-
 /**
  * @author Paulo Maio <pam@isep.ipp.pt>
  */
@@ -27,8 +28,13 @@ public class Main extends Application {
     static final String MANY_LABS = "Many Labs";
 
     public static void main(String[] args) {
+        try{
+            new Scheduler();
+            launch(args);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
-        launch(args);
     }
 
     public Stage getStage() {

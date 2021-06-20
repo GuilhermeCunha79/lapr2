@@ -1,0 +1,80 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+autonumber
+
+actor ":Scheduler" as S
+participant ":SendDailyNhsReportTask" as TASK
+participant ":Timer" as TIMER
+participant ":DailyNHSReportController" as CTRL
+
+participant ":Company" as COMP
+participant ":SimpleLinearRegression" as SLR
+participant ":MultipleLinearRegression" as MLR
+participant ":Report2NHS" as Report2NHS
+
+activate S
+S --> TASK** : initiate task
+
+S --> TIMER** : create()
+S -> TIMER : scheduleAtFixedRate(sendDailyNhsReport, time, delay)
+activate TIMER
+deactivate TIMER
+loop everyday at 6AM
+TIMER -> TASK : run()
+activate TIMER
+deactivate TIMER
+activate TASK
+TASK --> CTRL ** : create()
+activate CTRL
+CTRL -> COMP : getTestStore()
+activate COMP
+deactivate COMP
+CTRL -> CTRL : regressionModel = getValuesFromConfigFile(Regression Model)
+activate CTRL
+deactivate CTRL
+alt regressionModel is MLR
+CTRL -> CTRL : sendDailyNhsReportMLR()
+activate CTRL
+CTRL --> MLR** : create()
+activate MLR
+note over MLR: Execute Multiple Linear Regression Model
+MLR --> CTRL : nhsReport
+deactivate MLR
+CTRL -> Report2NHS : writeUsingFileWriter(nhsReport)
+activate Report2NHS
+deactivate Report2NHS
+deactivate CTRL
+else regressionModel is SLR
+CTRL -> CTRL : sendDailyNhsReportSLR()
+activate CTRL
+
+alt SLR with mean ages r2 > SLR with daily number of covid tests r2
+CTRL --> SLR** : create()
+activate SLR
+note over SLR: Execute Simple Linear Regression Model
+SLR --> CTRL : nhsReport
+deactivate SLR
+CTRL -> Report2NHS : writeUsingFileWriter(nhsReport)
+activate Report2NHS
+deactivate Report2NHS
+else
+CTRL --> SLR** : create()
+activate SLR
+note over SLR: Execute Simple Linear Regression Model
+SLR --> CTRL : nhsReport
+deactivate SLR
+CTRL -> Report2NHS : writeUsingFileWriter(nhsReport)
+activate Report2NHS
+deactivate Report2NHS
+end
+deactivate CTRL
+activate CTRL
+deactivate CTRL
+end
+deactivate CTRL
+deactivate TASK
+deactivate S
+end loop
+
+@enduml

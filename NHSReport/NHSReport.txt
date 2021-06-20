@@ -1,0 +1,34 @@
+The regression model fitted using data from the interval
+^Y = NaN + NaNX1 + NaNX2
+//
+Other statistics
+R2 = NaN
+R2adjusted = NaN
+R = NaN
+//
+Hypothesis tests for regression coefficients
+HO:b=0 (a=0) H1: b<>0 (a<>0)
+For ^B0 the null hypothesis is accepted because NaN < -3.182446
+For ^B1 the null hypothesis is accepted because NaN < -3.182446
+For ^B2 the null hypothesis is accepted because NaN < -3.182446
+//
+Significance model with anova
+H0: b=0  H1:b<>0 
+             df        SS                  MS                   F
+Regression   2               NaN                NaN                 NaN
+Residual     3               NaN                NaN
+Total        5            0.0000
+
+Decision: f
+NaN < f0.0500,(2,3)=0.0522
+Accept H0
+The regression model is not significant
+
+// Prediction Values
+Date           Number of OBSERVED positive cases          Number of ESTIMATED positive cases 		95% intervals
+22/03/2021                   0                                           NaN                             NaN-NaN
+23/03/2021                   0                                           NaN                             NaN-NaN
+24/03/2021                   0                                           NaN                             NaN-NaN
+25/03/2021                   0                                           NaN                             NaN-NaN
+26/03/2021                   0                                           NaN                             NaN-NaN
+27/03/2021                   0                                           NaN                             NaN-NaN

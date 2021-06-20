@@ -5,13 +5,11 @@ import app.domain.model.Company;
 import app.domain.store.TestStore;
 import app.mappers.TestReadyToValidateMapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ValidationController {
 
     private TestStore testStore;
-    private final List<ClinicalTest> testValidationList = new ArrayList<>();
     private ClinicalTest test;
 
     public ValidationController() {
@@ -50,6 +48,7 @@ public class ValidationController {
     public boolean doValidation(List<String> testValidationList) {
         return testStore.doValidation(testValidationList);
     }
+
     public List<ClinicalTest> getTestList() {
         return App.getInstance().getCompany().getTestStore().getTestList();
     }

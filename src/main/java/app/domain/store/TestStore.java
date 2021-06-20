@@ -6,6 +6,8 @@ import app.domain.shared.SendingEmailSMS;
 import app.mappers.dto.ClinicalTestDto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -175,6 +177,42 @@ public class TestStore implements Serializable {
         }
     }
 
+    public List<ClinicalTest> getValidatedTestWithCovidPositiveListBetweenDates(List<LocalDate> lDates) {
+        List<ClinicalTest> lTestInDateInterval = new ArrayList<>();
+        for (ClinicalTest clinicalTest : testList) {
+            if (clinicalTest.getValidationStatus() && hasPositiveCovid(clinicalTest)) {
+                for (LocalDate date : lDates) {
+                    if (LocalDate.parse(clinicalTest.getValidationDate().getDate()).equals(date)) {
+                        lTestInDateInterval.add(clinicalTest);
+                    }
+                }
+            }
+        }
+        return lTestInDateInterval;
+    }
+
+    private boolean hasPositiveCovid(ClinicalTest clinicalTest) {
+        for (Parameter param : clinicalTest.getParameterList()) {
+            if (param.getCode().equals("IgGAN")) {
+                for (TestParameter testParam : clinicalTest.getTestParametersList()) {
+                    if (testParam.getParameter().getCode().equals("IgGAN") && testParam.getTestParameterResult().getValue() > 1.4) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean isCovidTest(ClinicalTest clinicalTest) {
+        for (Parameter param : clinicalTest.getParameterList()) {
+            if (param.getCode().equals("IgGAN")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /***
      * Method that returns a CATest by its code
      * @param internalCode
@@ -270,6 +308,76 @@ public class TestStore implements Serializable {
             clientTests.add(clinicalTest);
         Collections.sort(clientTests);
         return clientTests;
+    }
+
+    /**
+     * Method returns the amount of daily positive covid tests between two dates
+     * @param lDatesToFitRegressionModel
+     * @return
+     */
+    public double[] getPositiveTestsForEachDayOfList(List<LocalDate> lDatesToFitRegressionModel) {
+        double[] numberOfPositiveTestsForEachDayOfList = new double[lDatesToFitRegressionModel.size()];
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        int i = 0;
+        for (LocalDate date: lDatesToFitRegressionModel) {
+            int count=0;
+            for (ClinicalTest test: testList) {
+                if(LocalDate.parse(test.getValidationDate().getDate(), formatter).equals(date) && hasPositiveCovid(test))
+                    count++;
+            }
+            numberOfPositiveTestsForEachDayOfList[i] = count;
+            i++;
+        }
+        return numberOfPositiveTestsForEachDayOfList;
+    }
+
+    /**
+     * Method returns the amount of covid tests performed daily during a certain period of time
+     * @param lDatesToFitRegressionModel
+     * @return
+     */
+    public double[] getCovidTestCountForEachDayOfList(List<LocalDate> lDatesToFitRegressionModel) {
+        double[] numberOfCovidTestsForEachDayOfList = new double[lDatesToFitRegressionModel.size()];
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        int i = 0;
+        for (LocalDate date: lDatesToFitRegressionModel) {
+            int count=0;
+            for (ClinicalTest test: testList) {
+                if(LocalDate.parse(test.getValidationDate().getDate(), formatter).equals(date) && isCovidTest(test))
+                    count++;
+            }
+            numberOfCovidTestsForEachDayOfList[i] = count;
+            i++;
+        }
+        return numberOfCovidTestsForEachDayOfList;
+
+    }
+
+    /**
+     * Method returns the mean ages of the clients that got a positive covid test during a period of time
+     * @param lDatesToFitRegressionModel
+     * @return
+     */
+    public double[] getMeanAgesForCLientWithCovidForEachDayOfList(List<LocalDate> lDatesToFitRegressionModel) {
+        double[] meanAgesForCLientWithCovidForEachDayOfList = new double[lDatesToFitRegressionModel.size()];
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        int i = 0;
+        for (LocalDate date: lDatesToFitRegressionModel) {
+            double sumAges = 0;
+            int count=0;
+            for (ClinicalTest test: testList) {
+                if(LocalDate.parse(test.getValidationDate().getDate(), formatter).equals(date) && hasPositiveCovid(test)){
+                    sumAges = LocalDate.now().getYear() - LocalDate.parse(test.getClient().getBirthDate(), formatter).getYear();
+                    count++;
+                }
+            }
+            if(count!=0)
+                meanAgesForCLientWithCovidForEachDayOfList[i] = sumAges/count;
+            else
+                meanAgesForCLientWithCovidForEachDayOfList[i] = 0;
+            i++;
+        }
+        return meanAgesForCLientWithCovidForEachDayOfList;
     }
 }
 

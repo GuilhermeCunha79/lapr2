@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="794.4px" preserveAspectRatio="none" style="width:906px;height:794px;background:#FFFFFF;" version="1.1" viewBox="0 0 906 794" width="906.6px" zoomAndPan="magnify"><defs><filter height="300%" id="fg4f7h5pqhfs8" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="1.2"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="2.4" dy="2.4" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="673.0922" style="stroke:#A80036;stroke-width:0.6;" width="6" x="22.2" y="59.7656"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="552.3281" style="stroke:#A80036;stroke-width:0.6;" width="6" x="141.6" y="180.5297"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="239.4" y="129.1078"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="239.4" y="180.5297"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="505.9172" style="stroke:#A80036;stroke-width:0.6;" width="6" x="318.3" y="222.7406"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="16.8" style="stroke:#A80036;stroke-width:0.6;" width="6" x="321.3" y="285.7172"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="109.5984" style="stroke:#A80036;stroke-width:0.6;" width="6" x="321.3" y="344.9391"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="241.6078" style="stroke:#A80036;stroke-width:0.6;" width="6" x="321.3" y="487.05"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="560.1" y="244.7062"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="46.1766" style="stroke:#A80036;stroke-width:0.6;" width="6" x="643.5" y="529.4719"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="46.1766" style="stroke:#A80036;stroke-width:0.6;" width="6" x="643.5" y="637.2703"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="46.1766" style="stroke:#A80036;stroke-width:0.6;" width="6" x="756.9" y="372.15"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="847.5" y="436.5375"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="847.5" y="593.8594"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="847.5" y="701.6578"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="576.75" style="stroke:#000000;stroke-width:1.2;" width="815.1" x="83.4" y="156.1078"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="412.9406" style="stroke:#000000;stroke-width:1.2;" width="638.7" x="253.8" y="315.7172"/><rect fill="#FFFFFF" height="269.3203" style="stroke:none;stroke-width:0.6;" width="638.7" x="253.8" y="459.3375"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="225.4078" style="stroke:#000000;stroke-width:1.2;" width="626.7" x="259.8" y="499.05"/><rect fill="#FFFFFF" height="107.7984" style="stroke:none;stroke-width:0.6;" width="626.7" x="259.8" y="616.6594"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:5.0,5.0;" x1="25.2" x2="25.2" y1="53.7656" y2="743.0578"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:5.0,5.0;" x1="144.6" x2="144.6" y1="79.7484" y2="743.0578"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:5.0,5.0;" x1="242.4" x2="242.4" y1="107.7141" y2="743.0578"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:5.0,5.0;" x1="321" x2="321" y1="223.3125" y2="743.0578"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:5.0,5.0;" x1="563.1" x2="563.1" y1="53.7656" y2="743.0578"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:5.0,5.0;" x1="646.5" x2="646.5" y1="637.8422" y2="743.0578"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:5.0,5.0;" x1="759.9" x2="759.9" y1="372.7219" y2="743.0578"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:5.0,5.0;" x1="850.5" x2="850.5" y1="53.7656" y2="743.0578"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="40.8" x="3" y="51.9199">:Scheduler</text><ellipse cx="25.2" cy="9" fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" rx="4.8" ry="4.8" style="stroke:#A80036;stroke-width:1.2;"/><path d="M25.2,13.8 L25.2,30 M17.4,18.6 L33,18.6 M25.2,30 L17.4,39 M25.2,30 L33,39 " fill="none" filter="url(#fg4f7h5pqhfs8)" style="stroke:#A80036;stroke-width:1.2;"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="40.8" x="3" y="751.1777">:Scheduler</text><ellipse cx="25.2" cy="759.0234" fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" rx="4.8" ry="4.8" style="stroke:#A80036;stroke-width:1.2;"/><path d="M25.2,763.8234 L25.2,780.0234 M17.4,768.6234 L33,768.6234 M25.2,780.0234 L17.4,789.0234 M25.2,780.0234 L33,789.0234 " fill="none" filter="url(#fg4f7h5pqhfs8)" style="stroke:#A80036;stroke-width:1.2;"/><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="108" x="89.4" y="742.4578"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="99.6" x="93.6" y="755.3777">:SendDailyNhsReportTask</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="32.4" x="225" y="742.4578"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="24" x="229.2" y="755.3777">:Timer</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="108.6" x="265.8" y="742.4578"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="100.2" x="270" y="755.3777">:DailyNHSReportController</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="46.8" x="538.5" y="31.8"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="38.4" x="542.7" y="44.7199">:Company</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="46.8" x="538.5" y="742.4578"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="38.4" x="542.7" y="755.3777">:Company</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="103.2" x="593.7" y="742.4578"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="94.8" x="597.9" y="755.3777">:SimpleLinearRegression</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="106.8" x="705.3" y="742.4578"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="98.4" x="709.5" y="755.3777">:MultipleLinearRegression</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="57.6" x="820.5" y="31.8"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="49.2" x="824.7" y="44.7199">:Report2NHS</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="57.6" x="820.5" y="742.4578"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="49.2" x="824.7" y="755.3777">:Report2NHS</text><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="673.0922" style="stroke:#A80036;stroke-width:0.6;" width="6" x="22.2" y="59.7656"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="552.3281" style="stroke:#A80036;stroke-width:0.6;" width="6" x="141.6" y="180.5297"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="239.4" y="129.1078"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="239.4" y="180.5297"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="505.9172" style="stroke:#A80036;stroke-width:0.6;" width="6" x="318.3" y="222.7406"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="16.8" style="stroke:#A80036;stroke-width:0.6;" width="6" x="321.3" y="285.7172"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="109.5984" style="stroke:#A80036;stroke-width:0.6;" width="6" x="321.3" y="344.9391"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="241.6078" style="stroke:#A80036;stroke-width:0.6;" width="6" x="321.3" y="487.05"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="560.1" y="244.7062"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="46.1766" style="stroke:#A80036;stroke-width:0.6;" width="6" x="643.5" y="529.4719"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="46.1766" style="stroke:#A80036;stroke-width:0.6;" width="6" x="643.5" y="637.2703"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="46.1766" style="stroke:#A80036;stroke-width:0.6;" width="6" x="756.9" y="372.15"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="847.5" y="436.5375"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="847.5" y="593.8594"/><rect fill="#FFFFFF" filter="url(#fg4f7h5pqhfs8)" height="18" style="stroke:#A80036;stroke-width:0.6;" width="6" x="847.5" y="701.6578"/><polygon fill="#A80036" points="82.2,70.7766,88.2,73.1766,82.2,75.5766,84.6,73.1766" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="28.2" x2="85.8" y1="73.1766" y2="73.1766"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="4.2" x="32.4" y="70.2627">1</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="40.2" x="39" y="70.2627">initiate task</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="108" x="89.4" y="59.7656"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="99.6" x="93.6" y="72.6855">:SendDailyNhsReportTask</text><polygon fill="#A80036" points="217.8,98.7422,223.8,101.1422,217.8,103.5422,220.2,101.1422" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="28.2" x2="221.4" y1="101.1422" y2="101.1422"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="4.2" x="32.4" y="98.2283">2</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="26.4" x="39" y="98.2283">create()</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="32.4" x="225" y="87.7313"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="24" x="229.2" y="100.6512">:Timer</text><polygon fill="#A80036" points="232.2,126.7078,238.2,129.1078,232.2,131.5078,234.6,129.1078" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;" x1="28.2" x2="235.8" y1="129.1078" y2="129.1078"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="4.2" x="32.4" y="126.1939">3</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="193.2" x="39" y="126.1939">scheduleAtFixedRate(sendDailyNhsReport, time, delay)</text><path d="M83.4,156.1078 L127.2,156.1078 L127.2,160.9078 L121.2,166.9078 L83.4,166.9078 L83.4,156.1078 " fill="#EEEEEE" style="stroke:#000000;stroke-width:0.6;"/><rect fill="none" height="576.75" style="stroke:#000000;stroke-width:1.2;" width="815.1" x="83.4" y="156.1078"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="16.8" x="92.4" y="164.8049">loop</text><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacing" textLength="58.8" x="136.2" y="164.1592">[everyday at 6AM]</text><polygon fill="#A80036" points="154.2,178.1297,148.2,180.5297,154.2,182.9297,151.8,180.5297" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;" x1="150.6" x2="238.8" y1="180.5297" y2="180.5297"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="4.2" x="157.8" y="177.6158">4</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="15.6" x="164.4" y="177.6158">run()</text><polygon fill="#A80036" points="258.6,214.3406,264.6,216.7406,258.6,219.1406,261,216.7406" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="147.6" x2="262.2" y1="216.7406" y2="216.7406"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="4.2" x="151.8" y="213.8268">5</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="26.4" x="158.4" y="213.8268">create()</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="108.6" x="265.8" y="203.3297"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="100.2" x="270" y="216.2496">:DailyNHSReportController</text><polygon fill="#A80036" points="552.9,242.3062,558.9,244.7062,552.9,247.1063,555.3,244.7062" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;" x1="324.3" x2="556.5" y1="244.7062" y2="244.7062"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="4.2" x="328.5" y="241.7924">6</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="49.2" x="335.1" y="241.7924">getTestStore()</text><line style="stroke:#A80036;stroke-width:0.6;" x1="327.3" x2="352.5" y1="280.9172" y2="280.9172"/><line style="stroke:#A80036;stroke-width:0.6;" x1="352.5" x2="352.5" y1="280.9172" y2="288.7172"/><line style="stroke:#A80036;stroke-width:0.6;" x1="327.9" x2="352.5" y1="288.7172" y2="288.7172"/><polygon fill="#A80036" points="333.9,286.3172,327.9,288.7172,333.9,291.1172,331.5,288.7172" style="stroke:#A80036;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="4.2" x="331.5" y="278.0033">7</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="220.8" x="338.1" y="278.0033">regressionModel = getValuesFromConfigFile(Regression Model)</text><path d="M253.8,315.7172 L290.4,315.7172 L290.4,320.5172 L284.4,326.5172 L253.8,326.5172 L253.8,315.7172 " fill="#EEEEEE" style="stroke:#000000;stroke-width:0.6;"/><rect fill="none" height="412.9406" style="stroke:#000000;stroke-width:1.2;" width="638.7" x="253.8" y="315.7172"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="9.6" x="262.8" y="324.4143">alt</text><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacing" textLength="86.4" x="299.4" y="323.7686">[regressionModel is MLR]</text><line style="stroke:#A80036;stroke-width:0.6;" x1="324.3" x2="352.5" y1="337.1391" y2="337.1391"/><line style="stroke:#A80036;stroke-width:0.6;" x1="352.5" x2="352.5" y1="337.1391" y2="344.9391"/><line style="stroke:#A80036;stroke-width:0.6;" x1="327.9" x2="352.5" y1="344.9391" y2="344.9391"/><polygon fill="#A80036" points="333.9,342.5391,327.9,344.9391,333.9,347.3391,331.5,344.9391" style="stroke:#A80036;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="4.2" x="331.5" y="334.2252">8</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="91.8" x="338.1" y="334.2252">sendDailyNhsReportMLR()</text><polygon fill="#A80036" points="698.1,363.75,704.1,366.15,698.1,368.55,700.5,366.15" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="327.3" x2="701.7" y1="366.15" y2="366.15"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="4.2" x="331.5" y="363.2361">9</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="26.4" x="338.1" y="363.2361">create()</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="106.8" x="705.3" y="352.7391"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="98.4" x="709.5" y="365.659">:MultipleLinearRegression</text><path d="M679.2,383.7047 L679.2,399.3047 L838.2,399.3047 L838.2,389.7047 L832.2,383.7047 L679.2,383.7047 " fill="#FBFB77" filter="url(#fg4f7h5pqhfs8)" style="stroke:#A80036;stroke-width:0.6;"/><path d="M832.2,383.7047 L832.2,389.7047 L838.2,389.7047 L832.2,383.7047 " fill="#FBFB77" style="stroke:#A80036;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="146.4" x="682.8" y="394.8018">Execute Multiple Linear Regression Model</text><polygon fill="#A80036" points="333.9,415.9266,327.9,418.3266,333.9,420.7266,331.5,418.3266" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="330.3" x2="759.3" y1="418.3266" y2="418.3266"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="8.4" x="337.5" y="415.4127">10</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="35.4" x="348.3" y="415.4127">nhsReport</text><polygon fill="#A80036" points="840.3,434.1375,846.3,436.5375,840.3,438.9375,842.7,436.5375" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;" x1="327.3" x2="843.9" y1="436.5375" y2="436.5375"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="8.4" x="331.5" y="433.6236">11</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="109.8" x="342.3" y="433.6236">writeUsingFileWriter(nhsReport)</text><line style="stroke:#000000;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="253.8" x2="892.5" y1="459.9375" y2="459.9375"/><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacing" textLength="84.6" x="256.8" y="466.7889">[regressionModel is SLR]</text><line style="stroke:#A80036;stroke-width:0.6;" x1="324.3" x2="352.5" y1="479.25" y2="479.25"/><line style="stroke:#A80036;stroke-width:0.6;" x1="352.5" x2="352.5" y1="479.25" y2="487.05"/><line style="stroke:#A80036;stroke-width:0.6;" x1="327.9" x2="352.5" y1="487.05" y2="487.05"/><polygon fill="#A80036" points="333.9,484.65,327.9,487.05,333.9,489.45,331.5,487.05" style="stroke:#A80036;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="8.4" x="331.5" y="476.3361">12</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="90.6" x="342.3" y="476.3361">sendDailyNhsReportSLR()</text><path d="M259.8,499.05 L296.4,499.05 L296.4,503.85 L290.4,509.85 L259.8,509.85 L259.8,499.05 " fill="#EEEEEE" style="stroke:#000000;stroke-width:0.6;"/><rect fill="none" height="225.4078" style="stroke:#000000;stroke-width:1.2;" width="626.7" x="259.8" y="499.05"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="9.6" x="268.8" y="507.7471">alt</text><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacing" textLength="216.6" x="305.4" y="507.1014">[SLR with mean ages r2 &gt; SLR with daily number of covid tests r2]</text><polygon fill="#A80036" points="586.5,521.0719,592.5,523.4719,586.5,525.8719,588.9,523.4719" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="327.3" x2="590.1" y1="523.4719" y2="523.4719"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="8.4" x="331.5" y="520.558">13</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="26.4" x="342.3" y="520.558">create()</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="103.2" x="593.7" y="510.0609"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="94.8" x="597.9" y="522.9809">:SimpleLinearRegression</text><path d="M567,541.0266 L567,556.6266 L723,556.6266 L723,547.0266 L717,541.0266 L567,541.0266 " fill="#FBFB77" filter="url(#fg4f7h5pqhfs8)" style="stroke:#A80036;stroke-width:0.6;"/><path d="M717,541.0266 L717,547.0266 L723,547.0266 L717,541.0266 " fill="#FBFB77" style="stroke:#A80036;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="143.4" x="570.6" y="552.1236">Execute Simple Linear Regression Model</text><polygon fill="#A80036" points="333.9,573.2484,327.9,575.6484,333.9,578.0484,331.5,575.6484" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="330.3" x2="645.9" y1="575.6484" y2="575.6484"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="8.4" x="337.5" y="572.7346">14</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="35.4" x="348.3" y="572.7346">nhsReport</text><polygon fill="#A80036" points="840.3,591.4594,846.3,593.8594,840.3,596.2594,842.7,593.8594" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;" x1="327.3" x2="843.9" y1="593.8594" y2="593.8594"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="8.4" x="331.5" y="590.9455">15</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="109.8" x="342.3" y="590.9455">writeUsingFileWriter(nhsReport)</text><line style="stroke:#000000;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="259.8" x2="886.5" y1="617.2594" y2="617.2594"/><polygon fill="#A80036" points="586.5,628.8703,592.5,631.2703,586.5,633.6703,588.9,631.2703" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="327.3" x2="590.1" y1="631.2703" y2="631.2703"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="8.4" x="331.5" y="628.3564">16</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="26.4" x="342.3" y="628.3564">create()</text><rect fill="#FEFECE" filter="url(#fg4f7h5pqhfs8)" height="18.9656" style="stroke:#A80036;stroke-width:0.8999999999999999;" width="103.2" x="593.7" y="617.8594"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacing" textLength="94.8" x="597.9" y="630.7793">:SimpleLinearRegression</text><path d="M567,648.825 L567,664.425 L723,664.425 L723,654.825 L717,648.825 L567,648.825 " fill="#FBFB77" filter="url(#fg4f7h5pqhfs8)" style="stroke:#A80036;stroke-width:0.6;"/><path d="M717,648.825 L717,654.825 L723,654.825 L717,648.825 " fill="#FBFB77" style="stroke:#A80036;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="143.4" x="570.6" y="659.9221">Execute Simple Linear Regression Model</text><polygon fill="#A80036" points="333.9,681.0469,327.9,683.4469,333.9,685.8469,331.5,683.4469" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;stroke-dasharray:2.0,2.0;" x1="330.3" x2="645.9" y1="683.4469" y2="683.4469"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="8.4" x="337.5" y="680.533">17</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="35.4" x="348.3" y="680.533">nhsReport</text><polygon fill="#A80036" points="840.3,699.2578,846.3,701.6578,840.3,704.0578,842.7,701.6578" style="stroke:#A80036;stroke-width:0.6;"/><line style="stroke:#A80036;stroke-width:0.6;" x1="327.3" x2="843.9" y1="701.6578" y2="701.6578"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacing" textLength="8.4" x="331.5" y="698.7439">18</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="109.8" x="342.3" y="698.7439">writeUsingFileWriter(nhsReport)</text><!--MD5=[93f39f93900b70456c28be861ef280a7]
+@startuml
+'https://plantuml.com/class-diagram
+
+autonumber
+
+actor ":Scheduler" as S
+participant ":SendDailyNhsReportTask" as TASK
+participant ":Timer" as TIMER
+participant ":DailyNHSReportController" as CTRL
+
+participant ":Company" as COMP
+participant ":SimpleLinearRegression" as SLR
+participant ":MultipleLinearRegression" as MLR
+participant ":Report2NHS" as Report2NHS
+
+activate S
+S - -> TASK** : initiate task
+
+S - -> TIMER** : create()
+S -> TIMER : scheduleAtFixedRate(sendDailyNhsReport, time, delay)
+activate TIMER
+deactivate TIMER
+loop everyday at 6AM
+TIMER -> TASK : run()
+activate TIMER
+deactivate TIMER
+activate TASK
+TASK - -> CTRL ** : create()
+activate CTRL
+CTRL -> COMP : getTestStore()
+activate COMP
+deactivate COMP
+CTRL -> CTRL : regressionModel = getValuesFromConfigFile(Regression Model)
+activate CTRL
+deactivate CTRL
+alt regressionModel is MLR
+CTRL -> CTRL : sendDailyNhsReportMLR()
+activate CTRL
+CTRL - -> MLR** : create()
+activate MLR
+note over MLR: Execute Multiple Linear Regression Model
+MLR - -> CTRL : nhsReport
+deactivate MLR
+CTRL -> Report2NHS : writeUsingFileWriter(nhsReport)
+activate Report2NHS
+deactivate Report2NHS
+deactivate CTRL
+else regressionModel is SLR
+CTRL -> CTRL : sendDailyNhsReportSLR()
+activate CTRL
+
+alt SLR with mean ages r2 > SLR with daily number of covid tests r2
+CTRL - -> SLR** : create()
+activate SLR
+note over SLR: Execute Simple Linear Regression Model
+SLR - -> CTRL : nhsReport
+deactivate SLR
+CTRL -> Report2NHS : writeUsingFileWriter(nhsReport)
+activate Report2NHS
+deactivate Report2NHS
+else
+CTRL - -> SLR** : create()
+activate SLR
+note over SLR: Execute Simple Linear Regression Model
+SLR - -> CTRL : nhsReport
+deactivate SLR
+CTRL -> Report2NHS : writeUsingFileWriter(nhsReport)
+activate Report2NHS
+deactivate Report2NHS
+end
+deactivate CTRL
+activate CTRL
+deactivate CTRL
+end
+deactivate CTRL
+deactivate TASK
+deactivate S
+end loop
+
+@enduml
+
+@startuml
+
+autonumber
+
+actor ":Scheduler" as S
+participant ":SendDailyNhsReportTask" as TASK
+participant ":Timer" as TIMER
+participant ":DailyNHSReportController" as CTRL
+
+participant ":Company" as COMP
+participant ":SimpleLinearRegression" as SLR
+participant ":MultipleLinearRegression" as MLR
+participant ":Report2NHS" as Report2NHS
+
+activate S
+S - -> TASK** : initiate task
+
+S - -> TIMER** : create()
+S -> TIMER : scheduleAtFixedRate(sendDailyNhsReport, time, delay)
+activate TIMER
+deactivate TIMER
+loop everyday at 6AM
+TIMER -> TASK : run()
+activate TIMER
+deactivate TIMER
+activate TASK
+TASK - -> CTRL ** : create()
+activate CTRL
+CTRL -> COMP : getTestStore()
+activate COMP
+deactivate COMP
+CTRL -> CTRL : regressionModel = getValuesFromConfigFile(Regression Model)
+activate CTRL
+deactivate CTRL
+alt regressionModel is MLR
+CTRL -> CTRL : sendDailyNhsReportMLR()
+activate CTRL
+CTRL - -> MLR** : create()
+activate MLR
+note over MLR: Execute Multiple Linear Regression Model
+MLR - -> CTRL : nhsReport
+deactivate MLR
+CTRL -> Report2NHS : writeUsingFileWriter(nhsReport)
+activate Report2NHS
+deactivate Report2NHS
+deactivate CTRL
+else regressionModel is SLR
+CTRL -> CTRL : sendDailyNhsReportSLR()
+activate CTRL
+
+alt SLR with mean ages r2 > SLR with daily number of covid tests r2
+CTRL - -> SLR** : create()
+activate SLR
+note over SLR: Execute Simple Linear Regression Model
+SLR - -> CTRL : nhsReport
+deactivate SLR
+CTRL -> Report2NHS : writeUsingFileWriter(nhsReport)
+activate Report2NHS
+deactivate Report2NHS
+else
+CTRL - -> SLR** : create()
+activate SLR
+note over SLR: Execute Simple Linear Regression Model
+SLR - -> CTRL : nhsReport
+deactivate SLR
+CTRL -> Report2NHS : writeUsingFileWriter(nhsReport)
+activate Report2NHS
+deactivate Report2NHS
+end
+deactivate CTRL
+activate CTRL
+deactivate CTRL
+end
+deactivate CTRL
+deactivate TASK
+deactivate S
+end loop
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 13:40:07 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>
