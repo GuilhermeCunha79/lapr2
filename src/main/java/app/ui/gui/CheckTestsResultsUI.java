@@ -70,7 +70,7 @@ public class CheckTestsResultsUI implements Initializable {
     public void checkTestResults(ActionEvent actionEvent){
         NewWindowClientTestsUI newWindowClientTestsUI = (NewWindowClientTestsUI) this.mainApp.changeStageContent("/fxml/WindowWithTestList.fxml");
         newWindowClientTestsUI.setMainApp(this.mainApp);
-        newWindowClientTestsUI.setTextArea(ctrl.showTestDetails(listViewClients.getSelectionModel().getSelectedItem().substring(listViewClients.getSelectionModel().getSelectedItem().lastIndexOf("TIN Number: ")+1,listViewClients.getSelectionModel().getSelectedItem().lastIndexOf("TIN Number: ")+10)));
+        newWindowClientTestsUI.setTextArea(ctrl.showTestDetails(listViewClients.getSelectionModel().getSelectedItem().substring(listViewClients.getSelectionModel().getSelectedItem().lastIndexOf("TIN number: ")+12,listViewClients.getSelectionModel().getSelectedItem().lastIndexOf("TIN number: ")+22)));
     }
 
     @FXML

@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.WindohWithTestResultsListUI">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.gui.WindowWithTestResultsListUI">
     <top>
         <Text fill="#575757" strokeType="OUTSIDE" strokeWidth="0.0" text="Test Results Performed" BorderPane.alignment="CENTER">
             <font>
@@ -23,7 +23,7 @@
             <children>
                 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1162.0">
                     <children>
-                        <ListView fx:id="testsList" disable="true" layoutX="40.0" layoutY="43.0" prefHeight="581.0" prefWidth="1004.0" />
+                        <ListView fx:id="testsList" layoutX="40.0" layoutY="43.0" prefHeight="581.0" prefWidth="1004.0" />
                         <Text fill="#575757" layoutX="-11.0" layoutY="6.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tests Results List" translateX="60.0" translateY="30.0">
                             <font>
                                 <Font name="Segoe UI Bold" size="12.0" />
