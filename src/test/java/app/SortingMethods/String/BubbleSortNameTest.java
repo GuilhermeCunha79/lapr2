@@ -43,4 +43,27 @@ public class BubbleSortNameTest{
 
     }
 
+    @Test
+    public void orderedListTest(){
+        List<Client> clientList= new ArrayList<>();
+        ClientDTO dto1 = new ClientDTO("Beatriz", "1234567891273456", "1234567891", "1111111111", "23/12/2001", "male", "12345678901", "tomas1@isep.ipp.pt", "street 1");
+        Client client1=new Client(dto1);
+        clientList.add(client1);
+        ClientDTO dto3 = new ClientDTO("Carla", "1234567891273456", "1234567891", "2222222222", "23/12/2001", "male", "12345678901", "tomas1@isep.ipp.pt", "street 1");
+        Client client3 =new Client(dto3);
+        clientList.add(client3);
+        ClientDTO dto = new ClientDTO("Ana", "1234567891273456", "1234567891", "0000000001", "23/12/2001", "male", "12345678901", "tomas1@isep.ipp.pt", "street 1");
+        Client client =new Client(dto);
+        clientList.add(client);
+
+        List<Client> expected= new ArrayList<>();
+        expected.add(client);
+        expected.add(client1);
+        expected.add(client3);
+
+        BubbleSortName lol = new BubbleSortName();
+
+        assertEquals(expected,lol.orderedList(clientList));
+    }
+
 }

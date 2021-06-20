@@ -10,6 +10,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 
 import static org.junit.Assert.*;
 
@@ -117,4 +118,27 @@ public class MappersTest {
         assertEquals(expected, ClientMapper.toDTOClient(cat));
     }
 
+    @Test
+    public void testListMethod(){
+        Client client2 = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter2 = new ArrayList<>();
+        lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
+        List<ClinicalTest> clinicalTests=new ArrayList<>();
+        clinicalTests.add(test2);
+        List<String> expected= new ArrayList<>();
+        expected.add(String.format("Internal Code: 000000000027 | NHS Code: 341341323234 | Created on: %s |", new DateTime()));
+        assertEquals(expected, TestListMapper.toDto(clinicalTests));
+    }
+
+    @Test
+    public void testTypeMapper(){
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<TypeOfTest> typeOfTests = new ArrayList<>();
+        typeOfTests.add(typeOfTest2);
+        List<String> expected = new ArrayList<>();
+        expected.add("(34534) 5560");
+        assertEquals(expected, TestTypeMapper.toDto(typeOfTests));
+    }
 }
