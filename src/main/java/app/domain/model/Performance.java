@@ -5,17 +5,19 @@ package app.domain.model;//This file is an example on how to use the benchmark
 import app.domain.shared.DateTime;
 import app.domain.store.TestStore;
 import com.isep.mdis.Sum;
-import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Performance {
-    private GraphicsContext statistic;
+    private LineChart statistic;
 
-    private List<ClinicalTest> bestPerformance;
-    private List<ClinicalTest> possibleBestPerformance;
+    private List<ClinicalTest> bestPerformance = new ArrayList<>();
+    private List<ClinicalTest> possibleBestPerformance = new ArrayList<>();
     private final List<ClinicalTest> intervalTime = new ArrayList<>();
 
     private int bestSum = 0;
@@ -34,7 +36,7 @@ public class Performance {
         return Arrays.toString(result); // should print [51, -9, 44, 74, 4]
     }
 
-    public GraphicsContext getStatistic() {
+    public LineChart getStatistic() {
         return statistic;
     }
 
@@ -90,8 +92,20 @@ public class Performance {
     }
 
 
-    public GraphicsContext bruteForceAlgorithm(DateTime inicialDate, DateTime endDate) {
+    public LineChart bruteForceAlgorithm(DateTime inicialDate, DateTime endDate) {
         TestStore tStore = new TestStore();
+
+        final NumberAxis xAxis = new NumberAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("Time");
+        //creating the chart
+        final LineChart<Number,Number> lineChart = new LineChart<Number,Number>(xAxis,yAxis);
+
+        lineChart.setTitle("Number of tests performed");
+        //defining a series
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Overall Performance");
+
 
         List<ClinicalTest> clinicalTests = tStore.getTestList();
 
@@ -102,18 +116,25 @@ public class Performance {
             possibleBestPerformance.clear();
 
             for (ClinicalTest test : list){
+                int size = list.size()-1;
+                int number = 0;
+                while(number != size){
+                    if(test.getValidationStatus()){
+                        possibleBestPerformance.add(test);
+                        possibleSum++;
+                    }
 
-                if(test.getValidationStatus()){
-                    possibleBestPerformance.add(test);
-                    possibleSum++;
-                }
-
-                if(bestSum < possibleSum){
-                    bestSum = possibleSum;
-                    bestPerformance = possibleBestPerformance;
-                }
+                    if(bestSum < possibleSum){
+                        bestSum = possibleSum;
+                        bestPerformance = possibleBestPerformance;
+                        }
+                    }
+                series.getData().add(new XYChart.Data(test.getValidationDate().getDate(), possibleSum));
             }
         }
-        return statistic;
+
+        lineChart.getData().add(series);
+
+        return lineChart;
     }
 }
