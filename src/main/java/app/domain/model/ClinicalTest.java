@@ -34,7 +34,6 @@ public class ClinicalTest implements Serializable, Comparable<ClinicalTest> {
     private List<Parameter> parameterList;
     private List<ClinicalTest> testClient;
     private List<Sample> sampleList;
-    private String laboratoryId;
 
     /***
      * Constructor for CATest with all parameters
