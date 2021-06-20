@@ -26,6 +26,7 @@ public class TestParameterResult implements Serializable {
      */
     @Override
     public String toString() {
-        return String.format("Results -> value: %f %s | %s", value, metric, refValue.toString());
+        String retorno = String.format("Results -> value: %f %s | %s", value, metric, refValue.toString());
+        return retorno;
     }
 }
