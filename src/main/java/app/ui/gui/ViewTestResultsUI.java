@@ -52,6 +52,7 @@ public class ViewTestResultsUI implements Initializable {
         }
     }
 
+    @FXML
     public void viewTestResults() {
         WindohWithTestResultsListUI windohWithTestResultsListUI = (WindohWithTestResultsListUI) this.mainApp.changeStageContent("/fxml/ClientTestResultsList.fxml");
         windohWithTestResultsListUI.setMainApp(this.mainApp);

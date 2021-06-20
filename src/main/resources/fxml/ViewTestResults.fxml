@@ -27,7 +27,7 @@
          <children>
             <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1162.0">
                <children>
-                  <ListView disable="true" layoutY="41.0" prefHeight="558.0" prefWidth="1004.0" style="-fx-background-radius: 5;" />
+                  <ListView fx:id="listViewTests" layoutY="41.0" prefHeight="558.0" prefWidth="1004.0" style="-fx-background-radius: 5;" />
                   <Text fill="#575757" layoutX="20.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tests List">
                      <font>
                         <Font name="Segoe UI Bold" size="18.0" />
