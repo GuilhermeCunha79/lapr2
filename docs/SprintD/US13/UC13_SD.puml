@@ -17,10 +17,10 @@ activate UI
 
 UI-->CCT: show an option to select the ordering of the clients(TIN or name)
 deactivate UI
-
+loop
 CCT->UI : selects an option
 activate UI
-UI-> CTRL : showClients()
+UI-> CTRL : showClients(clientList)
 activate CTRL
 CTRL-> COMP : clientStore = getClientStore()
 activate COMP
@@ -28,9 +28,14 @@ deactivate COMP
 CTRL-> CS : sortedTestList=sortClientList(clientStore)
 activate CS
 deactivate CS
+CTRL-> COMP : sortingMethod = getSortingMethod(type)
+activate COMP
+deactivate COMP
+CTRL->UI : orderedList = showOrderedClient(type)
 deactivate CTRL
 
-loop
+
+
 UI-->CCT:show the Many Labs clients ordered by the\n selected option and ask to select a client
 
 deactivate UI

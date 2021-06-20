@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="895px" preserveAspectRatio="none" style="width:1331px;height:895px;" version="1.1" viewBox="0 0 1331 895" width="1331px" zoomAndPan="magnify"><defs><filter height="300%" id="ftgutg4pl3dxa" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="525.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="288.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="525.5" y="208.0156"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="525.5" y="543.1797"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="211.4063" style="stroke:#A80036;stroke-width:1.0;" width="10" x="792.5" y="238.3672"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="792.5" y="573.5313"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1065.5" y="268.7188"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1065.5" y="389.4219"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1065.5" y="603.8828"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1158.5" y="724.5859"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1256.5" y="329.0703"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1256.5" y="664.2344"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="625.625" style="stroke:#000000;stroke-width:2.0;" width="1307.5" x="10" y="167.3125"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="121" x2="121" y1="89.6094" y2="809.9375"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="530" x2="530" y1="89.6094" y2="809.9375"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="797" x2="797" y1="89.6094" y2="809.9375"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1070.5" x2="1070.5" y1="89.6094" y2="809.9375"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1163.5" x2="1163.5" y1="89.6094" y2="809.9375"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1261.5" x2="1261.5" y1="89.6094" y2="809.9375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="20" y="86.5332">Clinical Chemistry Technologist</text><ellipse cx="121.5" cy="15" fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M121.5,23 L121.5,50 M108.5,31 L134.5,31 M121.5,50 L108.5,65 M121.5,50 L134.5,65 " fill="none" filter="url(#ftgutg4pl3dxa)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="20" y="823.4707">Clinical Chemistry Technologist</text><ellipse cx="121.5" cy="836.5469" fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M121.5,844.5469 L121.5,871.5469 M108.5,852.5469 L134.5,852.5469 M121.5,871.5469 L108.5,886.5469 M121.5,871.5469 L134.5,886.5469 " fill="none" filter="url(#ftgutg4pl3dxa)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="117" x="470" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="477" y="74.5332">:CheckResultsUI</text><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="117" x="470" y="808.9375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="477" y="830.4707">:CheckResultsUI</text><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="167" x="712" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153" x="719" y="74.5332">:CheckResultsController</text><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="167" x="712" y="808.9375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153" x="719" y="830.4707">:CheckResultsController</text><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="78" x="1029.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1036.5" y="74.5332">:Company</text><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="78" x="1029.5" y="808.9375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="1036.5" y="830.4707">:Company</text><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="80" x="1121.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="1128.5" y="74.5332">:TestStore</text><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="80" x="1121.5" y="808.9375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="1128.5" y="830.4707">:TestStore</text><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="88" x="1215.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="1222.5" y="74.5332">:ClientStore</text><rect fill="#FEFECE" filter="url(#ftgutg4pl3dxa)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="88" x="1215.5" y="808.9375"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="1222.5" y="830.4707">:ClientStore</text><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="525.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="288.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="525.5" y="208.0156"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="241.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="525.5" y="543.1797"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="211.4063" style="stroke:#A80036;stroke-width:1.0;" width="10" x="792.5" y="238.3672"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="181.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="792.5" y="573.5313"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1065.5" y="268.7188"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1065.5" y="389.4219"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1065.5" y="603.8828"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1158.5" y="724.5859"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1256.5" y="329.0703"/><rect fill="#FFFFFF" filter="url(#ftgutg4pl3dxa)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="1256.5" y="664.2344"/><polygon fill="#A80036" points="513.5,117.9609,523.5,121.9609,513.5,125.9609,517.5,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="121.5" x2="519.5" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="128.5" y="117.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="139.5" y="117.1045">check results</text><polygon fill="#A80036" points="132.5,148.3125,122.5,152.3125,132.5,156.3125,128.5,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="126.5" x2="529.5" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="138.5" y="147.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="369" x="149.5" y="147.4561">show an option to select the ordering of the clients(TIN or name)</text><path d="M10,167.3125 L83,167.3125 L83,175.3125 L73,185.3125 L10,185.3125 L10,167.3125 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="625.625" style="stroke:#000000;stroke-width:2.0;" width="1307.5" x="10" y="167.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="28" x="25" y="181.8076">loop</text><polygon fill="#A80036" points="513.5,204.0156,523.5,208.0156,513.5,212.0156,517.5,208.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="121.5" x2="519.5" y1="208.0156" y2="208.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="128.5" y="203.1592">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="99" x="139.5" y="203.1592">selects an option</text><polygon fill="#A80036" points="780.5,234.3672,790.5,238.3672,780.5,242.3672,784.5,238.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="535.5" x2="786.5" y1="238.3672" y2="238.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="542.5" y="233.5107">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="130" x="553.5" y="233.5107">showClients(clientList)</text><polygon fill="#A80036" points="1053.5,264.7188,1063.5,268.7188,1053.5,272.7188,1057.5,268.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="802.5" x2="1059.5" y1="268.7188" y2="268.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="809.5" y="263.8623">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="168" x="820.5" y="263.8623">clientStore = getClientStore()</text><polygon fill="#A80036" points="1244.5,325.0703,1254.5,329.0703,1244.5,333.0703,1248.5,329.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="802.5" x2="1250.5" y1="329.0703" y2="329.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="809.5" y="324.2139">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="236" x="820.5" y="324.2139">sortedTestList=sortClientList(clientStore)</text><polygon fill="#A80036" points="1053.5,385.4219,1063.5,389.4219,1053.5,393.4219,1057.5,389.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="802.5" x2="1059.5" y1="389.4219" y2="389.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="809.5" y="384.5654">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="233" x="820.5" y="384.5654">sortingMethod = getSortingMethod(type)</text><polygon fill="#A80036" points="546.5,445.7734,536.5,449.7734,546.5,453.7734,542.5,449.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="540.5" x2="796.5" y1="449.7734" y2="449.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="552.5" y="444.917">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="222" x="563.5" y="444.917">orderedList = showOrderedClient(type)</text><polygon fill="#A80036" points="132.5,492.4766,122.5,496.4766,132.5,500.4766,128.5,496.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="126.5" x2="529.5" y1="496.4766" y2="496.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="138.5" y="483.4443">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="249" x="149.5" y="475.2686">show the Many Labs clients ordered by the</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="238" x="153.5" y="491.6201">selected option and ask to select a client</text><polygon fill="#A80036" points="513.5,539.1797,523.5,543.1797,513.5,547.1797,517.5,543.1797" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="121.5" x2="519.5" y1="543.1797" y2="543.1797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="128.5" y="530.1475">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="278" x="146.5" y="521.9717">selects the client in order to check the historical</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="233" x="150.5" y="538.3232">tests performed and tests details/results</text><polygon fill="#A80036" points="780.5,569.5313,790.5,573.5313,780.5,577.5313,784.5,573.5313" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="535.5" x2="786.5" y1="573.5313" y2="573.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="542.5" y="568.6748">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="117" x="560.5" y="568.6748">showTestDetails(tin)</text><polygon fill="#A80036" points="1053.5,599.8828,1063.5,603.8828,1053.5,607.8828,1057.5,603.8828" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="802.5" x2="1059.5" y1="603.8828" y2="603.8828"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="809.5" y="599.0264">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="151" x="827.5" y="599.0264">testStore = getTestStore()</text><polygon fill="#A80036" points="1244.5,660.2344,1254.5,664.2344,1244.5,668.2344,1248.5,664.2344" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="802.5" x2="1250.5" y1="664.2344" y2="664.2344"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="809.5" y="659.3779">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="145" x="827.5" y="659.3779">client=getClientByTin(tin)</text><polygon fill="#A80036" points="1146.5,720.5859,1156.5,724.5859,1146.5,728.5859,1150.5,724.5859" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="802.5" x2="1152.5" y1="724.5859" y2="724.5859"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="809.5" y="719.7295">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="122" x="827.5" y="719.7295">getClientTests(client)</text><polygon fill="#A80036" points="132.5,780.9375,122.5,784.9375,132.5,788.9375,128.5,784.9375" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="126.5" x2="529.5" y1="784.9375" y2="784.9375"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="138.5" y="780.0811">15</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="352" x="156.5" y="780.0811">shows the historical tests performed and tests details/results</text><!--MD5=[ea3bcc01e35bdc95288c31fe53df985f]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor "Clinical Chemistry Technologist" as CCT
+participant ":CheckResultsUI" as UI
+participant ":CheckResultsController" as CTRL
+participant ":Company" as COMP
+participant ":TestStore" as TS
+participant ":ClientStore" as CS
+
+
+
+CCT->UI : check results
+activate UI
+
+UI- ->CCT: show an option to select the ordering of the clients(TIN or name)
+deactivate UI
+loop
+CCT->UI : selects an option
+activate UI
+UI-> CTRL : showClients(clientList)
+activate CTRL
+CTRL-> COMP : clientStore = getClientStore()
+activate COMP
+deactivate COMP
+CTRL-> CS : sortedTestList=sortClientList(clientStore)
+activate CS
+deactivate CS
+CTRL-> COMP : sortingMethod = getSortingMethod(type)
+activate COMP
+deactivate COMP
+CTRL->UI : orderedList = showOrderedClient(type)
+deactivate CTRL
+
+
+
+UI- ->CCT:show the Many Labs clients ordered by the\n selected option and ask to select a client
+
+deactivate UI
+
+CCT->UI : selects the client in order to check the historical\n tests performed and tests details/results
+activate UI
+UI-> CTRL : showTestDetails(tin)
+activate CTRL
+CTRL->COMP :testStore = getTestStore()
+activate COMP
+deactivate COMP
+CTRL-> CS : client=getClientByTin(tin)
+activate CS
+deactivate CS
+CTRL->TS : getClientTests(client)
+activate TS
+deactivate TS
+deactivate CTRL
+
+UI- ->CCT:shows the historical tests performed and tests details/results
+
+deactivate UI
+end
+@enduml
+
+@startuml
+
+autonumber
+
+actor "Clinical Chemistry Technologist" as CCT
+participant ":CheckResultsUI" as UI
+participant ":CheckResultsController" as CTRL
+participant ":Company" as COMP
+participant ":TestStore" as TS
+participant ":ClientStore" as CS
+
+
+
+CCT->UI : check results
+activate UI
+
+UI- ->CCT: show an option to select the ordering of the clients(TIN or name)
+deactivate UI
+loop
+CCT->UI : selects an option
+activate UI
+UI-> CTRL : showClients(clientList)
+activate CTRL
+CTRL-> COMP : clientStore = getClientStore()
+activate COMP
+deactivate COMP
+CTRL-> CS : sortedTestList=sortClientList(clientStore)
+activate CS
+deactivate CS
+CTRL-> COMP : sortingMethod = getSortingMethod(type)
+activate COMP
+deactivate COMP
+CTRL->UI : orderedList = showOrderedClient(type)
+deactivate CTRL
+
+
+
+UI- ->CCT:show the Many Labs clients ordered by the\n selected option and ask to select a client
+
+deactivate UI
+
+CCT->UI : selects the client in order to check the historical\n tests performed and tests details/results
+activate UI
+UI-> CTRL : showTestDetails(tin)
+activate CTRL
+CTRL->COMP :testStore = getTestStore()
+activate COMP
+deactivate COMP
+CTRL-> CS : client=getClientByTin(tin)
+activate CS
+deactivate CS
+CTRL->TS : getClientTests(client)
+activate TS
+deactivate TS
+deactivate CTRL
+
+UI- ->CCT:shows the historical tests performed and tests details/results
+
+deactivate UI
+end
+@enduml
+
+PlantUML version 1.2021.5(Sun Apr 25 12:20:28 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

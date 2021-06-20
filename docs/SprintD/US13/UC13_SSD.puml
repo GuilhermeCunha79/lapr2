@@ -9,9 +9,9 @@ CCT-> SYS : check results
 activate SYS
 SYS --> CCT : show an option to select the ordering of the clients(TIN or name)
 deactivate SYS
+loop
 CCT-> SYS : selects an option
 activate SYS
-loop
 SYS-->CCT : show the Many Labs clients ordered by the\n selected option and ask to select a client
 deactivate SYS
 CCT->SYS : selects the client in order to check the historical\n tests performed and tests details/results
