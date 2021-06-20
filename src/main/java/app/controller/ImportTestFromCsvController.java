@@ -111,7 +111,7 @@ public class ImportTestFromCsvController {
     private boolean addParameterResults(ClinicalTest test, String[] testData) throws ParseException {
         boolean status = true;
         for (Parameter parameter : test.getParameterList()) {
-            status = test.addTestParameterResult(parameter.getCode(), NumberFormat.getNumberInstance(Locale.ENGLISH).parse(testData[getColumnByKeyWord(parameter.getCode())]).doubleValue(), "ml");
+            status = test.addTestParameterResult(parameter.getCode(), NumberFormat.getNumberInstance(Locale.ENGLISH).parse(testData[getColumnByKeyWord(parameter.getCode())]).doubleValue(), "");
         }
         return status;
     }

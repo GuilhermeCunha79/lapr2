@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor ":Scheduler" as S
+participant ":System" as SYS
+
+
+S --> SYS : initiate task
+activate SYS
+deactivate SYS
+S --> SYS : create timer
+activate SYS
+deactivate SYS
+S -> SYS : schedule task
+activate SYS
+deactivate SYS
+
+@enduml

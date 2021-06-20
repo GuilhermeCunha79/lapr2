@@ -38,8 +38,9 @@ class RegressionModel {
 }
 package Store {
 class TestStore {
-    +getTestWithoutReport()
-    +getTestByCode(testCode)
+    +getTestFinalised()
+    +getTestParameter()
+    +getTestParameterResult()
 }
 }
 

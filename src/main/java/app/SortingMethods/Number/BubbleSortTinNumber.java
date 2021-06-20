@@ -52,7 +52,6 @@ public class BubbleSortTinNumber {
         String temp;
         for (int j = 0; j < a.length; j++) {
             for (int i = j + 1; i < a.length; i++) {
-
                 if (a[i].compareTo(a[j]) < 0) {
                     temp = a[j];
                     a[j] = a[i];

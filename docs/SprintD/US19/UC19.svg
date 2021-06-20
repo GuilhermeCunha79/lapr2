@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="92px" preserveAspectRatio="none" style="width:346px;height:92px;background:#FFFFFF;" version="1.1" viewBox="0 0 346 92" width="346px" zoomAndPan="magnify"><defs><filter height="300%" id="f1m1wt8xcpi31z" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e3152162072024c50465e7b26cb20ed6]
+entity Scheduler--><ellipse cx="38" cy="14" fill="#FEFECE" filter="url(#f1m1wt8xcpi31z)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M38,22 L38,49 M25,30 L51,30 M38,49 L25,64 M38,49 L51,64 " fill="none" filter="url(#f1m1wt8xcpi31z)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="6" y="84.0332">Scheduler</text><ellipse cx="220.0541" cy="45.8108" fill="#FEFECE" filter="url(#f1m1wt8xcpi31z)" rx="114.5541" ry="25.3108" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="193" x="123.5541" y="49.5393">US19 - Send daily NHS reports</text><!--MD5=[7aab9cecdf7d6b0e66aa9924da187553]
+link Scheduler to US19 - Send daily NHS reports--><path d="M70.35,46 C80.3,46 90.26,46 100.22,46 " fill="none" id="Scheduler-to-US19 - Send daily NHS reports" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="105.42,46,96.42,42,100.42,46,96.42,50,105.42,46" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8b15aeb38ce860c4322fe9b21afd3e22]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+
+Scheduler -> (US19 - Send daily NHS reports)
+@enduml
+
+@startuml
+
+
+
+Scheduler -> (US19 - Send daily NHS reports)
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 13:40:07 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

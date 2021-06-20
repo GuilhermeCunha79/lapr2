@@ -15,9 +15,13 @@ public class TestParameterResult implements Serializable {
      * @param refValue for the parameter tested
      */
     public TestParameterResult(double value, String metric, ReferenceValue refValue) {
-        this.value=value;
+        this.value = value;
         this.metric = metric;
         this.refValue = refValue;
+    }
+
+    public double getValue() {
+        return value;
     }
 
     /**

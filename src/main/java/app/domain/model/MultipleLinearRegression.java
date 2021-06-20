@@ -5,21 +5,21 @@ import org.apache.commons.math3.distribution.TDistribution;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultipleLinearRegression {
 
-    private double[][] Ydata;
+    private double[][] yData;
+    private double[] x1Data;
+    private double[] x2Data;
 
-    private double[] X1Data;
-    private double[] X2Data;
+    private double[][] xMatrix;
+    private double[][] xMatrixTrans;
 
-    private double[][] Xmatrix;
-    private double[][] XmatrixTrans;
-
-    private double[][] XTransposedByX;
-    private double[][] XTransposedByXInv;
-    private double[] XTransposedByY;
+    private double[][] xTransposedByX;
+    private double[][] xTransposedByXInv;
+    private double[] xTransposedByY;
     private double[] regressionModelMatrix;
 
     private double r2;
@@ -36,24 +36,30 @@ public class MultipleLinearRegression {
     private double sqr;
     private double sqe;
 
-    public MultipleLinearRegression(List<LocalDate> lDates, double[] Ydata, double[] X1Data, double[] X2Data, double ic) {
-        this.lDates = lDates;
-        this.Ydata = arrayToMatrixConverter(Ydata);
-        this.X1Data = X1Data;
-        this.X2Data = X2Data;
-        this.ic = ic;
-        this.Xmatrix = matrixConcat(this.X1Data, this.X2Data);
-        this.XmatrixTrans = transposeMatrix(Xmatrix);
-        calculateRegressionModel();
-        createStringRegressionModel();
-        r2 = calculateR2();
-        r2adjusted = calculateR2adjusted();
-        r = Math.sqrt(r2);
-        calculateSqe();
+    public MultipleLinearRegression(List<LocalDate> lDates, double[] yData, double[] x1Data, double[] x2Data, double ic) {
+        if (yData.length == x2Data.length && x2Data.length == x1Data.length) {
+            this.lDates = new ArrayList<>(lDates);
+            this.yData = arrayToMatrixConverter(yData);
+            this.x1Data = x1Data;
+            this.x2Data = x2Data;
+            this.ic = ic;
+            this.xMatrix = matrixConcat(this.x1Data, this.x2Data);
+            this.xMatrixTrans = transposeMatrix(xMatrix);
+            calculateRegressionModel();
+            createStringRegressionModel();
+            r2 = calculateR2();
+            r2adjusted = calculateR2adjusted();
+            r = Math.sqrt(r2);
+            calculateSqe();
+        }else{
+            throw new IllegalArgumentException("X1 count or X2 count is different than Y count");
+        }
     }
 
+
+
     private double calculateR2adjusted() {
-        return 1 - ((Ydata.length) - 1.0) / (Ydata.length - 3) * (1 - r2);
+        return 1 - ((yData.length) - 1.0) / (yData.length - 3) * (1 - r2);
     }
 
     private double[][] arrayToMatrixConverter(double[] array) {
@@ -65,18 +71,18 @@ public class MultipleLinearRegression {
     }
 
     private String hypothesisTestTObs(int bn) {
-        double t0 = t0Calculator(regressionModelMatrix[bn], getStdErrorB(bn, matrixMultiplierByNumber(XTransposedByXInv, sqe / ((Ydata.length) - 3))));
-        if (Math.abs(t0) > tCalculator(ic, Ydata)[0])
-            return String.format("For ^B%d the null hypothesis is rejected because %f > %f%n", bn, Math.abs(t0), tCalculator(ic, Ydata)[0]);
-        return String.format("For ^B%d the null hypothesis is accepted because %f < %f%n", bn, Math.abs(t0), tCalculator(ic, Ydata)[0]);
+        double t0 = t0Calculator(regressionModelMatrix[bn], getStdErrorB(bn, matrixMultiplierByNumber(xTransposedByXInv, sqe / ((yData.length) - 3))));
+        if (Math.abs(t0) > tCalculator(ic, yData)[0])
+            return String.format("For ^B%d the null hypothesis is rejected because %f > %f%n", bn, Math.abs(t0), tCalculator(ic, yData)[0]);
+        return String.format("For ^B%d the null hypothesis is accepted because %f < %f%n", bn, Math.abs(t0), tCalculator(ic, yData)[0]);
     }
 
     private double getStdErrorB(int bn, double[][] matrix) {
         return Math.sqrt(matrix[bn][bn]);
     }
 
-    private double t0Calculator(double bnValue, double strdErrorBnValue) {
-        return bnValue / strdErrorBnValue;
+    private double t0Calculator(double bnValue, double stdErrorBnValue) {
+        return bnValue / stdErrorBnValue;
     }
 
     private double[] tCalculator(double ic, double[][] yMatrix) {
@@ -89,13 +95,13 @@ public class MultipleLinearRegression {
     }
 
     private String fHypothesis() {
-        double f0 = (sqr / 2) / (sqe / ((Ydata.length) - 3));
-        FDistribution fd = new FDistribution(2, Ydata.length - 3);
+        double f0 = (sqr / 2) / (sqe / ((yData.length) - 3));
+        FDistribution fd = new FDistribution(2, yData.length - 3);
         double f = fd.inverseCumulativeProbability(1 - ic);
         if (f0 > f)
-            return String.format("%.4f > f%.4f,(2,%d)=%.4f%nReject H0%nThe regression model is significant", f0, 1 - ic, ((Ydata.length) - 3), f);
+            return String.format("%.4f > f%.4f,(2,%d)=%.4f%nReject H0%nThe regression model is significant", f0, 1 - ic, ((yData.length) - 3), f);
         else
-            return String.format("%.4f < f%.4f,(2,%d)=%.4f%nAccept H0%nThe regression model is not significant", f0, 1 - ic, ((Ydata.length) - 3), f);
+            return String.format("%.4f < f%.4f,(2,%d)=%.4f%nAccept H0%nThe regression model is not significant", f0, 1 - ic, ((yData.length) - 3), f);
     }
 
     private double[][] matrixMultiplierByNumber(double[][] matrix, double number) {
@@ -113,12 +119,12 @@ public class MultipleLinearRegression {
     }
 
     private double calculateSqt() {
-        this.sqt = matrixMultiplier1NbyN1(transposeMatrixNby1(Ydata), Ydata) - Ydata.length * (averageYdata() * averageYdata());
+        this.sqt = matrixMultiplier1NbyN1(transposeMatrixNby1(yData), yData) - yData.length * (averageYdata() * averageYdata());
         return sqt;
     }
 
     private double calculateSqr() {
-        this.sqr = matrixMultiplier1NbyN1(transposeMatrixNby1(arrayToMatrixConverter(this.regressionModelMatrix)), arrayToMatrixConverter(XTransposedByY)) - Ydata.length * averageYdata() * averageYdata();
+        this.sqr = matrixMultiplier1NbyN1(transposeMatrixNby1(arrayToMatrixConverter(this.regressionModelMatrix)), arrayToMatrixConverter(xTransposedByY)) - yData.length * averageYdata() * averageYdata();
         return sqr;
     }
 
@@ -129,11 +135,11 @@ public class MultipleLinearRegression {
 
     private double averageYdata() {
         double sum = 0;
-        for (int i = 0; i < Ydata.length; i++) {
-            sum += Ydata[i][0];
+        for (int i = 0; i < yData.length; i++) {
+            sum += yData[i][0];
         }
         if (sum != 0)
-            return sum / Ydata.length;
+            return sum / yData.length;
         else
             return 0;
     }
@@ -143,17 +149,17 @@ public class MultipleLinearRegression {
     }
 
     private void calculateRegressionModel() {
-        this.XTransposedByX = matricesMultiplier3NByN3(Xmatrix, XmatrixTrans);
-        this.XTransposedByXInv = invert(XTransposedByX);
-        this.XTransposedByY = matricesMultiplier3NbyN1(this.Ydata, this.XmatrixTrans);
-        this.regressionModelMatrix = matricesMultiplier3NbyN1(arrayToMatrixConverter(XTransposedByY), XTransposedByXInv);
+        this.xTransposedByX = matricesMultiplier3NByN3(xMatrix, xMatrixTrans);
+        this.xTransposedByXInv = invert(xTransposedByX);
+        this.xTransposedByY = matricesMultiplier3NbyN1(this.yData, this.xMatrixTrans);
+        this.regressionModelMatrix = matricesMultiplier3NbyN1(arrayToMatrixConverter(xTransposedByY), xTransposedByXInv);
     }
 
     private double[][] matricesMultiplier3NByN3(double[][] matrix1, double[][] matrix2) {
         double[][] result = new double[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < X2Data.length; k++) {
+                for (int k = 0; k < x2Data.length; k++) {
                     result[i][j] += matrix2[i][k] * matrix1[k][j];
                 }
 
@@ -314,22 +320,21 @@ public class MultipleLinearRegression {
         nhsReport.append("\nSignificance model with anova");
         nhsReport.append("\nH0: b=0  H1:b<>0 ");
         nhsReport.append(String.format("%n%15s%10s%20s%20s", "df", "SS", "MS", "F"));
-        nhsReport.append(String.format("%nRegression%4d%18.4f%19.4f%20.4f", 2, sqr, sqr / 2, (sqr / 2) / (sqe / ((Ydata.length) - 3))));
-        nhsReport.append(String.format("%nResidual%6d%18.4f%19.4f", Ydata.length - 3, sqe, sqe / ((Ydata.length) - 3)));
-        nhsReport.append(String.format("%nTotal%9d%18.4f", Ydata.length - 1, sqt));
+        nhsReport.append(String.format("%nRegression%4d%18.4f%19.4f%20.4f", 2, sqr, sqr / 2, (sqr / 2) / (sqe / ((yData.length) - 3))));
+        nhsReport.append(String.format("%nResidual%6d%18.4f%19.4f", yData.length - 3, sqe, sqe / ((yData.length) - 3)));
+        nhsReport.append(String.format("%nTotal%9d%18.4f", yData.length - 1, sqt));
         nhsReport.append("\n\nDecision: f");
         nhsReport.append(String.format("%n%s", fHypothesis()));
         nhsReport.append("\n\n// Prediction Values\n");
         nhsReport.append("Date           Number of OBSERVED positive cases          Number of ESTIMATED positive cases \t\t95% intervals\n");
-
         nhsReport.append(predictionTable());
         return nhsReport.toString();
     }
 
     private String predictionTable() {
         StringBuilder table = new StringBuilder();
-        for (int i = 0; i < Ydata.length; i++) {
-            table.append(String.format("%s%20.0f %45.2f %35s%n", getDate(i), Ydata[i][0], doPrevision(i), getConfidenceInterval(i)));
+        for (int i = 0; i < yData.length; i++) {
+            table.append(String.format("%s%20.0f %45.2f %35s%n", getDate(i), yData[i][0], doPrevision(i), getConfidenceInterval(i)));
         }
         return table.toString();
     }
@@ -343,11 +348,11 @@ public class MultipleLinearRegression {
     }
 
     private String getConfidenceInterval(int i) {
-        double[] xt0 = {1, X1Data[i], X2Data[i]};
+        double[] xt0 = {1, x1Data[i], x2Data[i]};
         double y0 = matrixMultiplier1NbyN1(convertArray1DToMatrix(xt0), arrayToMatrixConverter(regressionModelMatrix));
-        double t = tCalculator(ic, Ydata)[1];
-        double o2 = sqe / ((Ydata.length) - 3);
-        double sqrtContent = o2 * (1+ matrixMultiplier1NbyN1(convertArray1DToMatrix(xt0), arrayToMatrixConverter(matricesMultiplier3NbyN1(arrayToMatrixConverter(xt0), XTransposedByXInv))));
+        double t = tCalculator(ic, yData)[1];
+        double o2 = sqe / ((yData.length) - 3);
+        double sqrtContent = o2 * (1+ matrixMultiplier1NbyN1(convertArray1DToMatrix(xt0), arrayToMatrixConverter(matricesMultiplier3NbyN1(arrayToMatrixConverter(xt0), xTransposedByXInv))));
         double x = y0 - t * Math.sqrt(sqrtContent);
         double y = y0 + t * Math.sqrt(sqrtContent);
         return String.format("%.2f-%.2f", x, y);
@@ -356,7 +361,7 @@ public class MultipleLinearRegression {
 
 
     private double doPrevision(int i) {
-        double[] xt0 = {1, X1Data[i], X2Data[i]};
+        double[] xt0 = {1, x1Data[i], x2Data[i]};
         return regressionModelMatrix[0] + regressionModelMatrix[1] * xt0[1] + regressionModelMatrix[2] * xt0[2];
     }
 

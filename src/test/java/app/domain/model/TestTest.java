@@ -2,7 +2,9 @@ package app.domain.model;
 
 
 import app.domain.shared.DateTime;
+import app.domain.store.TestStore;
 import app.mappers.dto.ClientDTO;
+import app.mappers.dto.ClinicalTestDto;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,6 +14,7 @@ import static org.junit.Assert.*;
 
 public class TestTest {
 
+    TestStore testStore=new TestStore();
 
     @Test(expected = NullPointerException.class)
     public void ensureNullTestIsNotCreated() {
@@ -420,5 +423,16 @@ public class TestTest {
         lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
         ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
         assertEquals(lparameter2, test2.getParameterList());
+    }
+
+    @Test
+    public void getClinicalTestTest(){
+        Client client2 = new Client(new ClientDTO("Ric", "4473022301452145", "0212341423", "4105124501", "18/09/2012", "male", "47416124710", "ric@isep.ipp.pt", "street"));
+        TypeOfTest typeOfTest2 = new TypeOfTest("34534", "5560", "010", new ParameterCategory("80789", "dflk"));
+        List<Parameter> lparameter2 = new ArrayList<>();
+        lparameter2.add(new Parameter("IgGAN", "IgGAN", "IgC antibodies", new ParameterCategory("89898", "Covid")));
+        ClinicalTest test2 = new ClinicalTest("341341323234", client2, typeOfTest2, lparameter2, "l0001", 27);
+        DateTime expected = new DateTime();
+        assertEquals(expected.toString(),test2.getCreatedAt().toString());
     }
 }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="698.75px" preserveAspectRatio="none" style="width:1201px;height:698px;" version="1.1" viewBox="0 0 1201 698" width="1201.25px" zoomAndPan="magnify"><defs><filter height="300%" id="f102oomkzr56cj" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.5"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="5.0" dy="5.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="445.2734" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="55.625" y="124.5117"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="152.4512"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="228.3301"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="304.209"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="380.0879"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="455.9668"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="531.8457"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="61.25" x2="61.25" y1="112.0117" y2="592.2852"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:5.0,5.0;" x1="1146.875" x2="1146.875" y1="112.0117" y2="592.2852"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="103.75" x="6.25" y="108.1665">Administrator</text><ellipse cx="61.875" cy="18.75" fill="#FEFECE" filter="url(#f102oomkzr56cj)" rx="10" ry="10" style="stroke:#A80036;stroke-width:2.5;"/><path d="M61.875,28.75 L61.875,62.5 M45.625,38.75 L78.125,38.75 M61.875,62.5 L45.625,81.25 M61.875,62.5 L78.125,81.25 " fill="none" filter="url(#f102oomkzr56cj)" style="stroke:#A80036;stroke-width:2.5;"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="103.75" x="6.25" y="609.2017">Administrator</text><ellipse cx="61.875" cy="625.5469" fill="#FEFECE" filter="url(#f102oomkzr56cj)" rx="10" ry="10" style="stroke:#A80036;stroke-width:2.5;"/><path d="M61.875,635.5469 L61.875,669.2969 M45.625,645.5469 L78.125,645.5469 M61.875,669.2969 L45.625,688.0469 M61.875,669.2969 L78.125,688.0469 " fill="none" filter="url(#f102oomkzr56cj)" style="stroke:#A80036;stroke-width:2.5;"/><rect fill="#FEFECE" filter="url(#f102oomkzr56cj)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="80" x="1104.375" y="66.25"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="62.5" x="1113.125" y="93.1665">:System</text><rect fill="#FEFECE" filter="url(#f102oomkzr56cj)" height="39.5117" style="stroke:#A80036;stroke-width:1.875;" width="80" x="1104.375" y="591.0352"/><text fill="#000000" font-family="sans-serif" font-size="17.5" lengthAdjust="spacing" textLength="62.5" x="1113.125" y="617.9517">:System</text><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="445.2734" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="55.625" y="124.5117"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="152.4512"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="228.3301"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="304.209"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="380.0879"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="455.9668"/><rect fill="#FFFFFF" filter="url(#f102oomkzr56cj)" height="37.9395" style="stroke:#A80036;stroke-width:1.25;" width="12.5" x="1140.625" y="531.8457"/><polygon fill="#A80036" points="1125.625,147.4512,1138.125,152.4512,1125.625,157.4512,1130.625,152.4512" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="68.125" x2="1133.125" y1="152.4512" y2="152.4512"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="76.875" y="146.3806">1</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="106.25" x="90.625" y="146.3806">start the report</text><polygon fill="#A80036" points="81.875,185.3906,69.375,190.3906,81.875,195.3906,76.875,190.3906" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="74.375" x2="1145.625" y1="190.3906" y2="190.3906"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="89.375" y="184.3201">2</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="365" x="103.125" y="184.3201">Ask for to select the time measure(days or weeks)</text><polygon fill="#A80036" points="1125.625,223.3301,1138.125,228.3301,1125.625,233.3301,1130.625,228.3301" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="68.125" x2="1133.125" y1="228.3301" y2="228.3301"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="76.875" y="222.2595">3</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="111.25" x="90.625" y="222.2595">select measure</text><polygon fill="#A80036" points="81.875,261.2695,69.375,266.2695,81.875,271.2695,76.875,266.2695" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="74.375" x2="1145.625" y1="266.2695" y2="266.2695"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="89.375" y="260.199">4</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="187.5" x="103.125" y="260.199">Ask for the interval of time</text><polygon fill="#A80036" points="1125.625,299.209,1138.125,304.209,1125.625,309.209,1130.625,304.209" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="68.125" x2="1133.125" y1="304.209" y2="304.209"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="76.875" y="298.1384">5</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="176.25" x="90.625" y="298.1384">imput the interval of time</text><polygon fill="#A80036" points="81.875,337.1484,69.375,342.1484,81.875,347.1484,76.875,342.1484" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="74.375" x2="1145.625" y1="342.1484" y2="342.1484"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="89.375" y="336.0779">6</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="1028.75" x="103.125" y="336.0779">Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)</text><polygon fill="#A80036" points="1125.625,375.0879,1138.125,380.0879,1125.625,385.0879,1130.625,380.0879" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="68.125" x2="1133.125" y1="380.0879" y2="380.0879"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="76.875" y="374.0173">7</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="177.5" x="90.625" y="374.0173">select one of the options</text><polygon fill="#A80036" points="81.875,413.0273,69.375,418.0273,81.875,423.0273,76.875,418.0273" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="74.375" x2="1145.625" y1="418.0273" y2="418.0273"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="89.375" y="411.9568">8</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="257.5" x="103.125" y="411.9568">Ask to fill the values of the variables</text><polygon fill="#A80036" points="1125.625,450.9668,1138.125,455.9668,1125.625,460.9668,1130.625,455.9668" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="68.125" x2="1133.125" y1="455.9668" y2="455.9668"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="8.75" x="76.875" y="449.8962">9</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="138.75" x="90.625" y="449.8962">Fill variables values</text><polygon fill="#A80036" points="81.875,488.9063,69.375,493.9063,81.875,498.9063,76.875,493.9063" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="74.375" x2="1145.625" y1="493.9063" y2="493.9063"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="17.5" x="89.375" y="487.8357">10</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="512.5" x="111.875" y="487.8357">Show the report and with the regression model and ask for confirmation</text><polygon fill="#A80036" points="1125.625,526.8457,1138.125,531.8457,1125.625,536.8457,1130.625,531.8457" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;" x1="68.125" x2="1133.125" y1="531.8457" y2="531.8457"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="17.5" x="76.875" y="525.7751">11</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="125" x="99.375" y="525.7751">confirms the data</text><polygon fill="#A80036" points="75.625,564.7852,63.125,569.7852,75.625,574.7852,70.625,569.7852" style="stroke:#A80036;stroke-width:1.25;"/><line style="stroke:#A80036;stroke-width:1.25;stroke-dasharray:2.0,2.0;" x1="68.125" x2="1145.625" y1="569.7852" y2="569.7852"/><text fill="#000000" font-family="sans-serif" font-size="16.25" font-weight="bold" lengthAdjust="spacing" textLength="17.5" x="83.125" y="563.7146">12</text><text fill="#000000" font-family="sans-serif" font-size="16.25" lengthAdjust="spacing" textLength="342.5" x="105.625" y="563.7146">informs operation success and sent to the NHS</text><!--MD5=[bf1768e0d9200a45dd595ced59132188]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor "Administrator" as Ad
+
+activate Ad
+Ad- -> ":System" : start the report
+activate ":System"
+":System"- -> Ad : Ask for to select the time measure(days or weeks)
+deactivate ":System"
+Ad - -> ":System" : select measure
+activate ":System"
+":System"- -> Ad : Ask for the interval of time
+deactivate ":System"
+Ad - -> ":System" : imput the interval of time
+activate ":System"
+":System" - -> Ad : Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
+deactivate ":System"
+Ad -> ":System" : select one of the options
+activate ":System"
+":System" - -> Ad : Ask to fill the values of the variables
+deactivate ":System"
+Ad -> ":System" : Fill variables values
+activate ":System"
+":System" - -> Ad : Show the report and with the regression model and ask for confirmation
+deactivate ":System"
+Ad -> ":System" :  confirms the data
+activate ":System"
+":System" - -> Ad : informs operation success and sent to the NHS
+deactivate ":System"
+
+
+deactivate Ad
+@enduml
+
+@startuml
+
+autonumber
+actor "Administrator" as Ad
+
+activate Ad
+Ad- -> ":System" : start the report
+activate ":System"
+":System"- -> Ad : Ask for to select the time measure(days or weeks)
+deactivate ":System"
+Ad - -> ":System" : select measure
+activate ":System"
+":System"- -> Ad : Ask for the interval of time
+deactivate ":System"
+Ad - -> ":System" : imput the interval of time
+activate ":System"
+":System" - -> Ad : Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
+deactivate ":System"
+Ad -> ":System" : select one of the options
+activate ":System"
+":System" - -> Ad : Ask to fill the values of the variables
+deactivate ":System"
+Ad -> ":System" : Fill variables values
+activate ":System"
+":System" - -> Ad : Show the report and with the regression model and ask for confirmation
+deactivate ":System"
+Ad -> ":System" :  confirms the data
+activate ":System"
+":System" - -> Ad : informs operation success and sent to the NHS
+deactivate ":System"
+
+
+deactivate Ad
+@enduml
+
+PlantUML version 1.2021.4(Sun Apr 04 09:49:39 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

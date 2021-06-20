@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Company {
+    -description
+}
+
+class Test {
+ -createdAt
+ -nhsCode
+ -internalCode
+}
+
+class TestParameter {
+    -parameter
+    -testParameterResult
+}
+
+class TestParameterResult{
+ -value
+ -metric
+ -refValue
+}
+
+class Client{
+ -name
+ -tinNumber
+ -citizenCardNumber
+ -nhsNumber
+ -birthDate
+ -sex
+ -phoneNumber
+ -email
+}
+
+Company"1" -left- "*"Client : "> knows"
+Company"1" -down- "*"Test : "> performs"
+Test"*" -- "1..*"TestParameter : "> evaluates"
+TestParameter"*" -left- "1"TestParameterResult : "> receives"
+Client"*" -- "*"Test : "> asks for"
+@enduml

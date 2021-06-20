@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="376px" preserveAspectRatio="none" style="width:202px;height:376px;background:#FFFFFF;" version="1.1" viewBox="0 0 202 376" width="202px" zoomAndPan="magnify"><defs><filter height="300%" id="f139q5jaxrca6g" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f139q5jaxrca6g)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="153" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f139q5jaxrca6g)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="153" y="182.3125"/><rect fill="#FFFFFF" filter="url(#f139q5jaxrca6g)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="153" y="242.6641"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="42" x2="42" y1="89.6094" y2="290.6641"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="158" x2="158" y1="89.6094" y2="290.6641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="5" y="86.5332">:Scheduler</text><ellipse cx="42" cy="15" fill="#FEFECE" filter="url(#f139q5jaxrca6g)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M42,23 L42,50 M29,31 L55,31 M42,50 L29,65 M42,50 L55,65 " fill="none" filter="url(#f139q5jaxrca6g)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="5" y="304.1973">:Scheduler</text><ellipse cx="42" cy="317.2734" fill="#FEFECE" filter="url(#f139q5jaxrca6g)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M42,325.2734 L42,352.2734 M29,333.2734 L55,333.2734 M42,352.2734 L29,367.2734 M42,352.2734 L55,367.2734 " fill="none" filter="url(#f139q5jaxrca6g)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f139q5jaxrca6g)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="64" x="124" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="131" y="74.5332">:System</text><rect fill="#FEFECE" filter="url(#f139q5jaxrca6g)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="64" x="124" y="289.6641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="131" y="311.1973">:System</text><rect fill="#FFFFFF" filter="url(#f139q5jaxrca6g)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="153" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f139q5jaxrca6g)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="153" y="182.3125"/><rect fill="#FFFFFF" filter="url(#f139q5jaxrca6g)" height="30" style="stroke:#A80036;stroke-width:1.0;" width="10" x="153" y="242.6641"/><polygon fill="#A80036" points="141,117.9609,151,121.9609,141,125.9609,145,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="42" x2="147" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="49" y="117.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="67" x="60" y="117.1045">initiate task</text><polygon fill="#A80036" points="141,178.3125,151,182.3125,141,186.3125,145,182.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="42" x2="147" y1="182.3125" y2="182.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="49" y="177.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="69" x="60" y="177.4561">create timer</text><polygon fill="#A80036" points="141,238.6641,151,242.6641,141,246.6641,145,242.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="42" x2="147" y1="242.6641" y2="242.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="49" y="237.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="81" x="60" y="237.8076">schedule task</text><!--MD5=[e98acfa66e8c54a2f2d72b0f9bdbe18d]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor ":Scheduler" as S
+participant ":System" as SYS
+
+
+S - -> SYS : initiate task
+activate SYS
+deactivate SYS
+S - -> SYS : create timer
+activate SYS
+deactivate SYS
+S -> SYS : schedule task
+activate SYS
+deactivate SYS
+
+@enduml
+
+@startuml
+
+autonumber
+
+actor ":Scheduler" as S
+participant ":System" as SYS
+
+
+S - -> SYS : initiate task
+activate SYS
+deactivate SYS
+S - -> SYS : create timer
+activate SYS
+deactivate SYS
+S -> SYS : schedule task
+activate SYS
+deactivate SYS
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 13:40:07 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: Dynamic Code Evolution 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

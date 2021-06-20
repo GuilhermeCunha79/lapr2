@@ -1,0 +1,74 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+actor "Administrator" as Ad
+participant ":SendReportUI" as UI
+participant ":SendReportController" as CTRL
+participant "comp\n:Company" as COMP
+
+
+
+
+participant "testStore: TestStore" as TS
+participant "clientStore: ClientStore" as CS
+participant "RegressionModel" as Reg
+participant "NHS" as  N
+
+
+activate Ad
+"UI"--> Ad : Ask for the interval of time
+deactivate "UI"
+Ad -> "UI" : imput the interval of time
+activate "UI"
+    "UI"->"CTRL" : getDateList(startDate;endDate)
+    activate CTRL
+    "UI"->"CTRL" : getFinalisedTestList()
+        CTRL -> COMP : getTestStore()
+        activate COMP
+        CTRL -> COMP : getDate()
+        CTRL -> COMP : getClientStore()
+        CTRL -> COMP : getTestParameter()
+        CTRL -> COMP : getTestParameterResult()
+        deactivate COMP
+        CTRL -> TS :getFinalisedTestList()
+        activate TS
+        deactivate TS
+        UI-> CTRL: getTestCovidList()
+        loop
+            CTRL -> TS : getTest getTestParameter
+        end loop
+        UI-> CTRL: getPositiveTestList()
+        loop
+            CTRL -> TS : getTestParameterResult
+        end loop
+        UI-> CTRL: getNumberOfTestList()
+        UI -> CTRL: getMainAgeList()
+        loop
+            CTRL -> TS : getClient
+            CTRL -> CS :getClientBirthDate
+        end loop
+    deactivate CTRL
+"UI" --> Ad : Ask if want a simple or complex and (if selected simple) to select the independent variable(either the number of tests realized or the mean age)
+deactivate "UI"
+Ad -> "UI" : select one of the options
+activate "UI"
+    UI-> CTRL : Create RegressionModel (trustLevel,dateList,positiveCasesList,numberOfTestList,mainAgeList)
+    activate CTRL
+     CTRL->Reg
+    deactivate CTRL
+"UI" --> Ad : Show the report and with the regression model and ask for confirmation
+deactivate "UI"
+Ad -> "UI" :  confirms the data and sent to the NHS
+activate "UI"
+UI-> CTRL : SendReport(String Report)
+    activate CTRL
+     CTRL->N : sendReport(String Report)
+    deactivate CTRL
+"UI" --> Ad : informs operation success
+deactivate "UI"
+
+deactivate Ad
+
+
+
+@enduml

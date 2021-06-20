@@ -4,12 +4,12 @@ import app.domain.model.Client;
 import app.domain.model.ClinicalTest;
 import app.domain.model.Company;
 import app.domain.model.Sorting;
-import app.domain.shared.CommonMethods;
 import app.domain.store.ClientStore;
 import app.domain.store.TestStore;
 import app.mappers.ClientMapper;
 import app.mappers.TestsFinalizedMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CheckResultsController {
@@ -42,7 +42,7 @@ public class CheckResultsController {
     }
 
     public List<String> showOrderedClients(String type){
-        List<Client> listClients = ctStore.getClientList();
+        List<Client> listClients = new ArrayList<>(ctStore.getClientList());
         this.sorting= this.company.getSortingMethod(type);
         List<Client> clients=this.sorting.getSortedList(listClients);
         if (clients!=null){

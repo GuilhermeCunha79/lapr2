@@ -582,6 +582,19 @@ public class ClientTest {
     /**
      * Test of setBirthDate method, of class Client.
      */
+    @Test(expected = IllegalArgumentException.class)
+    public void checkSetBirthDateWithMoreThan150y() {
+        ClientDTO ct01 = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
+        Client ct1 = new Client(ct01);
+        ct1.setBirthDate("24/11/1500");
+        String expected = "24/11/1500";
+        assertEquals(expected, ct1.getBirthDate());
+    }
+
+
+    /**
+     * Test of setBirthDate method, of class Client.
+     */
     @Test
     public void checkSetBirthDate() {
         ClientDTO ct01 = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2002", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
@@ -590,15 +603,13 @@ public class ClientTest {
         String expected = "24/11/2002";
         assertEquals(expected, ct1.getBirthDate());
     }
-
     /**
      * Test of getSex method, of class Client.
      */
     @Test
     public void checkGetSex() {
         ClientDTO ct01 = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
-        Client ct1 = new Client(ct01);
-        ct1.setSex("male");
+        new Client(ct01);
         String expected = "male";
         assertEquals(expected, ct01.getSex());
     }
@@ -612,6 +623,18 @@ public class ClientTest {
         Client ct1 = new Client(ct01);
         ct1.setSex("female");
         String expected = "female";
+        assertEquals(expected, ct1.getSex());
+    }
+
+    /**
+     * Test of setSex method, of class Client.
+     */
+    @Test
+    public void checkSetSexBlank() {
+        ClientDTO ct01 = new ClientDTO("Tomás", "1234567890123456", "1234567891", "1234567890", "23/12/2001", "male", "12345678901", "tomas@isep.ipp.pt", "street 1");
+        Client ct1 = new Client(ct01);
+        ct1.setSex("");
+        String expected = "";
         assertEquals(expected, ct1.getSex());
     }
 
