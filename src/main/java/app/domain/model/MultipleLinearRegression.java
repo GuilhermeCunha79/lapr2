@@ -99,9 +99,9 @@ public class MultipleLinearRegression {
         FDistribution fd = new FDistribution(2, yData.length - 3);
         double f = fd.inverseCumulativeProbability(1 - ic);
         if (f0 > f)
-            return String.format("%.4f > f%.4f,(2,%d)=%.4f%nReject H0%nThe regression model is significant", f0, 1 - ic, ((yData.length) - 3), f);
+            return String.format("%.4f > f%.2f,(2,%d)=%.4f%nReject H0%nThe regression model is significant", f0, 1 - ic, ((yData.length) - 3), f);
         else
-            return String.format("%.4f < f%.4f,(2,%d)=%.4f%nAccept H0%nThe regression model is not significant", f0, 1 - ic, ((yData.length) - 3), f);
+            return String.format("%.4f < f%.2f,(2,%d)=%.4f%nAccept H0%nThe regression model is not significant", f0, 1 - ic, ((yData.length) - 3), f);
     }
 
     private double[][] matrixMultiplierByNumber(double[][] matrix, double number) {
@@ -222,31 +222,35 @@ public class MultipleLinearRegression {
     }
 
     //Extracted from https://www.sanfoundry.com/java-program-find-inverse-matrix/
-    private double[][] invert(double a[][]) {
+    private double[][] invert(double a[][])
+    {
         int n = a.length;
         double x[][] = new double[n][n];
         double b[][] = new double[n][n];
         int index[] = new int[n];
-        for (int i = 0; i < n; ++i)
+        for (int i=0; i<n; ++i)
             b[i][i] = 1;
 
         // Transform the matrix into an upper triangle
         gaussian(a, index);
 
         // Update the matrix b[i][j] with the ratios stored
-        for (int i = 0; i < n - 1; ++i)
-            for (int j = i + 1; j < n; ++j)
-                for (int k = 0; k < n; ++k)
+        for (int i=0; i<n-1; ++i)
+            for (int j=i+1; j<n; ++j)
+                for (int k=0; k<n; ++k)
                     b[index[j]][k]
-                            -= a[index[j]][i] * b[index[i]][k];
+                            -= a[index[j]][i]*b[index[i]][k];
 
         // Perform backward substitutions
-        for (int i = 0; i < n; ++i) {
-            x[n - 1][i] = b[index[n - 1]][i] / a[index[n - 1]][n - 1];
-            for (int j = n - 2; j >= 0; --j) {
+        for (int i=0; i<n; ++i)
+        {
+            x[n-1][i] = b[index[n-1]][i]/a[index[n-1]][n-1];
+            for (int j=n-2; j>=0; --j)
+            {
                 x[j][i] = b[index[j]][i];
-                for (int k = j + 1; k < n; ++k) {
-                    x[j][i] -= a[index[j]][k] * x[k][i];
+                for (int k=j+1; k<n; ++k)
+                {
+                    x[j][i] -= a[index[j]][k]*x[k][i];
                 }
                 x[j][i] /= a[index[j]][j];
             }
@@ -254,20 +258,24 @@ public class MultipleLinearRegression {
         return x;
     }
 
-    // Method to carry out the partial-pivoting Gaussian
-    // elimination.  Here index[] stores pivoting order.
-    private void gaussian(double a[][], int index[]) {
+// Method to carry out the partial-pivoting Gaussian
+// elimination.  Here index[] stores pivoting order.
+
+    private void gaussian(double a[][], int index[])
+    {
         int n = index.length;
         double c[] = new double[n];
 
         // Initialize the index
-        for (int i = 0; i < n; ++i)
+        for (int i=0; i<n; ++i)
             index[i] = i;
 
         // Find the rescaling factors, one from each row
-        for (int i = 0; i < n; ++i) {
+        for (int i=0; i<n; ++i)
+        {
             double c1 = 0;
-            for (int j = 0; j < n; ++j) {
+            for (int j=0; j<n; ++j)
+            {
                 double c0 = Math.abs(a[i][j]);
                 if (c0 > c1) c1 = c0;
             }
@@ -276,12 +284,15 @@ public class MultipleLinearRegression {
 
         // Search the pivoting element from each column
         int k = 0;
-        for (int j = 0; j < n - 1; ++j) {
+        for (int j=0; j<n-1; ++j)
+        {
             double pi1 = 0;
-            for (int i = j; i < n; ++i) {
+            for (int i=j; i<n; ++i)
+            {
                 double pi0 = Math.abs(a[index[i]][j]);
                 pi0 /= c[index[i]];
-                if (pi0 > pi1) {
+                if (pi0 > pi1)
+                {
                     pi1 = pi0;
                     k = i;
                 }
@@ -291,15 +302,16 @@ public class MultipleLinearRegression {
             int itmp = index[j];
             index[j] = index[k];
             index[k] = itmp;
-            for (int i = j + 1; i < n; ++i) {
-                double pj = a[index[i]][j] / a[index[j]][j];
+            for (int i=j+1; i<n; ++i)
+            {
+                double pj = a[index[i]][j]/a[index[j]][j];
 
                 // Record pivoting ratios below the diagonal
                 a[index[i]][j] = pj;
 
                 // Modify other elements accordingly
-                for (int l = j + 1; l < n; ++l)
-                    a[index[i]][l] -= pj * a[index[j]][l];
+                for (int l=j+1; l<n; ++l)
+                    a[index[i]][l] -= pj*a[index[j]][l];
             }
         }
     }
@@ -326,7 +338,7 @@ public class MultipleLinearRegression {
         nhsReport.append("\n\nDecision: f");
         nhsReport.append(String.format("%n%s", fHypothesis()));
         nhsReport.append("\n\n// Prediction Values\n");
-        nhsReport.append("Date           Number of OBSERVED positive cases          Number of ESTIMATED positive cases \t\t95% intervals\n");
+        nhsReport.append(String.format("Date           Number of OBSERVED positive cases          Number of ESTIMATED positive cases \t\t%.0f%% intervals%n", ic*100));
         nhsReport.append(predictionTable());
         return nhsReport.toString();
     }

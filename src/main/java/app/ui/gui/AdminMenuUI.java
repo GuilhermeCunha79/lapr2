@@ -33,6 +33,9 @@ public class AdminMenuUI implements Initializable {
     @FXML
     private Button mainMenuBtn;
 
+    @FXML
+    private Button sendNhsReportBtn;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -41,6 +44,7 @@ public class AdminMenuUI implements Initializable {
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
+
 
     @FXML
     private void startPCategoryCreationUI(ActionEvent actionEvent) {
@@ -77,5 +81,12 @@ public class AdminMenuUI implements Initializable {
         App.getInstance().doLogout();
         LoginUI loginUI = (LoginUI) this.mainApp.changeStageContent("/fxml/LoginScreen.fxml");
         loginUI.setMainApp(this.mainApp);
+    }
+
+    @FXML
+    private void sendNhsReportUI(ActionEvent actionEvent) {
+        App.getInstance().doLogout();
+        SendNhsReportUI sendReportUI = (SendNhsReportUI) this.mainApp.changeStageContent("/fxml/SendNhsReport.fxml");
+        sendReportUI.setMainApp(this.mainApp);
     }
 }
