@@ -30,11 +30,12 @@ public class ViewTestResultsUI implements Initializable {
     @FXML
     private ListView<String> listViewTests;
 
-
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         verifyClientRoleWithAllTests();
     }
 
+    @FXML
     public void verifyClientRoleWithAllTests() {
         for (UserRoleDTO roleDTO : App.getInstance().getCurrentUserSession().getUserRoles()) {
              if (roleDTO.getDescription().equals(Constants.ROLE_CLIENT)){
@@ -52,7 +53,7 @@ public class ViewTestResultsUI implements Initializable {
     public void viewTestResults() {
         WindowWithTestResultsListUI windohWithTestResultsListUI = (WindowWithTestResultsListUI) this.mainApp.changeStageContent("/fxml/ClientTestResultsList.fxml");
         windohWithTestResultsListUI.setMainApp(this.mainApp);
-        windohWithTestResultsListUI.setText(ctrl.showTestSelected(listViewTests.getSelectionModel().getSelectedItem().substring(listViewTests.getSelectionModel().getSelectedItem().lastIndexOf("NHS Code: ")+1,listViewTests.getSelectionModel().getSelectedItem().lastIndexOf("NHS Code: ")+10)));
+        windohWithTestResultsListUI.setText(ctrl.showTestSelected(listViewTests.getSelectionModel().getSelectedItem().substring(listViewTests.getSelectionModel().getSelectedItem().lastIndexOf("NHS Code: ")+12,listViewTests.getSelectionModel().getSelectedItem().lastIndexOf("NHS Code: ")+22)));
         windohWithTestResultsListUI.setTextA(ctrl.showTestResultsAndReport());
 
     }
