@@ -26,6 +26,7 @@ public class ReferenceValue implements Serializable {
      */
     @Override
     public String toString() {
-        return String.format("Reference Values -> min. value: %f %s | max. value: %f %s", minValue, metric, maxValue, metric);
+        String string = String.format("Reference Values -> min. value: %f %s | max. value: %f %s", minValue, metric, maxValue, metric);
+        return string;
     }
 }

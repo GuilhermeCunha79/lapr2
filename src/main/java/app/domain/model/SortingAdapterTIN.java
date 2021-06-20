@@ -9,6 +9,7 @@ public class SortingAdapterTIN implements Sorting{
 
     @Override
     public List<Client> getSortedList(List<Client> clientList){
-        return new BubbleSortTinNumber().orderedList(clientList);
+        List<Client> orderedList = new BubbleSortTinNumber().orderedList(clientList);
+        return orderedList;
     }
 }

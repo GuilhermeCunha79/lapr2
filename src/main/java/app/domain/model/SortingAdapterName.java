@@ -10,6 +10,7 @@ public class SortingAdapterName implements Sorting{
 
     @Override
     public List<Client> getSortedList(List<Client> clientList) {
-         return new BubbleSortName().orderedList(clientList);
+         List<Client> clients = new BubbleSortName().orderedList(clientList);
+         return clients;
     }
 }
